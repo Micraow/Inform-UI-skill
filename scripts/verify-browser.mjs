@@ -88,7 +88,7 @@ try {
         await weather.getByRole('button', { name: '华氏度', exact: true }).click();
         assert.ok((await weather.textContent()).includes('53.6'));
         await weather.getByRole('button', { name: '摄氏度', exact: true }).click();
-        await weather.getByRole('button', { name: /12月16日/ }).click();
+        await weather.getByRole('tab', { name: /12月16日/ }).click();
         await weather.getByRole('button', { name: '表格', exact: true }).click();
         assert.ok(await weather.getByRole('table').isVisible());
         assert.ok((await weather.getByRole('table').textContent()).includes('缺测'));
