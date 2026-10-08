@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { checkSkill, forbiddenPath, root } from '../scripts/check-skill.mjs';
+import { checkSkill, forbiddenPath, parseSkillFrontmatter, root } from '../scripts/check-skill.mjs';
 
 const json = async file => JSON.parse(await readFile(path.join(root, file), 'utf8'));
 
@@ -60,4 +60,13 @@ test('support inventory names each portable node once and rejects native', async
   assert.equal(inventory.find(item => item.type === 'native').status, 'rejected');
   assert.equal(inventory.find(item => item.type === 'markdown').status, 'plain-text-fallback');
   assert.ok(inventory.filter(item => !['native', 'markdown'].includes(item.type)).every(item => item.status === 'portable'));
+});
+
+test('metadata parsing accepts Windows line endings and a UTF-8 BOM', async () => {
+  const source = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+  const normalized = source.replace(/\r\n?/g, '\n');
+  const expected = parseSkillFrontmatter(normalized);
+  assert.deepEqual(parseSkillFrontmatter(normalized.replaceAll('\n', '\r\n')), expected);
+  assert.deepEqual(parseSkillFrontmatter('\uFEFF' + normalized), expected);
+  assert.throws(() => parseSkillFrontmatter('No frontmatter'), /frontmatter/);
 });

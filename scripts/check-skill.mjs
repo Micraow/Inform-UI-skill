@@ -22,6 +22,18 @@ export function forbiddenPath(file) {
     || /\.(?:py|pyc|whl|har|zip|png|jpe?g|webp|woff2?|ttf)$/i.test(file);
 }
 
+export function parseSkillFrontmatter(source) {
+  const text = source.replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
+  const frontmatter = text.match(/^---\n([\s\S]*?)\n---\n/);
+  if (!frontmatter) throw new Error('SKILL.md must begin with YAML frontmatter.');
+  const name = frontmatter[1].match(/^name: (.+)$/m)?.[1];
+  const description = frontmatter[1].match(/^description: (.+)$/m)?.[1];
+  if (!name || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) || name.length > 64) throw new Error('Invalid skill name.');
+  if (!description || description.length > 1024) throw new Error('Missing or overlong description.');
+  if (text.split(/\s+/).length > 850) throw new Error('Keep the skill entrypoint compact; move conditional detail to references.');
+  return { name, description };
+}
+
 export async function checkSkill() {
   const files = await repositoryFiles();
   for (const file of files) {
@@ -29,13 +41,7 @@ export async function checkSkill() {
     if ((await lstat(path.join(root, file))).size > 256_000) throw new Error(`Unexpected large file: ${file}`);
   }
   const skill = await readFile(path.join(root, 'SKILL.md'), 'utf8');
-  const frontmatter = skill.match(/^---\n([\s\S]*?)\n---\n/);
-  if (!frontmatter) throw new Error('SKILL.md must begin with YAML frontmatter.');
-  const name = frontmatter[1].match(/^name: (.+)$/m)?.[1];
-  const description = frontmatter[1].match(/^description: (.+)$/m)?.[1];
-  if (!name || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) || name.length > 64) throw new Error('Invalid skill name.');
-  if (!description || description.length > 1024) throw new Error('Missing or overlong description.');
-  if (skill.split(/\s+/).length > 850) throw new Error('Keep the skill entrypoint compact; move conditional detail to references.');
+  parseSkillFrontmatter(skill);
   for (const file of files.filter(file => file.endsWith('.md'))) {
     const content = await readFile(path.join(root, file), 'utf8');
     for (const match of content.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) {
