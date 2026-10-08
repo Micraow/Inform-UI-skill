@@ -34,6 +34,8 @@ Intelligent UI Skill 帮助 AI 判断什么时候值得用图、选什么组件�
 
 让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互仍由库完成，模型不需要重写 CSS 或控件。完整 Schema 链接供扩展时读取；没有读取能力时，只使用入口明确列出的子集。聊天气泡是否能直接运行脚本，由聊天宿主决定。
 
+数学使用库自带的 KaTeX 排版：联网壳通过固定 CDN 的 CSS 按需加载官方 MIT 数学字体，请保留 `styles:false` 和匹配的 CSS。需要完全离线时使用下方本地 inline 构建，它会把数学字体一同内嵌。
+
 ## 安装技能（Agent 可选）
 
 当前为 **0.1.0 开发版**，尚未发布 npm 包。先获取已可使用的开发分支：
@@ -58,7 +60,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Inte
 
 ```sh
 git clone https://github.com/Micraow/Intelligent-UI.git Intelligent-UI
-git -C Intelligent-UI checkout --detach b46f974d10d6a344fe5fc615e4aa5b895e4567f7
+git -C Intelligent-UI checkout --detach 95bb0f2adccfd1f68db92dd38a17a6c89148ebd8
 npm --prefix Intelligent-UI ci
 npm --prefix Intelligent-UI run build
 node Intelligent-UI/bin/iui.mjs validate intelligent-ui-author/examples/hpcc-feedback.json --json

@@ -23,12 +23,14 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
 
 固定的公开文件（同一提交，不混用版本）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@95bb0f2adccfd1f68db92dd38a17a6c89148ebd8/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@95bb0f2adccfd1f68db92dd38a17a6c89148ebd8/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@95bb0f2adccfd1f68db92dd38a17a6c89148ebd8/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@95bb0f2adccfd1f68db92dd38a17a6c89148ebd8/cdn/iui.schema.json`
 
-全局脚本加载后通过 `window.IUI` 访问浏览器 API：`validateDocument(input)` 返回 `{ok:true,document}` 或 `{ok:false,issues:[{code,path,message}]}`。`mount(element,document,{styles:false})` 把 JSON 渲染到容器；这里由独立 CSS 文件提供样式。它返回 `update(nextDocument)`、`dispose()`、`getState()`、`setState(patch)`。**`compileHtml` 是 Node API，不能从浏览器模块导入。** 浏览器的 JSON→界面转换由 `mount` 完成。
+全局脚本加载后通过 `window.IUI` 访问浏览器 API：`validateDocument(input)` 返回 `{ok:true,document}` 或 `{ok:false,issues:[{code,path,message}]}`。`mount(element,document,{styles:false})` 把 JSON 渲染到容器；这里由独立 CSS 文件提供样式；必须保留 `styles:false`，使字体相对该 CDN 样式表加载。它返回 `update(nextDocument)`、`dispose()`、`getState()`、`setState(patch)`。**`compileHtml` 是 Node API，不能从浏览器模块导入。** 浏览器的 JSON→界面转换由 `mount` 完成。
+
+数学排版使用可视 KaTeX HTML 与辅助阅读用 MathML。CSS 会从同一固定提交的 `cdn/fonts/` 按需加载 20 款官方 MIT WOFF2 字体，并非无字体下载。示例壳未设置 CSP；若宿主另设严格 CSP，除脚本/样式许可外，`font-src` 必须允许 `https://cdn.jsdelivr.net`。不要自行换字体或删除字体规则。
 
 用户要 HTML 时，交付下列完整壳，并只替换 JSON 数据、页面语言与标题。不要只输出 JSON 后声称已生成页面，也不要手写图表、卡片或控件 DOM。这个壳中的固定启动脚本仅加载库、解析数据、校验和挂载。
 
@@ -39,7 +41,7 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intelligent UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.css" integrity="sha384-yO4iUqoqAWFZqWp58yjTOukFYTtnWxdU6wD2Njgfr4RQfKFVu11IPBGtFceh0usS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@95bb0f2adccfd1f68db92dd38a17a6c89148ebd8/cdn/iui.css" integrity="sha384-WnXEt8agh2ZXeEhfBtTnHQsYGmAt/wX2Vh71toJzflgPssB1I/G8s2z4VPi4nuaD" crossorigin="anonymous">
 </head>
 <body>
   <main id="iui">正在加载界面…</main>
@@ -55,11 +57,12 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
       {"type":"text","value":"改变 x，观察 2x 如何同步变化。"},
       {"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},
       {"type":"metric","label":"2x","value":{"$":"twice"}},
+      {"type":"math","latex":"y=2x","block":true},
       {"type":"caption","value":"这是合成教学示例，不是实测数据。"}
     ]
   }
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.global.min.js" integrity="sha384-827a7wCX0YwSwGRfwWtbkfO7uIJeangVNsSrqHZ6PnW04Rce4izMJmky08L3xYsP" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@95bb0f2adccfd1f68db92dd38a17a6c89148ebd8/cdn/iui.global.min.js" integrity="sha384-TFjBiCHoXGNRCByDYBY6XFhOH947MPPBDx4MuISbZ/LDo/ZnmzwCHLxVWj6vXG/G" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -159,13 +162,13 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
 
 ## 6. 有终端的 Agent：可选本地路径
 
-同一协议可用本地构建；没有终端时跳过本节，不影响上面的 CDN 路径。核心仓库 `https://github.com/Micraow/Intelligent-UI`，与上面固定 CDN 使用同一提交 `b46f974d10d6a344fe5fc615e4aa5b895e4567f7`。在库目录先 `npm ci`、`npm run build`，然后：
+同一协议可用本地构建；没有终端时跳过本节，不影响上面的 CDN 路径。核心仓库 `https://github.com/Micraow/Intelligent-UI`，与上面固定 CDN 使用同一提交 `95bb0f2adccfd1f68db92dd38a17a6c89148ebd8`。在库目录先 `npm ci`、`npm run build`，然后：
 
 ```sh
 node bin/iui.mjs validate answer.json --json
 node bin/iui.mjs build answer.json --out answer.html --lang zh-CN
 ```
 
-本地 `compileHtml(input,{backend:'portable',assets:'inline'})` 返回 HTML 字符串；它是 Node API。该 inline 构建的库资源随文件携带；你选择的远程图片等内容仍可能需要联网。不要使用未经发布验证的 `npx iui`。
+本地 `compileHtml(input,{backend:'portable',assets:'inline'})` 返回 HTML 字符串；它是 Node API。该 inline 构建把库资源与数学字体的 `data:` URL 一起内嵌；自设严格 CSP 时字体也需允许 `data:`。你选择的远程图片等内容仍可能需要联网。不要使用未经发布验证的 `npx iui`。
 
 [进阶绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[能力边界](references/support.md)和[更多例子](references/examples.md)是可选资料，不是基础生成的前置条件。用户明确只要 JSON 时仅输出 JSON；要可打开文档时输出完整 HTML。
