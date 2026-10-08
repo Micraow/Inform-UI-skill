@@ -23,10 +23,10 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
 
 固定的公开文件（同一提交，不混用版本）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@d15a47f691f231d763b29e0c0a6403a11229611e/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@d15a47f691f231d763b29e0c0a6403a11229611e/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@d15a47f691f231d763b29e0c0a6403a11229611e/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@d15a47f691f231d763b29e0c0a6403a11229611e/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.schema.json`
 
 全局脚本加载后通过 `window.IUI` 访问浏览器 API：`validateDocument(input)` 返回 `{ok:true,document}` 或 `{ok:false,issues:[{code,path,message}]}`。`mount(element,document,{styles:false})` 把 JSON 渲染到容器；这里由独立 CSS 文件提供样式。它返回 `update(nextDocument)`、`dispose()`、`getState()`、`setState(patch)`。**`compileHtml` 是 Node API，不能从浏览器模块导入。** 浏览器的 JSON→界面转换由 `mount` 完成。
 
@@ -39,7 +39,7 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intelligent UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@d15a47f691f231d763b29e0c0a6403a11229611e/cdn/iui.css" integrity="sha384-yO4iUqoqAWFZqWp58yjTOukFYTtnWxdU6wD2Njgfr4RQfKFVu11IPBGtFceh0usS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.css" integrity="sha384-yO4iUqoqAWFZqWp58yjTOukFYTtnWxdU6wD2Njgfr4RQfKFVu11IPBGtFceh0usS" crossorigin="anonymous">
 </head>
 <body>
   <main id="iui">正在加载界面…</main>
@@ -59,7 +59,7 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
     ]
   }
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@d15a47f691f231d763b29e0c0a6403a11229611e/cdn/iui.global.min.js" integrity="sha384-hw7bFmIIdxB9id+Ts+z0mP330ATKgZXHdtzmQZfvVLz/9VZ1EiobK4lyahBWq2B9" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/iui.global.min.js" integrity="sha384-827a7wCX0YwSwGRfwWtbkfO7uIJeangVNsSrqHZ6PnW04Rce4izMJmky08L3xYsP" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -159,7 +159,7 @@ description: 为技术解释、图表、拓扑、指标和受控交互生成 iui
 
 ## 6. 有终端的 Agent：可选本地路径
 
-同一协议可用本地构建；没有终端时跳过本节，不影响上面的 CDN 路径。核心仓库 `https://github.com/Micraow/Intelligent-UI`，与上面固定 CDN 使用同一提交 `d15a47f691f231d763b29e0c0a6403a11229611e`。在库目录先 `npm ci`、`npm run build`，然后：
+同一协议可用本地构建；没有终端时跳过本节，不影响上面的 CDN 路径。核心仓库 `https://github.com/Micraow/Intelligent-UI`，与上面固定 CDN 使用同一提交 `b46f974d10d6a344fe5fc615e4aa5b895e4567f7`。在库目录先 `npm ci`、`npm run build`，然后：
 
 ```sh
 node bin/iui.mjs validate answer.json --json

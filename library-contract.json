@@ -1,6 +1,6 @@
 {
   "repository": "Micraow/Intelligent-UI",
-  "revision": "d15a47f691f231d763b29e0c0a6403a11229611e",
+  "revision": "b46f974d10d6a344fe5fc615e4aa5b895e4567f7",
   "packageName": "@micraow/intelligent-ui",
   "packageVersion": "0.1.0",
   "schemaVersion": "iui/1",
@@ -12,12 +12,12 @@
   "schemaExport": "./schema",
   "cli": "bin/iui.mjs",
   "cdn": {
-    "baseUrl": "https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@d15a47f691f231d763b29e0c0a6403a11229611e/cdn/",
+    "baseUrl": "https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@b46f974d10d6a344fe5fc615e4aa5b895e4567f7/cdn/",
     "global": "iui.global.min.js",
     "module": "iui.min.js",
     "style": "iui.css",
     "schema": "iui.schema.json",
-    "globalIntegrity": "sha384-hw7bFmIIdxB9id+Ts+z0mP330ATKgZXHdtzmQZfvVLz/9VZ1EiobK4lyahBWq2B9",
+    "globalIntegrity": "sha384-827a7wCX0YwSwGRfwWtbkfO7uIJeangVNsSrqHZ6PnW04Rce4izMJmky08L3xYsP",
     "styleIntegrity": "sha384-yO4iUqoqAWFZqWp58yjTOukFYTtnWxdU6wD2Njgfr4RQfKFVu11IPBGtFceh0usS"
   }
 }

@@ -58,7 +58,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Inte
 
 ```sh
 git clone https://github.com/Micraow/Intelligent-UI.git Intelligent-UI
-git -C Intelligent-UI checkout --detach d15a47f691f231d763b29e0c0a6403a11229611e
+git -C Intelligent-UI checkout --detach b46f974d10d6a344fe5fc615e4aa5b895e4567f7
 npm --prefix Intelligent-UI ci
 npm --prefix Intelligent-UI run build
 node Intelligent-UI/bin/iui.mjs validate intelligent-ui-author/examples/hpcc-feedback.json --json
@@ -103,7 +103,7 @@ npm run check:library -- --library ../Intelligent-UI
 
 第一条检查技能结构与文件边界，第二条调用真实库的 API、Schema 和 CLI 验证全部示例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
-已通过的[验证记录](https://github.com/Micraow/Intelligent-UI-skill/actions/runs/37762008510)包括 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 20 组明暗主题和桌面/手机视图。CI badge 显示开发分支的最新状态。
+[持续验证](https://github.com/Micraow/Intelligent-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 24 组明暗主题和桌面/手机视图，其中 4 组直接打开根 SKILL 中的 CDN HTML 壳。CI badge 显示开发分支的最新状态。
 
 ## 许可证
 
