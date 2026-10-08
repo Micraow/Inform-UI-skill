@@ -1,0 +1,272 @@
+{
+  "version": "iui/1",
+  "title": "合成练习计划：只在本页确认",
+  "state": {
+    "plan": "合成练习",
+    "minutes": 20,
+    "sessions": 3,
+    "breakMinutes": 5,
+    "mode": "practice",
+    "notes": "教学示例，不是真实预约。",
+    "lockNotes": false,
+    "email": "",
+    "internalLabel": "这项全局状态不属于表单"
+  },
+  "computed": {
+    "total": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "$": "minutes"
+            },
+            {
+              "$": "sessions"
+            }
+          ]
+        },
+        {
+          "op": "mul",
+          "args": [
+            {
+              "op": "max",
+              "args": [
+                0,
+                {
+                  "op": "sub",
+                  "args": [
+                    {
+                      "$": "sessions"
+                    },
+                    1
+                  ]
+                }
+              ]
+            },
+            {
+              "$": "breakMinutes"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "先改输入，再看总时长"
+    },
+    {
+      "type": "caption",
+      "value": "全部参数为合成教学假设。提交仅在浏览器本地校验；不会预约、发邮件、联网或保存。"
+    },
+    {
+      "type": "form",
+      "id": "practice-local",
+      "label": "练习参数",
+      "submitLabel": "仅在本页确认",
+      "cancelLabel": "恢复输入",
+      "successMessage": "已在本页校验；没有发送或保存任何数据。",
+      "children": [
+        {
+          "type": "input",
+          "kind": "text",
+          "label": "计划名称",
+          "bind": "plan",
+          "required": true,
+          "minLength": 2,
+          "maxLength": 40
+        },
+        {
+          "type": "field",
+          "label": "时长与次数",
+          "children": [
+            {
+              "type": "input",
+              "kind": "number",
+              "label": "每次练习分钟",
+              "bind": "minutes",
+              "required": true,
+              "min": 10,
+              "max": 60,
+              "step": 5,
+              "error": {
+                "op": "if",
+                "args": [
+                  {
+                    "op": "gt",
+                    "args": [
+                      {
+                        "$": "minutes"
+                      },
+                      45
+                    ]
+                  },
+                  "教学约束：单次练习请设为45分钟以内。",
+                  ""
+                ]
+              }
+            },
+            {
+              "type": "input",
+              "kind": "number",
+              "label": "练习次数",
+              "bind": "sessions",
+              "required": true,
+              "min": 1,
+              "max": 6,
+              "step": 1
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "练习方式",
+          "bind": "mode",
+          "options": [
+            {
+              "value": "practice",
+              "label": "练习"
+            },
+            {
+              "value": "review",
+              "label": "复盘"
+            },
+            {
+              "value": "unavailable",
+              "label": "尚未开放",
+              "disabled": true
+            }
+          ]
+        },
+        {
+          "type": "segmented",
+          "label": "相邻练习间休息",
+          "bind": "breakMinutes",
+          "options": [
+            {
+              "value": 0,
+              "label": "不休息"
+            },
+            {
+              "value": 5,
+              "label": "5分钟"
+            },
+            {
+              "value": 10,
+              "label": "10分钟"
+            }
+          ]
+        },
+        {
+          "type": "toggle",
+          "label": "锁定备注",
+          "bind": "lockNotes"
+        },
+        {
+          "type": "field",
+          "label": "可选备注",
+          "disabled": {
+            "$": "lockNotes"
+          },
+          "children": [
+            {
+              "type": "textarea",
+              "label": "备注",
+              "bind": "notes",
+              "rows": 3,
+              "maxLength": 200
+            }
+          ]
+        },
+        {
+          "type": "input",
+          "kind": "email",
+          "label": "可选邮箱格式演示",
+          "bind": "email",
+          "hint": "保持为空也有效；此字段不会发送邮件。"
+        }
+      ]
+    },
+    {
+      "type": "metric",
+      "label": "含休息的总时长",
+      "value": {
+        "$": "total"
+      },
+      "unit": "分钟",
+      "precision": 0
+    },
+    {
+      "type": "math",
+      "latex": "T=nm+\\max(0,n-1)b",
+      "block": true
+    },
+    {
+      "type": "text",
+      "value": "总时长等于每次时长乘次数，再加相邻练习间的休息。输入不完整的数字时，下面保留最后一个有效状态；这不代表草稿有效。"
+    },
+    {
+      "type": "chart",
+      "kind": "bar",
+      "xKey": "part",
+      "xLabel": "组成",
+      "unit": "分钟",
+      "data": [
+        {
+          "part": "练习",
+          "duration": {
+            "op": "mul",
+            "args": [
+              {
+                "$": "minutes"
+              },
+              {
+                "$": "sessions"
+              }
+            ]
+          }
+        },
+        {
+          "part": "休息",
+          "duration": {
+            "op": "mul",
+            "args": [
+              {
+                "op": "max",
+                "args": [
+                  0,
+                  {
+                    "op": "sub",
+                    "args": [
+                      {
+                        "$": "sessions"
+                      },
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "$": "breakMinutes"
+              }
+            ]
+          }
+        }
+      ],
+      "series": [
+        {
+          "key": "duration",
+          "label": "合成计划",
+          "color": "blue"
+        }
+      ],
+      "yMin": 0,
+      "title": "总时长的两个来源",
+      "note": "由本页合成参数推导；不是实际日程。"
+    }
+  ]
+}

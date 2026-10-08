@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-import { readFile, writeFile, mkdir, mkdtemp, rm } from 'node:fs/promises';
+import { readFile, readdir, writeFile, mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -28,12 +28,13 @@ let browser;
 let count = 0;
 try {
   browser = await chromium.launch({ headless: true, ...(process.env.IUI_BROWSER_EXECUTABLE ? { executablePath: process.env.IUI_BROWSER_EXECUTABLE } : {}) });
-  for (const name of ['hpcc-feedback', 'minimal', 'rtt-trend', 'wifi-status', 'resource-shortlist']) {
+  const exampleNames = (await readdir(path.join(root, 'examples'))).filter(name => name.endsWith('.json')).map(name => name.slice(0, -5)).sort();
+  for (const name of exampleNames) {
     const document = JSON.parse(await readFile(path.join(root, 'examples', `${name}.json`), 'utf8'));
     for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
       const label = `${name}-${width}-${theme}`;
       const file = path.join(directory, `${label}.html`);
-      await writeFile(file, await compileHtml({ ...document, theme }, { lang: name === 'hpcc-feedback' ? 'zh-CN' : 'en' }));
+      await writeFile(file, await compileHtml({ ...document, theme }, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios'].includes(name) ? 'zh-CN' : 'en' }));
       const page = await browser.newPage({ viewport: { width, height: 900 }, colorScheme: theme });
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
@@ -55,6 +56,61 @@ try {
       if (name === 'rtt-trend') {
         await page.getByText('Inspect the values', { exact: true }).click();
         assert.ok(await page.getByRole('table').isVisible(), `${label}: values are inaccessible`);
+      }
+      if (name === 'local-practice') {
+        await page.evaluate(() => {
+          window.__skillSubmits = [];
+          document.addEventListener('iui:submit', event => window.__skillSubmits.push(event.detail));
+        });
+        const sessions = page.getByRole('spinbutton', { name: /练习次数/ });
+        await sessions.fill('4');
+        assert.ok((await page.locator('.iui-metric-value').textContent()).includes('95'));
+        await page.getByRole('checkbox', { name: '锁定备注', exact: true }).check();
+        assert.ok(await page.getByRole('textbox', { name: '备注', exact: true }).isDisabled());
+        await page.getByRole('button', { name: '仅在本页确认', exact: true }).click();
+        await page.waitForFunction(() => window.__skillSubmits.length === 1);
+        const submitted = await page.evaluate(() => window.__skillSubmits[0]);
+        assert.equal(submitted.id, 'practice-local');
+        assert.equal(submitted.values.sessions, 4);
+        for (const key of ['notes', 'internalLabel', 'total']) assert.equal(Object.hasOwn(submitted.values, key), false, `Form leaked ${key}`);
+        await sessions.fill('');
+        await page.getByRole('button', { name: '仅在本页确认', exact: true }).click();
+        assert.equal(await sessions.getAttribute('aria-invalid'), 'true');
+        assert.equal(await page.evaluate(() => window.__skillSubmits.length), 1);
+        assert.ok((await page.locator('.iui-metric-value').textContent()).includes('95'), 'Invalid numeric draft changed last valid state');
+        await page.getByRole('button', { name: '恢复输入', exact: true }).click();
+        assert.equal(await sessions.inputValue(), '3');
+        assert.ok(await page.getByRole('textbox', { name: '备注', exact: true }).isEnabled());
+        assert.ok((await page.locator('.iui-metric-value').textContent()).includes('70'));
+      }
+      if (name === 'supplied-weather') {
+        const weather = page.locator('.iui-weather').first();
+        await weather.getByRole('button', { name: '华氏度', exact: true }).click();
+        assert.ok((await weather.textContent()).includes('53.6'));
+        await weather.getByRole('button', { name: '摄氏度', exact: true }).click();
+        await weather.getByRole('button', { name: /12月16日/ }).click();
+        await weather.getByRole('button', { name: '表格', exact: true }).click();
+        assert.ok(await weather.getByRole('table').isVisible());
+        assert.ok((await weather.getByRole('table').textContent()).includes('缺测'));
+        await page.getByText('查看空、加载和失败的明确边界', { exact: true }).click();
+        assert.ok(await page.getByText('调用方尚未提供数据；本组件不会发起请求。', { exact: true }).isVisible());
+        assert.ok(await page.getByText('教学错误状态；没有后台请求或自动重试。', { exact: true }).isVisible());
+      }
+      if (name === 'coordinate-scenarios') {
+        const line = page.locator('svg[aria-label="不等距测点"]');
+        const xs = await line.locator('circle[data-point]').evaluateAll(nodes => nodes.map(node => Number(node.getAttribute('cx'))));
+        assert.equal(xs.length, 3);
+        assert.ok(Math.abs((xs[1] - xs[0]) / (xs[2] - xs[0]) - 0.01) < 1e-8, 'Linear X was rendered as categories');
+        const time = page.locator('svg[aria-label="跨年且间隔不等的时间轴"]');
+        assert.ok((await time.locator('text').allTextContents()).includes('0.000001'), 'Tiny explicit-axis tick lost precision');
+        await time.focus();
+        await page.keyboard.press('End');
+        const readout = time.locator('..').locator('.iui-chart-readout');
+        const text = await readout.textContent();
+        assert.ok(text.includes('2027') && text.includes('00:00:00.900') && text.includes('GMT+08:00'));
+        await page.getByText('空、单点与加载/错误状态', { exact: true }).click();
+        assert.ok(await page.getByText('仅为教学状态，不触发联网。', { exact: true }).isVisible());
+        assert.ok(await page.getByText('教学错误状态，不会自动请求或重试。', { exact: true }).isVisible());
       }
       assert.deepEqual(errors, [], `${label}: browser error`);
       if (screenshots) await page.screenshot({ path: path.join(screenshots, `${label}.png`), fullPage: true });

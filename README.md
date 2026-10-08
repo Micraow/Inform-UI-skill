@@ -81,6 +81,9 @@ node Intelligent-UI/bin/iui.mjs build intelligent-ui-author/examples/hpcc-feedba
 | [瓶颈负载与反馈](examples/hpcc-feedback.json) | 正文、拓扑、滑块、公式与计算结果的混排 |
 | [RTT 趋势](examples/rtt-trend.json) | 比较两条曲线，保留缺测数据，并展开查看数值 |
 | [Wi-Fi 指标](examples/wifi-status.json) | 用紧凑指标解释含义，区分链路速率与实际吞吐 |
+| [本地练习计划](examples/local-practice.json) | 字段校验、禁用、提交/取消与指标、柱图的同一state联动 |
+| [已提供的天气数据](examples/supplied-weather.json) | 有来源的数据、日期/单位切换与缺测、空/加载/错误状态 |
+| [真实坐标与五图种](examples/coordinate-scenarios.json) | 不等距X、跨年毫秒时间、微量数据与图种边界 |
 | [资源短名单](examples/resource-shortlist.json) | 把有用的链接和介绍融入正文 |
 
 这些示例全部为原创。请一起修改数据与解释；示例数字不是用户的真实测量结果。
@@ -107,7 +110,7 @@ npm run check:library -- --library ../Intelligent-UI
 
 第一条检查技能结构与文件边界，第二条调用真实库的 API、Schema 和 CLI 验证全部示例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
-[持续验证](https://github.com/Micraow/Intelligent-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 24 组明暗主题和桌面/手机视图，其中 4 组直接打开根 SKILL 中的 CDN HTML 壳。CI badge 显示开发分支的最新状态。
+[持续验证](https://github.com/Micraow/Intelligent-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 36 组明暗主题和桌面/手机视图，其中 4 组直接打开根 SKILL 中的 CDN HTML 壳。CI badge 显示开发分支的最新状态。
 
 ## 许可证
 

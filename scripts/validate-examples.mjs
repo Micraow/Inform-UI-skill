@@ -69,7 +69,7 @@ try {
     const before = JSON.stringify(document);
     const result = api.validateDocument(document);
     assert.equal(result.ok, true, `${name}: ${JSON.stringify(result.issues)}`);
-    const options = { backend: 'portable', assets: 'inline', lang: name === 'hpcc-feedback.json' ? 'zh-CN' : 'en' };
+    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json'].includes(name) ? 'zh-CN' : 'en' };
     const html = await api.compileHtml(result.document, options);
     assert.equal(typeof html, 'string');
     assert.ok(html.toLowerCase().includes('<!doctype html>'), `${name}: no standalone HTML document`);
@@ -104,6 +104,16 @@ try {
   }
   console.log('PASS documented evaluateState success shape, errors and initial-state behavior');
   console.log('PASS feedback values at initial, changed, minimum and maximum inputs');
+  const practice = await readJson(path.join(root, 'examples/local-practice.json'));
+  for (const [patch, total] of [[{}, 70], [{ sessions: 4 }, 95], [{ sessions: 1, breakMinutes: 10 }, 20], [{ minutes: 45, sessions: 6, breakMinutes: 10 }, 320]]) {
+    const result = api.evaluateState(practice, patch);
+    assert.equal(result.ok, true, JSON.stringify(result.issues));
+    assert.equal(result.computed.total, total);
+  }
+  const invalidDraft = structuredClone(practice);
+  invalidDraft.state.plan = '';
+  assert.equal(api.validateDocument(invalidDraft).ok, true, 'A form draft can be a structurally valid document');
+  console.log('PASS local form derived values and structurally valid unfinished drafts');
   const weather = literalExamples.find(node => node.type === 'weather');
   assert.ok(weather, 'Self-contained weather input example is required');
   const invalidWeather = changes => ({ version: 'iui/1', body: [{ ...structuredClone(weather), ...changes }] });

@@ -1,0 +1,180 @@
+{
+  "version": "iui/1",
+  "title": "观察已提供天气数据中的缺测",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "一份数据，多种本地读法"
+    },
+    {
+      "type": "text",
+      "value": "下面是合成天气数据。组件没有连接天气服务，日期和更新时间属于这份教学材料。切换单位不会取得新数据。"
+    },
+    {
+      "type": "weather",
+      "id": "provided-weather",
+      "location": {
+        "name": "合成观测点",
+        "timezone": "Asia/Shanghai"
+      },
+      "updatedAt": "2026-12-15T08:00:00+08:00",
+      "source": {
+        "label": "本项目原创教学数据",
+        "synthetic": true
+      },
+      "units": {
+        "temperature": "celsius"
+      },
+      "current": {
+        "time": "2026-12-15T08:00:00+08:00",
+        "temperature": 12,
+        "feelsLike": 11,
+        "humidity": 65,
+        "condition": "cloudy"
+      },
+      "daily": [
+        {
+          "date": "2026-12-15",
+          "low": 8,
+          "high": 16,
+          "condition": "cloudy",
+          "precipitationProbability": 30
+        },
+        {
+          "date": "2026-12-16",
+          "low": null,
+          "high": null,
+          "condition": "unknown",
+          "precipitationProbability": null
+        }
+      ],
+      "hourly": [
+        {
+          "time": "2026-12-15T08:00:00+08:00",
+          "temperature": 12,
+          "precipitationProbability": 30
+        },
+        {
+          "time": "2026-12-15T10:00:00+08:00",
+          "temperature": 14,
+          "precipitationProbability": 0
+        },
+        {
+          "time": "2026-12-15T18:00:00+08:00",
+          "temperature": null,
+          "precipitationProbability": 45
+        },
+        {
+          "time": "2026-12-16T10:00:00+08:00",
+          "temperature": null,
+          "precipitationProbability": null
+        }
+      ],
+      "initialDate": "2026-12-15"
+    },
+    {
+      "type": "callout",
+      "tone": "info",
+      "value": "降水概率30表示30%；第二个小时的0是真实零，缺测用null。次日资料不足，不应编造温度或降水结论。"
+    },
+    {
+      "type": "details",
+      "summary": "查看空、加载和失败的明确边界",
+      "children": [
+        {
+          "type": "section",
+          "heading": "空数据",
+          "children": [
+            {
+              "type": "weather",
+              "id": "empty-weather",
+              "location": {
+                "name": "合成空数据",
+                "timezone": "Asia/Shanghai"
+              },
+              "updatedAt": "2026-12-15T08:00:00+08:00",
+              "source": {
+                "label": "本项目原创教学数据",
+                "synthetic": true
+              },
+              "units": {
+                "temperature": "celsius"
+              },
+              "current": {
+                "time": "2026-12-15T08:00:00+08:00",
+                "temperature": null,
+                "condition": "unknown"
+              },
+              "daily": [],
+              "hourly": [],
+              "status": "ready"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "heading": "加载状态仅为展示",
+          "children": [
+            {
+              "type": "weather",
+              "id": "loading-weather",
+              "location": {
+                "name": "合成加载示意",
+                "timezone": "Asia/Shanghai"
+              },
+              "updatedAt": "2026-12-15T08:00:00+08:00",
+              "source": {
+                "label": "本项目原创教学数据",
+                "synthetic": true
+              },
+              "units": {
+                "temperature": "celsius"
+              },
+              "current": {
+                "time": "2026-12-15T08:00:00+08:00",
+                "temperature": null,
+                "condition": "unknown"
+              },
+              "daily": [],
+              "hourly": [],
+              "status": "loading",
+              "message": "调用方尚未提供数据；本组件不会发起请求。"
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "heading": "失败状态仅为展示",
+          "children": [
+            {
+              "type": "weather",
+              "id": "error-weather",
+              "location": {
+                "name": "合成失败示意",
+                "timezone": "Asia/Shanghai"
+              },
+              "updatedAt": "2026-12-15T08:00:00+08:00",
+              "source": {
+                "label": "本项目原创教学数据",
+                "synthetic": true
+              },
+              "units": {
+                "temperature": "celsius"
+              },
+              "current": {
+                "time": "2026-12-15T08:00:00+08:00",
+                "temperature": null,
+                "condition": "unknown"
+              },
+              "daily": [],
+              "hourly": [],
+              "status": "error",
+              "message": "教学错误状态；没有后台请求或自动重试。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
