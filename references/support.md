@@ -1,6 +1,6 @@
 # Support and capability boundaries
 
-This matrix describes the portable `iui/1` baseline matched in [library-contract.json](../library-contract.json). It is not a native ChatGPT component inventory. Schema membership, rendering support, host data access and scientific correctness are different claims.
+This matrix describes the independent `iui/1` library matched in [library-contract.json](../library-contract.json). `portable` is the backend's technical name, not an edition. There is no OpenAI account/API/runtime dependency and no private/native edition to wait for. This is not a native ChatGPT component inventory. Schema membership, rendering support, host data access and scientific correctness are different claims.
 
 ## Public protocol nodes
 

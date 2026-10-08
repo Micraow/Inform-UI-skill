@@ -73,6 +73,20 @@ try {
     assert.equal(evaluated.computed.maximumLoad, maximum);
     assert.ok(Math.abs(evaluated.computed.nextWindow - window) < 1e-9, 'Feedback calculation disagrees with explanatory prose');
   }
+  const stateExample = api.evaluateState(feedback, { middleLoad: 0.9 });
+  assert.equal(stateExample.ok, true);
+  assert.equal(stateExample.state.middleLoad, 0.9);
+  assert.equal(stateExample.computed.maximumLoad, 0.9);
+  assert.equal(stateExample.document, undefined, 'State evaluation returns value maps, not a document');
+  assert.equal(feedback.state.middleLoad, 1.2, 'State evaluation must not mutate document state');
+  assert.equal(api.evaluateState(feedback).state.middleLoad, 1.2, 'Calls start from initial state');
+  for (const [patch, code] of [[{ maximumLoad: 0.9 }, 'UNKNOWN_BIND'], [{ middleLoad: '0.9' }, 'INPUT_TYPE'], [{ middleLoad: 2 }, 'INPUT_RANGE']]) {
+    const failed = api.evaluateState(feedback, patch);
+    assert.equal(failed.ok, false);
+    assert.ok(failed.issues.some(issue => issue.code === code), JSON.stringify(failed));
+    assert.equal(failed.computed, undefined);
+  }
+  console.log('PASS documented evaluateState success shape, errors and initial-state behavior');
   console.log('PASS feedback values at initial, changed, minimum and maximum inputs');
   const invalid = [
     ['unknown type', { version: 'iui/1', body: [{ type: 'live-weather', city: 'Example' }] }],

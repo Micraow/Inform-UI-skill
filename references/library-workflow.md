@@ -15,7 +15,7 @@ node ../Intelligent-UI/bin/iui.mjs validate examples/hpcc-feedback.json --json
 node ../Intelligent-UI/bin/iui.mjs build examples/hpcc-feedback.json --out artifacts/hpcc.html --lang zh-CN
 ```
 
-Use a browser to inspect `artifacts/hpcc.html`. It is a local portable rendering, not a native ChatGPT widget. No tool in this skill installs itself, calls a model or changes an account.
+Use a browser to inspect `artifacts/hpcc.html`. It is the independent library's standalone HTML output. The same library can also be embedded in a webpage; these are delivery options, not different editions. No tool in this skill installs itself, calls a model or changes an account.
 
 To check every fixture against the real API and CLI:
 
@@ -46,11 +46,26 @@ const html = await compileHtml(result.document, {
 
 The integration script resolves the checkout's actual package exports to exercise these functions without needing a registry publication. `compileHtml` validates its input too; keep the explicit first pass for actionable diagnostics.
 
+### Evaluate a state change
+
+For `examples/hpcc-feedback.json` validated as `result` above, inspect one input change without rendering:
+
+```js
+import { evaluateState } from '@micraow/intelligent-ui';
+const next = evaluateState(result.document, { middleLoad: 0.9 });
+if (!next.ok) throw new Error(JSON.stringify(next.issues));
+console.log(next.state.middleLoad, next.computed.maximumLoad); // 0.9 0.9
+```
+
+Success is `{ ok: true, state, computed }`, with read-only value maps. Failure is `{ ok: false, issues: [{ code, path, message }] }`; check `ok` before accessing results. Computed values are in `computed`, not `state` or a returned `document`.
+
+The second argument overrides declared initial state. Each call starts from the document's initial state, so pass current state explicitly when continuing a sequence. Unknown keys, including computed names, return `UNKNOWN_BIND`; changing a primitive type returns `INPUT_TYPE`; an out-of-range slider value returns `INPUT_RANGE`. This function evaluates data only; use the mounted controller's `setState` to update a visible UI.
+
 For browser embedding, the library exposes `mount` through its browser entrypoint and returns `update`, `dispose`, `getState` and `setState`. The skill does not implement that lifecycle. Follow the matched library's documentation and dispose the controller when the host removes the view.
 
 ## Keep compatibility honest
 
-Change the pinned revision only after validating examples, negative cases and browser behavior. A schema version alone is not evidence that every renderer has the same features. `native` input is deliberately rejected by this portable baseline. Do not write `npx iui` or claim a released package exists until publication, ownership and the executable name are verified.
+Change the pinned revision only after validating examples, negative cases and browser behavior. A schema version alone is not evidence that every renderer has the same features. `portable` names the independent library's backend. Historical `native` input is recognized only to return an explicit unsupported diagnostic; a private/native edition is not a prerequisite or planned dependency. Do not write `npx iui` or claim a released package exists until publication, ownership and the executable name are verified.
 
 ## Browser regression
 
