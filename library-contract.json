@@ -1,0 +1,14 @@
+{
+  "repository": "Micraow/Intelligent-UI",
+  "revision": "aa17c6eab822fa59dbca548071cc98f1a8499805",
+  "packageName": "@micraow/intelligent-ui",
+  "packageVersion": "0.1.0",
+  "schemaVersion": "iui/1",
+  "apiExports": [
+    "validateDocument",
+    "compileHtml",
+    "evaluateState"
+  ],
+  "schemaExport": "./schema",
+  "cli": "bin/iui.mjs"
+}

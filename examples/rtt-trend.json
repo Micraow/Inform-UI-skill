@@ -1,0 +1,119 @@
+{
+  "version": "iui/1",
+  "title": "A latency comparison with a missing sample",
+  "body": [
+    {
+      "type": "title",
+      "value": "Look for a trend, not one spike",
+      "level": 1
+    },
+    {
+      "type": "text",
+      "value": "In these synthetic observations, the busy scenario rises after the third minute while the quiet scenario stays close to its starting range. This illustrates a pattern to investigate, not a measured diagnosis."
+    },
+    {
+      "type": "chart",
+      "kind": "line",
+      "title": "Synthetic round-trip latency",
+      "xKey": "minute",
+      "unit": "ms",
+      "data": [
+        {
+          "minute": "0 min",
+          "quiet": 18,
+          "busy": 19
+        },
+        {
+          "minute": "1 min",
+          "quiet": 19,
+          "busy": 20
+        },
+        {
+          "minute": "2 min",
+          "quiet": null,
+          "busy": 21
+        },
+        {
+          "minute": "3 min",
+          "quiet": 18,
+          "busy": 28
+        },
+        {
+          "minute": "4 min",
+          "quiet": 20,
+          "busy": 43
+        },
+        {
+          "minute": "5 min",
+          "quiet": 19,
+          "busy": 52
+        }
+      ],
+      "series": [
+        {
+          "key": "quiet",
+          "label": "Quiet scenario",
+          "color": "green"
+        },
+        {
+          "key": "busy",
+          "label": "Busy scenario",
+          "color": "orange"
+        }
+      ],
+      "yMin": 0,
+      "note": "Synthetic data. Quiet-scenario sample at 2 min is missing (null), not zero. Time labels denote minutes; latency is in milliseconds."
+    },
+    {
+      "type": "caption",
+      "value": "Use comparable measurement intervals and sources before interpreting a real change. A rising curve alone does not establish its cause."
+    },
+    {
+      "type": "details",
+      "summary": "Inspect the values",
+      "children": [
+        {
+          "type": "table",
+          "columns": [
+            "Time (min)",
+            "Quiet (ms)",
+            "Busy (ms)"
+          ],
+          "rows": [
+            [
+              0,
+              18,
+              19
+            ],
+            [
+              1,
+              19,
+              20
+            ],
+            [
+              2,
+              null,
+              21
+            ],
+            [
+              3,
+              18,
+              28
+            ],
+            [
+              4,
+              20,
+              43
+            ],
+            [
+              5,
+              19,
+              52
+            ]
+          ],
+          "caption": "Original synthetic values. Empty quiet cell at 2 min denotes a missing sample."
+        }
+      ]
+    }
+  ]
+}

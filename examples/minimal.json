@@ -1,0 +1,9 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "text",
+      "value": "A short explanation can be enough. Add a visual only when it makes a relationship easier to understand."
+    }
+  ]
+}

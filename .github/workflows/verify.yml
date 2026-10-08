@@ -1,0 +1,63 @@
+name: Verify skill and library contract
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Node ${{ matrix.node }} / ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest, node: 22 }
+          - { os: ubuntu-latest, node: 24 }
+          - { os: windows-latest, node: 22 }
+          - { os: macos-latest, node: 22 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: skill
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Read pinned library revision
+        id: contract
+        working-directory: skill
+        shell: bash
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync('library-contract.json')); if(c.repository !== 'Micraow/Intelligent-UI' || !/^[a-f0-9]{40}$/.test(c.revision)) throw new Error('Library revision must be a verified commit'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'revision='+c.revision+'\n');"
+      - uses: actions/checkout@v4
+        with:
+          repository: Micraow/Intelligent-UI
+          ref: ${{ steps.contract.outputs.revision }}
+          path: library
+      - name: Build matched library
+        working-directory: library
+        run: |
+          npm ci
+          npm audit --omit=dev --audit-level=high
+          npm run build
+      - name: Test skill boundaries
+        working-directory: skill
+        run: |
+          npm ci
+          npm test
+      - name: Verify real API, schema and CLI
+        working-directory: skill
+        run: npm run check:library -- --library ../library
+      - name: Install browser for fixture regression
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 22
+        working-directory: library
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Verify desktop, mobile and interactive examples
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 22
+        working-directory: skill
+        run: npm run check:browser -- --library ../library

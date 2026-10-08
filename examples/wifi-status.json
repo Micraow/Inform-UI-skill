@@ -1,0 +1,50 @@
+{
+  "version": "iui/1",
+  "title": "Wi-Fi reading example",
+  "body": [
+    {
+      "type": "title",
+      "value": "A compact connection snapshot",
+      "level": 1
+    },
+    {
+      "type": "caption",
+      "value": "Illustrative values only. No device, network or live telemetry has been accessed."
+    },
+    {
+      "type": "metric-grid",
+      "columns": 3,
+      "children": [
+        {
+          "type": "metric",
+          "label": "Channel",
+          "value": 36,
+          "hint": "Example channel number"
+        },
+        {
+          "type": "metric",
+          "label": "Received signal",
+          "value": -58,
+          "unit": "dBm",
+          "hint": "Synthetic value; placement and interference affect interpretation"
+        },
+        {
+          "type": "metric",
+          "label": "PHY link rate",
+          "value": 866,
+          "unit": "Mbit/s",
+          "hint": "Negotiated link-rate example, not measured application throughput"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Read these as different signals: channel describes the connection, received power describes one radio condition, and PHY rate is a link parameter. None of them alone measures application performance."
+    },
+    {
+      "type": "callout",
+      "tone": "info",
+      "value": "For a real comparison, record the device, measurement time and a repeatable throughput or latency test under the same conditions."
+    }
+  ]
+}

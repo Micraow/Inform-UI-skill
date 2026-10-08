@@ -1,0 +1,138 @@
+[
+  {
+    "type": "text",
+    "status": "portable"
+  },
+  {
+    "type": "title",
+    "status": "portable"
+  },
+  {
+    "type": "caption",
+    "status": "portable"
+  },
+  {
+    "type": "markdown",
+    "status": "plain-text-fallback"
+  },
+  {
+    "type": "code",
+    "status": "portable"
+  },
+  {
+    "type": "math",
+    "status": "portable"
+  },
+  {
+    "type": "badge",
+    "status": "portable"
+  },
+  {
+    "type": "divider",
+    "status": "portable"
+  },
+  {
+    "type": "spacer",
+    "status": "portable"
+  },
+  {
+    "type": "link",
+    "status": "portable"
+  },
+  {
+    "type": "image",
+    "status": "portable"
+  },
+  {
+    "type": "box",
+    "status": "portable"
+  },
+  {
+    "type": "card",
+    "status": "portable"
+  },
+  {
+    "type": "row",
+    "status": "portable"
+  },
+  {
+    "type": "col",
+    "status": "portable"
+  },
+  {
+    "type": "grid",
+    "status": "portable"
+  },
+  {
+    "type": "section",
+    "status": "portable"
+  },
+  {
+    "type": "figure",
+    "status": "portable"
+  },
+  {
+    "type": "details",
+    "status": "portable"
+  },
+  {
+    "type": "carousel",
+    "status": "portable"
+  },
+  {
+    "type": "list",
+    "status": "portable"
+  },
+  {
+    "type": "table",
+    "status": "portable"
+  },
+  {
+    "type": "metric",
+    "status": "portable"
+  },
+  {
+    "type": "metric-grid",
+    "status": "portable"
+  },
+  {
+    "type": "steps",
+    "status": "portable"
+  },
+  {
+    "type": "callout",
+    "status": "portable"
+  },
+  {
+    "type": "slider",
+    "status": "portable"
+  },
+  {
+    "type": "toggle",
+    "status": "portable"
+  },
+  {
+    "type": "select",
+    "status": "portable"
+  },
+  {
+    "type": "button",
+    "status": "portable"
+  },
+  {
+    "type": "topology",
+    "status": "portable"
+  },
+  {
+    "type": "chart",
+    "status": "portable"
+  },
+  {
+    "type": "svg",
+    "status": "portable"
+  },
+  {
+    "type": "native",
+    "status": "rejected"
+  }
+]
