@@ -134,5 +134,33 @@
   {
     "type": "native",
     "status": "rejected"
+  },
+  {
+    "type": "input",
+    "status": "portable"
+  },
+  {
+    "type": "textarea",
+    "status": "portable"
+  },
+  {
+    "type": "radio",
+    "status": "portable"
+  },
+  {
+    "type": "segmented",
+    "status": "portable"
+  },
+  {
+    "type": "field",
+    "status": "portable"
+  },
+  {
+    "type": "form",
+    "status": "portable"
+  },
+  {
+    "type": "weather",
+    "status": "portable"
   }
 ]

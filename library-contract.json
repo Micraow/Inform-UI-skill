@@ -1,6 +1,6 @@
 {
   "repository": "Micraow/Intelligent-UI",
-  "revision": "95bb0f2adccfd1f68db92dd38a17a6c89148ebd8",
+  "revision": "7c490585f3ae4b72999b3dd5db7a0b8ee65ac417",
   "packageName": "@micraow/intelligent-ui",
   "packageVersion": "0.1.0",
   "schemaVersion": "iui/1",
@@ -12,13 +12,13 @@
   "schemaExport": "./schema",
   "cli": "bin/iui.mjs",
   "cdn": {
-    "baseUrl": "https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@95bb0f2adccfd1f68db92dd38a17a6c89148ebd8/cdn/",
+    "baseUrl": "https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/",
     "global": "iui.global.min.js",
     "module": "iui.min.js",
     "style": "iui.css",
     "schema": "iui.schema.json",
-    "globalIntegrity": "sha384-TFjBiCHoXGNRCByDYBY6XFhOH947MPPBDx4MuISbZ/LDo/ZnmzwCHLxVWj6vXG/G",
-    "styleIntegrity": "sha384-WnXEt8agh2ZXeEhfBtTnHQsYGmAt/wX2Vh71toJzflgPssB1I/G8s2z4VPi4nuaD",
+    "globalIntegrity": "sha384-aCgRqdVDj8wl8C9Rz3p8JuyEkc606WMjP8ykO1kwjrvUVa/EQ9oH5Ne1ocHzA/CD",
+    "styleIntegrity": "sha384-r0zJufAML6IlJGwy3/CCOf9IfetRaVAu0WOIwmVd49QUET9B0brLD+31Rqt3sKuH",
     "fonts": "fonts/",
     "fontCount": 20,
     "fontLicense": "MIT (KaTeX 0.18.2 official WOFF2 assets)"

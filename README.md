@@ -22,7 +22,9 @@ Intelligent UI Skill 帮助 AI 判断什么时候值得用图、选什么组件�
 ## 适合什么时候用？
 
 - **解释技术原理**：让正文、公式、步骤与拓扑图按阅读顺序自然衔接
-- **看懂数据变化**：用折线图或柱状图表达趋势与比较，保留单位、来源和缺测值
+- **看懂数据变化**：用折线、柱状、散点、面积或环图表达关系，按真实数值/时间摆放坐标，保留单位、来源和缺测值
+- **组织本地输入**：用表单、文本/数字/邮箱、多行文本、单选和分段选择完成校验、确认与取消，默认不发送或保存数据
+- **说明天气数据**：展示调用方提供的观测/预报，切换日期、单位和图表；没有天气服务也不会冒充实时预报
 - **探索“如果改变……”**：用滑块或选择器改变输入，让相关数值同步更新
 - **整理指标和资源**：把关键指标、简短说明与链接放在读者需要的位置
 
@@ -60,7 +62,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Inte
 
 ```sh
 git clone https://github.com/Micraow/Intelligent-UI.git Intelligent-UI
-git -C Intelligent-UI checkout --detach 95bb0f2adccfd1f68db92dd38a17a6c89148ebd8
+git -C Intelligent-UI checkout --detach 7c490585f3ae4b72999b3dd5db7a0b8ee65ac417
 npm --prefix Intelligent-UI ci
 npm --prefix Intelligent-UI run build
 node Intelligent-UI/bin/iui.mjs validate intelligent-ui-author/examples/hpcc-feedback.json --json
@@ -92,7 +94,7 @@ node Intelligent-UI/bin/iui.mjs build intelligent-ui-author/examples/hpcc-feedba
 
 技能不要求 AI 为每次回答重新写 HTML、CSS 或 JavaScript。字体、间距、主题与移动端布局交给库处理。
 
-现有支持以公开协议为准。实时地图、天气等外部服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
+本轮固定协议有41项节点注册，根技能内嵌32个常用节点的保守生成规范；历史 native 输入明确拒绝。天气展示节点已支持，但数据仍须由调用方提供；体育等后续领域尚未进入当前固定合同。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
 
 ## 运行检查
 

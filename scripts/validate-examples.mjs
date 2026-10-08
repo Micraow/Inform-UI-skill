@@ -37,7 +37,14 @@ assert.equal(schema.properties.version.const, contract.schemaVersion);
 const inventory = await readJson(path.join(root, 'references/node-support.json'));
 assert.deepEqual(schema.$defs.Node.oneOf.map(node => { const definition = node.$ref ? schema.$defs[node.$ref.split('/').at(-1)] : node; return definition.properties.type.const; }).sort(), inventory.map(item => item.type).sort(), 'Node inventory drifted from the real library schema');
 await checkSkill();
-const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
+const skillSource = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+const shell = readSkillShell(skillSource);
+const literalExamples = [...skillSource.matchAll(/^```json\r?\n([\s\S]*?)^```/gm)].map(match => JSON.parse(match[1]));
+for (const value of literalExamples) {
+  const checked = api.validateDocument(value.version ? value : { version: contract.schemaVersion, body: [value] });
+  assert.equal(checked.ok, true, 'Root skill literal example: ' + JSON.stringify(checked.issues));
+}
+console.log(`PASS ${literalExamples.length} self-contained JSON contract examples`);
 const shellResult = api.validateDocument(shell.document);
 assert.equal(shellResult.ok, true, JSON.stringify(shellResult.issues));
 for (const x of [1, 4, 10]) {
@@ -97,7 +104,23 @@ try {
   }
   console.log('PASS documented evaluateState success shape, errors and initial-state behavior');
   console.log('PASS feedback values at initial, changed, minimum and maximum inputs');
+  const weather = literalExamples.find(node => node.type === 'weather');
+  assert.ok(weather, 'Self-contained weather input example is required');
+  const invalidWeather = changes => ({ version: 'iui/1', body: [{ ...structuredClone(weather), ...changes }] });
+  const baseChart = { type: 'chart', kind: 'line', xScale: 'linear', xKey: 'x', data: [{ x: 0, y: 1 }, { x: 10, y: 2 }], series: [{ key: 'y', label: 'Synthetic' }] };
   const invalid = [
+    ['numeric input string state', { version: 'iui/1', state: { count: '2' }, body: [{ type: 'input', kind: 'number', label: 'Count', bind: 'count' }] }],
+    ['disabled is not boolean', { version: 'iui/1', body: [{ type: 'field', label: 'Group', disabled: 'yes', children: [{ type: 'text', value: 'Example' }] }] }],
+    ['nested form', { version: 'iui/1', body: [{ type: 'form', label: 'Outer', children: [{ type: 'form', label: 'Inner', children: [] }] }] }],
+    ['form action URL', { version: 'iui/1', body: [{ type: 'form', label: 'Local', action: 'https://example.org/send', children: [] }] }],
+    ['linear chart order', { version: 'iui/1', body: [{ ...baseChart, data: [{ x: 10, y: 1 }, { x: 0, y: 2 }] }] }],
+    ['chart clips observation', { version: 'iui/1', body: [{ ...baseChart, xMin: 0, xMax: 1 }] }],
+    ['scatter without numeric axis', { version: 'iui/1', body: [{ ...baseChart, kind: 'scatter', xScale: 'category' }] }],
+    ['negative donut', { version: 'iui/1', body: [{ ...baseChart, kind: 'donut', xScale: 'category', data: [{ x: 'A', y: -1 }] }] }],
+    ['weather percentage over 100', invalidWeather({ daily: [{ ...weather.daily[0], precipitationProbability: 101 }] })],
+    ['weather invalid timezone', invalidWeather({ location: { name: 'Synthetic', timezone: 'Invalid/Zone' } })],
+    ['weather duplicate day', invalidWeather({ daily: [weather.daily[0], weather.daily[0]] })],
+    ['weather missing provenance', invalidWeather({ source: { label: 'Unmarked' } })],
     ['unknown type', { version: 'iui/1', body: [{ type: 'live-weather', city: 'Example' }] }],
     ['native runtime', { version: 'iui/1', body: [{ type: 'native', name: 'text', children: [] }] }],
     ['undefined reference', { version: 'iui/1', body: [{ type: 'metric', label: 'Missing', value: { $: 'undeclared' } }] }],

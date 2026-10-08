@@ -4,12 +4,13 @@ This matrix describes the independent `iui/1` library matched in [library-contra
 
 ## Public protocol nodes
 
-The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The five skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
+This pin contains 41 schema nodes: 39 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
 
 | Status | Nodes | Authoring guidance |
 | --- | --- | --- |
-| Portable, exercised by skill fixtures | `text`, `title`, `caption`, `math`, `link`, `section`, `figure`, `details`, `table`, `metric`, `metric-grid`, `steps`, `callout`, `slider`, `button`, `topology`, `chart` | Start here for editorial explanations; charts are line/bar only |
+| Portable, exercised by skill fixtures | `text`, `title`, `caption`, `math`, `link`, `section`, `figure`, `details`, `table`, `metric`, `metric-grid`, `steps`, `callout`, `slider`, `button`, `topology`, `chart` | Start here for editorial explanations; charts support line/bar/scatter/area/donut with explicit axis rules |
 | Portable library surface; not all variants exercised here | `code`, `badge`, `divider`, `spacer`, `image`, `box`, `card`, `row`, `col`, `grid`, `carousel`, `list`, `toggle`, `select`, `svg` | Check the library's schema and renderer tests; prefer semantic defaults and licensed media |
+| New 41-node contract surface | `input`, `textarea`, `radio`, `segmented`, `field`, `form`, `weather` | Local form validation/state; supplied weather with provenance/timezone. No implicit submission service or forecast retrieval |
 | Explicit fallback | `markdown` | Plain text with a visible fallback label; no Markdown formatting is interpreted |
 | Deliberately rejected | `native` | No private runtime is bundled or assumed; use a portable alternative |
 
@@ -43,18 +44,18 @@ The following 52 items classify user-visible jobs, not 52 generator tags. “Par
 | 22 | Data tables | `table`; complex merged/grouped headers need extension |
 | 23 | Buttons | `button` supports `set`/`reset`; not arbitrary events or submissions |
 | 24 | Checkboxes | Partial: boolean `toggle`; no invented checkbox type |
-| 25 | Radio choices | Partial: `select`; dedicated radio presentation needs extension |
-| 26 | Segmented choices | Partial: `select`; dedicated segments need extension |
+| 25 | Radio choices | `radio`; same-type options, local state and keyboard selection |
+| 26 | Segmented choices | `segmented`; same-type options with explicit disabled choices |
 | 27 | Dropdown choices | `select` |
-| 28 | Text / numeric text fields | Extension; use a slider only when a bounded numeric choice is appropriate |
-| 29 | Multiline editing | Host/editor capability; static `code` or `text` is not an editor |
-| 30 | Date pickers | Extension with explicit date semantics |
+| 28 | Text / numeric text fields | `input` with text/number/email; typed state, constraints and local validation |
+| 29 | Multiline editing | `textarea` supports bounded plain text; rich editing remains a host/editor capability |
+| 30 | Date pickers | General date picker remains unsupported; weather can select among supplied daily dates |
 | 31 | Sliders | `slider` plus numeric state and safe expressions |
-| 32 | Submitted forms | Host service and authorization; state controls are not form submission |
+| 32 | Submitted forms | `form` validates and confirms locally; external effects require an explicitly configured and authorized host action |
 | 33 | Line charts | `chart` with `kind: "line"` |
 | 34 | Bar charts | `chart` with `kind: "bar"` |
-| 35 | Scatterplots | Extension; use a labeled table when unavailable |
-| 36 | Pie charts | Extension; use a bar/table when it communicates the composition accurately |
+| 35 | Scatterplots | `chart` with `kind: "scatter"` and explicit linear/time X |
+| 36 | Pie charts | Composition uses single-series nonnegative `kind: "donut"`; no separate pie kind |
 | 37 | Vector diagrams | `topology` or constrained `svg`; no raw markup |
 | 38 | Statistics | `metric`, `metric-grid`; the numbers still need provenance |
 | 39 | Icons | Partial: original constrained SVG; icon set and semantics need deliberate selection |
@@ -67,11 +68,11 @@ The following 52 items classify user-visible jobs, not 52 generator tags. “Par
 | 46 | File navigation | Authorized file links; filesystem navigation requires the host |
 | 47 | Linked entities | Sourced prose/images/links; live entity data requires a service |
 | 48 | Follow-up suggestions | Plain text/list; conversation actions require the host |
-| 49 | Live specialized widgets | Host service, current data and authorization; no simulated results presented as live |
+| 49 | Live specialized widgets | `weather` renders supplied source/timezone data. Live retrieval remains a host service; sports and other future domains are not in this fixed contract |
 | 50 | Custom app blocks | Restricted state/AST only; no arbitrary app scripts or sandbox claim |
 | 51 | Rich writing editor | Host/editor capability; a rendered document is read-only content |
 | 52 | Structured code with preview | Partial: `code` displays text; execution, advanced highlighting and preview need explicit support |
 
 ## Choosing a fallback
 
-Check the host and matched library before authoring. An unavailable scatterplot can become an accurate table; a missing map service can become a list of verified locations/links; unavailable live data requires saying it is unavailable. Never relabel generated examples as retrieved facts, or infer authorization from the ability to render an interface.
+Check the host and matched library before authoring. Unsupported chart features can fall back to an accurate table; a missing map service can become a list of verified locations/links; unavailable live data requires saying it is unavailable. Never relabel generated examples as retrieved facts, or infer authorization from the ability to render an interface.

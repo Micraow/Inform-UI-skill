@@ -14,7 +14,7 @@ A document has `version: "iui/1"` and a nonempty `body` array. Optional `title`,
 - Link: `{ "type": "link", "value": "Source", "href": "https://example.org/source" }`
 - Container: `section`/`figure` use `children`; `section` can add `heading`, `figure` can add `caption`. Prefer these semantic containers before decorative cards.
 - Table: string `columns` plus `rows` of values. Every row must match the column count.
-- Chart: `kind` is `line` or `bar`; specify `xKey`, `data` and `series` (`key`, `label`, optional named color). Supply `unit` and `note` when needed. `null` denotes a missing observation. Do not switch to a pie or scatter type that this contract does not support.
+- Chart: `kind` is `line`, `bar`, `scatter`, `area` or `donut`; specify `xKey`, `data` and `series` (`key`, `label`, optional named color). Supply `unit` and `note` when needed. `null` denotes a missing observation. Use explicit `xScale: "linear"`/`"time"` for true coordinates; scatter requires one of these, while donut is category-only with one nonnegative series. Empty data and ready/loading/error views are supported; see the self-contained root skill for complete axis constraints.
 - Topology: nodes use unique `id` and `label`; links use valid `from`/`to`, optional `load`; `highlight: "max-load"` highlights the maximum.
 
 See the complete [examples](examples.md) rather than inferring additional properties. Put provenance in visible captions/notes or a source link; do not invent an unsupported `source` property.
@@ -34,3 +34,7 @@ Do not place expressions in fields that require strings, such as `math.latex`, `
 ## Renderer-owned decisions
 
 The protocol has some bounded layout knobs for compatibility. Usually omit `gap`, `padding`, `width`, `radius`, and `spacer`: content grouping is the useful model decision. Defaults should handle whitespace and mobile flow. Semantic colors may indicate information, warning or a series identity; do not use color as the only label.
+
+## Forms and supplied weather
+
+The root [SKILL.md](../SKILL.md) is authoritative for the self-contained field shapes and limits of input/textarea/radio/segmented/field/form/weather. Plain web chat should omit form.action and use local confirmation; weather requires provenance, explicit timestamps/timezone and supplied data. The browser wrapper does not fetch a forecast or register a submission service. These nodes do not expand the attributes of the older slider/toggle/select nodes.

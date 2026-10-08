@@ -30,7 +30,7 @@ export function parseSkillFrontmatter(source) {
   const description = frontmatter[1].match(/^description: (.+)$/m)?.[1];
   if (!name || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) || name.length > 64) throw new Error('Invalid skill name.');
   if (!description || description.length > 1024) throw new Error('Missing or overlong description.');
-  if (text.split(/\s+/).length > 850) throw new Error('Keep the skill entrypoint compact; move conditional detail to references.');
+  if (Buffer.byteLength(text, 'utf8') > 32_000) throw new Error('Keep the self-contained entrypoint within its 32 KB copy budget.');
   return { name, description };
 }
 
