@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { checkSkill, root } from './check-skill.mjs';
+import { checkSkill, readSkillShell, root } from './check-skill.mjs';
 
 const argument = process.argv.indexOf('--library');
 if (argument >= 0 && !process.argv[argument + 1]) throw new Error('--library requires a checkout path.');
@@ -37,6 +37,15 @@ assert.equal(schema.properties.version.const, contract.schemaVersion);
 const inventory = await readJson(path.join(root, 'references/node-support.json'));
 assert.deepEqual(schema.$defs.Node.oneOf.map(node => { const definition = node.$ref ? schema.$defs[node.$ref.split('/').at(-1)] : node; return definition.properties.type.const; }).sort(), inventory.map(item => item.type).sort(), 'Node inventory drifted from the real library schema');
 await checkSkill();
+const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
+const shellResult = api.validateDocument(shell.document);
+assert.equal(shellResult.ok, true, JSON.stringify(shellResult.issues));
+for (const x of [1, 4, 10]) {
+  const evaluated = api.evaluateState(shellResult.document, { x });
+  assert.equal(evaluated.ok, true);
+  assert.equal(evaluated.computed.twice, 2 * x);
+}
+console.log('PASS root SKILL.md HTML-shell JSON and bound values');
 
 const names = (await readdir(path.join(root, 'examples'))).filter(name => name.endsWith('.json')).sort();
 const directory = await mkdtemp(path.join(tmpdir(), 'intelligent-ui-skill-'));

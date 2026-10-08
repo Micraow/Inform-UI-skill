@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import assert from 'node:assert/strict';
-import { root } from './check-skill.mjs';
+import { readSkillShell, root } from './check-skill.mjs';
 
 function argument(flag) {
   const index = process.argv.indexOf(flag);
@@ -62,6 +62,28 @@ try {
       count++;
       console.log(`PASS ${label}`);
     }
+  }
+  const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
+  const shellFile = path.join(directory, 'web-chat-shell.html');
+  await writeFile(shellFile, shell.html);
+  for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
+    const page = await browser.newPage({ viewport: { width, height: 900 }, colorScheme: theme });
+    const errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+    await page.goto(pathToFileURL(shellFile).href);
+    await page.waitForSelector('.iui-root');
+    assert.deepEqual(errors, [], 'Copyable CDN shell has browser/load errors');
+    await page.getByRole('slider').focus();
+    await page.keyboard.press('ArrowRight');
+    assert.equal(await page.getByRole('slider').inputValue(), '5');
+    assert.equal((await page.locator('.iui-metric-value').textContent()).trim(), '10');
+    const bounds = await page.evaluate(() => ({ scroll: document.documentElement.scrollWidth, viewport: window.innerWidth }));
+    assert.ok(bounds.scroll <= bounds.viewport + 1, 'Copyable CDN shell overflows');
+    if (screenshots) await page.screenshot({ path: path.join(screenshots, `web-chat-shell-${width}-${theme}.png`), fullPage: true });
+    await page.close();
+    count++;
+    console.log(`PASS web-chat-shell-${width}-${theme} (file://, real CDN, SRI)`);
   }
   console.log(`Verified ${count} rendered views, keyboard feedback, reset and table disclosure.`);
 } finally {

@@ -1,5 +1,7 @@
 # Validate and render with the actual library
 
+For web chat without a terminal, copy the complete [root SKILL.md](../SKILL.md): it contains the CDN HTML shell and a self-contained authoring subset. This page is optional guidance for agents with a local checkout.
+
 The library lives at [Micraow/Intelligent-UI](https://github.com/Micraow/Intelligent-UI). Its current local package name is `@micraow/intelligent-ui`, version `0.1.0`. This repository does **not** assume an npm release. Use the exact source revision in [library-contract.json](../library-contract.json); CI checks out that revision rather than a moving branch.
 
 ## Checkout workflow

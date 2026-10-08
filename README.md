@@ -15,7 +15,7 @@
 
 </div>
 
-Intelligent UI Skill 帮助 AI 判断什么时候值得用图、选什么组件，以及怎样把正文、公式、数据和交互组织成一段好读的解释。AI 生成精简的 `iui/1` JSON，再由 [Intelligent-UI](https://github.com/Micraow/Intelligent-UI) 校验并生成界面。
+Intelligent UI Skill 帮助 AI 判断什么时候值得用图、选什么组件，以及怎样把正文、公式、数据和交互组织成一段好读的解释。网页聊天可以直接交付可打开的 HTML；其中的组件由精简的 `iui/1` JSON 描述，再由 [Intelligent-UI](https://github.com/Micraow/Intelligent-UI) 校验并生成界面。
 
 整个方案独立于模型厂商：不需要 OpenAI 账号、API 或私有运行时。能读取技能说明的 Agent 都可以使用它。库的 API 中 `portable` 是渲染后端的技术名称；单文件 HTML 和嵌入网页是同一套库的交付方式，无需等待另一种“原生版”。
 
@@ -28,7 +28,13 @@ Intelligent UI Skill 帮助 AI 判断什么时候值得用图、选什么组件�
 
 如果一句话就能说清，技能会保留普通文字。模拟数据必须明确标注，真实数据不能凭空补齐。
 
-## 安装技能
+## 网页聊天：复制一份说明就能开始
+
+把 [`SKILL.md`](SKILL.md) **全文**复制给 Web Chat，然后提出你的解释或演示需求。入口内含基础协议子集、固定 CDN 地址、公开 API 和完整 HTML 壳；基础生成无需终端，也不要求模型读取本地 references 或库源码。
+
+让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互仍由库完成，模型不需要重写 CSS 或控件。完整 Schema 链接供扩展时读取；没有读取能力时，只使用入口明确列出的子集。聊天气泡是否能直接运行脚本，由聊天宿主决定。
+
+## 安装技能（Agent 可选）
 
 当前为 **0.1.0 开发版**，尚未发布 npm 包。先获取已可使用的开发分支：
 
@@ -38,19 +44,21 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Inte
 
 将整个 `intelligent-ui-author/` 文件夹放进你的 Agent 宿主支持的技能目录。具体路径由宿主决定；请保留 `SKILL.md`、`references/`、`examples/` 和其余相对路径。这里只提供技能文件，不会替你更改宿主配置。
 
-不支持技能安装的宿主，也可以直接阅读 [`SKILL.md`](SKILL.md) 和需要的引用文件。要实际校验、构建界面，还需要下面的 JavaScript 库和命令执行环境。
+没有技能安装能力时，直接使用上面的网页聊天路径即可。需要本地校验或离线构建的 Agent，再使用下面的命令行路径。
 
 ## 快速上手
 
 先试着对 Agent 说：
 
-> 使用 intelligent-ui-author，解释一条网络路径为什么会受最忙的链路限制。给我一个能调整负载的小演示，明确标注教学假设，并校验生成的 iui/1 JSON。
+> 使用 intelligent-ui-author，解释一条网络路径为什么会受最忙的链路限制。给我一个能调整负载的小演示，明确标注教学假设。只使用说明中的 JSON 协议和固定 CDN 壳，返回完整 HTML；不要手写组件 HTML/CSS，也不要假装运行过本地校验。
+
+网页聊天到这里即可生成文档。下面是有终端的 Agent 可选用的本地路径。
 
 第一次在本地构建时，需要 **Git 和 Node.js 22 或 24**。在 `intelligent-ui-author/` 的上一级目录运行：
 
 ```sh
 git clone https://github.com/Micraow/Intelligent-UI.git Intelligent-UI
-git -C Intelligent-UI checkout --detach aa17c6eab822fa59dbca548071cc98f1a8499805
+git -C Intelligent-UI checkout --detach d15a47f691f231d763b29e0c0a6403a11229611e
 npm --prefix Intelligent-UI ci
 npm --prefix Intelligent-UI run build
 node Intelligent-UI/bin/iui.mjs validate intelligent-ui-author/examples/hpcc-feedback.json --json

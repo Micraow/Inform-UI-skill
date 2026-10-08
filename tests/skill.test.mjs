@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { checkSkill, forbiddenPath, parseSkillFrontmatter, root } from '../scripts/check-skill.mjs';
+import { checkSkill, forbiddenPath, parseSkillFrontmatter, readSkillShell, root } from '../scripts/check-skill.mjs';
 
 const json = async file => JSON.parse(await readFile(path.join(root, file), 'utf8'));
 
@@ -69,4 +69,22 @@ test('metadata parsing accepts Windows line endings and a UTF-8 BOM', async () =
   assert.deepEqual(parseSkillFrontmatter(normalized.replaceAll('\n', '\r\n')), expected);
   assert.deepEqual(parseSkillFrontmatter('\uFEFF' + normalized), expected);
   assert.throws(() => parseSkillFrontmatter('No frontmatter'), /frontmatter/);
+});
+
+test('the copyable entrypoint contains a complete JSON-backed shell and pinned CDN integrity', async () => {
+  const source = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+  const { html, document } = readSkillShell(source);
+  const contract = await json('library-contract.json');
+  assert.equal(document.version, contract.schemaVersion);
+  assert.ok(Array.isArray(document.body) && document.body.length > 0);
+  assert.ok(html.startsWith('<!doctype html>'));
+  assert.ok(html.includes('</html>'));
+  assert.ok(html.includes('src="' + contract.cdn.baseUrl + contract.cdn.global + '"'));
+  assert.ok(html.includes('href="' + contract.cdn.baseUrl + contract.cdn.style + '"'));
+  assert.ok(html.includes('integrity="' + contract.cdn.globalIntegrity + '"'));
+  assert.ok(html.includes('integrity="' + contract.cdn.styleIntegrity + '"'));
+  assert.ok(contract.cdn.baseUrl.includes('@' + contract.revision + '/cdn/'));
+  assert.equal(new URL(contract.cdn.baseUrl).hostname, 'cdn.jsdelivr.net');
+  assert.equal(source.includes('__IUI_'), false, 'Unresolved draft CDN data');
+  assert.equal(html.includes('compileHtml'), false, 'Node-only compiler must not appear in the browser shell');
 });

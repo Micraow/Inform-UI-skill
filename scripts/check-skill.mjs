@@ -53,3 +53,12 @@ export async function checkSkill() {
   }
   return files;
 }
+
+/** Read the exact self-contained HTML shell delivered in the public entrypoint. */
+export function readSkillShell(source) {
+  const html = source.match(/^```html\r?\n([\s\S]*?)^```/m)?.[1];
+  if (!html) throw new Error('SKILL.md needs a complete HTML shell for web-chat users.');
+  const raw = html.match(/<script id="iui-spec" type="application\/json">\s*([\s\S]*?)\s*<\/script>/)?.[1];
+  if (!raw) throw new Error('The HTML shell must contain its JSON data block.');
+  return { html, document: JSON.parse(raw) };
+}
