@@ -50,7 +50,7 @@ test('core30 provenance preserves earlier manifests and exact staged verificatio
  for(const item of after.items.slice(20,30)){assert.equal(categories.nodeOwners[item.nodeTypes[0]],'base');assert.ok(categories.groups.find(g=>g.id==='base').examples.some(x=>x.repositoryPath===item.examples[0]));}
  // Later guidance and the115 README entry preserve the exact earlier locked bytes in explicit snapshots.
  const archived = new Set(['SKILL.md','tests/pending-batch.test.mjs']);
- for(const [file,digest]of Object.entries(lock.candidateFiles))assert.equal(sha256(await readFile(await safeFile(root,file==='README.md'?'candidates/upcoming-eighteen/baseline107/README.md.source.txt':archived.has(file)?'candidates/upcoming-three/baseline37/'+file+(file==='SKILL.md'?'.source.txt':''):file))),digest,'Frozen37 input drift: '+file);
+ for(const [file,digest]of Object.entries(lock.candidateFiles))assert.equal(sha256(await readFile(await safeFile(root,['README.md','scripts/verify-consumer-reuse.mjs'].includes(file)?'candidates/upcoming-eighteen/baseline107/'+file+'.source.txt':archived.has(file)?'candidates/upcoming-three/baseline37/'+file+(file==='SKILL.md'?'.source.txt':''):file))),digest,'Frozen37 input drift: '+file);
 });
 
 

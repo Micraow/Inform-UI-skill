@@ -42,17 +42,6 @@ async function verifyBuildProof({receipt,evidenceRoot,coreRoot,libraryRoot,coreR
  }equal(proof.cdnSha256,cdn,'Build proof CDN map');
 }
 
-/** Only the eighteen-candidate group may use its separately pinned Skill manifest. */
-export async function verifyUpcomingEighteenManifest({plan,assetRevision,skillRoot}){
- equal(plan.id,'upcoming-eighteen');const base='candidates/upcoming-eighteen/';
- equal(plan.skillManifestPath,base+'consumer-manifest.json','Unexpected candidate manifest path');hex(plan.skillManifestSha256,64,'Candidate manifest digest required');
- git(skillRoot,['ls-files','--error-unmatch',plan.skillManifestPath]);const raw=await bytes(skillRoot,plan.skillManifestPath);equal(hash(raw),plan.skillManifestSha256,'Candidate manifest digest mismatch');const manifest=JSON.parse(raw);
- equal(manifest.format,'inform-upcoming-eighteen-consumers/1');equal(manifest.sourceRevision,assetRevision,'Candidate source revision');equal(manifest.widths,[390,768,1100]);equal(manifest.themes,['light','dark']);equal(manifest.widths,plan.widths);equal(manifest.themes,plan.themes);equal(manifest.runner,'consumer.source.mjs');equal(manifest.executionOwner,'core:scripts/run-batch-consumers.mjs');equal(manifest.exampleCount,10);equal(manifest.canonicalCount,18);equal(manifest.plannedViews,60);assert.ok(Array.isArray(manifest.examples));equal(manifest.examples.length,10);unique(manifest.examples.map(e=>e.name),'Duplicate candidate example');equal(manifest.examples.map(e=>({name:e.name,sha256:e.sha256})),plan.examples.map(e=>({name:e.name,sha256:e.sha256})),'Candidate planned examples differ');
- git(skillRoot,['ls-files','--error-unmatch',base+manifest.runner]);equal(hash(await bytes(skillRoot,base+manifest.runner)),plan.scriptSha256,'Candidate source runner differs');const languages={},paths={},canonical=[];
- for(const entry of manifest.examples){assert.match(entry.name??'',/^[a-z0-9-]{1,100}$/);hex(entry.sha256,64,'Candidate example digest');assert.ok(entry.lang==='en'||entry.lang==='zh-CN');assert.ok(Array.isArray(entry.canonicalIds)&&entry.canonicalIds.length>0);for(const type of entry.canonicalIds)assert.match(type,/^[a-z0-9-]+$/);canonical.push(...entry.canonicalIds);const file=base+'examples/'+entry.name+'.json';git(skillRoot,['ls-files','--error-unmatch',file]);equal(hash(await bytes(skillRoot,file)),entry.sha256,'Candidate example changed');languages[entry.name]=entry.lang;paths[entry.name]=file;}
- unique(canonical,'Duplicate candidate canonical type');equal(canonical.sort(),['create-interactive-poll','email-preview','file-nav-list','jobs','product-card','sidebar-people-also-ask','local-business','restaurant-reviews','flight-search-form','flight-results','shared-activity-planner','event-sidebar','word-card','copy-words','code-cite','file-cite','sidebar-fact-table','entity-thumbnail-list'].sort(),'Unexpected candidate canonical ownership');return {languages,paths};
-}
-
 export async function verifyConsumerReuse({receiptPath,lockPath,coreRoot,coreRevision,libraryRoot,skillRoot}){
  for(const root of [coreRoot,libraryRoot,skillRoot])assert.equal(typeof root,'string');hex(coreRevision,40,'Expected workflow core revision');
  const lockRelative=path.relative(path.resolve(coreRoot),path.resolve(lockPath)).split(path.sep).join('/');
@@ -83,8 +72,7 @@ export async function verifyConsumerReuse({receiptPath,lockPath,coreRoot,coreRev
   equal(hash(await bytes(coreRoot,plan.script)),plan.scriptSha256,'Consumer script changed');equal(plan.widths,[390,768,1100]);equal(plan.themes,['light','dark']);assert.ok(Array.isArray(plan.examples)&&plan.examples.length>0);unique(plan.examples.map(e=>e.name),'Duplicate example');
   assert.ok(plan.exampleLanguages && typeof plan.exampleLanguages==='object' && !Array.isArray(plan.exampleLanguages),'Planned example languages required');
   equal(Object.keys(plan.exampleLanguages).sort(),plan.examples.map(e=>e.name).sort(),'Missing/extra planned language');
-  const candidate=plan.id==='upcoming-eighteen'?await verifyUpcomingEighteenManifest({plan,assetRevision:lock.assetRevision,skillRoot}):null,planLanguages=candidate?.languages??languageMap;
-  for(const entry of plan.examples){assert.ok(Object.hasOwn(planLanguages,entry.name),'Example missing from committed language map');equal(plan.exampleLanguages[entry.name],planLanguages[entry.name],'Skill/plan example locale mismatch');}
+  for(const entry of plan.examples){assert.ok(Object.hasOwn(languageMap,entry.name),'Example missing from committed language map');equal(plan.exampleLanguages[entry.name],languageMap[entry.name],'Skill/plan example locale mismatch');}
   const record=receipt.consumers.find(c=>c.id===plan.id);equal(record.exampleLanguages,plan.exampleLanguages,'Receipt example locale mismatch');equal(record.status,'passed');equal(record.scriptSha256,plan.scriptSha256);hex(record.reportSha256,64,'Report hash');
   equal(record.examples,plan.examples.map(e=>({name:e.name,sha256:e.sha256})),'Recorded examples mismatch');
   const reportBytes=await bytes(evidenceRoot,record.evidenceDirectory+'/RESULTS.json');equal(hash(reportBytes),record.reportSha256,'RESULTS digest mismatch');const report=JSON.parse(reportBytes);
@@ -92,9 +80,9 @@ export async function verifyConsumerReuse({receiptPath,lockPath,coreRoot,coreRev
   const expectedImages=[];
   for(const entry of plan.examples){
    assert.match(entry.name??'',/^[a-z0-9-]{1,100}$/);hex(entry.sha256,64,'Example hash');assert.ok(entry.corePath.startsWith('tests/consumer/'),'Consumer example path');assert.equal(names.has(entry.name),false,'Ambiguous duplicate coverage');names.add(entry.name);
-   equal(hash(await bytes(coreRoot,entry.corePath)),entry.sha256,'Core example changed');equal(hash(await bytes(skillRoot,candidate?candidate.paths[entry.name]:'examples/'+entry.name+'.json')),entry.sha256,'Skill/core example bytes differ');
+   equal(hash(await bytes(coreRoot,entry.corePath)),entry.sha256,'Core example changed');equal(hash(await bytes(skillRoot,'examples/'+entry.name+'.json')),entry.sha256,'Skill/core example bytes differ');
    for(const theme of plan.themes)for(const width of plan.widths){const name=`${entry.name}-${theme}-${width}.png`;expectedImages.push(name);hex(record.screenshots?.[name],64,'Screenshot hash');const png=await bytes(evidenceRoot,record.evidenceDirectory+'/'+name);assert.ok(png.length>8&&png.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])),'Missing/invalid PNG signature');equal(hash(png),record.screenshots[name],'Screenshot digest mismatch');}
-   reused.push({name:entry.name,lang:planLanguages[entry.name],mode:'inline',consumer:plan.id,views:6});
+   reused.push({name:entry.name,lang:languageMap[entry.name],mode:'inline',consumer:plan.id,views:6});
   }
   equal(Object.keys(record.screenshots??{}).sort(),expectedImages.sort(),'Missing/extra screenshot record');
  }
