@@ -28,6 +28,7 @@
     "generate:upcoming-ten": "node scripts/generate-upcoming-ten-schemas.mjs",
     "check:upcoming-ten": "node scripts/verify-upcoming-ten-source.mjs",
     "generate:upcoming-eighteen": "node scripts/generate-upcoming-eighteen-schemas.mjs",
-    "check:upcoming-eighteen": "node scripts/verify-upcoming-eighteen-source.mjs"
+    "check:upcoming-eighteen": "node scripts/verify-upcoming-eighteen-source.mjs",
+    "check:upcoming-eighteen:browser": "node candidates/upcoming-eighteen/verify-cdn-browser.mjs"
   }
 }

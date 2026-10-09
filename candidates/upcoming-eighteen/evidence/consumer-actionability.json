@@ -1,0 +1,48 @@
+{
+  "format": "inform-browser-consumer-source-actionability/1",
+  "checks": [
+    {
+      "name": "create-interactive-poll",
+      "actions": 2
+    },
+    {
+      "name": "mail-files",
+      "actions": 3
+    },
+    {
+      "name": "decision-cards",
+      "actions": 4
+    },
+    {
+      "name": "related-questions",
+      "actions": 5
+    },
+    {
+      "name": "local-places",
+      "actions": 5
+    },
+    {
+      "name": "flight-discovery",
+      "actions": 4
+    },
+    {
+      "name": "activity-planning",
+      "actions": 4
+    },
+    {
+      "name": "vocabulary-tools",
+      "actions": 3
+    },
+    {
+      "name": "source-citations",
+      "actions": 6
+    },
+    {
+      "name": "entity-facts",
+      "actions": 3
+    }
+  ],
+  "nativeBrowser": "not-run",
+  "nativePopup": "not-run",
+  "visualAcceptance": false
+}

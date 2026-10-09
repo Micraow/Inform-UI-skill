@@ -4,6 +4,16 @@ npm warn Unknown env config "http-proxy". This will stop working in the next maj
 > node scripts/verify-upcoming-eighteen-source.mjs --library ../inform-combined115-frozen-6bc30ab
 
 PASS 415 exact proof inputs, 159 runtime files, regenerated23 schemas and 64 committed examples; source-only
+PASS exact prepared smoke selectors/actionability: create-interactive-poll (2 source actions)
+PASS exact prepared smoke selectors/actionability: mail-files (3 source actions)
+PASS exact prepared smoke selectors/actionability: decision-cards (4 source actions)
+PASS exact prepared smoke selectors/actionability: related-questions (5 source actions)
+PASS exact prepared smoke selectors/actionability: local-places (5 source actions)
+PASS exact prepared smoke selectors/actionability: flight-discovery (4 source actions)
+PASS exact prepared smoke selectors/actionability: activity-planning (4 source actions)
+PASS exact prepared smoke selectors/actionability: vocabulary-tools (3 source actions)
+PASS exact prepared smoke selectors/actionability: source-citations (6 source actions)
+PASS exact prepared smoke selectors/actionability: entity-facts (3 source actions)
 PASS activity-planning: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
 PASS vocabulary-tools: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
 PASS source-citations: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
