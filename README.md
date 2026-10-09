@@ -160,7 +160,7 @@ npm run check:primitives -- --library ../Inform-UI
 
 这些命令检查技能结构与文件边界、真实库API/CLI与全部示例、自动分片的引用闭包/哈希/完整归属/同版示例、派生库存、根文档JSON字面例及新增组件正反例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
-[持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)覆盖 Linux Node.js 22/24、Windows/macOS Node.js 22、当前示例与固定CDN壳，；42组件消费者交互复用同版核心集中验收，不重复运行。历史41/46及6797分片盲测保留原文件、原pin和原结果，不以新库重算首试分数。当前62节点合同已有21份完整示例、21份根/完整指南字面JSON、49个新增反例及生成式子集检查的本地证据；同版核心的216项Chromium与42消费者视图已通过，当前Skill入口自身的88视图回归（56固定CDN、32内嵌构建）仍待本次工作流终态。详见[当前验收记录](references/schema-discovery.md)及[6797历史阶段](references/schema-discovery-6797-history.md)。
+[持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)覆盖 Linux Node.js 22/24、Windows/macOS Node.js 22、当前示例与固定CDN壳，；42组件消费者交互复用同版核心集中验收，不重复运行。历史41/46及6797分片盲测保留原文件、原pin和原结果，不以新库重算首试分数。当前62节点合同已有21份完整示例、21份根/完整指南字面JSON、49个新增反例及生成式子集检查的本地证据；同版核心的216项Chromium与42消费者视图已通过，当前Skill入口自身的88视图回归（56固定CDN、32内嵌构建）与四平台检查也已在[CI 37893757217](https://github.com/Micraow/Inform-UI-skill/actions/runs/37893757217)通过。详见[当前验收记录](references/schema-discovery.md)及[6797历史阶段](references/schema-discovery-6797-history.md)。
 
 按需入口、单根范围、Schema 边界与本轮完整验证见[发现与验收记录](references/schema-discovery.md)。纯文档检查点可只跑轻检查，完整功能结果明确绑定到已验提交，不把跳过当通过。
 

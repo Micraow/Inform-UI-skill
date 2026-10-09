@@ -24,8 +24,16 @@ Actions实际检出的PR合并SHA为48d0701d9727bc7cd7bb2609264ddf1c7b7d4495，�
 
 原始报告和42张截图在上述CI的synthetic-ui-browser-evidence artifact，test-results/skill-consumer/下。全部为原创合成内容。复用这次消费者证据，Skill工作流不再重复相同42视图；本地可用check:components:browser按需复跑。
 
-## 当前Skill回归待终态
+## 当前Skill独立验收
 
-Skill更新了固定CDN壳、派生库存和21份示例，既有工作流继续检查四平台API/CLI与Schema；88个当前视图（21例×4＋4壳，其中56固定CDN、32内嵌构建）和真实CDN索引发现仍待本次Skill工作流终态。它与上述核心/inline消费者结果分开记录。跨浏览器和真实屏幕阅读器检查未做，不计通过。
+Skill提交[1408a808f6743c9ee9c74532cbb43a71e7736699](https://github.com/Micraow/Inform-UI-skill/commit/1408a808f6743c9ee9c74532cbb43a71e7736699)的[CI 37893757217](https://github.com/Micraow/Inform-UI-skill/actions/runs/37893757217)终态success：Linux Node22/24、Windows/macOS Node22四项作业全部通过。实际PR合并检查SHA为a9df4c3c64600d032763fad57b780eb70a4159a9，与1408a80的tree同为7e9da724ea3b86f5b3c44a4e44f6c24f6045caec。
+
+- 21完整示例的实际API/CLI验证与构建、61既有非法输入、21根/完整指南字面例、同版23份Schema/17核心例及跨域闭合检查通过。
+- 新增组件49反例、7份消费者正例、62节点派生库存和27份历史文件哈希检查在Linux22执行一次通过；不将其说成四平台重复执行。
+- 88个当前Chromium视图（21例×4＋4壳，其中56固定CDN、32内嵌构建）通过。真实file://页面获取固定CDN索引，并核对base/forms/finance/converters/time共10份Document/Node包SHA与字节数，5份同版例通过浏览器validateDocument。
+- 保留的41/46节点盲测工作流检查仍使用各自旧pin、原输入与原HTML；本轮不重算6797首试成绩。
+- 本次skill-current-browser artifact抽看6张实际CDN图：壳390暗/1280亮、time390暗、foundation1280亮、primitives+form+time390暗、overlays1280亮。数学/滑块焦点、中文、窄屏时间、宽表和明暗背景未见阻塞；它们不代替核心打开浮层的专门测试。
+
+核心42消费者与本Skill88当前视图是不同验收范围，不相加冒充组件数。后续仅证据文档补记可使用[skip ci]，不更换运行时、不宣称新增代码测试。跨浏览器和真实屏幕阅读器检查未做，不计通过。
 
 历史发现流程、旧文件字节数、旧68视图及原始CI结论见[6797历史阶段记录](schema-discovery-6797-history.md)。本轮是消费者回归，不是新一轮盲测。
