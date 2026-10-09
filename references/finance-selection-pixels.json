@@ -1,0 +1,354 @@
+[
+  {
+    "name": "supplied-heatmap-1280-dark-selection-keyboard.png",
+    "size": [
+      732,
+      361
+    ],
+    "color": [
+      2,
+      133,
+      255
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 436,
+      "y1": 357
+    },
+    "samples": {
+      "left": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "right": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "top": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "bottom": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  {
+    "name": "supplied-heatmap-1280-dark-selection-pointer.png",
+    "size": [
+      732,
+      361
+    ],
+    "color": [
+      2,
+      133,
+      255
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 436,
+      "y1": 357
+    },
+    "samples": {
+      "left": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "right": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "top": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "bottom": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "name": "supplied-heatmap-1280-light-selection-keyboard.png",
+    "size": [
+      732,
+      361
+    ],
+    "color": [
+      1,
+      105,
+      204
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 436,
+      "y1": 357
+    },
+    "samples": {
+      "left": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "right": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "top": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "bottom": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  {
+    "name": "supplied-heatmap-1280-light-selection-pointer.png",
+    "size": [
+      732,
+      361
+    ],
+    "color": [
+      2,
+      133,
+      255
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 436,
+      "y1": 357
+    },
+    "samples": {
+      "left": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "right": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "top": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "bottom": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "name": "supplied-heatmap-390-dark-selection-keyboard.png",
+    "size": [
+      358,
+      321
+    ],
+    "color": [
+      2,
+      133,
+      255
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 211,
+      "y1": 317
+    },
+    "samples": {
+      "left": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "right": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "top": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "bottom": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  {
+    "name": "supplied-heatmap-390-dark-selection-pointer.png",
+    "size": [
+      358,
+      321
+    ],
+    "color": [
+      2,
+      133,
+      255
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 211,
+      "y1": 317
+    },
+    "samples": {
+      "left": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "right": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "top": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "bottom": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "name": "supplied-heatmap-390-light-selection-keyboard.png",
+    "size": [
+      358,
+      321
+    ],
+    "color": [
+      1,
+      105,
+      204
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 211,
+      "y1": 317
+    },
+    "samples": {
+      "left": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "right": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "top": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "bottom": [
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  {
+    "name": "supplied-heatmap-390-light-selection-pointer.png",
+    "size": [
+      358,
+      321
+    ],
+    "color": [
+      2,
+      133,
+      255
+    ],
+    "bounds": {
+      "x0": 2,
+      "y0": 3,
+      "x1": 211,
+      "y1": 317
+    },
+    "samples": {
+      "left": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "right": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "top": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "bottom": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  }
+]
