@@ -180,7 +180,3 @@ npm run check:next66 -- --library ../Inform-UI --revision 26ec211fa529516af3b152
 ## Current pending 37 preparation
 
 The 26ec211 asset adds supplied flight options, artist events, asset distributions, transaction lists, local onboarding selection, shipment snapshots and flight snapshots. These are seven original candidate contracts using five unique synthetic examples; no live services, provider accounts or persistence are implied. The separate [37-input lock](candidates/pending-batch/library-candidate-lock37.json) binds the current immutable source. [Prior 30 preparation](candidates/pending-batch/library-candidate-lock.json) remains historical and is reproducible only with its exact earlier Skill checkout. Full schema is the sole specification; base/domain bundles and inventory are generated from it. Accepted canonical count stays 53 until real combined acceptance.
-
-## Independent 115 candidate
-
-For all eighteen later Base contracts, use the single [115 authoring entry](candidates/upcoming-eighteen/AUTHORING.md), its generated full/Base/domain schemas and exact candidate runtime. This source-checked package has not promoted the top-level CDN contract or the accepted component count. See its [verification boundaries](candidates/upcoming-eighteen/README.md).

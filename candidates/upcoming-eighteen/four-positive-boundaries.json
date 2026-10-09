@@ -1,0 +1,404 @@
+[
+  {
+    "name": "empty supplied hours",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "local-business",
+          "name": "Example Corner Kitchen",
+          "category": "Fictional café",
+          "address": "Illustrative address supplied by the document",
+          "phoneLabel": "Phone not supplied",
+          "timezoneLabel": "Local venue time as supplied",
+          "description": "A synthetic business record. No live business lookup.",
+          "hours": [],
+          "services": [
+            "Counter service",
+            "Takeaway as supplied"
+          ],
+          "accessibility": [
+            "Step-free entrance as supplied"
+          ],
+          "source": {
+            "label": "Example business source",
+            "url": "https://example.org/business"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "explicit unknown day",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "local-business",
+          "name": "Example Corner Kitchen",
+          "category": "Fictional café",
+          "address": "Illustrative address supplied by the document",
+          "phoneLabel": "Phone not supplied",
+          "timezoneLabel": "Local venue time as supplied",
+          "description": "A synthetic business record. No live business lookup.",
+          "hours": [
+            {
+              "day": "monday",
+              "status": "unknown",
+              "periods": []
+            }
+          ],
+          "initialDay": "monday",
+          "services": [
+            "Counter service",
+            "Takeaway as supplied"
+          ],
+          "accessibility": [
+            "Step-free entrance as supplied"
+          ],
+          "source": {
+            "label": "Example business source",
+            "url": "https://example.org/business"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "exact24 hour period",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "local-business",
+          "name": "Example Corner Kitchen",
+          "category": "Fictional café",
+          "address": "Illustrative address supplied by the document",
+          "phoneLabel": "Phone not supplied",
+          "timezoneLabel": "Local venue time as supplied",
+          "description": "A synthetic business record. No live business lookup.",
+          "hours": [
+            {
+              "day": "monday",
+              "status": "hours",
+              "periods": [
+                {
+                  "opens": "00:00",
+                  "closes": "00:00",
+                  "nextDay": true
+                }
+              ]
+            }
+          ],
+          "initialDay": "monday",
+          "services": [
+            "Counter service",
+            "Takeaway as supplied"
+          ],
+          "accessibility": [
+            "Step-free entrance as supplied"
+          ],
+          "source": {
+            "label": "Example business source",
+            "url": "https://example.org/business"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "adjacent periods",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "local-business",
+          "name": "Example Corner Kitchen",
+          "category": "Fictional café",
+          "address": "Illustrative address supplied by the document",
+          "phoneLabel": "Phone not supplied",
+          "timezoneLabel": "Local venue time as supplied",
+          "description": "A synthetic business record. No live business lookup.",
+          "hours": [
+            {
+              "day": "monday",
+              "status": "hours",
+              "periods": [
+                {
+                  "opens": "09:00",
+                  "closes": "12:00"
+                },
+                {
+                  "opens": "12:00",
+                  "closes": "17:00"
+                }
+              ]
+            },
+            {
+              "day": "friday",
+              "status": "hours",
+              "periods": [
+                {
+                  "opens": "18:00",
+                  "closes": "01:00",
+                  "nextDay": true
+                }
+              ],
+              "note": "An illustrative overnight period."
+            },
+            {
+              "day": "sunday",
+              "status": "closed",
+              "periods": []
+            }
+          ],
+          "initialDay": "monday",
+          "services": [
+            "Counter service",
+            "Takeaway as supplied"
+          ],
+          "accessibility": [
+            "Step-free entrance as supplied"
+          ],
+          "source": {
+            "label": "Example business source",
+            "url": "https://example.org/business"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "empty dining records",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-reviews",
+          "label": "Supplied dining experiences",
+          "restaurantName": "Example Corner Kitchen",
+          "reviews": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "explicit zero scores",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-reviews",
+          "label": "Supplied dining experiences",
+          "restaurantName": "Example Corner Kitchen",
+          "reviews": [
+            {
+              "id": "a",
+              "author": "Example diner A",
+              "text": "An original illustrative lunch review mentioning the lentil soup.",
+              "occasion": "lunch",
+              "rating": 0,
+              "food": 0,
+              "service": 0,
+              "atmosphere": 0,
+              "visitDate": "2028-02-29",
+              "dishes": [
+                "Lentil soup"
+              ],
+              "source": {
+                "label": "Example review source",
+                "url": "https://example.org/review/a"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "unknown dining dimensions",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-reviews",
+          "label": "Supplied dining experiences",
+          "restaurantName": "Example Corner Kitchen",
+          "reviews": [
+            {
+              "id": "c",
+              "author": "Example diner C",
+              "text": "Only the supplied text is available; no rating was supplied.",
+              "occasion": "unknown"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "incomplete search draft",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-search-form",
+          "id": "flight-search",
+          "label": "Prepare a local flight search",
+          "airports": [
+            {
+              "code": "AAA",
+              "label": "Example origin"
+            },
+            {
+              "code": "BBB",
+              "label": "Example connection"
+            },
+            {
+              "code": "CCC",
+              "label": "Example destination"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "same date return",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-search-form",
+          "id": "flight-search",
+          "label": "Prepare a local flight search",
+          "airports": [
+            {
+              "code": "AAA",
+              "label": "Example origin"
+            },
+            {
+              "code": "BBB",
+              "label": "Example connection"
+            },
+            {
+              "code": "CCC",
+              "label": "Example destination"
+            }
+          ],
+          "initialOrigin": "AAA",
+          "initialDestination": "CCC",
+          "initialDepartureDate": "2028-02-29",
+          "initialTravelers": 1,
+          "initialReturnDate": "2028-02-29"
+        }
+      ]
+    }
+  },
+  {
+    "name": "nine travelers",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-search-form",
+          "id": "flight-search",
+          "label": "Prepare a local flight search",
+          "airports": [
+            {
+              "code": "AAA",
+              "label": "Example origin"
+            },
+            {
+              "code": "BBB",
+              "label": "Example connection"
+            },
+            {
+              "code": "CCC",
+              "label": "Example destination"
+            }
+          ],
+          "initialOrigin": "AAA",
+          "initialDestination": "CCC",
+          "initialDepartureDate": "2028-02-29",
+          "initialTravelers": 9
+        }
+      ]
+    }
+  },
+  {
+    "name": "empty flight results",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-results",
+          "id": "flight-results",
+          "label": "Supplied illustrative itineraries",
+          "results": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "zero and unknown price",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-results",
+          "id": "flight-results",
+          "label": "Supplied illustrative itineraries",
+          "results": [
+            {
+              "id": "direct",
+              "label": "Example direct itinerary",
+              "price": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "legs": [
+                {
+                  "id": "a",
+                  "carrier": "Example Air",
+                  "number": "EA 1",
+                  "departure": {
+                    "airport": "AAA",
+                    "at": "2028-02-29T09:00Z"
+                  },
+                  "arrival": {
+                    "airport": "CCC",
+                    "at": "2028-02-29T12:00Z"
+                  }
+                }
+              ],
+              "source": {
+                "label": "Synthetic itinerary source",
+                "url": "https://example.org/flight/direct"
+              }
+            },
+            {
+              "id": "unpriced",
+              "label": "Example unpriced itinerary",
+              "legs": [
+                {
+                  "id": "e",
+                  "carrier": "Example Air",
+                  "number": "EA 5",
+                  "departure": {
+                    "airport": "AAA",
+                    "at": "2028-02-29T10:00Z"
+                  },
+                  "arrival": {
+                    "airport": "CCC",
+                    "at": "2028-02-29T12:00Z"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

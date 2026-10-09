@@ -1,0 +1,6 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> inform-ui-skill@0.1.0 generate:upcoming-eighteen
+> node scripts/generate-upcoming-eighteen-schemas.mjs --library ../inform-combined115-frozen-6bc30ab
+
+PASS 415 exact proof inputs, 159 runtime files, regenerated23 schemas and 64 committed examples; source-only

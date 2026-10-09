@@ -1,0 +1,31 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> inform-ui-skill@0.1.0 check:upcoming-eighteen
+> node scripts/verify-upcoming-eighteen-source.mjs --library ../inform-combined115-frozen-6bc30ab
+
+PASS 415 exact proof inputs, 159 runtime files, regenerated23 schemas and 64 committed examples; source-only
+PASS activity-planning: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS vocabulary-tools: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS source-citations: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS entity-facts: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS eight contracts: 4 literals,57 exact rejection cases,24 positive boundaries; no browser/CDN/CI acceptance
+PASS local-places: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS flight-discovery: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS four contracts: 4 literals,33 exact rejection cases,12 positive boundaries; no browser/CDN/CI acceptance
+PASS 3 original authored-fixture JSDOM groups; no native browser execution
+PASS 8 authored-fixture JSDOM groups; no native browser/system clipboard/visual acceptance
+PASS four authored-fixture JSDOM interaction groups; no native browser execution
+PASS 3 authored-fixture JSDOM interaction groups; native browser not run
+PASS schema group base: closed document/node ownership and 44 supplied examples
+PASS schema group forms: closed document/node ownership and 6 supplied examples
+PASS schema group charts: closed document/node ownership and 3 supplied examples
+PASS schema group graphics: closed document/node ownership and 1 supplied examples
+PASS schema group weather: closed document/node ownership and 1 supplied examples
+PASS schema group sports: closed document/node ownership and 1 supplied examples
+PASS schema group learning: closed document/node ownership and 4 supplied examples
+PASS schema group finance: closed document/node ownership and 2 supplied examples
+PASS schema group converters: closed document/node ownership and 1 supplied examples
+PASS schema group time: closed document/node ownership and 1 supplied examples
+PASS schema group compatibility: closed document/node ownership and 0 supplied examples
+PASS upcoming115: all11 domain ownership boundaries,23 schemas,64 indexed examples, immutable baseline107 prefix and exact inline Base guidance
+PASS consolidated candidate entry: 29 complete documents and 12 standalone node literals

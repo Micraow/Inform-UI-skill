@@ -1,0 +1,15 @@
+{
+  "format": "inform-reviewed-source-pin/1",
+  "revision": "6bc30ab8cb15eb4351b1859dacef74e7f8a9a574",
+  "sourceTree": "4da40368fddd48ccb15fab7eb339491b920bf427",
+  "tree": "ca7ed45846b899fd86b058a2fa075d5af144da7f",
+  "proofSource": "docs/local-enhancements-115.json",
+  "proofSha256": "849a870a15b5188ef449dfdf3aa4dbf092ec17b4dffe20819db9625d27e998ff",
+  "protocolNodes": 115,
+  "productionAndBuildPaths": 415,
+  "runtimePaths": 159,
+  "affectedTests": 284,
+  "schemaTests": 4,
+  "aggregateTests": 1592,
+  "nativeBrowserExecuted": false
+}

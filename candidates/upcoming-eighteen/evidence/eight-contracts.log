@@ -1,0 +1,5 @@
+PASS activity-planning: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS vocabulary-tools: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS source-citations: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS entity-facts: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS eight contracts: 4 literals,57 exact rejection cases,24 positive boundaries; no browser/CDN/CI acceptance

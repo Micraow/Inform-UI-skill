@@ -1,0 +1,111 @@
+{
+  "format": "inform-upcoming-eighteen-consumers/1",
+  "sourceRevision": "6bc30ab8cb15eb4351b1859dacef74e7f8a9a574",
+  "runner": "consumer.source.mjs",
+  "executionOwner": "core:scripts/run-batch-consumers.mjs",
+  "widths": [
+    390,
+    768,
+    1100
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "examples": [
+    {
+      "name": "create-interactive-poll",
+      "lang": "en",
+      "canonicalIds": [
+        "create-interactive-poll"
+      ],
+      "sha256": "79410a06d521a1f5ece89ec072dc175ba0069da7bb98653d1e53d2d8af578396"
+    },
+    {
+      "name": "mail-files",
+      "lang": "en",
+      "canonicalIds": [
+        "email-preview",
+        "file-nav-list"
+      ],
+      "sha256": "69e6e96dfa40c5fb06061ae16a6b2fb3d8c4a9e84022eb0ee750897210922cff"
+    },
+    {
+      "name": "decision-cards",
+      "lang": "en",
+      "canonicalIds": [
+        "jobs",
+        "product-card"
+      ],
+      "sha256": "b8767cfb3e75f551512eafb46fd992bcd3af2eb5596e0054fc5c6c625cd1f4d5"
+    },
+    {
+      "name": "related-questions",
+      "lang": "en",
+      "canonicalIds": [
+        "sidebar-people-also-ask"
+      ],
+      "sha256": "e07bb1e65e3a2a07c601e8a30f57a5eba9d3a61dbcd89439f325438404883b6a"
+    },
+    {
+      "name": "local-places",
+      "lang": "en",
+      "canonicalIds": [
+        "local-business",
+        "restaurant-reviews"
+      ],
+      "sha256": "979dc6ea519b8ef3aeb76de1e413e2cec47bd5dc541d1c3ba4b2d07feca83f3a"
+    },
+    {
+      "name": "flight-discovery",
+      "lang": "en",
+      "canonicalIds": [
+        "flight-search-form",
+        "flight-results"
+      ],
+      "sha256": "17cfc7e6ab0373a9679288e75c4603cc8b3f266803885db2a142a97d71bcfff1"
+    },
+    {
+      "name": "activity-planning",
+      "lang": "en",
+      "canonicalIds": [
+        "shared-activity-planner",
+        "event-sidebar"
+      ],
+      "sha256": "94500e6f877965eac78d5413c15077a796f591027f0e009f9757eeba400bf06d"
+    },
+    {
+      "name": "vocabulary-tools",
+      "lang": "en",
+      "canonicalIds": [
+        "word-card",
+        "copy-words"
+      ],
+      "sha256": "715d3f999f434c9db2eb1474cf1ae4a0030cf82103e67f8a99a4504fe6f1bf70"
+    },
+    {
+      "name": "source-citations",
+      "lang": "en",
+      "canonicalIds": [
+        "code-cite",
+        "file-cite"
+      ],
+      "sha256": "94aea08687c096d173a26c6ea28d2e323121f1e38b6b87a71a8120561fe87c9f"
+    },
+    {
+      "name": "entity-facts",
+      "lang": "en",
+      "canonicalIds": [
+        "sidebar-fact-table",
+        "entity-thumbnail-list"
+      ],
+      "sha256": "61a8d260b6876dcc504cb289648fbb857fcdd4701c976a816eb8f48f740c5309"
+    }
+  ],
+  "exampleCount": 10,
+  "canonicalCount": 18,
+  "plannedViews": 60,
+  "nativeBrowserExecuted": false,
+  "systemClipboardVerified": false,
+  "acceptancePromotion": false
+}

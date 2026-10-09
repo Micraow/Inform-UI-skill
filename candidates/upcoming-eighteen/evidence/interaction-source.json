@@ -1,0 +1,14 @@
+{
+  "format": "inform-authoring-jsdom/1",
+  "fixtureFiles": [
+    "examples/decision-cards.json",
+    "examples/related-questions.json"
+  ],
+  "checks": [
+    "jobs cancellation/reentry/filter/retained-shortlist reset/state identity/FormData/outside input ownership",
+    "product explicit variant/exact decimal/cancel/strict quantity/unknown versus unavailable/reset/FormData",
+    "questions missing versus empty/literal markup/local filter/disclosures/reset/safe source/outside ownership"
+  ],
+  "nativeBrowser": "not-run",
+  "visualAcceptance": false
+}
