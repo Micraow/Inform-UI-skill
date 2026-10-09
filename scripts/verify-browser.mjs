@@ -15,6 +15,7 @@ function argument(flag) {
 const library = path.resolve(argument('--library') || process.env.IUI_LIBRARY_DIR || path.join(root, '../Inform-UI'));
 const packageJson = JSON.parse(await readFile(path.join(library, 'package.json'), 'utf8'));
 const contract = JSON.parse(await readFile(path.join(root, 'library-contract.json'), 'utf8'));
+const expectedNodeTypes = JSON.parse(await readFile(path.join(root, 'references/node-support.json'), 'utf8')).map(node => node.type).sort();
 assert.equal(packageJson.name, contract.packageName);
 assert.equal(packageJson.version, contract.packageVersion);
 const require = createRequire(path.join(library, 'package.json'));
@@ -35,10 +36,10 @@ try {
     for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
       const label = `${name}-${width}-${theme}`;
       const file = path.join(directory, `${label}.html`);
-      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap', 'local-converters', 'auxiliary-surfaces'].includes(name);
+      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap', 'local-converters', 'auxiliary-surfaces', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time'].includes(name);
       const authored = { ...document, theme };
       const html = cdn ? shell.html.replace(/(<script id="iui-spec" type="application\/json">)[\s\S]*?(<\/script>)/, (_, open, close) => open + JSON.stringify(authored).replaceAll('<', '\\u003c') + close).replace('data-theme="auto"', `data-theme="${theme}"`)
-        : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios'].includes(name) ? 'zh-CN' : 'en' });
+        : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time'].includes(name) ? 'zh-CN' : 'en' });
       await writeFile(file, html);
       const page = await browser.newPage({ viewport: { width, height: 900 }, colorScheme: theme });
       if (cdn) {
@@ -352,7 +353,7 @@ try {
     await page.goto(pathToFileURL(shellFile).href);
     await page.waitForSelector('.iui-root');
     if (width === 390 && theme === 'light') {
-      const discovery = await page.evaluate(async ({ baseUrl, schemaIndex }) => {
+      const discovery = await page.evaluate(async ({ baseUrl, schemaIndex, expectedNodeTypes }) => {
         const indexUrl = new URL(schemaIndex, baseUrl).href;
         async function get(url) {
           const response = await fetch(url, { cache: 'no-store', redirect: 'error' });
@@ -361,9 +362,9 @@ try {
           return { bytes, json: JSON.parse(new TextDecoder().decode(bytes)) };
         }
         const { json: index } = await get(indexUrl);
-        if (index.format !== 'inform-ui-schema-index/1' || Object.keys(index.nodeOwners).length !== 52) throw new Error('Unexpected index contract');
+        if (index.format !== 'inform-ui-schema-index/1' || JSON.stringify(Object.keys(index.nodeOwners).sort()) !== JSON.stringify(expectedNodeTypes)) throw new Error('Unexpected index contract');
         const checked = [];
-        for (const id of ['base', 'finance', 'converters']) {
+        for (const id of ['base', 'forms', 'finance', 'converters', 'time']) {
           const group = index.groups.find(group => group.id === id);
           for (const metadata of [group.documentSchema, group.nodeSchema]) {
             const url = new URL(metadata.path, indexUrl).href;
@@ -378,9 +379,9 @@ try {
           checked.push(id);
         }
         return checked;
-      }, contract.cdn);
-      assert.deepEqual(discovery, ['base', 'finance', 'converters']);
-      console.log('PASS file:// CDN discovery: real index, six hash-matched Document/Node bundles and three runtime-validated same-pin examples');
+      }, { ...contract.cdn, expectedNodeTypes });
+      assert.deepEqual(discovery, ['base', 'forms', 'finance', 'converters', 'time']);
+      console.log('PASS file:// CDN discovery: real index, ten hash-matched Document/Node bundles and five runtime-validated same-pin examples');
     }
     assert.deepEqual(errors, [], 'Copyable CDN shell has browser/load errors');
     await page.getByRole('slider').focus();

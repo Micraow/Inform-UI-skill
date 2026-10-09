@@ -1,15 +1,17 @@
 ---
 name: inform-ui-author
-description: 为解释、真坐标图、本地表单、供数天气/体育/金融、本地自测/闪卡和单位/货币换算生成 iui/1 JSON；无终端Web Chat直接用固定CDN与本文HTML壳交付页面，Agent可用本地库。普通文字足够时不强加界面。
+description: 为解释、真坐标图、本地表单、供数天气/体育/金融、本地自测/闪卡、单位/货币换算、时间控件、按需说明与基础状态生成 iui/1 JSON；无终端Web Chat直接用固定CDN与本文HTML壳交付页面，Agent可用本地库。普通文字足够时不强加界面。
 ---
 
 # Inform UI Web Chat 完整指南
+
+> 固定运行时已通过292项核心检查、216项Chromium测试和42个组件消费者视图；范围与精确提交见[验收记录](references/schema-discovery.md)。当前Skill入口的独立CDN回归另行记录，旧盲测保留原版本。
 
 这是可选的完整人工可读指南，适合一次提供给无法按需读取领域资料的普通Web Chat。Agent的默认入口是[SKILL.md](SKILL.md)。正式JSON Schema以固定版本核心库为唯一来源，本文件是生成指南，不是第二套手工维护的Schema。
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
-本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。固定协议52个注册项：50个渲染节点、markdown纯文本降级、native明确拒绝。本文逐项给出用途及保守生成合同，复制本指南即可生成；进阶可选样式可查完整Schema，不猜未列字段。
+本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。本版固定协议有62个注册项：60个渲染节点、markdown纯文本降级、native明确拒绝。协议节点数不是组件目录验收计数。本文逐项给出用途及保守生成合同，复制本指南即可生成；进阶可选样式可查完整Schema，不猜未列字段。
 
 Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
 
@@ -23,19 +25,19 @@ Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模�
 
 ## 2. 无终端 Web Chat：完整 HTML 路径
 
-固定的公开文件（同一提交，不混用版本）：
+固定的公开文件（实际取回字节已核对，保持同一提交）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.css`
-- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/schema/index.json`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.css`
+- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/schema/index.json`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
 数学为KaTeX可视HTML及辅助MathML；CSS按需加载同一提交cdn/fonts/的20款官方MIT WOFF2。自设严格CSP须同时许可脚本、样式及font-src https://cdn.jsdelivr.net；不要换字体或删规则。
 
-HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致的body data-theme。iui-page控制整页背景，margin:0去浏览器边距；嵌入网页时背景由宿主决定。不以JSON冒充页面，也不手写组件DOM。
+HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的body data-theme。iui-page控制整页背景，margin:0去浏览器边距；嵌入网页时背景由宿主决定。不以JSON冒充页面，也不手写组件DOM。
 
 ```html
 <!doctype html>
@@ -44,7 +46,7 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inform UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.css" integrity="sha384-LHkRYrW+gjyqnUp86CgtLDWvOrTbN3oncoJv80YTzEHuGnfZadFBbc4HgBPMNQz2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.css" integrity="sha384-qNWPFoy6Ymjw326+NVax/jDhejs64mwImn+qdIzX44lT5LB9RHqPifXo8AHYIC2v" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -52,7 +54,7 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.global.min.js" integrity="sha384-tvz7phydYNWyvO3Sz/W+xhrMv0sp+UOlR1p/b3+w9E9M9Hmjff+bGzjaUAglOWd9" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.global.min.js" integrity="sha384-kCdDypduBjoPeuXDsQ+Jh87xRL4aVxFlSy0DyPQ9xoEtvQfucAYKVVodpT0TvuxN" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -98,11 +100,39 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
 
 文字不解释Markdown/HTML；段落用text，公式用math。链接/图片只用有权使用的公开HTTPS URL，最多2048字符；无合适图片则省略。普通节点来源用caption/link；领域节点按各自source合同。外链image先显示来源与加载按钮，用户点击后才请求图片，不是自动联网图片流。
 
+### 富文本、引用与网格
+
+这些是常用基础能力，直接在根文件给出生成规则，不必先读取领域文档。
+
+- `text` 二选一：旧 `value:V`，或 `runs:[{value:V,bold?:B,italic?:B,underline?:B,strike?:B,code?:B,href?:S},...]`，1–100 段，不能同时给 value/runs。href 用允许的 HTTPS 链接，最多2048字符；文字与代码始终是惰性文本，不接收 HTML、事件或脚本。
+- `text` / `title` / `caption` 可加整段 `italic:B,underline:B,strike:B`。`shimmer:B` 只表示装饰效果，不代替真实 loading 状态，不暗示联网；非必要时省略，减少动态效果设置会停动画。
+- `code` 可加 `inline:true` 表示行内代码；默认仍为代码块。不会执行、编辑代码，也不承诺语法高亮或复制按钮。
+- `blockquote`：`{type:"blockquote",children:Node[],attribution?:S,cite?:S,id?:S}`；children 1–30，attribution 最多500字符，cite 是最多2048字符的允许 HTTPS 链接。由作者提供并核实引用，不把合成文字归于真人。
+- `grid` 新增 `mobileColumns:1..6整数`，默认1，在520px及以下生效；columns 默认2。`grid-item` 必须是 grid 的直接子项：`{type:"grid-item",children:Node[],colSpan?:整数,rowSpan?:1..20整数,mobileColSpan?:整数,id?:S}`，children 1–30；两个列跨度默认1，分别不得超过父 grid 的 columns/mobileColumns。窄屏 rowSpan 恢复自动，阅读顺序保持原数组顺序。不要用跨格实现视觉重排或改变阅读顺序。
+
+合成例：
+
+```json
+{"type":"grid","columns":3,"mobileColumns":1,"children":[{"type":"grid-item","colSpan":2,"mobileColSpan":1,"children":[{"type":"text","runs":[{"value":"观察结论：","bold":true},{"value":"零值与缺测不同；字段 "},{"value":"count","code":true},{"value":" 保留原始含义。"}]}]},{"type":"grid-item","children":[{"type":"blockquote","children":[{"type":"text","value":"缺测应保留为空，不应补成零。"}],"attribution":"本页原创合成示例"}]}]}
+```
+
+### 结构化表格
+
+简单矩形数据继续用前述 columns＋rows。需要多层表头、行分组、跨格或页脚时才用以下扩展；不要为排版把正文塞进表格。
+
+- `table` 必有 columns（1–20个列名），再二选一 `rows` 或 `sections`，不能同时给。单元格仍可用 V，或 `{value:V,header?:B,rowSpan?:1..200整数,colSpan?:1..20整数,align?:"start"|"center"|"end",scope?:"row"|"col"|"rowgroup"}`；两个跨度默认1。null 是真实空值，不是被跨格占据位置的占位符。
+- `sections:[{kind:"head"|"body"|"foot",rows:单元格[][]},...]` 为1–12段，顺序是可选 head、一个或多个 body、可选 foot；至多各一个 head/foot，全部段合计不超过200个输入行。head 替代 columns 自动表头；未给 head 则仍从 columns 生成表头。
+- 每格放入从左到右第一个未占列，其矩形必须完全位于本段内；不能重叠、超宽、跨段或留下逻辑缺格。已完全被上方 rowSpan 覆盖的行可以写 `[]`，其余空行不合法。不能给合并覆盖位置再补 null。
+- head 中每格是列头，scope 为 col；body/foot 中 header:true 默认为 row，只关联其右侧且行范围相交的格。显式 rowgroup 必须位于本段首行并跨完整段。scope 仅用于表头格；不写 colgroup，不用 scope 修补错误跨度。库生成 headers 关联，不在 JSON 中伪造 DOM ID。
+- `status:"ready"|"loading"|"error"` 默认 ready，可配 `message:S`。非 ready 保留 caption/表头而不展示数据体；ready 无数据是真实空态。这些值不触发请求、不计算合计。宽表局部滚动、保留原生 table 语义，不是可编辑电子表格。
+
+原生完整例见 [基础增强示例](examples/foundation-explainer.json)。复杂跨度应先用同版 validateDocument 校验，再实看窄屏滚动与表头关系。
+
 ### 指标、表格与图
 
 - `metric`：`{type:"metric",label:S,value:V,unit?:S,hint?:S,precision?:0..6整数,color?:上述语义色}`。
 - `metric-grid`：`{type:"metric-grid",children:[metric节点,...],columns?:1..4整数}`，1–12 个指标。
-- `table`：`{type:"table",columns:[S,...],rows:[[V,...],...],caption?:S}`。1–20 列，每行单元数等于列数，最多 200 行；缺测格用 `null`。
+- 简单矩形 `table`：`{type:"table",columns:[S,...],rows:[[V,...],...],caption?:S}`。1–20 列，每行单元数等于列数，最多 200 行；缺测格用 `null`。
 - `chart`：`{type:"chart",kind:"line"|"bar"|"scatter"|"area"|"donut",xKey:S,xScale?:"category"|"linear"|"time",xLabel?:S,xMin?:N,xMax?:N,timezone?:S,data:[{字段:V,...},...],series:[{key:S,label:S,color?:"blue"|"green"|"orange"|"red"|"purple"|"gray"},...],title?:S,unit?:S,note?:S,yMin?:N,yMax?:N,status?:"ready"|"loading"|"error",message?:S}`。0–300 行、1–6 系列，系列 key 不重复；每行含 xKey 和各系列 key。Y 解析为有限数值或 null。
   - `category` 默认把字符串/数值标签等距排放。真实距离、数值大小用 `linear`，X 必须解析为有限数值：0、1、100 三个点不能等距伪装成真实坐标。
   - `time` 的 X 用带 `Z`/明确偏移的 ISO 时间（可含秒/毫秒）或 Unix 毫秒；`timezone` 为有效 IANA 时区，默认 UTC。不能用无时区的日期时刻或把 Unix 秒当毫秒。`xLabel`/`unit` 写清轴和单位。
@@ -137,7 +167,9 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
 
 - text/email/textarea 绑定字符串 state；number 绑定数值 state。radio/segmented 的1–40个选项使用相同原始类型，值唯一，初值属于选项；选项 disabled 是字面布尔值。required 是字面布尔值，不写成表达式。
 - minLength 为0–12000整数，maxLength 为1–12000整数，按 HTML 的 UTF-16 单元计数；上下限有序。number 的 min/max 有序、step 为正数；不要把文本约束写到 number 或把数值约束写到文本。
-- 初值可未填有效，失焦/提交显示错误；结构校验成功不等于表单有效。数字空白/不完整输入仅作DOM草稿，state不变为null/空串/NaN；非required的空number也须修正/取消。指标显示最后有效state，不证明草稿有效。
+- 初值可未填有效，失焦/提交显示错误；结构校验成功不等于表单有效。用户在 number 输入框中键入的空白/不完整、非有限数字，及不满足 min/max/step 的有限数字仅作DOM草稿，不写入state；非required的空number也须修正/取消。指标保留最后接受的数字值，不证明草稿有效。text/email/textarea 仍即时写入字符串，格式/长度/required 错误可能已在state中；不可泛称所有字段都保留最后有效值。
+- number 的 step 相对 min（省略 min 时为0）对齐；未给 step 时允许有限小数。不相关 setState 保留数字草稿；宿主对该 bind 明确 setState 或基本 button set 会覆盖草稿，即使赋同一个值。成功的 reset/表单取消清除相应草稿与错误；拒绝的更新不能假称重置成功。
+- 宿主明确 setState 的有限数值是权威 state 写入：它仍须通过类型、引用、计算和其他全局约束，但 form 的 min/max/step 不是全局state约束，所以越界或不合步长的宿主数值也可能写入并覆盖输入框。此时指标随state更新，表单失焦/提交仍判无效；宿主须自行决定是否允许这种初值/更新，不把表单校验当宿主数据验证。
 - form 不能嵌套。默认省略 action：内置提交按钮只做本地校验、显示结果、派发 `iui:submit`（`{id,values}`）；没有联网、保存或自动刷新。快照只含该表单未禁用的绑定字段，含嵌套 field 内的 slider/toggle/select；不夹带全局无关 state 或 computed。
 - form取消中止宿主动作并恢复本表单初值；若违反全局约束则报错、保留有效状态。普通button的reset重置整份文档，不能替代局部取消。
 - **本页 Web Chat 壳不注册宿主动作，必须省略 form.action。** 仅已有可信宿主明确提供并获授权的白名单标识符才可填 action；它不是 URL/函数/fetch。宿主 Promise 产生真实 busy/error/retry，忙碌时防重、取消/替换后忽略迟到结果。不要给 form 编造 `status:"loading"`；无宿主时也不能假称数据已发送。文件上传、日期选择器、富文本与正则 pattern 均未支持。
@@ -158,6 +190,75 @@ weather展示有来源的当前/逐日/逐小时供数。教学合成标syntheti
 - 条件只能是 clear、partly-cloudy、cloudy、rain、snow、storm、fog、unknown。湿度和降水概率是0–100百分数或null；0是真实零，null是缺测。0.4代表0.4%，要表示40%就填40。天气数值/日期不接受 V 表达式或 state 引用。
 - 可选 `id:S,initialDate:S,status:"ready"|"loading"|"error",message:S`；initialDate 必须在 daily 中，无daily就省略。空状态用daily/hourly空数组及已知或null的current；loading/error加说明，不虚构请求进度。
 - ℃/℉、日期、温度/降水概率、图/表切换由组件本地处理，并从原始值换算，不改变输入文档。它们是weather自身视图状态，不是文档state的可绑定字段；不能写 `bind`、API密钥、城市查询或刷新端点。
+
+### 时钟、秒表与倒计时
+
+展示某个瞬间/当前设备时区时间用 clock；累计经过多久用 stopwatch；从已知时长向零计时用 timer。只需写明一个时刻或时长时用正文即可。三者属于 time 域，都是页内本地组件，字段是字面值，不接受 V、bind、自动开始、回调、通知或服务 URL。
+
+| type | 必填字段（除 type） | 可选字段与初始状态 |
+| --- | --- | --- |
+| `clock` | `mode:"live"|"snapshot",timezone:S` | `id:S,title:S,hourCycle:"h12"|"h23",seconds:B`；默认 h23、显示秒。snapshot 必须有 at，live 禁止 at |
+| `stopwatch` | 无 | `id:S,title:S,elapsedMs:0..604800000整数,laps:B`；默认0、允许分圈，暂停起始 |
+| `timer` | `durationMs:1..604800000整数` | `id:S,title:S`；暂停起始，显示完整输入时长 |
+
+- timezone 为有效 IANA 时区。snapshot 的 at 是有效且带 Z/明确偏移的 ISO 时间，最多40字符；不会前进。live 读取设备时钟并显示该区日期，不是服务端校时；没有可信实时时间来源时，不把设备时钟说成权威时间。id/title 为1–200字符。
+- 两种时长控件用单调时间基线追踪；迟到回调按经过时长追赶，不按回调次数累加。页面关闭不继续提醒，设备挂起不保证准确恢复；不能用来承诺服药、紧急事件或必须送达的系统闹钟。
+- stopwatch 提供开始、暂停/继续、重置及可选分圈；重置回 文档给定的 elapsedMs 并暂停，不一定回零。最多100条内存分圈，达上限禁用分圈且保留已有条目；暂停时不能记圈。首圈 split 不包括 文档给定的 elapsedMs，total 包括它；达到604800000ms停止并显示上限。
+- timer 到零停止，显示不为负，单次运行只播报一次完成；正的不足一显示单位的剩余时长向上显示。完成后的重新开始从原 durationMs 开始计时；重置回原时长但保持暂停。没有铃声、推送、持久化或跨标签同步。
+- 内建原生按钮支持 Tab、Enter、Space；动作/完成另行播报，时间数字不会逐 tick aria-live 播报。当前按钮被禁用时库把焦点移到相应可用动作，普通 ticking 不夺焦点。不要手写按钮替代或额外重复播报。
+- `setState` 不重建这些控件：不相关 state 更新或文档 state 重置不会重置其局部计时/圈数。`update(nextDocument)` 成功时有意重建并恢复新文档初始值；校验失败原子拒绝，保留现有界面。dispose 取消定时器/监听。需要改变 durationMs 等配置时改文档后 update，不能猜一个 state 绑定。
+
+```json
+{"type":"clock","title":"固定瞬间的上海时间","mode":"snapshot","timezone":"Asia/Shanghai","at":"2026-10-09T00:00:00Z","hourCycle":"h23","seconds":false}
+```
+
+最小页内倒计时是 `{"type":"timer","title":"两分钟练习","durationMs":120000}`，不会自行开始。完整例见 [时间组件](examples/local-time.json)；状态边界见 [时间与浮层](references/time-and-overlays.md)。
+
+### 小提示与非模态说明面板
+
+两者是 base 常用节点，在此直接给全量常用合同。短的非交互解释用 tooltip；含链接、表单或其他控件的按需补充内容用 popover。关键说明、错误信息与必须读完的条款直接留在正文，不只藏在悬停内容里；长正文优先 details/section。
+
+- `tooltip`：`{type:"tooltip",label:S,value:S,placement?:"top"|"bottom",id?:S}`；label 为1–200字符可见原生帮助按钮名，value 为最多2000字符惰性纯文本；placement 默认 top。它不是任意节点包裹器，不能写 children、HTML、交互链接或 V。
+- `popover`：`{type:"popover",label:S,children:Node[],title?:S,placement?:"top"|"bottom",id?:S}`；label/title 为1–200字符，children 1–20，默认 bottom。所有子节点仍遵守自身领域合同；标题省略时以触发器 label 命名。不是模态确认框，不会阻塞背景或自动提交表单。
+- tooltip 可悬停、聚焦或轻触打开；指针移至内容时保持可见；离开/失焦或 Escape 关闭。popover 用点击/Enter/Space 开关，打开聚焦其关闭按钮；Close/Escape 归还触发器焦点，外点或焦点移出分支关闭但不抢外部目标焦点，Tab 不锁在面板内。
+- 每个文档同时只保留一个 popover 分支：打开同级会关闭前分支，嵌套面板保留祖先，Escape 每次只关最深一层，关闭祖先同时关闭后代。不要靠同时打开兄弟面板完成必需流程。
+- placement 是偏好，库会为视口边缘翻转/收窄。原生顶层 API 不可用时降级为页面流式展开，不保证浮动几何；滚动/缩放会重新定位，锚点不可见/被移除时关闭。不要加 CSS 去绕过降级或越过遮挡。
+- 开关面板不重置子内容的本地状态；不相关 setState 保留打开状态、焦点与已渲染子节点。隐藏时间控件不会自动暂停；隐藏表单不会自动取消动作。需要真正结束它们时使用组件自身的暂停/取消，或由宿主明确 update/dispose。成功 update/dispose 会移除旧浮层及其子内容。
+- label/title/value 都按文本处理。子 form.action 仍只可使用可信宿主已提供且获授权的白名单标识；本页 Web Chat 壳没有宿主动作用途，必须省略。不把提示当数据获取器或借面板发起请求。
+
+```json
+{"type":"popover","label":"查看计时说明","title":"仅在页面内运行","children":[{"type":"text","value":"请保持页面打开。计时结束不会播放声音，也不会发送系统通知。"},{"type":"tooltip","label":"为什么要说明这个限制？","value":"避免把页面内倒计时误认为可保证送达的系统闹钟。"}]}
+```
+
+可访问性语义与键盘约定来自库，不能据此宣称已通过所有浏览器/屏幕阅读器审计。作者仍需给可理解标签，检查键盘、触屏、缩放、浅深色及窄屏；未验项目要明确。完整例见 [按需说明](examples/local-overlays.json)。
+
+### 流式排列、有限图标与状态点
+
+三者均归 base，常用规则直接保留在根文件；旧版本不一定支持，必须保留本文匹配的固定运行时。
+
+- `flow`：`{type:"flow",children:Node[],gap?:"none"|"sm"|"md"|"lg",align?:"start"|"center"|"end",justify?:"start"|"center"|"end"|"between",id?:S}`；children 1–50，默认 gap:md、align:center、justify:start。用于一行短标签、图标/文字或少量相关控件，宽度不足时按原数组顺序换行。不是文字段内富文本、grid/masonry，也不会改变阅读顺序；grid-item 仍只能是 grid 的直接子节点。这里 gap 是枚举，不是 box/row 等容器的数字 gap；不加 width、order、绝对定位或任意 CSS。
+- `icon`：`{type:"icon",name:图标名,size?:"sm"|"md"|"lg",tone?:"default"|"muted"|"info"|"success"|"warning"|"danger",label?:S,id?:S}`。图标名仅 `info/check/warning/error/plus/minus/arrow-left/arrow-right/external-link/clock`。默认 md、default；sm/md/lg 为16/20/24 CSS像素。都是库内原创有限几何，不读图标包、URL或传入SVG path；不是任意图标加载器。
+  - 旁边文字已经表达含义时省略 label，让图标作为装饰；独立承担信息时提供1–200字符 label，使它成为有名称的 img。它永不进入键盘焦点序列，不是按钮，不能加 action、href 或点击回调。需要行为时使用有可见标签的 button/link。
+  - `name:"clock"` 只是时钟图案，不显示设备时间或计时；真正时间组件仍用 `type:"clock"/"stopwatch"/"timer"`。tone 不应作为唯一信息载体。
+- `pulse-indicator`：`{type:"pulse-indicator",label:S,status:"idle"|"busy"|"success"|"warning"|"error",animate?:B,id?:S}`；label 为1–200字符可见文字，status 必填，animate 默认 true。库同时显示本地化状态文字；点本身是装饰。只有 busy 可以动画，减少动态效果设置下静止；animate:false 可始终关闭动画。
+  - status 是调用方提供的字面值，不填 V、bind、进度百分比、自动倒计时或服务地址；不会自行从 busy 变 success，也不会联网。仅在已有真实状态时说明实际任务；合成示例须明确标为合成，不把动画伪装成正在发送/保存。
+  - 没有重复 live-region 播报，不能替代重要完成/失败通知。需要改变 status 时由可信宿主 update 新文档；setState 不会改这个字面配置。成功 update 会重建整份文档，可能清除其他组件的本地草稿、计时和面板状态；不要用循环 update 来做闪动或进度模拟。
+
+选型例：短语义提示用 `flow` 放装饰 `icon`＋清楚文字；正文强调仍用 text.runs；精确列对齐用 grid/table；需要描述已知状态用 pulse-indicator，单个静态分类可用 badge。默认无需同时叠加图标、状态点、badge和callout。
+
+最小流式提示（图标旁已有可读解释，因此不重复命名）：
+
+```json
+{"type":"flow","gap":"sm","children":[{"type":"icon","name":"info","tone":"info"},{"type":"text","value":"这是原创合成示例，不代表实时设备或服务状态。"}]}
+```
+
+明确提供、且不自行变化的合成状态：
+
+```json
+{"type":"pulse-indicator","label":"合成任务状态示意","status":"busy","animate":false}
+```
+
+完整原生例见[流式提示与状态](examples/local-status-primitives.json)。完整文档仍须通过同版validateDocument，不把本节生成指导当成另一份Schema。
 
 ### 组合边界
 
@@ -278,7 +379,7 @@ svg用于原创、静态且普通chart/topology不足以表达的小矢量示意
 {"type":"svg","viewBox":"0 0 200 80","label":"原创示意：两个点由直线相连","shapes":[{"tag":"line","attrs":{"x1":30,"y1":40,"x2":170,"y2":40,"stroke":"currentColor","stroke-width":2}},{"tag":"circle","attrs":{"cx":30,"cy":40,"r":8,"fill":"currentColor"}},{"tag":"circle","attrs":{"cx":170,"cy":40,"r":8,"fill":"currentColor"}}]}
 ```
 
-native是历史识别项，当前验证明确返回UNSUPPORTED_NATIVE；不要生成，也不要寻找私有运行时来绕过。本文其余50个渲染节点和markdown降级均由公开库独立实现。
+native是历史识别项，当前验证明确返回UNSUPPORTED_NATIVE；不要生成，也不要寻找私有运行时来绕过。历史盲测保持各自固定版本与原始输入，不用本版重新计算首试成绩。
 
 ### 换算：单位与调用方汇率快照
 
@@ -355,7 +456,7 @@ evaluateState(document,patch)在浏览器也可用：成功{ok:true,state,comput
 | `OPERATOR_ARITY` / `OPERATOR_TYPE` / `DIVISION_BY_ZERO` | 修正参数个数、类型与整个输入范围中的除数 |
 | `FIELD_CONSTRAINT` / `NESTED_FORM` | 检查字段约束类型/上下限，移除表单嵌套 |
 | `CHART_AXIS` / `CHART_BOUNDS` / `CHART_ORDER` / `CHART_DONUT` | 匹配坐标类型、范围、排序及单系列非负组成；不要裁改真实观测 |
-| `WEATHER_DATE` / `WEATHER_RANGE` / `TIMEZONE` | 修正日期/偏移/顺序、百分比与IANA时区，缺测保留null |
+| `TIME_DATE` / `WEATHER_DATE` / `WEATHER_RANGE` / `TIMEZONE` | 修正日期/偏移/顺序、百分比与IANA时区，缺测保留null |
 | `SPORTS_ID` / `SPORTS_TEAM` / `SPORTS_DATE` / `SPORTS_FILTER` | 查唯一id、存在的不同球队、时间偏移及初始筛选引用 |
 | `SPORTS_STATUS` / `SPORTS_RESULT` / `SPORTS_PERIOD` / `SPORTS_STAT` / `SPORTS_RECORD` | 匹配状态与比分/胜者、详情标签唯一及赛绩和；不推断赛制 |
 | `LEARNING_ID` / `QUIZ_ANSWER` | 修重复题/卡/选项id，正确答案只引用本题选项且符合单选数量 |
@@ -363,7 +464,7 @@ evaluateState(document,patch)在浏览器也可用：成功{ok:true,state,comput
 | `UNIT_ID` / `UNIT_MODE` / `UNIT_RANGE` | 检查类别内单位ID、温度专用模式及绝对零度/有限结果 |
 | `CURRENCY_ID` / `CURRENCY_RATE` / `CURRENCY_DATE` / `CURRENCY_RANGE` | 检查币种唯一/选择、相对base汇率方向、正值或null、base=1、时间偏移及有限结果 |
 | `SVG_VIEWBOX` / `SVG_ATTRIBUTE` / `SVG_PAINT` / `SVG_NUMBER` / `SVG_PATH` / `SVG_TRANSFORM` | 检查正面积viewBox、属性白名单、安全字面颜色、有限数字和受控路径/变换；不加脚本或外部资源 |
-| `TABLE_WIDTH` | 让每行与列数一致，真正缺测用 null |
+| `TABLE_SOURCE` / `TABLE_SECTION` / `TABLE_LIMIT` / `TABLE_WIDTH` / `TABLE_SPAN` / `TABLE_OVERLAP` / `TABLE_SCOPE` | rows/sections二选一；按段核对逻辑列覆盖、跨度与表头scope，不给合并占位补null |
 | `UNSAFE_URL` / `UNSUPPORTED_NATIVE` | 使用允许的公开 HTTPS 资源或本文节点；不要绕过校验、伪造私有组件 |
 
 预览检查桌面/390px、明暗、中文/公式、键盘与反馈。未预览仍交完整HTML并说明；结构通过不等于事实/视觉正确，不手写CSS/HTML掩盖库错误。

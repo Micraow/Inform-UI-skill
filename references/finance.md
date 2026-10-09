@@ -1,6 +1,6 @@
 ## 当前合同升级
 
-当前[固定合同](../library-contract.json)已采用52节点资源4b6c1f0，四种金融供数字段保持兼容，并新增[单位/货币换算](converters.md)。同一SVG的键盘→鼠标切换也纳入独立复验；下方064/50节点记录保留其原始范围，不冒充新版本结果。
+当前[固定合同](../library-contract.json)采用62节点资源01ae9d8，四种金融供数字段与[单位/货币换算](converters.md)保持兼容。当前整体验收见[验证记录](schema-discovery.md)；下方50/52节点记录和同一SVG键盘→鼠标切换的历史结论保留其原始范围，不冒充新版本结果。
 
 # 金融供数选型与完整边界
 
@@ -72,6 +72,6 @@ Skill [048a379](https://github.com/Micraow/Inform-UI-skill/commit/048a3791e12893
 
 Skill [898b759](https://github.com/Micraow/Inform-UI-skill/commit/898b7595d6f697c923dcf2df48ce7ecefe8f2674) 的 [CI 37879638453](https://github.com/Micraow/Inform-UI-skill/actions/runs/37879638453) 四平台通过，固定库资源为 4b6c1f0df72cede2e2528a3c5838b5622a45215d。测试明确覆盖同一 SVG 中鼠标 2px → 键盘 3px → 鼠标 2px，390/1280px 与明暗主题都保留截图。后续人工复看手机暗色和桌面亮色的 pointer-return 原图，四边一致且没有额外整图黑框。这个结论限于已列举的操作和视图。
 
-自动分片阶段的 6797f7f7755f483db6c3be3831aa03433b7c4696 保持同一 JS/CSS 字节和 SRI；Schema、示例及发现索引固定到同一提交，验收见[按需发现记录](schema-discovery.md)。历史 41/46 首稿没有升级或改写。
+自动分片阶段的 6797f7f7755f483db6c3be3831aa03433b7c4696 保持同一 JS/CSS 字节和 SRI；Schema、示例及发现索引固定到同一提交，验收见[该阶段按需发现记录](schema-discovery-6797-history.md)。历史 41/46 首稿没有升级或改写。
 
 保留视觉观察：学习与转换器仍有可见的辅助反馈文字，有时会显得重复。此项属于库呈现层后续改进，不归因于盲测作者，不表示本轮已达到全部视觉复刻目标。

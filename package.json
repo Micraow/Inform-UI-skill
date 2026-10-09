@@ -12,6 +12,10 @@
     "test": "node --test tests/*.test.mjs",
     "check:library": "node scripts/validate-examples.mjs",
     "check:browser": "node scripts/verify-browser.mjs",
-    "check:schema": "node scripts/verify-schema-index.mjs"
+    "check:schema": "node scripts/verify-schema-index.mjs",
+    "check:inventory": "node scripts/derive-node-support.mjs --check",
+    "check:components": "node scripts/verify-next-guidance.mjs",
+    "check:primitives": "node scripts/verify-primitive-guidance.mjs",
+    "check:components:browser": "node scripts/verify-next-browser.mjs"
   }
 }

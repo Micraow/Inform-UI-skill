@@ -1,0 +1,502 @@
+[
+  {
+    "name": "flow-empty",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flow",
+          "children": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "flow-limit",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flow",
+          "children": [
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            },
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "flow-numeric-gap",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flow",
+          "children": [
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            }
+          ],
+          "gap": 8
+        }
+      ]
+    }
+  },
+  {
+    "name": "flow-stretch",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flow",
+          "children": [
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            }
+          ],
+          "align": "stretch"
+        }
+      ]
+    }
+  },
+  {
+    "name": "flow-around",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flow",
+          "children": [
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            }
+          ],
+          "justify": "around"
+        }
+      ]
+    }
+  },
+  {
+    "name": "flow-order",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flow",
+          "children": [
+            {
+              "type": "text",
+              "value": "原创合成示例"
+            }
+          ],
+          "order": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "grid-item-through-flow",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "grid",
+          "children": [
+            {
+              "type": "flow",
+              "children": [
+                {
+                  "type": "grid-item",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "原创合成示例"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "icon-unknown",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "icon",
+          "name": "play"
+        }
+      ]
+    }
+  },
+  {
+    "name": "icon-size",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "icon",
+          "name": "info",
+          "size": 20
+        }
+      ]
+    }
+  },
+  {
+    "name": "icon-tone",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "icon",
+          "name": "info",
+          "tone": "accent"
+        }
+      ]
+    }
+  },
+  {
+    "name": "icon-empty-label",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "icon",
+          "name": "info",
+          "label": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "icon-url",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "icon",
+          "name": "info",
+          "href": "https://example.com/"
+        }
+      ]
+    }
+  },
+  {
+    "name": "icon-raw-path",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "icon",
+          "name": "info",
+          "path": "M0 0L10 10"
+        }
+      ]
+    }
+  },
+  {
+    "name": "pulse-missing-label",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "pulse-indicator",
+          "status": "busy"
+        }
+      ]
+    }
+  },
+  {
+    "name": "pulse-empty-label",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "pulse-indicator",
+          "label": "",
+          "status": "busy"
+        }
+      ]
+    }
+  },
+  {
+    "name": "pulse-loading-is-not-busy",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "pulse-indicator",
+          "label": "合成状态",
+          "status": "loading"
+        }
+      ]
+    }
+  },
+  {
+    "name": "pulse-bound-status",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "pulse-indicator",
+          "label": "合成状态",
+          "status": {
+            "$": "phase"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "pulse-string-animate",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "pulse-indicator",
+          "label": "合成状态",
+          "status": "busy",
+          "animate": "true"
+        }
+      ]
+    }
+  },
+  {
+    "name": "pulse-progress",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "pulse-indicator",
+          "label": "合成状态",
+          "status": "busy",
+          "progress": 50
+        }
+      ]
+    }
+  },
+  {
+    "name": "pulse-service",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "pulse-indicator",
+          "label": "合成状态",
+          "status": "busy",
+          "src": "https://example.com/status"
+        }
+      ]
+    }
+  }
+]

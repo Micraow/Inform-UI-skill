@@ -64,6 +64,14 @@
     "status": "portable"
   },
   {
+    "type": "grid-item",
+    "status": "portable"
+  },
+  {
+    "type": "blockquote",
+    "status": "portable"
+  },
+  {
     "type": "section",
     "status": "portable"
   },
@@ -73,6 +81,26 @@
   },
   {
     "type": "details",
+    "status": "portable"
+  },
+  {
+    "type": "tooltip",
+    "status": "portable"
+  },
+  {
+    "type": "popover",
+    "status": "portable"
+  },
+  {
+    "type": "flow",
+    "status": "portable"
+  },
+  {
+    "type": "icon",
+    "status": "portable"
+  },
+  {
+    "type": "pulse-indicator",
     "status": "portable"
   },
   {
@@ -116,26 +144,6 @@
     "status": "portable"
   },
   {
-    "type": "button",
-    "status": "portable"
-  },
-  {
-    "type": "topology",
-    "status": "portable"
-  },
-  {
-    "type": "chart",
-    "status": "portable"
-  },
-  {
-    "type": "svg",
-    "status": "portable"
-  },
-  {
-    "type": "native",
-    "status": "rejected"
-  },
-  {
     "type": "input",
     "status": "portable"
   },
@@ -157,6 +165,30 @@
   },
   {
     "type": "form",
+    "status": "portable"
+  },
+  {
+    "type": "button",
+    "status": "portable"
+  },
+  {
+    "type": "topology",
+    "status": "portable"
+  },
+  {
+    "type": "chart",
+    "status": "portable"
+  },
+  {
+    "type": "clock",
+    "status": "portable"
+  },
+  {
+    "type": "stopwatch",
+    "status": "portable"
+  },
+  {
+    "type": "timer",
     "status": "portable"
   },
   {
@@ -206,5 +238,13 @@
   {
     "type": "currency-converter",
     "status": "portable"
+  },
+  {
+    "type": "svg",
+    "status": "portable"
+  },
+  {
+    "type": "native",
+    "status": "rejected"
   }
 ]

@@ -38,6 +38,7 @@ jobs:
         with:
           repository: Micraow/Inform-UI
           ref: ${{ steps.contract.outputs.revision }}
+          fetch-depth: 0
           path: library
       - name: Build matched library
         working-directory: library
@@ -56,6 +57,13 @@ jobs:
       - name: Verify generated schema discovery contract
         working-directory: skill
         run: npm run check:schema -- --library ../library
+      - name: Verify generated inventory and current component guidance
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 22
+        working-directory: skill
+        run: |
+          npm run check:inventory -- --library ../library
+          npm run check:components -- --library ../library
+          npm run check:primitives -- --library ../library
       # A repository rename preserves commit identity; frozen contracts retain the old name.
       - name: Read historical blind library revision
         id: blind-contract

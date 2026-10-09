@@ -38,3 +38,11 @@ The protocol has some bounded layout knobs for compatibility. Usually omit `gap`
 ## Forms and supplied weather
 
 The root [SKILL.md](../SKILL.md) is authoritative for the self-contained field shapes and limits of input/textarea/radio/segmented/field/form/weather. Plain web chat should omit form.action and use local confirmation; weather requires provenance, explicit timestamps/timezone and supplied data. The browser wrapper does not fetch a forecast or register a submission service. These nodes do not expand the attributes of the older slider/toggle/select nodes.
+
+## Local-state lifecycle
+
+The root keeps common time/overlay and foundation fields in [SKILL.md](../SKILL.md). These additions are not supported by the historical 6797f7f CDN wrapper. See [time-and-overlays.md](time-and-overlays.md) for domain-union selection and local-state lifetime. A popover does not turn its children into base-domain nodes.
+
+For numeric inputs, empty/incomplete, nonfinite and min/max/step-invalid input remains a DOM draft; unrelated state changes preserve it, while an explicit host assignment to that binding replaces it even when the state value is unchanged. Text/email/textarea still bind strings immediately; do not generalize numeric last-accepted-value behavior to all fields. Closing a popover hides its children without resetting timers or aborting form actions.
+
+The numeric draft gate applies to user typing. Explicit host setState remains authoritative and can write a finite number outside a form field's min/max/step when global state constraints permit it. The field can then be invalid on blur/submit; form constraints are not a replacement for host-data validation.

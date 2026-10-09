@@ -1,49 +1,31 @@
-# 按需 Schema 发现与单根入口范围
+# 当前Schema发现与组件指导
 
-本阶段把全领域发现与完整字段合同分开：常用基础仍在根 Skill；深入领域按需读索引、Schema 和同版示例。完整 JSON Schema 仍由核心库单一来源生成，不再手工维护一份平行 Schema。
+固定库：01ae9d870b221208b31e9da437ae87fdef265cec。当前运行时、CSS、完整Schema、索引与分域文件来自同一提交。基础常用能力仍内嵌[根SKILL](../SKILL.md)，完整指南供无法按需读取资料的Web Chat使用。
 
-## 固定版本与入口
+[机器索引](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/schema/index.json) → 所需documentSchema → 同版示例；nodeSchema只查节点字段，不含文档state，也不能把其他领域子节点当成已包含。flow/popover在base，但子form/time/chart仍需要其领域。跨域并集由核心schema-subset脚本从完整Schema自动生成，完整validateDocument继续负责语义校验。
 
-- Skill 功能提交：[d2cf1d9ef40e13cfc390b831530e6807532c54ad](https://github.com/Micraow/Inform-UI-skill/commit/d2cf1d9ef40e13cfc390b831530e6807532c54ad)
-- 库与所有当前 CDN 入口：6797f7f7755f483db6c3be3831aa03433b7c4696
-- [机器索引](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/schema/index.json)
-- [完整 Schema](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.schema.json)
-- [根 Skill](../SKILL.md)：33,167 UTF-8 字节
-- [完整 Web Chat 指南](../WEB-CHAT-GUIDE.md)：42,263 UTF-8 字节
+[完整Schema](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.schema.json)是唯一结构规范来源。本Skill的node-support库存也由scripts/derive-node-support.mjs读取同版完整Schema与索引生成，不手工维护第二份Schema。数字节/estimatedTokens仍只是文件度量/粗估，不是实测模型token或节省承诺。
 
-旧 32 KB 是项目早期人为控制目标，未发现宿主或分发硬限制；相应测试已移除。本阶段按使用方式拆分，不为固定字节上限删除常用能力。文件大小不等于模型 token 数。索引的 estimatedTokens 仅按 Unicode 码点数除以 4 上取整，不是实测值或节省承诺。
+## 本轮本地证据
 
-## 单根能做什么
+- 独立归档并重建固定提交，21份完整示例（7新＋14原）通过真实API、确定性编译及输入不变性；7份新例另过CLI和按实际nodeOwners生成的闭合子集。
+- 根与完整指南21份字面JSON通过同版validateDocument；新增49个反例拒绝，包含时间/浮层/基础增强29个和flow/icon/pulse20个。
+- Node/Document根互拒、缺域包拒绝混合文档，旧6797完整Schema拒绝7份新例。
+- 实际public mount的JSDOM测试确认数字草稿与权威host state边界。这不是原生浏览器证据。
+- 27份历史blind/blind46/fragment-blind文件逐字节保持，旧壳与pin不改写。
 
-只提供根文件时，模型仍能按明确字段生成正文、公式、布局、指标、表格、五类图、拓扑、控件、本地表单、自测/闪卡、九类单位换算和受控 SVG，并用固定 CDN HTML 壳交付。天气、体育、金融和货币快照的名字与适用场景在根内，但生成前还要读取其完整字段合同。
+## 核心与组件消费者验收
 
-能够读取外部资料的 Agent：索引 → 对应 documentSchema → 一个同版示例。不必先抓取全部分片。无法读取外部资料的普通 Web Chat：提供完整指南或同版完整 Schema，不从索引名字猜字段。
+[核心CI 37892705931](https://github.com/Micraow/Inform-UI/actions/runs/37892705931)终态success，验收提交3d2c0ce23dd1532f2a6acd7f2c5ac6c697d08323；292/292核心检查、216/216 Playwright场景、42/42独立消费者视图通过。固定CDN资产01ae的11项文件实际取回并核对SHA256/SRI、MIME与CORS；验收提交没有改变该固定版运行时/CSS/Schema。
 
-## 两类分片不能混用
+Actions实际检出的PR合并SHA为48d0701d9727bc7cd7bb2609264ddf1c7b7d4495，消费者原始RESULTS保留该值。该合并SHA与验收提交3d2c0ce的Git tree均为7611b19c6a80704ff9922eb82db9aecb62fb7646，整树相同。不要把原报告SHA改成资产pin。
 
-- documentSchema：完整 Document 根，默认 base＋所选领域，保留 state/computed，引用递归闭合；includedGroups 标明实际包含范围。
-- nodeSchema：Node 根，仅供字段查询；不含文档 state，其递归 Node 子项也只包含本组，不能当完整页面校验器。
-- 跨领域：同版 CLI 用 `--groups base,forms,charts,finance` 生成闭合并集；不手拼 `$defs`。单一 finance 包不能校验混有 forms/charts 的文档。
-- Schema 结构检查不能替代完整 validateDocument 的语义检查，包括状态引用、日期、范围、URL、计算图及 native 拒绝。
-- path 均相对索引 URL 解析；同版示例同时给 repositoryPath。运行时、索引、Schema 和示例必须保持同一 pin。
+42视图是7份本Skill原创JSON×390/768/1100px×明暗两主题，使用实际inline compileHtml、Chromium原生交互，覆盖计时、表单草稿/同值覆盖、嵌套浮层与flow/icon/pulse。它们不构成公开CDN的42次浏览器加载。7份示例各抽查390亮色和1100暗色共14张原图：阅读顺序、中文折行、时间数字/按钮、表格合并关系、可见面板、焦点框与明暗背景未见阻塞。闭合浮层截图不能证明所有打开状态；交互断言与核心专门浮层图另有范围。
 
-## 验证证据
+原始报告和42张截图在上述CI的synthetic-ui-browser-evidence artifact，test-results/skill-consumer/下。全部为原创合成内容。复用这次消费者证据，Skill工作流不再重复相同42视图；本地可用check:components:browser按需复跑。
 
-本地固定 checkout 与当前发布 pin 精确一致，重新安装并构建后完成：
+## 当前Skill回归待终态
 
-- 11 项结构、品牌、可复制壳、完整发现与冻结边界测试。
-- 14 份 Skill 示例经真实 API/CLI 验证、重复构建确定性和输入不变性；61 份反例确认拒绝，API/CLI 诊断一致。
-- 根内 3 份及完整指南 8 份字面 JSON 均有效，两个入口的 HTML 壳完全一致。
-- 10 组、21 份完整/Document/Node Schema 的 SHA-256、字节数、码点/粗估元数据与本地引用闭包。
-- 52 节点唯一归属、12 份同版示例、Document/Node 根互拒，以及真实跨领域并集通过。finance 单片拒绝混合 forms/charts 的对照例。
-- 实际新 CDN 索引直接 HTTP 200、无重定向，JSON MIME、CORS 与固定提交字节相符。
+Skill更新了固定CDN壳、派生库存和21份示例，既有工作流继续检查四平台API/CLI与Schema；88个当前视图（21例×4＋4壳，其中56固定CDN、32内嵌构建）和真实CDN索引发现仍待本次Skill工作流终态。它与上述核心/inline消费者结果分开记录。跨浏览器和真实屏幕阅读器检查未做，不计通过。
 
-本地 Chromium 因该终端的 socket 权限限制未能启动，此次失败不计作渲染通过。最终真实浏览器证据取自下面的 GitHub Actions 运行。
-
-完整 CI：[37882182256](https://github.com/Micraow/Inform-UI-skill/actions/runs/37882182256)，已回读为成功，四个矩阵任务均通过。测试包括 Linux Node 22/24、Windows/macOS Node 22，以及 68 个 Chromium 明暗/390px/桌面视图。浏览器额外从 file:// 实取索引、base/finance/converters 的六份 Document/Node 分片并核 SHA-256，再取三份同版示例交给真实 CDN 运行时验证。
-
-已取本轮 96 张当前页面/局部截图；人工复看手机暗色根壳与辅助节点、手机亮色同 SVG 返回鼠标描边、桌面亮色转换器。图文及控件可读，热图描边没有旧黑框；轮播在自己的局部区域横向浏览。可见辅助反馈文字仍作为库呈现层观察保留，不用功能通过掩盖视觉差异。
-
-本报告及金融沿革更新属于纯文档检查点：本地轻检查通过后以明确 skip 标记推送，不重复四平台/68 视图。完整功能验收对应上面的 d2cf1d9 提交；未运行的检查不算通过。
-
-此项是既有功能的合同与消费者回归，不是新一轮盲测。41/46 的输入、首稿、合同及原始说明保持原字节；不以新文档或新资源重算旧首试成绩。通过结构、功能和列举视图，也不等于完整复刻参考产品的全部视觉细节。
+历史发现流程、旧文件字节数、旧68视图及原始CI结论见[6797历史阶段记录](schema-discovery-6797-history.md)。本轮是消费者回归，不是新一轮盲测。
