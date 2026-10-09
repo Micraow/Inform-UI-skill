@@ -7,7 +7,7 @@ export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 export const readJSON = async file => JSON.parse(await readFile(file, 'utf8'));
 export const candidateDirectory = 'candidates/pending-batch';
 export const acceptedRevision = 'd370ffb2df310fce0da9299e6e254a58509ba544';
-export const candidateRevision = 'c58eeb56961f921b063c8423b799b9bcab9658c0';
+export const candidateRevision = '75fd165f20ee6cca9beb2c172c19dbac98136b88';
 export async function safeFile(root, relative) {
   assert.equal(typeof relative, 'string');
   assert.ok(/^[A-Za-z0-9._/-]+$/.test(relative) && !path.posix.isAbsolute(relative));
@@ -25,8 +25,9 @@ export async function verifyPinnedInputs(root, library, lock) {
   assert.equal(lock.sourceRevision, candidateRevision); assert.equal(lock.acceptedAssetRevision, acceptedRevision);
   assert.equal(sha256(await readFile(path.join(root, 'library-contract.json'))), lock.formalAcceptedContractSha256, 'Accepted contract must not change');
   assert.equal((await readJSON(path.join(root, 'library-contract.json'))).revision, acceptedRevision);
-  assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'manifest.source.json'))),lock.manifestSha256);
+  assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'manifest24.source.json'))),lock.manifestSha256);
   for (const [relative, expected] of Object.entries(lock.acceptedGuidancePrefixes)) assert.equal(sha256((await readFile(await safeFile(root,relative))).subarray(0,expected.bytes)),expected.sha256,'Accepted guidance prefix changed: '+relative);
+  for (const [relative, expected] of Object.entries(lock.candidateFiles)) assert.equal(sha256(await readFile(await safeFile(root,relative))),expected,'Candidate artifact changed: '+relative);
   for (const [relative, expected] of Object.entries({...lock.sourceFiles,...lock.runtimeFiles})) {
     assert.match(expected,/^[a-f0-9]{64}$/);
     assert.equal(sha256(await readFile(await safeFile(library,relative))),expected,`Frozen source/build changed: ${relative}`);

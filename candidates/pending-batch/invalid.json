@@ -728,5 +728,1275 @@
     },
     "expectedCode": "AGENDA_TIME",
     "expectedPath": "/body/0/events/0/end"
+  },
+  {
+    "canonicalId": "news-article",
+    "name": "publication date is semantic Gregorian date",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "news-article",
+          "headline": "Synthetic article",
+          "source": {
+            "label": "Synthetic"
+          },
+          "published": "2023-02-29"
+        }
+      ]
+    },
+    "expectedCode": "NEWS_DATE",
+    "expectedPath": "/body/0/published"
+  },
+  {
+    "canonicalId": "news-article",
+    "name": "news source refuses credential URL",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "news-article",
+          "headline": "Synthetic article",
+          "source": {
+            "label": "Synthetic",
+            "url": "https://user:pass@example.com"
+          }
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "canonicalId": "news-article",
+    "name": "news does not parse expression headlines",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "news-article",
+          "headline": {
+            "$": "title"
+          },
+          "source": {
+            "label": "Synthetic"
+          }
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "news-article",
+    "name": "news has no verified or provider claim",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "news-article",
+          "headline": "Synthetic article",
+          "source": {
+            "label": "Synthetic"
+          },
+          "verified": true
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "news-article",
+    "name": "news paragraphs cannot be empty strings",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "news-article",
+          "headline": "Synthetic article",
+          "source": {
+            "label": "Synthetic"
+          },
+          "paragraphs": [
+            ""
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "entity-reviews",
+    "name": "review date rejects invalid leap date",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-reviews",
+          "label": "Synthetic",
+          "items": [
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic",
+              "rating": null,
+              "date": "2023-02-29"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "REVIEW_DATE",
+    "expectedPath": "/body/0/items/0/date"
+  },
+  {
+    "canonicalId": "entity-reviews",
+    "name": "review local ids unique",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-reviews",
+          "label": "Synthetic",
+          "items": [
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic",
+              "rating": null
+            },
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic",
+              "rating": null
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "DUPLICATE_ID",
+    "expectedPath": "/body/0/items/1/id"
+  },
+  {
+    "canonicalId": "entity-reviews",
+    "name": "review link refuses protocol relative URL",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-reviews",
+          "label": "Synthetic",
+          "items": [
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic",
+              "rating": null,
+              "url": "//example.com"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/items/0/url"
+  },
+  {
+    "canonicalId": "entity-reviews",
+    "name": "review source refuses executable URL",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-reviews",
+          "label": "Synthetic",
+          "items": [
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic",
+              "rating": null
+            }
+          ],
+          "source": {
+            "label": "Synthetic",
+            "url": "javascript:alert(1)"
+          }
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "canonicalId": "entity-reviews",
+    "name": "missing rating is not zero",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-reviews",
+          "label": "Synthetic",
+          "items": [
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic",
+              "rating": 0
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "entity-reviews",
+    "name": "review rating must be explicit",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-reviews",
+          "label": "Synthetic",
+          "items": [
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "entity-reviews",
+    "name": "review has no verified purchase field",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-reviews",
+          "label": "Synthetic",
+          "items": [
+            {
+              "id": "a",
+              "author": "Fictional A",
+              "body": "Synthetic",
+              "rating": null,
+              "verifiedPurchase": true
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "restaurant-availability",
+    "name": "slot date is semantic real date",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-availability",
+          "title": "Synthetic",
+          "venue": "Fictional venue",
+          "partySize": 2,
+          "timeZoneLabel": "Supplied wall time",
+          "slots": [
+            {
+              "id": "a",
+              "date": "2023-02-29",
+              "time": "18:00",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "AVAILABILITY_DATE",
+    "expectedPath": "/body/0/slots/0/date"
+  },
+  {
+    "canonicalId": "restaurant-availability",
+    "name": "slot ids are local unique",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-availability",
+          "title": "Synthetic",
+          "venue": "Fictional venue",
+          "partySize": 2,
+          "timeZoneLabel": "Supplied wall time",
+          "slots": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "time": "18:00",
+              "available": true
+            },
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "time": "18:30",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "DUPLICATE_ID",
+    "expectedPath": "/body/0/slots/1/id"
+  },
+  {
+    "canonicalId": "restaurant-availability",
+    "name": "date time pair cannot repeat",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-availability",
+          "title": "Synthetic",
+          "venue": "Fictional venue",
+          "partySize": 2,
+          "timeZoneLabel": "Supplied wall time",
+          "slots": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "time": "18:00",
+              "available": true
+            },
+            {
+              "id": "b",
+              "date": "2024-02-29",
+              "time": "18:00",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "DUPLICATE_SLOT",
+    "expectedPath": "/body/0/slots/1/time"
+  },
+  {
+    "canonicalId": "restaurant-availability",
+    "name": "availability source does not allow credentials",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-availability",
+          "title": "Synthetic",
+          "venue": "Fictional venue",
+          "partySize": 2,
+          "timeZoneLabel": "Supplied wall time",
+          "slots": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "time": "18:00",
+              "available": true
+            }
+          ],
+          "source": {
+            "label": "Synthetic",
+            "url": "https://user:pass@example.com"
+          }
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "canonicalId": "restaurant-availability",
+    "name": "slot wall time refuses end of day alias",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-availability",
+          "title": "Synthetic",
+          "venue": "Fictional venue",
+          "partySize": 2,
+          "timeZoneLabel": "Supplied wall time",
+          "slots": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "time": "24:00",
+              "available": true
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "restaurant-availability",
+    "name": "slot available must be explicit boolean",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-availability",
+          "title": "Synthetic",
+          "venue": "Fictional venue",
+          "partySize": 2,
+          "timeZoneLabel": "Supplied wall time",
+          "slots": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "time": "18:00",
+              "available": null
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "restaurant-availability",
+    "name": "selection is not booking or an action",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-availability",
+          "title": "Synthetic",
+          "venue": "Fictional venue",
+          "partySize": 2,
+          "timeZoneLabel": "Supplied wall time",
+          "slots": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "time": "18:00",
+              "available": true
+            }
+          ],
+          "bookingUrl": "https://example.com"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "reddit-thread-card",
+    "name": "fifth comment level is semantic rejection",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "reddit-thread-card",
+          "title": "Synthetic",
+          "author": "Fictional author",
+          "body": "",
+          "source": {
+            "label": "Synthetic"
+          },
+          "comments": [
+            {
+              "id": "level1",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "level2",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment",
+                  "replies": [
+                    {
+                      "id": "level3",
+                      "author": "Fictional author",
+                      "body": "Synthetic comment",
+                      "replies": [
+                        {
+                          "id": "level4",
+                          "author": "Fictional author",
+                          "body": "Synthetic comment",
+                          "replies": [
+                            {
+                              "id": "level5",
+                              "author": "Fictional author",
+                              "body": "Synthetic comment"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "THREAD_DEPTH",
+    "expectedPath": "/body/0/comments/0/replies/0/replies/0/replies/0/replies/0"
+  },
+  {
+    "canonicalId": "reddit-thread-card",
+    "name": "101st comment is semantic count rejection",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "reddit-thread-card",
+          "title": "Synthetic",
+          "author": "Fictional author",
+          "body": "",
+          "source": {
+            "label": "Synthetic"
+          },
+          "comments": [
+            {
+              "id": "root0",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply0",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root1",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply1",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root2",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply2",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root3",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply3",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root4",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply4",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root5",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply5",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root6",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply6",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root7",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply7",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root8",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply8",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root9",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply9",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root10",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply10",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root11",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply11",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root12",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply12",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root13",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply13",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root14",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply14",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root15",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply15",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root16",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply16",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root17",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply17",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root18",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply18",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root19",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply19",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root20",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply20",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root21",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply21",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root22",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply22",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root23",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply23",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root24",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply24",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root25",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply25",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root26",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply26",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root27",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply27",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root28",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply28",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root29",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply29",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root30",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply30",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root31",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply31",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root32",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply32",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root33",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply33",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root34",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply34",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root35",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply35",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root36",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply36",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root37",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply37",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root38",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply38",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root39",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply39",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root40",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply40",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root41",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply41",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root42",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply42",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root43",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply43",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root44",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply44",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root45",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply45",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root46",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply46",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root47",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply47",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root48",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply48",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            },
+            {
+              "id": "root49",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "reply49",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                },
+                {
+                  "id": "extra",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "THREAD_COUNT",
+    "expectedPath": "/body/0/comments/49/replies/1"
+  },
+  {
+    "canonicalId": "reddit-thread-card",
+    "name": "comment ids unique across nested tree",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "reddit-thread-card",
+          "title": "Synthetic",
+          "author": "Fictional author",
+          "body": "",
+          "source": {
+            "label": "Synthetic"
+          },
+          "comments": [
+            {
+              "id": "same",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "replies": [
+                {
+                  "id": "same",
+                  "author": "Fictional author",
+                  "body": "Synthetic comment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "DUPLICATE_ID",
+    "expectedPath": "/body/0/comments/0/replies/0/id"
+  },
+  {
+    "canonicalId": "reddit-thread-card",
+    "name": "thread source refuses executable URL",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "reddit-thread-card",
+          "title": "Synthetic",
+          "author": "Fictional author",
+          "body": "",
+          "source": {
+            "label": "Synthetic",
+            "url": "javascript:alert(1)"
+          },
+          "comments": []
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "canonicalId": "reddit-thread-card",
+    "name": "thread scores are integral",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "reddit-thread-card",
+          "title": "Synthetic",
+          "author": "Fictional author",
+          "body": "",
+          "source": {
+            "label": "Synthetic"
+          },
+          "comments": [],
+          "score": 0.5
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "reddit-thread-card",
+    "name": "thread score cannot exceed bound",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "reddit-thread-card",
+          "title": "Synthetic",
+          "author": "Fictional author",
+          "body": "",
+          "source": {
+            "label": "Synthetic"
+          },
+          "comments": [
+            {
+              "id": "a",
+              "author": "Fictional author",
+              "body": "Synthetic comment",
+              "score": 1000000001
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "reddit-thread-card",
+    "name": "thread has no vote action",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "reddit-thread-card",
+          "title": "Synthetic",
+          "author": "Fictional author",
+          "body": "",
+          "source": {
+            "label": "Synthetic"
+          },
+          "comments": [],
+          "vote": {
+            "action": "up"
+          }
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
   }
 ]

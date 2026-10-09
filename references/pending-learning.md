@@ -1,6 +1,6 @@
 # 三种有限学习候选
 
-仅用于 c58eeb56961f921b063c8423b799b9bcab9658c0 冻结源码，不可搭配正式 d370 CDN。common/base 指导仍在 [SKILL.md 第7节](../SKILL.md#7-隔离候选20-项本地组件指导尚未浏览器验收)；完整规范仍为源仓库生成的 src/schema/iui.schema.json，本文件不是替代 Schema。候选 [分类索引](../candidates/pending-batch/category-index.json) 从同一完整 Schema 和索引生成。
+仅用于 75fd165f20ee6cca9beb2c172c19dbac98136b88 冻结源码，不可搭配正式 d370 CDN。common/base 指导仍在 [SKILL.md 第7节](../SKILL.md#7-隔离候选20-项本地组件指导尚未浏览器验收)；完整规范仍为源仓库生成的 src/schema/iui.schema.json，本文件不是替代 Schema。候选 [分类索引](../candidates/pending-batch/category-index.json) 从同一完整 Schema 和索引生成。
 
 所有字段是字面值；没有表达式、bind、可执行代码或网络地址字段，提供的文字始终按字面显示。答案随 JSON 一起公开；不适合保密考试，也不验证掌握程度或保存学习记录。长度为 Unicode 码点，共享全局预算仍适用。key 为英文字母/下划线开头，后接字母、数字、下划线、点或短横线，总长1–80。
 

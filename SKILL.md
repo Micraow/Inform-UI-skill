@@ -459,9 +459,9 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 
 可选：[绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[边界](references/support.md)、[例子](references/examples.md)。要求JSON则只交JSON；要页面则交完整HTML。
 
-## 7. 隔离候选：20 项本地组件指导，尚未浏览器验收
+## 7. 隔离候选：24 项本地组件指导，尚未浏览器验收
 
-本节仅用于显式选择冻结本地候选 c58eeb56961f921b063c8423b799b9bcab9658c0 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 仍对应已验收 d370；不要把本节新增字段、节点或行为装入该 CDN 壳。候选有 80 个协议节点，20 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。news/reviews/availability/thread 及 motion 不在本冻结范围。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段不是正式 CDN 能力承诺。
+本节仅用于显式选择冻结本地候选 75fd165f20ee6cca9beb2c172c19dbac98136b88 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 仍对应已验收 d370；不要把本节新增字段、节点或行为装入该 CDN 壳。候选有 84 个协议节点，24 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。本次追加 news-article、entity-reviews、restaurant-availability、reddit-thread-card；motion 及之后的扩展不在本冻结范围。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段不是正式 CDN 能力承诺。
 
 本节保留常用基础完整生成规则，不要求先读另一份基础指南。候选分类索引仅由同一完整 Schema 与源索引派生；不另写 Schema。以下长度为 Unicode 码点，除非明确说明；全局资源预算仍适用。key以英文字母或下划线开头，后接字母、数字、下划线、点或短横线，总长1–80；普通节点id仍为1–200字符。所有内容需为原创、授权或调用方提供，不补造来源、身份、价格、答案或可用性。
 
@@ -505,3 +505,34 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 ```
 
 候选学习节点 fill-blank、sentence-builder、vocab-card 的完整供数规则见[学习候选合同](references/pending-learning.md)。最短路径仍为：同版索引的nodeOwners → 对应Document包 → 同版例子。base容器内有learning/forms/time节点时必须取真实并集；nodeSchema不是Document根。正例结构通过仍须完整validateDocument验证日期、引用、状态、URL和领域语义；prepared测试、JSDOM或编译成功都不是浏览器/视觉/CI验收。
+
+### 四类供数记录：新闻、评论、餐位与讨论（同版候选）
+
+以下四个节点的 nodeOwners 均为 base。只显示作者已有且有权使用的有限记录；不得推断实时性、身份可信度、验证结果或缺失数据。没有服务连接，来源标签/链接不证明内容真实。所有字符串均为 Unicode 码点计数的字面文本，不能写 HTML、脚本或 V 表达式；未知字段拒绝。下列长度为含端点上限。普通可选 id 与既有节点相同；安全链接须绝对 HTTP(S)、无凭据且通过核心 URL 规则，源 URL 最多 2048 字符。挂载不请求链接，明确打开时以新标签页提示及 noopener/noreferrer/no-referrer 导航；no-referrer 不是匿名或无 cookies 保证。
+
+- news-article：必有 headline:1–300、source:{label:1–200,url?:1–2048}；可选 summary:0–4000、author:1–200、published:真实 Gregorian YYYY-MM-DD（0001–9999）、paragraphs:0–30 个各1–4000字面段落、expanded:B（默认false）、tags:0–8 个各1–40标签。浮动发布日期不含时区，不转相对时间。仅非空 paragraphs 创建原生 details，按供数顺序保留全文；未供正文不造正文。原生展开在无关 setState 后保留，合法整文 update 按 expanded 重建。无抓取、feed、图片、即时新闻、可信分、分享或保存。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"news-article","headline":"虚构图书角的目录练习","source":{"label":"原创合成文章，未经事实核验"},"published":"2024-02-29","summary":"用于界面练习的虚构摘要。","paragraphs":["这是原创合成正文，不代表真实事件。"],"tags":["合成示例"]}]}
+```
+
+- entity-reviews：必有 label:1–200、items:0–50；可选 description:0–2000、source:{label:1–200,url?:1–2048}。每条必有 {id:key,author:1–200,body:1–4000,rating:1–5整数或null}，可选 title:1–200、date:真实YYYY-MM-DD、url:1–2048。项id在本集合唯一；rating必须提供，null表示未提供，0不合法。评分筛选为 All/Rated/Unrated/恰好5..1；排序为供数序/最新供数日期/最高评分/最低评分，缺值永远后置，同值保留原序。过滤隐藏原行、排序移动原DOM，保留原生正文展开；只统计所提供集合，不能生成总评、外部总数、认证购买或推断星数。不是 rating 用户评分控件，没有发表/提交/投票/分页服务。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"entity-reviews","label":"虚构阅览室供数评论","source":{"label":"原创合成集合"},"items":[{"id":"supplied","author":"虚构读者甲","body":"这条合成评论有明确供数评分。","rating":5,"date":"2024-02-29"},{"id":"missing","author":"虚构读者乙","body":"这条合成评论未提供评分，不推测。","rating":null}]}]}
+```
+
+- restaurant-availability：必有 title/venue:各1–200、partySize:1–20整数、timeZoneLabel:1–100字面标签、slots:0–100个 {id:key,date:真实YYYY-MM-DD,time:严格00:00–23:59的HH:mm,available:B}；可选 description:0–2000、source:{label:1–200,url?:1–2048}。项id和date+time组合均唯一。按日期/时刻稳定升序；本地日期筛选保留所有行DOM和已选时刻，即使所选行被隐藏。明确显示供数状态及尚未预约；不推断时区/DST/时间点/当前可订，也不刷新。
+- 明确激活可见、可用且启用的餐位按钮，才派发一次可冒泡、可取消、不composed的 iui:reservation-choice 事件，冻结detail严格为 {componentId:string|null,slotId,date,time,partySize:number,venue,timeZoneLabel}；componentId来自authored id。取消保留旧选择，未取消也只代表本地选择；无任何预订确认。宿主 .click() 同样可触发，因此事件不是权限边界，宿主须独立授权外部副作用。过滤/Clear/挂载/state更新不发选择事件；Clear不清日期筛选。隐藏、不可用、继承禁用或pending form时不能选；同步update/dispose不应在旧DOM继续写入。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"restaurant-availability","id":"sample_dinner","title":"原创合成时段，只作本地选择","venue":"虚构庭院餐厅","partySize":2,"timeZoneLabel":"作者提供的餐厅墙上时间","slots":[{"id":"early","date":"2024-02-29","time":"18:00","available":true},{"id":"later","date":"2024-02-29","time":"18:30","available":false}]}]}
+```
+
+- reddit-thread-card：必有 title:1–300、author:1–200、body:0–6000、source:{label:1–200,url?:1–2048}、comments:0–50个顶层评论；可选 community:1–200、score:-1000000000..1000000000整数或null、expanded:B（默认false）。每个评论必有 {id:key,author:1–200,body:1–4000}，可选同范围score或null、replies:0–20个相同闭合递归评论。包括replies在内总数最多100，顶层为第1层，最多4层；id在整棵评论树唯一。缺失/null分数明确未提供，0和负数原样保留，不推导票数含义。非空顶层comments才创建原生details并应用expanded；回复details默认关闭。不猜作者/社区URL，不解析Markdown，不连接Reddit或提供投票/回复/登录。计数仅为供数评论及回复，不能叫平台总评论数。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"reddit-thread-card","title":"虚构阅读讨论","author":"虚构发帖人","body":"这是一段原创合成讨论，没有连接服务。","source":{"label":"本地原创合成数据"},"score":0,"comments":[{"id":"first","author":"虚构回应者","body":"**保留字面内容**，不当作Markdown解析。","score":null,"replies":[{"id":"reply","author":"虚构回复者","body":"此处展示原始供数负值。","score":-1}]}]}]}
+```
+
+四者均可放入完整form，局部控件没有bind/name，不进入FormData或form提交快照。评论筛选/排序和餐位选择遵守继承禁用；新闻/讨论的原生阅读展开与普通链接仍可阅读。无关state变化保留局部DOM、展开与选择；合法整文更新重建，非法更新保持原状。所有例子先用同版base Document片验结构，再用完整validateDocument验语义：NEWS_DATE→published、REVIEW_DATE→items/i/date、AVAILABILITY_DATE→slots/i/date、DUPLICATE_SLOT→重复slots/i/time、DUPLICATE_ID→重复id、THREAD_DEPTH→第5层评论、THREAD_COUNT→遍历第101条评论、UNSAFE_URL→实际链接字段。不能因schema通过而略过日期/递归/唯一性/安全URL检查。
