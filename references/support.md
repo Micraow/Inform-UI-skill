@@ -4,7 +4,7 @@ This matrix describes the independent `iui/1` library matched in [library-contra
 
 ## Public protocol nodes
 
-This pin contains 52 schema nodes: 50 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
+This pin contains 52 schema nodes: 50 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The root retains common authoring contracts and a complete discovery map; deeper domain contracts are read from the same-pin generated index, schema bundle and example, or supplied through the complete Web Chat guide. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
 
 | Status | Nodes | Authoring guidance |
 | --- | --- | --- |

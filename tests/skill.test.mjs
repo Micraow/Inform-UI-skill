@@ -122,9 +122,19 @@ test('current branding uses Inform UI while the reference and immutable historic
   for (const directory of ['tests/blind', 'tests/blind46']) assert.equal((await json(`${directory}/library-contract.json`)).repository, 'Micraow/Intelligent-UI');
 });
 
-test('the single-root guide covers every registered node without an artificial 32 KB ceiling', async () => {
+test('root discovers every registered node while complete guide retains deep contracts without an artificial size ceiling', async () => {
   const source = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+  const guide = await readFile(path.join(root, 'WEB-CHAT-GUIDE.md'), 'utf8');
+  const contract = await json('library-contract.json');
   for (const { type } of await json('references/node-support.json')) assert.ok(source.includes(type), `Root guide omits ${type}`);
-  for (const phrase of ['unit-converter', 'currency-converter', 'temperatureMode', 'changeBasis', 'stroke-linecap', 'UNSUPPORTED_NATIVE']) assert.ok(source.includes(phrase), phrase);
+  for (const phrase of ['unit-converter', 'currency-converter', 'temperatureMode', 'stroke-linecap', 'UNSUPPORTED_NATIVE', 'documentSchema', 'nodeSchema', 'includedGroups', 'nodeOwners', 'estimatedTokens']) assert.ok(source.includes(phrase), phrase);
+  for (const phrase of ['changeBasis', 'previousClose', 'baselineAt', 'correct', 'temperatureMode', 'rates', 'asOf']) assert.ok(guide.includes(phrase), phrase);
+  for (const text of [source, guide]) {
+    assert.ok(text.includes(contract.cdn.baseUrl + contract.cdn.schemaIndex));
+    assert.equal(text.includes('PENDING_VERIFIED_PUBLICATION'), false);
+    assert.deepEqual(readSkillShell(text), readSkillShell(source));
+  }
+  assert.ok(source.includes('不能只凭名称猜字段'));
+  assert.ok(source.includes('WEB-CHAT-GUIDE.md全文'));
   assert.doesNotThrow(() => parseSkillFrontmatter(source + '\n' + 'Further authoring context. '.repeat(2000)));
 });

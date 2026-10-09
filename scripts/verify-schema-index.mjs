@@ -73,7 +73,9 @@ for (const group of index.groups) {
   allOwned.push(...group.ownedNodeTypes);
   const valid = new Ajv({ strict: false, allErrors: true }).compile(document);
   bundles.set(group.id, valid);
-  new Ajv({ strict: false }).compile(node);
+  const validNode = new Ajv({ strict: false }).compile(node);
+  assert.equal(validNode({ version: contract.schemaVersion, body: [{ type: 'text', value: 'A document is not a Node' }] }), false, `${group.id}: Node lookup must reject Document roots`);
+  assert.equal(valid({ type: group.ownedNodeTypes[0] }), false, `${group.id}: Document bundle must reject Node roots`);
   for (const example of group.examples) {
     assert.ok(example.repositoryPath.startsWith('examples/') && example.repositoryPath.endsWith('.json'));
     assert.ok(resolveFile(example.path).startsWith(path.join(library, 'examples') + path.sep));

@@ -57,13 +57,15 @@ The 41-node and 46-node blind tests are historical records from the project's fo
 
 如果一句话就能说清，技能会保留普通文字。模拟数据必须明确标注，真实数据不能凭空补齐。
 
-## 网页聊天：复制一份说明就能开始
+## 两条入口：常用基础与按需领域
 
-把 [`SKILL.md`](SKILL.md) **全文**复制给 Web Chat，然后提出你的解释或演示需求。入口内含全部52个注册项的用途与生成边界、固定 CDN 地址、公开 API 和完整 HTML 壳；基础生成无需终端，也不要求模型读取本地 references 或库源码。
+把 [`SKILL.md`](SKILL.md) **全文**交给 Agent 或 Web Chat。根文件保留常用正文、布局、图表、控件、表单、自测/闪卡、单位换算、受控 SVG、公开 API 与完整 CDN HTML 壳；只使用已内嵌字段即可生成基础页面，无需终端或读取实现。
 
-让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互仍由库完成，模型不需要重写 CSS 或控件。完整 Schema 链接供扩展时读取；没有读取能力时，使用入口已内嵌的节点合同，不猜额外属性。聊天气泡是否能直接运行脚本，由聊天宿主决定。
+天气、体育、金融与货币快照等深入领域，先按根文件的用途索引选择组，再读[同版机器索引](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/schema/index.json)指向的 Document Schema 和一个同版示例。每个领域文档包默认包含 base；Node 查询片仅供查字段，不能当完整 Document 校验器。跨领域按完整 Schema 或同版 CLI 生成的并集校验，仍需真实 validateDocument 做语义检查。
 
-另提供[完整Web Chat指南](WEB-CHAT-GUIDE.md)，可一次交给无法读取外部领域资料的聊天模型。完整JSON Schema继续由核心库单一来源生成，不手工维护第二份Schema。自动领域发现索引将与固定资源一起同步，未发布路径不提前宣称可用。
+不能读取外部资料的普通 Web Chat，可额外接收[完整 Web Chat 指南](WEB-CHAT-GUIDE.md)或同版[完整 JSON Schema](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6797f7f7755f483db6c3be3831aa03433b7c4696/cdn/iui.schema.json)。完整版指南保留全部 52 个注册项的用途及保守生成合同；根文件中的领域名字只是发现入口，不能替代尚未读取的字段合同。完整 Schema 是唯一规范来源，分片由它自动生成，不手工维护第二份 Schema。
+
+让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互由库完成，不必重写 CSS 或控件；聊天气泡能否直接运行脚本取决于宿主。没有取得所需领域资料时，应请求补充资料或留在根文件明确支持的范围，不猜字段。
 
 数学使用库自带的 KaTeX 排版：联网壳通过固定 CDN 的 CSS 按需加载官方 MIT 数学字体，请保留 `styles:false` 和匹配的 CSS。需要完全离线时使用下方本地 inline 构建，它会把数学字体一同内嵌。
 
@@ -91,7 +93,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Info
 
 ```sh
 git clone https://github.com/Micraow/Inform-UI.git Inform-UI
-git -C Inform-UI checkout --detach 4b6c1f0df72cede2e2528a3c5838b5622a45215d
+git -C Inform-UI checkout --detach 6797f7f7755f483db6c3be3831aa03433b7c4696
 npm --prefix Inform-UI ci
 npm --prefix Inform-UI run build
 node Inform-UI/bin/iui.mjs validate inform-ui-author/examples/hpcc-feedback.json --json
@@ -132,7 +134,7 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/hpcc-feedback.json --
 
 技能不要求 AI 为每次回答重新写 HTML、CSS 或 JavaScript。字体、间距、主题与移动端布局交给库处理。
 
-本轮固定协议有52项注册：根技能内嵌50个渲染节点的选型与保守生成合同、markdown纯文本降级和native拒绝说明。无需额外读取实现或references即可生成受支持页面。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融支持供数行情、历史、同基准比较与权重热图；不抓取行情、不自动换汇、不交易，详见[供数合同与验证记录](references/finance.md)。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
+本轮固定协议有52项注册：50个渲染节点、markdown纯文本降级和native拒绝说明。根技能保留常用合同及全领域选型/发现路径；完整指南可一次提供全部保守合同，按需Schema由核心单一规范自动生成。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融支持供数行情、历史、同基准比较与权重热图；不抓取行情、不自动换汇、不交易，详见[供数合同与验证记录](references/finance.md)。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
 
 ## 运行检查
 
@@ -141,9 +143,10 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/hpcc-feedback.json --
 ```sh
 npm test
 npm run check:library -- --library ../Inform-UI
+npm run check:schema -- --library ../Inform-UI
 ```
 
-第一条检查技能结构与文件边界，第二条调用真实库的 API、Schema 和 CLI 验证全部示例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
+这些命令分别检查技能结构与文件边界、真实库 API/CLI 与全部示例、自动分片的引用闭包/哈希/完整归属/同版示例及跨领域并集。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
 [持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 68 组明暗主题和桌面/手机视图：56 组原创示例（辅助节点、转换器、体育、学习、金融和热图直接加载固定CDN）、4 组根 SKILL 的 CDN HTML 壳、4 组[历史 41 节点首次产物](tests/blind/README.md)、4 组[46 节点体育与学习首次产物](tests/blind46/README.md)。历史产物的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。46 节点首稿同样保留原始字节，首次通过 API/CLI、独立赛绩与排名计算及原固定 CDN 的体育/测验/闪卡交互验收，详见[结果与保留观察](tests/blind46/RESULTS.md)。CI badge 显示开发分支的最新状态。
 

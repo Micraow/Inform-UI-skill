@@ -351,6 +351,37 @@ try {
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     await page.goto(pathToFileURL(shellFile).href);
     await page.waitForSelector('.iui-root');
+    if (width === 390 && theme === 'light') {
+      const discovery = await page.evaluate(async ({ baseUrl, schemaIndex }) => {
+        const indexUrl = new URL(schemaIndex, baseUrl).href;
+        async function get(url) {
+          const response = await fetch(url, { cache: 'no-store', redirect: 'error' });
+          if (response.status !== 200 || !response.headers.get('content-type')?.includes('application/json')) throw new Error(`Unexpected discovery response: ${url}`);
+          const bytes = await response.arrayBuffer();
+          return { bytes, json: JSON.parse(new TextDecoder().decode(bytes)) };
+        }
+        const { json: index } = await get(indexUrl);
+        if (index.format !== 'inform-ui-schema-index/1' || Object.keys(index.nodeOwners).length !== 52) throw new Error('Unexpected index contract');
+        const checked = [];
+        for (const id of ['base', 'finance', 'converters']) {
+          const group = index.groups.find(group => group.id === id);
+          for (const metadata of [group.documentSchema, group.nodeSchema]) {
+            const url = new URL(metadata.path, indexUrl).href;
+            const { bytes, json } = await get(url);
+            const sha = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), byte => byte.toString(16).padStart(2, '0')).join('');
+            if (sha !== metadata.sha256 || bytes.byteLength !== metadata.utf8Bytes || !json.$defs) throw new Error(`Schema bytes differ: ${url}`);
+          }
+          const exampleUrl = new URL(group.examples[0].path, indexUrl).href;
+          const { json: example } = await get(exampleUrl);
+          const result = window.IUI.validateDocument(example);
+          if (!result.ok) throw new Error(`CDN example invalid: ${JSON.stringify(result.issues)}`);
+          checked.push(id);
+        }
+        return checked;
+      }, contract.cdn);
+      assert.deepEqual(discovery, ['base', 'finance', 'converters']);
+      console.log('PASS file:// CDN discovery: real index, six hash-matched Document/Node bundles and three runtime-validated same-pin examples');
+    }
     assert.deepEqual(errors, [], 'Copyable CDN shell has browser/load errors');
     await page.getByRole('slider').focus();
     await page.keyboard.press('ArrowRight');

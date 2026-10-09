@@ -53,6 +53,9 @@ jobs:
       - name: Verify real API, schema and CLI
         working-directory: skill
         run: npm run check:library -- --library ../library
+      - name: Verify generated schema discovery contract
+        working-directory: skill
+        run: npm run check:schema -- --library ../library
       # A repository rename preserves commit identity; frozen contracts retain the old name.
       - name: Read historical blind library revision
         id: blind-contract

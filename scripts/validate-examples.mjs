@@ -39,12 +39,18 @@ assert.deepEqual(schema.$defs.Node.oneOf.map(node => { const definition = node.$
 await checkSkill();
 const skillSource = await readFile(path.join(root, 'SKILL.md'), 'utf8');
 const shell = readSkillShell(skillSource);
-const literalExamples = [...skillSource.matchAll(/^```json\r?\n([\s\S]*?)^```/gm)].map(match => JSON.parse(match[1]));
-for (const value of literalExamples) {
-  const checked = api.validateDocument(value.version ? value : { version: contract.schemaVersion, body: [value] });
-  assert.equal(checked.ok, true, 'Root skill literal example: ' + JSON.stringify(checked.issues));
+const guideSource = await readFile(path.join(root, 'WEB-CHAT-GUIDE.md'), 'utf8');
+const extractExamples = source => [...source.matchAll(/^```json\r?\n([\s\S]*?)^```/gm)].map(match => JSON.parse(match[1]));
+for (const [name, source] of [['root', skillSource], ['complete guide', guideSource]]) {
+  const values = extractExamples(source);
+  for (const value of values) {
+    const checked = api.validateDocument(value.version ? value : { version: contract.schemaVersion, body: [value] });
+    assert.equal(checked.ok, true, `${name} literal example: ` + JSON.stringify(checked.issues));
+  }
+  assert.deepEqual(readSkillShell(source), shell, `${name}: copyable shell must match the tested entrypoint`);
+  console.log(`PASS ${name}: ${values.length} literal JSON examples and matching HTML shell`);
 }
-console.log(`PASS ${literalExamples.length} self-contained JSON contract examples`);
+const literalExamples = extractExamples(guideSource);
 const shellResult = api.validateDocument(shell.document);
 assert.equal(shellResult.ok, true, JSON.stringify(shellResult.issues));
 for (const x of [1, 4, 10]) {
@@ -125,8 +131,8 @@ try {
   const currency = literalExamples.find(node => node.type === 'currency-converter');
   const vector = literalExamples.find(node => node.type === 'svg');
   assert.ok(sports && quiz, 'Self-contained new domain examples are required');
-  assert.ok(finance && heatmap, 'Root finance/heatmap examples are required');
-  assert.ok(unit && currency && vector, 'Root converters and constrained SVG must be self-contained');
+  assert.ok(finance && heatmap, 'Complete-guide finance/heatmap examples are required');
+  assert.ok(unit && currency && vector, 'Complete-guide converters and constrained SVG must be self-contained');
   const changedNode = (node, change) => { const value = structuredClone(node); change(value); return { version: 'iui/1', body: [value] }; };
   const baseChart = { type: 'chart', kind: 'line', xScale: 'linear', xKey: 'x', data: [{ x: 0, y: 1 }, { x: 10, y: 2 }], series: [{ key: 'y', label: 'Synthetic' }] };
   const invalid = [
