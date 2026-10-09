@@ -16,6 +16,8 @@
     "check:inventory": "node scripts/derive-node-support.mjs --check",
     "check:components": "node scripts/verify-next-guidance.mjs",
     "check:primitives": "node scripts/verify-primitive-guidance.mjs",
-    "check:components:browser": "node scripts/verify-next-browser.mjs"
+    "check:components:browser": "node scripts/verify-next-browser.mjs",
+    "check:next66": "node scripts/verify-next66-guidance.mjs",
+    "check:next66:browser": "node scripts/verify-next66-browser.mjs"
   }
 }

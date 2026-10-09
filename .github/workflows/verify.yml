@@ -64,6 +64,7 @@ jobs:
           npm run check:inventory -- --library ../library
           npm run check:components -- --library ../library
           npm run check:primitives -- --library ../library
+          npm run check:next66 -- --library ../library --revision ${{ steps.contract.outputs.revision }}
       # A repository rename preserves commit identity; frozen contracts retain the old name.
       - name: Read historical blind library revision
         id: blind-contract

@@ -1,0 +1,855 @@
+[
+  {
+    "name": "progress-null",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "progress": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "progress-string",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "progress": "50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "progress-bool",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "progress": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "progress-negative",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "progress": -1
+        }
+      ]
+    }
+  },
+  {
+    "name": "progress-over-100",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "progress": 100.01
+        }
+      ]
+    }
+  },
+  {
+    "name": "progress-unknown-reference",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "progress": {
+            "$": "missing"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "progress-invalid-expression",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "progress": {
+            "op": "div",
+            "args": [
+              1,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "loading-animate",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "animate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "loading-empty-label",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "loading-size",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "size": "xl"
+        }
+      ]
+    }
+  },
+  {
+    "name": "loading-percent",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "percent": 50
+        }
+      ]
+    }
+  },
+  {
+    "name": "loading-url",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading",
+          "label": "合成进度",
+          "src": "https://example.com/progress"
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-empty-label",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-card-lines",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": "合成",
+          "shape": "card",
+          "lines": 3
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-circle-lines",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": "合成",
+          "shape": "circle",
+          "lines": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-zero-lines",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": "合成",
+          "lines": 0
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-over-lines",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": "合成",
+          "lines": 11
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-unknown-shape",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": "合成",
+          "shape": "image"
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-children",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": "合成",
+          "children": [
+            {
+              "type": "text",
+              "value": "不替换内容"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "block-progress",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "loading-block",
+          "label": "合成",
+          "progress": 50
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-missing-title",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "url": "https://example.invalid/a"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-empty-title",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "",
+          "url": "https://example.invalid/a"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-title-over-300",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字",
+          "url": "https://example.invalid/a"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-empty-url",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-number-zero",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "number": 0
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-number-over-999",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "number": 1000
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-number-fractional",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "number": 1.5
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-publisher-empty",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "publisher": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-description-null",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "description": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-description-over-1000",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "description": "字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-publisher-over-200",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "publisher": "字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字字"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-title-value-binding",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": {
+            "$": "name"
+          },
+          "url": "https://example.invalid/a"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-arbitrary-children",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "children": [
+            {
+              "type": "text",
+              "value": "forbidden"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-image-request",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a",
+          "image": "https://example.invalid/pixel.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-javascript",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "javascript:alert(1)"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-mailto",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "mailto:demo@example.invalid"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-fragment",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "#section"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-relative",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "/path"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-credentials",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://reader:secret@example.invalid/a"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-ascii-whitespace",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/a b"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-newline",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid/\na"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-backslash",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid\\other/a"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-unsafe-bad-port",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "citation",
+          "title": "合成来源",
+          "url": "https://example.invalid:99999/a"
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-empty-card-label",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-empty-cards",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": []
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-too-many-cards",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-card-record-number",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a",
+              "number": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-card-record-id",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a",
+              "id": "item"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-card-record-children",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-card-record-url-binding",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": {
+                "$": "destination"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-card-record-description-empty",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a",
+              "description": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-card-unsafe-second-url",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            },
+            {
+              "title": "合成资料乙",
+              "url": "data:text/html,bad"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "source-card-query-field",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "web-link-cards",
+          "label": "合成来源列表",
+          "items": [
+            {
+              "title": "合成资料",
+              "url": "https://example.invalid/a"
+            }
+          ],
+          "query": "real-time search"
+        }
+      ]
+    }
+  }
+]

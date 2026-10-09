@@ -35,3 +35,11 @@ Change the data and explanation together. A fixture is not evidence for a user's
 
 - [local-status-primitives.json](../examples/local-status-primitives.json)：flow换行、装饰/命名图标、显式合成状态；base。
 - [primitives-with-form-and-time.json](../examples/primitives-with-form-and-time.json)：flow内表单不改变state或计时边界；base＋forms＋time。
+
+## 显式进度、有限占位与调用方来源
+
+- [loading-numeric-progress.json](../examples/loading-numeric-progress.json)：手动合成比例与未知进度，base。
+- [loading-placeholder-shapes.json](../examples/loading-placeholder-shapes.json)：text/card/circle有限形状和始终可读标签，base。
+- [supplied-source-reading.json](../examples/supplied-source-reading.json)：来源无自动已读/可信标记，form数值独立驱动loading，base＋forms。
+
+三个新例需要当前66节点固定版本，不能放入旧01ae/6797壳。所有.invalid链接和来源元数据均为虚构占位。详细真实性与状态规则见[进度和来源](loading-and-sources.md)。

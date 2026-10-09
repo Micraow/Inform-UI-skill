@@ -104,6 +104,22 @@
     "status": "portable"
   },
   {
+    "type": "loading",
+    "status": "portable"
+  },
+  {
+    "type": "loading-block",
+    "status": "portable"
+  },
+  {
+    "type": "citation",
+    "status": "portable"
+  },
+  {
+    "type": "web-link-cards",
+    "status": "portable"
+  },
+  {
     "type": "carousel",
     "status": "portable"
   },

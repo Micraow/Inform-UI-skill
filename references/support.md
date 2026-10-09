@@ -4,7 +4,7 @@ This matrix describes the independent `iui/1` library matched in [library-contra
 
 ## Public protocol nodes
 
-This pin contains 62 schema nodes: 60 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The root retains common authoring contracts and a complete discovery map; deeper domain contracts are read from the same-pin generated index, schema bundle and example, or supplied through the complete Web Chat guide. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
+This pin contains 66 schema nodes: 64 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The root retains common authoring contracts and a complete discovery map; deeper domain contracts are read from the same-pin generated index, schema bundle and example, or supplied through the complete Web Chat guide. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
 
 | Status | Nodes | Authoring guidance |
 | --- | --- | --- |
@@ -15,6 +15,8 @@ This pin contains 62 schema nodes: 60 rendered surfaces, the explicit markdown p
 | Local learning | `quiz`, `flashcards` | Weighted local scoring, exact multiple-answer sets, reveal/self-rating/reset; no persistence, secret exams or spaced scheduling |
 | Supplied finance | `finance-quote`, `finance-chart`, `finance-comparison`, `finance-heatmap` | Provided prices/history, exact common baseline, weighted area and supplied changes; no market retrieval, trading or currency conversion |
 | Local converters | `unit-converter`, `currency-converter` | Nine unit categories, absolute versus delta temperatures, and supplied base-relative rate snapshots; no live quotes or transactions |
+| Explicit loading and placeholders | `loading`, `loading-block` | Caller-supplied finite0–100 progress or explicit unknown; bounded text/card/circle placeholders; no task inference or automatic replacement |
+| Supplied source references | `citation`, `web-link-cards` | Literal caller-supplied sources, safe native HTTP(S) links and ordered horizontal list; no retrieval, ranking or verification |
 | Local time | `clock`, `stopwatch`, `timer` | Device/supplied time and in-page elapsed/countdown controls; no system alarm, network synchronization or persistence |
 | Foundation and disclosure extensions | `blockquote`, `grid-item`, `flow`, `icon`, `pulse-indicator`, `tooltip`, `popover` | Root contracts cover bounded layouts, finite original icons, caller-supplied status and nonmodal disclosure; no arbitrary markup or service inference |
 | Explicit fallback | `markdown` | Plain text with a visible fallback label; no Markdown formatting is interpreted |
@@ -70,7 +72,7 @@ The following 52 items classify user-visible jobs, not 52 generator tags. “Par
 | 42 | Image collections | `grid`/`carousel` with authorized `image` nodes |
 | 43 | Video | Extension or authorized external link; no current player node |
 | 44 | Maps and routes | Host data/service or new renderer; schematic topology is not a map |
-| 45 | Sources and citations | Visible `link`/caption; source retrieval and native citation metadata require host support |
+| 45 | Sources and citations | `citation` and `web-link-cards` retain supplied title/URL/publisher/description; retrieval and assessing evidential support remain the author/host responsibility |
 | 46 | File navigation | Authorized file links; filesystem navigation requires the host |
 | 47 | Linked entities | Sourced prose/images/links; live entity data requires a service |
 | 48 | Follow-up suggestions | Plain text/list; conversation actions require the host |

@@ -1,15 +1,15 @@
 ---
 name: inform-ui-author
-description: 为解释、真坐标图、本地表单、供数天气/体育/金融、本地自测/闪卡、单位/货币换算、时间控件、按需说明与基础状态生成 iui/1 JSON；无终端Web Chat直接用固定CDN与本文HTML壳交付页面，Agent可用本地库。普通文字足够时不强加界面。
+description: 为解释、真坐标图、本地表单、供数天气/体育/金融、本地自测/闪卡、单位/货币换算、时间控件、进度占位、调用方提供的来源与基础状态生成 iui/1 JSON；无终端Web Chat直接用固定CDN与本文HTML壳交付页面，Agent可用本地库。普通文字足够时不强加界面。
 ---
 
 # Inform UI Author
 
-> 固定运行时已通过292项核心检查、216项Chromium测试和42个组件消费者视图；范围与精确提交见[验收记录](references/schema-discovery.md)。当前Skill入口的独立CDN回归另行记录，旧盲测保留原版本。
+> 当前固定资产为 d370ffb2df310fce0da9299e6e254a58509ba544；核心338项本地测试、241项Chromium场景及42旧＋18新消费者已通过集中CI。Skill入口自身的回归状态单独记录于 references/schema-discovery.md。
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
-本文件是默认Agent入口，也能单独提供给普通Web Chat生成基础内容。本版固定协议有62个注册项：60个渲染节点、markdown纯文本降级、native明确拒绝。协议节点数不是组件目录验收计数。单根内嵌下述常用基础、布局、图、控件、表单、学习、单位换算与受控SVG的生成规则。天气、体育、金融、货币快照等深领域须先读取同版索引指向的完整合同与示例；不能只凭名称猜字段。无法读取外部资料的Web Chat可额外接收完整Schema或WEB-CHAT-GUIDE.md全文。
+本文件是默认Agent入口，也能单独提供给普通Web Chat生成基础内容。本版固定协议有66个注册项：64个渲染节点、markdown纯文本降级、native明确拒绝。协议节点数不是组件目录验收计数。单根内嵌下述常用基础、布局、图、控件、表单、学习、单位换算与受控SVG的生成规则。天气、体育、金融、货币快照等深领域须先读取同版索引指向的完整合同与示例；不能只凭名称猜字段。无法读取外部资料的Web Chat可额外接收完整Schema或WEB-CHAT-GUIDE.md全文。
 
 Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
 
@@ -25,10 +25,10 @@ Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模�
 
 固定的公开文件（实际取回字节已核对，保持同一提交）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
@@ -43,7 +43,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inform UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.css" integrity="sha384-qNWPFoy6Ymjw326+NVax/jDhejs64mwImn+qdIzX44lT5LB9RHqPifXo8AHYIC2v" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.css" integrity="sha384-pGHEnylvKkWQgEUFwcGDbc2NWfdeTz6vVMLvAxw3eJI7y0wPCjU7gWGAI+wG1dOe" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -51,7 +51,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/iui.global.min.js" integrity="sha384-kCdDypduBjoPeuXDsQ+Jh87xRL4aVxFlSy0DyPQ9xoEtvQfucAYKVVodpT0TvuxN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.global.min.js" integrity="sha384-XBQUcvwQ5klmCxmtzuqnW22k5Fsme+uWeKIKB9VP9/5JKuhSpt/mmLVKJu8zLaAt" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -75,11 +75,11 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
 
 本根已给出常用基础、布局、图、控件、表单、学习、单位换算与受控SVG的生成规则。只用这些明确字段时，不必先下载完整Schema。深入供数领域或核对进阶字段时，走最短路线：版本化索引 → 所需schema → 同版示例。
 
-索引：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@01ae9d870b221208b31e9da437ae87fdef265cec/cdn/schema/index.json`
+索引：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/schema/index.json`
 
 | 需求与选型 | 索引group | 节点与重要边界 |
 | --- | --- | --- |
-| 正文、富文本、引用、跨格布局、结构化表格、联动控件与提示/面板 | base | 本根内嵌；markdown仅纯文本降级，不执行格式 |
+| 正文、富文本、引用、布局、结构化表格、进度/占位、资料链接与提示/面板 | base | 本根内嵌；markdown仅纯文本降级，不执行格式 |
 | 关联字段、约束与一次本地确认 | forms | input/textarea/radio/segmented/field/form；默认不联网，宿主动作须明确配置和授权 |
 | 类别比较、真数轴、时间趋势、散点或组成 | charts | chart；正确选category/linear/time，不造缺测或裁极值 |
 | 关系/瓶颈示意、原创小型静态矢量 | graphics | topology/svg；不是地理地图、原始SVG或脚本容器 |
@@ -270,6 +270,52 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
 ```
 
 完整原生例见[流式提示与状态](examples/local-status-primitives.json)。完整文档仍须通过同版validateDocument，不把本节生成指导当成另一份Schema。
+
+### 已提供进度与有限占位形状
+
+两者均属base，匹配本文固定版本。字段由核心单一Schema生成；不凭名称猜动画、后台任务或数据源。
+
+- `loading`：`{type:"loading",label:S,progress?:V,size?:"sm"|"md"|"lg",showValue?:B,id?:S}`；label 为1–200字符可见普通文字，size 默认 md，showValue 默认 true。progress 一旦提供，解析结果必须是0–100之间的有限数值，允许小数；不接受null、数值字符串、布尔、超界或无穷值，不会强转或静默裁到边界。
+  - 已提供的0表示已知零进度；完全省略 progress 才是不确定进度，界面明确写“未提供进度”，没有伪造百分比。它不会估计剩余时间、联网观察任务或自动从0增加到100。
+  - 用文档 state/computed 的 V 引用提供确有根据的进度。合法 setState 更新数值并保留该组件DOM与焦点；非法解析值须由完整核心原子拒绝。应验证整个可选输入范围，例如分母始终大于零。这里progress的0–100是全局语义约束，与仅约束字段/提交的form min/max/step不同：即使宿主明确setState，导致progress越界也会原子拒绝。
+  - 库使用带名称的 progressbar 语义；确定进度的 aria-valuenow 保留原始数值，视觉百分比也使用原始数值的字符串，不额外舍入。例如表达式运算可能显示25.124999999999996，不能把它当成已舍入25.125的保证；不把展示格式反写成业务数据。showValue:false 只隐藏视觉百分比，不隐藏标签/辅助技术的精确值；未提供进度的说明仍保留。没有默认live-region播报，CSS动画遵守减少动态效果。loading 没有 animate 字段。
+- `loading-block`：`{type:"loading-block",label:S,shape?:"text"|"card"|"circle",lines?:1..10整数,animate?:B,id?:S}`；label 为1–200字符且始终可读；shape 默认 text，text 的 lines 默认3。card/circle 不得提供 lines，避免作者意图被忽略。animate 默认 true，可显式 false；减少动态效果设置下静止。
+  - 只提供有限、原创的文本/卡片/圆形装饰占位块，不接收 children、内容HTML、图片URL、尺寸CSS、任意骨架布局或进度。形状本身对辅助技术隐藏，标签保留；不会隐式给整个宿主设置 aria-busy 或 status/live region。
+  - 不会自动等待或替换成真实内容。宿主取得授权且有真实结果后，才决定如何更新页面；update 会重建整份文档，其他组件的本地状态可能随之重置。不要用定时update伪造下载或保存过程。
+
+选型：有可信的已完成比例用 loading(progress)；确实在进行但未提供比例可省略 progress，仍如实标注来源；只是说明将来的内容结构用 loading-block；简单已知状态用 pulse-indicator。没有真实任务时，把示例明确标为合成，不让“忙碌”“加载中”暗示服务已连接。
+
+```json
+{"type":"loading","label":"调用方提供的合成进度","progress":15.625}
+```
+
+```json
+{"type":"loading-block","label":"原创合成文章占位示意","shape":"text","lines":3,"animate":false}
+```
+
+### 引用与网页资料卡
+
+两者均属 base，展示调用方已经提供的来源信息。解释一句话所依赖的单项资料用 citation；几份可供继续阅读的网页资料用 web-link-cards。普通短链接仍可用 link，长引用正文用 blockquote。组件不会搜索、抓取网页、生成摘要/网站图标/缩略图、检查来源是否存在或核实它是否支持结论；这些仍由作者负责。不要把漂亮卡片或编号当成证据已验证的标记。
+
+- `citation`：`{type:"citation",title:S,url:S,publisher?:S,description?:S,number?:1..999整数,id?:S}`。title 为1–300字符，url 为1–2048字符；publisher 为1–200字符，description 为1–1000字符。可选字段存在时不得为空或null。number是作者明确提供的可见编号，不是排名，也不会自动创建正文脚注引用或重新排序。
+- `web-link-cards`：`{type:"web-link-cards",label:S,items:[{title:S,url:S,publisher?:S,description?:S},...],id?:S}`。label 为1–200字符，items 为1–20条，记录的文字和URL约束与citation相同；条目不接收id、number、children、image、favicon或任意metadata。顺序和重复项原样保留，不自动去重、选中或排序。
+- 所有来源字段均为字面值，不接受V/state绑定、HTML或自动查询字段。文字按惰性纯文本显示。只用安全绝对HTTP(S) URL，优先已核实的HTTPS地址；mailto/tel或仅页内片段（如#section）不在这两个节点的来源URL合同内；合法绝对HTTP(S) URL可以保留自己的查询串和片段。凭据、空白/控制字符、反斜杠、非法端口或其他协议会被拒绝，不能靠编码或移除保护绕过。
+- 可见发布者是调用方提供的文字；库另显示实际URL主机名/端口，不把发布者冒充经过认证的站点身份。每条只有一个有名称的原生链接，用户主动点击/Enter会在新标签页打开，并使用noopener/noreferrer/no-referrer。辅助描述说明新标签页；复制、选择、浏览器上下文菜单和修饰键保持浏览器原生行为。不要另外劫持点击，也不要声称打开链接完成了阅读。
+- web-link-cards是原生列表和局部水平滚动区，不是自动轮播。上一页/下一页移动一个当前栏宽，到边界停止，不循环、不克隆、不自动播放；保留普通触摸、触控板及键盘滚动，不自行把PageDown等键重定义为换卡。控制按钮边界使用aria-disabled并仍可聚焦，激活无操作，焦点不会因到边界而消失。
+- 仅溢出时滚动列表进入Tab顺序；视口大小变化移除其tabindex不会主动抢走已有焦点。当前位置是非live的“当前可见”范围，可包含部分显示的首尾条目，不表示当前选中或已读。翻页始终瞬时，减少动态效果设置下没有平滑滚动动画。
+- 不相关setState保留来源DOM、焦点与滚动位置；没有来源state绑定，改变文字或URL须由宿主update整份文档，并会重建其他组件的本地状态。非法URL/update先原子拒绝；update/dispose清理滚动/尺寸/字体观察。长内容和RTL按原始阅读顺序呈现，整页不应横向溢出。
+
+以下引用是原创虚构示例；链接不是实际来源：
+
+```json
+{"type":"citation","number":7,"title":"合成参考：区分零与缺测","url":"https://example.invalid/synthetic-reference","publisher":"虚构教学资料组","description":"这是作者提供的占位说明，不代表链接存在或支持任何实际结论。"}
+```
+
+```json
+{"type":"web-link-cards","label":"两份虚构延伸阅读","items":[{"title":"合成资料甲","url":"https://example.invalid/a"},{"title":"合成资料乙","url":"https://example.invalid/b"}]}
+```
+
+完整组合示例见[手动进度与来源](examples/supplied-source-reading.json)：表单手动值可以驱动loading，但点击资料卡不会自动增加进度。外层属于base，不会免除子form所需forms合同。更多场景与状态边界见[进度与来源](references/loading-and-sources.md)。
 
 ### 组合边界
 

@@ -36,10 +36,10 @@ try {
     for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
       const label = `${name}-${width}-${theme}`;
       const file = path.join(directory, `${label}.html`);
-      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap', 'local-converters', 'auxiliary-surfaces', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time'].includes(name);
+      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap', 'local-converters', 'auxiliary-surfaces', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time', 'loading-numeric-progress', 'loading-placeholder-shapes', 'supplied-source-reading'].includes(name);
       const authored = { ...document, theme };
       const html = cdn ? shell.html.replace(/(<script id="iui-spec" type="application\/json">)[\s\S]*?(<\/script>)/, (_, open, close) => open + JSON.stringify(authored).replaceAll('<', '\\u003c') + close).replace('data-theme="auto"', `data-theme="${theme}"`)
-        : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time'].includes(name) ? 'zh-CN' : 'en' });
+        : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time', 'loading-numeric-progress', 'loading-placeholder-shapes', 'supplied-source-reading'].includes(name) ? 'zh-CN' : 'en' });
       await writeFile(file, html);
       const page = await browser.newPage({ viewport: { width, height: 900 }, colorScheme: theme });
       if (cdn) {
