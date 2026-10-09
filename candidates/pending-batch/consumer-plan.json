@@ -3,10 +3,10 @@
   "candidateOnly": true,
   "status": "prepared-not-run",
   "executionOwner": "core:scripts/run-batch-consumers.mjs",
-  "sourceRevision": "7978f23da0222ad9122bb0b40daa4f1844b5b9cd",
-  "skillBaseRevision": "94b5cd14a7f47fc477ee781cec06e0e6810a7169",
+  "sourceRevision": "26ec211fa529516af3b1523248f5912c45ec64c6",
+  "skillBaseRevision": "1ac13720d8dfb5fc9c516e2221e7d87f4ed7b433",
   "acceptedAssetRevision": "d370ffb2df310fce0da9299e6e254a58509ba544",
-  "sourceScope": "30 canonical candidates, 32 exact synthetic examples; browser acceptance not run",
+  "sourceScope": "37 canonical candidates, 37 exact synthetic examples; browser acceptance not run",
   "consumerId": "pending",
   "script": "candidates/pending-batch/verify-browser.mjs",
   "coreScript": "tests/consumer/pending/verify-browser.mjs",
@@ -19,12 +19,12 @@
     "light",
     "dark"
   ],
-  "plannedLocalCompiledViews": 192,
+  "plannedLocalCompiledViews": 222,
   "publicCdn": "not-run",
   "browser": "not-run",
   "ci": "not-run",
   "coverage": "Inline compilation, hydration, native example smoke, single root, no unsolicited requests/page errors, no page-wide overflow. Exhaustive component/lifecycle and host-action coverage stays in canonical core browser specs.",
-  "futureSkillPromotion": "Final owner copies exact candidate bytes to examples/{name}.json in a separately frozen pending Skill acceptance commit. This preparation does not promote files or formal assets.",
+  "futureSkillPromotion": "Root fixtures include the exact 37 pending input bytes, with accepted53 count unchanged. Browser/CDN acceptance remains required.",
   "examples": [
     {
       "name": "carousel-basic",
@@ -410,10 +410,72 @@
       "skillPath": "candidates/pending-batch/examples/business-gallery.json",
       "corePath": "tests/consumer/pending/examples/business-gallery.json",
       "futureSkillPath": "examples/business-gallery.json"
+    },
+    {
+      "name": "flight-option",
+      "lang": "en",
+      "sha256": "dd7857589c93dae8c44c10fb6fb15f75239804851b4b03b2198d4c4caad4c726",
+      "canonicalIds": [
+        "flight-option"
+      ],
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/flight-option.json",
+      "corePath": "tests/consumer/pending/examples/flight-option.json",
+      "futureSkillPath": "examples/flight-option.json"
+    },
+    {
+      "name": "artist-upcoming-events",
+      "lang": "en",
+      "sha256": "5879ebb931a95ffc85b85f864654aa10ef06dc7491c20cd8b540c178b217eb21",
+      "canonicalIds": [
+        "artist-upcoming-events"
+      ],
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/artist-upcoming-events.json",
+      "corePath": "tests/consumer/pending/examples/artist-upcoming-events.json",
+      "futureSkillPath": "examples/artist-upcoming-events.json"
+    },
+    {
+      "name": "finance-lists",
+      "lang": "en",
+      "sha256": "ab3d9cf84d9e658544d109c50642e88ee7b830c0e56a417daa8d8fc93d6dfd0d",
+      "canonicalIds": [
+        "asset-distribution",
+        "transaction-list"
+      ],
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/finance-lists.json",
+      "corePath": "tests/consumer/pending/examples/finance-lists.json",
+      "futureSkillPath": "examples/finance-lists.json"
+    },
+    {
+      "name": "onboarding-selection",
+      "lang": "zh-CN",
+      "sha256": "defc49a8fee0dd0f1174fbdc5adabd8f153f0c921901bf13f628567a2bcbbe12",
+      "canonicalIds": [
+        "onboarding-selection"
+      ],
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/onboarding-selection.json",
+      "corePath": "tests/consumer/pending/examples/onboarding-selection.json",
+      "futureSkillPath": "examples/onboarding-selection.json"
+    },
+    {
+      "name": "supplied-trackers",
+      "lang": "en",
+      "sha256": "7d7591b92dc79c5951779bf39fa2544f2a9c9dee26937744f641925358356d56",
+      "canonicalIds": [
+        "package-tracker",
+        "flight-tracker"
+      ],
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/supplied-trackers.json",
+      "corePath": "tests/consumer/pending/examples/supplied-trackers.json",
+      "futureSkillPath": "examples/supplied-trackers.json"
     }
   ],
   "existingConsumerComparison": {
-    "sourceRevision": "7978f23da0222ad9122bb0b40daa4f1844b5b9cd",
+    "sourceRevision": "26ec211fa529516af3b1523248f5912c45ec64c6",
     "examples": [
       {
         "name": "carousel-with-local-controls",
@@ -614,6 +676,34 @@
     {
       "canonicalId": "business-gallery",
       "contract": "docs/business-gallery.md"
+    },
+    {
+      "canonicalId": "flight-option",
+      "contract": "docs/travel-events.md"
+    },
+    {
+      "canonicalId": "artist-upcoming-events",
+      "contract": "docs/travel-events.md"
+    },
+    {
+      "canonicalId": "asset-distribution",
+      "contract": "docs/finance-lists.md"
+    },
+    {
+      "canonicalId": "transaction-list",
+      "contract": "docs/finance-lists.md"
+    },
+    {
+      "canonicalId": "onboarding-selection",
+      "contract": "docs/onboarding-selection.md"
+    },
+    {
+      "canonicalId": "package-tracker",
+      "contract": "docs/supplied-trackers.md"
+    },
+    {
+      "canonicalId": "flight-tracker",
+      "contract": "docs/supplied-trackers.md"
     }
   ],
   "exampleLanguages": {
@@ -648,7 +738,12 @@
     "email-draft": "en",
     "task-expansion-card": "en",
     "location-choice-request": "en",
-    "business-gallery": "en"
+    "business-gallery": "en",
+    "flight-option": "en",
+    "artist-upcoming-events": "en",
+    "finance-lists": "en",
+    "onboarding-selection": "zh-CN",
+    "supplied-trackers": "en"
   },
   "localeMap": "references/example-languages.json",
   "existingEnhancementPromotion": [

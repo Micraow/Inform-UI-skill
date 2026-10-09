@@ -1,6 +1,6 @@
 # d370 已验66节点历史记录
 
-本记录保留原验收范围。当前 pending acceptance 分支固定 5c7f 的 90 节点合同，浏览器/集中 CI 仍待执行；本页旧绿色证据不能提升待验组件计数。
+本记录保留原验收范围。当前 pending acceptance 分支固定 26ec211 的 97 节点合同，浏览器/集中 CI 仍待执行；本页旧绿色证据不能提升待验组件计数。
 
 固定资产：d370ffb2df310fce0da9299e6e254a58509ba544。运行时、CSS、完整Schema和按需索引使用同一提交；根SKILL保留常用loading/loading-block/citation/web-link-cards字段和场景，来源记录与进度不会自动变成搜索或任务服务。
 

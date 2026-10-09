@@ -9,7 +9,7 @@ import {candidateDirectory,readJSON,verifyPinnedInputs,sha256} from './pending-i
 import {examples,verifyExampleInputs} from '../candidates/pending-batch/verify-browser.mjs';
 assert.equal(process.argv.length,4,'Pass --library BUILT_FROZEN_CORE');assert.equal(process.argv[2],'--library');
 const library=path.resolve(process.argv[3]);
-const lock=await readJSON(path.join(root,candidateDirectory,'library-candidate-lock.json'));
+const lock=await readJSON(path.join(root,candidateDirectory,'library-candidate-lock37.json'));
 await verifyPinnedInputs(root,library,lock);
 const require=createRequire(path.join(library,'package.json')), {JSDOM}=require('jsdom');
 const {mount,compileHtml,validateDocument}=await import(pathToFileURL(path.join(library,'dist/index.js')).href);
@@ -45,7 +45,13 @@ const checks={
  'email-draft':{'.iui-email-draft':3,'.iui-email-draft textarea':3,'.iui-email-draft textarea[readonly]':1},
  'task-expansion-card':{'.iui-task-expansion-card':2,'[id$="-main-plan"] input[type=checkbox]':3,'[id$="-main-plan"] details':2},
  'location-choice-request':{'.iui-location-choice':1,'.iui-location-choice-option':3,'.iui-location-choice-clear':1},
- 'business-gallery':{'.iui-business-gallery':1,'.iui-business-gallery-item':3,'.iui-business-gallery img':1,'.iui-business-gallery .iui-image-consent button':2}
+ 'business-gallery':{'.iui-business-gallery':1,'.iui-business-gallery-item':3,'.iui-business-gallery img':1,'.iui-business-gallery .iui-image-consent button':2},
+ 'flight-option':{'.iui-flight-option':1,'.iui-flight-leg':2,'.iui-flight-option time':4,'.iui-flight-select':1,'.iui-flight-clear':1},
+ 'artist-upcoming-events':{'.iui-artist-events':2,'.iui-events-item':3,'.iui-events-filter':1},
+ 'finance-lists':{'.iui-asset-distribution':2,'.iui-transaction-list':2,'.iui-ledger-currency-group':3,'[data-transaction-id]':4},
+ 'onboarding-selection':{'.iui-onboarding':1,'.iui-onboarding input[type=checkbox]':3,'.iui-onboarding-continue':1},
+ 'supplied-trackers':{'.iui-tracker':2,'.iui-tracker-filter':2,'.iui-tracker-record':6,'.iui-tracker-endpoint':2,'.iui-tracker-missing':2}
+
 
 };
 let selectorChecks=0;

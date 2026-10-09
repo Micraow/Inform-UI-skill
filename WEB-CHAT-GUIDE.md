@@ -5,13 +5,13 @@ description: 为解释、真坐标图、本地表单、供数天气/体育/金�
 
 # Inform UI Web Chat 完整指南
 
-> 本分支为 pending acceptance，待验资产固定 7978f23da0222ad9122bb0b40daa4f1844b5b9cd。30 项候选与 90 个协议节点尚未通过本轮浏览器、集中 CI 与原图验收；已验 53 个组件及旧版推荐不升级。历史 d370 证据见 references/schema-discovery.md。
+> 本分支为 pending acceptance，待验资产固定 26ec211fa529516af3b1523248f5912c45ec64c6。37 项候选与 97 个协议节点尚未通过本轮浏览器、集中 CI 与原图验收；已验 53 个组件及旧版推荐不升级。历史 d370 证据见 references/schema-discovery.md。
 
 这是可选的完整人工可读指南，适合一次提供给无法按需读取领域资料的普通Web Chat。Agent的默认入口是[SKILL.md](SKILL.md)。正式JSON Schema以固定版本核心库为唯一来源，本文件是生成指南，不是第二套手工维护的Schema。
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
-本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。本版固定协议有90个注册项：89个portable节点、native明确拒绝。协议节点数不是组件目录验收计数。本文逐项给出用途及保守生成合同，复制本指南即可生成；进阶可选样式可查完整Schema，不猜未列字段。
+本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。本版固定协议有97个注册项：96个portable节点、native明确拒绝。协议节点数不是组件目录验收计数。本文逐项给出用途及保守生成合同，复制本指南即可生成；进阶可选样式可查完整Schema，不猜未列字段。
 
 Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
 
@@ -27,11 +27,11 @@ Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模�
 
 固定的候选公开文件（本地提交字节已核对；公开 HTTP 字节检查以本轮独立报告为准，浏览器验收仍待完成，保持同一提交）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.css`
-- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/schema/index.json`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.css`
+- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/schema/index.json`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
@@ -46,7 +46,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inform UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.css" integrity="sha384-U7bHXQ3yf+Y4vGRTAZYgnccm9T4+CXfFjwyEABoT+Gf6UQrKU3k0q1wedWhJuKqL" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.css" integrity="sha384-N2DaPltTxy2wOal7Y0E4rFGkV0RQnZDSxaBNjptMX9emhUrH5Ns2KuSUooS2yeT9" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -54,7 +54,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.global.min.js" integrity="sha384-OOH/vTHSHG5QVp4brsvGa3pESsZ5ZuJT369UKlPKYmrnyFYftIbIclZSNaVvcBxK" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.global.min.js" integrity="sha384-rNkoDurazsyrGG/Mn2h+KAShhESbJT2MgsAuslXIF07vsI5dHj9xH6qThngwj+Ce" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -533,7 +533,7 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 本分支所有壳与以下合同同版固定 5c7f；尚未浏览器及集中 CI 验收。
 
 
-本节仅用于显式选择冻结本地候选 7978f23da0222ad9122bb0b40daa4f1844b5b9cd 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 已在本待验分支统一固定到此版本；这是验收输入转换，未替换已验推荐与用户演示。候选有 90 个协议节点，30 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。在原24项基础上追加 animate、celebration、email-draft、task-expansion-card、location-choice-request、business-gallery 六项；32份唯一JSON不与组件数混计。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段是同版待验合同，不是浏览器或交付通过承诺。
+本节仅用于显式选择冻结本地候选 26ec211fa529516af3b1523248f5912c45ec64c6 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 已在本待验分支统一固定到此版本；这是验收输入转换，未替换已验推荐与用户演示。候选有 97 个协议节点，37 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。在原24项基础上追加 animate、celebration、email-draft、task-expansion-card、location-choice-request、business-gallery 六项；37份唯一JSON不与组件数混计。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock37.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段是同版待验合同，不是浏览器或交付通过承诺。
 
 本节保留常用基础完整生成规则，不要求先读另一份基础指南。候选分类索引仅由同一完整 Schema 与源索引派生；不另写 Schema。以下长度为 Unicode 码点，除非明确说明；全局资源预算仍适用。key以英文字母或下划线开头，后接字母、数字、下划线、点或短横线，总长1–80；普通节点id仍为1–200字符。所有内容需为原创、授权或调用方提供，不补造来源、身份、价格、答案或可用性。
 
@@ -652,7 +652,7 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 
 ## 学习候选完整合同
 
-仅用于 7978f23da0222ad9122bb0b40daa4f1844b5b9cd 同版待验资产；不搭配历史 d370 CDN。common/base 指导仍在 [SKILL.md 第7节](SKILL.md#7-隔离候选30-项本地组件指导尚未浏览器验收)；完整规范仍为源仓库生成的 src/schema/iui.schema.json，本文件不是替代 Schema。候选 [分类索引](candidates/pending-batch/category-index.json) 从同一完整 Schema 和索引生成。
+仅用于 26ec211fa529516af3b1523248f5912c45ec64c6 同版待验资产；不搭配历史 d370 CDN。common/base 指导仍在 [SKILL.md 第7节](SKILL.md#7-隔离候选30-项本地组件指导尚未浏览器验收)；完整规范仍为源仓库生成的 src/schema/iui.schema.json，本文件不是替代 Schema。候选 [分类索引](candidates/pending-batch/category-index.json) 从同一完整 Schema 和索引生成。
 
 所有字段是字面值；没有表达式、bind、可执行代码或网络地址字段，提供的文字始终按字面显示。答案随 JSON 一起公开；不适合保密考试，也不验证掌握程度或保存学习记录。长度为 Unicode 码点，共享全局预算仍适用。key 为英文字母/下划线开头，后接字母、数字、下划线、点或短横线，总长1–80。
 
@@ -695,3 +695,87 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 ```
 
 三个组件都属于learning，单独Document包包含base+learning。跨forms/time等领域必须依照实际节点取并集，而不是因为外层tabs归base就省掉learning。无需学习交互时用正文即可。本地语义、DOM测试和编译不证明真实浏览器、辅助技术或视觉验收。
+
+## 8. 后续七项：供数航程、活动、本地选择与状态快照（候选，未验收）
+
+仅在取得同版已实现合同和示例后生成以下节点。它们属于当前同版待验准备；旧 7978 的 90 节点资产不支持本节新增合同，不能据此提高已验收数量。当前整合版本有 97 个协议节点，53 个已验收组件加 37 个待验候选；协议节点与验收组件不是同一计数。
+
+选型：比较一份已提供的航程用 flight-option；已提供的艺术家活动列表用 artist-upcoming-events；本页单选/多选引导用 onboarding-selection；已提供的包裹/航班状态用 package-tracker / flight-tracker。这些归 base。金额分布 asset-distribution 与交易记录 transaction-list 归 finance；先按未来同版索引取 finance Document 包及 finance-lists.json，不拿 base 包冒充 finance 合同。
+
+所有示例是原创虚构数据。不要从组件名字推断实时数据服务、账户、订单、订票、物流/航班位置、支付或持久化。没有数据时保留未知状态、空列表和明确说明；不编造来源、时刻、延迟、进度或完成承诺。
+
+### 供数航程 flight-option
+
+必有 label:1–200 字符、optionId:key、legs:1–8。每段为 {id:key,carrier,number,departure,arrival,cabin?}，段 id 局部唯一；carrier/number/cabin 为1–200字符。departure/arrival 为 {airport,at,name?}，airport 恰为三个大写 ASCII 字母。可选 description/note:最多2000字符、price:{amount:0–1e12有限数,currency:三个大写ASCII字母}、source:{label,url}、普通 id。币种只是供数标签，不核实汇率或币种元数据，不自行舍入费用。
+
+at 只接受 YYYY-MM-DDTHH:mmZ 或 YYYY-MM-DDTHH:mm±HH:mm，真实公历年份1000–9999、分钟精度、偏移不超过±14:00。不得给秒、小数秒、无偏移时间或 IANA 区域名。每段到达必须晚于起飞，下一段起飞可等于、不可早于前段到达；按合法时刻推导时长，保留原偏移和输入顺序。不要把“墙上时间字符串大小”当作跨时区先后。
+
+选择/清除只更改本地选择并发出可取消 iui:flight-choice，冻结 detail 为 {id:作者id或null,optionId:选中id或null}；preventDefault 保留原选择。无 bind、账户、购票、FormData、自动导航或保存。无关 setState 保留选择与 details；update 重置，dispose 清理。不得把选择反馈写成“已预订”。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"flight-option","label":"原创合成航程，不是可售机票","optionId":"demo_route","legs":[{"id":"leg_one","carrier":"Example Air","number":"EX 101","departure":{"airport":"LHR","at":"2028-02-29T09:00Z"},"arrival":{"airport":"JFK","at":"2028-02-29T07:00-05:00"}}]}]}
+```
+
+### 供数活动 artist-upcoming-events
+
+必有 artist:1–200字符、events:0–40。每项为 {id:key,title,date,venue,start?,timeZoneLabel?,location?,description?,url?}；id 局部唯一，date 为真实 YYYY-MM-DD（1000–9999），start 为严格 HH:mm；短文字1–200字符，description 最多2000。组件可选 label、description、source:{label,url}、普通 id。
+
+按供数顺序展示，允许历史日期、重复日期/场地和未给时间。timeZoneLabel 只是字面标签，不转换为时刻；名称“upcoming”不证明当前未来、演出有效或有票。跨月时原生筛选只隐藏现有行，保留 details 与焦点；没有请求、host event、FormData 或排序。普通外层表单重置可恢复 All，取消/失活及更新竞争保留一致状态。链接仅为明确给出的安全绝对 HTTP(S)，不猜票务端点。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"artist-upcoming-events","artist":"原创虚构乐团","events":[{"id":"demo_event","title":"合成活动记录","date":"2028-02-29","venue":"虚构场地","start":"19:30","timeZoneLabel":"作者提供的场地时间标签"}]}]}
+```
+
+### 本页引导 onboarding-selection
+
+必有 label 和2–12个 options:[{id,label,description?}]，id 局部唯一；label1–200字符、选项说明最多1000。组件可选 description:最多2000、mode:single/multiple（默认single）、initial:已有且不重复的选项ID数组（默认空）、minimum:默认1且可为0、maximum:单选固定1/多选默认选项数、continueLabel:1–200、字面布尔 disabled、普通 id。minimum 不大于 maximum，maximum 不大于选项数；初选不得超过上限，少于 minimum 是允许的草稿。
+
+单选原生 radio、多选原生 checkbox。超上限保留原草稿并提示；继续不足下限时聚焦第一个选项，满足时发出可取消 iui:onboarding-choice，冻结 detail={componentId:作者id或null,selectedIds:按来源顺序的ID}。取消不清草稿；“准备好”不是注册/保存/后端成功。重置恢复 initial；外层原生 form.reset 不重置该卡。没有 bind、导航、网络、存储或字符串回调。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"onboarding-selection","label":"原创合成本页选择","mode":"multiple","minimum":1,"maximum":2,"options":[{"id":"read","label":"阅读"},{"id":"practice","label":"练习"},{"id":"review","label":"复习"}]}]}
+```
+
+### 供数包裹 package-tracker
+
+必有 label、carrier、trackingId:1–200字符，status:pre-transit/in-transit/out-for-delivery/delivered/exception/unknown，observedAt:上述严格带偏移分钟时刻，milestones:0–40。每项 {id:key,label,state:complete/current/pending,occurredAt?,location?,description?}，id 唯一，最多1项 current；pending 禁止 occurredAt，complete/current 可缺时刻。可选 destination、expectedDelivery:1–200字面标签、description:最多2000、source:{label,url}、普通 id。
+
+expectedDelivery 只是来源给出的预计文字，不能解析成保证到达或倒计时。上层 status 与里程碑原样显示，不擅自调和矛盾；无当前标记也是合法快照。原生 all/complete/current/pending 筛选只作用于本地行。未知状态、空记录、无匹配筛选分别呈现。
+
+### 供数航班 flight-tracker
+
+必有 label、carrier、flightNumber:1–200字符，status:scheduled/boarding/departed/landed/cancelled/diverted/unknown，observedAt:严格带偏移分钟时刻，departure/arrival 和 updates:0–40。端点为 {airport:三位大写ASCII,scheduledAt,name?,estimatedAt?,actualAt?,terminal?,gate?}。scheduled/estimated/actual 三类时刻分别展示，只有同类两端都给出时才要求到达晚于起飞；不拿计划替代实际，不跨类别比较或推断延误。每条更新 {id:key,at,message,kind:information/change/disruption,description?}，id唯一，保留来源顺序。
+
+可选 description、source:{label,url}、普通 id。缺 estimatedAt/actualAt 明示未提供；diverted 不自动生成新目的地。没有地图、位置、系统时钟、进度百分比、轮询、通知、预订或提供方连接。原生更新类别筛选、重置与 disclosure 保留本地状态；controls 不进入 FormData。update/dispose 及取消/失活外层重置尊重生命周期。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"package-tracker","label":"原创合成包裹快照","carrier":"Example Parcel","trackingId":"DEMO_ONLY","status":"unknown","observedAt":"2028-02-29T10:00Z","milestones":[]},{"type":"flight-tracker","label":"原创合成航班快照","carrier":"Example Air","flightNumber":"EX 101","status":"scheduled","observedAt":"2028-02-29T08:00Z","departure":{"airport":"LHR","scheduledAt":"2028-02-29T09:00Z"},"arrival":{"airport":"JFK","scheduledAt":"2028-02-29T07:00-05:00"},"updates":[]}]}
+```
+
+### 共同行为边界
+
+这些本地 controls 不替代用户授权。disabled/pending fieldset、hidden/inert、脱离或挪出所属组件的 controls 必须阻止变更；原生首 legend 例外按平台语义处理。安全来源链接和 details 只是阅读操作。需要 host 消费可取消事件时由宿主显式接入；组件本身不调用提供方服务。最终真实键盘/触摸/鼠标、主题、390/768/1100、RTL、强制颜色、溢出、焦点、重复/中断/reset/update/dispose 都由集中浏览器验收覆盖；本指导、编译和 JSDOM 结果不代表浏览器通过。
+
+# 金额与交易供数合同（后续候选，未验收）
+
+asset-distribution、transaction-list 归 finance。通过未来同版索引选择 finance Document Schema（默认含 base）与 finance-lists.json；若同时使用 forms/charts 等领域，选择生成的并集或完整 Schema，最后仍运行公共 validateDocument。只从完整规范生成分片，不手写另一份 Schema。
+
+## asset-distribution
+
+必有 label:1–200字符、accounts:0–40；可选 description:最多2000、observedAt:1–200字面观察标签、source:{label,url}、普通 id。每条账户 {id:key,name,amount,currency,category?,note?}：id 局部唯一，name/category短文字1–200；amount 为 null 或0–1e12有限非负数，currency恰为三位大写ASCII，note最多2000。
+
+按币种首次出现顺序分组、按供数顺序保留每条记录。null 保持未知，不参与已知小计/装饰份额；0 保持0；全部未知时小计不可用，全0时不伪造百分比。没有跨币种合计、换汇、账户连接或金融建议。小计按输入数字最短十进制表示相加，不强制分/分币舍入，不宣称会计级核算。小数、科学计数和次正规正数合法；准确值表格承载意义，不只依赖颜色或条宽。多币种时出现本地币种筛选。
+
+## transaction-list
+
+必有 label、transactions:0–100；可选 description、source、普通 id。每项 {id:key,date,description,amount,currency,direction,status?,counterparty?,note?}：id局部唯一，date为真实 YYYY-MM-DD（1000–9999），description1–1000字符，amount为0–1e12有限非负数，currency三位大写ASCII，direction=debit/credit；status=pending/posted，缺省明确未提供，counterparty短文字、note最多2000。
+
+金额是幅值，方向另列；不从正负号推断借贷，不生成余额/跨币种总额，不把 posted 当结算保证。允许日期/文字/数额重复，保留来源顺序，不排序、设备时区转换或系统时钟判断。原生方向与月份筛选共同隐藏既有行；重置到 All、重复重置保留焦点。空输入与无匹配不同。窄屏表格使用自身可聚焦滚动区，不能让整页横向溢出。
+
+## 本地行为与来源
+
+无 bind、控件name、FormData、host action快照、host event、轮询、存储、账户、支付或转账。无关状态更新保留筛选/行/details/焦点；update重置，dispose移除监听与失效排队reset。原生外层reset默认动作之后协调，取消/disabled/pending/hidden/inert及较新输入必须保留一致性。安全绝对HTTP(S)来源链接不含凭据/伪装空白/危险scheme，打开新页并使用noopener noreferrer与no-referrer；没有预取。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"asset-distribution","label":"原创合成金额，非真实账户","accounts":[{"id":"zero","name":"已提供零值","amount":0,"currency":"USD"},{"id":"unknown","name":"未提供金额","amount":null,"currency":"USD"},{"id":"other","name":"另一币种独立展示","amount":2.5,"currency":"EUR"}]},{"type":"transaction-list","label":"原创合成记录，未发生支付","transactions":[{"id":"entry","date":"2028-02-29","description":"示例记录","amount":0,"currency":"USD","direction":"debit"}]}]}
+```

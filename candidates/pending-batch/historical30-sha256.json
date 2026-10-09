@@ -1,0 +1,6 @@
+{
+  "candidates/pending-batch/manifest30.source.json": "9438a69e06e0380f316c21e9343342f79ab244a7ebdfc87ca5919d398baef4b1",
+  "candidates/pending-batch/library-candidate-lock.json": "478797864715ab0e48a742433a0e872fa0fa299dba1a76047c506fbe2aac1f9a",
+  "candidates/pending-batch/recovery-build-proof.json": "7c0eeca1afda7ab66e61f7c5351ddb52100299a48910735360b5aeaa7fad0150",
+  "candidates/pending-batch/verify-browser30.source.mjs": "0b2e18da9d00af81d98ec421bcec20bce329f1756051ada136fc06c97c441b4b"
+}

@@ -32,11 +32,31 @@
     "status": "portable"
   },
   {
+    "type": "onboarding-selection",
+    "status": "portable"
+  },
+  {
     "type": "location-choice-request",
     "status": "portable"
   },
   {
     "type": "business-gallery",
+    "status": "portable"
+  },
+  {
+    "type": "flight-option",
+    "status": "portable"
+  },
+  {
+    "type": "artist-upcoming-events",
+    "status": "portable"
+  },
+  {
+    "type": "package-tracker",
+    "status": "portable"
+  },
+  {
+    "type": "flight-tracker",
     "status": "portable"
   },
   {
@@ -341,6 +361,14 @@
   },
   {
     "type": "finance-heatmap",
+    "status": "portable"
+  },
+  {
+    "type": "asset-distribution",
+    "status": "portable"
+  },
+  {
+    "type": "transaction-list",
     "status": "portable"
   },
   {

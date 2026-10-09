@@ -2566,5 +2566,1227 @@
       ]
     },
     "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "flight invalid civil date",
+    "canonicalId": "flight-option",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-option",
+          "id": "illustrative-flight",
+          "label": "Example Air: two supplied legs",
+          "optionId": "example-itinerary",
+          "description": "Compare the supplied route and fare description locally.",
+          "price": {
+            "amount": 420.5,
+            "currency": "USD"
+          },
+          "legs": [
+            {
+              "id": "outbound",
+              "carrier": "Example Air",
+              "number": "EX 101",
+              "departure": {
+                "airport": "LHR",
+                "at": "2027-02-29T09:00Z",
+                "name": "London Heathrow"
+              },
+              "arrival": {
+                "airport": "JFK",
+                "at": "2028-02-29T07:00-05:00",
+                "name": "New York JFK"
+              },
+              "cabin": "Economy, as supplied"
+            },
+            {
+              "id": "connection",
+              "carrier": "Example Air",
+              "number": "EX 202",
+              "departure": {
+                "airport": "JFK",
+                "at": "2028-02-29T09:00-05:00",
+                "name": "New York JFK"
+              },
+              "arrival": {
+                "airport": "ORD",
+                "at": "2028-02-29T10:00-06:00",
+                "name": "Chicago O'Hare"
+              },
+              "cabin": "Economy, as supplied"
+            }
+          ],
+          "note": "Illustrative fare description: baggage and change terms must be checked with the provider independently. No booking is performed here.",
+          "source": {
+            "label": "Illustrative source",
+            "url": "https://example.com/supplied-flight"
+          }
+        }
+      ]
+    },
+    "expectedCode": "FLIGHT_TIME",
+    "expectedPath": "/body/0/legs/0/departure/at"
+  },
+  {
+    "name": "flight same instant",
+    "canonicalId": "flight-option",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-option",
+          "id": "illustrative-flight",
+          "label": "Example Air: two supplied legs",
+          "optionId": "example-itinerary",
+          "description": "Compare the supplied route and fare description locally.",
+          "price": {
+            "amount": 420.5,
+            "currency": "USD"
+          },
+          "legs": [
+            {
+              "id": "outbound",
+              "carrier": "Example Air",
+              "number": "EX 101",
+              "departure": {
+                "airport": "LHR",
+                "at": "2028-02-29T09:00Z",
+                "name": "London Heathrow"
+              },
+              "arrival": {
+                "airport": "JFK",
+                "at": "2028-02-29T09:00Z",
+                "name": "New York JFK"
+              },
+              "cabin": "Economy, as supplied"
+            },
+            {
+              "id": "connection",
+              "carrier": "Example Air",
+              "number": "EX 202",
+              "departure": {
+                "airport": "JFK",
+                "at": "2028-02-29T09:00-05:00",
+                "name": "New York JFK"
+              },
+              "arrival": {
+                "airport": "ORD",
+                "at": "2028-02-29T10:00-06:00",
+                "name": "Chicago O'Hare"
+              },
+              "cabin": "Economy, as supplied"
+            }
+          ],
+          "note": "Illustrative fare description: baggage and change terms must be checked with the provider independently. No booking is performed here.",
+          "source": {
+            "label": "Illustrative source",
+            "url": "https://example.com/supplied-flight"
+          }
+        }
+      ]
+    },
+    "expectedCode": "FLIGHT_ORDER",
+    "expectedPath": "/body/0/legs/0/arrival/at"
+  },
+  {
+    "name": "artist impossible date",
+    "canonicalId": "artist-upcoming-events",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "artist-upcoming-events",
+          "artist": "Example Ensemble",
+          "label": "Supplied performance dates",
+          "description": "The caller's order is preserved, including historical and repeated dates.",
+          "events": [
+            {
+              "id": "march",
+              "title": "Evening set",
+              "date": "2027-02-29",
+              "start": "19:30",
+              "timeZoneLabel": "Venue time as supplied",
+              "venue": "Example Hall",
+              "location": "Example City",
+              "description": "Illustrative supplied program description.",
+              "url": "https://example.com/supplied-event"
+            },
+            {
+              "id": "february",
+              "title": "Acoustic set",
+              "date": "2028-02-29",
+              "start": "18:00",
+              "timeZoneLabel": "UTC+01:00 label, not converted",
+              "venue": "Example Studio",
+              "description": "An independently supplied date and time."
+            },
+            {
+              "id": "historical",
+              "title": "Historical supplied date",
+              "date": "2020-01-15",
+              "venue": "Example Hall",
+              "description": "This record is retained without a system-clock filter."
+            }
+          ],
+          "source": {
+            "label": "Illustrative source",
+            "url": "https://example.com/supplied-events"
+          }
+        }
+      ]
+    },
+    "expectedCode": "ARTIST_EVENT_DATE",
+    "expectedPath": "/body/0/events/0/date"
+  },
+  {
+    "name": "artist repeated ID",
+    "canonicalId": "artist-upcoming-events",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "artist-upcoming-events",
+          "artist": "Example Ensemble",
+          "label": "Supplied performance dates",
+          "description": "The caller's order is preserved, including historical and repeated dates.",
+          "events": [
+            {
+              "id": "march",
+              "title": "Evening set",
+              "date": "2028-03-10",
+              "start": "19:30",
+              "timeZoneLabel": "Venue time as supplied",
+              "venue": "Example Hall",
+              "location": "Example City",
+              "description": "Illustrative supplied program description.",
+              "url": "https://example.com/supplied-event"
+            },
+            {
+              "id": "march",
+              "title": "Acoustic set",
+              "date": "2028-02-29",
+              "start": "18:00",
+              "timeZoneLabel": "UTC+01:00 label, not converted",
+              "venue": "Example Studio",
+              "description": "An independently supplied date and time."
+            },
+            {
+              "id": "historical",
+              "title": "Historical supplied date",
+              "date": "2020-01-15",
+              "venue": "Example Hall",
+              "description": "This record is retained without a system-clock filter."
+            }
+          ],
+          "source": {
+            "label": "Illustrative source",
+            "url": "https://example.com/supplied-events"
+          }
+        }
+      ]
+    },
+    "expectedCode": "DUPLICATE_ID",
+    "expectedPath": "/body/0/events/1/id"
+  },
+  {
+    "name": "asset repeated ID",
+    "canonicalId": "asset-distribution",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "asset-distribution",
+          "label": "Synthetic supplied account amounts",
+          "description": "Known amounts are grouped by their supplied currency codes. An unknown amount stays unknown.",
+          "observedAt": "Illustrative snapshot label: 2026-10-09, as supplied",
+          "source": {
+            "label": "Inform UI original synthetic ledger fixture",
+            "url": "https://example.org/synthetic-ledger"
+          },
+          "accounts": [
+            {
+              "id": "cash",
+              "name": "Everyday example",
+              "amount": 1250.25,
+              "currency": "USD",
+              "category": "Cash",
+              "note": "Synthetic amount, not an account connection."
+            },
+            {
+              "id": "cash",
+              "name": "Reserve example",
+              "amount": 3750.75,
+              "currency": "USD",
+              "category": "Savings"
+            },
+            {
+              "id": "unknown",
+              "name": "Amount not supplied",
+              "amount": null,
+              "currency": "USD",
+              "note": "No amount was supplied for this example."
+            },
+            {
+              "id": "zero",
+              "name": "Zero is supplied",
+              "amount": 0,
+              "currency": "EUR",
+              "category": "Cash"
+            },
+            {
+              "id": "unknown-eur",
+              "name": "Another unknown",
+              "amount": null,
+              "currency": "EUR"
+            },
+            {
+              "id": "jpy",
+              "name": "Separate currency example",
+              "amount": 24000,
+              "currency": "JPY"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "LEDGER_ID",
+    "expectedPath": "/body/0/accounts/1/id"
+  },
+  {
+    "name": "transaction impossible date",
+    "canonicalId": "transaction-list",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "transaction-list",
+          "label": "Synthetic supplied transactions",
+          "description": "Dates, magnitudes, directions and statuses are authored examples, preserved in supplied order.",
+          "source": {
+            "label": "Inform UI original synthetic ledger fixture",
+            "url": "https://example.org/synthetic-ledger"
+          },
+          "transactions": [
+            {
+              "id": "oct-debit",
+              "date": "2027-02-29",
+              "description": "Example supplies",
+              "amount": 32.5,
+              "currency": "USD",
+              "direction": "debit",
+              "status": "posted",
+              "counterparty": "Example shop",
+              "note": "Original synthetic record; no payment occurred."
+            },
+            {
+              "id": "sep-credit",
+              "date": "2026-09-30",
+              "description": "Example credit",
+              "amount": 100,
+              "currency": "EUR",
+              "direction": "credit",
+              "status": "pending",
+              "note": "Pending is a supplied label, not a settlement prediction."
+            },
+            {
+              "id": "oct-credit",
+              "date": "2026-10-01",
+              "description": "Zero magnitude example",
+              "amount": 0,
+              "currency": "USD",
+              "direction": "credit"
+            },
+            {
+              "id": "sep-debit",
+              "date": "2026-09-30",
+              "description": "Separate currency example",
+              "amount": 1400,
+              "currency": "JPY",
+              "direction": "debit",
+              "status": "posted"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "LEDGER_DATE",
+    "expectedPath": "/body/0/transactions/0/date"
+  },
+  {
+    "name": "onboarding unknown initial",
+    "canonicalId": "onboarding-selection",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "onboarding-selection",
+          "id": "practice-choices",
+          "label": "本次想先练习什么？",
+          "description": "请选择一至两项，随后可在本页继续或重置。",
+          "mode": "multiple",
+          "minimum": 1,
+          "maximum": 2,
+          "initial": [
+            "missing"
+          ],
+          "options": [
+            {
+              "id": "reading",
+              "label": "阅读",
+              "description": "看看有限文字与数据例子。"
+            },
+            {
+              "id": "writing",
+              "label": "写作",
+              "description": "在本页保留草稿，刷新后恢复。"
+            },
+            {
+              "id": "reasoning",
+              "label": "推理练习",
+              "description": "比较明确提供的选项。"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "ONBOARDING_CHOICE",
+    "expectedPath": "/body/0/initial/0"
+  },
+  {
+    "name": "onboarding impossible range",
+    "canonicalId": "onboarding-selection",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "onboarding-selection",
+          "id": "practice-choices",
+          "label": "本次想先练习什么？",
+          "description": "请选择一至两项，随后可在本页继续或重置。",
+          "mode": "multiple",
+          "minimum": 3,
+          "maximum": 2,
+          "initial": [
+            "reading"
+          ],
+          "options": [
+            {
+              "id": "reading",
+              "label": "阅读",
+              "description": "看看有限文字与数据例子。"
+            },
+            {
+              "id": "writing",
+              "label": "写作",
+              "description": "在本页保留草稿，刷新后恢复。"
+            },
+            {
+              "id": "reasoning",
+              "label": "推理练习",
+              "description": "比较明确提供的选项。"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "ONBOARDING_RANGE",
+    "expectedPath": "/body/0/minimum"
+  },
+  {
+    "name": "package two current",
+    "canonicalId": "package-tracker",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "package-tracker",
+          "label": "Example shipment",
+          "carrier": "Example Parcel",
+          "trackingId": "SYNTHETIC-PARCEL-001",
+          "status": "in-transit",
+          "observedAt": "2028-02-29T10:15+01:00",
+          "destination": "Example destination city",
+          "expectedDelivery": "March 2, as supplied; not guaranteed",
+          "source": {
+            "label": "Synthetic source",
+            "url": "https://example.org/package"
+          },
+          "milestones": [
+            {
+              "id": "label",
+              "label": "Shipping label created",
+              "state": "current",
+              "occurredAt": "2028-02-28T15:00+01:00"
+            },
+            {
+              "id": "hub",
+              "label": "At supplied transit hub",
+              "state": "current",
+              "occurredAt": "2028-02-29T08:00+01:00",
+              "location": "Example hub",
+              "description": "This is an original illustrative tracking milestone."
+            },
+            {
+              "id": "delivery",
+              "label": "Delivery milestone",
+              "state": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "TRACKER_CURRENT",
+    "expectedPath": "/body/0/milestones/1/state"
+  },
+  {
+    "name": "package pending timestamp",
+    "canonicalId": "package-tracker",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "package-tracker",
+          "label": "Example shipment",
+          "carrier": "Example Parcel",
+          "trackingId": "SYNTHETIC-PARCEL-001",
+          "status": "in-transit",
+          "observedAt": "2028-02-29T10:15+01:00",
+          "destination": "Example destination city",
+          "expectedDelivery": "March 2, as supplied; not guaranteed",
+          "source": {
+            "label": "Synthetic source",
+            "url": "https://example.org/package"
+          },
+          "milestones": [
+            {
+              "id": "label",
+              "label": "Shipping label created",
+              "state": "pending",
+              "occurredAt": "2028-02-28T15:00+01:00"
+            },
+            {
+              "id": "hub",
+              "label": "At supplied transit hub",
+              "state": "current",
+              "occurredAt": "2028-02-29T08:00+01:00",
+              "location": "Example hub",
+              "description": "This is an original illustrative tracking milestone."
+            },
+            {
+              "id": "delivery",
+              "label": "Delivery milestone",
+              "state": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "TRACKER_PENDING",
+    "expectedPath": "/body/0/milestones/0/occurredAt"
+  },
+  {
+    "name": "package impossible observation",
+    "canonicalId": "package-tracker",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "package-tracker",
+          "label": "Example shipment",
+          "carrier": "Example Parcel",
+          "trackingId": "SYNTHETIC-PARCEL-001",
+          "status": "in-transit",
+          "observedAt": "2027-02-29T10:00Z",
+          "destination": "Example destination city",
+          "expectedDelivery": "March 2, as supplied; not guaranteed",
+          "source": {
+            "label": "Synthetic source",
+            "url": "https://example.org/package"
+          },
+          "milestones": [
+            {
+              "id": "label",
+              "label": "Shipping label created",
+              "state": "complete",
+              "occurredAt": "2028-02-28T15:00+01:00"
+            },
+            {
+              "id": "hub",
+              "label": "At supplied transit hub",
+              "state": "current",
+              "occurredAt": "2028-02-29T08:00+01:00",
+              "location": "Example hub",
+              "description": "This is an original illustrative tracking milestone."
+            },
+            {
+              "id": "delivery",
+              "label": "Delivery milestone",
+              "state": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "TRACKER_TIME",
+    "expectedPath": "/body/0/observedAt"
+  },
+  {
+    "name": "flight tracker same instant",
+    "canonicalId": "flight-tracker",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-tracker",
+          "label": "Example flight snapshot",
+          "carrier": "Example Air",
+          "flightNumber": "EX 101",
+          "status": "boarding",
+          "observedAt": "2028-02-29T08:30Z",
+          "departure": {
+            "airport": "LHR",
+            "name": "Example departure",
+            "scheduledAt": "2028-02-29T09:00Z",
+            "estimatedAt": "2028-02-29T09:20Z",
+            "terminal": "Example T1",
+            "gate": "Example A2"
+          },
+          "arrival": {
+            "airport": "JFK",
+            "name": "Example arrival",
+            "scheduledAt": "2028-02-29T09:00Z",
+            "estimatedAt": "2028-02-29T07:20-05:00"
+          },
+          "source": {
+            "label": "Synthetic source",
+            "url": "https://example.org/flight"
+          },
+          "updates": [
+            {
+              "id": "boarding",
+              "at": "2028-02-29T08:30Z",
+              "message": "Boarding status supplied",
+              "kind": "information"
+            },
+            {
+              "id": "gate",
+              "at": "2028-02-29T08:10Z",
+              "message": "Gate label updated",
+              "kind": "change",
+              "description": "The source supplied gate Example A2. No airport feed is connected."
+            },
+            {
+              "id": "delay",
+              "at": "2028-02-29T08:00Z",
+              "message": "Estimate changed",
+              "kind": "disruption"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "TRACKER_ORDER",
+    "expectedPath": "/body/0/arrival/scheduledAt"
+  },
+  {
+    "name": "flight-option unsafe source",
+    "canonicalId": "flight-option",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-option",
+          "id": "illustrative-flight",
+          "label": "Example Air: two supplied legs",
+          "optionId": "example-itinerary",
+          "description": "Compare the supplied route and fare description locally.",
+          "price": {
+            "amount": 420.5,
+            "currency": "USD"
+          },
+          "legs": [
+            {
+              "id": "outbound",
+              "carrier": "Example Air",
+              "number": "EX 101",
+              "departure": {
+                "airport": "LHR",
+                "at": "2028-02-29T09:00Z",
+                "name": "London Heathrow"
+              },
+              "arrival": {
+                "airport": "JFK",
+                "at": "2028-02-29T07:00-05:00",
+                "name": "New York JFK"
+              },
+              "cabin": "Economy, as supplied"
+            },
+            {
+              "id": "connection",
+              "carrier": "Example Air",
+              "number": "EX 202",
+              "departure": {
+                "airport": "JFK",
+                "at": "2028-02-29T09:00-05:00",
+                "name": "New York JFK"
+              },
+              "arrival": {
+                "airport": "ORD",
+                "at": "2028-02-29T10:00-06:00",
+                "name": "Chicago O'Hare"
+              },
+              "cabin": "Economy, as supplied"
+            }
+          ],
+          "note": "Illustrative fare description: baggage and change terms must be checked with the provider independently. No booking is performed here.",
+          "source": {
+            "label": "Synthetic source",
+            "url": "javascript:bad()"
+          }
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "artist-upcoming-events unsafe source",
+    "canonicalId": "artist-upcoming-events",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "artist-upcoming-events",
+          "artist": "Example Ensemble",
+          "label": "Supplied performance dates",
+          "description": "The caller's order is preserved, including historical and repeated dates.",
+          "events": [
+            {
+              "id": "march",
+              "title": "Evening set",
+              "date": "2028-03-10",
+              "start": "19:30",
+              "timeZoneLabel": "Venue time as supplied",
+              "venue": "Example Hall",
+              "location": "Example City",
+              "description": "Illustrative supplied program description.",
+              "url": "https://example.com/supplied-event"
+            },
+            {
+              "id": "february",
+              "title": "Acoustic set",
+              "date": "2028-02-29",
+              "start": "18:00",
+              "timeZoneLabel": "UTC+01:00 label, not converted",
+              "venue": "Example Studio",
+              "description": "An independently supplied date and time."
+            },
+            {
+              "id": "historical",
+              "title": "Historical supplied date",
+              "date": "2020-01-15",
+              "venue": "Example Hall",
+              "description": "This record is retained without a system-clock filter."
+            }
+          ],
+          "source": {
+            "label": "Synthetic source",
+            "url": "javascript:bad()"
+          }
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "asset-distribution unsafe source",
+    "canonicalId": "asset-distribution",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "asset-distribution",
+          "label": "Synthetic supplied account amounts",
+          "description": "Known amounts are grouped by their supplied currency codes. An unknown amount stays unknown.",
+          "observedAt": "Illustrative snapshot label: 2026-10-09, as supplied",
+          "source": {
+            "label": "Synthetic source",
+            "url": "javascript:bad()"
+          },
+          "accounts": [
+            {
+              "id": "cash",
+              "name": "Everyday example",
+              "amount": 1250.25,
+              "currency": "USD",
+              "category": "Cash",
+              "note": "Synthetic amount, not an account connection."
+            },
+            {
+              "id": "reserve",
+              "name": "Reserve example",
+              "amount": 3750.75,
+              "currency": "USD",
+              "category": "Savings"
+            },
+            {
+              "id": "unknown",
+              "name": "Amount not supplied",
+              "amount": null,
+              "currency": "USD",
+              "note": "No amount was supplied for this example."
+            },
+            {
+              "id": "zero",
+              "name": "Zero is supplied",
+              "amount": 0,
+              "currency": "EUR",
+              "category": "Cash"
+            },
+            {
+              "id": "unknown-eur",
+              "name": "Another unknown",
+              "amount": null,
+              "currency": "EUR"
+            },
+            {
+              "id": "jpy",
+              "name": "Separate currency example",
+              "amount": 24000,
+              "currency": "JPY"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "transaction-list unsafe source",
+    "canonicalId": "transaction-list",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "transaction-list",
+          "label": "Synthetic supplied transactions",
+          "description": "Dates, magnitudes, directions and statuses are authored examples, preserved in supplied order.",
+          "source": {
+            "label": "Synthetic source",
+            "url": "javascript:bad()"
+          },
+          "transactions": [
+            {
+              "id": "oct-debit",
+              "date": "2026-10-09",
+              "description": "Example supplies",
+              "amount": 32.5,
+              "currency": "USD",
+              "direction": "debit",
+              "status": "posted",
+              "counterparty": "Example shop",
+              "note": "Original synthetic record; no payment occurred."
+            },
+            {
+              "id": "sep-credit",
+              "date": "2026-09-30",
+              "description": "Example credit",
+              "amount": 100,
+              "currency": "EUR",
+              "direction": "credit",
+              "status": "pending",
+              "note": "Pending is a supplied label, not a settlement prediction."
+            },
+            {
+              "id": "oct-credit",
+              "date": "2026-10-01",
+              "description": "Zero magnitude example",
+              "amount": 0,
+              "currency": "USD",
+              "direction": "credit"
+            },
+            {
+              "id": "sep-debit",
+              "date": "2026-09-30",
+              "description": "Separate currency example",
+              "amount": 1400,
+              "currency": "JPY",
+              "direction": "debit",
+              "status": "posted"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "package-tracker unsafe source",
+    "canonicalId": "package-tracker",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "package-tracker",
+          "label": "Example shipment",
+          "carrier": "Example Parcel",
+          "trackingId": "SYNTHETIC-PARCEL-001",
+          "status": "in-transit",
+          "observedAt": "2028-02-29T10:15+01:00",
+          "destination": "Example destination city",
+          "expectedDelivery": "March 2, as supplied; not guaranteed",
+          "source": {
+            "label": "Synthetic source",
+            "url": "javascript:bad()"
+          },
+          "milestones": [
+            {
+              "id": "label",
+              "label": "Shipping label created",
+              "state": "complete",
+              "occurredAt": "2028-02-28T15:00+01:00"
+            },
+            {
+              "id": "hub",
+              "label": "At supplied transit hub",
+              "state": "current",
+              "occurredAt": "2028-02-29T08:00+01:00",
+              "location": "Example hub",
+              "description": "This is an original illustrative tracking milestone."
+            },
+            {
+              "id": "delivery",
+              "label": "Delivery milestone",
+              "state": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "flight-tracker unsafe source",
+    "canonicalId": "flight-tracker",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-tracker",
+          "label": "Example flight snapshot",
+          "carrier": "Example Air",
+          "flightNumber": "EX 101",
+          "status": "boarding",
+          "observedAt": "2028-02-29T08:30Z",
+          "departure": {
+            "airport": "LHR",
+            "name": "Example departure",
+            "scheduledAt": "2028-02-29T09:00Z",
+            "estimatedAt": "2028-02-29T09:20Z",
+            "terminal": "Example T1",
+            "gate": "Example A2"
+          },
+          "arrival": {
+            "airport": "JFK",
+            "name": "Example arrival",
+            "scheduledAt": "2028-02-29T07:00-05:00",
+            "estimatedAt": "2028-02-29T07:20-05:00"
+          },
+          "source": {
+            "label": "Synthetic source",
+            "url": "javascript:bad()"
+          },
+          "updates": [
+            {
+              "id": "boarding",
+              "at": "2028-02-29T08:30Z",
+              "message": "Boarding status supplied",
+              "kind": "information"
+            },
+            {
+              "id": "gate",
+              "at": "2028-02-29T08:10Z",
+              "message": "Gate label updated",
+              "kind": "change",
+              "description": "The source supplied gate Example A2. No airport feed is connected."
+            },
+            {
+              "id": "delay",
+              "at": "2028-02-29T08:00Z",
+              "message": "Estimate changed",
+              "kind": "disruption"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "flight-option invented provider",
+    "canonicalId": "flight-option",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "flight-option",
+          "id": "illustrative-flight",
+          "label": "Example Air: two supplied legs",
+          "optionId": "example-itinerary",
+          "description": "Compare the supplied route and fare description locally.",
+          "price": {
+            "amount": 420.5,
+            "currency": "USD"
+          },
+          "legs": [
+            {
+              "id": "outbound",
+              "carrier": "Example Air",
+              "number": "EX 101",
+              "departure": {
+                "airport": "LHR",
+                "at": "2028-02-29T09:00Z",
+                "name": "London Heathrow"
+              },
+              "arrival": {
+                "airport": "JFK",
+                "at": "2028-02-29T07:00-05:00",
+                "name": "New York JFK"
+              },
+              "cabin": "Economy, as supplied"
+            },
+            {
+              "id": "connection",
+              "carrier": "Example Air",
+              "number": "EX 202",
+              "departure": {
+                "airport": "JFK",
+                "at": "2028-02-29T09:00-05:00",
+                "name": "New York JFK"
+              },
+              "arrival": {
+                "airport": "ORD",
+                "at": "2028-02-29T10:00-06:00",
+                "name": "Chicago O'Hare"
+              },
+              "cabin": "Economy, as supplied"
+            }
+          ],
+          "note": "Illustrative fare description: baggage and change terms must be checked with the provider independently. No booking is performed here.",
+          "source": {
+            "label": "Illustrative source",
+            "url": "https://example.com/supplied-flight"
+          },
+          "provider": "invented-provider"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "artist-upcoming-events invented provider",
+    "canonicalId": "artist-upcoming-events",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "artist-upcoming-events",
+          "artist": "Example Ensemble",
+          "label": "Supplied performance dates",
+          "description": "The caller's order is preserved, including historical and repeated dates.",
+          "events": [
+            {
+              "id": "march",
+              "title": "Evening set",
+              "date": "2028-03-10",
+              "start": "19:30",
+              "timeZoneLabel": "Venue time as supplied",
+              "venue": "Example Hall",
+              "location": "Example City",
+              "description": "Illustrative supplied program description.",
+              "url": "https://example.com/supplied-event"
+            },
+            {
+              "id": "february",
+              "title": "Acoustic set",
+              "date": "2028-02-29",
+              "start": "18:00",
+              "timeZoneLabel": "UTC+01:00 label, not converted",
+              "venue": "Example Studio",
+              "description": "An independently supplied date and time."
+            },
+            {
+              "id": "historical",
+              "title": "Historical supplied date",
+              "date": "2020-01-15",
+              "venue": "Example Hall",
+              "description": "This record is retained without a system-clock filter."
+            }
+          ],
+          "source": {
+            "label": "Illustrative source",
+            "url": "https://example.com/supplied-events"
+          },
+          "provider": "invented-provider"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "finance-lists invented provider",
+    "canonicalId": "asset-distribution",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "asset-distribution",
+          "label": "Synthetic supplied account amounts",
+          "description": "Known amounts are grouped by their supplied currency codes. An unknown amount stays unknown.",
+          "observedAt": "Illustrative snapshot label: 2026-10-09, as supplied",
+          "source": {
+            "label": "Inform UI original synthetic ledger fixture",
+            "url": "https://example.org/synthetic-ledger"
+          },
+          "accounts": [
+            {
+              "id": "cash",
+              "name": "Everyday example",
+              "amount": 1250.25,
+              "currency": "USD",
+              "category": "Cash",
+              "note": "Synthetic amount, not an account connection."
+            },
+            {
+              "id": "reserve",
+              "name": "Reserve example",
+              "amount": 3750.75,
+              "currency": "USD",
+              "category": "Savings"
+            },
+            {
+              "id": "unknown",
+              "name": "Amount not supplied",
+              "amount": null,
+              "currency": "USD",
+              "note": "No amount was supplied for this example."
+            },
+            {
+              "id": "zero",
+              "name": "Zero is supplied",
+              "amount": 0,
+              "currency": "EUR",
+              "category": "Cash"
+            },
+            {
+              "id": "unknown-eur",
+              "name": "Another unknown",
+              "amount": null,
+              "currency": "EUR"
+            },
+            {
+              "id": "jpy",
+              "name": "Separate currency example",
+              "amount": 24000,
+              "currency": "JPY"
+            }
+          ],
+          "provider": "invented-provider"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "onboarding-selection invented provider",
+    "canonicalId": "onboarding-selection",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "onboarding-selection",
+          "id": "practice-choices",
+          "label": "本次想先练习什么？",
+          "description": "请选择一至两项，随后可在本页继续或重置。",
+          "mode": "multiple",
+          "minimum": 1,
+          "maximum": 2,
+          "initial": [
+            "reading"
+          ],
+          "options": [
+            {
+              "id": "reading",
+              "label": "阅读",
+              "description": "看看有限文字与数据例子。"
+            },
+            {
+              "id": "writing",
+              "label": "写作",
+              "description": "在本页保留草稿，刷新后恢复。"
+            },
+            {
+              "id": "reasoning",
+              "label": "推理练习",
+              "description": "比较明确提供的选项。"
+            }
+          ],
+          "provider": "invented-provider"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "supplied-trackers invented provider",
+    "canonicalId": "package-tracker",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "package-tracker",
+          "label": "Example shipment",
+          "carrier": "Example Parcel",
+          "trackingId": "SYNTHETIC-PARCEL-001",
+          "status": "in-transit",
+          "observedAt": "2028-02-29T10:15+01:00",
+          "destination": "Example destination city",
+          "expectedDelivery": "March 2, as supplied; not guaranteed",
+          "source": {
+            "label": "Synthetic source",
+            "url": "https://example.org/package"
+          },
+          "milestones": [
+            {
+              "id": "label",
+              "label": "Shipping label created",
+              "state": "complete",
+              "occurredAt": "2028-02-28T15:00+01:00"
+            },
+            {
+              "id": "hub",
+              "label": "At supplied transit hub",
+              "state": "current",
+              "occurredAt": "2028-02-29T08:00+01:00",
+              "location": "Example hub",
+              "description": "This is an original illustrative tracking milestone."
+            },
+            {
+              "id": "delivery",
+              "label": "Delivery milestone",
+              "state": "pending"
+            }
+          ],
+          "provider": "invented-provider"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
   }
 ]

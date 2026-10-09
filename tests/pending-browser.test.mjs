@@ -10,22 +10,22 @@ import {examples,widths,themes,sourceRevision,executionOwner,verifyExampleInputs
 const base=path.join(root,candidateDirectory);
 const read=p=>readJSON(path.join(base,p));
 
-test('prepared Chromium consumer is exact 32-example/30-contract ownership, never execution evidence',async()=>{
- const plan=await read('consumer-plan.json'),manifest=await read('manifest30.source.json');
+test('prepared Chromium consumer is exact 37-example/37-contract ownership, never execution evidence',async()=>{
+ const plan=await read('consumer-plan.json'),manifest=await read('manifest37.source.json');
  assert.equal(plan.status,'prepared-not-run');assert.equal(plan.browser,'not-run');assert.equal(plan.ci,'not-run');assert.equal(plan.publicCdn,'not-run');
  assert.equal(plan.executionOwner,executionOwner);assert.equal(executionOwner,'core:scripts/run-batch-consumers.mjs');
  assert.equal(sourceRevision,manifest.sourceRevision);assert.equal(plan.sourceRevision,sourceRevision);
- assert.equal(examples.length,32);assert.equal(new Set(examples.flatMap(x=>x.canonicalIds)).size,30);
- assert.deepEqual(widths,[390,768,1100]);assert.deepEqual(themes,['light','dark']);assert.equal(plan.plannedLocalCompiledViews,192);
+ assert.equal(examples.length,37);assert.equal(new Set(examples.flatMap(x=>x.canonicalIds)).size,37);
+ assert.deepEqual(widths,[390,768,1100]);assert.deepEqual(themes,['light','dark']);assert.equal(plan.plannedLocalCompiledViews,222);
  assert.deepEqual(plan.examples.map(({owner,skillPath,corePath,futureSkillPath,...x})=>x),examples);
  assert.deepEqual(examples.map(e=>'examples/'+e.name+'.json'),[...new Set(manifest.items.flatMap(i=>i.examples))]);
  assert.equal(plan.acceptedAssetRevision,'d370ffb2df310fce0da9299e6e254a58509ba544');
- assert.equal(plan.skillBaseRevision,'94b5cd14a7f47fc477ee781cec06e0e6810a7169');
+ assert.equal(plan.skillBaseRevision,'1ac13720d8dfb5fc9c516e2221e7d87f4ed7b433');
 });
 
 test('candidate native smoke reads exact source bytes and preserves the input objects',async()=>{
- const documents=await verifyExampleInputs();const lock=await read('library-candidate-lock.json');
- assert.equal(documents.size,32);
+ const documents=await verifyExampleInputs();const lock=await read('library-candidate-lock37.json');
+ assert.equal(documents.size,37);
  for(const entry of examples){
   assert.equal(entry.sha256,lock.sourceFiles['examples/'+entry.name+'.json']);
   const bytes=await readFile(path.join(base,'examples',entry.name+'.json'));
@@ -38,7 +38,7 @@ test('ownership comparison retains 15 existing consumers, no duplicate names or 
  assert.equal(comparison.sourceRevision,sourceRevision);assert.equal(comparison.examples.length,15);
  assert.deepEqual(comparison.byteIdenticalOverlaps,[]);assert.deepEqual(comparison.nameOverlaps,[]);
  const all=[...examples,...comparison.examples];
- assert.equal(new Set(all.map(e=>e.name)).size,47);assert.equal(new Set(all.map(e=>e.sha256)).size,47);
+ assert.equal(new Set(all.map(e=>e.name)).size,52);assert.equal(new Set(all.map(e=>e.sha256)).size,52);
  for(const example of plan.examples){
   assert.equal(example.owner,'pending');assert.equal(example.skillPath,candidateDirectory+'/examples/'+example.name+'.json');
   assert.equal(example.corePath,'tests/consumer/pending/examples/'+example.name+'.json');
@@ -78,8 +78,8 @@ test('smoke source has native input, strict report, truthful limits and no route
  assert.ok(!source.includes("getByRole('switch'"),'Core toggle is a native checkbox, not an ARIA switch');
 });
 
-test('promoted root examples and locale map exactly cover 24 historical plus five existing plus 32 candidate inputs',async()=>{
- const map=await readJSON(path.join(root,'references/example-languages.json'));const names=(await readdir(path.join(root,'examples'))).filter(n=>n.endsWith('.json')).map(n=>n.slice(0,-5)).sort();assert.equal(names.length,61);assert.deepEqual(Object.keys(map).sort(),names);assert.ok(Object.values(map).every(lang=>['en','zh-CN'].includes(lang)));
+test('promoted root examples and locale map exactly cover 24 historical plus five existing plus 37 candidate inputs',async()=>{
+ const map=await readJSON(path.join(root,'references/example-languages.json'));const names=(await readdir(path.join(root,'examples'))).filter(n=>n.endsWith('.json')).map(n=>n.slice(0,-5)).sort();assert.equal(names.length,66);assert.deepEqual(Object.keys(map).sort(),names);assert.ok(Object.values(map).every(lang=>['en','zh-CN'].includes(lang)));
  const plan=await read('consumer-plan.json');for(const entry of [...plan.examples,...plan.existingEnhancementPromotion]){assert.equal(sha256(await readFile(path.join(root,entry.futureSkillPath))),entry.sha256);assert.equal(map[entry.name],entry.lang);}
  const added=new Set([...plan.examples,...plan.existingEnhancementPromotion].map(e=>e.name));const prior=names.filter(n=>!added.has(n));assert.equal(prior.length,24);assert.equal(prior.filter(n=>map[n]==='zh-CN').length,20);assert.equal(prior.filter(n=>map[n]==='en').length,4);
 });
@@ -95,4 +95,17 @@ test('agenda smoke dismisses the native select popup before later selection with
  assert.ok(afterEscape.includes("await expect(select).toHaveValue('2026-10-09')"),'Escape must preserve selected value');
  assert.ok(afterEscape.includes('await expect(select).toBeFocused()'),'Escape must preserve native focus');
  assert.ok(!agenda.includes('.blur('),'Do not remove focus to hide a native popup failure');
+});
+
+
+test('current pending owner preserves all original32 smoke cases verbatim and appends seven contracts in five inputs',async()=>{
+ const previous=await readFile(path.join(base,'verify-browser30.source.mjs'),'utf8'),current=await readFile(path.join(base,'verify-browser.mjs'),'utf8');
+ const priorLock=await read('library-candidate-lock.json');assert.equal(sha256(previous),priorLock.candidateFiles['candidates/pending-batch/verify-browser.mjs']);
+ const start='export async function smokeExample(page, entry, document, expect) {';
+ const oldCases=previous.split(start)[1].split("    default: assert.fail(")[0];
+ const keptCases=current.split(start)[1].split("    case 'flight-option': {")[0];assert.equal(keptCases,oldCases,'Original32 behavior must not be weakened');
+ const plan=await read('consumer-plan.json'),manifest=await read('manifest37.source.json');assert.deepEqual(plan.canonicalSpecs,manifest.items.map(({canonicalId,contract})=>({canonicalId,contract})));
+ assert.equal(plan.examples.filter(x=>x.name==='finance-lists').length,1);assert.equal(plan.examples.filter(x=>x.name==='supplied-trackers').length,1);
+ assert.deepEqual(examples.slice(32).map(x=>x.name),['flight-option','artist-upcoming-events','finance-lists','onboarding-selection','supplied-trackers']);
+ assert.equal(new Set(examples.slice(32).flatMap(x=>x.canonicalIds)).size,7);
 });

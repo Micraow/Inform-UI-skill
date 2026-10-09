@@ -4,7 +4,7 @@ This matrix describes the independent `iui/1` library matched in [library-contra
 
 ## Public protocol nodes
 
-This pending-acceptance pin contains 90 schema nodes: 89 portable nodes and rejected native input. The accepted component count remains 53; this inventory is not browser/CI acceptance. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The root retains common authoring contracts and a complete discovery map; deeper domain contracts are read from the same-pin generated index, schema bundle and example, or supplied through the complete Web Chat guide. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
+This pending-acceptance pin contains 97 schema nodes: 96 portable nodes and rejected native input. The accepted component count remains 53; this inventory is not browser/CI acceptance. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The root retains common authoring contracts and a complete discovery map; deeper domain contracts are read from the same-pin generated index, schema bundle and example, or supplied through the complete Web Chat guide. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
 
 | Status | Nodes | Authoring guidance |
 | --- | --- | --- |

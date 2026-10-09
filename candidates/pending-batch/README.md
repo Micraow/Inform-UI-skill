@@ -1,38 +1,31 @@
-# Pending acceptance: 30 canonical contracts / 32 unique examples
+# Pending 37 acceptance input
 
-This is a prepared, unaccepted branch. Asset revision `7978f23da0222ad9122bb0b40daa4f1844b5b9cd` and tree `7a8796cd9cc1ce1026ae1a225716847e1d408d62` bind root contract, HTML shells, generated 90-node inventory and source/build locks. The accepted 53-component count, prior recommendation and user demos do not change. The historical d370 contract is preserved in [accepted-library-contract.json](accepted-library-contract.json); commits 94b5cd1 and 9bf9dfa remain frozen history.
+Current immutable asset: 26ec211fa529516af3b1523248f5912c45ec64c6. Tree: 24dbdb12e9e1b557025cea4ad03f8aa5cebd5322. Accepted canonical components remain 53; 37 pending candidates and 97 protocol nodes are different counts. This preparation is not browser, visual, CDN-browser or CI acceptance.
 
-[manifest30.source.json](manifest30.source.json) adds six contracts and five original examples to the prior 24 contracts / 27 examples. Motion serves animate and celebration once. Earlier 20/24 manifests are unchanged. [category-index.json](category-index.json) derives from the full canonical schema, never a second schema. [library-candidate-lock.json](library-candidate-lock.json) binds exact source blobs, frozen runtime bytes, root fixtures, locale map, receiver and scripts. Historical 5c7f staged core evidence is 863 prior-full and 237 final-affected tests, not an invented aggregate final full suite.
+## Historical and current locks are separate
 
-## Browser preparation and ownership
+The earlier manifests and library-candidate-lock.json remain historical preparation bytes. Reproduce the complete prior 30 state by checking out Skill 1ac13720d8dfb5fc9c516e2221e7d87f4ed7b433 with asset 7978f23da0222ad9122bb0b40daa4f1844b5b9cd. historical30-sha256.json protects manifest30, the original 30 lock and its separate recovery proof. They must not authorize current browser reuse.
 
-[verify-browser.mjs](verify-browser.mjs) is prepared only. Future sole owner: core `scripts/run-batch-consumers.mjs`; no browser, CI or screenshot result exists from this preparation. Copy this script to core `tests/consumer/pending/verify-browser.mjs` and adjacent `examples/` unchanged to `tests/consumer/pending/examples/`. Its only arguments are `--library CLEAN_CORE --revision ACTUAL_CORE_SHA --screenshots FRESH_EMPTY_DIR`. The actual core revision may be a CI merge SHA, provided exact source/build proof succeeds.
+manifest35.source.json appends the first five new canonical contracts; manifest37.source.json appends package-tracker and flight-tracker. Prior item arrays are exact prefixes. Current input lock is library-candidate-lock37.json. category-index.json derives from the single full canonical schema, never a manually maintained alternative.
 
-32 examples × 3 widths (390/768/1100) × 2 themes = 192 planned inline views. Existing 15 inputs retain their original owner and 90 views. No names or byte hashes overlap; motion is one input. [consumer-plan.json](consumer-plan.json) records mappings and exact hashes. Root Skill `examples/` contains the same 32 bytes plus five previously missing enhancement fixtures, preserving all original 24 inputs. The 61-entry [language map](../../references/example-languages.json) retains the actual original 20 zh-CN / 4 en semantics; five enhancement inputs are zh-CN, new32 match their consumer entry language.
+Current source/build proof is committed core docs/local-enhancements-97.json: 340 production/build paths, 125 frozen runtime paths, 222 affected checks and four failing-before/passing-after ownership controls. The 936-test full run belongs only to the earlier 7978 runtime; older 863/237 evidence remains separately historical. No combined full-suite pass is claimed.
 
-The smoke uses native keyboard/input/mouse actions, one root, overflow ≤1px, pageerror and real request listeners, full-page original PNGs, no consent for remote media. Detailed behavior belongs to canonical tests. It never labels JSDOM or compilation as browser acceptance. `RESULTS.json` adds `exampleLanguages` to revision/browser/widths/themes/localCompiledViews/publicCdn. A successful shared receipt may skip only exact-byte, exact-locale inline modes. CDN modes and four public entry shells always run.
+## Unique fixtures and sole browser owner
 
-Receiver checks committed revision/tree/schema/manifest/locale/script/JSON anchors; fixed `BUILD-EQUIVALENCE.json` digest, anchors and exact current dist trees; reports and all original PNG hashes. Missing, changed or extra runtime files and symlinks fail closed. Public discovery binds fetched index length/SHA256 to the trusted local integrity manifest, then child bundles and same-pin examples to their expected bytes.
+The pending consumer owns 37 original fixtures: the previous 32 unchanged inputs plus flight-option, artist-upcoming-events, finance-lists, onboarding-selection and supplied-trackers. Each of finance-lists, supplied-trackers and motion represents two canonical contracts using one unique JSON input. The other 15 original consumer inputs retain their ownership.
 
-## Source-only preparation commands
+37 fixtures × 3 widths (390/768/1100) × 2 themes gives 222 planned pending inline views. The whole batch has 52 unique fixtures and 312 planned views across seven owner groups. A plan is not an execution result.
 
-Use a clean detached 5c7f checkout with its proven frozen dist, not a working-tree override. No rebuild or browser is part of preparation.
+Core scripts/run-batch-consumers.mjs remains the sole browser execution owner. Copy verify-browser.mjs and adjacent examples unchanged to core tests/consumer/pending/. Arguments stay --library CLEAN_CORE --revision ACTUAL_CORE_SHA --screenshots FRESH_EMPTY_DIR. Original 32 smoke cases and assertions remain; five bounded native interaction cases are appended. All 66 root Skill examples have explicit en/zh-CN language mapping.
 
-```sh
-npm test
-node scripts/validate-examples.mjs --library CLEAN_ASSET
-node scripts/verify-schema-index.mjs --library CLEAN_ASSET
-node scripts/derive-node-support.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd --check
-node scripts/verify-next-guidance.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
-node scripts/verify-primitive-guidance.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
-node scripts/verify-next66-guidance.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
-node scripts/generate-pending-lock.mjs --source-repository CLEAN_ASSET --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd --check
-node scripts/verify-pending-batch.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
-node scripts/check-pending-browser-source.mjs --library CLEAN_ASSET
-```
+## Source checks
 
-27 historical blind-test files retain their byte hashes and separate old green evidence. Unchanged old builds/browser runs are not repeated in this preparation. Public HTTP byte preflight is owned by the integrator; browser, full batch CI and original-image inspection remain required before accepted promotion.
+Use a clean 26ec asset with proven frozen dist. Run npm test; validate-examples; verify-schema-index; derive-node-support --check; all three accumulated guidance verifiers; generate-pending-lock --check; verify-pending-batch; and check-pending-browser-source. Pass --library CLEAN_ASSET and the exact --revision where required. Existing workflow entrypoint filenames remain compatible; current readers select the distinct 37 manifest and lock.
 
-## Recovery pin boundary
+Source checks cover public API, generated full/domain/Node schemas, CLI, deterministic compilation, literal text, invalid inputs, JSDOM invalid-update atomicity and idempotent disposal. They never substitute for native browser results. Exhaustive lifecycle behavior remains in canonical core specs.
 
-The immutable recovery asset is 7978f23da0222ad9122bb0b40daa4f1844b5b9cd. Its source/build bytes are bound separately by recovery-build-proof.json; original docs/local-enhancements-90.json stays unchanged historical evidence. The 863/237 prior tests are not claimed as tests of this runtime. All 311 paths are checked, and every non-dist path must match its committed Git blob; all frozen dist paths are retained in the generated Skill lock. The new public CDN pin must still be fetched and browser-verified. The agenda Escape harness regression is source-checked only. Formal accepted count remains 53, with 30 pending.
+## Acceptance boundary
+
+Keep strict binding to core/asset/Skill revision and tree, schema and integrity manifest, scripts, JSON and locale, BUILD-EQUIVALENCE, exact current dist, complete reports and original PNG hashes. Only exact matching inline views may be reused. CDN views, four public shells and index/schema/example discovery remain mandatory. Do not remove SRI, request, pageerror, layout or accessibility checks to obtain a pass.
+
+Common Base contracts stay in SKILL.md. Finance-lists has a complete domain reference and is included in WEB-CHAT-GUIDE.md. Supplied snapshots are not live services, accounts, bookings, financial advice, payments, saved preferences or notifications. Only original project fixtures and clearly licensed code are included; no private reference runtime or captures.

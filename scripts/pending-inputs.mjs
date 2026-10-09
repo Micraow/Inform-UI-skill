@@ -7,8 +7,8 @@ export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 export const readJSON = async file => JSON.parse(await readFile(file, 'utf8'));
 export const candidateDirectory = 'candidates/pending-batch';
 export const acceptedRevision = 'd370ffb2df310fce0da9299e6e254a58509ba544';
-export const candidateRevision = '7978f23da0222ad9122bb0b40daa4f1844b5b9cd';
-export const candidateTree = '7a8796cd9cc1ce1026ae1a225716847e1d408d62';
+export const candidateRevision = '26ec211fa529516af3b1523248f5912c45ec64c6';
+export const candidateTree = '24dbdb12e9e1b557025cea4ad03f8aa5cebd5322';
 export async function safeFile(root, relative) {
   assert.equal(typeof relative, 'string');
   assert.ok(/^[A-Za-z0-9._/-]+$/.test(relative) && !path.posix.isAbsolute(relative));
@@ -30,7 +30,7 @@ export async function verifyPinnedInputs(root, library, lock) {
   assert.equal((await readJSON(path.join(root,candidateDirectory,'accepted-library-contract.json'))).revision,acceptedRevision);
   assert.equal(sha256(await readFile(path.join(root,'library-contract.json'))),lock.pendingContractSha256,'Pending contract changed');
   assert.equal((await readJSON(path.join(root,'library-contract.json'))).revision,candidateRevision);
-  assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'manifest30.source.json'))),lock.manifestSha256);
+  assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'manifest37.source.json'))),lock.manifestSha256);
   for (const [relative, expected] of Object.entries(lock.candidateFiles)) assert.equal(sha256(await readFile(await safeFile(root,relative))),expected,'Candidate artifact changed: '+relative);
   for (const [relative, expected] of Object.entries({...lock.sourceFiles,...lock.runtimeFiles})) {
     assert.match(expected,/^[a-f0-9]{64}$/);

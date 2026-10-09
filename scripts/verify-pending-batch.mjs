@@ -8,10 +8,11 @@ import {spawnSync} from 'node:child_process';
 import {candidateDirectory,readJSON,sha256,deriveCategories,verifyPinnedInputs} from './pending-inputs.mjs';
 import {verifyPending24} from './check-pending24.mjs';
 import {verifyPending30} from './check-pending30.mjs';
+import {verifyPending37} from './check-pending37.mjs';
 import {readSkillShell} from './check-skill.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 function arg(flag){const i=process.argv.indexOf(flag);if(i<0)return;assert.ok(process.argv[i+1]&&!process.argv[i+1].startsWith('--'),'Missing '+flag);return process.argv[i+1];}
-const lock=await readJSON(path.join(root,candidateDirectory,'library-candidate-lock.json'));
+const lock=await readJSON(path.join(root,candidateDirectory,'library-candidate-lock37.json'));
 const libraryArg=arg('--library');
 if(!libraryArg){console.log('NOT RUN: source-only checks require --library PATH --revision '+lock.sourceRevision+'. Use the exact pending-acceptance asset checkout.');process.exit(0);}
 assert.equal(arg('--revision'),lock.sourceRevision,'Explicit matching frozen revision required');
@@ -25,7 +26,7 @@ const Ajv=require('ajv/dist/2020.js').default,{JSDOM}=require('jsdom');
 const schema=await readJSON(path.join(library,lock.fullSchema.path));
 const index=await readJSON(path.join(library,lock.sourceIndex.path));
 assert.equal(sha256(await readFile(path.join(library,lock.fullSchema.path))),index.fullSchema.sha256);
-assert.equal(Object.keys(index.nodeOwners).length,90);
+assert.equal(Object.keys(index.nodeOwners).length,97);
 assert.deepEqual(await readJSON(path.join(root,candidateDirectory,'category-index.json')),deriveCategories(index,lock));
 const {createSchemaSubset,assertClosedReferences,encodeSchema}=await import(pathToFileURL(path.join(library,'scripts/schema-subsets.mjs')).href);
 const compile=s=>new Ajv({strict:false,allErrors:true}).compile(s);
@@ -71,14 +72,14 @@ for(const item of inputPaths){
 console.log('PASS '+records.length+' frozen candidate examples: public API, canonical/subset schemas, CLI, compile and JSDOM');
 let priorExamples=0;for(const file of (await readdir(path.join(root,'examples'))).filter(x=>x.endsWith('.json'))){const d=await readJSON(path.join(root,'examples',file));assert.equal(api.validateDocument(d).ok,true,file);assert.equal(full(d),true,file);priorExamples++;}
 const literalResults=[];
-for(const file of ['SKILL.md','WEB-CHAT-GUIDE.md','references/pending-learning.md']){
+for(const file of ['SKILL.md','WEB-CHAT-GUIDE.md','references/pending-learning.md','references/pending-finance-lists.md']){
  const text=await readFile(path.join(root,file),'utf8');
  for(const match of text.matchAll(/^```json( candidate-only)?\r?\n([\s\S]*?)^```/gm)){
   const input=JSON.parse(match[2]),d=input.version?input:{version:'iui/1',body:[input]},r=api.validateDocument(d);
   assert.equal(r.ok,true,file+': '+JSON.stringify(r.issues));assert.equal(full(d),true,file+' literal');
   const sub=subsetFor(groupsFor(d));assert.equal(sub(d),true,file+' literal domain');literalResults.push({file,candidateOnly:!!match[1],sha256:sha256(match[2])});
  }
- if(file!=='references/pending-learning.md')assert.equal(api.validateDocument(readSkillShell(text).document).ok,true,'Shell JSON');
+ if(file==='SKILL.md'||file==='WEB-CHAT-GUIDE.md')assert.equal(api.validateDocument(readSkillShell(text).document).ok,true,'Shell JSON');
 }
 const doc=(node,state)=>({version:'iui/1',...(state?{state}:{}),body:[node]});
 const positives=[
@@ -133,7 +134,8 @@ try{
 }finally{controller?.dispose();dom.window.close();}
 const extension24=verifyPending24({api,full,subsetFor,JSDOM});
 const extension30=verifyPending30({api,full,subsetFor,JSDOM});
+const extension37=verifyPending37({api,full,subsetFor,JSDOM});
 await verifyPinnedInputs(root,library,lock);
-const report={extension24,extension30,format:'inform-skill-source-validation/1',candidateOnly:true,sourceRevision:lock.sourceRevision,sourceTree:lock.sourceTree,acceptedAssetRevision:lock.acceptedAssetRevision,fullSchemaSha256:lock.fullSchema.sha256,sourceFilesChecked:Object.keys(lock.sourceFiles).length,builtFilesChecked:Object.keys(lock.runtimeFiles).length,canonicalCandidates:30,protocolNodes:90,examples:records,priorExamples,literals:literalResults,negativeCases:negatives,positiveBoundaries:positives.length+extension24.positiveBoundaries+extension30.positiveBoundaries,generatedFragments:fragments,missingDomainNegatives:missingDomain.length+extension24.missingDomainNegatives+extension30.missingDomainNegatives,nodeRootBoundary:'passed',literalInjectionTypes:probes.length+extension24.literalInjectionTypes+extension30.literalInjectionTypes,atomicInvalidState:'passed in JSDOM',publicMount:'JSDOM only, not real browser',browser:'not-run',cdn:'not-run',ci:'not-run',publicAssetPromotion:false};
+const report={extension24,extension30,extension37,format:'inform-skill-source-validation/1',candidateOnly:true,sourceRevision:lock.sourceRevision,sourceTree:lock.sourceTree,acceptedAssetRevision:lock.acceptedAssetRevision,fullSchemaSha256:lock.fullSchema.sha256,sourceFilesChecked:Object.keys(lock.sourceFiles).length,builtFilesChecked:Object.keys(lock.runtimeFiles).length,canonicalCandidates:37,protocolNodes:97,examples:records,priorExamples,literals:literalResults,negativeCases:negatives,positiveBoundaries:positives.length+extension24.positiveBoundaries+extension30.positiveBoundaries+extension37.positiveBoundaries,generatedFragments:fragments,missingDomainNegatives:missingDomain.length+extension24.missingDomainNegatives+extension30.missingDomainNegatives+extension37.missingDomainNegatives,nodeRootBoundary:'passed',literalInjectionTypes:probes.length+extension24.literalInjectionTypes+extension30.literalInjectionTypes+extension37.literalInjectionTypes,atomicInvalidState:'passed in JSDOM',publicMount:'JSDOM only, not real browser',browser:'not-run',cdn:'not-run',ci:'not-run',publicAssetPromotion:false};
 await mkdir(path.join(root,'artifacts/pending-batch'),{recursive:true});await writeFile(path.join(root,'artifacts/pending-batch/validation.json'),JSON.stringify(report,null,2)+'\n');
-console.log(`PASS source candidate: ${records.length} frozen examples + ${priorExamples} prior examples; ${literalResults.length} literals; ${negatives.length} negatives; ${positives.length+extension24.positiveBoundaries+extension30.positiveBoundaries} positive boundaries; ${fragments} regenerated fragments; ${missingDomain.length+extension24.missingDomainNegatives+extension30.missingDomainNegatives} missing-domain negatives; ${probes.length+extension24.literalInjectionTypes+extension30.literalInjectionTypes} inert-render probes. Public CLI, deterministic compile and JSDOM pass. Browser/CDN/CI not run.`);
+console.log(`PASS source candidate: ${records.length} frozen examples + ${priorExamples} prior examples; ${literalResults.length} literals; ${negatives.length} negatives; ${positives.length+extension24.positiveBoundaries+extension30.positiveBoundaries+extension37.positiveBoundaries} positive boundaries; ${fragments} regenerated fragments; ${missingDomain.length+extension24.missingDomainNegatives+extension30.missingDomainNegatives+extension37.missingDomainNegatives} missing-domain negatives; ${probes.length+extension24.literalInjectionTypes+extension30.literalInjectionTypes+extension37.literalInjectionTypes} inert-render probes. Public CLI, deterministic compile and JSDOM pass. Browser/CDN/CI not run.`);
