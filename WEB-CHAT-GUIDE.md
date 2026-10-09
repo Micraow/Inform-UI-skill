@@ -5,7 +5,7 @@ description: 为解释、真坐标图、本地表单、供数天气/体育/金�
 
 # Inform UI Web Chat 完整指南
 
-> 当前固定资产为 d370ffb2df310fce0da9299e6e254a58509ba544；核心338项本地测试、241项Chromium场景及42旧＋18新消费者已通过集中CI。Skill入口自身的回归状态单独记录于 references/schema-discovery.md。
+> 当前固定资产为 d370ffb2df310fce0da9299e6e254a58509ba544；核心338项本地测试、241项Chromium场景及42旧＋18新消费者已通过集中CI。Skill入口四平台检查及100视图回归也已通过；精确范围见 references/schema-discovery.md。
 
 这是可选的完整人工可读指南，适合一次提供给无法按需读取领域资料的普通Web Chat。Agent的默认入口是[SKILL.md](SKILL.md)。正式JSON Schema以固定版本核心库为唯一来源，本文件是生成指南，不是第二套手工维护的Schema。
 

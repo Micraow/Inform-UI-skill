@@ -165,7 +165,7 @@ npm run check:next66 -- --library ../Inform-UI --revision d370ffb2df310fce0da929
 
 这些命令检查技能结构与文件边界、真实库API/CLI与全部示例、自动分片的引用闭包/哈希/完整归属/同版示例、派生库存、根文档JSON字面例及新增组件正反例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
-[持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)保留Linux Node22/24、Windows/macOS Node22的实际API/CLI与Schema检查。66节点指导已在本地通过24全例、29根/完整指南字面JSON、53个后批新增反例及派生闭合检查；本轮核心338项Node、241项Chromium与42旧＋18新消费者已通过[集中CI](https://github.com/Micraow/Inform-UI/actions/runs/37898154911)。当前Skill预备100视图（68真CDN、32内嵌构建）的独立入口回归，也须单独记录真实结果。历史盲测、[已验62阶段](references/schema-discovery-62-history.md)和[6797阶段](references/schema-discovery-6797-history.md)保留原pin、输入与范围，当前结论见[验收记录](references/schema-discovery.md)。
+[持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)保留Linux Node22/24、Windows/macOS Node22的实际API/CLI与Schema检查。66节点指导已在本地通过24全例、29根/完整指南字面JSON、53个后批新增反例及派生闭合检查；本轮核心338项Node、241项Chromium与42旧＋18新消费者已通过[集中CI](https://github.com/Micraow/Inform-UI/actions/runs/37898154911)。本次[Skill独立入口CI](https://github.com/Micraow/Inform-UI-skill/actions/runs/37899000574)四平台全部通过，当前100视图中68次加载真实固定CDN、32次内嵌构建；实际复看3新例的窄暗/宽亮及2张入口壳共8图，没有观察到阻塞性溢出或裁切。历史盲测、[已验62阶段](references/schema-discovery-62-history.md)和[6797阶段](references/schema-discovery-6797-history.md)保留原pin、输入与范围，当前结论见[验收记录](references/schema-discovery.md)。
 
 按需入口、单根范围、Schema 边界与本轮完整验证见[发现与验收记录](references/schema-discovery.md)。纯文档检查点可只跑轻检查，完整功能结果明确绑定到已验提交，不把跳过当通过。
 

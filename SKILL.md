@@ -5,7 +5,7 @@ description: 为解释、真坐标图、本地表单、供数天气/体育/金�
 
 # Inform UI Author
 
-> 当前固定资产为 d370ffb2df310fce0da9299e6e254a58509ba544；核心338项本地测试、241项Chromium场景及42旧＋18新消费者已通过集中CI。Skill入口自身的回归状态单独记录于 references/schema-discovery.md。
+> 当前固定资产为 d370ffb2df310fce0da9299e6e254a58509ba544；核心338项本地测试、241项Chromium场景及42旧＋18新消费者已通过集中CI。Skill入口四平台检查及100视图回归也已通过；精确范围见 references/schema-discovery.md。
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
