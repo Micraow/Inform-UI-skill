@@ -56,7 +56,7 @@ test('missing observations remain null in chart and inspectable source table', a
 test('support inventory names each portable node once and rejects native', async () => {
   const inventory = await json('references/node-support.json');
   assert.equal(new Set(inventory.map(item => item.type)).size, inventory.length);
-  assert.equal(inventory.length, 50);
+  assert.equal(inventory.length, 52);
   assert.equal(inventory.find(item => item.type === 'native').status, 'rejected');
   assert.equal(inventory.find(item => item.type === 'markdown').status, 'plain-text-fallback');
   assert.ok(inventory.filter(item => !['native', 'markdown'].includes(item.type)).every(item => item.status === 'portable'));
@@ -120,4 +120,11 @@ test('current branding uses Inform UI while the reference and immutable historic
   assert.equal(document.version, 'iui/1');
   assert.ok(html.includes('window.IUI'));
   for (const directory of ['tests/blind', 'tests/blind46']) assert.equal((await json(`${directory}/library-contract.json`)).repository, 'Micraow/Intelligent-UI');
+});
+
+test('the single-root guide covers every registered node without an artificial 32 KB ceiling', async () => {
+  const source = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+  for (const { type } of await json('references/node-support.json')) assert.ok(source.includes(type), `Root guide omits ${type}`);
+  for (const phrase of ['unit-converter', 'currency-converter', 'temperatureMode', 'changeBasis', 'stroke-linecap', 'UNSUPPORTED_NATIVE']) assert.ok(source.includes(phrase), phrase);
+  assert.doesNotThrow(() => parseSkillFrontmatter(source + '\n' + 'Further authoring context. '.repeat(2000)));
 });

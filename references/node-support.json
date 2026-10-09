@@ -198,5 +198,13 @@
   {
     "type": "finance-heatmap",
     "status": "portable"
+  },
+  {
+    "type": "unit-converter",
+    "status": "portable"
+  },
+  {
+    "type": "currency-converter",
+    "status": "portable"
   }
 ]

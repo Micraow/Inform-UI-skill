@@ -1,3 +1,7 @@
+## 当前合同升级
+
+当前[固定合同](../library-contract.json)已采用52节点资源4b6c1f0，四种金融供数字段保持兼容，并新增[单位/货币换算](converters.md)。同一SVG的键盘→鼠标切换也纳入独立复验；下方064/50节点记录保留其原始范围，不冒充新版本结果。
+
 # 金融供数选型与完整边界
 
 本文对应[当前固定合同](../library-contract.json)，示例均为原创合成数据。它说明显示协议，不提供投资建议。
@@ -34,9 +38,9 @@
 
 完整文档示例：[行情/历史/比较](../examples/supplied-finance.json)、[权重热图](../examples/supplied-heatmap.json)。
 
-## 当前 Inform UI 固定入口
+## 50节点阶段固定入口（历史验证）
 
-当前合同固定 [064ab51](https://github.com/Micraow/Inform-UI/commit/064ab51e1224045ca2968e3e3f1a3e886f3fca4c)，包名为 @micraow/inform-ui，仍兼容 iui/1、window.IUI 和 CLI iui。新仓库路径下 global/ESM/CSS/schema 四文件均直接 HTTP 200，MIME/CORS 正确，下载字节与固定提交一致。
+该阶段合同固定 [064ab51](https://github.com/Micraow/Inform-UI/commit/064ab51e1224045ca2968e3e3f1a3e886f3fca4c)，包名为 @micraow/inform-ui，仍兼容 iui/1、window.IUI 和 CLI iui。新仓库路径下 global/ESM/CSS/schema 四文件均直接 HTTP 200，MIME/CORS 正确，下载字节与固定提交一致。
 
 Skill [048a379](https://github.com/Micraow/Inform-UI-skill/commit/048a3791e12893087919bc11c54b471461d32898) 的 [CI 37877387788](https://github.com/Micraow/Inform-UI-skill/actions/runs/37877387788) 四平台通过：10 项结构/品牌/冻结边界测试、12 份示例、48 份反例、5 个根字面 JSON，以及 60 个真实浏览器视图。历史 41/46 记录仍使用原始字节和各自旧版本合同。
 

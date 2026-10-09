@@ -69,7 +69,7 @@ try {
     const before = JSON.stringify(document);
     const result = api.validateDocument(document);
     assert.equal(result.ok, true, `${name}: ${JSON.stringify(result.issues)}`);
-    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json', 'supplied-sports.json', 'local-learning.json', 'supplied-finance.json', 'supplied-heatmap.json'].includes(name) ? 'zh-CN' : 'en' };
+    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json', 'supplied-sports.json', 'local-learning.json', 'supplied-finance.json', 'supplied-heatmap.json', 'local-converters.json', 'auxiliary-surfaces.json'].includes(name) ? 'zh-CN' : 'en' };
     const html = await api.compileHtml(result.document, options);
     assert.equal(typeof html, 'string');
     assert.ok(html.toLowerCase().includes('<!doctype html>'), `${name}: no standalone HTML document`);
@@ -121,11 +121,28 @@ try {
   const quiz = literalExamples.find(node => node.type === 'quiz');
   const finance = literalExamples.find(node => node.type === 'finance-quote');
   const heatmap = literalExamples.find(node => node.type === 'finance-heatmap');
+  const unit = literalExamples.find(node => node.type === 'unit-converter');
+  const currency = literalExamples.find(node => node.type === 'currency-converter');
+  const vector = literalExamples.find(node => node.type === 'svg');
   assert.ok(sports && quiz, 'Self-contained new domain examples are required');
   assert.ok(finance && heatmap, 'Root finance/heatmap examples are required');
+  assert.ok(unit && currency && vector, 'Root converters and constrained SVG must be self-contained');
   const changedNode = (node, change) => { const value = structuredClone(node); change(value); return { version: 'iui/1', body: [value] }; };
   const baseChart = { type: 'chart', kind: 'line', xScale: 'linear', xKey: 'x', data: [{ x: 0, y: 1 }, { x: 10, y: 2 }], series: [{ key: 'y', label: 'Synthetic' }] };
   const invalid = [
+    ['unit category mismatch', changedNode(unit, n => n.to = 'kg')],
+    ['unit unknown identifier', changedNode(unit, n => n.from = 'meters')],
+    ['unit temperature mode on length', changedNode(unit, n => n.temperatureMode = 'difference')],
+    ['unit absolute below zero', changedNode(unit, n => Object.assign(n, { category: 'temperature', amount: -274, from: 'C', to: 'K' }))],
+    ['unit precision zero', changedNode(unit, n => n.precision = 0)],
+    ['currency zero rate', changedNode(currency, n => n.rates[0].rate = 0)],
+    ['currency repeated code', changedNode(currency, n => n.rates.push(n.rates[0]))],
+    ['currency base not one', changedNode(currency, n => n.rates.push({ currency: 'USD', rate: 2 }))],
+    ['currency unknown selection', changedNode(currency, n => n.to = 'ZZZ')],
+    ['currency timestamp no offset', changedNode(currency, n => n.asOf = '2026-10-09T09:00:00')],
+    ['svg external paint', changedNode(vector, n => n.shapes[0].attrs.stroke = 'url(https://example.org/color)')],
+    ['svg event attribute', changedNode(vector, n => n.shapes[0].attrs.onclick = 'alert(1)')],
+    ['svg zero width', changedNode(vector, n => n.viewBox = '0 0 0 80')],
     ['finance negative price', changedNode(finance, n => n.instrument.price = -1)],
     ['finance invalid currency', changedNode(finance, n => n.instrument.currency = 'usd')],
     ['finance missing delay declaration', changedNode(finance, n => delete n.instrument.delayMinutes)],

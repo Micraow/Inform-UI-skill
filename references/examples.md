@@ -15,6 +15,8 @@ All fixtures are original and use the public `iui/1` protocol. Their measurement
 | [local-learning.json](../examples/local-learning.json) | 自测反馈与闪卡自评的完整本地流程 | 题目与答案正确、单选/多选边界、无持久化或保密考试承诺 |
 | [supplied-finance.json](../examples/supplied-finance.json) | 行情、真实时间历史和共同基准比较 | 来源、延迟声明、缺测、零基准、各自币种归一化；无换汇/交易 |
 | [supplied-heatmap.json](../examples/supplied-heatmap.json) | 统一权重面积、涨跌色阶与全记录 | 0/null无伪造面积，色阶饱和不改变原始幅度，小格与缺面积项仍可查表 |
+| [local-converters.json](../examples/local-converters.json) | 单位与汇率快照本地试算 | 同类单位、绝对温度/温差、base方向、缺测/0/同币种不混淆；不查市场、不交易 |
+| [auxiliary-surfaces.json](../examples/auxiliary-surfaces.json) | code/badge/容器/轮播/矢量与降级文本 | 不执行代码，不把Markdown降级当富文本；只用受控SVG属性 |
 | [resource-shortlist.json](../examples/resource-shortlist.json) | Useful links embedded in normal prose | Honest project status; omit thumbnails without useful, authorized images |
 
 Change the data and explanation together. A fixture is not evidence for a user's real situation. The HPCC-inspired example demonstrates one simplified proportional feedback relation; it is not an implementation or validation of the full scientific algorithm.

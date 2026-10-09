@@ -3,7 +3,9 @@ name: inform-ui-author
 description: 为解释、真坐标图、本地表单、供数天气/体育/金融、本地自测/闪卡和单位/货币换算生成 iui/1 JSON；无终端Web Chat直接用固定CDN与本文HTML壳交付页面，Agent可用本地库。普通文字足够时不强加界面。
 ---
 
-# Inform UI Author
+# Inform UI Web Chat 完整指南
+
+这是可选的完整人工可读指南，适合一次提供给无法按需读取领域资料的普通Web Chat。Agent的默认入口是[SKILL.md](SKILL.md)。正式JSON Schema以固定版本核心库为唯一来源，本文件是生成指南，不是第二套手工维护的Schema。
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 

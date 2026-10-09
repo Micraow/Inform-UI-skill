@@ -4,16 +4,17 @@ This matrix describes the independent `iui/1` library matched in [library-contra
 
 ## Public protocol nodes
 
-This pin contains 50 schema nodes: 48 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
+This pin contains 52 schema nodes: 50 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
 
 | Status | Nodes | Authoring guidance |
 | --- | --- | --- |
 | Portable, exercised by skill fixtures | `text`, `title`, `caption`, `math`, `link`, `section`, `figure`, `details`, `table`, `metric`, `metric-grid`, `steps`, `callout`, `slider`, `button`, `topology`, `chart` | Start here for editorial explanations; charts support line/bar/scatter/area/donut with explicit axis rules |
-| Portable library surface; not all variants exercised here | `code`, `badge`, `divider`, `spacer`, `image`, `box`, `card`, `row`, `col`, `grid`, `carousel`, `list`, `toggle`, `select`, `svg` | Check the library's schema and renderer tests; prefer semantic defaults and licensed media |
+| Portable library surface; not all variants exercised here | `code`, `badge`, `divider`, `spacer`, `image`, `box`, `card`, `row`, `col`, `grid`, `carousel`, `list`, `toggle`, `select`, `svg` | Use the self-contained root contracts; inspect the library schema only for extra variants. Prefer semantic defaults and licensed media |
 | New 41-node contract surface | `input`, `textarea`, `radio`, `segmented`, `field`, `form`, `weather` | Local form validation/state; supplied weather with provenance/timezone. No implicit submission service or forecast retrieval |
 | Supplied sports | `sports-schedule`, `sports-scoreboard`, `sports-standings` | Local filters, match selection and sorting; supplied snapshots, no live provider or rules inference |
 | Local learning | `quiz`, `flashcards` | Weighted local scoring, exact multiple-answer sets, reveal/self-rating/reset; no persistence, secret exams or spaced scheduling |
 | Supplied finance | `finance-quote`, `finance-chart`, `finance-comparison`, `finance-heatmap` | Provided prices/history, exact common baseline, weighted area and supplied changes; no market retrieval, trading or currency conversion |
+| Local converters | `unit-converter`, `currency-converter` | Nine unit categories, absolute versus delta temperatures, and supplied base-relative rate snapshots; no live quotes or transactions |
 | Explicit fallback | `markdown` | Plain text with a visible fallback label; no Markdown formatting is interpreted |
 | Deliberately rejected | `native` | No private runtime is bundled or assumed; use a portable alternative |
 

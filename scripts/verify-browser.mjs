@@ -35,7 +35,7 @@ try {
     for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
       const label = `${name}-${width}-${theme}`;
       const file = path.join(directory, `${label}.html`);
-      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap'].includes(name);
+      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap', 'local-converters', 'auxiliary-surfaces'].includes(name);
       const authored = { ...document, theme };
       const html = cdn ? shell.html.replace(/(<script id="iui-spec" type="application\/json">)[\s\S]*?(<\/script>)/, (_, open, close) => open + JSON.stringify(authored).replaceAll('<', '\\u003c') + close).replace('data-theme="auto"', `data-theme="${theme}"`)
         : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios'].includes(name) ? 'zh-CN' : 'en' });
@@ -62,6 +62,61 @@ try {
         if (theme === 'dark') assert.notEqual(bg, 'rgb(255, 255, 255)', 'Document shell left a white dark-theme canvas');
         await page.evaluate(() => document.fonts.ready);
         if (screenshots) await page.screenshot({ path: path.join(screenshots, `${label}-initial.png`), fullPage: true });
+      }
+      if (name === 'auxiliary-surfaces') {
+        assert.equal(await page.locator('.iui-code code').textContent(), 'const example = "<safe text>";\n// Display only. Never execute.');
+        assert.equal(await page.locator('.iui-code safe').count(), 0);
+        assert.ok((await page.locator('.iui-markdown').textContent()).includes('**这是原样Markdown文本**'));
+        assert.equal(await page.locator('.iui-markdown strong').count(), 0);
+        assert.equal(await page.getByRole('img', { name: '原创示意：两个点由直线相连', exact: true }).count(), 1);
+        assert.equal(await page.locator('svg.iui-svg circle').count(), 2);
+        await page.locator('.iui-carousel').focus();
+        assert.ok(await page.locator('.iui-carousel').evaluate(node => node === document.activeElement));
+      }
+      if (name === 'local-converters') {
+        const converters = page.locator('.iui-converter');
+        const length = converters.nth(0), temperature = converters.nth(1), data = converters.nth(2), currency = converters.nth(3);
+        const result = root => root.locator('.iui-converter-result').getAttribute('data-raw-value');
+        assert.equal(await result(length), '125');
+        const amount = length.getByRole('textbox', { name: '数值', exact: true });
+        await amount.fill('2');
+        assert.equal(await result(length), '200');
+        await length.getByRole('button', { name: '互换原单位与目标单位', exact: true }).click();
+        assert.equal(await result(length), '0.02');
+        assert.equal(await amount.inputValue(), '2');
+        for (const draft of ['', '1e', '1,000', '0x10']) {
+          await amount.fill(draft);
+          assert.equal(await result(length), null);
+          assert.equal(await amount.getAttribute('aria-invalid'), 'true');
+        }
+        await length.getByRole('button', { name: '恢复初始换算设置', exact: true }).click();
+        assert.equal(await result(length), '125');
+        assert.equal(await result(temperature), '18');
+        await temperature.getByRole('combobox', { name: '温度模式', exact: true }).selectOption('absolute');
+        assert.equal(await result(temperature), '50');
+        await temperature.getByRole('textbox', { name: '数值', exact: true }).fill('-274');
+        assert.equal(await result(temperature), null);
+        assert.ok(await temperature.getByText('绝对温度不能低于绝对零度。', { exact: true }).isVisible());
+        await temperature.getByRole('button', { name: '恢复初始换算设置', exact: true }).click();
+        assert.equal(await result(temperature), '18');
+        assert.equal(await result(data), '1048576');
+        assert.equal(await result(currency), '80');
+        await currency.getByRole('button', { name: '互换原币种与目标币种', exact: true }).click();
+        assert.equal(await result(currency), '125');
+        await currency.getByRole('combobox', { name: '目标币种', exact: true }).selectOption('GBP');
+        assert.equal(await currency.getAttribute('data-result'), 'missing');
+        await currency.getByRole('textbox', { name: '数值', exact: true }).fill('0');
+        assert.equal(await currency.getAttribute('data-result'), 'missing', 'Zero amount must not invent a missing exchange rate');
+        await currency.getByRole('combobox', { name: '原币种', exact: true }).selectOption('GBP');
+        assert.equal(await result(currency), '0', 'Same currency must retain the amount');
+        await currency.getByRole('button', { name: '恢复初始换算设置', exact: true }).click();
+        assert.equal(await result(currency), '80');
+        await currency.getByText('完整汇率快照', { exact: true }).click();
+        assert.equal(await currency.locator('tbody tr').count(), 4);
+        assert.ok((await currency.locator('[data-currency="GBP"]').textContent()).includes('缺测'));
+        await page.getByText('供数空态与错误', { exact: true }).click();
+        assert.ok(await page.getByText('尚未提供汇率快照记录。', { exact: true }).isVisible());
+        assert.ok(await page.getByText('教学错误状态，不自动重试或交易。', { exact: true }).isVisible());
       }
       if (name === 'supplied-sports') {
         const schedule = page.locator('.iui-sports-schedule').first();
@@ -170,6 +225,11 @@ try {
         assert.equal(await selection.getAttribute('stroke-width'), '3');
         assert.equal(await graphic.evaluate(node => getComputedStyle(node).outlineStyle), 'none');
         if (screenshots) await graphic.screenshot({ path: path.join(screenshots, `${label}-selection-keyboard.png`) });
+        // Stay in the same SVG: browser :focus-visible may outlive the keyboard input.
+        await heatmap.locator('[data-heatmap-cell="beta"]').click();
+        assert.equal(await selection.getAttribute('data-selected-cell'), 'beta');
+        assert.equal(await selection.getAttribute('stroke-width'), '2');
+        if (screenshots) await graphic.screenshot({ path: path.join(screenshots, `${label}-selection-pointer-return.png`) });
         await page.getByText('无正权重与供数失败', { exact: true }).click();
         assert.ok(await page.locator('.iui-heatmap').nth(1).getByText('没有可绘制的正权重记录', { exact: true }).isVisible());
         assert.ok(await page.getByText('教学错误状态；无自动重试或交易动作。', { exact: true }).isVisible());

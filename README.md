@@ -51,6 +51,7 @@ The 41-node and 46-node blind tests are historical records from the project's fo
 - **说明天气数据**：展示调用方提供的观测/预报，切换日期、单位和图表；没有天气服务也不会冒充实时预报
 - **读懂比赛快照**：用已有数据展示赛程、记分牌和积分榜，保留未知比分、并列名次与来源；不冒充直播
 - **练习与回忆**：本地单选/多选自测、解释反馈、翻面自评与重来，答案公开且不保存成绩
+- **单位与金额试算**：九类单位、绝对温度/温差、调用方提供的汇率快照；明确基准、缺测与费用边界，不执行换汇交易
 - **探索“如果改变……”**：用滑块或选择器改变输入，让相关数值同步更新
 - **整理指标和资源**：把关键指标、简短说明与链接放在读者需要的位置
 
@@ -58,9 +59,11 @@ The 41-node and 46-node blind tests are historical records from the project's fo
 
 ## 网页聊天：复制一份说明就能开始
 
-把 [`SKILL.md`](SKILL.md) **全文**复制给 Web Chat，然后提出你的解释或演示需求。入口内含基础协议子集、固定 CDN 地址、公开 API 和完整 HTML 壳；基础生成无需终端，也不要求模型读取本地 references 或库源码。
+把 [`SKILL.md`](SKILL.md) **全文**复制给 Web Chat，然后提出你的解释或演示需求。入口内含全部52个注册项的用途与生成边界、固定 CDN 地址、公开 API 和完整 HTML 壳；基础生成无需终端，也不要求模型读取本地 references 或库源码。
 
-让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互仍由库完成，模型不需要重写 CSS 或控件。完整 Schema 链接供扩展时读取；没有读取能力时，只使用入口明确列出的子集。聊天气泡是否能直接运行脚本，由聊天宿主决定。
+让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互仍由库完成，模型不需要重写 CSS 或控件。完整 Schema 链接供扩展时读取；没有读取能力时，使用入口已内嵌的节点合同，不猜额外属性。聊天气泡是否能直接运行脚本，由聊天宿主决定。
+
+另提供[完整Web Chat指南](WEB-CHAT-GUIDE.md)，可一次交给无法读取外部领域资料的聊天模型。完整JSON Schema继续由核心库单一来源生成，不手工维护第二份Schema。自动领域发现索引将与固定资源一起同步，未发布路径不提前宣称可用。
 
 数学使用库自带的 KaTeX 排版：联网壳通过固定 CDN 的 CSS 按需加载官方 MIT 数学字体，请保留 `styles:false` 和匹配的 CSS。需要完全离线时使用下方本地 inline 构建，它会把数学字体一同内嵌。
 
@@ -88,7 +91,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Info
 
 ```sh
 git clone https://github.com/Micraow/Inform-UI.git Inform-UI
-git -C Inform-UI checkout --detach 064ab51e1224045ca2968e3e3f1a3e886f3fca4c
+git -C Inform-UI checkout --detach 4b6c1f0df72cede2e2528a3c5838b5622a45215d
 npm --prefix Inform-UI ci
 npm --prefix Inform-UI run build
 node Inform-UI/bin/iui.mjs validate inform-ui-author/examples/hpcc-feedback.json --json
@@ -114,6 +117,8 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/hpcc-feedback.json --
 | [本地自测与闪卡](examples/local-learning.json) | 加权计分、严格多选、翻面自评、回看与重来 |
 | [供数行情与相对表现](examples/supplied-finance.json) | 来源/延迟、范围、缺测、同一瞬间的共同基准与不可比状态 |
 | [权重与涨跌热图](examples/supplied-heatmap.json) | 正权重面积、色阶饱和、无面积项的键盘/全表与行业筛选 |
+| [单位与货币快照](examples/local-converters.json) | 类别与温差、互换/重置、缺汇率/零金额/同币种及完整表 |
+| [辅助内容与矢量](examples/auxiliary-surfaces.json) | code/badge/box/轮播、静态SVG、Markdown纯文本降级 |
 | [资源短名单](examples/resource-shortlist.json) | 把有用的链接和介绍融入正文 |
 
 这些示例全部为原创。请一起修改数据与解释；示例数字不是用户的真实测量结果。
@@ -127,7 +132,7 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/hpcc-feedback.json --
 
 技能不要求 AI 为每次回答重新写 HTML、CSS 或 JavaScript。字体、间距、主题与移动端布局交给库处理。
 
-本轮固定协议有50项节点注册，根技能内嵌41个常用节点的保守生成规范；历史 native 输入明确拒绝。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融支持供数行情、历史、同基准比较与权重热图；不抓取行情、不换汇、不交易，详见[供数合同与验证记录](references/finance.md)。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
+本轮固定协议有52项注册：根技能内嵌50个渲染节点的选型与保守生成合同、markdown纯文本降级和native拒绝说明。无需额外读取实现或references即可生成受支持页面。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融支持供数行情、历史、同基准比较与权重热图；不抓取行情、不自动换汇、不交易，详见[供数合同与验证记录](references/finance.md)。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
 
 ## 运行检查
 
@@ -140,7 +145,7 @@ npm run check:library -- --library ../Inform-UI
 
 第一条检查技能结构与文件边界，第二条调用真实库的 API、Schema 和 CLI 验证全部示例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
-[持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 60 组明暗主题和桌面/手机视图：48 组原创示例（体育、学习、金融和热图直接加载固定CDN）、4 组根 SKILL 的 CDN HTML 壳、4 组[历史 41 节点首次产物](tests/blind/README.md)、4 组[46 节点体育与学习首次产物](tests/blind46/README.md)。历史产物的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。46 节点首稿同样保留原始字节，首次通过 API/CLI、独立赛绩与排名计算及原固定 CDN 的体育/测验/闪卡交互验收，详见[结果与保留观察](tests/blind46/RESULTS.md)。CI badge 显示开发分支的最新状态。
+[持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 68 组明暗主题和桌面/手机视图：56 组原创示例（辅助节点、转换器、体育、学习、金融和热图直接加载固定CDN）、4 组根 SKILL 的 CDN HTML 壳、4 组[历史 41 节点首次产物](tests/blind/README.md)、4 组[46 节点体育与学习首次产物](tests/blind46/README.md)。历史产物的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。46 节点首稿同样保留原始字节，首次通过 API/CLI、独立赛绩与排名计算及原固定 CDN 的体育/测验/闪卡交互验收，详见[结果与保留观察](tests/blind46/RESULTS.md)。CI badge 显示开发分支的最新状态。
 
 ## 许可证
 

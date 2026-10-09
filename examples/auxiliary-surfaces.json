@@ -1,0 +1,115 @@
+{
+  "version": "iui/1",
+  "theme": "auto",
+  "title": "小型辅助节点，各有边界",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "少量辅助，不取代正文"
+    },
+    {
+      "type": "badge",
+      "value": "原创教学示例",
+      "color": "info"
+    },
+    {
+      "type": "text",
+      "value": "代码保留原样，不执行。分隔线用于真实章节边界，轮播是横向区域，受控SVG只画原创静态关系。"
+    },
+    {
+      "type": "code",
+      "language": "JavaScript",
+      "value": "const example = \"<safe text>\";\n// Display only. Never execute."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "box",
+      "children": [
+        {
+          "type": "caption",
+          "value": "一个通用容器，省略固定宽度与手写CSS。"
+        },
+        {
+          "type": "spacer",
+          "height": 8
+        },
+        {
+          "type": "carousel",
+          "children": [
+            {
+              "type": "card",
+              "children": [
+                {
+                  "type": "title",
+                  "level": 3,
+                  "value": "第一条"
+                },
+                {
+                  "type": "text",
+                  "value": "少量同级内容。"
+                }
+              ]
+            },
+            {
+              "type": "card",
+              "children": [
+                {
+                  "type": "title",
+                  "level": 3,
+                  "value": "第二条"
+                },
+                {
+                  "type": "text",
+                  "value": "用键盘或滚动查看。"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "svg",
+      "viewBox": "0 0 200 80",
+      "label": "原创示意：两个点由直线相连",
+      "shapes": [
+        {
+          "tag": "line",
+          "attrs": {
+            "x1": 30,
+            "y1": 40,
+            "x2": 170,
+            "y2": 40,
+            "stroke": "currentColor",
+            "stroke-width": 2
+          }
+        },
+        {
+          "tag": "circle",
+          "attrs": {
+            "cx": 30,
+            "cy": 40,
+            "r": 8,
+            "fill": "currentColor"
+          }
+        },
+        {
+          "tag": "circle",
+          "attrs": {
+            "cx": 170,
+            "cy": 40,
+            "r": 8,
+            "fill": "currentColor"
+          }
+        }
+      ]
+    },
+    {
+      "type": "markdown",
+      "value": "**这是原样Markdown文本**，不会变成粗体。"
+    }
+  ]
+}

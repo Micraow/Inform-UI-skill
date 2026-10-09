@@ -1,0 +1,147 @@
+{
+  "version": "iui/1",
+  "theme": "auto",
+  "title": "单位与供数货币快照",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "先确认量与基准，再换算"
+    },
+    {
+      "type": "text",
+      "value": "单位换算在本页完成。汇率全部为原创合成快照，不读取市场、不包含费用或价差，不是交易报价。"
+    },
+    {
+      "type": "unit-converter",
+      "title": "长度输入与互换",
+      "category": "length",
+      "amount": 1.25,
+      "from": "m",
+      "to": "cm",
+      "precision": 8
+    },
+    {
+      "type": "unit-converter",
+      "title": "绝对温度和温差",
+      "category": "temperature",
+      "amount": 10,
+      "from": "C",
+      "to": "F",
+      "temperatureMode": "difference"
+    },
+    {
+      "type": "unit-converter",
+      "title": "字节和二进制前缀",
+      "category": "data",
+      "amount": 1,
+      "from": "MiB",
+      "to": "B"
+    },
+    {
+      "type": "currency-converter",
+      "title": "只使用这一份合成汇率",
+      "amount": 100,
+      "base": "USD",
+      "from": "USD",
+      "to": "EUR",
+      "asOf": "2026-10-09T09:00:00+08:00",
+      "source": {
+        "label": "原创合成报价，非市场汇率",
+        "synthetic": true
+      },
+      "rates": [
+        {
+          "currency": "EUR",
+          "rate": 0.8
+        },
+        {
+          "currency": "GBP",
+          "rate": null
+        },
+        {
+          "currency": "JPY",
+          "rate": 120
+        }
+      ]
+    },
+    {
+      "type": "details",
+      "summary": "供数空态与错误",
+      "children": [
+        {
+          "type": "currency-converter",
+          "title": "空汇率快照",
+          "amount": 100,
+          "base": "USD",
+          "from": "USD",
+          "to": "USD",
+          "asOf": "2026-10-09T09:00:00+08:00",
+          "source": {
+            "label": "原创合成报价，非市场汇率",
+            "synthetic": true
+          },
+          "rates": []
+        },
+        {
+          "type": "currency-converter",
+          "title": "等待供数",
+          "amount": 100,
+          "base": "USD",
+          "from": "USD",
+          "to": "EUR",
+          "asOf": "2026-10-09T09:00:00+08:00",
+          "source": {
+            "label": "原创合成报价，非市场汇率",
+            "synthetic": true
+          },
+          "rates": [
+            {
+              "currency": "EUR",
+              "rate": 0.8
+            },
+            {
+              "currency": "GBP",
+              "rate": null
+            },
+            {
+              "currency": "JPY",
+              "rate": 120
+            }
+          ],
+          "status": "loading",
+          "message": "教学加载状态，不查询报价。"
+        },
+        {
+          "type": "currency-converter",
+          "title": "供数错误",
+          "amount": 100,
+          "base": "USD",
+          "from": "USD",
+          "to": "EUR",
+          "asOf": "2026-10-09T09:00:00+08:00",
+          "source": {
+            "label": "原创合成报价，非市场汇率",
+            "synthetic": true
+          },
+          "rates": [
+            {
+              "currency": "EUR",
+              "rate": 0.8
+            },
+            {
+              "currency": "GBP",
+              "rate": null
+            },
+            {
+              "currency": "JPY",
+              "rate": 120
+            }
+          ],
+          "status": "error",
+          "message": "教学错误状态，不自动重试或交易。"
+        }
+      ]
+    }
+  ]
+}
