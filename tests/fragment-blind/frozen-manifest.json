@@ -1,0 +1,17 @@
+{
+  "frozen": true,
+  "firstDraftOnly": true,
+  "validation": "JSON syntax and embedded JSON equality only; no library/schema validator or browser",
+  "files": [
+    {
+      "file": "answer.json",
+      "utf8Bytes": 17686,
+      "sha256": "a22fb2ff4eaf6c9311c91d8f7bee1aeb554a2c14bd9b2cb69e2d8e4b31d2dcf9"
+    },
+    {
+      "file": "answer.html",
+      "utf8Bytes": 19232,
+      "sha256": "ee91842b8783a25e564e39f19fa1a4a557c7f704b810a661f12e4334cc29cde1"
+    }
+  ]
+}

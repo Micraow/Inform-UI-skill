@@ -1,0 +1,48 @@
+name: Frozen fragment discovery blind QA
+on:
+  push:
+    branches: [feat/semantic-authoring-skill]
+    paths:
+      - tests/fragment-blind/answer.json
+      - tests/fragment-blind/answer.html
+      - tests/fragment-blind/reading-ledger.json
+      - tests/fragment-blind/library-contract.json
+      - scripts/verify-fragment-blind.mjs
+      - .github/workflows/fragment-blind.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  frozen-browser:
+    name: Frozen first draft / Ubuntu Node 22 Chromium
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: skill
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/checkout@v4
+        with:
+          repository: Micraow/Inform-UI
+          ref: 6797f7f7755f483db6c3be3831aa03433b7c4696
+          path: library
+      - name: Build exact historical library
+        working-directory: library
+        run: |
+          npm ci
+          npm run build
+          npx --no-install playwright install --with-deps chromium
+      - name: Validate immutable original and browser interactions
+        working-directory: skill
+        run: node scripts/verify-fragment-blind.mjs --library ../library --browser --output artifacts/fragment-blind
+      - name: Preserve observations and screenshots even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fragment-blind-first-qa
+          path: skill/artifacts/fragment-blind
+          if-no-files-found: warn
+          retention-days: 14
