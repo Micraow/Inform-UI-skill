@@ -36,12 +36,16 @@
 
 ## 固定版本验证记录
 
-2026-10-09，Skill [7276bbe](https://github.com/Micraow/Intelligent-UI-skill/commit/7276bbe0beb95b5ec87ef643faddd461b01d9012) 的 [CI 37874394218](https://github.com/Micraow/Intelligent-UI-skill/actions/runs/37874394218) 四平台通过。固定库与所有 CDN 资源来自 [f35e33b](https://github.com/Micraow/Intelligent-UI/commit/f35e33b146c266ecf16371733c51064129afaec3)，包括热图选择与鼠标焦点边框修正。
+2026-10-09，Skill [7276bbe](https://github.com/Micraow/Intelligent-UI-skill/commit/7276bbe0beb95b5ec87ef643faddd461b01d9012) 的 [CI 37874394218](https://github.com/Micraow/Intelligent-UI-skill/actions/runs/37874394218) 四平台通过。固定库与所有 CDN 资源来自 [f35e33b](https://github.com/Micraow/Intelligent-UI/commit/f35e33b146c266ecf16371733c51064129afaec3)，已修正热图选择与鼠标焦点边框的颜色；四边粗细一致性仍有待修问题，见下。
 
 - 9 项结构/边界测试，12 份示例、48 份无效输入及根 Skill 的 5 个字面 JSON 经真实 API/CLI 验证，含确定性构建和输入不变性。
 - 共 60 个浏览器视图：48 个当前示例、4 个当前根 HTML 壳、41/46 两代历史首稿各 4 个。金融与热图的 8 个明暗/桌面/390px 视图直接使用禁用缓存的 file:// 页面与固定 CDN/SRI。
 - 金融：真实时间轴的 1:12 间距比例、null 断线、单点/空区间、键盘端点、共同瞬间基准、缺基准不可比、隐藏系列仍保留全表、切换范围不偷换基准、零前收盘不伪造百分比。
 - 热图：60:30:10 面积比例，0/null 无面积项的键盘访问，Enter 展开全表，完整保留 −100%/+12%，行业筛选和空/加载/错误状态。
-- 人工检查原始手机/桌面、明暗及交互后截图：无整页横溢、数据文字可读，热图选中为细焦点色。手机宽表使用局部横滚；不把未入当前截图的列当作数据缺失。
+- 人工检查原始手机/桌面、明暗及交互后截图：无整页横溢、数据文字可读；热图选中颜色已调整，但后续放大视觉检查确认四边粗细不一致，此项尚未通过。手机宽表使用局部横滚；不把未入当前截图的列当作数据缺失。
 
 原始截图在该 CI 的 `skill-current-browser` artifact，保留七天。本轮是合同与示例回归，**不是新一轮只读 Skill 作者盲测**；[41 节点](../tests/blind/README.md)与[46 节点](../tests/blind46/README.md)的输入、首稿及库合同都保持冻结。新合同也不包含尚未完成验收的转换器或未列节点。
+
+### 尚未关闭的视觉问题
+
+2026-10-09，进一步视觉复核确认固定 f35 版本的热图选中描边四边粗细不一致。现有功能/颜色断言不足以证明描边层级和屏幕像素宽度正确；不得将 CI 全绿表述为全部视觉细节已通过。核心库正定位并修复，随后只更换已验证的资源提交和 SRI，不改写本轮金融字段合同或历史盲测记录。
