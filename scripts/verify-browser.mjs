@@ -93,7 +93,10 @@ try {
         await quiz.getByRole('radio', { name: '40%', exact: true }).check();
         await quiz.getByRole('button', { name: '确认答案', exact: true }).click();
         assert.ok((await quiz.locator('.iui-learning-feedback').textContent()).includes('回答正确'));
-        assert.ok(await quiz.getByRole('radio', { name: '40%', exact: true }).isDisabled());
+        // Submitted answers gain an accessible "参考答案" note; assert the actual lock
+        // independently of that intentional label change.
+        assert.equal(await quiz.locator('input:enabled').count(), 0);
+        assert.equal(await quiz.locator('input:checked').inputValue(), 'four');
         await quiz.getByRole('button', { name: '下一题', exact: true }).click();
         await quiz.getByRole('checkbox', { name: '保留单位与采样口径', exact: true }).check();
         await quiz.getByRole('button', { name: '确认答案', exact: true }).click();
