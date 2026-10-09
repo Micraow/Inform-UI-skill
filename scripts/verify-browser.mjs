@@ -87,7 +87,7 @@ try {
           assert.ok((await page.locator('.iui-markdown').textContent()).includes('**这是原样Markdown文本**'));
           assert.equal(await page.locator('.iui-markdown strong').count(),0);
         } else {
-          assert.equal(contract.revision,'5c7f334a975b75b0a70f58b5570b2ea567aed9dc','Review new Markdown behavior before changing this frozen assertion');
+          assert.equal(contract.revision,'7978f23da0222ad9122bb0b40daa4f1844b5b9cd','Review new Markdown behavior before changing this frozen assertion');
           assert.equal(await page.locator('.iui-markdown strong').count(),1);
           assert.equal(await page.locator('.iui-markdown strong').textContent(),'这是原样Markdown文本');
           assert.equal(await page.locator('.iui-markdown').textContent(),'这是原样Markdown文本，不会变成粗体。');

@@ -1,8 +1,8 @@
 # Pending acceptance: 30 canonical contracts / 32 unique examples
 
-This is a prepared, unaccepted branch. Asset revision `5c7f334a975b75b0a70f58b5570b2ea567aed9dc` and tree `c2c1dbdea5b6b7dd39ce9617eaa88883318c9452` bind root contract, HTML shells, generated 90-node inventory and source/build locks. The accepted 53-component count, prior recommendation and user demos do not change. The historical d370 contract is preserved in [accepted-library-contract.json](accepted-library-contract.json); commits 94b5cd1 and 9bf9dfa remain frozen history.
+This is a prepared, unaccepted branch. Asset revision `7978f23da0222ad9122bb0b40daa4f1844b5b9cd` and tree `7a8796cd9cc1ce1026ae1a225716847e1d408d62` bind root contract, HTML shells, generated 90-node inventory and source/build locks. The accepted 53-component count, prior recommendation and user demos do not change. The historical d370 contract is preserved in [accepted-library-contract.json](accepted-library-contract.json); commits 94b5cd1 and 9bf9dfa remain frozen history.
 
-[manifest30.source.json](manifest30.source.json) adds six contracts and five original examples to the prior 24 contracts / 27 examples. Motion serves animate and celebration once. Earlier 20/24 manifests are unchanged. [category-index.json](category-index.json) derives from the full canonical schema, never a second schema. [library-candidate-lock.json](library-candidate-lock.json) binds exact source blobs, frozen runtime bytes, root fixtures, locale map, receiver and scripts. Staged core evidence is 863 prior-full and 237 final-affected tests, not an invented aggregate final full suite.
+[manifest30.source.json](manifest30.source.json) adds six contracts and five original examples to the prior 24 contracts / 27 examples. Motion serves animate and celebration once. Earlier 20/24 manifests are unchanged. [category-index.json](category-index.json) derives from the full canonical schema, never a second schema. [library-candidate-lock.json](library-candidate-lock.json) binds exact source blobs, frozen runtime bytes, root fixtures, locale map, receiver and scripts. Historical 5c7f staged core evidence is 863 prior-full and 237 final-affected tests, not an invented aggregate final full suite.
 
 ## Browser preparation and ownership
 
@@ -22,13 +22,17 @@ Use a clean detached 5c7f checkout with its proven frozen dist, not a working-tr
 npm test
 node scripts/validate-examples.mjs --library CLEAN_ASSET
 node scripts/verify-schema-index.mjs --library CLEAN_ASSET
-node scripts/derive-node-support.mjs --library CLEAN_ASSET --revision 5c7f334a975b75b0a70f58b5570b2ea567aed9dc --check
-node scripts/verify-next-guidance.mjs --library CLEAN_ASSET --revision 5c7f334a975b75b0a70f58b5570b2ea567aed9dc
-node scripts/verify-primitive-guidance.mjs --library CLEAN_ASSET --revision 5c7f334a975b75b0a70f58b5570b2ea567aed9dc
-node scripts/verify-next66-guidance.mjs --library CLEAN_ASSET --revision 5c7f334a975b75b0a70f58b5570b2ea567aed9dc
-node scripts/generate-pending-lock.mjs --source-repository CLEAN_ASSET --library CLEAN_ASSET --revision 5c7f334a975b75b0a70f58b5570b2ea567aed9dc --check
-node scripts/verify-pending-batch.mjs --library CLEAN_ASSET --revision 5c7f334a975b75b0a70f58b5570b2ea567aed9dc
+node scripts/derive-node-support.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd --check
+node scripts/verify-next-guidance.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
+node scripts/verify-primitive-guidance.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
+node scripts/verify-next66-guidance.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
+node scripts/generate-pending-lock.mjs --source-repository CLEAN_ASSET --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd --check
+node scripts/verify-pending-batch.mjs --library CLEAN_ASSET --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
 node scripts/check-pending-browser-source.mjs --library CLEAN_ASSET
 ```
 
 27 historical blind-test files retain their byte hashes and separate old green evidence. Unchanged old builds/browser runs are not repeated in this preparation. Public HTTP byte preflight is owned by the integrator; browser, full batch CI and original-image inspection remain required before accepted promotion.
+
+## Recovery pin boundary
+
+The immutable recovery asset is 7978f23da0222ad9122bb0b40daa4f1844b5b9cd. Its source/build bytes are bound separately by recovery-build-proof.json; original docs/local-enhancements-90.json stays unchanged historical evidence. The 863/237 prior tests are not claimed as tests of this runtime. All 311 paths are checked, and every non-dist path must match its committed Git blob; all frozen dist paths are retained in the generated Skill lock. The new public CDN pin must still be fetched and browser-verified. The agenda Escape harness regression is source-checked only. Formal accepted count remains 53, with 30 pending.

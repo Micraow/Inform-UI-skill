@@ -1,7 +1,7 @@
 {
   "format": "inform-skill-candidate-categories/1",
   "candidateOnly": true,
-  "sourceRevision": "5c7f334a975b75b0a70f58b5570b2ea567aed9dc",
+  "sourceRevision": "7978f23da0222ad9122bb0b40daa4f1844b5b9cd",
   "fullSchema": {
     "path": "src/schema/iui.schema.json",
     "sha256": "620f7cdca4c4143090167e583cbdb8d9160b1cfcfc35e0afa071f2a8bcdd8785"

@@ -34,12 +34,31 @@ assert.equal(evidence.pendingCanonical,30);assert.equal(evidence.protocolNodes,9
 assert.deepEqual(evidence.previousFullNode,{revision:'d0dac48da25c4fdbd10c931dfda9e2f20550f348',tests:863,passed:863,failed:0,skipped:0,todo:0});
 assert.deepEqual(evidence.finalFormsAndSharedImpact,{tests:237,passed:237,failed:0,skipped:0,todo:0});
 assert.equal(Object.keys(evidence.finalProductionAndBuildHashes).length,311);
-const runtimeFiles={};for(const p of ['dist/index.js','dist/browser.js','dist/standalone.js','dist/style.css']){
- runtimeFiles[p]=sha256(await readFile(await safeFile(library,p)));
- assert.equal(runtimeFiles[p],evidence.finalProductionAndBuildHashes[p],'Runtime must match frozen final30 evidence: '+p);
+// The original final30 evidence remains historical. A distinct recovery proof
+// binds new runtime bytes to the exact new immutable Git asset, not to old tests.
+const recoveryPath=candidateDirectory+'/recovery-build-proof.json';
+const recovery=await readJSON(path.join(root,recoveryPath));
+assert.equal(recovery.format,'inform-acceptance-recovery-build/1');
+assert.equal(recovery.sourceRevision,candidateRevision);assert.equal(recovery.sourceTree,tree);
+assert.equal(recovery.sourceDirectoryTree,git('rev-parse',candidateRevision+':src'));
+assert.equal(recovery.previousAssetRevision,'5c7f334a975b75b0a70f58b5570b2ea567aed9dc');
+assert.equal(recovery.historicalEvidenceSha256,sha256(await readFile(path.join(library,'docs/local-enhancements-90.json'))));
+assert.equal(recovery.verifiedCanonical,53);assert.equal(recovery.pendingCanonical,30);assert.equal(recovery.protocolNodes,90);
+assert.equal(recovery.cdnAcceptance,'not-run');assert.ok(recovery.browser.startsWith('blocked-before-launch:'));
+assert.deepEqual(Object.keys(recovery.finalProductionAndBuildHashes).sort(),Object.keys(evidence.finalProductionAndBuildHashes).sort(),'Recovery proof must retain all 311 production/build paths');
+const changed=Object.keys(recovery.finalProductionAndBuildHashes).filter(p=>recovery.finalProductionAndBuildHashes[p]!==evidence.finalProductionAndBuildHashes[p]);
+assert.deepEqual(recovery.changedPaths,changed,'Exact recovery delta');
+const runtimeFiles={};
+for(const [p,expected] of Object.entries(recovery.finalProductionAndBuildHashes)){
+ assert.match(expected,/^[a-f0-9]{64}$/);const bytes=await readFile(await safeFile(library,p));
+ assert.equal(sha256(bytes),expected,'Recovery build bytes changed: '+p);
+ if(p.startsWith('dist/'))runtimeFiles[p]=expected;
+ else{const entry=entries.find(e=>e.path===p);assert.ok(entry,'Recovery input must be tracked: '+p);
+  assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),entry.oid,'Recovery bytes differ from immutable asset: '+p);}
 }
+for(const p of ['dist/index.js','dist/browser.js','dist/standalone.js','dist/style.css'])assert.ok(runtimeFiles[p],'Required recovery runtime '+p);
 const index=await readJSON(path.join(library,'src/schema/fragments/index.json'));assert.equal(Object.keys(index.nodeOwners).length,90);
-const candidatePaths=['library-contract.json','README.md','references/support.md','references/library-workflow.md','references/node-support.json','references/schema-discovery.md','scripts/validate-examples.mjs','scripts/verify-schema-index.mjs','tests/skill.test.mjs',candidateDirectory+'/accepted-library-contract.json','SKILL.md','WEB-CHAT-GUIDE.md','references/pending-learning.md','references/example-languages.json','scripts/pending-inputs.mjs','scripts/generate-pending-lock.mjs','scripts/verify-pending-batch.mjs','scripts/check-pending24.mjs','scripts/check-pending30.mjs','scripts/check-pending-browser-source.mjs','scripts/verify-browser.mjs','scripts/verify-consumer-reuse.mjs','scripts/cdn-discovery-contract.mjs','tests/cdn-discovery-contract.test.mjs','tests/pending-batch.test.mjs','tests/pending-browser.test.mjs','tests/consumer-reuse.test.mjs',candidateDirectory+'/verify-browser.mjs',candidateDirectory+'/consumer-plan.json',candidateDirectory+'/README.md',candidateDirectory+'/manifest.source.json',candidateDirectory+'/manifest24.source.json',candidateDirectory+'/manifest30.source.json',candidateDirectory+'/invalid.json',...manifest.items.flatMap(x=>x.examples.map(p=>candidateDirectory+'/'+p))];
+const candidatePaths=[recoveryPath,'library-contract.json','README.md','references/support.md','references/library-workflow.md','references/node-support.json','references/schema-discovery.md','scripts/validate-examples.mjs','scripts/verify-schema-index.mjs','tests/skill.test.mjs',candidateDirectory+'/accepted-library-contract.json','SKILL.md','WEB-CHAT-GUIDE.md','references/pending-learning.md','references/example-languages.json','scripts/pending-inputs.mjs','scripts/generate-pending-lock.mjs','scripts/verify-pending-batch.mjs','scripts/check-pending24.mjs','scripts/check-pending30.mjs','scripts/check-pending-browser-source.mjs','scripts/verify-browser.mjs','scripts/verify-consumer-reuse.mjs','scripts/cdn-discovery-contract.mjs','tests/cdn-discovery-contract.test.mjs','tests/pending-batch.test.mjs','tests/pending-browser.test.mjs','tests/consumer-reuse.test.mjs',candidateDirectory+'/verify-browser.mjs',candidateDirectory+'/consumer-plan.json',candidateDirectory+'/README.md',candidateDirectory+'/manifest.source.json',candidateDirectory+'/manifest24.source.json',candidateDirectory+'/manifest30.source.json',candidateDirectory+'/invalid.json',...manifest.items.flatMap(x=>x.examples.map(p=>candidateDirectory+'/'+p))];
 const plan=await readJSON(path.join(root,candidateDirectory,'consumer-plan.json'));
 const languages=await readJSON(path.join(root,'references/example-languages.json'));
 for(const name of Object.keys(languages))candidatePaths.push('examples/'+name+'.json');
@@ -56,7 +75,7 @@ const lock={
  fullSchema:{path:'src/schema/iui.schema.json',sha256:sourceFiles['src/schema/iui.schema.json']},sourceIndex:{path:'src/schema/fragments/index.json',sha256:sourceFiles['src/schema/fragments/index.json']},sourceFiles,runtimeFiles,candidateFiles,
  formalAcceptedContractSha256:sha256(await readFile(path.join(root,candidateDirectory,'accepted-library-contract.json'))),pendingContractSha256:sha256(await readFile(path.join(root,'library-contract.json'))),verification:{sourceOnly:true,browser:'not-run',cdn:'not-run',ci:'not-run',publicAssetPromotion:false},
  browserPreparation:{status:'prepared-not-run',skillBaseRevision:'94b5cd14a7f47fc477ee781cec06e0e6810a7169',executionOwner:'core:scripts/run-batch-consumers.mjs',consumerPlan:candidateDirectory+'/consumer-plan.json',examples:32,plannedLocalCompiledViews:192,existingExamples:15,duplicateInputs:0,exampleLanguages:'references/example-languages.json'},
- provenance:{originalExamples:'Project-owned MIT synthetic fixtures; exact committed bytes, no private captures.',sourceVerification:'Each source blob matched the exact Git revision before hashing; runtime bytes match final frozen owner evidence without another build.',ownerEvidence:'docs/local-enhancements-90.json',ownerPreviousFullNode:evidence.previousFullNode,ownerFinalTwoImpactBeforeFormsRepair:evidence.finalTwoImpactBeforeFormsRepair,ownerFinalFormsAndSharedImpact:evidence.finalFormsAndSharedImpact,ownerFormsFailureControl:evidence.formsFailureControl,ownerAggregateBoundary:evidence.note,reproduction:'node scripts/generate-pending-lock.mjs --source-repository REPO --library CLEAN_ASSET_CHECKOUT --revision '+candidateRevision+' --check'},
+ provenance:{originalExamples:'Project-owned MIT synthetic fixtures; exact committed bytes, no private captures.',sourceVerification:'Each source blob matched the exact Git revision before hashing; all recovery production/build paths matched the distinct immutable recovery proof. Historical source tests are not new-runtime acceptance.',recoveryBuildProof:recoveryPath,recoveryBuildProofSha256:sha256(await readFile(path.join(root,recoveryPath))),recoveryPreviousAssetRevision:recovery.previousAssetRevision,ownerEvidence:'docs/local-enhancements-90.json',ownerPreviousFullNode:evidence.previousFullNode,ownerFinalTwoImpactBeforeFormsRepair:evidence.finalTwoImpactBeforeFormsRepair,ownerFinalFormsAndSharedImpact:evidence.finalFormsAndSharedImpact,ownerFormsFailureControl:evidence.formsFailureControl,ownerAggregateBoundary:evidence.note,reproduction:'node scripts/generate-pending-lock.mjs --source-repository REPO --library CLEAN_ASSET_CHECKOUT --revision '+candidateRevision+' --check'},
  items:manifest.items.map(i=>({...i,examples:i.examples.map(sourcePath=>({sourcePath,candidatePath:candidateDirectory+'/'+sourcePath})),groups:[...new Set(i.nodeTypes.map(n=>index.nodeOwners[n]))].sort()})),
  historicalGuidancePrefixes:{'SKILL.md':{bytes:55869,sha256:'377dbee612fd436982c7a26cb2d48e2fd253221e2be861764acdbe6086a4ac72'},'WEB-CHAT-GUIDE.md':{bytes:64530,sha256:'86d046a1d7468f16bab263061e319c7d228da38c647298effac210d78402d8ab'}}
 };

@@ -3,7 +3,7 @@
   "candidateOnly": true,
   "status": "prepared-not-run",
   "executionOwner": "core:scripts/run-batch-consumers.mjs",
-  "sourceRevision": "5c7f334a975b75b0a70f58b5570b2ea567aed9dc",
+  "sourceRevision": "7978f23da0222ad9122bb0b40daa4f1844b5b9cd",
   "skillBaseRevision": "94b5cd14a7f47fc477ee781cec06e0e6810a7169",
   "acceptedAssetRevision": "d370ffb2df310fce0da9299e6e254a58509ba544",
   "sourceScope": "30 canonical candidates, 32 exact synthetic examples; browser acceptance not run",
@@ -413,7 +413,7 @@
     }
   ],
   "existingConsumerComparison": {
-    "sourceRevision": "5c7f334a975b75b0a70f58b5570b2ea567aed9dc",
+    "sourceRevision": "7978f23da0222ad9122bb0b40daa4f1844b5b9cd",
     "examples": [
       {
         "name": "carousel-with-local-controls",

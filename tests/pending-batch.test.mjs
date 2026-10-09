@@ -50,3 +50,18 @@ test('core30 provenance preserves earlier manifests and exact staged verificatio
  for(const item of after.items.slice(20)){assert.equal(categories.nodeOwners[item.nodeTypes[0]],'base');assert.ok(categories.groups.find(g=>g.id==='base').examples.some(x=>x.repositoryPath===item.examples[0]));}
  for(const [file,digest]of Object.entries(lock.candidateFiles))assert.equal(sha256(await readFile(await safeFile(root,file))),digest,'Candidate input drift: '+file);
 });
+
+
+test('recovery pin has distinct byte proof and preserves the original final30 evidence boundary',async()=>{
+ const lock=await read(candidateDirectory+'/library-candidate-lock.json');
+ const proof=await read(candidateDirectory+'/recovery-build-proof.json');
+ assert.equal(proof.sourceRevision,candidateRevision);assert.equal(proof.sourceTree,lock.sourceTree);
+ assert.equal(proof.previousAssetRevision,'5c7f334a975b75b0a70f58b5570b2ea567aed9dc');
+ assert.equal(proof.verifiedCanonical,53);assert.equal(proof.pendingCanonical,30);
+ assert.equal(proof.cdnAcceptance,'not-run');assert.match(proof.browser,/^blocked-before-launch:/);
+ assert.equal(Object.keys(proof.finalProductionAndBuildHashes).length,311);
+ for(const [file,hash]of Object.entries(lock.runtimeFiles))assert.equal(proof.finalProductionAndBuildHashes[file],hash);
+ assert.equal(lock.provenance.recoveryBuildProofSha256,sha256(await readFile(path.join(root,candidateDirectory,'recovery-build-proof.json'))));
+ assert.equal(lock.provenance.ownerEvidence,'docs/local-enhancements-90.json');
+ assert.notEqual(lock.provenance.recoveryBuildProof,lock.provenance.ownerEvidence);
+});

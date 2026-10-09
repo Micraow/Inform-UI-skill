@@ -2,7 +2,7 @@
 
 # Inform UI Skill
 
-> Pending acceptance：本分支合同与壳固定 5c7f334a975b75b0a70f58b5570b2ea567aed9dc，30 项候选等待同版集中 CI 与原图验收。已验53计数、旧版推荐及用户演示不升级。
+> Pending acceptance：本分支合同与壳固定 7978f23da0222ad9122bb0b40daa4f1844b5b9cd，30 项候选等待同版集中 CI 与原图验收。已验53计数、旧版推荐及用户演示不升级。
 
 ### 让 AI 把解释写清楚，也把关系画明白。
 
@@ -66,9 +66,9 @@ The 41-node and 46-node blind tests are historical records from the project's fo
 
 把 [`SKILL.md`](SKILL.md) **全文**交给 Agent 或 Web Chat。根文件保留常用富文本、引用、跨格/流式布局、结构化表格、有限图标/状态、时间与浮层、图表、控件、表单、自测/闪卡、单位换算、受控 SVG、公开 API 与完整 CDN HTML 壳；只使用已内嵌字段即可生成基础页面，无需终端或读取实现。
 
-天气、体育、金融与货币快照等深入领域，先按根文件的用途索引选择组，再读[同版机器索引](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/schema/index.json)指向的 Document Schema 和一个同版示例。每个领域文档包默认包含 base；Node 查询片仅供查字段，不能当完整 Document 校验器。跨领域按完整 Schema 或同版 CLI 生成的并集校验，仍需真实 validateDocument 做语义检查。
+天气、体育、金融与货币快照等深入领域，先按根文件的用途索引选择组，再读[同版机器索引](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/schema/index.json)指向的 Document Schema 和一个同版示例。每个领域文档包默认包含 base；Node 查询片仅供查字段，不能当完整 Document 校验器。跨领域按完整 Schema 或同版 CLI 生成的并集校验，仍需真实 validateDocument 做语义检查。
 
-不能读取外部资料的普通 Web Chat，可额外接收[完整 Web Chat 指南](WEB-CHAT-GUIDE.md)或同版[完整 JSON Schema](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.schema.json)。完整版指南保留同版 90 个注册项的用途及保守生成合同；根文件中的领域名字只是发现入口，不能替代尚未读取的字段合同。完整 Schema 是唯一规范来源，分片由它自动生成，不手工维护第二份 Schema。
+不能读取外部资料的普通 Web Chat，可额外接收[完整 Web Chat 指南](WEB-CHAT-GUIDE.md)或同版[完整 JSON Schema](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.schema.json)。完整版指南保留同版 90 个注册项的用途及保守生成合同；根文件中的领域名字只是发现入口，不能替代尚未读取的字段合同。完整 Schema 是唯一规范来源，分片由它自动生成，不手工维护第二份 Schema。
 
 让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互由库完成，不必重写 CSS 或控件；聊天气泡能否直接运行脚本取决于宿主。没有取得所需领域资料时，应请求补充资料或留在根文件明确支持的范围，不猜字段。
 
@@ -98,7 +98,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Info
 
 ```sh
 git clone https://github.com/Micraow/Inform-UI.git Inform-UI
-git -C Inform-UI checkout --detach 5c7f334a975b75b0a70f58b5570b2ea567aed9dc
+git -C Inform-UI checkout --detach 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
 npm --prefix Inform-UI ci
 npm --prefix Inform-UI run build
 node Inform-UI/bin/iui.mjs validate inform-ui-author/examples/hpcc-feedback.json --json
@@ -162,7 +162,7 @@ npm run check:schema -- --library ../Inform-UI
 npm run check:inventory -- --library ../Inform-UI
 npm run check:components -- --library ../Inform-UI
 npm run check:primitives -- --library ../Inform-UI
-npm run check:next66 -- --library ../Inform-UI --revision 5c7f334a975b75b0a70f58b5570b2ea567aed9dc
+npm run check:next66 -- --library ../Inform-UI --revision 7978f23da0222ad9122bb0b40daa4f1844b5b9cd
 ```
 
 这些命令检查技能结构与文件边界、真实库API/CLI与全部示例、自动分片的引用闭包/哈希/完整归属/同版示例、派生库存、根文档JSON字面例及新增组件正反例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。

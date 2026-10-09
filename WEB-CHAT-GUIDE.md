@@ -5,7 +5,7 @@ description: 为解释、真坐标图、本地表单、供数天气/体育/金�
 
 # Inform UI Web Chat 完整指南
 
-> 本分支为 pending acceptance，待验资产固定 5c7f334a975b75b0a70f58b5570b2ea567aed9dc。30 项候选与 90 个协议节点尚未通过本轮浏览器、集中 CI 与原图验收；已验 53 个组件及旧版推荐不升级。历史 d370 证据见 references/schema-discovery.md。
+> 本分支为 pending acceptance，待验资产固定 7978f23da0222ad9122bb0b40daa4f1844b5b9cd。30 项候选与 90 个协议节点尚未通过本轮浏览器、集中 CI 与原图验收；已验 53 个组件及旧版推荐不升级。历史 d370 证据见 references/schema-discovery.md。
 
 这是可选的完整人工可读指南，适合一次提供给无法按需读取领域资料的普通Web Chat。Agent的默认入口是[SKILL.md](SKILL.md)。正式JSON Schema以固定版本核心库为唯一来源，本文件是生成指南，不是第二套手工维护的Schema。
 
@@ -25,13 +25,13 @@ Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模�
 
 ## 2. 无终端 Web Chat：完整 HTML 路径
 
-固定的公开文件（实际取回字节已核对，保持同一提交）：
+固定的候选公开文件（本地提交字节已核对；公开 HTTP 字节检查以本轮独立报告为准，浏览器验收仍待完成，保持同一提交）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.css`
-- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/schema/index.json`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.css`
+- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/schema/index.json`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
@@ -46,7 +46,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inform UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.css" integrity="sha384-avgiFDwdK1wYMoqev29yNOdp6bpl0DQNVJAlf/2w9Au7yLZTZnJyeqGPHuesglJC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.css" integrity="sha384-U7bHXQ3yf+Y4vGRTAZYgnccm9T4+CXfFjwyEABoT+Gf6UQrKU3k0q1wedWhJuKqL" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -54,7 +54,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.global.min.js" integrity="sha384-lzlbbrCDkjA12MkdUPJYeXhFgDwTxOHIkGhav/we5EDEtLyU+OP1Z3gZgxl2K4Qp" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@7978f23da0222ad9122bb0b40daa4f1844b5b9cd/cdn/iui.global.min.js" integrity="sha384-OOH/vTHSHG5QVp4brsvGa3pESsZ5ZuJT369UKlPKYmrnyFYftIbIclZSNaVvcBxK" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -533,7 +533,7 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 本分支所有壳与以下合同同版固定 5c7f；尚未浏览器及集中 CI 验收。
 
 
-本节仅用于显式选择冻结本地候选 5c7f334a975b75b0a70f58b5570b2ea567aed9dc 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 已在本待验分支统一固定到此版本；这是验收输入转换，未替换已验推荐与用户演示。候选有 90 个协议节点，30 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。在原24项基础上追加 animate、celebration、email-draft、task-expansion-card、location-choice-request、business-gallery 六项；32份唯一JSON不与组件数混计。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段是同版待验合同，不是浏览器或交付通过承诺。
+本节仅用于显式选择冻结本地候选 7978f23da0222ad9122bb0b40daa4f1844b5b9cd 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 已在本待验分支统一固定到此版本；这是验收输入转换，未替换已验推荐与用户演示。候选有 90 个协议节点，30 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。在原24项基础上追加 animate、celebration、email-draft、task-expansion-card、location-choice-request、business-gallery 六项；32份唯一JSON不与组件数混计。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段是同版待验合同，不是浏览器或交付通过承诺。
 
 本节保留常用基础完整生成规则，不要求先读另一份基础指南。候选分类索引仅由同一完整 Schema 与源索引派生；不另写 Schema。以下长度为 Unicode 码点，除非明确说明；全局资源预算仍适用。key以英文字母或下划线开头，后接字母、数字、下划线、点或短横线，总长1–80；普通节点id仍为1–200字符。所有内容需为原创、授权或调用方提供，不补造来源、身份、价格、答案或可用性。
 
@@ -652,7 +652,7 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 
 ## 学习候选完整合同
 
-仅用于 5c7f334a975b75b0a70f58b5570b2ea567aed9dc 同版待验资产；不搭配历史 d370 CDN。common/base 指导仍在 [SKILL.md 第7节](SKILL.md#7-隔离候选30-项本地组件指导尚未浏览器验收)；完整规范仍为源仓库生成的 src/schema/iui.schema.json，本文件不是替代 Schema。候选 [分类索引](candidates/pending-batch/category-index.json) 从同一完整 Schema 和索引生成。
+仅用于 7978f23da0222ad9122bb0b40daa4f1844b5b9cd 同版待验资产；不搭配历史 d370 CDN。common/base 指导仍在 [SKILL.md 第7节](SKILL.md#7-隔离候选30-项本地组件指导尚未浏览器验收)；完整规范仍为源仓库生成的 src/schema/iui.schema.json，本文件不是替代 Schema。候选 [分类索引](candidates/pending-batch/category-index.json) 从同一完整 Schema 和索引生成。
 
 所有字段是字面值；没有表达式、bind、可执行代码或网络地址字段，提供的文字始终按字面显示。答案随 JSON 一起公开；不适合保密考试，也不验证掌握程度或保存学习记录。长度为 Unicode 码点，共享全局预算仍适用。key 为英文字母/下划线开头，后接字母、数字、下划线、点或短横线，总长1–80。
 

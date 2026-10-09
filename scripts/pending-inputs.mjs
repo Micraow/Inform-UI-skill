@@ -7,8 +7,8 @@ export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 export const readJSON = async file => JSON.parse(await readFile(file, 'utf8'));
 export const candidateDirectory = 'candidates/pending-batch';
 export const acceptedRevision = 'd370ffb2df310fce0da9299e6e254a58509ba544';
-export const candidateRevision = '5c7f334a975b75b0a70f58b5570b2ea567aed9dc';
-export const candidateTree = 'c2c1dbdea5b6b7dd39ce9617eaa88883318c9452';
+export const candidateRevision = '7978f23da0222ad9122bb0b40daa4f1844b5b9cd';
+export const candidateTree = '7a8796cd9cc1ce1026ae1a225716847e1d408d62';
 export async function safeFile(root, relative) {
   assert.equal(typeof relative, 'string');
   assert.ok(/^[A-Za-z0-9._/-]+$/.test(relative) && !path.posix.isAbsolute(relative));
