@@ -1,0 +1,86 @@
+{
+  "format": "inform115-actual-plan-regression/1",
+  "source": "Inform-UI/tests/consumer/batch-lock-115.json",
+  "assetRevision": "6bc30ab8cb15eb4351b1859dacef74e7f8a9a574",
+  "preparedInputOnly": true,
+  "plan": {
+    "id": "upcoming-eighteen",
+    "script": "tests/consumer/upcoming-eighteen/verify-browser.mjs",
+    "scriptSha256": "9bf04f74131e6533ac5028beaf849b20a210365d659325c2d8161d2c397a44a6",
+    "widths": [
+      390,
+      768,
+      1100
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "exampleLanguages": {
+      "activity-planning": "en",
+      "create-interactive-poll": "en",
+      "decision-cards": "en",
+      "entity-facts": "en",
+      "flight-discovery": "en",
+      "local-places": "en",
+      "mail-files": "en",
+      "related-questions": "en",
+      "source-citations": "en",
+      "vocabulary-tools": "en"
+    },
+    "examples": [
+      {
+        "name": "activity-planning",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/activity-planning.json",
+        "sha256": "94500e6f877965eac78d5413c15077a796f591027f0e009f9757eeba400bf06d"
+      },
+      {
+        "name": "create-interactive-poll",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/create-interactive-poll.json",
+        "sha256": "79410a06d521a1f5ece89ec072dc175ba0069da7bb98653d1e53d2d8af578396"
+      },
+      {
+        "name": "decision-cards",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/decision-cards.json",
+        "sha256": "b8767cfb3e75f551512eafb46fd992bcd3af2eb5596e0054fc5c6c625cd1f4d5"
+      },
+      {
+        "name": "entity-facts",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/entity-facts.json",
+        "sha256": "61a8d260b6876dcc504cb289648fbb857fcdd4701c976a816eb8f48f740c5309"
+      },
+      {
+        "name": "flight-discovery",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/flight-discovery.json",
+        "sha256": "17cfc7e6ab0373a9679288e75c4603cc8b3f266803885db2a142a97d71bcfff1"
+      },
+      {
+        "name": "local-places",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/local-places.json",
+        "sha256": "979dc6ea519b8ef3aeb76de1e413e2cec47bd5dc541d1c3ba4b2d07feca83f3a"
+      },
+      {
+        "name": "mail-files",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/mail-files.json",
+        "sha256": "69e6e96dfa40c5fb06061ae16a6b2fb3d8c4a9e84022eb0ee750897210922cff"
+      },
+      {
+        "name": "related-questions",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/related-questions.json",
+        "sha256": "e07bb1e65e3a2a07c601e8a30f57a5eba9d3a61dbcd89439f325438404883b6a"
+      },
+      {
+        "name": "source-citations",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/source-citations.json",
+        "sha256": "94aea08687c096d173a26c6ea28d2e323121f1e38b6b87a71a8120561fe87c9f"
+      },
+      {
+        "name": "vocabulary-tools",
+        "corePath": "tests/consumer/upcoming-eighteen/examples/vocabulary-tools.json",
+        "sha256": "715d3f999f434c9db2eb1474cf1ae4a0030cf82103e67f8a99a4504fe6f1bf70"
+      }
+    ],
+    "skillManifestPath": "candidates/upcoming-eighteen/consumer-manifest.json",
+    "skillManifestSha256": "1747c712e1204c5a9b9e7932fed90a68189922a3507a0197816856c2dc7017c3"
+  }
+}

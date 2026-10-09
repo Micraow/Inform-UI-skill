@@ -15,3 +15,7 @@ for(const[name,mutate]of[
  ['wrong source runner hash',async f=>f.plan.scriptSha256='0'.repeat(64)],
  ['wrong planned example digest',async f=>f.plan.examples[0].sha256='0'.repeat(64)]
 ])test('candidate receipt rejects '+name,async()=>{const f=await fixture();try{await mutate(f);await assert.rejects(()=>verifyUpcomingEighteenManifest(f));}finally{await rm(f.skillRoot,{recursive:true,force:true});}});
+
+test('alphabetically ordered core plans preserve exact candidate set binding',async()=>{const f=await fixture();try{f.plan.examples.sort((a,b)=>a.name.localeCompare(b.name));const result=await verifyUpcomingEighteenManifest(f);assert.equal(Object.keys(result.paths).length,10);}finally{await rm(f.skillRoot,{recursive:true,force:true});}});
+
+test('actual generated core115 plan metadata/order resolves the current exact Skill candidate',async()=>{const regression=JSON.parse(await readFile(path.join(root,'tests/fixtures/upcoming-eighteen-core-plan.json'),'utf8'));assert.equal(regression.preparedInputOnly,true);assert.equal(regression.source,'Inform-UI/tests/consumer/batch-lock-115.json');const result=await verifyUpcomingEighteenManifest({plan:regression.plan,assetRevision:regression.assetRevision,skillRoot:root});assert.equal(Object.keys(result.paths).length,10);assert.deepEqual(regression.plan.exampleLanguages,result.languages);});
