@@ -48,9 +48,7 @@ test('core30 provenance preserves earlier manifests and exact staged verificatio
  assert.equal(lock.priorSkillCandidateRevision,'1ac13720d8dfb5fc9c516e2221e7d87f4ed7b433');
  const categories=await read(candidateDirectory+'/category-index.json');
  for(const item of after.items.slice(20,30)){assert.equal(categories.nodeOwners[item.nodeTypes[0]],'base');assert.ok(categories.groups.find(g=>g.id==='base').examples.some(x=>x.repositoryPath===item.examples[0]));}
- // This branch adds explicitly separated later guidance. Verify the two archived e286 inputs against the unchanged37 lock; all other files remain live and byte-identical.
- const archived = new Set(['SKILL.md','tests/pending-batch.test.mjs']);
- for(const [file,digest]of Object.entries(lock.candidateFiles))assert.equal(sha256(await readFile(await safeFile(root,archived.has(file)?'candidates/upcoming-three/baseline37/'+file+(file==='SKILL.md'?'.source.txt':''):file))),digest,'Frozen37 input drift: '+file);
+ for(const [file,digest]of Object.entries(lock.candidateFiles))assert.equal(sha256(await readFile(await safeFile(root,file))),digest,'Candidate input drift: '+file);
 });
 
 

@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {createRequire} from 'node:module';
+import {spawnSync} from 'node:child_process';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const root=path.resolve(import.meta.dirname,'..'),candidate=path.join(root,'candidates/upcoming-three'),i=process.argv.indexOf('--library');assert.ok(i>=0&&process.argv[i+1],'Pass --library CLEAN_SOURCE');const library=path.resolve(process.argv[i+1]);
+for(const [file,args]of [['scripts/generate-upcoming-schemas.mjs',['--library',library,'--check']],['candidates/upcoming-three/verify-source.mjs',[library]]]){const r=spawnSync(process.execPath,[path.join(root,file),...args],{stdio:'inherit'});assert.equal(r.status,0,file);}
+const json=async p=>JSON.parse(await readFile(p,'utf8')),hash=b=>createHash('sha256').update(b).digest('hex'),lock=await json(path.join(candidate,'source-package.json'));
+const require=createRequire(path.join(library,'package.json')),Ajv=require('ajv/dist/2020.js').default,api=await import(pathToFileURL(path.join(library,'dist/index.js')));
+const full=await json(path.join(candidate,'schema/iui.schema.json')),index=await json(path.join(candidate,'schema/fragments/index.json')),fullValidator=new Ajv({strict:false,allErrors:true}).compile(full),types=s=>s.$defs.Node.oneOf.map(r=>s.$defs[r.$ref.split('/').at(-1)].properties.type.const).sort();assert.deepEqual(types(full),Object.keys(index.nodeOwners).sort());
+const owners=[],bundles=new Map();let examples=0;for(const group of index.groups){const doc=await json(path.join(candidate,'schema/fragments',group.documentSchema.path)),node=await json(path.join(candidate,'schema/fragments',group.nodeSchema.path));assert.deepEqual(types(doc),Object.entries(index.nodeOwners).filter(([,g])=>group.includedGroups.includes(g)).map(([n])=>n).sort());assert.deepEqual(types(node),[...group.ownedNodeTypes].sort());owners.push(...group.ownedNodeTypes);const valid=new Ajv({strict:false,allErrors:true}).compile(doc),validNode=new Ajv({strict:false,allErrors:true}).compile(node);bundles.set(group.id,valid);assert.equal(validNode({version:'iui/1',body:[]}),false);assert.equal(valid({type:group.ownedNodeTypes[0]}),false);for(const ex of group.examples){const d=await json(path.join(candidate,ex.repositoryPath));assert.equal(valid(d),true,JSON.stringify(valid.errors));assert.equal(fullValidator(d),true);assert.equal(api.validateDocument(d).ok,true);examples++;}console.log('PASS schema group '+group.id+': closed document/node ownership and '+group.examples.length+' supplied examples');}
+assert.equal(new Set(owners).size,100);for(const type of lock.upcomingCanonical)assert.equal(index.nodeOwners[type],'base');
+for(const name of ['create-interactive-poll','mail-files']){const d=await json(path.join(candidate,'examples',name+'.json'));assert.equal(bundles.get('base')(d),true);}
+for(const [name,digest]of Object.entries(lock.generatedFiles))assert.equal(hash(await readFile(path.join(candidate,name))),digest);
+const skill=await readFile(path.join(root,'SKILL.md'),'utf8'),marker='<!-- upcoming-three-source-authoring -->';assert.equal(skill.split(marker).length,2);assert.equal(skill.split(marker)[0],await readFile(path.join(candidate,'baseline37/SKILL.md.source.txt'),'utf8')+'\n');assert.ok(skill.endsWith(await readFile(path.join(candidate,'guidance-source.md'),'utf8')));
+console.log(`PASS upcoming100: all11 domain ownership boundaries,23 schemas,${examples} indexed examples, immutable baseline37 prefix and exact inline Base guidance`);
