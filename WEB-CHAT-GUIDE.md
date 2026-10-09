@@ -527,3 +527,7 @@ node bin/iui.mjs build answer.json --out answer.html --lang zh-CN
 Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内嵌库和数学字体data:URL（严格CSP须允许font-src data:）。所选远程图片仍需联网；不使用未发布的npx iui。
 
 可选：[绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[边界](references/support.md)、[例子](references/examples.md)。要求JSON则只交JSON；要页面则交完整HTML。
+
+## 隔离候选补充入口
+
+这份完整指南的 CDN 壳仍锁定 d370，既有合同不因此扩大。冻结 c58eeb56961f921b063c8423b799b9bcab9658c0 的20项本地候选仅供源码检查：常用base规则完整保留在 [SKILL.md第7节](SKILL.md#7-隔离候选20-项本地组件指导尚未浏览器验收)，学习规则见[学习候选合同](references/pending-learning.md)，23份同版原始例子及源哈希见[候选说明](candidates/pending-batch/README.md)。不能把候选新节点/字段放进本指南的正式HTML壳；本地验证不能代替浏览器、CDN或CI验收。完整Schema保持唯一规范来源，分类片由它生成。

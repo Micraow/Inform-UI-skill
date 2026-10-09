@@ -1,0 +1,553 @@
+{
+  "format": "inform-skill-candidate-inputs/1",
+  "candidateOnly": true,
+  "libraryRepository": "Micraow/Inform-UI",
+  "sourceRevision": "c58eeb56961f921b063c8423b799b9bcab9658c0",
+  "sourceTree": "a153b84dcd28e9edbd441c9d6491e479a510cbd4",
+  "acceptedAssetRevision": "d370ffb2df310fce0da9299e6e254a58509ba544",
+  "skillBaseRevision": "8f52c9f260d06326da03b962fb344924898c4b4c",
+  "manifestSha256": "c4160baaa6cb6ae66801dc292937a9cc6929cc8d6db1771be4b614b142177658",
+  "canonicalCount": 20,
+  "protocolNodeCount": 80,
+  "fullSchema": {
+    "path": "src/schema/iui.schema.json",
+    "sha256": "b06a7e9087799f851146d3992d937e43eea8e77b59b6fea194ca2b55bf6fcb79"
+  },
+  "sourceIndex": {
+    "path": "src/schema/fragments/index.json",
+    "sha256": "9e219528aafa93d3775c3eba3b4e9d4ea7baa4607010afc2b2e8b9b4332cb8a6"
+  },
+  "sourceFiles": {
+    "LICENSE": "788e3c7b655a094e85c0ca86fbc3f0715048e17d3c02c929a301c9dfafbc9378",
+    "THIRD_PARTY_NOTICES.md": "200a8674f4556a240332f26ccaecd8dabaa6a54c6e8d8889d58a977e3de5a978",
+    "bin/iui.mjs": "d0269caba90aa186e88bfe99bde43f5c63ec1a16ca0bbc097f7fcfd14d4c8713",
+    "docs/agenda.md": "041443c89debce7da5e1e98b0f534cfeeedbfab503cfee431833c1a8ec7804f2",
+    "docs/button-actions.md": "005f47f094074e3220444281c4093b879e40b38c13aa6eda9521905922180d4a",
+    "docs/carousel.md": "8b46f1e1014a271530dda0c1d22028ec90cb492a31db4e55a60e20dd58ec33d7",
+    "docs/checklist.md": "8a700e473d2d91e3e9d91b2deea1e357a1258cfdde3e8002383eead5d1ea1c6a",
+    "docs/code.md": "64872f2cf0bf09ca3a1ba89bd41113c899b73423122298ea48471e520e3478a3",
+    "docs/date-field.md": "4641380f91c3cb566b9369f4047fed78631e31b1410bbcfae8905032e4a68b2f",
+    "docs/favicon.md": "9bcdfffc139a831671d21afd271fb1218aeea061eee93f1713c8758064c16f99",
+    "docs/fill-blank.md": "04c562f4040a8a462d0416163951662dfa5c3a61063c6f3333181ba6cfb94cff",
+    "docs/forms.md": "4665ab25fc9a1418f0135b9fac6459b10b895a1504e7e23fbedd42f180798c26",
+    "docs/label.md": "f516a5f47fabf0077e371f0f881caf6b139c372133d6f8e716a4ecd30e461a0c",
+    "docs/local-enhancements-80.json": "4b51d65296140ed93469a6084a3d93ceec4adf151ed0382d90c7b3b31b5d2525",
+    "docs/local-enhancements-80.md": "034750f8b1a2a465ec3b0a845175ebae93df753fc96536d9b644e03f5fa2f17d",
+    "docs/markdown.md": "3c7a246087d2a9a644cf45a6e9932d7069be2c7b8fc31ff018f9a29c4ac9ac03",
+    "docs/person-profile.md": "abbe2b3a01f1ad34083c57075ef19208e6892bce3895f66614dca7e50a061592",
+    "docs/pie.md": "2ddfd4d80c01ae7cf0a36d0fa48096aed2dfb9a4157f7e971e4ba199a9fe3b2d",
+    "docs/prompt-suggestions.md": "cb8cced61aa8612ea60c3beb64519cc7e6dae8286575cfb533af81b98efb203f",
+    "docs/rating.md": "09befbe10bf1eacac477890768152dc060590c57304833fe0c770eebb700cdde",
+    "docs/restaurant-menu.md": "cbad3c91f0a2158c3210cf69323832d8e8e9ad051be5111b22e3a9c0f4337f92",
+    "docs/sentence-builder.md": "e18e9c30f8c2ef528c294da121e9d7c149f54bd1fc0e8eb06ef35d6d5573241d",
+    "docs/tabs.md": "ef8337548985b10701ecfcc58ccf8be378c04aecf8c0d695026a88ff52ad6dd3",
+    "docs/vocab-card.md": "9567c55b9fb9d3bf0cee608810c1a33645b2b7845e19b77c30cbe0d5d9b4fc8e",
+    "docs/writing-block.md": "7e5df3307dbd8dc5152bd0de7052b90b3a61b3134fab0cccb936f55eab490aac",
+    "examples/agenda.json": "c283ddc5005fa0c7e9465e14ad791628ae598524697e19678a3a9f919302974f",
+    "examples/button-actions.json": "229aa8348b5ca7d13af1b5be91496370e07a5be69015d83cd94989abe42c64d3",
+    "examples/carousel-basic.json": "9bdbbbcb68dde0ebe50b5f676952fbaa42f2a4aeb5f2407aa8d9843dad456cfe",
+    "examples/carousel.json": "62b3cac7dcdfcfc6f7687375bb0377ee0ccc51b7b4cb264ba02c325c40e392cc",
+    "examples/checkbox-practice.json": "b290013320ebe7560c1e92d3e19d3454852093c62a08000427cca50e1498c297",
+    "examples/checklist-form.json": "e301430d5ee8df81a1030d4d078fbf7204d8a4ee85e1bd93c5fccd3894574283",
+    "examples/checklist.json": "c5570457a098e07012ea4a47c63ae0d627faed11d3ba3a3476edb063eeba53ff",
+    "examples/code.json": "7d25bee2c2f3e8c5f8b70e445d7478203b9e64bf6e647591a606585a6dfbffc7",
+    "examples/date-practice.json": "8f921053244394ccfe4dac8fc3d8d6528a72dc945a1da90978f5bc4069346ca0",
+    "examples/favicon.json": "2efcc04ebf1a220126777e5bd37741b05a8fd9e9dfa3761aa3d2dcd4a93f9d68",
+    "examples/field-labels.json": "5e880fb34f11dcfd4fa365d5292b8914cc40638a2f1b3d5deb575da9f1a62715",
+    "examples/fill-blank-practice.json": "7727b6dc7fc3fb6aee1b1de12a3f13792ea369f5a19b89dfba1abcaaec8d50d4",
+    "examples/markdown-subset.json": "72f06da11ac69bc95214d7c369779f9485f3cdc7f9d1934aceeedf18061b35a5",
+    "examples/person-profile.json": "b9953ee7eb878c2ec6701d8122e630757fd9bbfc764d7b4f64408314a356cdf7",
+    "examples/pie.json": "c8fd2a6a95706c525be0d5c0c8809873e67c6df9576a5728fe2866d4acc75b6d",
+    "examples/prompt-suggestions.json": "30ffba1fedb1ac803933edc7279119ecec1cef5825316a5ea4b416068da0a491",
+    "examples/rating.json": "e17dcaca6ebc422b78a692bbc4cc2741fff6517fb9813775563062c97f828b9a",
+    "examples/restaurant-menu.json": "44029f7b482a7f0889efe8301ba65097dc0bb82ef557634721d80430b0ebfe62",
+    "examples/sentence-builder.json": "6b99215fceaafd94681c1930160f764952262eeb4cd2d252f17071bf23963e8d",
+    "examples/tabs-local-state.json": "db58e48630836a73022aedf52fb0e93d4e2c3ecfe1492d89d05d8384c9b2a8c0",
+    "examples/tabs.json": "90452ae01385d959e7b50d152e40f4232350720e4cd335a5b571b822e53455b6",
+    "examples/vocab-card.json": "d4c646a2a2b8ee34a0a949f1d3c7a3125dbf9b778245230b8a67a8f0a400ea95",
+    "examples/writing-block.json": "9a4cb5f85ad658eabb38c9b4ca4c5ec3bee2160228d56615a24fe87c73244cfb",
+    "package-lock.json": "dd372044338f79973e181a444ac4b2b50650ec7646ab3c2b83fc5700590c1f63",
+    "package.json": "a11a17a40a008c006b3b97bcdd6e99f05a258e8fd58f618a7eccd6162cb69932",
+    "scripts/build.mjs": "9459601f8dd0e40c03a4c047e2b02b417dca92013e647e2785097cf4f86709d7",
+    "scripts/generate-schema.mjs": "7d23ceb81daf1a146cbfc3d58c0c89233e4e3a76b36806c25a2eca1f1399e905",
+    "scripts/math-assets.mjs": "a925e318dc69da68b72a3097cf144db9e986df4507105da13a3d1219add1edf2",
+    "scripts/schema-subsets.mjs": "e372e920a4b03335e19e98982a3f2d0f07f861136294310d2b3b3d75b3061f87",
+    "src/assets.d.ts": "b8240f08fa8e971883af78d7d1e86615ea5379bbe35e400e9e7655b74ed3505e",
+    "src/browser.ts": "7f13db180f782167d9488b1a9fdabee4c405cd5e3077da9b44781f33b4672e22",
+    "src/compiler.ts": "c99a69a4a3cf5d0259e70ddffc11c5c1c3594ca4d2e65b25e68741c6eec52fe1",
+    "src/core/agenda.ts": "33657e22c5f76c148daca412b2c3cd41a3e1eba82d32b1b01f801889c5efa0fc",
+    "src/core/checklist.ts": "7b266830b52eb83424fadeab891ecc3f19eebb14a8d7bf7ed4436e8d6300befb",
+    "src/core/converters.ts": "2dff2ada07e69c42e90eff38fcd276195c9f780a53693edee4d0f9338ba374df",
+    "src/core/extensions.ts": "7ab3f18157693bf026976b8df3b29325d5761dda6228878ae1100013505ee991",
+    "src/core/fill-blank.ts": "f896303f164d788aaea3f35ad160760b3ad9c2cdc3c60ae89cd9c7b8b7beda94",
+    "src/core/finance.ts": "0d7608a6e31cb8153bffb6ed5d2b32cd3032fd53295b8fc954e4271b8e7445fc",
+    "src/core/heatmap.ts": "e2643f80f4b22a6dd0089c1d6e8f5a7307fe14bb05a1a08cd0d35e07242f5e56",
+    "src/core/index.ts": "e78c91fb596bd94ceddfffe79050bda4e4f9db6cbad2e90613102f6aa18b3f69",
+    "src/core/learning.ts": "5d445a1e81cc984260a379361916e098499be789cf889fd90d376f7450ba8780",
+    "src/core/menu.ts": "d9fbcc4edede9bd81f7d15f13a229584bb9676bbfa4e2f0108d4105569954713",
+    "src/core/person-profile.ts": "3fa294d6f21b2c718662825754b070970386d599ec42f1fbf02483fff2a48c2c",
+    "src/core/rating.ts": "9f268ddcdd394dfb130de157429e4483c134cd3e9aa0be027ed376f8787b5936",
+    "src/core/sentence-builder.ts": "7e5831674f27313486c832c3e17786dbe5fa128cc0ea37140adc265f5813460d",
+    "src/core/sports.ts": "a58bdef3f1194f71ec7ef7988bcf1509b21b37ac253784879f51747f7969c8c4",
+    "src/core/suggestions.ts": "132307bf2be1f2e0376db867b75e38df3234648f9bae65a29591d6888a661dde",
+    "src/core/table.ts": "8a03183bc623ad664e420333823a3d7b402f3342a1485c12b0dfdbdcb051e786",
+    "src/core/time.ts": "f64c4b5a49f5f2ce9d4ed08498c8ce23661e54ffa2e73760ca3bd7fd4aeec67d",
+    "src/core/units.ts": "c7fad948a569b167c340acd0767a2afce4b7e823d73ffcff4477609fc690e7af",
+    "src/core/vocab.ts": "8701e48d511d40eb4175a9453492bae73c0d934595d25d2624725c4c30d14a9c",
+    "src/data/units.json": "6b6f3fa308df9d7570075f9f57cea4b3d1e06830a9ea391e4e19c303a89a619a",
+    "src/index.ts": "681194221018f133cf81af4833c604c3e942a8f4042b286b0a20a0e8daf47991",
+    "src/renderer/agenda-labels.ts": "ad5eb11fd9fc9b0835c66d2cfcfc9cb326f3116a8d7016018aba744bd0cc4907",
+    "src/renderer/agenda.ts": "7bcbc444d3e23603ae62be4e9d087fc63c150c6e7a4964c194e89a366fab0d8a",
+    "src/renderer/button-labels.ts": "712cec0663ed9995de298fdba305d2fcd4039085cfe41948bdfa4446b7e8c6e8",
+    "src/renderer/button.ts": "fed40ef6e2157b17ca7b76d51d05bdad70af1504d7669aad029cefe855242918",
+    "src/renderer/carousel-labels.ts": "477cec1c4cc4afbeb7d5dd12b6d8161c6d79d39556cf7f3c5c096562290b7103",
+    "src/renderer/carousel.ts": "bf176a23c32b08d984ec8aed791b744556e876186ab086b1d37e6182ff0e13f8",
+    "src/renderer/charts.ts": "57c91d6285f9a1c07825250f0853f4ee541fbbd993d80a69f89a4d4fe986ec67",
+    "src/renderer/checklist-labels.ts": "d86ea12dbc96a9086254e548c44a181a5f49a435604af723585d441e9dafc8c2",
+    "src/renderer/checklist.ts": "c5d92b06ae4a70fbbd7283bfaa079b64b2a22a6fc5a5fc7d8d00ff7003ddbbd5",
+    "src/renderer/code-labels.ts": "93c31a378c73eab14cd14176904ee0b52513517769759a8266c75aa4d6bb49c6",
+    "src/renderer/code-lexer.ts": "18559a3ce66fe47de766d4e993c93bbb77d142f13fd5425349b4941089d9afe3",
+    "src/renderer/code.ts": "c177c44d2505f5db12f4d193cbcd007e84c3bda0cf1a72e3aa2d10cf9dd69630",
+    "src/renderer/context.ts": "6d4d315863b6307e8d16d067df22bd9f8d9b3c645932bb70533f9e7bcea06efc",
+    "src/renderer/converters.ts": "2e4642576f127d84e796f613a9cbecdc9994079554e39ccb765c028055f828dc",
+    "src/renderer/favicon-labels.ts": "48e0b6c83441c2f86e1cca4624d82bd3857c850b5ab6baa7e9702eac47e596ba",
+    "src/renderer/favicon.ts": "7a3987f9117610bfed4ac0d5d26e4d9c7cc625b6acb697ad0c5a501eb7c210eb",
+    "src/renderer/fill-blank-labels.ts": "66d61140851d2083a29673f44e8e22e8a0dcd77ff24d9aa4d6abaf95dd91d3bc",
+    "src/renderer/fill-blank.css": "8d58eb5ad5c2fe1b1c45dc11079ac1117c0f1df1ec14e6080733877f66cbeee7",
+    "src/renderer/fill-blank.ts": "7408db4e50a881b5eecedaee40437b48e310f05988b8da5cd5a0103af3a752b8",
+    "src/renderer/finance.ts": "8e07144e4ee6b51c05ecc74a48279d633db9540effb735fae5e2bf0761416917",
+    "src/renderer/forms.ts": "c3b218592f6475d7d0e0c81abbce972b51d90f148c0267b301d5bf233df1cfe0",
+    "src/renderer/heatmap.ts": "b49092eae2b008f493fd8b4af05f4741156ea2f9c4cfe36c16e256694c665006",
+    "src/renderer/index.ts": "45719926d19f1b682e7b9b2bef76d1dc88d6764246765d6e48aa7c890dbdb5d8",
+    "src/renderer/labels.ts": "66a3b1eaa4870163ebc73d6e4e595b49c406d86a268af4267aaf5632ecbb0800",
+    "src/renderer/learning.ts": "0c82d92924973825fcc96f9b5a3e191e5d21bc4df1382f3b6213426536f5f4a9",
+    "src/renderer/loading-labels.ts": "b2f47efbff72d024fd40dc5fe3ace34e096abd90714069881da0eab202592205",
+    "src/renderer/loading.ts": "51077d2dcf35769558982a76c010e1572c87d29285d470206a12ad7eba902b2f",
+    "src/renderer/markdown-labels.ts": "2794b8f59fc48909ff1f047ee484113e958c5e1372913cff031ad559ad457055",
+    "src/renderer/markdown-parser.ts": "2dbb662e05b4f91b744d3ed03d0c3ac2e90566c180c8f28726fd66e3f066ea04",
+    "src/renderer/markdown.ts": "47a6ce70827b7d5f060a7e00ac492657ecbe7c410ed98097712fc9ca9553f832",
+    "src/renderer/math-style.css": "f3555e046955a129d51f6c0d631056a05cc7e2c326357b7ad80a80240bd64b72",
+    "src/renderer/menu-labels.ts": "0a4bb54e2cf0ba892dcf14b8d8fd00016ae1cdcbe5e3ec0992a810ff16d19090",
+    "src/renderer/menu.ts": "7373402a04eafe5e26252887bfd0ea532bf3ba1e6f8526b33ebb9b9fe8840ce3",
+    "src/renderer/overlay-labels.ts": "c800f9957315986e51185c3d33839439d64417d0eefa36908b2fd1c1f103c02b",
+    "src/renderer/overlay-position.ts": "e05785562c29052a8157b4d9f35c02e7f11230a8a4af2a11e715a6e783ecdf5a",
+    "src/renderer/overlays.ts": "847844be5577095c2414958fa9a97dc4a92cd14d5ea2a4ac205918ccbd98a15f",
+    "src/renderer/person-labels.ts": "b0af09c60ed00faf7d7039861b1d63f9efa63c1d8d0124be49e1584dc0cbf930",
+    "src/renderer/person-profile.ts": "1f99bba5e7cc8243e43df20b51bf631d66099c25a3bcf6e592c3ee976fb401cd",
+    "src/renderer/pie-labels.ts": "b0437c4c0d0ec0a3644872db3f89f0a51f5ca4e261c6ff716d973ca7e5a1d254",
+    "src/renderer/pie.ts": "82e062ce660e38e33b9104ef0598808b740fcfd1187c8f485bd64bea3c7ac1e1",
+    "src/renderer/presentation.ts": "856ab6bda682c1725b4927006f673ed9989af79f4319d896c5c69455871108a7",
+    "src/renderer/primitive-labels.ts": "c25e396b85c145b5279d00907d4e92caf95eb9e9b89fb7532c6a1a87415666d6",
+    "src/renderer/primitives.ts": "9fb0bc916fb99ef86dc09f47b5d4b39c8100ccc953cdf34b0d6b0faa45be1c0e",
+    "src/renderer/rating-labels.ts": "8dcd74f3f9a6b02dde0a770fa99719c6ec86cbf9c07f304b0e9b0883f6e6659f",
+    "src/renderer/rating.ts": "d45324466e050053dd071b56f26a6234050275770a7694f6dcdacbe6ccc01b85",
+    "src/renderer/sentence-builder-labels.ts": "c7626d5749c57ad30e7d325326d1e83d17e219b26b74a2b0e3b840a59c4bd3a7",
+    "src/renderer/sentence-builder.ts": "7cfa49294d70899f6b174410a77002799f1f16bfe5eed408435a8fdeee1e2099",
+    "src/renderer/source-geometry.ts": "d609dee27783b4828ba72138b7a12e008e4167dbaa8a2654ff455b0996fefb67",
+    "src/renderer/source-labels.ts": "6a56619b392e74da4383aa63ca4f698a4c4c76ca913f4323d42fc883846597de",
+    "src/renderer/sources.ts": "8c78d2fb301efa4bbd74102d3b4f1ff24c7fe32b98eb75e7c94e1e3f7628d0a0",
+    "src/renderer/sports.ts": "1e7af6a2caeec99612f34b60308b4b945d1d3f057966d5e0d026733555d126df",
+    "src/renderer/style.css": "2b79a0ae2e0ff09ae3436273cc9bbfbdd2e6485faf3a62f73d79f0b3b4a11808",
+    "src/renderer/suggestions-labels.ts": "ed6a05d83ccb88edfffe3e1e5b6fd50b1298d99d4a7f85a588c84fc8001ce67a",
+    "src/renderer/suggestions.ts": "b1677031554fd193b946b450b985ff4ac874e08f3ca631f6ae1b9e1f6f4a8078",
+    "src/renderer/table.ts": "8a02eade4823dbbcd2edf90ce86a6e9e653990d68b79be303d640276c6ad291e",
+    "src/renderer/tabs.ts": "0d84705e7f97206126787f5c6f758c4b3dd6dd1e40d4cd957db565b1a2894f80",
+    "src/renderer/time-labels.ts": "4e3e289f0679ae6f58c2999622b235f05169b4ff54057e0abe0f8751dee9df38",
+    "src/renderer/time-model.ts": "2c813261f452ee000ce11ef43a41b5f30e4d2b695c44b9bd6c15ada10f324c05",
+    "src/renderer/time.ts": "b99204010231a89d31fdfbb3dadbd0d14ef809cdf9f54b7fa321ed3af4bd4307",
+    "src/renderer/vocab-labels.ts": "ec9b43f31dad26fca2f224bbc57516cb16797b8834cc687280c77bb1faafe0d6",
+    "src/renderer/vocab.css": "d72649f67aad0382f4277f2482446f2ec97d50ba3ff21f427f9d55f804efba91",
+    "src/renderer/vocab.ts": "ab3981151308e4f7b20de04b77511741f3b8a91d3f221e255bc761739379c1fb",
+    "src/renderer/weather.ts": "e0bda1a941d3246ce97d73297e3584145c5bece39469abd069850cc11e5beff5",
+    "src/renderer/writing-labels.ts": "4490f345b66ca097f5b26b25dc3200256eee8b6a2c39c5646575387f7b2071ae",
+    "src/renderer/writing.ts": "a927eb7f58d31d168ee0f8e88c3bd0adefc9301bad28b9cb213af2aa22a50a66",
+    "src/schema/document.d.ts": "e8e2eb11a44025a623adc13a8559c2915dfe3d576446dcc77afc606232c5174c",
+    "src/schema/fragments/base.schema.json": "a4892216e32bafbd146d5398d23f74c0a3aeaafa369d26632cf7f1e8f68b1543",
+    "src/schema/fragments/charts.schema.json": "85db14e66656b4273d3ab344b40e7eff41af9ce4592014fabd6a46db17c1b7fa",
+    "src/schema/fragments/compatibility.schema.json": "20347e5a1712dad6f071a97f7d3111e647ecb7e913b39bbb2a8ea2ff049ec79a",
+    "src/schema/fragments/converters.schema.json": "3c8349c2e304187d2358ca1431967b059c78d2e6f96140d4d1a5c7be1defb80e",
+    "src/schema/fragments/finance.schema.json": "41d7c7b8645a7ce1d7c99ed683ac5e987336a36a1caec336b071d7b24690499c",
+    "src/schema/fragments/forms.schema.json": "a6648d4e8c6f303f2490de35dcb7d2dd2b8cae09e832a69f986962d175dc9ce4",
+    "src/schema/fragments/graphics.schema.json": "7a721d2d45727a86183b181f6e58f5623f9eac503d47da5f6c28977168b89784",
+    "src/schema/fragments/index.json": "9e219528aafa93d3775c3eba3b4e9d4ea7baa4607010afc2b2e8b9b4332cb8a6",
+    "src/schema/fragments/learning.schema.json": "3c9b9e49b32f821bf53ecb7f6fd241f29b5790b4f7e1d02390f129e30607d3b6",
+    "src/schema/fragments/nodes/base.schema.json": "0f52ecc945f2a8eb58c44c2d1058d2fa4432beba1f330510d3edf027f28e4419",
+    "src/schema/fragments/nodes/charts.schema.json": "4ba19ea2d3058c7695d30b3339910a2ce577736ee27582be57f80de034240a46",
+    "src/schema/fragments/nodes/compatibility.schema.json": "38c661733cdc326ef01c56e69b51ddf57d0225853441b06a84d36958cd683fc1",
+    "src/schema/fragments/nodes/converters.schema.json": "4ac905d51d94470ae6b47b7e60fe835d251b747c735f3d74a8696a033d04fb56",
+    "src/schema/fragments/nodes/finance.schema.json": "3739f39ea691c911f0a27e0e310a47303a19d215e79a2f317e0a5ad0226803a6",
+    "src/schema/fragments/nodes/forms.schema.json": "58e969a5f2c933b35a073723d3c32e451b87587484bc7ef469c889343fb5bda2",
+    "src/schema/fragments/nodes/graphics.schema.json": "449f773789f4683d222862123c839ab5e53db283ab05899fd70f6532e986f941",
+    "src/schema/fragments/nodes/learning.schema.json": "45ee6594f7a0c033970f944011f4026438d9059d0b79e5d13f467be82bde78d8",
+    "src/schema/fragments/nodes/sports.schema.json": "8c293b4a8439848a1e6b139505b92ede30bb0af46b142a9f9971f4764af3550f",
+    "src/schema/fragments/nodes/time.schema.json": "a57e46f654964439bf20ead192607cc719a552f0e9cd4d0c9e6ea8e3763a3186",
+    "src/schema/fragments/nodes/weather.schema.json": "257f607714b55ab0e34382cf788122f60664bb0f7fd27952d7f730a472db1126",
+    "src/schema/fragments/sports.schema.json": "fec79d51a287fbd16e823c267f2071e5005b8debbcb0097d8b6ba1116361a01c",
+    "src/schema/fragments/time.schema.json": "684e8c5f105b46325bc7b83899aaeed09906d1974df7cefeaa58a346bae34d45",
+    "src/schema/fragments/weather.schema.json": "3dcb277fd4d5f5067296b9ca79f8107c477952eadaaef669c2a86d8ae3efa961",
+    "src/schema/iui.schema.json": "b06a7e9087799f851146d3992d937e43eea8e77b59b6fea194ca2b55bf6fcb79",
+    "src/schema/validator.cjs": "e91b5616d55da3362d76d8b5a488bdff959cce351f27642c2742385e0b8a49ec",
+    "src/schema/validator.d.cts": "c5dc1f47b63e0f13743d1bd0345996871c175ca22167b47d6875e4a2e71c952c",
+    "src/standalone.ts": "df787b170267364d8428471b8ec1e630f13577f49ef4f6f40ff1a740efd128f8",
+    "tsconfig.json": "a3dc633502ca3812022ffca50ba04d09584b2fba349f3a6b10e544cd1a382f48"
+  },
+  "runtimeFiles": {
+    "dist/index.js": "e014f6c3aa844a0ca41f58082d970ffefb0e9fab6c56bef860126564df7535a9",
+    "dist/browser.js": "d2ddc8972519be503fc15d2d948f2e4a5c246fd964bb5b228c2f12e396d3f875",
+    "dist/standalone.js": "3f76068b4623471a7888da65134bcb3b0ed8e474c927188569c47240209bd1f9",
+    "dist/style.css": "b1fb06c4fbbc9206d558e82e6f5cf9adead7424ee02c7df2fd6b3c9252666b0d"
+  },
+  "formalAcceptedContractSha256": "c0596f2135788375d041e044ca3b7ad476e179622bae76d7423b6a0e00b3e460",
+  "verification": {
+    "sourceOnly": true,
+    "browser": "not-run",
+    "cdn": "not-run",
+    "ci": "not-run",
+    "publicAssetPromotion": false
+  },
+  "items": [
+    {
+      "canonicalId": "base-carousel",
+      "nodeTypes": [
+        "carousel"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/carousel-basic.json",
+          "candidatePath": "candidates/pending-batch/examples/carousel-basic.json"
+        },
+        {
+          "sourcePath": "examples/carousel.json",
+          "candidatePath": "candidates/pending-batch/examples/carousel.json"
+        }
+      ],
+      "contract": "docs/carousel.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "code-block",
+      "nodeTypes": [
+        "code"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/code.json",
+          "candidatePath": "candidates/pending-batch/examples/code.json"
+        }
+      ],
+      "contract": "docs/code.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "base-pie-chart",
+      "nodeTypes": [
+        "chart"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/pie.json",
+          "candidatePath": "candidates/pending-batch/examples/pie.json"
+        }
+      ],
+      "contract": "docs/pie.md",
+      "groups": [
+        "charts"
+      ]
+    },
+    {
+      "canonicalId": "base-checkbox",
+      "nodeTypes": [
+        "input"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/checkbox-practice.json",
+          "candidatePath": "candidates/pending-batch/examples/checkbox-practice.json"
+        }
+      ],
+      "contract": "docs/forms.md",
+      "groups": [
+        "forms"
+      ]
+    },
+    {
+      "canonicalId": "base-markdown",
+      "nodeTypes": [
+        "markdown"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/markdown-subset.json",
+          "candidatePath": "candidates/pending-batch/examples/markdown-subset.json"
+        }
+      ],
+      "contract": "docs/markdown.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "base-date-picker",
+      "nodeTypes": [
+        "input"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/date-practice.json",
+          "candidatePath": "candidates/pending-batch/examples/date-practice.json"
+        }
+      ],
+      "contract": "docs/forms.md",
+      "groups": [
+        "forms"
+      ]
+    },
+    {
+      "canonicalId": "tab-group",
+      "nodeTypes": [
+        "tab-group",
+        "tab-panel"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/tabs.json",
+          "candidatePath": "candidates/pending-batch/examples/tabs.json"
+        },
+        {
+          "sourcePath": "examples/tabs-local-state.json",
+          "candidatePath": "candidates/pending-batch/examples/tabs-local-state.json"
+        }
+      ],
+      "contract": "docs/tabs.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "learning-fill-blank-card",
+      "nodeTypes": [
+        "fill-blank"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/fill-blank-practice.json",
+          "candidatePath": "candidates/pending-batch/examples/fill-blank-practice.json"
+        }
+      ],
+      "contract": "docs/fill-blank.md",
+      "groups": [
+        "learning"
+      ]
+    },
+    {
+      "canonicalId": "learning-sentence-builder-card",
+      "nodeTypes": [
+        "sentence-builder"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/sentence-builder.json",
+          "candidatePath": "candidates/pending-batch/examples/sentence-builder.json"
+        }
+      ],
+      "contract": "docs/sentence-builder.md",
+      "groups": [
+        "learning"
+      ]
+    },
+    {
+      "canonicalId": "checklist",
+      "nodeTypes": [
+        "checklist"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/checklist.json",
+          "candidatePath": "candidates/pending-batch/examples/checklist.json"
+        },
+        {
+          "sourcePath": "examples/checklist-form.json",
+          "candidatePath": "candidates/pending-batch/examples/checklist-form.json"
+        }
+      ],
+      "contract": "docs/checklist.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "learning-vocab-card",
+      "nodeTypes": [
+        "vocab-card"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/vocab-card.json",
+          "candidatePath": "candidates/pending-batch/examples/vocab-card.json"
+        }
+      ],
+      "contract": "docs/vocab-card.md",
+      "groups": [
+        "learning"
+      ]
+    },
+    {
+      "canonicalId": "rating",
+      "nodeTypes": [
+        "rating"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/rating.json",
+          "candidatePath": "candidates/pending-batch/examples/rating.json"
+        }
+      ],
+      "contract": "docs/rating.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "base-favicon",
+      "nodeTypes": [
+        "favicon"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/favicon.json",
+          "candidatePath": "candidates/pending-batch/examples/favicon.json"
+        }
+      ],
+      "contract": "docs/favicon.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "calendar-agenda",
+      "nodeTypes": [
+        "agenda"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/agenda.json",
+          "candidatePath": "candidates/pending-batch/examples/agenda.json"
+        }
+      ],
+      "contract": "docs/agenda.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "base-button",
+      "nodeTypes": [
+        "button"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/button-actions.json",
+          "candidatePath": "candidates/pending-batch/examples/button-actions.json"
+        }
+      ],
+      "contract": "docs/button-actions.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "restaurant-menu",
+      "nodeTypes": [
+        "restaurant-menu"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/restaurant-menu.json",
+          "candidatePath": "candidates/pending-batch/examples/restaurant-menu.json"
+        }
+      ],
+      "contract": "docs/restaurant-menu.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "prompt-suggestions",
+      "nodeTypes": [
+        "prompt-suggestions"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/prompt-suggestions.json",
+          "candidatePath": "candidates/pending-batch/examples/prompt-suggestions.json"
+        }
+      ],
+      "contract": "docs/prompt-suggestions.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "base-label",
+      "nodeTypes": [
+        "label"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/field-labels.json",
+          "candidatePath": "candidates/pending-batch/examples/field-labels.json"
+        }
+      ],
+      "contract": "docs/label.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "person-profile",
+      "nodeTypes": [
+        "person-profile"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/person-profile.json",
+          "candidatePath": "candidates/pending-batch/examples/person-profile.json"
+        }
+      ],
+      "contract": "docs/person-profile.md",
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "canonicalId": "writing-block",
+      "nodeTypes": [
+        "writing-block"
+      ],
+      "examples": [
+        {
+          "sourcePath": "examples/writing-block.json",
+          "candidatePath": "candidates/pending-batch/examples/writing-block.json"
+        }
+      ],
+      "contract": "docs/writing-block.md",
+      "groups": [
+        "base"
+      ]
+    }
+  ],
+  "acceptedGuidancePrefixes": {
+    "SKILL.md": {
+      "bytes": 55869,
+      "sha256": "377dbee612fd436982c7a26cb2d48e2fd253221e2be861764acdbe6086a4ac72"
+    },
+    "WEB-CHAT-GUIDE.md": {
+      "bytes": 64530,
+      "sha256": "86d046a1d7468f16bab263061e319c7d228da38c647298effac210d78402d8ab"
+    }
+  }
+}

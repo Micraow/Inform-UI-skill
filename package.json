@@ -18,6 +18,7 @@
     "check:primitives": "node scripts/verify-primitive-guidance.mjs",
     "check:components:browser": "node scripts/verify-next-browser.mjs",
     "check:next66": "node scripts/verify-next66-guidance.mjs",
-    "check:next66:browser": "node scripts/verify-next66-browser.mjs"
+    "check:next66:browser": "node scripts/verify-next66-browser.mjs",
+    "check:pending": "node scripts/verify-pending-batch.mjs"
   }
 }

@@ -458,3 +458,50 @@ node bin/iui.mjs build answer.json --out answer.html --lang zh-CN
 Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内嵌库和数学字体data:URL（严格CSP须允许font-src data:）。所选远程图片仍需联网；不使用未发布的npx iui。
 
 可选：[绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[边界](references/support.md)、[例子](references/examples.md)。要求JSON则只交JSON；要页面则交完整HTML。
+
+## 7. 隔离候选：20 项本地组件指导，尚未浏览器验收
+
+本节仅用于显式选择冻结本地候选 c58eeb56961f921b063c8423b799b9bcab9658c0 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 仍对应已验收 d370；不要把本节新增字段、节点或行为装入该 CDN 壳。候选有 80 个协议节点，20 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。news/reviews/availability/thread 及 motion 不在本冻结范围。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段不是正式 CDN 能力承诺。
+
+本节保留常用基础完整生成规则，不要求先读另一份基础指南。候选分类索引仅由同一完整 Schema 与源索引派生；不另写 Schema。以下长度为 Unicode 码点，除非明确说明；全局资源预算仍适用。key以英文字母或下划线开头，后接字母、数字、下划线、点或短横线，总长1–80；普通节点id仍为1–200字符。所有内容需为原创、授权或调用方提供，不补造来源、身份、价格、答案或可用性。
+
+### 常用基础增强
+
+- carousel 沿用 children:0–500 个节点；新增 label?:1–200 字符、controls?:B（默认 true）。同级短内容才用轮播。按钮移动一个可视宽度，无循环、自动播放或远程分页；隐藏按钮仍保留原生滚动。子节点的 forms/time 等领域仍须分别加载。
+- code 保留字面 value（最多 12000 码点）和 language；新增 copy?:B、highlight?:B，默认 false。inline:true 禁止任一增强为 true。高亮仅有限 js/javascript、ts/typescript、json、py/python 别名，不是执行或语法验证。复制只由真实用户点击向写入专用 Clipboard API 请求原字符串；不可用或拒绝则提示手动选择，不读剪贴板、不请求权限，不把测试 stub 当作真实复制成功。
+- markdown 在本候选才支持原创有限 Markdown 子集，已验收 d370 仍是纯文本降级。仍只填 value:S（最多 12000 码点），无新字段。支持列首 ATX 标题、单层列表/引用、精确三反引号或波浪线围栏、单反引号代码、平面强调与显式安全链接；不是 CommonMark。HTML、图片、表格、任务框、嵌套或不支持语法保持字面文本，超解析预算整体退回原文，不截断。数学/图表/交互继续用专用节点，不把用户输入当 HTML。
+- chart 新增 kind:"pie"，沿用 chart 的 xKey、data、series、title/unit/status 等完整字段。与 donut 一样仅一个系列、category xScale、有限非负值或 null；禁止多系列、Cartesian 范围或裁值。份额分母只计已知值，0 与 null 保留在明细且不画扇区。无正值时显示实情，不能将缺测改成 0。
+- input.kind:"checkbox" 使用原有 label、bind，bind 必须为已声明 boolean。required 只在提交时要求勾选；false 是合法 state。可配 hint/error/disabled；禁止 placeholder、数字/文本范围和 indeterminate。需要表单生命周期时选它，轻量开关仍可用 toggle。
+- input.kind:"date" 使用 label、bind；state 为 "" 或真实 Gregorian YYYY-MM-DD（0001–9999年）字符串。可选 minDate/maxDate 为有序、含端点真实日期；禁止 placeholder、min/max/step、minLength/maxLength。有效但越界的初始/宿主值可显示，提交仍检查字段约束；用户不完整/越界草稿不覆盖已接受 state。日期不含时区/时刻，原生选择器外观由浏览器决定，没有预约或提醒服务。
+- label：{type:"label",text:S,target:S,id?:S}。text/target 为1–200字符；target 指同一文档唯一的 authored ID，只支持 input（含上述五种 kind）、textarea、slider、toggle、select。它是额外原生标签，不替代控件原必填 label，不接管 form，不打开隐藏面板、不绕过禁用。radio/segmented/任意正文不能作为目标。
+
+```json candidate-only
+{"version":"iui/1","state":{"agreed":false,"day":"2024-02-29"},"body":[{"type":"form","id":"local","label":"本地练习","children":[{"type":"label","text":"补充确认说明","target":"consent"},{"type":"input","id":"consent","kind":"checkbox","label":"我已阅读这份合成练习","bind":"agreed","required":true},{"type":"input","kind":"date","label":"练习日期","bind":"day","minDate":"2024-01-01","maxDate":"2024-12-31"}]}]}
+```
+
+### 本地切换、选择与操作
+
+- tab-group：必有 label:1–200字符、children:1–20 个直接 tab-panel；可选 initial:S 与普通 id。tab-panel 必有文档内唯一 id、label:1–200字符、children:0–500 个节点，可选 disabled:B。至少一项启用，initial 只能指启用的直接面板。不能单独放 tab-panel，不能把 tab-group 放进 form（含深层）。完整 form 可以放在单个 panel 内。隐藏面板保留 DOM、草稿与计时，无远程加载/URL 同步/持久化；多个节点只算一个 tab-group canonical 组件。
+- checklist：必有 label:1–200字符、items:0–50 个 {id,label,bind,hint?,disabled?}；项 id 唯一，label 为1–200字符，bind 是各不相同的已声明 boolean state。hint 最多1000字符；项和整体 disabled 可用解析为 boolean 的 V。整体可加 filter?:B、bulk?:B（均默认 true）、emptyText?:最多1000字符及普通 id。批量只改启用项，原子提交，空集合不造百分比。可在 form 中，提交只含启用字段；不连接外部任务/提醒。
+- rating：必有 label:1–200字符、bind；可选 max:2–10整数（默认5）、disabled:解析为boolean的V、clearable:B（默认true）、hint:最多1000字符、普通id。state 必须是0..max整数，0表示未评分。是用户显式选择，不是供数均分。不能放进协议form或外部HTML form，不属于表单提交/取消；无自动保存。
+- button：保留必有 label 与 action。可选 disabled:解析为boolean的V、tone:"default"|"primary"|"danger"、hint:最多1000字符及普通id。action 严格三分支：{kind:"set",bind:S,value:字面scalar}；{kind:"reset"}；{kind:"host",name:有界key}。分支不能混字段。网页聊天默认用set/reset，不生成未经配置的host操作。
+- host 按钮只查显式 mount options.actions 的自有函数，不接受 URL/代码。适配器收到所有当前声明 state 的只读快照（不是form启用字段子集，排除computed与未提交草稿）及signal；不替form校验或提交。没有适配器就报告不可用；可信用户手势不是此回调的权限边界，宿主合成click也可触发。宿主负责授权、隐私与任何外部副作用；取消为协作中止，不能承诺远端回滚。普通inline编译不能序列化处理器。
+- prompt-suggestions：必有 label:1–200字符、items:1–12个 {id,text}；id 符合key且唯一，text 为1–2000字符，允许重复可见文本；可加 description:最多1000字符、initialVisible:1–12整数（默认6，按实际项数收窄）、普通id。只显示提供的建议。明确激活派发可取消 iui:suggestion 事件，detail 为 {componentId:string|null,suggestionId:string,text:string}；不发消息、不插入聊天、不联网。取消保留旧选择；未取消只表示本地选择，不能宣称外部提交成功。挂载/展开/清空/state更新不发该事件。
+
+```json candidate-only
+{"version":"iui/1","state":{"one":false,"two":true,"score":0},"body":[{"type":"tab-group","label":"本地练习","children":[{"type":"tab-panel","id":"tasks","label":"清单","children":[{"type":"checklist","label":"合成练习步骤","items":[{"id":"read","label":"阅读说明","bind":"one"},{"id":"check","label":"核对结果","bind":"two"}]}]},{"type":"tab-panel","id":"review","label":"自评","children":[{"type":"rating","label":"个人自评，未保存","bind":"score"},{"type":"button","label":"清除本页选择","action":{"kind":"reset"}}]}]}]}
+```
+
+### 来源、有限记录与写作
+
+- favicon：必有 label:1–200字符；可加 src（允许的图片URL，最多12000字符）、fallback:1–2个字面码点、size:"sm"|"md"|"lg"（默认md）、普通id。只使用已提供且有权使用的图，不猜域名/图标服务。无图则本地fallback；允许的base64 PNG/JPEG/GIF/WebP可本地显示，远程图须用户明确点加载才请求，失败可重试。禁SVG data、凭据与不安全URL。no-referrer不能保证目标没有cookies。
+- agenda：必有 label:1–200字符、events:0–100；可选 description:最多2000字符、普通id。事件为 {id,date,title,start?,end?,location?,description?,status?,url?}；局部id唯一；date为真实YYYY-MM-DD；title为1–200字符；start/end为HH:mm，end需start且同日更晚；location最多500、description最多2000、status为planned/cancelled、url为安全绝对HTTP(S)且最多2048字符。按日期/时刻稳定排序，未给时刻明确未知，不推断全天或时区。只本地筛选供数记录，无日历连接、空闲推断或预约。
+- restaurant-menu：必有 title:1–200字符、currency:三位大写ASCII、sections:0–20个 {id,title,items}。每节items为0–40个 {id,name,price,description?,tags?,status?}；name/title为1–200字符，price为有限非负数或null，description最多2000，tags为0–8个1–40字符，status为available/unavailable。整个菜单最多200项，节id唯一、项id跨节唯一。可选整体description最多2000、source:{label:1–200字符,url?:安全绝对HTTP(S)≤2048}、普通id。价格原数值显示不硬舍入，0不等于缺失；未知状态明确未知。字面搜索/分类筛选不验证价格、营业或饮食安全，不点餐/付款；禁止嵌在form中。
+- person-profile：必有 name:1–200字符；可选 role/organization/location:1–200字符、biography:0–6000、expanded:B（默认false）、facts:0–12个 {id,label,value}（label1–200、value1–2000）、links:0–8个 {id,label,url}（label1–200、url安全绝对HTTP(S)≤2048）、source:{label:1–200字符,url?:安全绝对HTTP(S)≤2048}、普通id。facts/links各自id唯一。只展示供数与原生传记展开，无人员搜索、身份验证、推断隐私、联系按钮或自动网络请求。
+- writing-block：必有 label:1–200字符、value:0–12000字面字符；可选 editable:B（默认true）、note:最多1000字符、普通id。值独立于state，CRLF/CR明确标准化为LF；编辑、计数、Revert与Copy基于可见标准化文本，其余Unicode不变。不可嵌form。只本地编辑/选择/真实点击复制，无收件人、发送、保存、富文本、AI改写或持久化。超限草稿不截断，但禁止复制；复制旧版本完成时不能宣称当前版本已复制。unrelated setState 保留草稿，合法整文update会重建。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"prompt-suggestions","label":"可选阅读方向，只在本页选择","items":[{"id":"terms","text":"解释术语"},{"id":"example","text":"给出原创例子"}]},{"type":"writing-block","label":"本地草稿，未保存或发送","value":"这是原创合成练习。\r\n可以在本页编辑。"},{"type":"person-profile","name":"虚构讲解员","biography":"本条仅为原创合成演示，不代表真实人物。"}]}
+```
+
+候选学习节点 fill-blank、sentence-builder、vocab-card 的完整供数规则见[学习候选合同](references/pending-learning.md)。最短路径仍为：同版索引的nodeOwners → 对应Document包 → 同版例子。base容器内有learning/forms/time节点时必须取真实并集；nodeSchema不是Document根。正例结构通过仍须完整validateDocument验证日期、引用、状态、URL和领域语义；prepared测试、JSDOM或编译成功都不是浏览器/视觉/CI验收。

@@ -1,0 +1,732 @@
+[
+  {
+    "canonicalId": "base-carousel",
+    "name": "controls is literal boolean",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "carousel",
+          "children": [],
+          "controls": "true"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "code-block",
+    "name": "inline copy enhancement forbidden",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code",
+          "value": "1",
+          "inline": true,
+          "copy": true
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "base-pie-chart",
+    "name": "negative values never form a share",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "chart",
+          "kind": "pie",
+          "xKey": "x",
+          "series": [
+            {
+              "key": "y",
+              "label": "Count"
+            }
+          ],
+          "data": [
+            {
+              "x": "A",
+              "y": -1
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "CHART_PIE",
+    "expectedPath": "/body/0/data/0/y"
+  },
+  {
+    "canonicalId": "base-checkbox",
+    "name": "checkbox bound to number",
+    "document": {
+      "version": "iui/1",
+      "state": {
+        "x": 0
+      },
+      "body": [
+        {
+          "type": "input",
+          "kind": "checkbox",
+          "label": "Consent",
+          "bind": "x"
+        }
+      ]
+    },
+    "expectedCode": "INPUT_TYPE"
+  },
+  {
+    "canonicalId": "base-markdown",
+    "name": "markdown has no html escape hatch",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "markdown",
+          "value": "Safe",
+          "html": "<b>unsafe</b>"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "base-date-picker",
+    "name": "impossible Gregorian value",
+    "document": {
+      "version": "iui/1",
+      "state": {
+        "day": "2023-02-29"
+      },
+      "body": [
+        {
+          "type": "input",
+          "kind": "date",
+          "label": "Date",
+          "bind": "day"
+        }
+      ]
+    },
+    "expectedCode": "INPUT_DATE"
+  },
+  {
+    "canonicalId": "tab-group",
+    "name": "orphan tab panel",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "tab-panel",
+          "id": "one",
+          "label": "One",
+          "children": []
+        }
+      ]
+    },
+    "expectedCode": "TAB_PARENT",
+    "expectedPath": "/body/0"
+  },
+  {
+    "canonicalId": "tab-group",
+    "name": "disabled initial tab",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "tab-group",
+          "label": "Tabs",
+          "initial": "two",
+          "children": [
+            {
+              "type": "tab-panel",
+              "id": "one",
+              "label": "One",
+              "children": []
+            },
+            {
+              "type": "tab-panel",
+              "id": "two",
+              "label": "Two",
+              "children": [],
+              "disabled": true
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "TAB_SELECTION",
+    "expectedPath": "/body/0/initial"
+  },
+  {
+    "canonicalId": "learning-fill-blank-card",
+    "name": "trim-equivalent answers duplicate",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "fill-blank",
+          "title": "Blank",
+          "parts": [
+            {
+              "blank": "a"
+            }
+          ],
+          "blanks": [
+            {
+              "id": "a",
+              "label": "Answer",
+              "answers": [
+                "yes",
+                " yes "
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "FILL_BLANK_ANSWER",
+    "expectedPath": "/body/0/blanks/0/answers/1"
+  },
+  {
+    "canonicalId": "learning-fill-blank-card",
+    "name": "undefined blank",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "fill-blank",
+          "title": "Blank",
+          "parts": [
+            {
+              "blank": "b"
+            }
+          ],
+          "blanks": [
+            {
+              "id": "a",
+              "label": "Answer",
+              "answers": [
+                "yes"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "FILL_BLANK_REFERENCE",
+    "expectedPath": "/body/0/parts/0/blank"
+  },
+  {
+    "canonicalId": "learning-sentence-builder-card",
+    "name": "answer is exact permutation",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sentence-builder",
+          "title": "Order",
+          "tokens": [
+            {
+              "id": "a",
+              "text": "A"
+            },
+            {
+              "id": "b",
+              "text": "B"
+            }
+          ],
+          "answer": [
+            "a",
+            "a"
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SENTENCE_BUILDER_ID",
+    "expectedPath": "/body/0/answer/1"
+  },
+  {
+    "canonicalId": "checklist",
+    "name": "checklist bindings unique",
+    "document": {
+      "version": "iui/1",
+      "state": {
+        "done": false
+      },
+      "body": [
+        {
+          "type": "checklist",
+          "label": "Tasks",
+          "items": [
+            {
+              "id": "a",
+              "label": "A",
+              "bind": "done"
+            },
+            {
+              "id": "b",
+              "label": "B",
+              "bind": "done"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "CHECKLIST_BIND",
+    "expectedPath": "/body/0/items/1/bind"
+  },
+  {
+    "canonicalId": "learning-vocab-card",
+    "name": "sense IDs unique",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "vocab-card",
+          "term": "word",
+          "senses": [
+            {
+              "id": "a",
+              "meaning": "one"
+            },
+            {
+              "id": "a",
+              "meaning": "two"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "VOCAB_SENSE_ID",
+    "expectedPath": "/body/0/senses/1/id"
+  },
+  {
+    "canonicalId": "rating",
+    "name": "fraction is not rating",
+    "document": {
+      "version": "iui/1",
+      "state": {
+        "score": 2.5
+      },
+      "body": [
+        {
+          "type": "rating",
+          "label": "Rate",
+          "bind": "score"
+        }
+      ]
+    },
+    "expectedCode": "RATING_VALUE"
+  },
+  {
+    "canonicalId": "base-favicon",
+    "name": "SVG data is not permitted image",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "favicon",
+          "label": "Icon",
+          "src": "data:image/svg+xml;base64,PHN2Zz4="
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/src"
+  },
+  {
+    "canonicalId": "calendar-agenda",
+    "name": "end needs supplied start",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "agenda",
+          "label": "Agenda",
+          "events": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "title": "Entry",
+              "end": "10:00"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "calendar-agenda",
+    "name": "invalid date is semantic",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "agenda",
+          "label": "Agenda",
+          "events": [
+            {
+              "id": "a",
+              "date": "2023-02-29",
+              "title": "Entry"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "AGENDA_DATE",
+    "expectedPath": "/body/0/events/0/date"
+  },
+  {
+    "canonicalId": "base-button",
+    "name": "host branch rejects URL and state fields",
+    "document": {
+      "version": "iui/1",
+      "state": {
+        "x": 0
+      },
+      "body": [
+        {
+          "type": "button",
+          "label": "Run",
+          "action": {
+            "kind": "host",
+            "name": "run",
+            "bind": "x",
+            "value": 1
+          }
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "restaurant-menu",
+    "name": "cross-section item IDs unique",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "restaurant-menu",
+          "title": "Synthetic menu",
+          "currency": "USD",
+          "sections": [
+            {
+              "id": "a",
+              "title": "A",
+              "items": [
+                {
+                  "id": "meal",
+                  "name": "Meal",
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "title": "B",
+              "items": [
+                {
+                  "id": "meal",
+                  "name": "Unknown",
+                  "price": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "MENU_ID",
+    "expectedPath": "/body/0/sections/1/items/0/id"
+  },
+  {
+    "canonicalId": "prompt-suggestions",
+    "name": "suggestion IDs unique",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "prompt-suggestions",
+          "label": "Choose",
+          "items": [
+            {
+              "id": "a",
+              "text": "One"
+            },
+            {
+              "id": "a",
+              "text": "Two"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SUGGESTION_ID",
+    "expectedPath": "/body/0/items/1/id"
+  },
+  {
+    "canonicalId": "base-label",
+    "name": "label target must exist",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "label",
+          "text": "Extra label",
+          "target": "absent"
+        }
+      ]
+    },
+    "expectedCode": "LABEL_TARGET",
+    "expectedPath": "/body/0/target"
+  },
+  {
+    "canonicalId": "base-label",
+    "name": "label cannot target prose",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "label",
+          "text": "Extra",
+          "target": "prose"
+        },
+        {
+          "type": "text",
+          "id": "prose",
+          "value": "Text"
+        }
+      ]
+    },
+    "expectedCode": "LABEL_TARGET_TYPE",
+    "expectedPath": "/body/0/target"
+  },
+  {
+    "canonicalId": "person-profile",
+    "name": "profile link is not a mail action",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "person-profile",
+          "name": "Fictional person",
+          "links": [
+            {
+              "id": "a",
+              "label": "Contact",
+              "url": "mailto:person@example.invalid"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/links/0/url"
+  },
+  {
+    "canonicalId": "writing-block",
+    "name": "writing draft has no shared bind",
+    "document": {
+      "version": "iui/1",
+      "state": {
+        "draft": "Text"
+      },
+      "body": [
+        {
+          "type": "writing-block",
+          "label": "Draft",
+          "value": "Text",
+          "bind": "draft"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "canonicalId": "writing-block",
+    "name": "nested WRITING_FORM",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "form",
+          "label": "Enclosing form",
+          "children": [
+            {
+              "type": "section",
+              "children": [
+                {
+                  "type": "writing-block",
+                  "label": "Draft",
+                  "value": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "WRITING_FORM",
+    "expectedPath": "/body/0/children"
+  },
+  {
+    "canonicalId": "rating",
+    "name": "nested RATING_FORM",
+    "document": {
+      "version": "iui/1",
+      "state": {
+        "r": 0
+      },
+      "body": [
+        {
+          "type": "form",
+          "label": "Enclosing form",
+          "children": [
+            {
+              "type": "section",
+              "children": [
+                {
+                  "type": "rating",
+                  "label": "Rate",
+                  "bind": "r"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "RATING_FORM",
+    "expectedPath": "/body/0/children"
+  },
+  {
+    "canonicalId": "restaurant-menu",
+    "name": "nested MENU_FORM",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "form",
+          "label": "Enclosing form",
+          "children": [
+            {
+              "type": "section",
+              "children": [
+                {
+                  "type": "restaurant-menu",
+                  "title": "Menu",
+                  "currency": "USD",
+                  "sections": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "MENU_FORM",
+    "expectedPath": "/body/0/children"
+  },
+  {
+    "canonicalId": "learning-fill-blank-card",
+    "name": "nested LEARNING_FORM",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "form",
+          "label": "Enclosing form",
+          "children": [
+            {
+              "type": "section",
+              "children": [
+                {
+                  "type": "fill-blank",
+                  "title": "Blank",
+                  "parts": [
+                    {
+                      "blank": "a"
+                    }
+                  ],
+                  "blanks": [
+                    {
+                      "id": "a",
+                      "label": "A",
+                      "answers": [
+                        "A"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "LEARNING_FORM",
+    "expectedPath": "/body/0/children"
+  },
+  {
+    "canonicalId": "tab-group",
+    "name": "nested TAB_FORM",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "form",
+          "label": "Enclosing form",
+          "children": [
+            {
+              "type": "section",
+              "children": [
+                {
+                  "type": "tab-group",
+                  "label": "Tabs",
+                  "children": [
+                    {
+                      "type": "tab-panel",
+                      "id": "a",
+                      "label": "A",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "TAB_FORM",
+    "expectedPath": "/body/0/children"
+  },
+  {
+    "canonicalId": "calendar-agenda",
+    "name": "same-day end must follow start",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "agenda",
+          "label": "Agenda",
+          "events": [
+            {
+              "id": "a",
+              "date": "2024-02-29",
+              "title": "Entry",
+              "start": "10:00",
+              "end": "09:00"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "AGENDA_TIME",
+    "expectedPath": "/body/0/events/0/end"
+  }
+]
