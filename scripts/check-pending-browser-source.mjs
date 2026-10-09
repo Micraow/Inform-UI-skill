@@ -40,7 +40,13 @@ const checks={
  'news-article':{'[data-iui=news-article]':3,'[data-iui=news-article] details':2,'[data-iui=news-article] time':1},
  'entity-reviews':{'.iui-reviews':2,'.iui-reviews-filter':2,'.iui-reviews-sort':2,'[data-review-id=five] details':1},
  'restaurant-availability':{'.iui-availability':2,'[data-slot-id=unavailable] button:disabled':1,'.iui-availability-note':2},
- 'reddit-thread-card':{'.iui-thread':2,'.iui-thread-replies':3,'.iui-thread-discussion':1}
+ 'reddit-thread-card':{'.iui-thread':2,'.iui-thread-replies':3,'.iui-thread-discussion':1},
+ motion:{'.iui-motion':3,'.iui-motion-preview':2,'.iui-motion-stop':2},
+ 'email-draft':{'.iui-email-draft':3,'.iui-email-draft textarea':3,'.iui-email-draft textarea[readonly]':1},
+ 'task-expansion-card':{'.iui-task-expansion-card':2,'[id$="-main-plan"] input[type=checkbox]':3,'[id$="-main-plan"] details':2},
+ 'location-choice-request':{'.iui-location-choice':1,'.iui-location-choice-option':3,'.iui-location-choice-clear':1},
+ 'business-gallery':{'.iui-business-gallery':1,'.iui-business-gallery-item':3,'.iui-business-gallery img':1,'.iui-business-gallery .iui-image-consent button':2}
+
 };
 let selectorChecks=0;
 const documents=await verifyExampleInputs();

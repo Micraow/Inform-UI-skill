@@ -15,170 +15,265 @@ import {fileURLToPath, pathToFileURL} from 'node:url';
 
 export const widths = Object.freeze([390, 768, 1100]);
 export const themes = Object.freeze(['light', 'dark']);
-export const sourceRevision = '75fd165f20ee6cca9beb2c172c19dbac98136b88';
+export const sourceRevision = '5c7f334a975b75b0a70f58b5570b2ea567aed9dc';
 export const executionOwner = 'core:scripts/run-batch-consumers.mjs';
 export const examples = Object.freeze([
   {
     "name": "carousel-basic",
     "lang": "zh-CN",
-    "canonicalId": "base-carousel",
+    "canonicalIds": [
+      "base-carousel"
+    ],
     "sha256": "9bdbbbcb68dde0ebe50b5f676952fbaa42f2a4aeb5f2407aa8d9843dad456cfe"
   },
   {
     "name": "carousel",
     "lang": "en",
-    "canonicalId": "base-carousel",
+    "canonicalIds": [
+      "base-carousel"
+    ],
     "sha256": "62b3cac7dcdfcfc6f7687375bb0377ee0ccc51b7b4cb264ba02c325c40e392cc"
   },
   {
     "name": "code",
     "lang": "en",
-    "canonicalId": "code-block",
+    "canonicalIds": [
+      "code-block"
+    ],
     "sha256": "7d25bee2c2f3e8c5f8b70e445d7478203b9e64bf6e647591a606585a6dfbffc7"
   },
   {
     "name": "pie",
     "lang": "en",
-    "canonicalId": "base-pie-chart",
+    "canonicalIds": [
+      "base-pie-chart"
+    ],
     "sha256": "c8fd2a6a95706c525be0d5c0c8809873e67c6df9576a5728fe2866d4acc75b6d"
   },
   {
     "name": "checkbox-practice",
     "lang": "zh-CN",
-    "canonicalId": "base-checkbox",
+    "canonicalIds": [
+      "base-checkbox"
+    ],
     "sha256": "b290013320ebe7560c1e92d3e19d3454852093c62a08000427cca50e1498c297"
   },
   {
     "name": "markdown-subset",
     "lang": "en",
-    "canonicalId": "base-markdown",
+    "canonicalIds": [
+      "base-markdown"
+    ],
     "sha256": "72f06da11ac69bc95214d7c369779f9485f3cdc7f9d1934aceeedf18061b35a5"
   },
   {
     "name": "date-practice",
     "lang": "zh-CN",
-    "canonicalId": "base-date-picker",
+    "canonicalIds": [
+      "base-date-picker"
+    ],
     "sha256": "8f921053244394ccfe4dac8fc3d8d6528a72dc945a1da90978f5bc4069346ca0"
   },
   {
     "name": "tabs",
     "lang": "zh-CN",
-    "canonicalId": "tab-group",
+    "canonicalIds": [
+      "tab-group"
+    ],
     "sha256": "90452ae01385d959e7b50d152e40f4232350720e4cd335a5b571b822e53455b6"
   },
   {
     "name": "tabs-local-state",
     "lang": "zh-CN",
-    "canonicalId": "tab-group",
+    "canonicalIds": [
+      "tab-group"
+    ],
     "sha256": "db58e48630836a73022aedf52fb0e93d4e2c3ecfe1492d89d05d8384c9b2a8c0"
   },
   {
     "name": "fill-blank-practice",
     "lang": "zh-CN",
-    "canonicalId": "learning-fill-blank-card",
+    "canonicalIds": [
+      "learning-fill-blank-card"
+    ],
     "sha256": "7727b6dc7fc3fb6aee1b1de12a3f13792ea369f5a19b89dfba1abcaaec8d50d4"
   },
   {
     "name": "sentence-builder",
     "lang": "zh-CN",
-    "canonicalId": "learning-sentence-builder-card",
+    "canonicalIds": [
+      "learning-sentence-builder-card"
+    ],
     "sha256": "6b99215fceaafd94681c1930160f764952262eeb4cd2d252f17071bf23963e8d"
   },
   {
     "name": "checklist",
     "lang": "zh-CN",
-    "canonicalId": "checklist",
+    "canonicalIds": [
+      "checklist"
+    ],
     "sha256": "c5570457a098e07012ea4a47c63ae0d627faed11d3ba3a3476edb063eeba53ff"
   },
   {
     "name": "checklist-form",
     "lang": "zh-CN",
-    "canonicalId": "checklist",
+    "canonicalIds": [
+      "checklist"
+    ],
     "sha256": "e301430d5ee8df81a1030d4d078fbf7204d8a4ee85e1bd93c5fccd3894574283"
   },
   {
     "name": "vocab-card",
     "lang": "en",
-    "canonicalId": "learning-vocab-card",
+    "canonicalIds": [
+      "learning-vocab-card"
+    ],
     "sha256": "d4c646a2a2b8ee34a0a949f1d3c7a3125dbf9b778245230b8a67a8f0a400ea95"
   },
   {
     "name": "rating",
     "lang": "zh-CN",
-    "canonicalId": "rating",
+    "canonicalIds": [
+      "rating"
+    ],
     "sha256": "e17dcaca6ebc422b78a692bbc4cc2741fff6517fb9813775563062c97f828b9a"
   },
   {
     "name": "favicon",
     "lang": "zh-CN",
-    "canonicalId": "base-favicon",
+    "canonicalIds": [
+      "base-favicon"
+    ],
     "sha256": "2efcc04ebf1a220126777e5bd37741b05a8fd9e9dfa3761aa3d2dcd4a93f9d68"
   },
   {
     "name": "agenda",
     "lang": "zh-CN",
-    "canonicalId": "calendar-agenda",
+    "canonicalIds": [
+      "calendar-agenda"
+    ],
     "sha256": "c283ddc5005fa0c7e9465e14ad791628ae598524697e19678a3a9f919302974f"
   },
   {
     "name": "button-actions",
     "lang": "en",
-    "canonicalId": "base-button",
+    "canonicalIds": [
+      "base-button"
+    ],
     "sha256": "229aa8348b5ca7d13af1b5be91496370e07a5be69015d83cd94989abe42c64d3"
   },
   {
     "name": "restaurant-menu",
     "lang": "zh-CN",
-    "canonicalId": "restaurant-menu",
+    "canonicalIds": [
+      "restaurant-menu"
+    ],
     "sha256": "44029f7b482a7f0889efe8301ba65097dc0bb82ef557634721d80430b0ebfe62"
   },
   {
     "name": "prompt-suggestions",
     "lang": "en",
-    "canonicalId": "prompt-suggestions",
+    "canonicalIds": [
+      "prompt-suggestions"
+    ],
     "sha256": "30ffba1fedb1ac803933edc7279119ecec1cef5825316a5ea4b416068da0a491"
   },
   {
     "name": "field-labels",
     "lang": "zh-CN",
-    "canonicalId": "base-label",
+    "canonicalIds": [
+      "base-label"
+    ],
     "sha256": "5e880fb34f11dcfd4fa365d5292b8914cc40638a2f1b3d5deb575da9f1a62715"
   },
   {
     "name": "person-profile",
     "lang": "en",
-    "canonicalId": "person-profile",
+    "canonicalIds": [
+      "person-profile"
+    ],
     "sha256": "b9953ee7eb878c2ec6701d8122e630757fd9bbfc764d7b4f64408314a356cdf7"
   },
   {
     "name": "writing-block",
     "lang": "en",
-    "canonicalId": "writing-block",
+    "canonicalIds": [
+      "writing-block"
+    ],
     "sha256": "9a4cb5f85ad658eabb38c9b4ca4c5ec3bee2160228d56615a24fe87c73244cfb"
   },
   {
     "name": "news-article",
     "lang": "zh-CN",
-    "canonicalId": "news-article",
+    "canonicalIds": [
+      "news-article"
+    ],
     "sha256": "0fe3014f77bb8e8711d9500073edc6d94630c8048123f56bcd72f2a5d10026b2"
   },
   {
     "name": "entity-reviews",
     "lang": "en",
-    "canonicalId": "entity-reviews",
+    "canonicalIds": [
+      "entity-reviews"
+    ],
     "sha256": "3110ff0a7d7c3f99163c1bc8f91cce56e1180c8cff420a057fc7766fafaba022"
   },
   {
     "name": "restaurant-availability",
     "lang": "en",
-    "canonicalId": "restaurant-availability",
+    "canonicalIds": [
+      "restaurant-availability"
+    ],
     "sha256": "2fdbe7fbf7ba52ab0f9720e0c3178e6619bd635b4a4f0d436d829d5f235b1ec2"
   },
   {
     "name": "reddit-thread-card",
     "lang": "en",
-    "canonicalId": "reddit-thread-card",
+    "canonicalIds": [
+      "reddit-thread-card"
+    ],
     "sha256": "c731fa907f7f7a4ff5d6cbf0c1aff28f8491ee125615e9e6d87b6f86cd8b9d50"
+  },
+  {
+    "name": "motion",
+    "lang": "en",
+    "canonicalIds": [
+      "base-animate",
+      "base-celebration"
+    ],
+    "sha256": "6507e34ffd1a7a5393cb90ba0071b8d63d0a7d293a9c4161f0daddc9be261094"
+  },
+  {
+    "name": "email-draft",
+    "lang": "en",
+    "canonicalIds": [
+      "email-draft"
+    ],
+    "sha256": "212e9225d8fab7b93f026d2b3a57be7d498684c6398bdcdebf87b3ca2eb144c5"
+  },
+  {
+    "name": "task-expansion-card",
+    "lang": "en",
+    "canonicalIds": [
+      "task-expansion-card"
+    ],
+    "sha256": "43159c25c41b9a4c21ba949a5066c3bc9584a2740360d529c57e1cd61b4b8ae0"
+  },
+  {
+    "name": "location-choice-request",
+    "lang": "en",
+    "canonicalIds": [
+      "location-choice-request"
+    ],
+    "sha256": "179643391d8c819c10d4fb4680a70dd9b52cba50c32740168a5d506f4e4fcb0a"
+  },
+  {
+    "name": "business-gallery",
+    "lang": "en",
+    "canonicalIds": [
+      "business-gallery"
+    ],
+    "sha256": "e49b06edd496298b8c9413782a8951c660afa371b460bf1bb77abe80942b47a2"
   }
 ].map(Object.freeze));
 const directory = path.dirname(fileURLToPath(import.meta.url));
@@ -530,6 +625,82 @@ export async function smokeExample(page, entry, document, expect) {
       const last=replies.last().locator(':scope > summary'); await key(page,last,'Space',expect); await page.keyboard.press('Space');
       await expect(last).toBeFocused(); await expect(replies.last()).toHaveAttribute('open',''); break;
     }
+    case 'motion': {
+      const widgets=page.locator('.iui-motion'); await expect(widgets).toHaveCount(3);
+      await expect(widgets.nth(2).locator('button')).toHaveCount(0);
+      await disclosure(page,widgets.first().locator('details'),expect);
+      for(const widget of [widgets.first(),widgets.nth(1)]) {
+        const preview=widget.locator('.iui-motion-preview'), stop=widget.locator('.iui-motion-stop');
+        await expect(widget).toHaveAttribute('data-status','idle'); await expect(stop).toHaveAttribute('aria-disabled','true');
+        await key(page,stop,'Enter',expect); await nativePointer(page,stop,expect); await expect(widget).toHaveAttribute('data-status','idle');
+        await key(page,preview,'Enter',expect); await expect(widget).toHaveAttribute('data-status','reduced');
+        await page.keyboard.press('Space'); await expect(preview).toBeFocused(); await expect(widget).toHaveAttribute('data-status','reduced');
+        await expect(widget.locator('[role=status]')).toHaveText('Reduced motion is on. Content stays static.');
+        await expect(stop).toHaveAttribute('aria-disabled','true');
+      }
+      await expect(widgets.first().locator('details')).toHaveAttribute('open','');
+      expect(await page.evaluate(()=>document.getAnimations().filter(animation=>animation.playState==='running').length)).toBe(0);
+      // This suite explicitly uses reduced motion. Real WAAPI execution and
+      // completion/cancellation belong to the canonical motion browser specs.
+      break;
+    }
+    case 'email-draft': {
+      const drafts=page.locator('.iui-email-draft'), first=drafts.first(), body=first.getByRole('textbox');
+      const original=document.body[0].body.replace(/\r\n?/g,'\n');
+      await expect(drafts).toHaveCount(3); await expect(body).toHaveValue(original);
+      expect(await first.locator('.iui-email-recipients').first().locator('li').allTextContents()).toEqual(document.body[0].to);
+      await body.fill('Original locally edited body 😀'); await first.locator('[data-writing-action=select]').click();
+      await expect(body).toBeFocused(); expect(await body.evaluate(el=>[el.selectionStart,el.selectionEnd])).toEqual([0,'Original locally edited body 😀'.length]);
+      await first.locator('[data-writing-action=revert]').click(); await expect(body).toHaveValue(original); await expect(body).toBeFocused();
+      await expect(first.locator('.iui-email-subject')).toHaveText(document.body[0].subject);
+      await expect(drafts.nth(1).getByRole('textbox')).toHaveValue('');
+      const readonly=drafts.nth(2).getByRole('textbox'); await readonly.focus(); await page.keyboard.type('blocked');
+      await expect(readonly).toHaveValue(document.body[2].body); await expect(drafts.locator('a')).toHaveCount(0);
+      // No Copy activation, Clipboard permission, mail provider or send action.
+      break;
+    }
+    case 'task-expansion-card': {
+      const root=page.locator('[id$="-main-plan"]'), boxes=root.getByRole('checkbox'), reset=root.locator('.iui-task-review-reset'), details=root.locator('details').first();
+      await expect(boxes).toHaveCount(3); await expect(boxes.first()).toBeChecked(); await expect(boxes.nth(1)).not.toBeChecked();
+      await disclosure(page,details,expect); await key(page,boxes.nth(1),'Space',expect); await expect(boxes.nth(1)).toBeChecked();
+      await expect(root.locator('.iui-task-review-count')).toHaveText('2 of 3 steps marked reviewed');
+      await key(page,reset,'Enter',expect); await expect(reset).toBeFocused(); await expect(boxes.first()).toBeChecked(); await expect(boxes.nth(1)).not.toBeChecked();
+      await expect(reset).toHaveAttribute('aria-disabled','true'); await page.keyboard.press('Space'); await nativePointer(page,reset,expect);
+      await expect(reset).toBeFocused(); await expect(root.locator('.iui-task-review-count')).toHaveText('1 of 3 steps marked reviewed');
+      await expect(details).toHaveAttribute('open',''); await expect(root.locator('[name],[data-bind]')).toHaveCount(0);
+      await expect(root.locator('.iui-task-review-note')).toContainText('not that tasks were performed'); break;
+    }
+    case 'location-choice-request': {
+      const root=page.locator('.iui-location-choice'), choices=root.locator('.iui-location-choice-option'), clear=root.locator('.iui-location-choice-clear');
+      await page.evaluate(()=>{window.pendingEvents=[];window.pendingCancel=false;document.getElementById('iui').addEventListener('iui:location-choice',event=>{window.pendingEvents.push({detail:event.detail,bubbles:event.bubbles,cancelable:event.cancelable,composed:event.composed});if(window.pendingCancel)event.preventDefault();});});
+      await expect(clear).toHaveAttribute('aria-disabled','true'); await key(page,clear,'Space',expect); await nativePointer(page,clear,expect);
+      expect(await page.evaluate(()=>window.pendingEvents.length)).toBe(0);
+      await choices.first().click(); await expect(choices.first()).toHaveAttribute('aria-pressed','true');
+      expect(await page.evaluate(()=>window.pendingEvents[0])).toEqual({detail:{componentId:'places',optionId:'courtyard',label:'Example courtyard',address:'1 Example Lane'},bubbles:true,cancelable:true,composed:false});
+      await page.evaluate(()=>window.pendingCancel=true); await key(page,choices.nth(1),'Enter',expect);
+      await expect(root).toHaveAttribute('data-status','not-accepted'); await expect(choices.first()).toHaveAttribute('aria-pressed','true');
+      await page.evaluate(()=>window.pendingCancel=false); await key(page,choices.first(),'Space',expect); await choices.last().click();
+      expect(await page.evaluate(()=>window.pendingEvents.length)).toBe(4); expect(await page.evaluate(()=>window.pendingEvents[3].detail.address)).toBe(null);
+      await clear.click(); await expect(clear).toHaveAttribute('aria-disabled','true'); await page.keyboard.press('Space'); await nativePointer(page,clear,expect);
+      expect(await page.evaluate(()=>window.pendingEvents.length)).toBe(4); await expect(clear).toBeFocused();
+      await expect(root.locator('.iui-location-choice-note')).toContainText('Choosing one only informs this page.'); break;
+    }
+    case 'business-gallery': {
+      const root=page.locator('.iui-business-gallery'), items=root.locator('.iui-business-gallery-item');
+      await expect(items).toHaveCount(3); await expect(root.locator('.iui-business-gallery-caption')).toHaveCount(3);
+      for(const item of [items.nth(0),items.nth(1)]) {
+        await expect(item.locator('img,[src]')).toHaveCount(0);
+        const consent=item.locator('.iui-image-consent button'); await consent.focus(); await expect(consent).toBeFocused();
+      }
+      const inline=items.nth(2).getByRole('img'); await inline.scrollIntoViewIfNeeded(); await expect(inline).toBeVisible();
+      await expect(inline).toHaveAttribute('alt',document.body[0].images[2].alt);
+      await expect.poll(()=>inline.evaluate(img=>img.complete&&img.naturalWidth===2&&img.naturalHeight===2)).toBe(true);
+      await expect(root.locator('img')).toHaveCount(1);
+      await expect(root.locator('.iui-business-gallery-note')).toContainText('have not been verified');
+      // The smoke never consents to any remote image. Canonical specs separately
+      // intercept synthetic media after native consent to test one-item isolation.
+      break;
+    }
     default: assert.fail('No smoke owner for ' + entry.name);
   }
 }
@@ -550,6 +721,8 @@ export async function run({library,revision,screenshots}) {
   // The unique producer, not this smoke script, owns the reviewed source/build
   // equivalence proof and final asset/core/Skill SHA/tree + script/example lock.
   const documents=await verifyExampleInputs();
+  const exampleLanguages=Object.fromEntries(examples.map(entry=>[entry.name,entry.lang]));
+  for(const lang of Object.values(exampleLanguages))assert.ok(lang==='en'||lang==='zh-CN','Only en/zh-CN example languages supported');
   const require=createRequire(await ordinaryFile(library,'package.json'));
   const {chromium,expect}=require('@playwright/test');
   const {validateDocument,compileHtml}=await import(pathToFileURL(await ordinaryFile(library,'dist/index.js')).href);
@@ -581,6 +754,8 @@ export async function run({library,revision,screenshots}) {
         await page.evaluate(()=>document.fonts.ready);
         await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
         await expect(page.locator('.iui-root')).toBeVisible();
+        await expect(page.locator('.iui-root')).toHaveAttribute('data-theme',theme);
+        await expect(page.locator('html')).toHaveAttribute('lang',entry.lang);
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),label+': initial whole-page overflow');
         await smokeExample(page,entry,document,expect);
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),label+': interacted whole-page overflow');
@@ -599,7 +774,7 @@ export async function run({library,revision,screenshots}) {
     await verifyExampleInputs();
     // Producer validates this strict report, all expected original PNGs and their
     // hashes before it may create a shared reuse receipt. No receipt is written here.
-    await writeFile(path.join(screenshots,'RESULTS.json'),JSON.stringify({revision,browser:'chromium',widths,themes,localCompiledViews:views,publicCdn:'not-run'},null,2)+'\n',{flag:'wx'});
+    await writeFile(path.join(screenshots,'RESULTS.json'),JSON.stringify({revision,browser:'chromium',widths,themes,localCompiledViews:views,publicCdn:'not-run',exampleLanguages},null,2)+'\n',{flag:'wx'});
     console.log(`PASS ${views} candidate inline smoke views. CDN, manual visual, assistive technology and exhaustive lifecycle acceptance are separate.`);
   } finally { await browser?.close(); await rm(temporary,{recursive:true,force:true}); }
 }

@@ -5,6 +5,8 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import assert from 'node:assert/strict';
 import { readSkillShell, root } from './check-skill.mjs';
+import { verifyConsumerReuse, reusableInlineRecord } from './verify-consumer-reuse.mjs';
+import { trustedDiscoveryInputs } from './cdn-discovery-contract.mjs';
 
 function argument(flag) {
   const index = process.argv.indexOf(flag);
@@ -24,7 +26,17 @@ const entry = packageJson.exports['.'].import;
 const { compileHtml } = await import(pathToFileURL(path.resolve(library, entry)).href);
 const directory = await mkdtemp(path.join(tmpdir(), 'iui-skill-browser-'));
 const screenshots = argument('--screenshots');
+const reuseFlags=['--reuse-consumer-receipt','--reuse-lock','--consumer-core','--consumer-revision'];
+const reuseValues=reuseFlags.map(argument);assert.ok(reuseValues.every(Boolean)||reuseValues.every(v=>v===undefined),'Supply all four explicit reuse anchors or none');
+const reuse=reuseValues.every(Boolean)?await verifyConsumerReuse({receiptPath:path.resolve(reuseValues[0]),lockPath:path.resolve(reuseValues[1]),coreRoot:path.resolve(reuseValues[2]),coreRevision:reuseValues[3],libraryRoot:library,skillRoot:root}):null;
+
 const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
+const exampleLanguages=JSON.parse(await readFile(path.join(root,'references/example-languages.json'),'utf8'));
+assert.ok(exampleLanguages&&typeof exampleLanguages==='object'&&!Array.isArray(exampleLanguages),'Explicit example language map required');
+const shellLanguage=shell.html.match(/<html\b[^>]*\blang="([^"]+)"/)?.[1];
+assert.ok(shellLanguage,'Pinned shell language required');
+const reusedInline=[];
+const trustedDiscovery=await trustedDiscoveryInputs(library,contract);
 if (screenshots) await mkdir(screenshots, { recursive: true });
 let browser;
 let count = 0;
@@ -32,14 +44,18 @@ try {
   browser = await chromium.launch({ headless: true, ...(process.env.IUI_BROWSER_EXECUTABLE ? { executablePath: process.env.IUI_BROWSER_EXECUTABLE } : {}) });
   const exampleNames = (await readdir(path.join(root, 'examples'))).filter(name => name.endsWith('.json')).map(name => name.slice(0, -5)).sort();
   for (const name of exampleNames) {
+    const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap', 'local-converters', 'auxiliary-surfaces', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time', 'loading-numeric-progress', 'loading-placeholder-shapes', 'supplied-source-reading'].includes(name);
+    const lang=exampleLanguages[name];assert.ok(Object.hasOwn(exampleLanguages,name),'Missing explicit example locale: '+name);assert.ok(lang==='en'||lang==='zh-CN','Only en/zh-CN example languages are supported');
+    if(cdn)assert.equal(lang,shellLanguage,'CDN example locale differs from pinned shell: '+name);
+    const reusedRecord=reusableInlineRecord(reuse,{name,mode:cdn?'cdn':'inline',lang});
+    if(reusedRecord){reusedInline.push(reusedRecord);console.log(`REUSED inline consumer ${name}; exact source/build/Skill, locale and complete evidence checked, not CDN credit`);continue;}
     const document = JSON.parse(await readFile(path.join(root, 'examples', `${name}.json`), 'utf8'));
     for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
       const label = `${name}-${width}-${theme}`;
       const file = path.join(directory, `${label}.html`);
-      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap', 'local-converters', 'auxiliary-surfaces', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time', 'loading-numeric-progress', 'loading-placeholder-shapes', 'supplied-source-reading'].includes(name);
       const authored = { ...document, theme };
       const html = cdn ? shell.html.replace(/(<script id="iui-spec" type="application\/json">)[\s\S]*?(<\/script>)/, (_, open, close) => open + JSON.stringify(authored).replaceAll('<', '\\u003c') + close).replace('data-theme="auto"', `data-theme="${theme}"`)
-        : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios', 'foundation-explainer', 'local-time', 'local-overlays', 'local-number-draft', 'timed-local-practice', 'local-status-primitives', 'primitives-with-form-and-time', 'loading-numeric-progress', 'loading-placeholder-shapes', 'supplied-source-reading'].includes(name) ? 'zh-CN' : 'en' });
+        : await compileHtml(authored, { lang });
       await writeFile(file, html);
       const page = await browser.newPage({ viewport: { width, height: 900 }, colorScheme: theme });
       if (cdn) {
@@ -67,12 +83,21 @@ try {
       if (name === 'auxiliary-surfaces') {
         assert.equal(await page.locator('.iui-code code').textContent(), 'const example = "<safe text>";\n// Display only. Never execute.');
         assert.equal(await page.locator('.iui-code safe').count(), 0);
-        assert.ok((await page.locator('.iui-markdown').textContent()).includes('**这是原样Markdown文本**'));
-        assert.equal(await page.locator('.iui-markdown strong').count(), 0);
+        if(contract.revision==='d370ffb2df310fce0da9299e6e254a58509ba544') {
+          assert.ok((await page.locator('.iui-markdown').textContent()).includes('**这是原样Markdown文本**'));
+          assert.equal(await page.locator('.iui-markdown strong').count(),0);
+        } else {
+          assert.equal(contract.revision,'5c7f334a975b75b0a70f58b5570b2ea567aed9dc','Review new Markdown behavior before changing this frozen assertion');
+          assert.equal(await page.locator('.iui-markdown strong').count(),1);
+          assert.equal(await page.locator('.iui-markdown strong').textContent(),'这是原样Markdown文本');
+          assert.equal(await page.locator('.iui-markdown').textContent(),'这是原样Markdown文本，不会变成粗体。');
+        }
         assert.equal(await page.getByRole('img', { name: '原创示意：两个点由直线相连', exact: true }).count(), 1);
         assert.equal(await page.locator('svg.iui-svg circle').count(), 2);
-        await page.locator('.iui-carousel').focus();
-        assert.ok(await page.locator('.iui-carousel').evaluate(node => node === document.activeElement));
+        const rail=page.locator('.iui-carousel');
+        const overflows=await rail.evaluate(node=>node.scrollWidth>node.clientWidth+1);
+        if(contract.revision==='d370ffb2df310fce0da9299e6e254a58509ba544'||overflows){await rail.focus();assert.ok(await rail.evaluate(node=>node===document.activeElement));}
+        else assert.equal(await rail.getAttribute('tabindex'),null,'Finite fitting collection has no redundant tab stop');
       }
       if (name === 'local-converters') {
         const converters = page.locator('.iui-converter');
@@ -353,7 +378,7 @@ try {
     await page.goto(pathToFileURL(shellFile).href);
     await page.waitForSelector('.iui-root');
     if (width === 390 && theme === 'light') {
-      const discovery = await page.evaluate(async ({ baseUrl, schemaIndex, expectedNodeTypes }) => {
+      const discovery = await page.evaluate(async ({ baseUrl, schemaIndex, expectedNodeTypes, expectedIndex, expectedExamples }) => {
         const indexUrl = new URL(schemaIndex, baseUrl).href;
         async function get(url) {
           const response = await fetch(url, { cache: 'no-store', redirect: 'error' });
@@ -361,7 +386,9 @@ try {
           const bytes = await response.arrayBuffer();
           return { bytes, json: JSON.parse(new TextDecoder().decode(bytes)) };
         }
-        const { json: index } = await get(indexUrl);
+        const { bytes:indexBytes, json: index } = await get(indexUrl);
+        const digest=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),byte=>byte.toString(16).padStart(2,'0')).join('');
+        if(indexBytes.byteLength!==expectedIndex.bytes||await digest(indexBytes)!==expectedIndex.sha256)throw new Error('Fetched index does not match trusted pinned bytes');
         if (index.format !== 'inform-ui-schema-index/1' || JSON.stringify(Object.keys(index.nodeOwners).sort()) !== JSON.stringify(expectedNodeTypes)) throw new Error('Unexpected index contract');
         const checked = [];
         for (const id of ['base', 'forms', 'finance', 'converters', 'time']) {
@@ -373,15 +400,18 @@ try {
             if (sha !== metadata.sha256 || bytes.byteLength !== metadata.utf8Bytes || !json.$defs) throw new Error(`Schema bytes differ: ${url}`);
           }
           const exampleUrl = new URL(group.examples[0].path, indexUrl).href;
-          const { json: example } = await get(exampleUrl);
+          const expected=expectedExamples[id];
+          if(group.examples[0].path!==expected.path)throw new Error('Untrusted example path');
+          const { bytes:exampleBytes, json: example } = await get(exampleUrl);
+          if(exampleBytes.byteLength!==expected.bytes||await digest(exampleBytes)!==expected.sha256)throw new Error('Fetched example does not match trusted pinned bytes: '+id);
           const result = window.IUI.validateDocument(example);
           if (!result.ok) throw new Error(`CDN example invalid: ${JSON.stringify(result.issues)}`);
           checked.push(id);
         }
         return checked;
-      }, { ...contract.cdn, expectedNodeTypes });
+      }, { ...contract.cdn, expectedNodeTypes, ...trustedDiscovery });
       assert.deepEqual(discovery, ['base', 'forms', 'finance', 'converters', 'time']);
-      console.log('PASS file:// CDN discovery: real index, ten hash-matched Document/Node bundles and five runtime-validated same-pin examples');
+      console.log('PASS file:// CDN discovery: trusted-hash-bound index, ten hash-matched Document/Node bundles and five exact-byte runtime-validated same-pin examples');
     }
     assert.deepEqual(errors, [], 'Copyable CDN shell has browser/load errors');
     await page.getByRole('slider').focus();
@@ -395,6 +425,7 @@ try {
     count++;
     console.log(`PASS web-chat-shell-${width}-${theme} (file://, real CDN, SRI)`);
   }
+  if(reuse){const reusedViews=reusedInline.reduce((n,r)=>n+r.views,0);console.log(`Reused ${reusedViews} same-locale inline consumer views; every existing CDN example, entry shell and discovery still executed here.`);if(screenshots)await writeFile(path.join(screenshots,'REUSE.json'),JSON.stringify({...reuse,names:reusedInline.map(r=>r.name),records:reusedInline,verifiedReceiptNames:[...reuse.names],exampleLanguages},null,2)+'\n');}
   console.log(`Verified ${count} rendered views, keyboard feedback, reset and table disclosure.`);
 } finally {
   await browser?.close();

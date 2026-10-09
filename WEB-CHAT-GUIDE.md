@@ -5,13 +5,13 @@ description: 为解释、真坐标图、本地表单、供数天气/体育/金�
 
 # Inform UI Web Chat 完整指南
 
-> 当前固定资产为 d370ffb2df310fce0da9299e6e254a58509ba544；核心338项本地测试、241项Chromium场景及42旧＋18新消费者已通过集中CI。Skill入口四平台检查及100视图回归也已通过；精确范围见 references/schema-discovery.md。
+> 本分支为 pending acceptance，待验资产固定 5c7f334a975b75b0a70f58b5570b2ea567aed9dc。30 项候选与 90 个协议节点尚未通过本轮浏览器、集中 CI 与原图验收；已验 53 个组件及旧版推荐不升级。历史 d370 证据见 references/schema-discovery.md。
 
 这是可选的完整人工可读指南，适合一次提供给无法按需读取领域资料的普通Web Chat。Agent的默认入口是[SKILL.md](SKILL.md)。正式JSON Schema以固定版本核心库为唯一来源，本文件是生成指南，不是第二套手工维护的Schema。
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
-本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。本版固定协议有66个注册项：64个渲染节点、markdown纯文本降级、native明确拒绝。协议节点数不是组件目录验收计数。本文逐项给出用途及保守生成合同，复制本指南即可生成；进阶可选样式可查完整Schema，不猜未列字段。
+本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。本版固定协议有90个注册项：89个portable节点、native明确拒绝。协议节点数不是组件目录验收计数。本文逐项给出用途及保守生成合同，复制本指南即可生成；进阶可选样式可查完整Schema，不猜未列字段。
 
 Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
 
@@ -27,11 +27,11 @@ Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模�
 
 固定的公开文件（实际取回字节已核对，保持同一提交）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.css`
-- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/schema/index.json`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.css`
+- 按需领域索引（Agent可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/schema/index.json`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
@@ -46,7 +46,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inform UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.css" integrity="sha384-pGHEnylvKkWQgEUFwcGDbc2NWfdeTz6vVMLvAxw3eJI7y0wPCjU7gWGAI+wG1dOe" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.css" integrity="sha384-avgiFDwdK1wYMoqev29yNOdp6bpl0DQNVJAlf/2w9Au7yLZTZnJyeqGPHuesglJC" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -54,7 +54,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.global.min.js" integrity="sha384-XBQUcvwQ5klmCxmtzuqnW22k5Fsme+uWeKIKB9VP9/5JKuhSpt/mmLVKJu8zLaAt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@5c7f334a975b75b0a70f58b5570b2ea567aed9dc/cdn/iui.global.min.js" integrity="sha384-lzlbbrCDkjA12MkdUPJYeXhFgDwTxOHIkGhav/we5EDEtLyU+OP1Z3gZgxl2K4Qp" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -407,7 +407,7 @@ quiz检验客观理解，flashcards用于先回忆后翻面自评。先讲概念
 | spacer | {type:"spacer",height?:0..200整数,id?:S} | 少数明确留白需要；height默认16像素。正常正文依赖自动间距，不用它拼桌面坐标布局 |
 | box | {type:"box",children:Node[],id?:S} | 通用容器；有章节/图注语义时改用section/figure，有完整独立内容才用card |
 | carousel | {type:"carousel",children:Node[],id?:S} | 同级短条目/授权图片需要横向浏览时用；组件为可聚焦的横向区域，不是自动播放、远程分页或图片编辑器。空数组不造占位内容 |
-| markdown | {type:"markdown",value:S,id?:S} | 只用于明确保留原始Markdown文本；界面会显示纯文本降级提示，不执行Markdown格式。正常正文用text/list/title/math，不期待星号变粗或链接自动生成 |
+| markdown | {type:"markdown",value:S,id?:S} | 本待验版本支持有限 Markdown 子集，HTML及不支持语法保持字面文本；具体边界见第7节，非 CommonMark，不执行 HTML |
 
 box/card/row/col/grid共享可选布局字段：gap、padding为0–16整数；radius为none/sm/md/lg/xl/2xl；border为B；background为none/surface/surface-secondary/surface-tertiary/success-soft/danger-soft/info-soft；align为start/center/end/stretch；justify为start/center/end/between/around；width为30–1400整数或"100%"/"auto"。grid另有columns 1–6。默认省略这些旋钮，避免固定像素宽度；它们是受控JSON字段，不授权写CSS或塞HTML。children最多500项。辅助节点的id、language为1–200字符；正文value按各节点约束，不把id误当全局state引用。
 
@@ -528,6 +528,170 @@ Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内�
 
 可选：[绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[边界](references/support.md)、[例子](references/examples.md)。要求JSON则只交JSON；要页面则交完整HTML。
 
-## 隔离候选补充入口
+## 7. 待验同版补充合同
 
-这份完整指南的 CDN 壳仍锁定 d370，既有合同不因此扩大。冻结 75fd165f20ee6cca9beb2c172c19dbac98136b88 的24项本地候选仅供源码检查：常用base规则完整保留在 [SKILL.md第7节](SKILL.md#7-隔离候选24-项本地组件指导尚未浏览器验收)，学习规则见[学习候选合同](references/pending-learning.md)，27份同版原始例子及源哈希见[候选说明](candidates/pending-batch/README.md)。不能把候选新节点/字段放进本指南的正式HTML壳；本地验证不能代替浏览器、CDN或CI验收。完整Schema保持唯一规范来源，分类片由它生成。
+本分支所有壳与以下合同同版固定 5c7f；尚未浏览器及集中 CI 验收。
+
+
+本节仅用于显式选择冻结本地候选 5c7f334a975b75b0a70f58b5570b2ea567aed9dc 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 已在本待验分支统一固定到此版本；这是验收输入转换，未替换已验推荐与用户演示。候选有 90 个协议节点，30 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。在原24项基础上追加 animate、celebration、email-draft、task-expansion-card、location-choice-request、business-gallery 六项；32份唯一JSON不与组件数混计。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段是同版待验合同，不是浏览器或交付通过承诺。
+
+本节保留常用基础完整生成规则，不要求先读另一份基础指南。候选分类索引仅由同一完整 Schema 与源索引派生；不另写 Schema。以下长度为 Unicode 码点，除非明确说明；全局资源预算仍适用。key以英文字母或下划线开头，后接字母、数字、下划线、点或短横线，总长1–80；普通节点id仍为1–200字符。所有内容需为原创、授权或调用方提供，不补造来源、身份、价格、答案或可用性。
+
+### 常用基础增强
+
+- carousel 沿用 children:0–500 个节点；新增 label?:1–200 字符、controls?:B（默认 true）。同级短内容才用轮播。按钮移动一个可视宽度，无循环、自动播放或远程分页；隐藏按钮仍保留原生滚动。子节点的 forms/time 等领域仍须分别加载。
+- code 保留字面 value（最多 12000 码点）和 language；新增 copy?:B、highlight?:B，默认 false。inline:true 禁止任一增强为 true。高亮仅有限 js/javascript、ts/typescript、json、py/python 别名，不是执行或语法验证。复制只由真实用户点击向写入专用 Clipboard API 请求原字符串；不可用或拒绝则提示手动选择，不读剪贴板、不请求权限，不把测试 stub 当作真实复制成功。
+- markdown 在本候选才支持原创有限 Markdown 子集，已验收 d370 仍是纯文本降级。仍只填 value:S（最多 12000 码点），无新字段。支持列首 ATX 标题、单层列表/引用、精确三反引号或波浪线围栏、单反引号代码、平面强调与显式安全链接；不是 CommonMark。HTML、图片、表格、任务框、嵌套或不支持语法保持字面文本，超解析预算整体退回原文，不截断。数学/图表/交互继续用专用节点，不把用户输入当 HTML。
+- chart 新增 kind:"pie"，沿用 chart 的 xKey、data、series、title/unit/status 等完整字段。与 donut 一样仅一个系列、category xScale、有限非负值或 null；禁止多系列、Cartesian 范围或裁值。份额分母只计已知值，0 与 null 保留在明细且不画扇区。无正值时显示实情，不能将缺测改成 0。
+- input.kind:"checkbox" 使用原有 label、bind，bind 必须为已声明 boolean。required 只在提交时要求勾选；false 是合法 state。可配 hint/error/disabled；禁止 placeholder、数字/文本范围和 indeterminate。需要表单生命周期时选它，轻量开关仍可用 toggle。
+- input.kind:"date" 使用 label、bind；state 为 "" 或真实 Gregorian YYYY-MM-DD（0001–9999年）字符串。可选 minDate/maxDate 为有序、含端点真实日期；禁止 placeholder、min/max/step、minLength/maxLength。有效但越界的初始/宿主值可显示，提交仍检查字段约束；用户不完整/越界草稿不覆盖已接受 state。日期不含时区/时刻，原生选择器外观由浏览器决定，没有预约或提醒服务。
+- label：{type:"label",text:S,target:S,id?:S}。text/target 为1–200字符；target 指同一文档唯一的 authored ID，只支持 input（含上述五种 kind）、textarea、slider、toggle、select。它是额外原生标签，不替代控件原必填 label，不接管 form，不打开隐藏面板、不绕过禁用。radio/segmented/任意正文不能作为目标。
+
+```json candidate-only
+{"version":"iui/1","state":{"agreed":false,"day":"2024-02-29"},"body":[{"type":"form","id":"local","label":"本地练习","children":[{"type":"label","text":"补充确认说明","target":"consent"},{"type":"input","id":"consent","kind":"checkbox","label":"我已阅读这份合成练习","bind":"agreed","required":true},{"type":"input","kind":"date","label":"练习日期","bind":"day","minDate":"2024-01-01","maxDate":"2024-12-31"}]}]}
+```
+
+### 本地切换、选择与操作
+
+- tab-group：必有 label:1–200字符、children:1–20 个直接 tab-panel；可选 initial:S 与普通 id。tab-panel 必有文档内唯一 id、label:1–200字符、children:0–500 个节点，可选 disabled:B。至少一项启用，initial 只能指启用的直接面板。不能单独放 tab-panel，不能把 tab-group 放进 form（含深层）。完整 form 可以放在单个 panel 内。隐藏面板保留 DOM、草稿与计时，无远程加载/URL 同步/持久化；多个节点只算一个 tab-group canonical 组件。
+- checklist：必有 label:1–200字符、items:0–50 个 {id,label,bind,hint?,disabled?}；项 id 唯一，label 为1–200字符，bind 是各不相同的已声明 boolean state。hint 最多1000字符；项和整体 disabled 可用解析为 boolean 的 V。整体可加 filter?:B、bulk?:B（均默认 true）、emptyText?:最多1000字符及普通 id。批量只改启用项，原子提交，空集合不造百分比。可在 form 中，提交只含启用字段；不连接外部任务/提醒。
+- rating：必有 label:1–200字符、bind；可选 max:2–10整数（默认5）、disabled:解析为boolean的V、clearable:B（默认true）、hint:最多1000字符、普通id。state 必须是0..max整数，0表示未评分。是用户显式选择，不是供数均分。不能放进协议form或外部HTML form，不属于表单提交/取消；无自动保存。
+- button：保留必有 label 与 action。可选 disabled:解析为boolean的V、tone:"default"|"primary"|"danger"、hint:最多1000字符及普通id。action 严格三分支：{kind:"set",bind:S,value:字面scalar}；{kind:"reset"}；{kind:"host",name:有界key}。分支不能混字段。网页聊天默认用set/reset，不生成未经配置的host操作。
+- host 按钮只查显式 mount options.actions 的自有函数，不接受 URL/代码。适配器收到所有当前声明 state 的只读快照（不是form启用字段子集，排除computed与未提交草稿）及signal；不替form校验或提交。没有适配器就报告不可用；可信用户手势不是此回调的权限边界，宿主合成click也可触发。宿主负责授权、隐私与任何外部副作用；取消为协作中止，不能承诺远端回滚。普通inline编译不能序列化处理器。
+- prompt-suggestions：必有 label:1–200字符、items:1–12个 {id,text}；id 符合key且唯一，text 为1–2000字符，允许重复可见文本；可加 description:最多1000字符、initialVisible:1–12整数（默认6，按实际项数收窄）、普通id。只显示提供的建议。明确激活派发可取消 iui:suggestion 事件，detail 为 {componentId:string|null,suggestionId:string,text:string}；不发消息、不插入聊天、不联网。取消保留旧选择；未取消只表示本地选择，不能宣称外部提交成功。挂载/展开/清空/state更新不发该事件。
+
+```json candidate-only
+{"version":"iui/1","state":{"one":false,"two":true,"score":0},"body":[{"type":"tab-group","label":"本地练习","children":[{"type":"tab-panel","id":"tasks","label":"清单","children":[{"type":"checklist","label":"合成练习步骤","items":[{"id":"read","label":"阅读说明","bind":"one"},{"id":"check","label":"核对结果","bind":"two"}]}]},{"type":"tab-panel","id":"review","label":"自评","children":[{"type":"rating","label":"个人自评，未保存","bind":"score"},{"type":"button","label":"清除本页选择","action":{"kind":"reset"}}]}]}]}
+```
+
+### 来源、有限记录与写作
+
+- favicon：必有 label:1–200字符；可加 src（允许的图片URL，最多12000字符）、fallback:1–2个字面码点、size:"sm"|"md"|"lg"（默认md）、普通id。只使用已提供且有权使用的图，不猜域名/图标服务。无图则本地fallback；允许的base64 PNG/JPEG/GIF/WebP可本地显示，远程图须用户明确点加载才请求，失败可重试。禁SVG data、凭据与不安全URL。no-referrer不能保证目标没有cookies。
+- agenda：必有 label:1–200字符、events:0–100；可选 description:最多2000字符、普通id。事件为 {id,date,title,start?,end?,location?,description?,status?,url?}；局部id唯一；date为真实YYYY-MM-DD；title为1–200字符；start/end为HH:mm，end需start且同日更晚；location最多500、description最多2000、status为planned/cancelled、url为安全绝对HTTP(S)且最多2048字符。按日期/时刻稳定排序，未给时刻明确未知，不推断全天或时区。只本地筛选供数记录，无日历连接、空闲推断或预约。
+- restaurant-menu：必有 title:1–200字符、currency:三位大写ASCII、sections:0–20个 {id,title,items}。每节items为0–40个 {id,name,price,description?,tags?,status?}；name/title为1–200字符，price为有限非负数或null，description最多2000，tags为0–8个1–40字符，status为available/unavailable。整个菜单最多200项，节id唯一、项id跨节唯一。可选整体description最多2000、source:{label:1–200字符,url?:安全绝对HTTP(S)≤2048}、普通id。价格原数值显示不硬舍入，0不等于缺失；未知状态明确未知。字面搜索/分类筛选不验证价格、营业或饮食安全，不点餐/付款；禁止嵌在form中。
+- person-profile：必有 name:1–200字符；可选 role/organization/location:1–200字符、biography:0–6000、expanded:B（默认false）、facts:0–12个 {id,label,value}（label1–200、value1–2000）、links:0–8个 {id,label,url}（label1–200、url安全绝对HTTP(S)≤2048）、source:{label:1–200字符,url?:安全绝对HTTP(S)≤2048}、普通id。facts/links各自id唯一。只展示供数与原生传记展开，无人员搜索、身份验证、推断隐私、联系按钮或自动网络请求。
+- writing-block：必有 label:1–200字符、value:0–12000字面字符；可选 editable:B（默认true）、note:最多1000字符、普通id。值独立于state，CRLF/CR明确标准化为LF；编辑、计数、Revert与Copy基于可见标准化文本，其余Unicode不变。不可嵌form。只本地编辑/选择/真实点击复制，无收件人、发送、保存、富文本、AI改写或持久化。超限草稿不截断，但禁止复制；复制旧版本完成时不能宣称当前版本已复制。unrelated setState 保留草稿，合法整文update会重建。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"prompt-suggestions","label":"可选阅读方向，只在本页选择","items":[{"id":"terms","text":"解释术语"},{"id":"example","text":"给出原创例子"}]},{"type":"writing-block","label":"本地草稿，未保存或发送","value":"这是原创合成练习。\r\n可以在本页编辑。"},{"type":"person-profile","name":"虚构讲解员","biography":"本条仅为原创合成演示，不代表真实人物。"}]}
+```
+
+候选学习节点 fill-blank、sentence-builder、vocab-card 的完整供数规则见[学习候选合同](references/pending-learning.md)。最短路径仍为：同版索引的nodeOwners → 对应Document包 → 同版例子。base容器内有learning/forms/time节点时必须取真实并集；nodeSchema不是Document根。正例结构通过仍须完整validateDocument验证日期、引用、状态、URL和领域语义；prepared测试、JSDOM或编译成功都不是浏览器/视觉/CI验收。
+
+### 四类供数记录：新闻、评论、餐位与讨论（同版候选）
+
+以下四个节点的 nodeOwners 均为 base。只显示作者已有且有权使用的有限记录；不得推断实时性、身份可信度、验证结果或缺失数据。没有服务连接，来源标签/链接不证明内容真实。所有字符串均为 Unicode 码点计数的字面文本，不能写 HTML、脚本或 V 表达式；未知字段拒绝。下列长度为含端点上限。普通可选 id 与既有节点相同；安全链接须绝对 HTTP(S)、无凭据且通过核心 URL 规则，源 URL 最多 2048 字符。挂载不请求链接，明确打开时以新标签页提示及 noopener/noreferrer/no-referrer 导航；no-referrer 不是匿名或无 cookies 保证。
+
+- news-article：必有 headline:1–300、source:{label:1–200,url?:1–2048}；可选 summary:0–4000、author:1–200、published:真实 Gregorian YYYY-MM-DD（0001–9999）、paragraphs:0–30 个各1–4000字面段落、expanded:B（默认false）、tags:0–8 个各1–40标签。浮动发布日期不含时区，不转相对时间。仅非空 paragraphs 创建原生 details，按供数顺序保留全文；未供正文不造正文。原生展开在无关 setState 后保留，合法整文 update 按 expanded 重建。无抓取、feed、图片、即时新闻、可信分、分享或保存。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"news-article","headline":"虚构图书角的目录练习","source":{"label":"原创合成文章，未经事实核验"},"published":"2024-02-29","summary":"用于界面练习的虚构摘要。","paragraphs":["这是原创合成正文，不代表真实事件。"],"tags":["合成示例"]}]}
+```
+
+- entity-reviews：必有 label:1–200、items:0–50；可选 description:0–2000、source:{label:1–200,url?:1–2048}。每条必有 {id:key,author:1–200,body:1–4000,rating:1–5整数或null}，可选 title:1–200、date:真实YYYY-MM-DD、url:1–2048。项id在本集合唯一；rating必须提供，null表示未提供，0不合法。评分筛选为 All/Rated/Unrated/恰好5..1；排序为供数序/最新供数日期/最高评分/最低评分，缺值永远后置，同值保留原序。过滤隐藏原行、排序移动原DOM，保留原生正文展开；只统计所提供集合，不能生成总评、外部总数、认证购买或推断星数。不是 rating 用户评分控件，没有发表/提交/投票/分页服务。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"entity-reviews","label":"虚构阅览室供数评论","source":{"label":"原创合成集合"},"items":[{"id":"supplied","author":"虚构读者甲","body":"这条合成评论有明确供数评分。","rating":5,"date":"2024-02-29"},{"id":"missing","author":"虚构读者乙","body":"这条合成评论未提供评分，不推测。","rating":null}]}]}
+```
+
+- restaurant-availability：必有 title/venue:各1–200、partySize:1–20整数、timeZoneLabel:1–100字面标签、slots:0–100个 {id:key,date:真实YYYY-MM-DD,time:严格00:00–23:59的HH:mm,available:B}；可选 description:0–2000、source:{label:1–200,url?:1–2048}。项id和date+time组合均唯一。按日期/时刻稳定升序；本地日期筛选保留所有行DOM和已选时刻，即使所选行被隐藏。明确显示供数状态及尚未预约；不推断时区/DST/时间点/当前可订，也不刷新。
+- 明确激活可见、可用且启用的餐位按钮，才派发一次可冒泡、可取消、不composed的 iui:reservation-choice 事件，冻结detail严格为 {componentId:string|null,slotId,date,time,partySize:number,venue,timeZoneLabel}；componentId来自authored id。取消保留旧选择，未取消也只代表本地选择；无任何预订确认。宿主 .click() 同样可触发，因此事件不是权限边界，宿主须独立授权外部副作用。过滤/Clear/挂载/state更新不发选择事件；Clear不清日期筛选。隐藏、不可用、继承禁用或pending form时不能选；同步update/dispose不应在旧DOM继续写入。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"restaurant-availability","id":"sample_dinner","title":"原创合成时段，只作本地选择","venue":"虚构庭院餐厅","partySize":2,"timeZoneLabel":"作者提供的餐厅墙上时间","slots":[{"id":"early","date":"2024-02-29","time":"18:00","available":true},{"id":"later","date":"2024-02-29","time":"18:30","available":false}]}]}
+```
+
+- reddit-thread-card：必有 title:1–300、author:1–200、body:0–6000、source:{label:1–200,url?:1–2048}、comments:0–50个顶层评论；可选 community:1–200、score:-1000000000..1000000000整数或null、expanded:B（默认false）。每个评论必有 {id:key,author:1–200,body:1–4000}，可选同范围score或null、replies:0–20个相同闭合递归评论。包括replies在内总数最多100，顶层为第1层，最多4层；id在整棵评论树唯一。缺失/null分数明确未提供，0和负数原样保留，不推导票数含义。非空顶层comments才创建原生details并应用expanded；回复details默认关闭。不猜作者/社区URL，不解析Markdown，不连接Reddit或提供投票/回复/登录。计数仅为供数评论及回复，不能叫平台总评论数。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"reddit-thread-card","title":"虚构阅读讨论","author":"虚构发帖人","body":"这是一段原创合成讨论，没有连接服务。","source":{"label":"本地原创合成数据"},"score":0,"comments":[{"id":"first","author":"虚构回应者","body":"**保留字面内容**，不当作Markdown解析。","score":null,"replies":[{"id":"reply","author":"虚构回复者","body":"此处展示原始供数负值。","score":-1}]}]}]}
+```
+
+四者均可放入完整form，局部控件没有bind/name，不进入FormData或form提交快照。评论筛选/排序和餐位选择遵守继承禁用；新闻/讨论的原生阅读展开与普通链接仍可阅读。无关state变化保留局部DOM、展开与选择；合法整文更新重建，非法更新保持原状。所有例子先用同版base Document片验结构，再用完整validateDocument验语义：NEWS_DATE→published、REVIEW_DATE→items/i/date、AVAILABILITY_DATE→slots/i/date、DUPLICATE_SLOT→重复slots/i/time、DUPLICATE_ID→重复id、THREAD_DEPTH→第5层评论、THREAD_COUNT→遍历第101条评论、UNSAFE_URL→实际链接字段。不能因schema通过而略过日期/递归/唯一性/安全URL检查。
+
+### 有界预览、草稿审阅与供数地点/图片
+
+以下六个 canonical 组件归属 base，包含五份唯一 JSON 例子；animate 与 celebration 共用 motion.json，不能算成两次相同 consumer 执行。新增基础能力仍只属于同版隔离候选。字段字符串按 Unicode 码点计数；所有可见内容来自调用方提供的原创/授权材料，不推断任务已完成、邮件已发送、地点已定位或商家已核验。
+
+- animate：必有 label:1–200、children:0–50；可选 effect:"fade"|"rise"（默认fade）、duration:100–1000整数毫秒（默认300）、disabled:B（字面布尔，默认false）、普通id。children是普通节点，所含forms/time等领域仍需各自Document片。内容一直挂载、可读；仅明确激活Preview才播放一次有限WAAPI预览。空children有空态且无预览控件。没有autoplay、loop、自定CSS/keyframes或定时轮询。
+- celebration：必有 label:1–200、message:1–1000；可选 duration:300–1800整数毫秒（默认900）、disabled:B（字面布尔，默认false）、普通id。消息始终以供数说明展示，不代表经核验的成就/完成。明确Preview只在独立装饰条显示六个固定原创形状，不遮挡正文/焦点，不播放声音、不创建全页粒子。
+- 两者的Preview/Stop为原生type=button；playing时再次Preview、idle时Stop都严格无效且保持可聚焦。遵守继承禁用和pending form。reduced-motion生效时保持静态并明确说明，偏好改变会停止已有预览；缺WAAPI时如实显示不可用，不伪造播放或使用timer兜底。停止/update/dispose清理本实例资源；无关state更新保留内容、草稿与局部状态。宿主合成click也可触发预览，不能将其当作权限证明；没有宿主回调、联网、存储或共享state写入。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"animate","label":"明确预览一次，文字始终可读","effect":"rise","duration":300,"children":[{"type":"text","value":"原创合成说明。点击预览只改变短暂的视觉效果。"}]},{"type":"celebration","label":"作者提供的消息","message":"谢谢阅读。这段文字不代表任何任务已经完成。","duration":900}]}
+```
+
+- email-draft：必有 label:1–200、subject:0–300、body:0–12000、to:0–20个各1–320字面字符串；可选cc:同to、note:0–1000、editable:B（默认true）、普通id。to必填但允许空数组。收件字符串/抄送/主题只读，保留供数顺序、重复和空白，不推断地址、不校验可投递性、不生成mailto。body直接复用writing-block的本地LF标准化、码点预算、编辑/选择/恢复及真实显式Clipboard写入边界。Copy只含当前可见正文，不含收件人/主题。无关setState保留草稿，合法整文update重建；只读正文仍可选择。没有bind、发送、保存、附件、导出、账号或邮件服务；禁止嵌入协议form（包括深层），返回EMAIL_FORM。外部原生disabled fieldset阻止编辑/动作；不存在独立disabled字段，不猜测它。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"email-draft","label":"原创邮件示例，只在本页审阅","to":["虚构读者 <reader@example.invalid>"],"cc":[],"subject":"阅读提纲草稿","body":"你好，\r\n这是一段原创合成正文。请在本页审阅。\r\n它没有被保存或发送。","note":"复制只包含正文；此示例不连接邮箱。"}]}
+```
+
+- task-expansion-card：必有 title:1–200、steps:1–20个 {id:key,title:1–200,description?:0–2000,details?:0–6000,reviewed?:B}；可选summary:0–2000、disabled:解析为boolean的V（默认false）、普通id。step id在卡片内唯一，重复返回TASK_REVIEW_ID。step reviewed默认为false；只记录本页“已阅读/审阅”，不能宣称实际任务已执行或完成。原生details初始关闭；有限计数仅在阅读标记数改变时更新。Reset恢复提供的reviewed初值，不折叠details；与初值相同的边界为可聚焦、aria-disabled的严格无效动作。与checklist不同，这些复选框没有bind/name，不进入共享state、FormData或form快照；可以置于form，pending/disabled时不能改变。无定时任务、截止日期、调度、宿主事件、存储或联网。
+
+```json candidate-only
+{"version":"iui/1","state":{"locked":false},"body":[{"type":"task-expansion-card","title":"提供的阅读提纲，只作本地审阅","disabled":{"$":"locked"},"steps":[{"id":"read","title":"阅读说明","details":"查看作者给出的范围。勾选仅表示在本页看过文字。","reviewed":true},{"id":"consider","title":"考虑下一步","description":"是否执行任何真实操作，需在本示例之外另行决定。"}]}]}
+```
+
+- location-choice-request：必有label:1–200、options:1–12个 {id:key,label:1–200,address?:0–1000,description?:0–1000}；可选整体description:0–2000、source:{label:1–200,url?:安全绝对HTTP(S)1–2048}、普通id。选项id本集合唯一。显示供数地点文字与普通原生按钮，保留原序；初始无选择。没有坐标、设备定位、距离推断、地图/导航、查找、订位或位置权限；不要填这些字段。
+- 明确激活选项派发可冒泡、可取消、不composed的iui:location-choice，冻结detail严格为{componentId:string|null,optionId:string,label:string,address:string|null}；缺地址为null，提供空串仍为空串。未取消只接受本页选择；preventDefault保留旧选择并提示未接受。重复点击已选项是新的明确请求；Clear不发事件，空选择时严格无效。继承禁用、pending form、隐藏/脱离旧树时不能激活；同步update/dispose不能继续旧写入。宿主合成click仍可触发，事件不授予外部行动权限。允许置于form，但没有bind/name或提交行为；来源链接仅供阅读，不自动读取。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"location-choice-request","id":"supplied_places","label":"两个虚构地点，只通知本页","options":[{"id":"courtyard","label":"虚构庭院","address":"合成示例巷1号"},{"id":"reading_room","label":"虚构阅览室","description":"没有提供地址，不补造定位信息。"}],"source":{"label":"作者原创合成地点列表"}}]}
+```
+
+- business-gallery：必有label:1–200、images:1–12个 {id:key,src:1–500000,alt:1–2000,caption?:0–2000}；可选description:0–2000、普通id。图片id本集合唯一；alt必填且非空。使用既有image节点完全相同的安全URL规则：允许的HTTP(S)或base64 PNG/JPEG/GIF/WebP；禁SVG/HTML data、凭据、相对路径与恶意URL。合法URL不证明许可、解码成功或图片真实性。
+- 图片按供数顺序放在原生figure的响应式网格中，fit固定contain；没有轮播、lightbox、modal、缩略图预载、商家查证、图片搜索/生成、上传或评分。每张远程图片分别复用image的显式加载同意门；激活前不创建该远程img/src，加载一张不授权其他图片。内联raster不请求网络。caption与alt保留；仅真实load/error改变状态，不用占位图冒充成功。no-referrer不保证无cookies。已同意且发出的浏览器请求不能被renderer承诺撤销，但旧/隐藏/继承禁用控件不能启动新请求。可以在form内，无name/bind/提交字段；无关state更新保留各图局部状态。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"business-gallery","label":"原创合成图片集合，未经商家核验","images":[{"id":"supplied","src":"https://example.invalid/original-synthetic-image.png","alt":"作者描述的虚构庭院场景","caption":"供数示例。只有明确同意加载这一张图片时才请求该地址。"}]}]}
+```
+
+示例中供数地址/收件人均为合成数据，不代表真实收件目标或实时地点。结构子集通过仍须调用同版完整validateDocument，检查子节点所属领域、布尔disabled、TASK_REVIEW_ID、EMAIL_FORM、DUPLICATE_ID和UNSAFE_URL的准确路径；不要用生成例子或局部source/JSDOM测试代替浏览器、服务、Clipboard、CDN或CI验收。
+
+
+## 学习候选完整合同
+
+仅用于 5c7f334a975b75b0a70f58b5570b2ea567aed9dc 同版待验资产；不搭配历史 d370 CDN。common/base 指导仍在 [SKILL.md 第7节](SKILL.md#7-隔离候选30-项本地组件指导尚未浏览器验收)；完整规范仍为源仓库生成的 src/schema/iui.schema.json，本文件不是替代 Schema。候选 [分类索引](candidates/pending-batch/category-index.json) 从同一完整 Schema 和索引生成。
+
+所有字段是字面值；没有表达式、bind、可执行代码或网络地址字段，提供的文字始终按字面显示。答案随 JSON 一起公开；不适合保密考试，也不验证掌握程度或保存学习记录。长度为 Unicode 码点，共享全局预算仍适用。key 为英文字母/下划线开头，后接字母、数字、下划线、点或短横线，总长1–80。
+
+## 句中填空：fill-blank
+
+需要围绕真实空位练习时用，不把未知事实写成唯一答案。
+
+- 必填 title（1–200）、parts（1–50）、blanks（1–12）。可选普通id、description（0–2000）。
+- 每个part是0–2000字符的字面字符串，或 {blank:key}。
+- 每个blank是 {id,label,answers,hint?,explanation?}：label为1–200，answers为1–8个1–200字符，hint≤1000，explanation≤2000。
+- 每个定义恰好出现一次，禁止重复、遗漏、未引用定义。答案经trim后非空且不重复，剩余CR/LF非法。不同组件可重用局部id。
+- 比较仅 draft.trim() === answer.trim()，区分大小写，不做Unicode规范化、数值等价、模糊或AI评分。给出所需显式别名，不自创宽容算法。
+- 空白或超过200码点的草稿属于未完成，不判错、不截断；显示反馈与首次未完成焦点遵循句子顺序。Check不累加积分；修改清除旧反馈。Reveal保留草稿并进入未评分参考模式，Retry清空。
+- 禁止放入form（含深层）；完整同级form允许。局部草稿不写state、网络或持久存储；无关state更新保留草稿，合法整文update重建。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"fill-blank","title":"原创填空练习","parts":["水的化学式是 ",{"blank":"water"},"。"],"blanks":[{"id":"water","label":"化学式","answers":["H2O","H₂O"],"explanation":"两种写法是显式提供的可接受参考，不做自动规范化。"}]}]}
+```
+
+## 排序句子：sentence-builder
+
+- 必填 title（1–200）、tokens（1–30个{id,text}）、answer（所有token id恰好一次的有序数组）。text为1–200字符，id唯一；可见文本允许重复，评分仍比身份顺序。
+- 可选 prompt≤2000、joiner（只能" "或""，默认空格）、explanation≤2000、普通id。joiner只用于预览，不推断分词、语法、标点或翻译。
+- 原始token bank顺序保留；选择、前后移动、移除、Check、Reveal、Retry全是本地操作。未齐全不判错；修改清除旧判断。Reveal不修改用户排列，但此后检查明确为参考辅助；Retry才开始新尝试。
+- 禁止位于form，允许完整同级form。无共享state、权重评分、远程答案、持久化、拖拽协议或自定义回调。隐藏tab保留局部状态。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"sentence-builder","title":"按提供的身份排序","tokens":[{"id":"second","text":"I"},{"id":"verb","text":"am"},{"id":"first","text":"I"}],"answer":["first","verb","second"],"joiner":" ","explanation":"重复文字仍对应不同的作者token身份。"}]}
+```
+
+## 词汇卡：vocab-card
+
+- 必填 term（1–200）、senses（1–10个{id,meaning,translation?,examples?}）。id局部唯一；meaning为1–2000；translation为0–1000；examples为0–5个1–2000字面字符串。
+- 可选 languageLabel/partOfSpeech（1–200）、pronunciation（1–500）、普通id；未知元数据省略，不写空串。pronunciation只是供数字符串，不播放或生成语音。
+- 显示/隐藏释义与Again/Familiar自评独立；揭晓不算评分，隐藏保留选择，Reset review清空。不是词典查询、能力诊断、间隔重复调度或保存记录。
+- 允许位于form，但无可提交字段，按钮不会提交，禁用/busy fieldset照常限制操作。未知字段、HTML、链接、媒体、音频、麦克风、state绑定或初始评分被拒绝。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"vocab-card","term":"finite","languageLabel":"English","senses":[{"id":"bounded","meaning":"Having a limit.","translation":"有限的","examples":["This is a finite local exercise."]}]}]}
+```
+
+三个组件都属于learning，单独Document包包含base+learning。跨forms/time等领域必须依照实际节点取并集，而不是因为外层tabs归base就省掉learning。无需学习交互时用正文即可。本地语义、DOM测试和编译不证明真实浏览器、辅助技术或视觉验收。

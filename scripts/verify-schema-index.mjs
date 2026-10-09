@@ -90,7 +90,7 @@ for (const group of index.groups) {
 assert.equal(new Set(allOwned).size, allOwned.length);
 assert.deepEqual(allOwned.sort(), types(full));
 assert.equal(index.nodeSupportExceptions.native, 'rejected');
-assert.equal(index.nodeSupportExceptions.markdown, 'plain-text fallback');
+assert.equal(index.nodeSupportExceptions.markdown, undefined, 'Pending Markdown is portable');
 assert.ok(index.groups.find(g => g.id === 'compatibility').warning.includes('rejected'));
 const dir = await mkdtemp(path.join(tmpdir(), 'inform-schema-union-'));
 try {

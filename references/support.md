@@ -4,7 +4,7 @@ This matrix describes the independent `iui/1` library matched in [library-contra
 
 ## Public protocol nodes
 
-This pin contains 66 schema nodes: 64 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The root retains common authoring contracts and a complete discovery map; deeper domain contracts are read from the same-pin generated index, schema bundle and example, or supplied through the complete Web Chat guide. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
+This pending-acceptance pin contains 90 schema nodes: 89 portable nodes and rejected native input. The accepted component count remains 53; this inventory is not browser/CI acceptance. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The root retains common authoring contracts and a complete discovery map; deeper domain contracts are read from the same-pin generated index, schema bundle and example, or supplied through the complete Web Chat guide. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
 
 | Status | Nodes | Authoring guidance |
 | --- | --- | --- |
@@ -19,7 +19,9 @@ This pin contains 66 schema nodes: 64 rendered surfaces, the explicit markdown p
 | Supplied source references | `citation`, `web-link-cards` | Literal caller-supplied sources, safe native HTTP(S) links and ordered horizontal list; no retrieval, ranking or verification |
 | Local time | `clock`, `stopwatch`, `timer` | Device/supplied time and in-page elapsed/countdown controls; no system alarm, network synchronization or persistence |
 | Foundation and disclosure extensions | `blockquote`, `grid-item`, `flow`, `icon`, `pulse-indicator`, `tooltip`, `popover` | Root contracts cover bounded layouts, finite original icons, caller-supplied status and nonmodal disclosure; no arbitrary markup or service inference |
-| Explicit fallback | `markdown` | Plain text with a visible fallback label; no Markdown formatting is interpreted |
+| Pending finite Markdown | `markdown` | Bounded original subset; unsupported syntax and HTML stay literal; not CommonMark or an HTML execution path |
+| Pending local content and controls | `tab-group`, `tab-panel`, `checklist`, `rating`, `favicon`, `agenda`, `restaurant-menu`, `prompt-suggestions`, `label`, `person-profile`, `writing-block`, `news-article`, `entity-reviews`, `restaurant-availability`, `reddit-thread-card`, `animate`, `celebration`, `email-draft`, `task-expansion-card`, `location-choice-request`, `business-gallery` | Same-pin contracts in root section 7; supplied/local content only, no inferred external action or service |
+| Pending local learning | `fill-blank`, `sentence-builder`, `vocab-card` | Original supplied answers and local practice; see the learning contract, no secret answers or persistence |
 | Deliberately rejected | `native` | No private runtime is bundled or assumed; use a portable alternative |
 
 ## Observable capabilities
@@ -51,19 +53,19 @@ The following 52 items classify user-visible jobs, not 52 generator tags. “Par
 | 21 | Empty space | `spacer` exists; automatic spacing is preferred |
 | 22 | Data tables | `table` supports validated rows/sections, merged/grouped headers, explicit header associations and local scroll; no editing |
 | 23 | Buttons | `button` supports `set`/`reset`; not arbitrary events or submissions |
-| 24 | Checkboxes | Partial: boolean `toggle`; no invented checkbox type |
+| 24 | Checkboxes | Boolean `toggle` or native `input` with `kind:"checkbox"`; no invented checkbox node |
 | 25 | Radio choices | `radio`; same-type options, local state and keyboard selection |
 | 26 | Segmented choices | `segmented`; same-type options with explicit disabled choices |
 | 27 | Dropdown choices | `select` |
 | 28 | Text / numeric text fields | `input` with text/number/email; typed state, constraints and local validation |
 | 29 | Multiline editing | `textarea` supports bounded plain text; rich editing remains a host/editor capability |
-| 30 | Date pickers | General date picker remains unsupported; weather can select among supplied daily dates |
+| 30 | Date pickers | Native local `input` with `kind:"date"` and documented bounds; weather selects supplied daily dates |
 | 31 | Sliders | `slider` plus numeric state and safe expressions |
 | 32 | Submitted forms | `form` validates and confirms locally; external effects require an explicitly configured and authorized host action |
 | 33 | Line charts | `chart` with `kind: "line"` |
 | 34 | Bar charts | `chart` with `kind: "bar"` |
 | 35 | Scatterplots | `chart` with `kind: "scatter"` and explicit linear/time X |
-| 36 | Pie charts | Composition uses single-series nonnegative `kind: "donut"`; no separate pie kind |
+| 36 | Pie charts | Single-series nonnegative `kind:"pie"` or `kind:"donut"`; no inferred values |
 | 37 | Vector diagrams | `topology` or constrained `svg`; no raw markup |
 | 38 | Statistics | `metric`, `metric-grid`; the numbers still need provenance |
 | 39 | Icons | `icon` provides ten finite original glyphs, decorative or explicitly named; no arbitrary icon loader |
@@ -75,11 +77,11 @@ The following 52 items classify user-visible jobs, not 52 generator tags. “Par
 | 45 | Sources and citations | `citation` and `web-link-cards` retain supplied title/URL/publisher/description; retrieval and assessing evidential support remain the author/host responsibility |
 | 46 | File navigation | Authorized file links; filesystem navigation requires the host |
 | 47 | Linked entities | Sourced prose/images/links; live entity data requires a service |
-| 48 | Follow-up suggestions | Plain text/list; conversation actions require the host |
+| 48 | Follow-up suggestions | `prompt-suggestions` emits an explicit cancelable local choice; conversation effects require an authorized host |
 | 49 | Live specialized widgets | `weather` renders supplied source/timezone data. Live retrieval remains a host service; sports and finance views also render supplied snapshots; `clock` can show device time; stopwatch/timer are page-local and do not imply a service; other unlisted domains remain outside this pin |
 | 50 | Custom app blocks | Restricted state/AST only; no arbitrary app scripts or sandbox claim |
-| 51 | Rich writing editor | Host/editor capability; a rendered document is read-only content |
-| 52 | Structured code with preview | Partial: `code` displays text; execution, advanced highlighting and preview need explicit support |
+| 51 | Rich writing editor | `writing-block` / `email-draft` provide local plain-text drafts; no mail send or rich editor |
+| 52 | Structured code with preview | Partial: `code` displays text; bounded highlighting/copy are documented local features; execution or preview is not supported |
 
 ## Choosing a fallback
 

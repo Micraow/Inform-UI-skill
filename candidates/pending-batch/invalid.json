@@ -1998,5 +1998,573 @@
       ]
     },
     "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "motion duration must be integer",
+    "canonicalId": "base-animate",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "animate",
+          "label": "Local",
+          "children": [],
+          "duration": 100.5
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "motion refuses arbitrary keyframes",
+    "canonicalId": "base-animate",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "animate",
+          "label": "Local",
+          "children": [],
+          "effect": "custom",
+          "keyframes": []
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "animate disabled is literal boolean",
+    "canonicalId": "base-animate",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "animate",
+          "label": "Local",
+          "children": [],
+          "disabled": {
+            "$": "locked"
+          }
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "animate child references remain validated",
+    "canonicalId": "base-animate",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "animate",
+          "label": "Local",
+          "children": [
+            {
+              "type": "text",
+              "value": {
+                "$": "missing"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNKNOWN_REFERENCE",
+    "expectedPath": "/body/0/children/0/value/$"
+  },
+  {
+    "name": "celebration message is supplied literal",
+    "canonicalId": "base-celebration",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "celebration",
+          "label": "Local",
+          "message": {
+            "$": "message"
+          }
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "celebration has no autoplay",
+    "canonicalId": "base-celebration",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "celebration",
+          "label": "Local",
+          "message": "Supplied",
+          "autoplay": true
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "celebration duration bounded",
+    "canonicalId": "base-celebration",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "celebration",
+          "label": "Local",
+          "message": "Supplied",
+          "duration": 1801
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "email requires supplied recipient list",
+    "canonicalId": "email-draft",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "email-draft",
+          "label": "Local",
+          "subject": "",
+          "body": ""
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "email recipient cannot be empty",
+    "canonicalId": "email-draft",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "email-draft",
+          "label": "Local",
+          "to": [
+            ""
+          ],
+          "subject": "",
+          "body": ""
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "email cannot invent a disabled field",
+    "canonicalId": "email-draft",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "email-draft",
+          "label": "Local",
+          "to": [],
+          "subject": "",
+          "body": "",
+          "disabled": true
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "email has no sending action",
+    "canonicalId": "email-draft",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "email-draft",
+          "label": "Local",
+          "to": [],
+          "subject": "",
+          "body": "",
+          "action": "send"
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "email is prohibited under authored form",
+    "canonicalId": "email-draft",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "form",
+          "label": "Outer",
+          "children": [
+            {
+              "type": "card",
+              "children": [
+                {
+                  "type": "email-draft",
+                  "label": "Local",
+                  "to": [],
+                  "subject": "",
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "EMAIL_FORM",
+    "expectedPath": "/body/0/children"
+  },
+  {
+    "name": "plan steps must not be empty",
+    "canonicalId": "task-expansion-card",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "task-expansion-card",
+          "title": "Local",
+          "steps": []
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "plan step IDs unique",
+    "canonicalId": "task-expansion-card",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "task-expansion-card",
+          "title": "Local",
+          "steps": [
+            {
+              "id": "same",
+              "title": "First"
+            },
+            {
+              "id": "same",
+              "title": "Second"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "TASK_REVIEW_ID",
+    "expectedPath": "/body/0/steps/1/id"
+  },
+  {
+    "name": "plan review is boolean not completion text",
+    "canonicalId": "task-expansion-card",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "task-expansion-card",
+          "title": "Local",
+          "steps": [
+            {
+              "id": "one",
+              "title": "First",
+              "reviewed": "done"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "plan disabled must resolve boolean",
+    "canonicalId": "task-expansion-card",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "task-expansion-card",
+          "title": "Local",
+          "steps": [
+            {
+              "id": "one",
+              "title": "First"
+            }
+          ],
+          "disabled": 1
+        }
+      ]
+    },
+    "expectedCode": "INPUT_TYPE",
+    "expectedPath": "/body/0/disabled"
+  },
+  {
+    "name": "plan reading marks have no state binding",
+    "canonicalId": "task-expansion-card",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "task-expansion-card",
+          "title": "Local",
+          "steps": [
+            {
+              "id": "one",
+              "title": "First",
+              "bind": "done"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "location options finite nonempty",
+    "canonicalId": "location-choice-request",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "location-choice-request",
+          "label": "Local",
+          "options": []
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "location option IDs unique",
+    "canonicalId": "location-choice-request",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "location-choice-request",
+          "label": "Local",
+          "options": [
+            {
+              "id": "one",
+              "label": "First"
+            },
+            {
+              "id": "one",
+              "label": "Second"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "DUPLICATE_ID",
+    "expectedPath": "/body/0/options/1/id"
+  },
+  {
+    "name": "location has no geolocation coordinates",
+    "canonicalId": "location-choice-request",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "location-choice-request",
+          "label": "Local",
+          "options": [
+            {
+              "id": "one",
+              "label": "First"
+            }
+          ],
+          "latitude": 31.2
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "location refuses source credentials",
+    "canonicalId": "location-choice-request",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "location-choice-request",
+          "label": "Local",
+          "options": [
+            {
+              "id": "one",
+              "label": "First"
+            }
+          ],
+          "source": {
+            "label": "Source",
+            "url": "https://user:pass@example.invalid/"
+          }
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "location rejects mailto source",
+    "canonicalId": "location-choice-request",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "location-choice-request",
+          "label": "Local",
+          "options": [
+            {
+              "id": "one",
+              "label": "First"
+            }
+          ],
+          "source": {
+            "label": "Source",
+            "url": "mailto:person@example.invalid"
+          }
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/source/url"
+  },
+  {
+    "name": "gallery images finite nonempty",
+    "canonicalId": "business-gallery",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "business-gallery",
+          "label": "Local",
+          "images": []
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "gallery alt required",
+    "canonicalId": "business-gallery",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "business-gallery",
+          "label": "Local",
+          "images": [
+            {
+              "id": "one",
+              "src": "https://example.invalid/one.png",
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "name": "gallery image IDs unique",
+    "canonicalId": "business-gallery",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "business-gallery",
+          "label": "Local",
+          "images": [
+            {
+              "id": "one",
+              "src": "https://example.invalid/one.png",
+              "alt": "Supplied"
+            },
+            {
+              "id": "one",
+              "src": "https://example.invalid/one.png",
+              "alt": "Supplied"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "DUPLICATE_ID",
+    "expectedPath": "/body/0/images/1/id"
+  },
+  {
+    "name": "gallery forbids SVG data",
+    "canonicalId": "business-gallery",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "business-gallery",
+          "label": "Local",
+          "images": [
+            {
+              "id": "one",
+              "src": "data:image/svg+xml;base64,PHN2Zz48L3N2Zz4=",
+              "alt": "Supplied"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/images/0/src"
+  },
+  {
+    "name": "gallery rejects relative src",
+    "canonicalId": "business-gallery",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "business-gallery",
+          "label": "Local",
+          "images": [
+            {
+              "id": "one",
+              "src": "/not-public.png",
+              "alt": "Supplied"
+            }
+          ]
+        }
+      ]
+    },
+    "expectedCode": "UNSAFE_URL",
+    "expectedPath": "/body/0/images/0/src"
+  },
+  {
+    "name": "gallery has no autoplay or lightbox",
+    "canonicalId": "business-gallery",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "business-gallery",
+          "label": "Local",
+          "images": [
+            {
+              "id": "one",
+              "src": "https://example.invalid/one.png",
+              "alt": "Supplied"
+            }
+          ],
+          "autoplay": true,
+          "lightbox": true
+        }
+      ]
+    },
+    "expectedCode": "SCHEMA"
   }
 ]

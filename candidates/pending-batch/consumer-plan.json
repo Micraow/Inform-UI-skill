@@ -1,12 +1,12 @@
 {
-  "format": "inform-skill-pending-browser-plan/1",
+  "format": "inform-skill-pending-browser-plan/2",
   "candidateOnly": true,
   "status": "prepared-not-run",
   "executionOwner": "core:scripts/run-batch-consumers.mjs",
-  "sourceRevision": "75fd165f20ee6cca9beb2c172c19dbac98136b88",
-  "skillBaseRevision": "9bf9dfa63a78816f7afea59531cf8b2ca82a0e1c",
+  "sourceRevision": "5c7f334a975b75b0a70f58b5570b2ea567aed9dc",
+  "skillBaseRevision": "94b5cd14a7f47fc477ee781cec06e0e6810a7169",
   "acceptedAssetRevision": "d370ffb2df310fce0da9299e6e254a58509ba544",
-  "sourceScope": "24 canonical candidates, 27 exact synthetic examples; not the final approximately-30 acceptance batch",
+  "sourceScope": "30 canonical candidates, 32 exact synthetic examples; browser acceptance not run",
   "consumerId": "pending",
   "script": "candidates/pending-batch/verify-browser.mjs",
   "coreScript": "tests/consumer/pending/verify-browser.mjs",
@@ -19,7 +19,7 @@
     "light",
     "dark"
   ],
-  "plannedLocalCompiledViews": 162,
+  "plannedLocalCompiledViews": 192,
   "publicCdn": "not-run",
   "browser": "not-run",
   "ci": "not-run",
@@ -29,7 +29,9 @@
     {
       "name": "carousel-basic",
       "lang": "zh-CN",
-      "canonicalId": "base-carousel",
+      "canonicalIds": [
+        "base-carousel"
+      ],
       "sha256": "9bdbbbcb68dde0ebe50b5f676952fbaa42f2a4aeb5f2407aa8d9843dad456cfe",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/carousel-basic.json",
@@ -39,7 +41,9 @@
     {
       "name": "carousel",
       "lang": "en",
-      "canonicalId": "base-carousel",
+      "canonicalIds": [
+        "base-carousel"
+      ],
       "sha256": "62b3cac7dcdfcfc6f7687375bb0377ee0ccc51b7b4cb264ba02c325c40e392cc",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/carousel.json",
@@ -49,7 +53,9 @@
     {
       "name": "code",
       "lang": "en",
-      "canonicalId": "code-block",
+      "canonicalIds": [
+        "code-block"
+      ],
       "sha256": "7d25bee2c2f3e8c5f8b70e445d7478203b9e64bf6e647591a606585a6dfbffc7",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/code.json",
@@ -59,7 +65,9 @@
     {
       "name": "pie",
       "lang": "en",
-      "canonicalId": "base-pie-chart",
+      "canonicalIds": [
+        "base-pie-chart"
+      ],
       "sha256": "c8fd2a6a95706c525be0d5c0c8809873e67c6df9576a5728fe2866d4acc75b6d",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/pie.json",
@@ -69,7 +77,9 @@
     {
       "name": "checkbox-practice",
       "lang": "zh-CN",
-      "canonicalId": "base-checkbox",
+      "canonicalIds": [
+        "base-checkbox"
+      ],
       "sha256": "b290013320ebe7560c1e92d3e19d3454852093c62a08000427cca50e1498c297",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/checkbox-practice.json",
@@ -79,7 +89,9 @@
     {
       "name": "markdown-subset",
       "lang": "en",
-      "canonicalId": "base-markdown",
+      "canonicalIds": [
+        "base-markdown"
+      ],
       "sha256": "72f06da11ac69bc95214d7c369779f9485f3cdc7f9d1934aceeedf18061b35a5",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/markdown-subset.json",
@@ -89,7 +101,9 @@
     {
       "name": "date-practice",
       "lang": "zh-CN",
-      "canonicalId": "base-date-picker",
+      "canonicalIds": [
+        "base-date-picker"
+      ],
       "sha256": "8f921053244394ccfe4dac8fc3d8d6528a72dc945a1da90978f5bc4069346ca0",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/date-practice.json",
@@ -99,7 +113,9 @@
     {
       "name": "tabs",
       "lang": "zh-CN",
-      "canonicalId": "tab-group",
+      "canonicalIds": [
+        "tab-group"
+      ],
       "sha256": "90452ae01385d959e7b50d152e40f4232350720e4cd335a5b571b822e53455b6",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/tabs.json",
@@ -109,7 +125,9 @@
     {
       "name": "tabs-local-state",
       "lang": "zh-CN",
-      "canonicalId": "tab-group",
+      "canonicalIds": [
+        "tab-group"
+      ],
       "sha256": "db58e48630836a73022aedf52fb0e93d4e2c3ecfe1492d89d05d8384c9b2a8c0",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/tabs-local-state.json",
@@ -119,7 +137,9 @@
     {
       "name": "fill-blank-practice",
       "lang": "zh-CN",
-      "canonicalId": "learning-fill-blank-card",
+      "canonicalIds": [
+        "learning-fill-blank-card"
+      ],
       "sha256": "7727b6dc7fc3fb6aee1b1de12a3f13792ea369f5a19b89dfba1abcaaec8d50d4",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/fill-blank-practice.json",
@@ -129,7 +149,9 @@
     {
       "name": "sentence-builder",
       "lang": "zh-CN",
-      "canonicalId": "learning-sentence-builder-card",
+      "canonicalIds": [
+        "learning-sentence-builder-card"
+      ],
       "sha256": "6b99215fceaafd94681c1930160f764952262eeb4cd2d252f17071bf23963e8d",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/sentence-builder.json",
@@ -139,7 +161,9 @@
     {
       "name": "checklist",
       "lang": "zh-CN",
-      "canonicalId": "checklist",
+      "canonicalIds": [
+        "checklist"
+      ],
       "sha256": "c5570457a098e07012ea4a47c63ae0d627faed11d3ba3a3476edb063eeba53ff",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/checklist.json",
@@ -149,7 +173,9 @@
     {
       "name": "checklist-form",
       "lang": "zh-CN",
-      "canonicalId": "checklist",
+      "canonicalIds": [
+        "checklist"
+      ],
       "sha256": "e301430d5ee8df81a1030d4d078fbf7204d8a4ee85e1bd93c5fccd3894574283",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/checklist-form.json",
@@ -159,7 +185,9 @@
     {
       "name": "vocab-card",
       "lang": "en",
-      "canonicalId": "learning-vocab-card",
+      "canonicalIds": [
+        "learning-vocab-card"
+      ],
       "sha256": "d4c646a2a2b8ee34a0a949f1d3c7a3125dbf9b778245230b8a67a8f0a400ea95",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/vocab-card.json",
@@ -169,7 +197,9 @@
     {
       "name": "rating",
       "lang": "zh-CN",
-      "canonicalId": "rating",
+      "canonicalIds": [
+        "rating"
+      ],
       "sha256": "e17dcaca6ebc422b78a692bbc4cc2741fff6517fb9813775563062c97f828b9a",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/rating.json",
@@ -179,7 +209,9 @@
     {
       "name": "favicon",
       "lang": "zh-CN",
-      "canonicalId": "base-favicon",
+      "canonicalIds": [
+        "base-favicon"
+      ],
       "sha256": "2efcc04ebf1a220126777e5bd37741b05a8fd9e9dfa3761aa3d2dcd4a93f9d68",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/favicon.json",
@@ -189,7 +221,9 @@
     {
       "name": "agenda",
       "lang": "zh-CN",
-      "canonicalId": "calendar-agenda",
+      "canonicalIds": [
+        "calendar-agenda"
+      ],
       "sha256": "c283ddc5005fa0c7e9465e14ad791628ae598524697e19678a3a9f919302974f",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/agenda.json",
@@ -199,7 +233,9 @@
     {
       "name": "button-actions",
       "lang": "en",
-      "canonicalId": "base-button",
+      "canonicalIds": [
+        "base-button"
+      ],
       "sha256": "229aa8348b5ca7d13af1b5be91496370e07a5be69015d83cd94989abe42c64d3",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/button-actions.json",
@@ -209,7 +245,9 @@
     {
       "name": "restaurant-menu",
       "lang": "zh-CN",
-      "canonicalId": "restaurant-menu",
+      "canonicalIds": [
+        "restaurant-menu"
+      ],
       "sha256": "44029f7b482a7f0889efe8301ba65097dc0bb82ef557634721d80430b0ebfe62",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/restaurant-menu.json",
@@ -219,7 +257,9 @@
     {
       "name": "prompt-suggestions",
       "lang": "en",
-      "canonicalId": "prompt-suggestions",
+      "canonicalIds": [
+        "prompt-suggestions"
+      ],
       "sha256": "30ffba1fedb1ac803933edc7279119ecec1cef5825316a5ea4b416068da0a491",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/prompt-suggestions.json",
@@ -229,7 +269,9 @@
     {
       "name": "field-labels",
       "lang": "zh-CN",
-      "canonicalId": "base-label",
+      "canonicalIds": [
+        "base-label"
+      ],
       "sha256": "5e880fb34f11dcfd4fa365d5292b8914cc40638a2f1b3d5deb575da9f1a62715",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/field-labels.json",
@@ -239,7 +281,9 @@
     {
       "name": "person-profile",
       "lang": "en",
-      "canonicalId": "person-profile",
+      "canonicalIds": [
+        "person-profile"
+      ],
       "sha256": "b9953ee7eb878c2ec6701d8122e630757fd9bbfc764d7b4f64408314a356cdf7",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/person-profile.json",
@@ -249,7 +293,9 @@
     {
       "name": "writing-block",
       "lang": "en",
-      "canonicalId": "writing-block",
+      "canonicalIds": [
+        "writing-block"
+      ],
       "sha256": "9a4cb5f85ad658eabb38c9b4ca4c5ec3bee2160228d56615a24fe87c73244cfb",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/writing-block.json",
@@ -259,7 +305,9 @@
     {
       "name": "news-article",
       "lang": "zh-CN",
-      "canonicalId": "news-article",
+      "canonicalIds": [
+        "news-article"
+      ],
       "sha256": "0fe3014f77bb8e8711d9500073edc6d94630c8048123f56bcd72f2a5d10026b2",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/news-article.json",
@@ -269,7 +317,9 @@
     {
       "name": "entity-reviews",
       "lang": "en",
-      "canonicalId": "entity-reviews",
+      "canonicalIds": [
+        "entity-reviews"
+      ],
       "sha256": "3110ff0a7d7c3f99163c1bc8f91cce56e1180c8cff420a057fc7766fafaba022",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/entity-reviews.json",
@@ -279,7 +329,9 @@
     {
       "name": "restaurant-availability",
       "lang": "en",
-      "canonicalId": "restaurant-availability",
+      "canonicalIds": [
+        "restaurant-availability"
+      ],
       "sha256": "2fdbe7fbf7ba52ab0f9720e0c3178e6619bd635b4a4f0d436d829d5f235b1ec2",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/restaurant-availability.json",
@@ -289,16 +341,79 @@
     {
       "name": "reddit-thread-card",
       "lang": "en",
-      "canonicalId": "reddit-thread-card",
+      "canonicalIds": [
+        "reddit-thread-card"
+      ],
       "sha256": "c731fa907f7f7a4ff5d6cbf0c1aff28f8491ee125615e9e6d87b6f86cd8b9d50",
       "owner": "pending",
       "skillPath": "candidates/pending-batch/examples/reddit-thread-card.json",
       "corePath": "tests/consumer/pending/examples/reddit-thread-card.json",
       "futureSkillPath": "examples/reddit-thread-card.json"
+    },
+    {
+      "name": "motion",
+      "lang": "en",
+      "canonicalIds": [
+        "base-animate",
+        "base-celebration"
+      ],
+      "sha256": "6507e34ffd1a7a5393cb90ba0071b8d63d0a7d293a9c4161f0daddc9be261094",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/motion.json",
+      "corePath": "tests/consumer/pending/examples/motion.json",
+      "futureSkillPath": "examples/motion.json"
+    },
+    {
+      "name": "email-draft",
+      "lang": "en",
+      "canonicalIds": [
+        "email-draft"
+      ],
+      "sha256": "212e9225d8fab7b93f026d2b3a57be7d498684c6398bdcdebf87b3ca2eb144c5",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/email-draft.json",
+      "corePath": "tests/consumer/pending/examples/email-draft.json",
+      "futureSkillPath": "examples/email-draft.json"
+    },
+    {
+      "name": "task-expansion-card",
+      "lang": "en",
+      "canonicalIds": [
+        "task-expansion-card"
+      ],
+      "sha256": "43159c25c41b9a4c21ba949a5066c3bc9584a2740360d529c57e1cd61b4b8ae0",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/task-expansion-card.json",
+      "corePath": "tests/consumer/pending/examples/task-expansion-card.json",
+      "futureSkillPath": "examples/task-expansion-card.json"
+    },
+    {
+      "name": "location-choice-request",
+      "lang": "en",
+      "canonicalIds": [
+        "location-choice-request"
+      ],
+      "sha256": "179643391d8c819c10d4fb4680a70dd9b52cba50c32740168a5d506f4e4fcb0a",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/location-choice-request.json",
+      "corePath": "tests/consumer/pending/examples/location-choice-request.json",
+      "futureSkillPath": "examples/location-choice-request.json"
+    },
+    {
+      "name": "business-gallery",
+      "lang": "en",
+      "canonicalIds": [
+        "business-gallery"
+      ],
+      "sha256": "e49b06edd496298b8c9413782a8951c660afa371b460bf1bb77abe80942b47a2",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/business-gallery.json",
+      "corePath": "tests/consumer/pending/examples/business-gallery.json",
+      "futureSkillPath": "examples/business-gallery.json"
     }
   ],
   "existingConsumerComparison": {
-    "sourceRevision": "75fd165f20ee6cca9beb2c172c19dbac98136b88",
+    "sourceRevision": "5c7f334a975b75b0a70f58b5570b2ea567aed9dc",
     "examples": [
       {
         "name": "carousel-with-local-controls",
@@ -475,6 +590,102 @@
     {
       "canonicalId": "reddit-thread-card",
       "contract": "docs/reddit-thread-card.md"
+    },
+    {
+      "canonicalId": "base-animate",
+      "contract": "docs/motion.md"
+    },
+    {
+      "canonicalId": "base-celebration",
+      "contract": "docs/motion.md"
+    },
+    {
+      "canonicalId": "email-draft",
+      "contract": "docs/draft-review.md"
+    },
+    {
+      "canonicalId": "task-expansion-card",
+      "contract": "docs/draft-review.md"
+    },
+    {
+      "canonicalId": "location-choice-request",
+      "contract": "docs/location-choice-request.md"
+    },
+    {
+      "canonicalId": "business-gallery",
+      "contract": "docs/business-gallery.md"
+    }
+  ],
+  "exampleLanguages": {
+    "carousel-basic": "zh-CN",
+    "carousel": "en",
+    "code": "en",
+    "pie": "en",
+    "checkbox-practice": "zh-CN",
+    "markdown-subset": "en",
+    "date-practice": "zh-CN",
+    "tabs": "zh-CN",
+    "tabs-local-state": "zh-CN",
+    "fill-blank-practice": "zh-CN",
+    "sentence-builder": "zh-CN",
+    "checklist": "zh-CN",
+    "checklist-form": "zh-CN",
+    "vocab-card": "en",
+    "rating": "zh-CN",
+    "favicon": "zh-CN",
+    "agenda": "zh-CN",
+    "button-actions": "en",
+    "restaurant-menu": "zh-CN",
+    "prompt-suggestions": "en",
+    "field-labels": "zh-CN",
+    "person-profile": "en",
+    "writing-block": "en",
+    "news-article": "zh-CN",
+    "entity-reviews": "en",
+    "restaurant-availability": "en",
+    "reddit-thread-card": "en",
+    "motion": "en",
+    "email-draft": "en",
+    "task-expansion-card": "en",
+    "location-choice-request": "en",
+    "business-gallery": "en"
+  },
+  "localeMap": "references/example-languages.json",
+  "existingEnhancementPromotion": [
+    {
+      "name": "carousel-with-local-controls",
+      "corePath": "tests/consumer/carousel/examples/carousel-with-local-controls.json",
+      "sha256": "f8901d7cf240c5830507fbd2c0a0e0b5cb15a9e6669d11f2144018f955a70cf2",
+      "lang": "zh-CN",
+      "futureSkillPath": "examples/carousel-with-local-controls.json"
+    },
+    {
+      "name": "local-carousel-notes",
+      "corePath": "tests/consumer/carousel/examples/local-carousel-notes.json",
+      "sha256": "da6ae89a9e710c89787655763d4b8804071465de2b52c044f57f2c7f7e2a7da3",
+      "lang": "zh-CN",
+      "futureSkillPath": "examples/local-carousel-notes.json"
+    },
+    {
+      "name": "local-checkbox-review",
+      "corePath": "tests/consumer/checkbox/examples/local-checkbox-review.json",
+      "sha256": "03ef8740e85b074de0edafcc75f004a9d50c90d4abe614ae1698b6368f150679",
+      "lang": "zh-CN",
+      "futureSkillPath": "examples/local-checkbox-review.json"
+    },
+    {
+      "name": "local-code-explanation",
+      "corePath": "tests/consumer/code/examples/local-code-explanation.json",
+      "sha256": "1e0e17ca3ea091d93ff2925489d595080593858f72447f69acd60371a6f24b08",
+      "lang": "zh-CN",
+      "futureSkillPath": "examples/local-code-explanation.json"
+    },
+    {
+      "name": "known-value-pie",
+      "corePath": "tests/consumer/pie/examples/known-value-pie.json",
+      "sha256": "a7acf9c8fda8b78f0596a9eef959c94ffc237a8bf3e89b1fa6a201aa777b6c87",
+      "lang": "zh-CN",
+      "futureSkillPath": "examples/known-value-pie.json"
     }
   ]
 }

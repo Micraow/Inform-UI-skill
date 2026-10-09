@@ -7,7 +7,8 @@ export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 export const readJSON = async file => JSON.parse(await readFile(file, 'utf8'));
 export const candidateDirectory = 'candidates/pending-batch';
 export const acceptedRevision = 'd370ffb2df310fce0da9299e6e254a58509ba544';
-export const candidateRevision = '75fd165f20ee6cca9beb2c172c19dbac98136b88';
+export const candidateRevision = '5c7f334a975b75b0a70f58b5570b2ea567aed9dc';
+export const candidateTree = 'c2c1dbdea5b6b7dd39ce9617eaa88883318c9452';
 export async function safeFile(root, relative) {
   assert.equal(typeof relative, 'string');
   assert.ok(/^[A-Za-z0-9._/-]+$/.test(relative) && !path.posix.isAbsolute(relative));
@@ -23,10 +24,13 @@ export function deriveCategories(index, lock) {
 export async function verifyPinnedInputs(root, library, lock) {
   assert.equal(lock.format, 'inform-skill-candidate-inputs/1'); assert.equal(lock.candidateOnly, true);
   assert.equal(lock.sourceRevision, candidateRevision); assert.equal(lock.acceptedAssetRevision, acceptedRevision);
-  assert.equal(sha256(await readFile(path.join(root, 'library-contract.json'))), lock.formalAcceptedContractSha256, 'Accepted contract must not change');
-  assert.equal((await readJSON(path.join(root, 'library-contract.json'))).revision, acceptedRevision);
-  assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'manifest24.source.json'))),lock.manifestSha256);
-  for (const [relative, expected] of Object.entries(lock.acceptedGuidancePrefixes)) assert.equal(sha256((await readFile(await safeFile(root,relative))).subarray(0,expected.bytes)),expected.sha256,'Accepted guidance prefix changed: '+relative);
+  assert.equal(lock.stage,'pending-acceptance');
+  assert.equal(lock.formalAcceptedContractSha256,'c0596f2135788375d041e044ca3b7ad476e179622bae76d7423b6a0e00b3e460','Historical 94b5cd contract digest');
+  assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'accepted-library-contract.json'))),lock.formalAcceptedContractSha256,'Historical accepted contract must not change');
+  assert.equal((await readJSON(path.join(root,candidateDirectory,'accepted-library-contract.json'))).revision,acceptedRevision);
+  assert.equal(sha256(await readFile(path.join(root,'library-contract.json'))),lock.pendingContractSha256,'Pending contract changed');
+  assert.equal((await readJSON(path.join(root,'library-contract.json'))).revision,candidateRevision);
+  assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'manifest30.source.json'))),lock.manifestSha256);
   for (const [relative, expected] of Object.entries(lock.candidateFiles)) assert.equal(sha256(await readFile(await safeFile(root,relative))),expected,'Candidate artifact changed: '+relative);
   for (const [relative, expected] of Object.entries({...lock.sourceFiles,...lock.runtimeFiles})) {
     assert.match(expected,/^[a-f0-9]{64}$/);
