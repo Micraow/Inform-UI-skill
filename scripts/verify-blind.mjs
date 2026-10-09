@@ -107,7 +107,7 @@ if (process.argv.includes('--browser')) {
       assert.ok(layout.scroll <= width + 1, JSON.stringify(layout));
       for (const file of ['iui.css', 'iui.global.min.js']) assert.ok(responses.some(r => r.url === contract.cdn.baseUrl + file && r.status === 200), `${file} not loaded from fixed CDN`);
       const metricValues = () => page.locator('.iui-metric-value').allTextContents();
-      assert.deepEqual((await metricValues()).map(value => value.trim()), ['3.0', '150', '7.5']);
+      assert.deepEqual((await metricValues()).map(value => value.trim()), ['3.0km/h', '150分钟', '7.5km']);
       const label = `blind-first-${width}-${theme}`;
       if (screenshots) await page.screenshot({ path: path.join(screenshots, `${label}.png`), fullPage: true });
       const graph = page.locator('svg[aria-label="距离越远，需要多少步行时间？"]');
@@ -125,10 +125,10 @@ if (process.argv.includes('--browser')) {
       assert.notEqual(firstWeatherTable, secondWeatherTable, 'Selected date did not filter supplied hourly samples');
       await page.evaluate(() => { window.__blindSubmits = []; document.addEventListener('iui:submit', event => window.__blindSubmits.push(event.detail)); });
       await page.getByRole('radio', { name: '平缓步道健走', exact: true }).check();
-      assert.deepEqual((await metricValues()).map(value => value.trim()), ['4.5', '150', '11.3']);
+      assert.deepEqual((await metricValues()).map(value => value.trim()), ['4.5km/h', '150分钟', '11.3km']);
       const hours = page.getByRole('spinbutton', { name: /现场活动总时长/ });
       await hours.fill('4');
-      assert.deepEqual((await metricValues()).map(value => value.trim()), ['4.5', '210', '15.8']);
+      assert.deepEqual((await metricValues()).map(value => value.trim()), ['4.5km/h', '210分钟', '15.8km']);
       await page.getByRole('radio', { name: '周日 10/11', exact: true }).check();
       await page.getByRole('textbox', { name: '随行备忘', exact: true }).fill('仅供这次浏览器验收的合成备注');
       await page.getByRole('button', { name: '确认本地计划', exact: true }).click();
@@ -138,17 +138,20 @@ if (process.argv.includes('--browser')) {
       assert.deepEqual(Object.keys(submitted.values).sort(), ['activity', 'breakMinutes', 'day', 'hours', 'note']);
       assert.equal(submitted.values.hours, 4);
       assert.equal(submitted.values.day, 'sunday');
+      const successBeforeEdit = await page.locator('.iui-form-status').textContent();
+      assert.ok(successBeforeEdit.includes('本地校验通过'));
       await hours.fill('');
+      const statusAfterEdit = await page.locator('.iui-form-status').textContent();
       await page.getByRole('button', { name: '确认本地计划', exact: true }).click();
       assert.equal(await hours.getAttribute('aria-invalid'), 'true');
       assert.equal(await page.evaluate(() => window.__blindSubmits.length), 1);
-      assert.deepEqual((await metricValues()).map(value => value.trim()), ['4.5', '210', '15.8']);
+      assert.deepEqual((await metricValues()).map(value => value.trim()), ['4.5km/h', '210分钟', '15.8km']);
       await page.getByRole('button', { name: '恢复本表单初值', exact: true }).click();
       assert.equal(await hours.inputValue(), '3');
-      assert.deepEqual((await metricValues()).map(value => value.trim()), ['3.0', '150', '7.5']);
+      assert.deepEqual((await metricValues()).map(value => value.trim()), ['3.0km/h', '150分钟', '7.5km']);
       assert.deepEqual(errors, [], `${label}: load/runtime error`);
       assert.ok(responses.every(r => r.status === 200 && r.url.startsWith(contract.cdn.baseUrl)), 'Unexpected remote request');
-      observations.push({ label, layout, firstWeatherTable, secondWeatherTable, responses });
+      observations.push({ label, layout, firstWeatherTable, secondWeatherTable, successBeforeEdit, statusAfterEdit, responses });
       console.log(`PASS ${label}: raw authored file:// CDN/SRI, layout, form draft/submit/reset, weather units/date, proportional X`);
       await context.close();
     }
