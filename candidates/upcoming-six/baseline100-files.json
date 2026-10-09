@@ -1,0 +1,21 @@
+{
+  "revision": "f978aaaef064b8db14c2b91ef7934da54a19d85e",
+  "files": {
+    "SKILL.md": {
+      "snapshot": "baseline100/SKILL.md.source.txt",
+      "sha256": "220b1d0568662ea1ae2e314d44a84183611ea31884e5cc7b915333820c2177e2"
+    },
+    "package.json": {
+      "snapshot": "baseline100/package.json.source.txt",
+      "sha256": "de40ea3248458f896d888e5576a9b63d9b957ed469aaf1c78c2aef037b6cb672"
+    },
+    "scripts/verify-upcoming-source.mjs": {
+      "snapshot": "baseline100/scripts/verify-upcoming-source.mjs.source.txt",
+      "sha256": "b3a6698d335f8d1c13802e7afd7dbb3157b3f9d290d109b00a072dadcff2b45e"
+    },
+    "tests/upcoming-source.test.mjs": {
+      "snapshot": "baseline100/tests/upcoming-source.test.mjs.source.txt",
+      "sha256": "53ce75a1de40607a14a92ec4d48052b266508a05ee278d73eba0d1c212f20c65"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format": "inform-consumer-recovery-preparation/1",
+  "historicalSkillRevision": "e286789f4c5d75c1a12e5103314eb9926b81822c",
+  "historicalConsumer": "candidates/pending-batch/verify-browser.mjs",
+  "historicalConsumerSha256": "f2d9d512694dfbcc851c6c0d31a3768699b46282cd06159981073b9ab9285c16",
+  "recoverySourceRevision": "443b4e8046c1d49b9f168f6a292076a5f0d6d904",
+  "recoverySourceRepositoryPath": "tests/consumer/pending/verify-browser.mjs",
+  "preparedSource": "consumer-recovery37.source.mjs",
+  "preparedSha256": "a65c00b4f21283eb5e8d0401dceb2d3906ab9a03b327a63b1b30f6915bcbb56c",
+  "unchangedRuntimeRevision": "26ec211fa529516af3b1523248f5912c45ec64c6",
+  "affectedCases": [
+    "entity-reviews",
+    "restaurant-availability"
+  ],
+  "change": "Escape only after selected value/focus proof, then repeat value/focus assertions. No timeout or screenshot threshold change.",
+  "status": "prepared-not-executed; recovery source only, not a combined103 consumer lock",
+  "new103CasesPrepared": false
+}

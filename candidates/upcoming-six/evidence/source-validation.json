@@ -1,0 +1,58 @@
+{
+  "format": "inform-upcoming-three-authoring-source-check/1",
+  "draft": true,
+  "libraryHead": "990d7e4af2a4cde6f01db4be628863c0378b011e",
+  "libraryDirty": false,
+  "sourceInputs": {
+    "dist/index.js": "16b2a7c83239292e279c4cb064ec610559e6aa22ee669d04a5b1795c2c3315ff",
+    "dist/browser.js": "26771badba70894f4a596faa5d692f795e7f0b539b3bf0c73b728cc27c18926e",
+    "dist/standalone.js": "95afe99ce03f3967e7c70efab120232195fe6a59bfa6779a8b78bb0e09ee4f29",
+    "dist/style.css": "74709fb3d3c3566e2d16d1e514a9c1d95577c5a20cb63c21da547a898c826f35",
+    "src/schema/iui.schema.json": "b649df68e1bec1399eec1bd07f19ec798039fee78d0e9180f3c41af941b7f889",
+    "src/schema/fragments/index.json": "bd0746a66f187944a18f1a97e91fc7b801cb4fbc993bcbb309bc76783e5f1382",
+    "src/schema/fragments/base.schema.json": "3162177f55d8c6b71bc52eb11fdfc944a2c8b034b7cbcc5aec8e703129832e88",
+    "src/schema/fragments/nodes/base.schema.json": "1ab9327ab5cabea57f91489b4fefe9dbd3b296ae3b5395986a5dcef229ba00a4",
+    "docs/create-interactive-poll.md": "ee9b3005428bfbf3926051f06d2d1bd6e1848d8e071ceb20d8157199eb0fbde9",
+    "docs/mail-files.md": "905f2bc791ad48d4cebef6d4f2a3b2f723b1d99ae71211d5b933d2dbbd935a33",
+    "docs/decision-cards.md": "d9dcf0c8103f3525fcb6c498cf97125181896b13d1766d5adc60471ed10c13b5",
+    "docs/related-questions.md": "4c15fbec62b69c4ca8a9f2f32cd05629da4829ada0c738599318a756fc0da0f3"
+  },
+  "protocolNodes": 103,
+  "acceptedCanonical": 53,
+  "currentPendingCanonical": 37,
+  "upcomingCanonical": 6,
+  "fixtures": [
+    {
+      "name": "create-interactive-poll",
+      "sha256": "79410a06d521a1f5ece89ec072dc175ba0069da7bb98653d1e53d2d8af578396",
+      "htmlSha256": "7240cf23bcf99f94f92558a41892b1713014683bda88f89e35a8e879b3ea8a4f"
+    },
+    {
+      "name": "mail-files",
+      "sha256": "69e6e96dfa40c5fb06061ae16a6b2fb3d8c4a9e84022eb0ee750897210922cff",
+      "htmlSha256": "fc1b5d192d3b14662669f1473a2c0579e69a8e8db3652749b28c84c5dcc6d44e"
+    },
+    {
+      "name": "decision-cards",
+      "sha256": "b8767cfb3e75f551512eafb46fd992bcd3af2eb5596e0054fc5c6c625cd1f4d5",
+      "htmlSha256": "4b5f2ca20d53dcdb9d88a2373b2477219da2d7ea446b7811da7774b405cd2e2e"
+    },
+    {
+      "name": "related-questions",
+      "sha256": "e07bb1e65e3a2a07c601e8a30f57a5eba9d3a61dbcd89439f325438404883b6a",
+      "htmlSha256": "1800e4d09fde74838e6ac0f8bea42e167c4c7cbd1eec71de31774bc8341c4438"
+    }
+  ],
+  "guidanceLiterals": 3,
+  "negativeCases": 41,
+  "pollRuntimeChecks": [
+    "blank draft validates but Prepare rejects",
+    "trimmed duplicate labels reject Prepare",
+    "exact strings preserved in frozen local event",
+    "atomic invalid update",
+    "idempotent disposal"
+  ],
+  "browser": "not-run",
+  "cdn": "not-run",
+  "ci": "not-run"
+}
