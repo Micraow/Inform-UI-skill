@@ -83,3 +83,16 @@ test('promoted root examples and locale map exactly cover 24 historical plus fiv
  const plan=await read('consumer-plan.json');for(const entry of [...plan.examples,...plan.existingEnhancementPromotion]){assert.equal(sha256(await readFile(path.join(root,entry.futureSkillPath))),entry.sha256);assert.equal(map[entry.name],entry.lang);}
  const added=new Set([...plan.examples,...plan.existingEnhancementPromotion].map(e=>e.name));const prior=names.filter(n=>!added.has(n));assert.equal(prior.length,24);assert.equal(prior.filter(n=>map[n]==='zh-CN').length,20);assert.equal(prior.filter(n=>map[n]==='en').length,4);
 });
+
+
+test('agenda smoke dismisses the native select popup before later selection without losing value or focus',async()=>{
+ const source=await readFile(path.join(base,'verify-browser.mjs'),'utf8');
+ const agenda=source.split("case 'agenda': {")[1].split("case 'button-actions':")[0];
+ const escape=agenda.indexOf("await page.keyboard.press('Escape');");
+ assert.ok(escape>agenda.indexOf("await page.keyboard.press('Enter');"),'Dismiss after native keyboard selection');
+ assert.ok(escape<agenda.indexOf('await select.selectOption('),'Dismiss before later selection and screenshots');
+ const afterEscape=agenda.slice(escape,agenda.indexOf('await select.selectOption('));
+ assert.ok(afterEscape.includes("await expect(select).toHaveValue('2026-10-09')"),'Escape must preserve selected value');
+ assert.ok(afterEscape.includes('await expect(select).toBeFocused()'),'Escape must preserve native focus');
+ assert.ok(!agenda.includes('.blur('),'Do not remove focus to hide a native popup failure');
+});
