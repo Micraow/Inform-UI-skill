@@ -46,6 +46,8 @@ Skill [048a379](https://github.com/Micraow/Inform-UI-skill/commit/048a3791e12893
 
 此结论只覆盖本次选中描边及明确列出的视图/交互，不表示整个参考产品的视觉与功能已经完整复刻。
 
+待修连续操作：核心库后续确认064版本在“键盘操作后，不离开同一SVG直接鼠标点击”时，浏览器可能保留键盘焦点态，内框仍为3px而未退回2px。四边一致性的像素结论不受影响，但这条输入方式切换尚未验收通过，将随下一固定资源复验。
+
 ## 早期 50 节点验证记录（旧 f35 资源）
 
 2026-10-09，Skill [7276bbe](https://github.com/Micraow/Inform-UI-skill/commit/7276bbe0beb95b5ec87ef643faddd461b01d9012) 的 [CI 37874394218](https://github.com/Micraow/Inform-UI-skill/actions/runs/37874394218) 四平台通过。固定库与所有 CDN 资源来自 [f35e33b](https://github.com/Micraow/Inform-UI/commit/f35e33b146c266ecf16371733c51064129afaec3)，已修正热图选择与鼠标焦点边框的颜色；当时的四边粗细一致性问题尚未解决，后由上述新资源修复。
