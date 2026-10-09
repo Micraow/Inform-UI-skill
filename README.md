@@ -88,7 +88,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Info
 
 ```sh
 git clone https://github.com/Micraow/Inform-UI.git Inform-UI
-git -C Inform-UI checkout --detach f35e33b146c266ecf16371733c51064129afaec3
+git -C Inform-UI checkout --detach 064ab51e1224045ca2968e3e3f1a3e886f3fca4c
 npm --prefix Inform-UI ci
 npm --prefix Inform-UI run build
 node Inform-UI/bin/iui.mjs validate inform-ui-author/examples/hpcc-feedback.json --json

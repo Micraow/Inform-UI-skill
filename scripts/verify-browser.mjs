@@ -158,6 +158,18 @@ try {
         await heatmap.getByRole('combobox', { name: '行业', exact: true }).selectOption({ label: '全部行业' });
         await heatmap.locator('[data-heatmap-cell="alpha"]').click();
         assert.ok((await heatmap.locator('.iui-heatmap-readout').textContent()).includes('+12%'));
+        const selection = heatmap.locator('.iui-heatmap-selection');
+        assert.equal(await selection.getAttribute('data-selected-cell'), 'alpha');
+        assert.equal(await selection.getAttribute('stroke-width'), '2');
+        assert.ok(await selection.evaluate(node => node === node.parentElement.lastElementChild), 'Selected frame must paint above adjacent tiles');
+        assert.equal(await graphic.evaluate(node => getComputedStyle(node).outlineStyle), 'none');
+        if (screenshots) await graphic.screenshot({ path: path.join(screenshots, `${label}-selection-pointer.png`) });
+        await heatmap.getByRole('combobox', { name: '行业', exact: true }).focus();
+        await page.keyboard.press('Tab');
+        await page.keyboard.press('Home');
+        assert.equal(await selection.getAttribute('stroke-width'), '3');
+        assert.equal(await graphic.evaluate(node => getComputedStyle(node).outlineStyle), 'none');
+        if (screenshots) await graphic.screenshot({ path: path.join(screenshots, `${label}-selection-keyboard.png`) });
         await page.getByText('无正权重与供数失败', { exact: true }).click();
         assert.ok(await page.locator('.iui-heatmap').nth(1).getByText('没有可绘制的正权重记录', { exact: true }).isVisible());
         assert.ok(await page.getByText('教学错误状态；无自动重试或交易动作。', { exact: true }).isVisible());

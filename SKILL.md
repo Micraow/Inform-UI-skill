@@ -23,10 +23,10 @@ Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模�
 
 固定的公开文件（同一提交，不混用版本）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@064ab51e1224045ca2968e3e3f1a3e886f3fca4c/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@064ab51e1224045ca2968e3e3f1a3e886f3fca4c/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@064ab51e1224045ca2968e3e3f1a3e886f3fca4c/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@064ab51e1224045ca2968e3e3f1a3e886f3fca4c/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
@@ -41,7 +41,7 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inform UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css" integrity="sha384-R+ybWEp3LYtcukj5okG9CNtbw1tj9iz5/gmk1gujU5Tyg9G8pF5LIBP+WSJ1TmfH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@064ab51e1224045ca2968e3e3f1a3e886f3fca4c/cdn/iui.css" integrity="sha384-b9Fs3hvitvhtio4FkB82fDurrf09T+j9zh/CiWRNmLkQZycn894/nyNDOpq3nYEa" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -49,7 +49,7 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js" integrity="sha384-ExWzUtY9GmozAptkPneHZmDC/HDRNNA8SN+gug8wRukKTWOkKo2QwNEJOF9ekPZr" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@064ab51e1224045ca2968e3e3f1a3e886f3fca4c/cdn/iui.global.min.js" integrity="sha384-R/xK2Ewh8duMhbO5XqnTILQvyu4Ob0Hsw5nqQkRdddquWdPeScw9VX9cN5M7BKFd" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {

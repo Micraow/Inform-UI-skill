@@ -101,3 +101,23 @@ test('46-node blind input and first outputs remain byte-for-byte immutable', asy
   }
   assert.equal((await json('tests/blind46/library-contract.json')).revision, 'f372c71d31633be85bb228f57fdb07da9e8f2112');
 });
+
+test('current branding uses Inform UI while the reference and immutable historical records stay explicit', async () => {
+  const skill = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+  const readme = await readFile(path.join(root, 'README.md'), 'utf8');
+  assert.equal(parseSkillFrontmatter(skill).name, 'inform-ui-author');
+  assert.equal((await json('package.json')).name, 'inform-ui-skill');
+  assert.equal((await json('library-contract.json')).repository, 'Micraow/Inform-UI');
+  assert.equal((await json('library-contract.json')).packageName, '@micraow/inform-ui');
+  assert.ok(readme.includes('OpenAI Intelligent UI'), 'Do not rename the reference product');
+  for (const phrase of ['独立、非官方', '并非由 OpenAI 开发、维护、赞助或认可', '不暗示官方关联', '许可证和知识产权', '不能替代', 'independent, unofficial community', 'not developed, maintained, sponsored, or endorsed by OpenAI', 'do not replace any permission']) assert.ok(readme.includes(phrase), phrase);
+  for (const file of ['README.md', 'SKILL.md', 'references/library-workflow.md', 'references/finance.md', 'examples/resource-shortlist.json']) {
+    const source = await readFile(path.join(root, file), 'utf8');
+    assert.equal(source.includes('https://github.com/Micraow/Intelligent-UI'), false, `${file}: old current repository URL`);
+    assert.equal(source.includes('https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@'), false, `${file}: old current CDN URL`);
+  }
+  const { html, document } = readSkillShell(skill);
+  assert.equal(document.version, 'iui/1');
+  assert.ok(html.includes('window.IUI'));
+  for (const directory of ['tests/blind', 'tests/blind46']) assert.equal((await json(`${directory}/library-contract.json`)).repository, 'Micraow/Intelligent-UI');
+});

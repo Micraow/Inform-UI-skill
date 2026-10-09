@@ -2,7 +2,7 @@
 
 For web chat without a terminal, copy the complete [root SKILL.md](../SKILL.md): it contains the CDN HTML shell and a self-contained authoring subset. This page is optional guidance for agents with a local checkout.
 
-The library lives at [Micraow/Inform-UI](https://github.com/Micraow/Inform-UI). Its current local package name is `@micraow/intelligent-ui`, version `0.1.0`. This repository does **not** assume an npm release. Use the exact source revision in [library-contract.json](../library-contract.json); CI checks out that revision rather than a moving branch.
+The library lives at [Micraow/Inform-UI](https://github.com/Micraow/Inform-UI). Its current local package name is `@micraow/inform-ui`, version `0.1.0`. This repository does **not** assume an npm release. Use the exact source revision in [library-contract.json](../library-contract.json); CI checks out that revision rather than a moving branch.
 
 ## Checkout workflow
 
@@ -33,7 +33,7 @@ Use `--library` with the actual checkout path; the script also accepts `IUI_LIBR
 When the built checkout is installed as a local dependency in a host application:
 
 ```js
-import { validateDocument, compileHtml } from '@micraow/intelligent-ui';
+import { validateDocument, compileHtml } from '@micraow/inform-ui';
 
 const result = validateDocument(document);
 if (!result.ok) {
@@ -53,7 +53,7 @@ The integration script resolves the checkout's actual package exports to exercis
 For `examples/hpcc-feedback.json` validated as `result` above, inspect one input change without rendering:
 
 ```js
-import { evaluateState } from '@micraow/intelligent-ui';
+import { evaluateState } from '@micraow/inform-ui';
 const next = evaluateState(result.document, { middleLoad: 0.9 });
 if (!next.ok) throw new Error(JSON.stringify(next.issues));
 console.log(next.state.middleLoad, next.computed.maximumLoad); // 0.9 0.9
