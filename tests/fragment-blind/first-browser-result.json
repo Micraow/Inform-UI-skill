@@ -1,0 +1,272 @@
+{
+  "title": "Immutable fragment-discovery blind QA",
+  "library": "6797f7f7755f483db6c3be3831aa03433b7c4696",
+  "hashes": {
+    "answer.json": "a22fb2ff4eaf6c9311c91d8f7bee1aeb554a2c14bd9b2cb69e2d8e4b31d2dcf9",
+    "answer.html": "ee91842b8783a25e564e39f19fa1a4a557c7f704b810a661f12e4334cc29cde1"
+  },
+  "tests": [
+    {
+      "name": "immutable hashes and copied CDN/SRI shell",
+      "ok": true
+    },
+    {
+      "name": "full API validates without input mutation",
+      "ok": true
+    },
+    {
+      "name": "independent arithmetic and computed dependencies",
+      "ok": true
+    },
+    {
+      "name": "closed mixed-domain schema and fragment root distinctions",
+      "ok": true,
+      "detail": {
+        "groups": [
+          "base",
+          "forms",
+          "charts",
+          "learning",
+          "converters"
+        ],
+        "fullSchemaBytes": 97708,
+        "mixedSchemaBytes": 56834
+      }
+    },
+    {
+      "name": "negative semantic mutations reject invalid rates and references",
+      "ok": true
+    },
+    {
+      "name": "reading ledger bytes and source overhead are not token savings",
+      "ok": true
+    },
+    {
+      "name": "390-light: original HTML real CDN SRI, theme, overflow, math",
+      "ok": true
+    },
+    {
+      "name": "390-light: form edit, empty/invalid input, submit, cancel and global reset",
+      "ok": true
+    },
+    {
+      "name": "390-light: numeric axis, missing gap, keyboard, empty/recovery",
+      "ok": true
+    },
+    {
+      "name": "390-light: standalone null follows empty-cell contract (readability observation)",
+      "ok": true
+    },
+    {
+      "name": "390-light: converter arithmetic, invalid drafts, missing rates, zero and reset",
+      "ok": true
+    },
+    {
+      "name": "390-light: quiz select, confirm, explain, complete and restart",
+      "ok": true
+    },
+    {
+      "name": "390-light: flashcards reveal, rating, navigation and restart",
+      "ok": true
+    },
+    {
+      "name": "390-light: interaction traffic and browser error audit",
+      "ok": true,
+      "detail": {
+        "requests": 35,
+        "externalOrigins": [
+          "https://cdn.jsdelivr.net"
+        ]
+      }
+    },
+    {
+      "name": "390-dark: original HTML real CDN SRI, theme, overflow, math",
+      "ok": true
+    },
+    {
+      "name": "390-dark: form edit, empty/invalid input, submit, cancel and global reset",
+      "ok": true
+    },
+    {
+      "name": "390-dark: numeric axis, missing gap, keyboard, empty/recovery",
+      "ok": true
+    },
+    {
+      "name": "390-dark: standalone null follows empty-cell contract (readability observation)",
+      "ok": true
+    },
+    {
+      "name": "390-dark: converter arithmetic, invalid drafts, missing rates, zero and reset",
+      "ok": true
+    },
+    {
+      "name": "390-dark: quiz select, confirm, explain, complete and restart",
+      "ok": true
+    },
+    {
+      "name": "390-dark: flashcards reveal, rating, navigation and restart",
+      "ok": true
+    },
+    {
+      "name": "390-dark: interaction traffic and browser error audit",
+      "ok": true,
+      "detail": {
+        "requests": 35,
+        "externalOrigins": [
+          "https://cdn.jsdelivr.net"
+        ]
+      }
+    },
+    {
+      "name": "1280-light: original HTML real CDN SRI, theme, overflow, math",
+      "ok": true
+    },
+    {
+      "name": "1280-light: form edit, empty/invalid input, submit, cancel and global reset",
+      "ok": true
+    },
+    {
+      "name": "1280-light: numeric axis, missing gap, keyboard, empty/recovery",
+      "ok": true
+    },
+    {
+      "name": "1280-light: standalone null follows empty-cell contract (readability observation)",
+      "ok": true
+    },
+    {
+      "name": "1280-light: converter arithmetic, invalid drafts, missing rates, zero and reset",
+      "ok": true
+    },
+    {
+      "name": "1280-light: quiz select, confirm, explain, complete and restart",
+      "ok": true
+    },
+    {
+      "name": "1280-light: flashcards reveal, rating, navigation and restart",
+      "ok": true
+    },
+    {
+      "name": "1280-light: interaction traffic and browser error audit",
+      "ok": true,
+      "detail": {
+        "requests": 35,
+        "externalOrigins": [
+          "https://cdn.jsdelivr.net"
+        ]
+      }
+    },
+    {
+      "name": "1280-dark: original HTML real CDN SRI, theme, overflow, math",
+      "ok": true
+    },
+    {
+      "name": "1280-dark: form edit, empty/invalid input, submit, cancel and global reset",
+      "ok": true
+    },
+    {
+      "name": "1280-dark: numeric axis, missing gap, keyboard, empty/recovery",
+      "ok": true
+    },
+    {
+      "name": "1280-dark: standalone null follows empty-cell contract (readability observation)",
+      "ok": true
+    },
+    {
+      "name": "1280-dark: converter arithmetic, invalid drafts, missing rates, zero and reset",
+      "ok": true
+    },
+    {
+      "name": "1280-dark: quiz select, confirm, explain, complete and restart",
+      "ok": true
+    },
+    {
+      "name": "1280-dark: flashcards reveal, rating, navigation and restart",
+      "ok": true
+    },
+    {
+      "name": "1280-dark: interaction traffic and browser error audit",
+      "ok": true,
+      "detail": {
+        "requests": 35,
+        "externalOrigins": [
+          "https://cdn.jsdelivr.net"
+        ]
+      }
+    }
+  ],
+  "findings": [
+    {
+      "id": "TABLE_NULL_BLANK",
+      "view": "390-light",
+      "attribution": "library-contract UX limitation",
+      "severity": "nonblocking",
+      "message": "Standalone table renders literal null as an empty cell under its current contract; chart data table says 缺测. Original JSON correctly preserves null. This is a readability consistency observation, not a contract violation."
+    },
+    {
+      "id": "TABLE_NULL_BLANK",
+      "view": "390-dark",
+      "attribution": "library-contract UX limitation",
+      "severity": "nonblocking",
+      "message": "Standalone table renders literal null as an empty cell under its current contract; chart data table says 缺测. Original JSON correctly preserves null. This is a readability consistency observation, not a contract violation."
+    },
+    {
+      "id": "TABLE_NULL_BLANK",
+      "view": "1280-light",
+      "attribution": "library-contract UX limitation",
+      "severity": "nonblocking",
+      "message": "Standalone table renders literal null as an empty cell under its current contract; chart data table says 缺测. Original JSON correctly preserves null. This is a readability consistency observation, not a contract violation."
+    },
+    {
+      "id": "TABLE_NULL_BLANK",
+      "view": "1280-dark",
+      "attribution": "library-contract UX limitation",
+      "severity": "nonblocking",
+      "message": "Standalone table renders literal null as an empty cell under its current contract; chart data table says 缺测. Original JSON correctly preserves null. This is a readability consistency observation, not a contract violation."
+    }
+  ],
+  "browserViews": [
+    {
+      "view": "390-light",
+      "bounds": {
+        "width": 390,
+        "scroll": 390,
+        "bg": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "view": "390-dark",
+      "bounds": {
+        "width": 390,
+        "scroll": 390,
+        "bg": "rgb(33, 33, 33)"
+      }
+    },
+    {
+      "view": "1280-light",
+      "bounds": {
+        "width": 1280,
+        "scroll": 1280,
+        "bg": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "view": "1280-dark",
+      "bounds": {
+        "width": 1280,
+        "scroll": 1280,
+        "bg": "rgb(33, 33, 33)"
+      }
+    }
+  ],
+  "scope": "Synthetic learning-budget document, converters and learning domains; no first-draft edits.",
+  "reading": {
+    "uniqueSourceBytes": 95523,
+    "knownRepeatedPresentationBytes": 13633,
+    "sourceEquivalentPresentationBytes": 109156,
+    "tokenSavingsClaim": false
+  },
+  "browserVersion": "141.0.7390.37",
+  "accepted": true,
+  "passed": 38,
+  "failed": 0
+}

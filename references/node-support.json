@@ -1,0 +1,266 @@
+[
+  {
+    "type": "text",
+    "status": "portable"
+  },
+  {
+    "type": "title",
+    "status": "portable"
+  },
+  {
+    "type": "caption",
+    "status": "portable"
+  },
+  {
+    "type": "markdown",
+    "status": "plain-text-fallback"
+  },
+  {
+    "type": "code",
+    "status": "portable"
+  },
+  {
+    "type": "math",
+    "status": "portable"
+  },
+  {
+    "type": "badge",
+    "status": "portable"
+  },
+  {
+    "type": "divider",
+    "status": "portable"
+  },
+  {
+    "type": "spacer",
+    "status": "portable"
+  },
+  {
+    "type": "link",
+    "status": "portable"
+  },
+  {
+    "type": "image",
+    "status": "portable"
+  },
+  {
+    "type": "box",
+    "status": "portable"
+  },
+  {
+    "type": "card",
+    "status": "portable"
+  },
+  {
+    "type": "row",
+    "status": "portable"
+  },
+  {
+    "type": "col",
+    "status": "portable"
+  },
+  {
+    "type": "grid",
+    "status": "portable"
+  },
+  {
+    "type": "grid-item",
+    "status": "portable"
+  },
+  {
+    "type": "blockquote",
+    "status": "portable"
+  },
+  {
+    "type": "section",
+    "status": "portable"
+  },
+  {
+    "type": "figure",
+    "status": "portable"
+  },
+  {
+    "type": "details",
+    "status": "portable"
+  },
+  {
+    "type": "tooltip",
+    "status": "portable"
+  },
+  {
+    "type": "popover",
+    "status": "portable"
+  },
+  {
+    "type": "flow",
+    "status": "portable"
+  },
+  {
+    "type": "icon",
+    "status": "portable"
+  },
+  {
+    "type": "pulse-indicator",
+    "status": "portable"
+  },
+  {
+    "type": "loading",
+    "status": "portable"
+  },
+  {
+    "type": "loading-block",
+    "status": "portable"
+  },
+  {
+    "type": "citation",
+    "status": "portable"
+  },
+  {
+    "type": "web-link-cards",
+    "status": "portable"
+  },
+  {
+    "type": "carousel",
+    "status": "portable"
+  },
+  {
+    "type": "list",
+    "status": "portable"
+  },
+  {
+    "type": "table",
+    "status": "portable"
+  },
+  {
+    "type": "metric",
+    "status": "portable"
+  },
+  {
+    "type": "metric-grid",
+    "status": "portable"
+  },
+  {
+    "type": "steps",
+    "status": "portable"
+  },
+  {
+    "type": "callout",
+    "status": "portable"
+  },
+  {
+    "type": "slider",
+    "status": "portable"
+  },
+  {
+    "type": "toggle",
+    "status": "portable"
+  },
+  {
+    "type": "select",
+    "status": "portable"
+  },
+  {
+    "type": "input",
+    "status": "portable"
+  },
+  {
+    "type": "textarea",
+    "status": "portable"
+  },
+  {
+    "type": "radio",
+    "status": "portable"
+  },
+  {
+    "type": "segmented",
+    "status": "portable"
+  },
+  {
+    "type": "field",
+    "status": "portable"
+  },
+  {
+    "type": "form",
+    "status": "portable"
+  },
+  {
+    "type": "button",
+    "status": "portable"
+  },
+  {
+    "type": "topology",
+    "status": "portable"
+  },
+  {
+    "type": "chart",
+    "status": "portable"
+  },
+  {
+    "type": "clock",
+    "status": "portable"
+  },
+  {
+    "type": "stopwatch",
+    "status": "portable"
+  },
+  {
+    "type": "timer",
+    "status": "portable"
+  },
+  {
+    "type": "weather",
+    "status": "portable"
+  },
+  {
+    "type": "sports-schedule",
+    "status": "portable"
+  },
+  {
+    "type": "sports-scoreboard",
+    "status": "portable"
+  },
+  {
+    "type": "sports-standings",
+    "status": "portable"
+  },
+  {
+    "type": "quiz",
+    "status": "portable"
+  },
+  {
+    "type": "flashcards",
+    "status": "portable"
+  },
+  {
+    "type": "finance-quote",
+    "status": "portable"
+  },
+  {
+    "type": "finance-chart",
+    "status": "portable"
+  },
+  {
+    "type": "finance-comparison",
+    "status": "portable"
+  },
+  {
+    "type": "finance-heatmap",
+    "status": "portable"
+  },
+  {
+    "type": "unit-converter",
+    "status": "portable"
+  },
+  {
+    "type": "currency-converter",
+    "status": "portable"
+  },
+  {
+    "type": "svg",
+    "status": "portable"
+  },
+  {
+    "type": "native",
+    "status": "rejected"
+  }
+]

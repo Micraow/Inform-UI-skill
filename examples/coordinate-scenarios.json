@@ -1,0 +1,264 @@
+{
+  "version": "iui/1",
+  "title": "别把不等距数据画成等距",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "先选坐标，再选图种"
+    },
+    {
+      "type": "text",
+      "value": "以下均为原创合成数据。横坐标0、1、100表示真实数值位置，所以第二个点只走过全程的1%，不在图的正中。"
+    },
+    {
+      "type": "chart",
+      "kind": "line",
+      "title": "不等距测点",
+      "xKey": "x",
+      "data": [
+        {
+          "x": 0,
+          "y": 0.2
+        },
+        {
+          "x": 1,
+          "y": 0.4
+        },
+        {
+          "x": 100,
+          "y": 0.8
+        }
+      ],
+      "series": [
+        {
+          "key": "y",
+          "label": "合成观测",
+          "color": "blue"
+        }
+      ],
+      "xScale": "linear",
+      "xLabel": "距离 (m)",
+      "unit": "V",
+      "yMin": 0,
+      "note": "第二个测点距起点1m，终点100m；数值不是真实测量。"
+    },
+    {
+      "type": "chart",
+      "kind": "scatter",
+      "title": "重复X的成对观测",
+      "xKey": "x",
+      "data": [
+        {
+          "x": 5,
+          "y": 2
+        },
+        {
+          "x": 1,
+          "y": 3
+        },
+        {
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "series": [
+        {
+          "key": "y",
+          "label": "合成观测",
+          "color": "blue"
+        }
+      ],
+      "xScale": "linear",
+      "xLabel": "试验位置 (m)",
+      "unit": "V",
+      "note": "散点可无序并保留重复X，不连成时间趋势。"
+    },
+    {
+      "type": "chart",
+      "kind": "area",
+      "title": "跨年且间隔不等的时间轴",
+      "xKey": "x",
+      "data": [
+        {
+          "x": "2026-12-31T23:59:59.100+08:00",
+          "y": 0.000001
+        },
+        {
+          "x": "2027-01-01T00:00:00.200+08:00",
+          "y": null
+        },
+        {
+          "x": "2027-01-01T00:00:00.900+08:00",
+          "y": 0.000003
+        }
+      ],
+      "series": [
+        {
+          "key": "y",
+          "label": "合成观测",
+          "color": "blue"
+        }
+      ],
+      "xScale": "time",
+      "timezone": "Asia/Shanghai",
+      "xLabel": "时刻（含偏移）",
+      "unit": "V",
+      "note": "缺测处应断开；表格/键盘读数保留年份、秒、毫秒及偏移。 为观察微量变化，显式使用0–0.000004 V纵轴；原数值不变。",
+      "yMin": 0,
+      "yMax": 0.000004
+    },
+    {
+      "type": "chart",
+      "kind": "bar",
+      "title": "分类比较",
+      "xKey": "x",
+      "data": [
+        {
+          "x": "甲",
+          "y": 3
+        },
+        {
+          "x": "乙",
+          "y": 7
+        }
+      ],
+      "series": [
+        {
+          "key": "y",
+          "label": "合成观测",
+          "color": "blue"
+        }
+      ],
+      "xScale": "category",
+      "xLabel": "类别",
+      "unit": "项",
+      "yMin": 0
+    },
+    {
+      "type": "chart",
+      "kind": "donut",
+      "title": "非负组成",
+      "xKey": "x",
+      "data": [
+        {
+          "x": "甲",
+          "y": 3
+        },
+        {
+          "x": "乙",
+          "y": 7
+        }
+      ],
+      "series": [
+        {
+          "key": "y",
+          "label": "合成观测",
+          "color": "blue"
+        }
+      ],
+      "xScale": "category",
+      "note": "单系列、非负值；总量是10，未宣称实际比例。"
+    },
+    {
+      "type": "details",
+      "summary": "空、单点与加载/错误状态",
+      "children": [
+        {
+          "type": "chart",
+          "kind": "line",
+          "title": "没有观察值",
+          "xKey": "x",
+          "data": [],
+          "series": [
+            {
+              "key": "y",
+              "label": "合成观测",
+              "color": "blue"
+            }
+          ],
+          "xScale": "linear",
+          "status": "ready"
+        },
+        {
+          "type": "chart",
+          "kind": "line",
+          "title": "全部缺测",
+          "xKey": "x",
+          "data": [
+            {
+              "x": 0,
+              "y": null
+            },
+            {
+              "x": 10,
+              "y": null
+            }
+          ],
+          "series": [
+            {
+              "key": "y",
+              "label": "合成观测",
+              "color": "blue"
+            }
+          ],
+          "xScale": "linear"
+        },
+        {
+          "type": "chart",
+          "kind": "scatter",
+          "title": "只有一个点",
+          "xKey": "x",
+          "data": [
+            {
+              "x": 2,
+              "y": 3
+            }
+          ],
+          "series": [
+            {
+              "key": "y",
+              "label": "合成观测",
+              "color": "blue"
+            }
+          ],
+          "xScale": "linear"
+        },
+        {
+          "type": "chart",
+          "kind": "line",
+          "title": "调用方尚未提供",
+          "xKey": "x",
+          "data": [],
+          "series": [
+            {
+              "key": "y",
+              "label": "合成观测",
+              "color": "blue"
+            }
+          ],
+          "xScale": "time",
+          "status": "loading",
+          "message": "仅为教学状态，不触发联网。"
+        },
+        {
+          "type": "chart",
+          "kind": "line",
+          "title": "调用方报告错误",
+          "xKey": "x",
+          "data": [],
+          "series": [
+            {
+              "key": "y",
+              "label": "合成观测",
+              "color": "blue"
+            }
+          ],
+          "xScale": "time",
+          "status": "error",
+          "message": "教学错误状态，不会自动请求或重试。"
+        }
+      ]
+    }
+  ]
+}

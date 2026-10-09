@@ -1,0 +1,43 @@
+Inform UI 分片发现盲测验收摘要
+2026年10月9日
+
+结论
+首稿保持原样，第一次实际 validateDocument 通过。固定版本 Schema、独立数值核算和真实浏览器脚本检查通过；但追加检查发现数值字段的 min、max、step 违规仍会更新指标。因此不能把这次验收概括为“首稿无问题全通过”。没有修改首稿再冒充首次通过。
+
+范围和结果
+作者只读固定 Skill 根、版本索引、converters Document Schema、learning Node Schema及两个同版本示例；未读实现，未预览页面。主题是原创合成学习预算和单位检查。
+- Skill：d2cf1d9ef40e13cfc390b831530e6807532c54ad
+- 运行库：6797f7f7755f483db6c3be3831aa03433b7c4696
+- 全量 Schema及由官方生成器生成的 base/forms/charts/learning/converters 闭合并集均通过。单 converters 包不能验证混合文档；learning Node片不能当 Document根。FinanceSource辅助定义已包含在 converters 包中。
+- 默认24小时、1,920 CNY、剩余80 CNY；免费课程为0费用。90分钟=1.5小时，1 MiB=1.048576 MB，360 CNY=50 USD；测验答案 b、a+c、b，共4分，独立核算一致。
+- 聚焦 Ubuntu Node22 Chromium 141.0.7390.37：38/38脚本检查组通过。390与1280像素、明暗四种视图均无整页横向溢出、公式错误或浏览器错误；原HTML实际从固定CDN加载并通过SRI。
+- 真实交互覆盖表单更新、空白错误与恢复，图表真实数值距离、缺测断线、键盘、全缺测空态及恢复，转换器非法草稿、GBP缺报价、有效零值，测验确认/解释/完成/重来及闪卡翻面/自评/重来。交互未向CDN以外站点发请求，未产生POST。
+- 原有PR自动触发的四平台工作流也全部成功。本次没有另行重跑或禁用既有检查。新首稿的浏览器覆盖仅为Ubuntu Chromium，不代表Safari/Firefox或移动端原生浏览器验证。
+
+发现与归因
+1. 数值约束与计算状态边界，待修正。
+   独立DOM追加复现：每周小时字段 min=0、max=20、step=0.5。
+   输入-1后，字段明确报错，但指标变成-4小时、-320 CNY、剩余2,320 CNY。
+   输入21后为84小时、6,720 CNY；输入0.1后为0.4小时、32 CNY。三者均已判为无效。清空字段则正确保留此前数值。
+   库先提交可解析的有限数，再显示范围/步长错误；Skill“最后有效state”及首稿“当前有效值”没有讲清这个区别。归因为运行库交互语义与文档边界问题，并非作者写错字段或引用。上述具体指标证据来自独立DOM复现，不能冒充浏览器截图。38组浏览器脚本检查了字段报错，未断言此时指标不得更新；绿色CI不覆盖这个缺口。
+2. 缺测呈现一致性，非阻塞观察。
+   普通table按现行合同把null显示为空白；同一图表的附表显示“缺测”。首稿保留null且说明第4周缺测，未伪造0。可考虑将来增加明确空值标签；这不是现有合同违约。
+3. loading/error状态边界。
+   页面演示全null空态、缺汇率和输入错误；没有实现动态ready/loading/error切换。若将该更窄要求作为必选项，则本稿不满足，不能把现有状态演示等同于它。
+
+阅读成本
+唯一源内容95,523 UTF-8字节：根33,167；索引12,811；选读Schema45,697；示例3,848。六份源内容的实际字节数及SHA均复核一致。
+另有索引重复展示12,811字节与截断后补读822字节，已知源内容等价展示量109,156字节。5次成功远程读取，1次CDN失败。字节数和Unicode码点/4均不是实测模型token，不能保证节省token。
+
+不可变首稿 SHA-256
+answer.json: a22fb2ff4eaf6c9311c91d8f7bee1aeb554a2c14bd9b2cb69e2d8e4b31d2dcf9
+answer.html: ee91842b8783a25e564e39f19fa1a4a557c7f704b810a661f12e4334cc29cde1
+HTML仅依赖已固定的在线运行库与样式；需联网。JSON可独立保存。文件均为原创合成教学内容，不含用户私人数据。
+
+可复查来源
+冻结首稿和验收脚本：
+https://github.com/Micraow/Inform-UI-skill/tree/616800a20c34434b248c461e1459cd34b11775c8/tests/fragment-blind
+聚焦浏览器验收：
+https://github.com/Micraow/Inform-UI-skill/actions/runs/37885894732
+原有四平台验收：
+https://github.com/Micraow/Inform-UI-skill/actions/runs/37885898533

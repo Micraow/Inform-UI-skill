@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>业余篮球联赛周报与规则自测</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.css" integrity="sha384-C+dusRekNRJiTU/8pVtFBTI6qqJ60MrvrFkZSGX7DdoE7p9++WfH3OKUE1//MnjD" crossorigin="anonymous">
+</head>
+<body class="iui-page" data-theme="auto" style="margin:0">
+  <main id="iui">正在加载界面…</main>
+  <noscript>请启用 JavaScript 以查看这个交互文档。</noscript>
+  <script id="iui-spec" type="application/json">
+{
+  "version": "iui/1",
+  "theme": "auto",
+  "title": "业余篮球联赛周报与规则自测",
+  "description": "完整合成的篮球周报、调用方供数体育视图及本地学习演示。",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "业余篮球联赛周报与规则自测"
+    },
+    {
+      "type": "text",
+      "value": "晨光两连胜领跑；松林与夜航同积3分，松林凭净胜分暂列第二。读完这份周报，再用5道题和4张闪卡检查你的理解。"
+    },
+    {
+      "type": "callout",
+      "tone": "caution",
+      "value": "全部内容均为原创合成教学样例：联赛、队名、场馆、赛程、比分、排名与赛制都不对应真实赛事，也不是官方篮球规则指南。没有联网获取比赛数据。"
+    },
+    {
+      "type": "caption",
+      "value": "周报范围：2026年10月3日至9日。数据快照：2026年10月9日09:30（Asia/Shanghai，UTC+08:00）。来源：本页作者为演示编写的完整合成数据。下一轮日期为虚构安排。"
+    },
+    {
+      "type": "section",
+      "heading": "本周看点与排名依据",
+      "children": [
+        {
+          "type": "metric-grid",
+          "columns": 3,
+          "children": [
+            {
+              "type": "metric",
+              "label": "已结束比赛",
+              "value": 4,
+              "unit": "场",
+              "hint": "仅统计本周合成比赛"
+            },
+            {
+              "type": "metric",
+              "label": "晨光积分",
+              "value": 4,
+              "unit": "分",
+              "hint": "2胜 × 每胜2分"
+            },
+            {
+              "type": "metric",
+              "label": "晨光净胜分",
+              "value": 16,
+              "unit": "分",
+              "hint": "得分140 − 失分124"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "本例小联赛约定：胜一场得2积分，负一场得1积分；未赛不计分。先按积分降序，再按累计净胜分降序、累计得分降序，仍相同则按球队英文ID字母序排名。积分榜是作者提供的快照，组件不会代算赛制或重排官方名次。"
+        },
+        {
+          "type": "sports-standings",
+          "id": "weekly_standings",
+          "data": {
+            "league": {
+              "id": "community_demo",
+              "name": "街区业余篮球联赛（全合成）",
+              "sport": "basketball",
+              "season": "2026秋季·教学样例"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-09T09:30:00+08:00",
+            "source": {
+              "label": "本页作者原创合成数据，非真实赛事记录",
+              "synthetic": true
+            },
+            "teams": [
+              {
+                "id": "dawn",
+                "name": "晨光队",
+                "shortName": "晨光",
+                "color": "orange"
+              },
+              {
+                "id": "night",
+                "name": "夜航队",
+                "shortName": "夜航",
+                "color": "blue"
+              },
+              {
+                "id": "pine",
+                "name": "松林队",
+                "shortName": "松林",
+                "color": "green"
+              },
+              {
+                "id": "sea",
+                "name": "海风队",
+                "shortName": "海风",
+                "color": "purple"
+              }
+            ],
+            "games": [
+              {
+                "id": "round1_a",
+                "startAt": "2026-10-03T18:00:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "night",
+                "status": "final",
+                "homeScore": 68,
+                "awayScore": 60,
+                "winnerTeamId": "dawn",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round1_b",
+                "startAt": "2026-10-03T19:30:00+08:00",
+                "homeTeam": "pine",
+                "awayTeam": "sea",
+                "status": "final",
+                "homeScore": 55,
+                "awayScore": 51,
+                "winnerTeamId": "pine",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round2_a",
+                "startAt": "2026-10-07T18:00:00+08:00",
+                "homeTeam": "night",
+                "awayTeam": "pine",
+                "status": "final",
+                "homeScore": 62,
+                "awayScore": 58,
+                "winnerTeamId": "night",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round2_b",
+                "startAt": "2026-10-07T19:30:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "sea",
+                "status": "final",
+                "homeScore": 72,
+                "awayScore": 64,
+                "winnerTeamId": "dawn",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束",
+                "periodScores": [
+                  {
+                    "label": "第1节",
+                    "home": 18,
+                    "away": 14
+                  },
+                  {
+                    "label": "第2节",
+                    "home": 16,
+                    "away": 18
+                  },
+                  {
+                    "label": "第3节",
+                    "home": 20,
+                    "away": 15
+                  },
+                  {
+                    "label": "第4节",
+                    "home": 18,
+                    "away": 17
+                  }
+                ],
+                "detail": "合成焦点战：晨光半场34:32领先，下半场38:32，最终72:64。"
+              },
+              {
+                "id": "round3_a",
+                "startAt": "2026-10-10T18:00:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "pine",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "detail": "教学虚构赛程；不代表真实活动邀请。"
+              },
+              {
+                "id": "round3_b",
+                "startAt": "2026-10-10T19:30:00+08:00",
+                "homeTeam": "night",
+                "awayTeam": "sea",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "detail": "教学虚构赛程；不代表真实活动邀请。"
+              }
+            ],
+            "standings": [
+              {
+                "teamId": "dawn",
+                "rank": 1,
+                "played": 2,
+                "won": 2,
+                "drawn": 0,
+                "lost": 0,
+                "points": 4,
+                "for": 140,
+                "against": 124,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "pine",
+                "rank": 2,
+                "played": 2,
+                "won": 1,
+                "drawn": 0,
+                "lost": 1,
+                "points": 3,
+                "for": 113,
+                "against": 113,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "night",
+                "rank": 3,
+                "played": 2,
+                "won": 1,
+                "drawn": 0,
+                "lost": 1,
+                "points": 3,
+                "for": 122,
+                "against": 126,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "sea",
+                "rank": 4,
+                "played": 2,
+                "won": 0,
+                "drawn": 0,
+                "lost": 2,
+                "points": 2,
+                "for": 115,
+                "against": 127,
+                "note": "合成快照；按本页教学赛制排序"
+              }
+            ]
+          }
+        },
+        {
+          "type": "caption",
+          "value": "松林：113−113＝0；夜航：122−126＝−4。两队同积3分，因此松林在前。虽然夜航本周62:58击败松林，本例同分规则不优先比较相互战绩。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "下一轮：先看时间，再选球队",
+      "children": [
+        {
+          "type": "text",
+          "value": "10月10日18:00晨光对松林，19:30夜航对海风。所有时间均为北京时间。可使用赛程自身的日期、球队和阶段筛选查看提供的数据；本页不会查询新赛程。"
+        },
+        {
+          "type": "sports-schedule",
+          "id": "weekly_schedule",
+          "initialDate": "2026-10-10",
+          "data": {
+            "league": {
+              "id": "community_demo",
+              "name": "街区业余篮球联赛（全合成）",
+              "sport": "basketball",
+              "season": "2026秋季·教学样例"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-09T09:30:00+08:00",
+            "source": {
+              "label": "本页作者原创合成数据，非真实赛事记录",
+              "synthetic": true
+            },
+            "teams": [
+              {
+                "id": "dawn",
+                "name": "晨光队",
+                "shortName": "晨光",
+                "color": "orange"
+              },
+              {
+                "id": "night",
+                "name": "夜航队",
+                "shortName": "夜航",
+                "color": "blue"
+              },
+              {
+                "id": "pine",
+                "name": "松林队",
+                "shortName": "松林",
+                "color": "green"
+              },
+              {
+                "id": "sea",
+                "name": "海风队",
+                "shortName": "海风",
+                "color": "purple"
+              }
+            ],
+            "games": [
+              {
+                "id": "round1_a",
+                "startAt": "2026-10-03T18:00:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "night",
+                "status": "final",
+                "homeScore": 68,
+                "awayScore": 60,
+                "winnerTeamId": "dawn",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round1_b",
+                "startAt": "2026-10-03T19:30:00+08:00",
+                "homeTeam": "pine",
+                "awayTeam": "sea",
+                "status": "final",
+                "homeScore": 55,
+                "awayScore": 51,
+                "winnerTeamId": "pine",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round2_a",
+                "startAt": "2026-10-07T18:00:00+08:00",
+                "homeTeam": "night",
+                "awayTeam": "pine",
+                "status": "final",
+                "homeScore": 62,
+                "awayScore": 58,
+                "winnerTeamId": "night",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round2_b",
+                "startAt": "2026-10-07T19:30:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "sea",
+                "status": "final",
+                "homeScore": 72,
+                "awayScore": 64,
+                "winnerTeamId": "dawn",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束",
+                "periodScores": [
+                  {
+                    "label": "第1节",
+                    "home": 18,
+                    "away": 14
+                  },
+                  {
+                    "label": "第2节",
+                    "home": 16,
+                    "away": 18
+                  },
+                  {
+                    "label": "第3节",
+                    "home": 20,
+                    "away": 15
+                  },
+                  {
+                    "label": "第4节",
+                    "home": 18,
+                    "away": 17
+                  }
+                ],
+                "detail": "合成焦点战：晨光半场34:32领先，下半场38:32，最终72:64。"
+              },
+              {
+                "id": "round3_a",
+                "startAt": "2026-10-10T18:00:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "pine",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "detail": "教学虚构赛程；不代表真实活动邀请。"
+              },
+              {
+                "id": "round3_b",
+                "startAt": "2026-10-10T19:30:00+08:00",
+                "homeTeam": "night",
+                "awayTeam": "sea",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "detail": "教学虚构赛程；不代表真实活动邀请。"
+              }
+            ],
+            "standings": [
+              {
+                "teamId": "dawn",
+                "rank": 1,
+                "played": 2,
+                "won": 2,
+                "drawn": 0,
+                "lost": 0,
+                "points": 4,
+                "for": 140,
+                "against": 124,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "pine",
+                "rank": 2,
+                "played": 2,
+                "won": 1,
+                "drawn": 0,
+                "lost": 1,
+                "points": 3,
+                "for": 113,
+                "against": 113,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "night",
+                "rank": 3,
+                "played": 2,
+                "won": 1,
+                "drawn": 0,
+                "lost": 1,
+                "points": 3,
+                "for": 122,
+                "against": 126,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "sea",
+                "rank": 4,
+                "played": 2,
+                "won": 0,
+                "drawn": 0,
+                "lost": 2,
+                "points": 2,
+                "for": 115,
+                "against": 127,
+                "note": "合成快照；按本页教学赛制排序"
+              }
+            ]
+          }
+        },
+        {
+          "type": "caption",
+          "value": "未开始比赛的两队比分均为缺测值null，不用0:0冒充开赛。切换此赛程的筛选不会联动下方记分牌或上方积分榜。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "焦点复盘：晨光72:64海风",
+      "children": [
+        {
+          "type": "text",
+          "value": "晨光半场仅领先2分，第三节20:15扩大优势，最终赢8分。下方可选其他已提供的比赛；它是静态快照，没有直播订阅或自动计时。"
+        },
+        {
+          "type": "sports-scoreboard",
+          "id": "weekly_scoreboard",
+          "gameId": "round2_b",
+          "data": {
+            "league": {
+              "id": "community_demo",
+              "name": "街区业余篮球联赛（全合成）",
+              "sport": "basketball",
+              "season": "2026秋季·教学样例"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-09T09:30:00+08:00",
+            "source": {
+              "label": "本页作者原创合成数据，非真实赛事记录",
+              "synthetic": true
+            },
+            "teams": [
+              {
+                "id": "dawn",
+                "name": "晨光队",
+                "shortName": "晨光",
+                "color": "orange"
+              },
+              {
+                "id": "night",
+                "name": "夜航队",
+                "shortName": "夜航",
+                "color": "blue"
+              },
+              {
+                "id": "pine",
+                "name": "松林队",
+                "shortName": "松林",
+                "color": "green"
+              },
+              {
+                "id": "sea",
+                "name": "海风队",
+                "shortName": "海风",
+                "color": "purple"
+              }
+            ],
+            "games": [
+              {
+                "id": "round1_a",
+                "startAt": "2026-10-03T18:00:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "night",
+                "status": "final",
+                "homeScore": 68,
+                "awayScore": 60,
+                "winnerTeamId": "dawn",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round1_b",
+                "startAt": "2026-10-03T19:30:00+08:00",
+                "homeTeam": "pine",
+                "awayTeam": "sea",
+                "status": "final",
+                "homeScore": 55,
+                "awayScore": 51,
+                "winnerTeamId": "pine",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round2_a",
+                "startAt": "2026-10-07T18:00:00+08:00",
+                "homeTeam": "night",
+                "awayTeam": "pine",
+                "status": "final",
+                "homeScore": 62,
+                "awayScore": 58,
+                "winnerTeamId": "night",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束"
+              },
+              {
+                "id": "round2_b",
+                "startAt": "2026-10-07T19:30:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "sea",
+                "status": "final",
+                "homeScore": 72,
+                "awayScore": 64,
+                "winnerTeamId": "dawn",
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "period": "已结束",
+                "periodScores": [
+                  {
+                    "label": "第1节",
+                    "home": 18,
+                    "away": 14
+                  },
+                  {
+                    "label": "第2节",
+                    "home": 16,
+                    "away": 18
+                  },
+                  {
+                    "label": "第3节",
+                    "home": 20,
+                    "away": 15
+                  },
+                  {
+                    "label": "第4节",
+                    "home": 18,
+                    "away": 17
+                  }
+                ],
+                "detail": "合成焦点战：晨光半场34:32领先，下半场38:32，最终72:64。"
+              },
+              {
+                "id": "round3_a",
+                "startAt": "2026-10-10T18:00:00+08:00",
+                "homeTeam": "dawn",
+                "awayTeam": "pine",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "detail": "教学虚构赛程；不代表真实活动邀请。"
+              },
+              {
+                "id": "round3_b",
+                "startAt": "2026-10-10T19:30:00+08:00",
+                "homeTeam": "night",
+                "awayTeam": "sea",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "循环赛",
+                "venue": "合成社区体育馆",
+                "detail": "教学虚构赛程；不代表真实活动邀请。"
+              }
+            ],
+            "standings": [
+              {
+                "teamId": "dawn",
+                "rank": 1,
+                "played": 2,
+                "won": 2,
+                "drawn": 0,
+                "lost": 0,
+                "points": 4,
+                "for": 140,
+                "against": 124,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "pine",
+                "rank": 2,
+                "played": 2,
+                "won": 1,
+                "drawn": 0,
+                "lost": 1,
+                "points": 3,
+                "for": 113,
+                "against": 113,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "night",
+                "rank": 3,
+                "played": 2,
+                "won": 1,
+                "drawn": 0,
+                "lost": 1,
+                "points": 3,
+                "for": 122,
+                "against": 126,
+                "note": "合成快照；按本页教学赛制排序"
+              },
+              {
+                "teamId": "sea",
+                "rank": 4,
+                "played": 2,
+                "won": 0,
+                "drawn": 0,
+                "lost": 2,
+                "points": 2,
+                "for": 115,
+                "against": 127,
+                "note": "合成快照；按本页教学赛制排序"
+              }
+            ]
+          }
+        },
+        {
+          "type": "caption",
+          "value": "四节分数由作者合成：晨光18＋16＋20＋18＝72；海风14＋18＋15＋17＝64。未提供的分节和技术统计不补造。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "先读本例规则，再做自测",
+      "children": [
+        {
+          "type": "list",
+          "items": [
+            "计分：罚球命中得1分，两分区域投篮命中得2分，三分区域投篮命中得3分。",
+            "赛时：本例每场4节，每节8分钟；常规时间打平则加赛3分钟，仍平继续加赛，最终不记平局。",
+            "联赛积分与篮球比分不同：一场获胜得2积分、落败得1积分。",
+            "相同积分的排序：净胜分、累计得分、英文球队ID字母序，依次比较。",
+            "未赛比分为null；0表示已知的零分。所有题目仅依据本页教学约定与合成快照。"
+          ]
+        },
+        {
+          "type": "callout",
+          "tone": "info",
+          "value": "自测只在当前页面运行。确认答案后才显示解析；多选须完整选对才得分。成绩与闪卡自评不会上传或自动保存，刷新会重置。答案已写在HTML里，不适合保密考试。"
+        },
+        {
+          "type": "quiz",
+          "id": "rules_quiz",
+          "title": "5题自测：积分、复盘与读数",
+          "description": "共6分；第5题为2分多选题，其余每题1分。先作答，再确认查看解释。",
+          "questions": [
+            {
+              "id": "league_points",
+              "kind": "single",
+              "prompt": "晨光本周2胜0负，按本例赛制应得多少联赛积分？",
+              "choices": [
+                {
+                  "id": "two",
+                  "label": "2分"
+                },
+                {
+                  "id": "four",
+                  "label": "4分"
+                },
+                {
+                  "id": "six",
+                  "label": "6分"
+                }
+              ],
+              "correct": [
+                "four"
+              ],
+              "explanation": "每胜2积分，因此2×2＝4积分。72等单场篮球得分不等于联赛积分。",
+              "points": 1
+            },
+            {
+              "id": "tiebreak",
+              "kind": "single",
+              "prompt": "松林和夜航同积3分，为何松林暂列第二？",
+              "choices": [
+                {
+                  "id": "head_to_head",
+                  "label": "松林赢了双方直接交手"
+                },
+                {
+                  "id": "difference",
+                  "label": "松林累计净胜分0，高于夜航−4"
+                },
+                {
+                  "id": "scored",
+                  "label": "松林累计得分更多"
+                }
+              ],
+              "correct": [
+                "difference"
+              ],
+              "explanation": "本例同积分先比净胜分：松林113−113＝0，夜航122−126＝−4。夜航赢了直接交手且得分更多，但这两项不优先于净胜分。",
+              "points": 1
+            },
+            {
+              "id": "quarters",
+              "kind": "single",
+              "prompt": "焦点战晨光前三节共54分，第四节18分，最终总分是多少？",
+              "choices": [
+                {
+                  "id": "seventy",
+                  "label": "70分"
+                },
+                {
+                  "id": "seventy_two",
+                  "label": "72分"
+                },
+                {
+                  "id": "seventy_four",
+                  "label": "74分"
+                }
+              ],
+              "correct": [
+                "seventy_two"
+              ],
+              "explanation": "前三节18＋16＋20＝54，再加第四节18，共72分。",
+              "points": 1
+            },
+            {
+              "id": "overtime",
+              "kind": "single",
+              "prompt": "仅按本页教学约定，4节结束时比分相同，接下来如何处理？",
+              "choices": [
+                {
+                  "id": "draw",
+                  "label": "记为平局，各得1积分"
+                },
+                {
+                  "id": "extra",
+                  "label": "加赛3分钟；仍平则继续加赛"
+                },
+                {
+                  "id": "rank",
+                  "label": "排名更高的球队获胜"
+                }
+              ],
+              "correct": [
+                "extra"
+              ],
+              "explanation": "本例规定4节、每节8分钟；常规时间打平则加赛3分钟，直到分出胜负。这是本页教学约定，不是对所有篮球赛事的规则声明。",
+              "points": 1
+            },
+            {
+              "id": "data_reading",
+              "kind": "multiple",
+              "prompt": "关于本页体育视图，哪些说法正确？（多选）",
+              "choices": [
+                {
+                  "id": "synthetic",
+                  "label": "所有球队与比赛数据均为合成教学数据"
+                },
+                {
+                  "id": "null_score",
+                  "label": "未赛比分null不能解释为真实0:0"
+                },
+                {
+                  "id": "live",
+                  "label": "记分牌会联网自动刷新比分"
+                },
+                {
+                  "id": "independent",
+                  "label": "各视图的本地筛选不会自动联动"
+                }
+              ],
+              "correct": [
+                "synthetic",
+                "null_score",
+                "independent"
+              ],
+              "explanation": "本页来源明确标记synthetic:true。null表示没有比分；组件只展示已提供数据，各自维护本地视图状态，不会自动查询或跨视图联动。",
+              "points": 2
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "id": "rules_cards",
+          "title": "4张闪卡：先回忆，再翻面",
+          "description": "翻面后标记已掌握或再练一次。本轮自评仅供复习参考，不是正式能力评定。",
+          "cards": [
+            {
+              "id": "scoring",
+              "front": "罚球、两分区域投篮、三分区域投篮，命中各得多少分？",
+              "back": "分别得1分、2分、3分。这里说的是场上比分，不是胜负对应的联赛积分。",
+              "hint": "按1、2、3回忆。"
+            },
+            {
+              "id": "points",
+              "front": "本例联赛的胜、负、未赛分别如何计积分？",
+              "back": "胜一场得2积分，负一场得1积分，未赛不计分。例如1胜1负得3积分。"
+            },
+            {
+              "id": "ranking",
+              "front": "本例积分相同时，按什么顺序比较？",
+              "back": "先比累计净胜分，再比累计得分，仍相同则按球队英文ID字母序。松林净胜分0，因此排在净胜分−4的夜航前面。"
+            },
+            {
+              "id": "missing",
+              "front": "比分null与比分0有什么区别？",
+              "back": "null表示缺少比分或尚未开赛；0表示已知得分为零。不能用0补缺测，也不能把合成快照称为实时比赛。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "value": "交付说明：此页面通过固定版本Intelligent-UI CDN加载界面，打开时需要联网。只进行了JSON语法检查，尚未实际打开验证；未运行库校验或浏览器测试。"
+    }
+  ]
+}
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.global.min.js" integrity="sha384-iSRKUQ1PkW22WeAPJV0kUHRGTQMLfhge7BMgMaH2YdfeXAHE+YjrutcGVI9TVJS+" crossorigin="anonymous"></script>
+  <script>
+    const host = document.getElementById('iui');
+    try {
+      if (!window.IUI) throw new Error('库未加载，请检查网络或 CDN 地址。');
+      const { validateDocument, mount } = window.IUI;
+      const input = JSON.parse(document.getElementById('iui-spec').textContent);
+      const result = validateDocument(input);
+      if (!result.ok) throw new Error(result.issues.map(i => `${i.code} ${i.path}: ${i.message}`).join('\n'));
+      mount(host, result.document, { styles: false });
+    } catch (error) {
+      host.textContent = `未能显示界面：${error.message}`;
+    }
+  </script>
+</body>
+</html>

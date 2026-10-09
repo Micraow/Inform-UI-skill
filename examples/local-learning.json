@@ -1,0 +1,123 @@
+{
+  "version": "iui/1",
+  "title": "比例与抽样：先理解，再自测",
+  "theme": "auto",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "一次本地自测与回忆练习"
+    },
+    {
+      "type": "text",
+      "value": "先完成两道客观题，再用两张卡片回忆同一组概念。所有答题和自评只存在本轮页面，答案已包含在文档中。"
+    },
+    {
+      "type": "math",
+      "latex": "p=\\frac{k}{n}",
+      "block": true
+    },
+    {
+      "type": "quiz",
+      "title": "比例与抽样自测",
+      "description": "题数进度与加权得分分别显示；多选必须完全正确。",
+      "questions": [
+        {
+          "id": "ratio",
+          "kind": "single",
+          "prompt": "10个样本里有4个命中，命中比例是多少？",
+          "latex": "p=\\frac{4}{10}",
+          "choices": [
+            {
+              "id": "two",
+              "label": "20%"
+            },
+            {
+              "id": "four",
+              "label": "40%"
+            },
+            {
+              "id": "eight",
+              "label": "80%"
+            }
+          ],
+          "correct": [
+            "four"
+          ],
+          "explanation": "4除以10是0.4，即40%。",
+          "explanationLatex": "\\frac{4}{10}=0.4=40\\%",
+          "points": 2
+        },
+        {
+          "id": "missing",
+          "kind": "multiple",
+          "prompt": "哪些做法能保留数据的含义？",
+          "choices": [
+            {
+              "id": "unit",
+              "label": "保留单位与采样口径"
+            },
+            {
+              "id": "null",
+              "label": "把缺测保留为null并说明"
+            },
+            {
+              "id": "zero",
+              "label": "把未知值补成零方便画图"
+            }
+          ],
+          "correct": [
+            "unit",
+            "null"
+          ],
+          "explanation": "零表示已知数值；缺测表示未知，两者不能互换。",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "先回忆，再自评",
+      "description": "自评标记不是学习诊断；不会设置复习日程。",
+      "cards": [
+        {
+          "id": "fraction",
+          "front": "比例应如何从命中数与样本数计算？",
+          "hint": "先确定分子和分母的口径。",
+          "back": "命中数除以有效样本总数，分母应大于零。",
+          "backLatex": "p=\\frac{k}{n},\\quad n>0"
+        },
+        {
+          "id": "absence",
+          "front": "null和0为什么不能互换？",
+          "back": "null表达没有观测或未知；0是一次已知的零值。"
+        }
+      ]
+    },
+    {
+      "type": "details",
+      "summary": "没有题目或卡片时",
+      "children": [
+        {
+          "type": "quiz",
+          "title": "尚无自测题",
+          "questions": []
+        },
+        {
+          "type": "flashcards",
+          "title": "尚无复习卡",
+          "cards": [],
+          "status": "loading",
+          "message": "等待调用方提供教学内容；本页不会发送请求。"
+        },
+        {
+          "type": "quiz",
+          "title": "教学错误状态",
+          "questions": [],
+          "status": "error",
+          "message": "内容暂不可用；没有远程批改或自动重试。"
+        }
+      ]
+    }
+  ]
+}

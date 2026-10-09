@@ -1,0 +1,656 @@
+{
+  "version": "iui/1",
+  "title": "读懂一份比赛快照",
+  "theme": "auto",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "先看时间，再看比分与排名"
+    },
+    {
+      "type": "text",
+      "value": "这是虚构联赛的教学快照。所有球队、比赛和积分都是合成数据，页面不提供实时比分、不发起数据请求。"
+    },
+    {
+      "type": "caption",
+      "value": "更新时间：2026-10-10 15:20，Asia/Shanghai。不同视图独立选择；以下积分来自一份完整赛绩快照，不由本页选出的几场比赛推导。"
+    },
+    {
+      "type": "section",
+      "heading": "哪些比赛值得展开？",
+      "children": [
+        {
+          "type": "sports-schedule",
+          "data": {
+            "league": {
+              "id": "canal_cup",
+              "name": "运河示例杯（合成）",
+              "sport": "football",
+              "season": "教学快照"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-10T15:20:00+08:00",
+            "source": {
+              "label": "原创合成快照；未查询体育服务",
+              "synthetic": true
+            },
+            "teams": [
+              {
+                "id": "north",
+                "name": "北岸队",
+                "shortName": "北岸",
+                "color": "blue"
+              },
+              {
+                "id": "south",
+                "name": "南岸队",
+                "shortName": "南岸",
+                "color": "green"
+              },
+              {
+                "id": "east",
+                "name": "东桥队",
+                "shortName": "东桥",
+                "color": "orange"
+              },
+              {
+                "id": "west",
+                "name": "西堤队",
+                "shortName": "西堤",
+                "color": "purple"
+              }
+            ],
+            "games": [
+              {
+                "id": "next",
+                "startAt": "2026-10-11T14:00:00+08:00",
+                "homeTeam": "east",
+                "awayTeam": "west",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "小组赛",
+                "venue": "虚构西岸场地"
+              },
+              {
+                "id": "playing",
+                "startAt": "2026-10-10T15:00:00+08:00",
+                "homeTeam": "north",
+                "awayTeam": "south",
+                "status": "live",
+                "homeScore": 0,
+                "awayScore": 0,
+                "period": "上半场",
+                "clock": "20:00（数据快照）",
+                "stage": "小组赛",
+                "detail": "比分为真实零的合成示例；计时不会自行推进。",
+                "stats": [
+                  {
+                    "label": "射门",
+                    "home": 3,
+                    "away": 2
+                  },
+                  {
+                    "label": "控球",
+                    "home": "52%",
+                    "away": "48%"
+                  },
+                  {
+                    "label": "伤停补时",
+                    "home": null,
+                    "away": null
+                  }
+                ]
+              },
+              {
+                "id": "finished",
+                "startAt": "2026-10-09T19:00:00+08:00",
+                "homeTeam": "west",
+                "awayTeam": "north",
+                "status": "final",
+                "homeScore": 1,
+                "awayScore": 1,
+                "stage": "表演赛",
+                "winnerTeamId": "west",
+                "tieBreak": {
+                  "label": "点球",
+                  "home": 5,
+                  "away": 4
+                },
+                "periodScores": [
+                  {
+                    "label": "上半场",
+                    "home": 1,
+                    "away": 0
+                  },
+                  {
+                    "label": "下半场",
+                    "home": 0,
+                    "away": 1
+                  }
+                ],
+                "detail": "来源明确判西堤队点球取胜；点球不并入1:1总比分，表演赛不计小组积分。"
+              },
+              {
+                "id": "postponed",
+                "startAt": "2026-10-11T16:00:00+08:00",
+                "homeTeam": "south",
+                "awayTeam": "east",
+                "status": "postponed",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "小组赛",
+                "detail": "合成延期状态，新的时间尚未提供。"
+              }
+            ],
+            "standings": [
+              {
+                "teamId": "north",
+                "rank": 1,
+                "played": 3,
+                "won": 2,
+                "drawn": 1,
+                "lost": 0,
+                "points": 7,
+                "group": "教学组",
+                "for": 5,
+                "against": 2
+              },
+              {
+                "teamId": "south",
+                "rank": 2,
+                "played": 3,
+                "won": 1,
+                "drawn": 1,
+                "lost": 1,
+                "points": 4,
+                "group": "教学组",
+                "for": 3,
+                "against": 3
+              },
+              {
+                "teamId": "west",
+                "rank": 2,
+                "played": 3,
+                "won": 1,
+                "drawn": 1,
+                "lost": 1,
+                "points": 4,
+                "group": "教学组",
+                "for": null,
+                "against": null,
+                "note": "来源并列第二；进失球未提供。"
+              },
+              {
+                "teamId": "east",
+                "rank": 4,
+                "played": 3,
+                "won": 0,
+                "drawn": 1,
+                "lost": 2,
+                "points": -1,
+                "group": "教学组",
+                "for": 1,
+                "against": 4,
+                "note": "教学例含扣2分；保留来源积分，不按胜场重算。"
+              }
+            ]
+          },
+          "initialDate": "2026-10-10"
+        },
+        {
+          "type": "text",
+          "value": "切换日期与球队可筛选已提供的比赛。没有比赛是一个有效结果，不需要造出条目填充。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "0:0与未知比分不同",
+      "children": [
+        {
+          "type": "sports-scoreboard",
+          "data": {
+            "league": {
+              "id": "canal_cup",
+              "name": "运河示例杯（合成）",
+              "sport": "football",
+              "season": "教学快照"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-10T15:20:00+08:00",
+            "source": {
+              "label": "原创合成快照；未查询体育服务",
+              "synthetic": true
+            },
+            "teams": [
+              {
+                "id": "north",
+                "name": "北岸队",
+                "shortName": "北岸",
+                "color": "blue"
+              },
+              {
+                "id": "south",
+                "name": "南岸队",
+                "shortName": "南岸",
+                "color": "green"
+              },
+              {
+                "id": "east",
+                "name": "东桥队",
+                "shortName": "东桥",
+                "color": "orange"
+              },
+              {
+                "id": "west",
+                "name": "西堤队",
+                "shortName": "西堤",
+                "color": "purple"
+              }
+            ],
+            "games": [
+              {
+                "id": "next",
+                "startAt": "2026-10-11T14:00:00+08:00",
+                "homeTeam": "east",
+                "awayTeam": "west",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "小组赛",
+                "venue": "虚构西岸场地"
+              },
+              {
+                "id": "playing",
+                "startAt": "2026-10-10T15:00:00+08:00",
+                "homeTeam": "north",
+                "awayTeam": "south",
+                "status": "live",
+                "homeScore": 0,
+                "awayScore": 0,
+                "period": "上半场",
+                "clock": "20:00（数据快照）",
+                "stage": "小组赛",
+                "detail": "比分为真实零的合成示例；计时不会自行推进。",
+                "stats": [
+                  {
+                    "label": "射门",
+                    "home": 3,
+                    "away": 2
+                  },
+                  {
+                    "label": "控球",
+                    "home": "52%",
+                    "away": "48%"
+                  },
+                  {
+                    "label": "伤停补时",
+                    "home": null,
+                    "away": null
+                  }
+                ]
+              },
+              {
+                "id": "finished",
+                "startAt": "2026-10-09T19:00:00+08:00",
+                "homeTeam": "west",
+                "awayTeam": "north",
+                "status": "final",
+                "homeScore": 1,
+                "awayScore": 1,
+                "stage": "表演赛",
+                "winnerTeamId": "west",
+                "tieBreak": {
+                  "label": "点球",
+                  "home": 5,
+                  "away": 4
+                },
+                "periodScores": [
+                  {
+                    "label": "上半场",
+                    "home": 1,
+                    "away": 0
+                  },
+                  {
+                    "label": "下半场",
+                    "home": 0,
+                    "away": 1
+                  }
+                ],
+                "detail": "来源明确判西堤队点球取胜；点球不并入1:1总比分，表演赛不计小组积分。"
+              },
+              {
+                "id": "postponed",
+                "startAt": "2026-10-11T16:00:00+08:00",
+                "homeTeam": "south",
+                "awayTeam": "east",
+                "status": "postponed",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "小组赛",
+                "detail": "合成延期状态，新的时间尚未提供。"
+              }
+            ],
+            "standings": [
+              {
+                "teamId": "north",
+                "rank": 1,
+                "played": 3,
+                "won": 2,
+                "drawn": 1,
+                "lost": 0,
+                "points": 7,
+                "group": "教学组",
+                "for": 5,
+                "against": 2
+              },
+              {
+                "teamId": "south",
+                "rank": 2,
+                "played": 3,
+                "won": 1,
+                "drawn": 1,
+                "lost": 1,
+                "points": 4,
+                "group": "教学组",
+                "for": 3,
+                "against": 3
+              },
+              {
+                "teamId": "west",
+                "rank": 2,
+                "played": 3,
+                "won": 1,
+                "drawn": 1,
+                "lost": 1,
+                "points": 4,
+                "group": "教学组",
+                "for": null,
+                "against": null,
+                "note": "来源并列第二；进失球未提供。"
+              },
+              {
+                "teamId": "east",
+                "rank": 4,
+                "played": 3,
+                "won": 0,
+                "drawn": 1,
+                "lost": 2,
+                "points": -1,
+                "group": "教学组",
+                "for": 1,
+                "against": 4,
+                "note": "教学例含扣2分；保留来源积分，不按胜场重算。"
+              }
+            ]
+          },
+          "gameId": "playing"
+        },
+        {
+          "type": "text",
+          "value": "进行中比赛明确为0:0。尚未开赛、延期时的空白比分是未知值；选择表演赛可查看比分相同但点球胜者已由来源给出的例子。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "并列和扣分应保留",
+      "children": [
+        {
+          "type": "sports-standings",
+          "data": {
+            "league": {
+              "id": "canal_cup",
+              "name": "运河示例杯（合成）",
+              "sport": "football",
+              "season": "教学快照"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-10T15:20:00+08:00",
+            "source": {
+              "label": "原创合成快照；未查询体育服务",
+              "synthetic": true
+            },
+            "teams": [
+              {
+                "id": "north",
+                "name": "北岸队",
+                "shortName": "北岸",
+                "color": "blue"
+              },
+              {
+                "id": "south",
+                "name": "南岸队",
+                "shortName": "南岸",
+                "color": "green"
+              },
+              {
+                "id": "east",
+                "name": "东桥队",
+                "shortName": "东桥",
+                "color": "orange"
+              },
+              {
+                "id": "west",
+                "name": "西堤队",
+                "shortName": "西堤",
+                "color": "purple"
+              }
+            ],
+            "games": [
+              {
+                "id": "next",
+                "startAt": "2026-10-11T14:00:00+08:00",
+                "homeTeam": "east",
+                "awayTeam": "west",
+                "status": "scheduled",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "小组赛",
+                "venue": "虚构西岸场地"
+              },
+              {
+                "id": "playing",
+                "startAt": "2026-10-10T15:00:00+08:00",
+                "homeTeam": "north",
+                "awayTeam": "south",
+                "status": "live",
+                "homeScore": 0,
+                "awayScore": 0,
+                "period": "上半场",
+                "clock": "20:00（数据快照）",
+                "stage": "小组赛",
+                "detail": "比分为真实零的合成示例；计时不会自行推进。",
+                "stats": [
+                  {
+                    "label": "射门",
+                    "home": 3,
+                    "away": 2
+                  },
+                  {
+                    "label": "控球",
+                    "home": "52%",
+                    "away": "48%"
+                  },
+                  {
+                    "label": "伤停补时",
+                    "home": null,
+                    "away": null
+                  }
+                ]
+              },
+              {
+                "id": "finished",
+                "startAt": "2026-10-09T19:00:00+08:00",
+                "homeTeam": "west",
+                "awayTeam": "north",
+                "status": "final",
+                "homeScore": 1,
+                "awayScore": 1,
+                "stage": "表演赛",
+                "winnerTeamId": "west",
+                "tieBreak": {
+                  "label": "点球",
+                  "home": 5,
+                  "away": 4
+                },
+                "periodScores": [
+                  {
+                    "label": "上半场",
+                    "home": 1,
+                    "away": 0
+                  },
+                  {
+                    "label": "下半场",
+                    "home": 0,
+                    "away": 1
+                  }
+                ],
+                "detail": "来源明确判西堤队点球取胜；点球不并入1:1总比分，表演赛不计小组积分。"
+              },
+              {
+                "id": "postponed",
+                "startAt": "2026-10-11T16:00:00+08:00",
+                "homeTeam": "south",
+                "awayTeam": "east",
+                "status": "postponed",
+                "homeScore": null,
+                "awayScore": null,
+                "stage": "小组赛",
+                "detail": "合成延期状态，新的时间尚未提供。"
+              }
+            ],
+            "standings": [
+              {
+                "teamId": "north",
+                "rank": 1,
+                "played": 3,
+                "won": 2,
+                "drawn": 1,
+                "lost": 0,
+                "points": 7,
+                "group": "教学组",
+                "for": 5,
+                "against": 2
+              },
+              {
+                "teamId": "south",
+                "rank": 2,
+                "played": 3,
+                "won": 1,
+                "drawn": 1,
+                "lost": 1,
+                "points": 4,
+                "group": "教学组",
+                "for": 3,
+                "against": 3
+              },
+              {
+                "teamId": "west",
+                "rank": 2,
+                "played": 3,
+                "won": 1,
+                "drawn": 1,
+                "lost": 1,
+                "points": 4,
+                "group": "教学组",
+                "for": null,
+                "against": null,
+                "note": "来源并列第二；进失球未提供。"
+              },
+              {
+                "teamId": "east",
+                "rank": 4,
+                "played": 3,
+                "won": 0,
+                "drawn": 1,
+                "lost": 2,
+                "points": -1,
+                "group": "教学组",
+                "for": 1,
+                "against": 4,
+                "note": "教学例含扣2分；保留来源积分，不按胜场重算。"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "value": "按列排序只是查看数据，不会重写来源名次。缺测进失球排在末尾；负积分来自明确的教学扣分说明。"
+        }
+      ]
+    },
+    {
+      "type": "details",
+      "summary": "空、加载和错误状态",
+      "children": [
+        {
+          "type": "sports-schedule",
+          "data": {
+            "league": {
+              "id": "canal_cup",
+              "name": "运河示例杯（合成）",
+              "sport": "football",
+              "season": "教学快照"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-10T15:20:00+08:00",
+            "source": {
+              "label": "原创合成快照；未查询体育服务",
+              "synthetic": true
+            },
+            "teams": [],
+            "games": [],
+            "standings": []
+          }
+        },
+        {
+          "type": "sports-scoreboard",
+          "data": {
+            "league": {
+              "id": "canal_cup",
+              "name": "运河示例杯（合成）",
+              "sport": "football",
+              "season": "教学快照"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-10T15:20:00+08:00",
+            "source": {
+              "label": "原创合成快照；未查询体育服务",
+              "synthetic": true
+            },
+            "teams": [],
+            "games": [],
+            "standings": []
+          },
+          "status": "loading",
+          "message": "调用方尚未提供快照；这里没有正在进行的后台请求。"
+        },
+        {
+          "type": "sports-standings",
+          "data": {
+            "league": {
+              "id": "canal_cup",
+              "name": "运河示例杯（合成）",
+              "sport": "football",
+              "season": "教学快照"
+            },
+            "timezone": "Asia/Shanghai",
+            "updatedAt": "2026-10-10T15:20:00+08:00",
+            "source": {
+              "label": "原创合成快照；未查询体育服务",
+              "synthetic": true
+            },
+            "teams": [],
+            "games": [],
+            "standings": []
+          },
+          "status": "error",
+          "message": "教学错误状态；组件不会自行重试或联系数据服务。"
+        }
+      ]
+    }
+  ]
+}

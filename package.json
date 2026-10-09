@@ -1,0 +1,23 @@
+{
+  "name": "inform-ui-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Semantic authoring guidance and contract-checked examples for Inform UI",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check:library": "node scripts/validate-examples.mjs",
+    "check:browser": "node scripts/verify-browser.mjs",
+    "check:schema": "node scripts/verify-schema-index.mjs",
+    "check:inventory": "node scripts/derive-node-support.mjs --check",
+    "check:components": "node scripts/verify-next-guidance.mjs",
+    "check:primitives": "node scripts/verify-primitive-guidance.mjs",
+    "check:components:browser": "node scripts/verify-next-browser.mjs",
+    "check:next66": "node scripts/verify-next66-guidance.mjs",
+    "check:next66:browser": "node scripts/verify-next66-browser.mjs"
+  }
+}

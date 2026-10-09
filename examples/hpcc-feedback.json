@@ -1,0 +1,172 @@
+{
+  "version": "iui/1",
+  "title": "A bottleneck feedback illustration",
+  "description": "Synthetic teaching data; a simplified proportional update, not a complete HPCC implementation.",
+  "state": {
+    "middleLoad": 1.2
+  },
+  "computed": {
+    "maximumLoad": {
+      "op": "max",
+      "args": [
+        0.7,
+        {
+          "$": "middleLoad"
+        },
+        0.9
+      ]
+    },
+    "nextWindow": {
+      "op": "add",
+      "args": [
+        {
+          "op": "mul",
+          "args": [
+            {
+              "op": "div",
+              "args": [
+                0.95,
+                {
+                  "$": "maximumLoad"
+                }
+              ]
+            },
+            100
+          ]
+        },
+        5
+      ]
+    }
+  },
+  "body": [
+    {
+      "type": "title",
+      "value": "先找瓶颈，再看反馈",
+      "level": 1
+    },
+    {
+      "type": "text",
+      "value": "这条示意路径的反馈由最大链路负载决定。试着降低中间链路负载：当另一条链路成为瓶颈后，继续降低中间负载就不再改变这个简化模型的窗口。"
+    },
+    {
+      "type": "figure",
+      "caption": "全部负载与窗口为合成教学数据。U 是无量纲归一化负载；窗口单位为数据包。",
+      "children": [
+        {
+          "type": "topology",
+          "nodes": [
+            {
+              "id": "sender",
+              "label": "发送端"
+            },
+            {
+              "id": "a",
+              "label": "交换机 A"
+            },
+            {
+              "id": "b",
+              "label": "交换机 B"
+            },
+            {
+              "id": "receiver",
+              "label": "接收端"
+            }
+          ],
+          "links": [
+            {
+              "from": "sender",
+              "to": "a",
+              "label": "链路 1",
+              "load": 0.7
+            },
+            {
+              "from": "a",
+              "to": "b",
+              "label": "链路 2",
+              "load": {
+                "$": "middleLoad"
+              }
+            },
+            {
+              "from": "b",
+              "to": "receiver",
+              "label": "链路 3",
+              "load": 0.9
+            }
+          ],
+          "highlight": "max-load"
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "label": "中间链路归一化负载 U₂",
+      "bind": "middleLoad",
+      "min": 0.4,
+      "max": 1.5,
+      "step": 0.1
+    },
+    {
+      "type": "metric-grid",
+      "columns": 2,
+      "children": [
+        {
+          "type": "metric",
+          "label": "最大归一化负载",
+          "value": {
+            "$": "maximumLoad"
+          },
+          "precision": 2
+        },
+        {
+          "type": "metric",
+          "label": "下一窗口",
+          "value": {
+            "$": "nextWindow"
+          },
+          "unit": "packets",
+          "precision": 1
+        }
+      ]
+    },
+    {
+      "type": "math",
+      "latex": "U_{\\max}=\\max(0.7,U_2,0.9),\\qquad W_{\\mathrm{next}}=\\frac{0.95}{U_{\\max}}\\cdot100+5",
+      "block": true
+    },
+    {
+      "type": "text",
+      "value": "中间负载从 1.2 降到 0.9 时，示意窗口从约 84.2 增到 110.6 个数据包。这只说明最大值与比例反馈的关系，不能用于配置真实网络。"
+    },
+    {
+      "type": "details",
+      "summary": "模型的范围与假设",
+      "children": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "设定三段负载",
+              "detail": "第一段为 0.7，第三段为 0.9；只改变中间段。"
+            },
+            {
+              "title": "取路径最大值",
+              "latex": "U_{\\max}=\\max_j U_j"
+            },
+            {
+              "title": "计算一次比例更新",
+              "detail": "旧窗口固定为 100，目标负载固定为 0.95，附加项固定为 5。完整算法还需要遥测、时序与多流控制逻辑。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "label": "恢复示例值",
+      "action": {
+        "kind": "reset"
+      }
+    }
+  ]
+}

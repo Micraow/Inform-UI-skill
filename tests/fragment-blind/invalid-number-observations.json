@@ -1,0 +1,59 @@
+{
+  "kind": "DOM harness, not real browser",
+  "library": "6797f7f7755f483db6c3be3831aa03433b7c4696",
+  "originalSHA256": "a22fb2ff4eaf6c9311c91d8f7bee1aeb554a2c14bd9b2cb69e2d8e4b31d2dcf9",
+  "results": [
+    {
+      "value": "-1",
+      "state": -1,
+      "ariaInvalid": "true",
+      "formStatus": "invalid",
+      "metrics": [
+        "-4.0",
+        "-320.00",
+        "2320.00",
+        "0.00"
+      ],
+      "fieldError": "数值低于下限。"
+    },
+    {
+      "value": "21",
+      "state": 21,
+      "ariaInvalid": "true",
+      "formStatus": "invalid",
+      "metrics": [
+        "84.0",
+        "6720.00",
+        "0.00",
+        "4720.00"
+      ],
+      "fieldError": "数值超过上限。"
+    },
+    {
+      "value": "0.1",
+      "state": 0.1,
+      "ariaInvalid": "true",
+      "formStatus": "invalid",
+      "metrics": [
+        "0.4",
+        "32.00",
+        "1968.00",
+        "0.00"
+      ],
+      "fieldError": "数值不符合步长要求。"
+    },
+    {
+      "value": "",
+      "state": 6,
+      "ariaInvalid": "true",
+      "formStatus": "invalid",
+      "metrics": [
+        "24.0",
+        "1920.00",
+        "80.00",
+        "0.00"
+      ],
+      "fieldError": "请填写此项。"
+    }
+  ]
+}

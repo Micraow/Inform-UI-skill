@@ -1,0 +1,49 @@
+{
+  "version": "iui/1",
+  "title": "Two companion project repositories",
+  "body": [
+    {
+      "type": "title",
+      "value": "Start with the part you need",
+      "level": 1
+    },
+    {
+      "type": "text",
+      "value": "These companion repositories separate authoring decisions from deterministic software. Both are in development; this list does not imply a package has been published."
+    },
+    {
+      "type": "section",
+      "heading": "Validate and render",
+      "children": [
+        {
+          "type": "link",
+          "value": "Inform UI",
+          "href": "https://github.com/Micraow/Inform-UI"
+        },
+        {
+          "type": "text",
+          "value": "The JavaScript library owns the public schema, input validation, portable HTML and browser controls."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Choose and compose",
+      "children": [
+        {
+          "type": "link",
+          "value": "Inform UI Skill",
+          "href": "https://github.com/Micraow/Inform-UI-skill"
+        },
+        {
+          "type": "text",
+          "value": "The authoring guide helps agents choose a useful visual, keep a clear reading order and verify semantic JSON against the library."
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "value": "Project descriptions, not live popularity rankings. No retrieved thumbnails or metrics are claimed."
+    }
+  ]
+}
