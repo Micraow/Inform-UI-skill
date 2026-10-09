@@ -12,7 +12,7 @@ function argument(flag) {
   if (!process.argv[index + 1] || process.argv[index + 1].startsWith('--')) throw new Error(`${flag} requires a value`);
   return process.argv[index + 1];
 }
-const library = path.resolve(argument('--library') || process.env.IUI_LIBRARY_DIR || path.join(root, '../Intelligent-UI'));
+const library = path.resolve(argument('--library') || process.env.IUI_LIBRARY_DIR || path.join(root, '../Inform-UI'));
 const packageJson = JSON.parse(await readFile(path.join(library, 'package.json'), 'utf8'));
 const contract = JSON.parse(await readFile(path.join(root, 'library-contract.json'), 'utf8'));
 assert.equal(packageJson.name, contract.packageName);

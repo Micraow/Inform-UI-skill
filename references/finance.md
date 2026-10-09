@@ -36,7 +36,7 @@
 
 ## 固定版本验证记录
 
-2026-10-09，Skill [7276bbe](https://github.com/Micraow/Intelligent-UI-skill/commit/7276bbe0beb95b5ec87ef643faddd461b01d9012) 的 [CI 37874394218](https://github.com/Micraow/Intelligent-UI-skill/actions/runs/37874394218) 四平台通过。固定库与所有 CDN 资源来自 [f35e33b](https://github.com/Micraow/Intelligent-UI/commit/f35e33b146c266ecf16371733c51064129afaec3)，已修正热图选择与鼠标焦点边框的颜色；四边粗细一致性仍有待修问题，见下。
+2026-10-09，Skill [7276bbe](https://github.com/Micraow/Inform-UI-skill/commit/7276bbe0beb95b5ec87ef643faddd461b01d9012) 的 [CI 37874394218](https://github.com/Micraow/Inform-UI-skill/actions/runs/37874394218) 四平台通过。固定库与所有 CDN 资源来自 [f35e33b](https://github.com/Micraow/Inform-UI/commit/f35e33b146c266ecf16371733c51064129afaec3)，已修正热图选择与鼠标焦点边框的颜色；四边粗细一致性仍有待修问题，见下。
 
 - 9 项结构/边界测试，12 份示例、48 份无效输入及根 Skill 的 5 个字面 JSON 经真实 API/CLI 验证，含确定性构建和输入不变性。
 - 共 60 个浏览器视图：48 个当前示例、4 个当前根 HTML 壳、41/46 两代历史首稿各 4 个。金融与热图的 8 个明暗/桌面/390px 视图直接使用禁用缓存的 file:// 页面与固定 CDN/SRI。

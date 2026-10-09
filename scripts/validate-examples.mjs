@@ -8,11 +8,11 @@ import { checkSkill, readSkillShell, root } from './check-skill.mjs';
 
 const argument = process.argv.indexOf('--library');
 if (argument >= 0 && !process.argv[argument + 1]) throw new Error('--library requires a checkout path.');
-const library = path.resolve(argument >= 0 ? process.argv[argument + 1] : process.env.IUI_LIBRARY_DIR || path.join(root, '../Intelligent-UI'));
+const library = path.resolve(argument >= 0 ? process.argv[argument + 1] : process.env.IUI_LIBRARY_DIR || path.join(root, '../Inform-UI'));
 const readJson = async file => JSON.parse(await readFile(file, 'utf8'));
 const contract = await readJson(path.join(root, 'library-contract.json'));
 const packageJson = await readJson(path.join(library, 'package.json')).catch(error => {
-  throw new Error(`Build the matched Intelligent-UI checkout and pass --library PATH. Cannot read ${library}: ${error.message}`);
+  throw new Error(`Build the matched Inform-UI checkout and pass --library PATH. Cannot read ${library}: ${error.message}`);
 });
 assert.equal(packageJson.name, contract.packageName, 'Wrong library package');
 assert.equal(packageJson.version, contract.packageVersion, 'Library version differs from the tested contract');
@@ -55,7 +55,7 @@ for (const x of [1, 4, 10]) {
 console.log('PASS root SKILL.md HTML-shell JSON and bound values');
 
 const names = (await readdir(path.join(root, 'examples'))).filter(name => name.endsWith('.json')).sort();
-const directory = await mkdtemp(path.join(tmpdir(), 'intelligent-ui-skill-'));
+const directory = await mkdtemp(path.join(tmpdir(), 'inform-ui-skill-'));
 function cli(args) {
   const result = spawnSync(process.execPath, [path.join(library, contract.cli), ...args], { encoding: 'utf8', timeout: 30_000 });
   assert.equal(result.error, undefined, result.error?.message);

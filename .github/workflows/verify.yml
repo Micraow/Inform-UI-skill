@@ -33,10 +33,10 @@ jobs:
         working-directory: skill
         shell: bash
         run: |
-          node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync('library-contract.json')); if(c.repository !== 'Micraow/Intelligent-UI' || !/^[a-f0-9]{40}$/.test(c.revision)) throw new Error('Library revision must be a verified commit'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'revision='+c.revision+'\n');"
+          node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync('library-contract.json')); if(c.repository !== 'Micraow/Inform-UI' || !/^[a-f0-9]{40}$/.test(c.revision)) throw new Error('Library revision must be a verified commit'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'revision='+c.revision+'\n');"
       - uses: actions/checkout@v4
         with:
-          repository: Micraow/Intelligent-UI
+          repository: Micraow/Inform-UI
           ref: ${{ steps.contract.outputs.revision }}
           path: library
       - name: Build matched library
@@ -53,6 +53,7 @@ jobs:
       - name: Verify real API, schema and CLI
         working-directory: skill
         run: npm run check:library -- --library ../library
+      # A repository rename preserves commit identity; frozen contracts retain the old name.
       - name: Read historical blind library revision
         id: blind-contract
         working-directory: skill
@@ -61,7 +62,7 @@ jobs:
           node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync('tests/blind/library-contract.json')); if(c.repository !== 'Micraow/Intelligent-UI' || !/^[a-f0-9]{40}$/.test(c.revision)) throw new Error('Invalid historical pin'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'revision='+c.revision+'\n');"
       - uses: actions/checkout@v4
         with:
-          repository: Micraow/Intelligent-UI
+          repository: Micraow/Inform-UI
           ref: ${{ steps.blind-contract.outputs.revision }}
           path: blind-library
       - name: Build historical blind library
@@ -80,7 +81,7 @@ jobs:
           node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync('tests/blind46/library-contract.json')); if(c.repository !== 'Micraow/Intelligent-UI' || !/^[a-f0-9]{40}$/.test(c.revision)) throw new Error('Invalid 46-node blind pin'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'revision='+c.revision+'\n');"
       - uses: actions/checkout@v4
         with:
-          repository: Micraow/Intelligent-UI
+          repository: Micraow/Inform-UI
           ref: ${{ steps.blind46-contract.outputs.revision }}
           path: blind46-library
       - name: Build 46-node blind library

@@ -1,15 +1,15 @@
 ---
-name: intelligent-ui-author
+name: inform-ui-author
 description: 为解释、真坐标图、本地表单、供数天气/体育/金融、本地自测/闪卡生成 iui/1 JSON；无终端Web Chat直接用固定CDN与本文HTML壳交付页面，Agent可用本地库。普通文字足够时不强加界面。
 ---
 
-# Intelligent UI Author
+# Inform UI Author
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
 本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。固定协议50个节点注册项（含拒绝的native），本文给出41个常用节点的保守生成子集。能读取完整Schema才扩展；只有URL不等于读过合同，不猜字段。
 
-这是独立公开库，无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
+Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
 
 ## 1. 先决定要表达什么
 
@@ -23,10 +23,10 @@ description: 为解释、真坐标图、本地表单、供数天气/体育/金�
 
 固定的公开文件（同一提交，不混用版本）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
@@ -40,8 +40,8 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intelligent UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css" integrity="sha384-R+ybWEp3LYtcukj5okG9CNtbw1tj9iz5/gmk1gujU5Tyg9G8pF5LIBP+WSJ1TmfH" crossorigin="anonymous">
+  <title>Inform UI 解释文档</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css" integrity="sha384-R+ybWEp3LYtcukj5okG9CNtbw1tj9iz5/gmk1gujU5Tyg9G8pF5LIBP+WSJ1TmfH" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -49,7 +49,7 @@ HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致�
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js" integrity="sha384-ExWzUtY9GmozAptkPneHZmDC/HDRNNA8SN+gug8wRukKTWOkKo2QwNEJOF9ekPZr" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js" integrity="sha384-ExWzUtY9GmozAptkPneHZmDC/HDRNNA8SN+gug8wRukKTWOkKo2QwNEJOF9ekPZr" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -287,7 +287,7 @@ evaluateState(document,patch)在浏览器也可用：成功{ok:true,state,comput
 
 ## 6. 有终端的 Agent：可选本地路径
 
-无终端跳过。核心仓库https://github.com/Micraow/Intelligent-UI使用上述CDN同一提交；在库目录先npm ci、npm run build，再执行：
+无终端跳过。核心仓库https://github.com/Micraow/Inform-UI使用上述CDN同一提交；在库目录先npm ci、npm run build，再执行：
 
 ```sh
 node bin/iui.mjs validate answer.json --json

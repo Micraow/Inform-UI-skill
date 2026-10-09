@@ -2,19 +2,19 @@
 
 For web chat without a terminal, copy the complete [root SKILL.md](../SKILL.md): it contains the CDN HTML shell and a self-contained authoring subset. This page is optional guidance for agents with a local checkout.
 
-The library lives at [Micraow/Intelligent-UI](https://github.com/Micraow/Intelligent-UI). Its current local package name is `@micraow/intelligent-ui`, version `0.1.0`. This repository does **not** assume an npm release. Use the exact source revision in [library-contract.json](../library-contract.json); CI checks out that revision rather than a moving branch.
+The library lives at [Micraow/Inform-UI](https://github.com/Micraow/Inform-UI). Its current local package name is `@micraow/intelligent-ui`, version `0.1.0`. This repository does **not** assume an npm release. Use the exact source revision in [library-contract.json](../library-contract.json); CI checks out that revision rather than a moving branch.
 
 ## Checkout workflow
 
 With this skill checkout and the library in sibling directories, install and build the library first:
 
 ```sh
-cd ../Intelligent-UI
+cd ../Inform-UI
 npm ci
 npm run build
-cd ../Intelligent-UI-skill
-node ../Intelligent-UI/bin/iui.mjs validate examples/hpcc-feedback.json --json
-node ../Intelligent-UI/bin/iui.mjs build examples/hpcc-feedback.json --out artifacts/hpcc.html --lang zh-CN
+cd ../Inform-UI-skill
+node ../Inform-UI/bin/iui.mjs validate examples/hpcc-feedback.json --json
+node ../Inform-UI/bin/iui.mjs build examples/hpcc-feedback.json --out artifacts/hpcc.html --lang zh-CN
 ```
 
 Use a browser to inspect `artifacts/hpcc.html`. It is the independent library's standalone HTML output. The same library can also be embedded in a webpage; these are delivery options, not different editions. No tool in this skill installs itself, calls a model or changes an account.
@@ -23,7 +23,7 @@ To check every fixture against the real API and CLI:
 
 ```sh
 npm test
-npm run check:library -- --library ../Intelligent-UI
+npm run check:library -- --library ../Inform-UI
 ```
 
 Use `--library` with the actual checkout path; the script also accepts `IUI_LIBRARY_DIR`. The script never downloads or silently swaps a missing dependency. Rebuild the library after changing its source. The default check verifies the checkout HEAD against the pin. Use `--allow-working-tree` only for deliberate local development; it does not establish release compatibility.
@@ -74,7 +74,7 @@ Change the pinned revision only after validating examples, negative cases and br
 The matched library checkout includes Playwright as a development dependency. Install its Chromium browser with `npx --no-install playwright install chromium` from that checkout, then run:
 
 ```sh
-npm run check:browser -- --library ../Intelligent-UI
+npm run check:browser -- --library ../Inform-UI
 ```
 
 The script checks all twelve fixtures at 390/1280 px in light/dark themes, no whole-page overflow or browser errors, keyboard slider updates, form submit/cancel and invalid drafts, weather unit/date/table controls, true-coordinate geometry and timestamp readout, reset and table disclosure, supplied sports filters/selection/sorting, and complete local quiz/flashcard flows, financial missing values/range/common-baseline comparison, heatmap weight ratios/filter/keyboard/full table. Sports, learning, finance and heatmap fixtures use the current root HTML shell and its real fixed CDN. Use `--screenshots artifacts/screenshots` to inspect original rendered output locally; screenshots are not committed; CI may retain only original generated fixture screenshots as short-lived artifacts. Historical 41-node and 46-node blind acceptance each use their own frozen library checkouts from tests/blind/library-contract.json and tests/blind46/library-contract.json. `IUI_BROWSER_EXECUTABLE` can select an already-installed compatible Chromium. API checks and browser checks are separate: report a browser launch failure as unverified rendering, not a passing preview.

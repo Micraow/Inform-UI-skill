@@ -1,8 +1,8 @@
 {
-  "name": "intelligent-ui-skill",
+  "name": "inform-ui-skill",
   "version": "0.1.0",
   "private": true,
-  "description": "Semantic authoring guidance and contract-checked examples for Intelligent-UI",
+  "description": "Semantic authoring guidance and contract-checked examples for Inform UI",
   "license": "MIT",
   "type": "module",
   "engines": {

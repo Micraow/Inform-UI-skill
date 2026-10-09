@@ -9,7 +9,7 @@ import { pathToFileURL } from 'node:url';
 import { root, readSkillShell } from './check-skill.mjs';
 
 const arg = name => process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined;
-const library = path.resolve(arg('--library') || process.env.IUI_LIBRARY_DIR || path.join(root, '../Intelligent-UI'));
+const library = path.resolve(arg('--library') || process.env.IUI_LIBRARY_DIR || path.join(root, '../Inform-UI'));
 const frozen = path.join(root, 'tests/blind');
 const contract = JSON.parse(await readFile(path.join(frozen, 'library-contract.json')));
 const revision = spawnSync('git', ['-C', library, 'rev-parse', 'HEAD'], { encoding: 'utf8' });
