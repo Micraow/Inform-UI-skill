@@ -1,0 +1,480 @@
+{
+  "format": "inform-skill-pending-browser-plan/1",
+  "candidateOnly": true,
+  "status": "prepared-not-run",
+  "executionOwner": "core:scripts/run-batch-consumers.mjs",
+  "sourceRevision": "75fd165f20ee6cca9beb2c172c19dbac98136b88",
+  "skillBaseRevision": "9bf9dfa63a78816f7afea59531cf8b2ca82a0e1c",
+  "acceptedAssetRevision": "d370ffb2df310fce0da9299e6e254a58509ba544",
+  "sourceScope": "24 canonical candidates, 27 exact synthetic examples; not the final approximately-30 acceptance batch",
+  "consumerId": "pending",
+  "script": "candidates/pending-batch/verify-browser.mjs",
+  "coreScript": "tests/consumer/pending/verify-browser.mjs",
+  "widths": [
+    390,
+    768,
+    1100
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "plannedLocalCompiledViews": 162,
+  "publicCdn": "not-run",
+  "browser": "not-run",
+  "ci": "not-run",
+  "coverage": "Inline compilation, hydration, native example smoke, single root, no unsolicited requests/page errors, no page-wide overflow. Exhaustive component/lifecycle and host-action coverage stays in canonical core browser specs.",
+  "futureSkillPromotion": "Final owner copies exact candidate bytes to examples/{name}.json in a separately frozen pending Skill acceptance commit. This preparation does not promote files or formal assets.",
+  "examples": [
+    {
+      "name": "carousel-basic",
+      "lang": "zh-CN",
+      "canonicalId": "base-carousel",
+      "sha256": "9bdbbbcb68dde0ebe50b5f676952fbaa42f2a4aeb5f2407aa8d9843dad456cfe",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/carousel-basic.json",
+      "corePath": "tests/consumer/pending/examples/carousel-basic.json",
+      "futureSkillPath": "examples/carousel-basic.json"
+    },
+    {
+      "name": "carousel",
+      "lang": "en",
+      "canonicalId": "base-carousel",
+      "sha256": "62b3cac7dcdfcfc6f7687375bb0377ee0ccc51b7b4cb264ba02c325c40e392cc",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/carousel.json",
+      "corePath": "tests/consumer/pending/examples/carousel.json",
+      "futureSkillPath": "examples/carousel.json"
+    },
+    {
+      "name": "code",
+      "lang": "en",
+      "canonicalId": "code-block",
+      "sha256": "7d25bee2c2f3e8c5f8b70e445d7478203b9e64bf6e647591a606585a6dfbffc7",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/code.json",
+      "corePath": "tests/consumer/pending/examples/code.json",
+      "futureSkillPath": "examples/code.json"
+    },
+    {
+      "name": "pie",
+      "lang": "en",
+      "canonicalId": "base-pie-chart",
+      "sha256": "c8fd2a6a95706c525be0d5c0c8809873e67c6df9576a5728fe2866d4acc75b6d",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/pie.json",
+      "corePath": "tests/consumer/pending/examples/pie.json",
+      "futureSkillPath": "examples/pie.json"
+    },
+    {
+      "name": "checkbox-practice",
+      "lang": "zh-CN",
+      "canonicalId": "base-checkbox",
+      "sha256": "b290013320ebe7560c1e92d3e19d3454852093c62a08000427cca50e1498c297",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/checkbox-practice.json",
+      "corePath": "tests/consumer/pending/examples/checkbox-practice.json",
+      "futureSkillPath": "examples/checkbox-practice.json"
+    },
+    {
+      "name": "markdown-subset",
+      "lang": "en",
+      "canonicalId": "base-markdown",
+      "sha256": "72f06da11ac69bc95214d7c369779f9485f3cdc7f9d1934aceeedf18061b35a5",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/markdown-subset.json",
+      "corePath": "tests/consumer/pending/examples/markdown-subset.json",
+      "futureSkillPath": "examples/markdown-subset.json"
+    },
+    {
+      "name": "date-practice",
+      "lang": "zh-CN",
+      "canonicalId": "base-date-picker",
+      "sha256": "8f921053244394ccfe4dac8fc3d8d6528a72dc945a1da90978f5bc4069346ca0",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/date-practice.json",
+      "corePath": "tests/consumer/pending/examples/date-practice.json",
+      "futureSkillPath": "examples/date-practice.json"
+    },
+    {
+      "name": "tabs",
+      "lang": "zh-CN",
+      "canonicalId": "tab-group",
+      "sha256": "90452ae01385d959e7b50d152e40f4232350720e4cd335a5b571b822e53455b6",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/tabs.json",
+      "corePath": "tests/consumer/pending/examples/tabs.json",
+      "futureSkillPath": "examples/tabs.json"
+    },
+    {
+      "name": "tabs-local-state",
+      "lang": "zh-CN",
+      "canonicalId": "tab-group",
+      "sha256": "db58e48630836a73022aedf52fb0e93d4e2c3ecfe1492d89d05d8384c9b2a8c0",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/tabs-local-state.json",
+      "corePath": "tests/consumer/pending/examples/tabs-local-state.json",
+      "futureSkillPath": "examples/tabs-local-state.json"
+    },
+    {
+      "name": "fill-blank-practice",
+      "lang": "zh-CN",
+      "canonicalId": "learning-fill-blank-card",
+      "sha256": "7727b6dc7fc3fb6aee1b1de12a3f13792ea369f5a19b89dfba1abcaaec8d50d4",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/fill-blank-practice.json",
+      "corePath": "tests/consumer/pending/examples/fill-blank-practice.json",
+      "futureSkillPath": "examples/fill-blank-practice.json"
+    },
+    {
+      "name": "sentence-builder",
+      "lang": "zh-CN",
+      "canonicalId": "learning-sentence-builder-card",
+      "sha256": "6b99215fceaafd94681c1930160f764952262eeb4cd2d252f17071bf23963e8d",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/sentence-builder.json",
+      "corePath": "tests/consumer/pending/examples/sentence-builder.json",
+      "futureSkillPath": "examples/sentence-builder.json"
+    },
+    {
+      "name": "checklist",
+      "lang": "zh-CN",
+      "canonicalId": "checklist",
+      "sha256": "c5570457a098e07012ea4a47c63ae0d627faed11d3ba3a3476edb063eeba53ff",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/checklist.json",
+      "corePath": "tests/consumer/pending/examples/checklist.json",
+      "futureSkillPath": "examples/checklist.json"
+    },
+    {
+      "name": "checklist-form",
+      "lang": "zh-CN",
+      "canonicalId": "checklist",
+      "sha256": "e301430d5ee8df81a1030d4d078fbf7204d8a4ee85e1bd93c5fccd3894574283",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/checklist-form.json",
+      "corePath": "tests/consumer/pending/examples/checklist-form.json",
+      "futureSkillPath": "examples/checklist-form.json"
+    },
+    {
+      "name": "vocab-card",
+      "lang": "en",
+      "canonicalId": "learning-vocab-card",
+      "sha256": "d4c646a2a2b8ee34a0a949f1d3c7a3125dbf9b778245230b8a67a8f0a400ea95",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/vocab-card.json",
+      "corePath": "tests/consumer/pending/examples/vocab-card.json",
+      "futureSkillPath": "examples/vocab-card.json"
+    },
+    {
+      "name": "rating",
+      "lang": "zh-CN",
+      "canonicalId": "rating",
+      "sha256": "e17dcaca6ebc422b78a692bbc4cc2741fff6517fb9813775563062c97f828b9a",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/rating.json",
+      "corePath": "tests/consumer/pending/examples/rating.json",
+      "futureSkillPath": "examples/rating.json"
+    },
+    {
+      "name": "favicon",
+      "lang": "zh-CN",
+      "canonicalId": "base-favicon",
+      "sha256": "2efcc04ebf1a220126777e5bd37741b05a8fd9e9dfa3761aa3d2dcd4a93f9d68",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/favicon.json",
+      "corePath": "tests/consumer/pending/examples/favicon.json",
+      "futureSkillPath": "examples/favicon.json"
+    },
+    {
+      "name": "agenda",
+      "lang": "zh-CN",
+      "canonicalId": "calendar-agenda",
+      "sha256": "c283ddc5005fa0c7e9465e14ad791628ae598524697e19678a3a9f919302974f",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/agenda.json",
+      "corePath": "tests/consumer/pending/examples/agenda.json",
+      "futureSkillPath": "examples/agenda.json"
+    },
+    {
+      "name": "button-actions",
+      "lang": "en",
+      "canonicalId": "base-button",
+      "sha256": "229aa8348b5ca7d13af1b5be91496370e07a5be69015d83cd94989abe42c64d3",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/button-actions.json",
+      "corePath": "tests/consumer/pending/examples/button-actions.json",
+      "futureSkillPath": "examples/button-actions.json"
+    },
+    {
+      "name": "restaurant-menu",
+      "lang": "zh-CN",
+      "canonicalId": "restaurant-menu",
+      "sha256": "44029f7b482a7f0889efe8301ba65097dc0bb82ef557634721d80430b0ebfe62",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/restaurant-menu.json",
+      "corePath": "tests/consumer/pending/examples/restaurant-menu.json",
+      "futureSkillPath": "examples/restaurant-menu.json"
+    },
+    {
+      "name": "prompt-suggestions",
+      "lang": "en",
+      "canonicalId": "prompt-suggestions",
+      "sha256": "30ffba1fedb1ac803933edc7279119ecec1cef5825316a5ea4b416068da0a491",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/prompt-suggestions.json",
+      "corePath": "tests/consumer/pending/examples/prompt-suggestions.json",
+      "futureSkillPath": "examples/prompt-suggestions.json"
+    },
+    {
+      "name": "field-labels",
+      "lang": "zh-CN",
+      "canonicalId": "base-label",
+      "sha256": "5e880fb34f11dcfd4fa365d5292b8914cc40638a2f1b3d5deb575da9f1a62715",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/field-labels.json",
+      "corePath": "tests/consumer/pending/examples/field-labels.json",
+      "futureSkillPath": "examples/field-labels.json"
+    },
+    {
+      "name": "person-profile",
+      "lang": "en",
+      "canonicalId": "person-profile",
+      "sha256": "b9953ee7eb878c2ec6701d8122e630757fd9bbfc764d7b4f64408314a356cdf7",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/person-profile.json",
+      "corePath": "tests/consumer/pending/examples/person-profile.json",
+      "futureSkillPath": "examples/person-profile.json"
+    },
+    {
+      "name": "writing-block",
+      "lang": "en",
+      "canonicalId": "writing-block",
+      "sha256": "9a4cb5f85ad658eabb38c9b4ca4c5ec3bee2160228d56615a24fe87c73244cfb",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/writing-block.json",
+      "corePath": "tests/consumer/pending/examples/writing-block.json",
+      "futureSkillPath": "examples/writing-block.json"
+    },
+    {
+      "name": "news-article",
+      "lang": "zh-CN",
+      "canonicalId": "news-article",
+      "sha256": "0fe3014f77bb8e8711d9500073edc6d94630c8048123f56bcd72f2a5d10026b2",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/news-article.json",
+      "corePath": "tests/consumer/pending/examples/news-article.json",
+      "futureSkillPath": "examples/news-article.json"
+    },
+    {
+      "name": "entity-reviews",
+      "lang": "en",
+      "canonicalId": "entity-reviews",
+      "sha256": "3110ff0a7d7c3f99163c1bc8f91cce56e1180c8cff420a057fc7766fafaba022",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/entity-reviews.json",
+      "corePath": "tests/consumer/pending/examples/entity-reviews.json",
+      "futureSkillPath": "examples/entity-reviews.json"
+    },
+    {
+      "name": "restaurant-availability",
+      "lang": "en",
+      "canonicalId": "restaurant-availability",
+      "sha256": "2fdbe7fbf7ba52ab0f9720e0c3178e6619bd635b4a4f0d436d829d5f235b1ec2",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/restaurant-availability.json",
+      "corePath": "tests/consumer/pending/examples/restaurant-availability.json",
+      "futureSkillPath": "examples/restaurant-availability.json"
+    },
+    {
+      "name": "reddit-thread-card",
+      "lang": "en",
+      "canonicalId": "reddit-thread-card",
+      "sha256": "c731fa907f7f7a4ff5d6cbf0c1aff28f8491ee125615e9e6d87b6f86cd8b9d50",
+      "owner": "pending",
+      "skillPath": "candidates/pending-batch/examples/reddit-thread-card.json",
+      "corePath": "tests/consumer/pending/examples/reddit-thread-card.json",
+      "futureSkillPath": "examples/reddit-thread-card.json"
+    }
+  ],
+  "existingConsumerComparison": {
+    "sourceRevision": "75fd165f20ee6cca9beb2c172c19dbac98136b88",
+    "examples": [
+      {
+        "name": "carousel-with-local-controls",
+        "corePath": "tests/consumer/carousel/examples/carousel-with-local-controls.json",
+        "sha256": "f8901d7cf240c5830507fbd2c0a0e0b5cb15a9e6669d11f2144018f955a70cf2"
+      },
+      {
+        "name": "local-carousel-notes",
+        "corePath": "tests/consumer/carousel/examples/local-carousel-notes.json",
+        "sha256": "da6ae89a9e710c89787655763d4b8804071465de2b52c044f57f2c7f7e2a7da3"
+      },
+      {
+        "name": "local-checkbox-review",
+        "corePath": "tests/consumer/checkbox/examples/local-checkbox-review.json",
+        "sha256": "03ef8740e85b074de0edafcc75f004a9d50c90d4abe614ae1698b6368f150679"
+      },
+      {
+        "name": "local-code-explanation",
+        "corePath": "tests/consumer/code/examples/local-code-explanation.json",
+        "sha256": "1e0e17ca3ea091d93ff2925489d595080593858f72447f69acd60371a6f24b08"
+      },
+      {
+        "name": "foundation-explainer",
+        "corePath": "tests/consumer/examples/foundation-explainer.json",
+        "sha256": "2d5a725474ef6dfe7ea5dc9b778ecbce99ce2430a9a28a0cbeeb0c7c6a011038"
+      },
+      {
+        "name": "loading-numeric-progress",
+        "corePath": "tests/consumer/examples/loading-numeric-progress.json",
+        "sha256": "97286a9321ebf32e078a8a1300f2df8f401bd0241aac97adcbc5906252624582"
+      },
+      {
+        "name": "loading-placeholder-shapes",
+        "corePath": "tests/consumer/examples/loading-placeholder-shapes.json",
+        "sha256": "d9f8d5794b8de800df98f35363d15ac2b10c548ffe18e739c36753f64f564b77"
+      },
+      {
+        "name": "local-number-draft",
+        "corePath": "tests/consumer/examples/local-number-draft.json",
+        "sha256": "8874ef5a57507b817c99b5595e243543b97555f5e4ed630cf69ef8b3d2f23a1e"
+      },
+      {
+        "name": "local-overlays",
+        "corePath": "tests/consumer/examples/local-overlays.json",
+        "sha256": "46b2bae41ef2c9f62f309038e1e92d0c019b8c3ea8210e97406e4ff72eafd122"
+      },
+      {
+        "name": "local-status-primitives",
+        "corePath": "tests/consumer/examples/local-status-primitives.json",
+        "sha256": "133ab06f35b7def7cd2f805ce6a239f7b0087d36432dcfad05de5ad5879794dc"
+      },
+      {
+        "name": "local-time",
+        "corePath": "tests/consumer/examples/local-time.json",
+        "sha256": "73c70ddff9d82bac4fafdc8ac2d5c09821dc90d5aa21f47ac35ee0b5161e8910"
+      },
+      {
+        "name": "primitives-with-form-and-time",
+        "corePath": "tests/consumer/examples/primitives-with-form-and-time.json",
+        "sha256": "ab465d21295097eded879f1e490c2a64ed2713d6c649a22ff4d7199366b9cadf"
+      },
+      {
+        "name": "supplied-source-reading",
+        "corePath": "tests/consumer/examples/supplied-source-reading.json",
+        "sha256": "1c644eee9a38338695748a98c770a97dd2611a08f30fbc8bca1c0a43cdbba4de"
+      },
+      {
+        "name": "timed-local-practice",
+        "corePath": "tests/consumer/examples/timed-local-practice.json",
+        "sha256": "5f2835fba52d4c1b606949eea04adf8a80542f7b8b9dc6bb4a9ff7e4902b9e39"
+      },
+      {
+        "name": "known-value-pie",
+        "corePath": "tests/consumer/pie/examples/known-value-pie.json",
+        "sha256": "a7acf9c8fda8b78f0596a9eef959c94ffc237a8bf3e89b1fa6a201aa777b6c87"
+      }
+    ],
+    "byteIdenticalOverlaps": [],
+    "nameOverlaps": []
+  },
+  "canonicalSpecs": [
+    {
+      "canonicalId": "base-carousel",
+      "contract": "docs/carousel.md"
+    },
+    {
+      "canonicalId": "code-block",
+      "contract": "docs/code.md"
+    },
+    {
+      "canonicalId": "base-pie-chart",
+      "contract": "docs/pie.md"
+    },
+    {
+      "canonicalId": "base-checkbox",
+      "contract": "docs/forms.md"
+    },
+    {
+      "canonicalId": "base-markdown",
+      "contract": "docs/markdown.md"
+    },
+    {
+      "canonicalId": "base-date-picker",
+      "contract": "docs/forms.md"
+    },
+    {
+      "canonicalId": "tab-group",
+      "contract": "docs/tabs.md"
+    },
+    {
+      "canonicalId": "learning-fill-blank-card",
+      "contract": "docs/fill-blank.md"
+    },
+    {
+      "canonicalId": "learning-sentence-builder-card",
+      "contract": "docs/sentence-builder.md"
+    },
+    {
+      "canonicalId": "checklist",
+      "contract": "docs/checklist.md"
+    },
+    {
+      "canonicalId": "learning-vocab-card",
+      "contract": "docs/vocab-card.md"
+    },
+    {
+      "canonicalId": "rating",
+      "contract": "docs/rating.md"
+    },
+    {
+      "canonicalId": "base-favicon",
+      "contract": "docs/favicon.md"
+    },
+    {
+      "canonicalId": "calendar-agenda",
+      "contract": "docs/agenda.md"
+    },
+    {
+      "canonicalId": "base-button",
+      "contract": "docs/button-actions.md"
+    },
+    {
+      "canonicalId": "restaurant-menu",
+      "contract": "docs/restaurant-menu.md"
+    },
+    {
+      "canonicalId": "prompt-suggestions",
+      "contract": "docs/prompt-suggestions.md"
+    },
+    {
+      "canonicalId": "base-label",
+      "contract": "docs/label.md"
+    },
+    {
+      "canonicalId": "person-profile",
+      "contract": "docs/person-profile.md"
+    },
+    {
+      "canonicalId": "writing-block",
+      "contract": "docs/writing-block.md"
+    },
+    {
+      "canonicalId": "news-article",
+      "contract": "docs/news-article.md"
+    },
+    {
+      "canonicalId": "entity-reviews",
+      "contract": "docs/entity-reviews.md"
+    },
+    {
+      "canonicalId": "restaurant-availability",
+      "contract": "docs/restaurant-availability.md"
+    },
+    {
+      "canonicalId": "reddit-thread-card",
+      "contract": "docs/reddit-thread-card.md"
+    }
+  ]
+}

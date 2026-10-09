@@ -224,7 +224,8 @@
   "candidateFiles": {
     "SKILL.md": "7e3f33e4416f0f58fd4bc79cb887f882d94925003e56968c0b74a526848b989f",
     "WEB-CHAT-GUIDE.md": "7c41d3cec4db314a554b7b3c0bccd249f07456afa532f548d3753179de143710",
-    "candidates/pending-batch/README.md": "d0484136577daedc151c1904caf67e355261224a937c2ab666969a9496cc7f23",
+    "candidates/pending-batch/README.md": "a6a82f490fe5a6b3ca63e57e82552f81393475121f3e915aa95f3fa283c29cc5",
+    "candidates/pending-batch/consumer-plan.json": "03f76c056b1429e06d0d350139f27dc786539ff5c52a1c48d7c78a34771f71fe",
     "candidates/pending-batch/examples/agenda.json": "c283ddc5005fa0c7e9465e14ad791628ae598524697e19678a3a9f919302974f",
     "candidates/pending-batch/examples/button-actions.json": "229aa8348b5ca7d13af1b5be91496370e07a5be69015d83cd94989abe42c64d3",
     "candidates/pending-batch/examples/carousel-basic.json": "9bdbbbcb68dde0ebe50b5f676952fbaa42f2a4aeb5f2407aa8d9843dad456cfe",
@@ -255,12 +256,15 @@
     "candidates/pending-batch/invalid.json": "5fef36467d99589c6a3bf6a2216848af6a823bb898e09788376fa211251aa7e8",
     "candidates/pending-batch/manifest.source.json": "c4160baaa6cb6ae66801dc292937a9cc6929cc8d6db1771be4b614b142177658",
     "candidates/pending-batch/manifest24.source.json": "e2ff8026f50ae1800889e0283d0c759ffc06bac29413ed4f0fdfd72483157f4e",
+    "candidates/pending-batch/verify-browser.mjs": "cf657ebd6f16d2a9b12acbda6c1fe80a5e62e721f12ddc6f236c3ece3cbb0908",
     "references/pending-learning.md": "a498e06b57cdaf8a102b5331aea4de9a4837a9af804d751dccf26499c3b1ac12",
+    "scripts/check-pending-browser-source.mjs": "ebb447dc8aa09579c992eb43bd9310364e7b520b579d272c5231ec210ad6f207",
     "scripts/check-pending24.mjs": "13fb741ddb349c1bec47dcbbbe9d57da626a3adffa6859a08c00a999dd8dcb8e",
-    "scripts/generate-pending-lock.mjs": "72614f05e6f6a190253e5a0dcb73c7a58b97751af62acf2b0e0dd41d0e829efa",
+    "scripts/generate-pending-lock.mjs": "a230e5b21f7cb5fa4e9703d16b86bdff509c3ef6b9c7459d6f347d52449336bb",
     "scripts/pending-inputs.mjs": "6133ef78f7cf961f4cb1dddc3db4cec8a0a92246e3b95664b5c2235fa921e46c",
     "scripts/verify-pending-batch.mjs": "f574c7deaee59d585d78f9007de867f9daa4b124946def559f1bd96e11f1f2b2",
-    "tests/pending-batch.test.mjs": "515a0225d3cb457964e1926fa79690e4294f892f0723073955297c12cb520af5"
+    "tests/pending-batch.test.mjs": "515a0225d3cb457964e1926fa79690e4294f892f0723073955297c12cb520af5",
+    "tests/pending-browser.test.mjs": "07946d43c4998171232bc167cf73e297feb879dc8569d1a388ba9d198572cc2f"
   },
   "formalAcceptedContractSha256": "c0596f2135788375d041e044ca3b7ad476e179622bae76d7423b6a0e00b3e460",
   "verification": {
@@ -269,6 +273,16 @@
     "cdn": "not-run",
     "ci": "not-run",
     "publicAssetPromotion": false
+  },
+  "browserPreparation": {
+    "status": "prepared-not-run",
+    "skillBaseRevision": "9bf9dfa63a78816f7afea59531cf8b2ca82a0e1c",
+    "executionOwner": "core:scripts/run-batch-consumers.mjs",
+    "consumerPlan": "candidates/pending-batch/consumer-plan.json",
+    "examples": 27,
+    "plannedLocalCompiledViews": 162,
+    "existingExamples": 15,
+    "duplicateInputs": 0
   },
   "provenance": {
     "originalExamples": "Project-owned MIT-licensed synthetic fixtures; exact committed bytes, no private captures.",
