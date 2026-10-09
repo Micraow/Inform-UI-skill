@@ -30,6 +30,18 @@
 {"type":"finance-heatmap","source":{"label":"合成样本","synthetic":true},"asOf":"2026-10-09T10:00:00Z","timezone":"UTC","weightLabel":"统一合成权重","changeBasis":"较合成前收盘","cells":[]}
 ```
 
-金融instrument/range/cell的id用体育英文标识规则；名称/标签1–200字符。行情/比较的范围、系列开关、真实时间X、键盘读数与全表由库提供；隐藏系列不删除表内记录。loading/error仍给合法必填数据并说明message，空历史/空cells保留空态，比较仍需2–6个合法标的。视图状态本地独立，update完整快照重置、dispose清理；不保存/联网。不支持K线、成交量双轴、技术指标、汇率换算或交易。反例：无来源称实时、不同币种绝对价格共轴、用各自首点冒充共同基准、按颜色饱和篡改涨跌、0/null补面积。
+金融instrument/range/cell的id用体育英文标识规则；名称/标签1–200字符。历史/比较提供范围、真实时间X、键盘读数与全表；比较另有系列开关，隐藏不删表内记录。loading/error仍给合法必填数据并说明message，空历史/空cells保留空态，比较仍需2–6个合法标的。视图状态本地独立，update完整快照重置、dispose清理；不保存/联网。不支持K线、成交量双轴、技术指标、汇率换算或交易。反例：无来源称实时、不同币种绝对价格共轴、用各自首点冒充共同基准、按颜色饱和篡改涨跌、0/null补面积。
 
 完整文档示例：[行情/历史/比较](../examples/supplied-finance.json)、[权重热图](../examples/supplied-heatmap.json)。
+
+## 固定版本验证记录
+
+2026-10-09，Skill [7276bbe](https://github.com/Micraow/Intelligent-UI-skill/commit/7276bbe0beb95b5ec87ef643faddd461b01d9012) 的 [CI 37874394218](https://github.com/Micraow/Intelligent-UI-skill/actions/runs/37874394218) 四平台通过。固定库与所有 CDN 资源来自 [f35e33b](https://github.com/Micraow/Intelligent-UI/commit/f35e33b146c266ecf16371733c51064129afaec3)，包括热图选择与鼠标焦点边框修正。
+
+- 9 项结构/边界测试，12 份示例、48 份无效输入及根 Skill 的 5 个字面 JSON 经真实 API/CLI 验证，含确定性构建和输入不变性。
+- 共 60 个浏览器视图：48 个当前示例、4 个当前根 HTML 壳、41/46 两代历史首稿各 4 个。金融与热图的 8 个明暗/桌面/390px 视图直接使用禁用缓存的 file:// 页面与固定 CDN/SRI。
+- 金融：真实时间轴的 1:12 间距比例、null 断线、单点/空区间、键盘端点、共同瞬间基准、缺基准不可比、隐藏系列仍保留全表、切换范围不偷换基准、零前收盘不伪造百分比。
+- 热图：60:30:10 面积比例，0/null 无面积项的键盘访问，Enter 展开全表，完整保留 −100%/+12%，行业筛选和空/加载/错误状态。
+- 人工检查原始手机/桌面、明暗及交互后截图：无整页横溢、数据文字可读，热图选中为细焦点色。手机宽表使用局部横滚；不把未入当前截图的列当作数据缺失。
+
+原始截图在该 CI 的 `skill-current-browser` artifact，保留七天。本轮是合同与示例回归，**不是新一轮只读 Skill 作者盲测**；[41 节点](../tests/blind/README.md)与[46 节点](../tests/blind46/README.md)的输入、首稿及库合同都保持冻结。新合同也不包含尚未完成验收的转换器或未列节点。
