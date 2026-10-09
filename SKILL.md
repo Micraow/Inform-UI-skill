@@ -1,13 +1,13 @@
 ---
 name: intelligent-ui-author
-description: 为技术解释、真坐标图、本地表单、已提供天气数据、拓扑和受控交互生成 iui/1 JSON；无终端的 Web Chat 可直接用固定 CDN 与本文 HTML 壳交付可运行文档，Agent 也可用本地库。普通文字足够时不强加界面。
+description: 为技术解释、真坐标图、本地表单、已提供天气/体育数据、本地自测/闪卡、拓扑和受控交互生成 iui/1 JSON；无终端的 Web Chat 可直接用固定 CDN 与本文 HTML 壳交付可运行文档，Agent 也可用本地库。普通文字足够时不强加界面。
 ---
 
 # Intelligent UI Author
 
 你负责内容、数据、阅读顺序与组件选择；Intelligent-UI 库负责校验、DOM、样式、布局和交互。目标是正文中自然穿插图、公式与有用的控件，形成克制的编辑式解释，不是把每段文字塞进仪表盘卡片。
 
-本文件可完整复制给没有终端、无法读取本地文件的 Web Chat。下面内嵌的保守协议子集与 HTML 壳足以生成基础文档，不需要读库源码或其他文件。当前固定完整协议有41个节点注册项（含1个明确拒绝的历史native项）；本文覆盖32个常用节点的保守子集。完整 Schema URL 供有读取能力时扩展；拿到 URL 不等于已经读取其内容。读不到时只用本文明确列出的字段，不猜新组件。
+本文件可完整复制给没有终端、无法读取本地文件的 Web Chat。下面内嵌的保守协议子集与 HTML 壳足以生成基础文档，不需要读库源码或其他文件。当前固定完整协议有46个节点注册项（含1个明确拒绝的历史native项）；本文覆盖37个常用节点的保守子集。完整 Schema URL 供有读取能力时扩展；拿到 URL 不等于已经读取其内容。读不到时只用本文明确列出的字段，不猜新组件。
 
 这是一套独立于模型厂商的公开库，无需 OpenAI 账号、API 或私有运行时。`portable` 只是库的后端名称，不是另一种产品版本。CDN 页面需要联网加载库；它不是已发布的 npm 包。
 
@@ -23,16 +23,16 @@ description: 为技术解释、真坐标图、本地表单、已提供天气数�
 
 固定的公开文件（同一提交，不混用版本）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.schema.json`
 
 全局脚本加载后通过 `window.IUI` 访问浏览器 API：`validateDocument(input)` 返回 `{ok:true,document}` 或 `{ok:false,issues:[{code,path,message}]}`。`mount(element,document,{styles:false})` 把 JSON 渲染到容器；这里由独立 CSS 文件提供样式；必须保留 `styles:false`，使字体相对该 CDN 样式表加载。它返回 `update(nextDocument)`、`dispose()`、`getState()`、`setState(patch)`。**`compileHtml` 是 Node API，不能从浏览器模块导入。** 浏览器的 JSON→界面转换由 `mount` 完成。
 
 数学排版使用可视 KaTeX HTML 与辅助阅读用 MathML。CSS 会从同一固定提交的 `cdn/fonts/` 按需加载 20 款官方 MIT WOFF2 字体，并非无字体下载。示例壳未设置 CSP；若宿主另设严格 CSP，除脚本/样式许可外，`font-src` 必须允许 `https://cdn.jsdelivr.net`。不要自行换字体或删除字体规则。
 
-用户要 HTML 时，交付下列完整壳，并只替换 JSON 数据、页面语言与标题。不要只输出 JSON 后声称已生成页面，也不要手写图表、卡片或控件 DOM。这个壳中的固定启动脚本仅加载库、解析数据、校验和挂载。
+用户要 HTML 时，交付下列完整壳，并只替换 JSON 数据、页面语言、标题及与JSON theme相同的body data-theme。iui-page是库提供的整页背景入口，margin:0仅移除浏览器外边距；嵌入现有网页时由宿主决定整页背景。不要只输出 JSON 后声称已生成页面，也不要手写图表、卡片或控件 DOM。这个壳中的固定启动脚本仅加载库、解析数据、校验和挂载。
 
 ```html
 <!doctype html>
@@ -41,9 +41,9 @@ description: 为技术解释、真坐标图、本地表单、已提供天气数�
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intelligent UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.css" integrity="sha384-r0zJufAML6IlJGwy3/CCOf9IfetRaVAu0WOIwmVd49QUET9B0brLD+31Rqt3sKuH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.css" integrity="sha384-C+dusRekNRJiTU/8pVtFBTI6qqJ60MrvrFkZSGX7DdoE7p9++WfH3OKUE1//MnjD" crossorigin="anonymous">
 </head>
-<body>
+<body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
   <noscript>请启用 JavaScript 以查看这个交互文档。</noscript>
   <script id="iui-spec" type="application/json">
@@ -62,7 +62,7 @@ description: 为技术解释、真坐标图、本地表单、已提供天气数�
     ]
   }
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.global.min.js" integrity="sha384-aCgRqdVDj8wl8C9Rz3p8JuyEkc606WMjP8ykO1kwjrvUVa/EQ9oH5Ne1ocHzA/CD" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.global.min.js" integrity="sha384-iSRKUQ1PkW22WeAPJV0kUHRGTQMLfhge7BMgMaH2YdfeXAHE+YjrutcGVI9TVJS+" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -173,7 +173,61 @@ description: 为技术解释、真坐标图、本地表单、已提供天气数�
 
 先用正文解释问题，再用weather交代已提供的环境信息；需要试算时加本地form，将数值输入写入state、推导写入computed，由metric/chart的V字段读取。天气可以独立展示；表单不会自动改weather里的字面数据或查询新预报。一个有效的小组合是“观测背景 → 输入试算倍率 → 不等距坐标图 → 结果解释”，图的横坐标来源和单位应明确。不要为了展示所有组件而堆砌重复图表。
 
-反例：把城市名交给weather让它查天气、把0.4当40%、给form设置URL action、把数字草稿清空写入null、嵌套form、用category画不等距数轴、给donut负数/多系列、给scatter省略xScale，均不符合本版边界。体育/赛程等后续领域节点尚未在当前固定Schema中，不能猜标签名。
+反例：把城市名交给weather让它查天气、把0.4当40%、给form设置URL action、把数字草稿清空写入null、嵌套form、用category画不等距数轴、给donut负数/多系列、给scatter省略xScale，均不符合本版边界。金融、地图、球员档案等未列出的领域节点不在当前固定合同内，不能猜标签名。
+
+### 体育：调用方供数的赛程、记分牌与积分榜
+
+选择视图时先问读者要看什么：接下来何时比赛用 `sports-schedule`；一场的当前比分、分节与统计用 `sports-scoreboard`；多队排名与赛绩用 `sports-standings`。三者只显示提供的数据，不能抓比分、自动计时或订阅直播。没有真实数据的教学页必须标明合成。
+
+三个节点都必填 `type,data`，可选 `id:S,status:"ready"|"loading"|"error",message:S`。额外字段分别是：
+
+- `sports-schedule`：`initialDate?:"YYYY-MM-DD",initialTeamId?:S,initialStage?:S`；日期允许无比赛，球队与阶段须来自 data。
+- `sports-scoreboard`：`gameId?:S`，若指定必须存在；省略时优先进行中比赛，再取最早一场。
+- `sports-standings`：`initialTeamId?:S,initialGroup?:S`，若指定须对应已有数据。
+
+每个节点内放完整的 `data` 对象，不是 URL、变量名或 `$` 引用。下面给出最小完整节点：
+
+```json
+{"type":"sports-scoreboard","data":{"league":{"id":"demo_cup","name":"合成示例杯","sport":"football"},"timezone":"Asia/Shanghai","updatedAt":"2026-10-10T18:00:00+08:00","source":{"label":"原创教学数据","synthetic":true},"teams":[{"id":"north","name":"北岸队"},{"id":"south","name":"南岸队"}],"games":[{"id":"match_one","startAt":"2026-10-10T19:00:00+08:00","homeTeam":"north","awayTeam":"south","status":"scheduled","homeScore":null,"awayScore":null}]}}
+```
+
+`data` 的完整保守结构：
+
+- `league:{id:S,name:S,sport:"football"|"basketball"|"baseball"|"hockey"|"other",season?:S}`，`timezone:S`（有效IANA时区），`updatedAt:S`（含Z/偏移的ISO时间），`source:{label:S,synthetic:B,url?:S}`。
+- `teams:[{id:S,name:S,shortName?:S,color?:"blue"|"green"|"orange"|"red"|"purple"|"gray"},...]`，0–100队，id唯一，shortName最多16字符。league/team/game的id及引用以英文字母或下划线开头，后接字母、数字、下划线、点或短横线，最多80字符；不要把球队id误写为中文名称。
+- `games:[{id:S,startAt:S,homeTeam:S,awayTeam:S,status:"scheduled"|"live"|"final"|"postponed"|"cancelled",homeScore:Q,awayScore:Q,...},...]`，0–300场。Q为0–1000000整数或null。比赛id唯一；两队须已声明且不同；startAt含Z/明确偏移。无需预先排序，库按真实时间排序并按当地日期分组。
+- 比赛可选 `period:S,clock:S,stage:S,venue:S,neutral:B,detail:S,winnerTeamId:S`；clock是来源给定文字，不是倒计时。winnerTeamId仅用于final且必须是参赛队，不能凭大小自动推断。
+- 可选 `periodScores:[{label:S,home:Q,away:Q},...]`、`tieBreak:{label:S,home:Q,away:Q}`、`stats:[{label:S,home:S|N|null,away:S|N|null},...]`；两种数组各最多30项，各自标签不重复。分节不强求加总等于总分；tieBreak只用于live/final，点球/加赛不擅自并入总分。stats的数字和文字均为字面值，数字须有限。
+- `standings?:[{teamId:S,rank:1..10000整数,played:Q,won:Q,drawn:Q,lost:Q,points:N|null,group?:S,for?:Q,against?:Q,note?:S},...]`，0–100行，teamId存在且每队最多一行，允许并列名次。已知胜平负之和不超过played；三项及played全知时必须相等。points允许负数和小数，保留扣分/赛制，不从胜场猜积分或重新排名。
+
+scheduled的比分必须为null；live的真实0:0保留0；final仍可缺测，不能补零；延期/取消可保留来源提供的中断前比分。不把缺失排名/胜负编成已知值。名称和详情标签一般1–200字符；venue最多300、detail最多3000、note最多500。source.url仅用允许的公开HTTPS来源，库不自动读取它。
+
+loading/error仍需提供合法data，配message说明；无数据用teams/games空数组（积分榜可加standings空数组），不保留指向不存在记录的初始筛选。赛程筛选、记分牌选场、积分榜排序属于各组件本地视图状态，不与文档state绑定；不同视图不会自动联动，`controller.update`用完整快照更新并重置本地选择。窄屏积分榜可在自身区域横向滚动。
+
+组合示例是“来源与更新时刻 → 赛程 → 一场关键比赛的记分牌 → 解释”，需要跨队比较时再放积分榜；不为凑节点而把同一批信息重复三遍。反例：用scheduled+0:0暗示已经开赛、把null补零、以当前比分替来源判冠军、以clock文字声称实时更新、给比分字段放V表达式、传数据服务URL让组件抓取，都不成立。球员档案、逐球事件、投篮图、完整box score、淘汰赛树、赛车圈速仍不支持。
+
+### 学习：本地自测与闪卡
+
+用 `quiz` 检查能客观判定的理解，用 `flashcards` 让读者先回忆再翻面自评。先讲清概念再放少量相关题；不要把主观建议强塞进唯一正确答案。答案与解释由作者提供，应核对事实和计算；答案直接包含在HTML中，不能用于保密考试。
+
+- `quiz`：`{type:"quiz",title:S,questions:[题,...],id?:S,description?:S,status?:"ready"|"loading"|"error",message?:S}`。
+- 题：`{id:S,kind:"single"|"multiple",prompt:S,choices:[{id:S,label:S},...],correct:[选项id,...],explanation:S,latex?:S,explanationLatex?:S,points?:1..100整数}`。0–100题，每题2–20选项，correct非空且不重复、只引用本题选项；single必须恰好一个答案，multiple可以一个或多个。points默认1。
+- `flashcards`：`{type:"flashcards",title:S,cards:[卡,...],id?:S,description?:S,status?:"ready"|"loading"|"error",message?:S}`。
+- 卡：`{id:S,front:S,back:S,hint?:S,frontLatex?:S,backLatex?:S}`，0–100张。正反面纯文本，公式放各自LaTeX字段。
+
+题/卡id在各自数组内唯一，选项id在本题内唯一；这些id采用上面体育id的英文标识规则。title为1–200字符，题干/正反面/公式最多6000字符且非空，explanation必填、最多6000字符；选项label非空最多2000字符，hint最多2000。内容不接受V表达式、bind、HTML或随机出题脚本。
+
+最小自测节点：
+
+```json
+{"type":"quiz","title":"先自己算一算","questions":[{"id":"sum","kind":"single","prompt":"2加3等于多少？","choices":[{"id":"four","label":"4"},{"id":"five","label":"5"}],"correct":["five"],"explanation":"把2和3相加得到5。"}]}
+```
+
+选择后点确认才显示参考答案/解释；确认后锁定本题，不能重复得分，已提交才能下一题，也可回看。multiple必须与正确集合完全相同才得整题分，没有部分分；进度按题数、成绩按points加权。完成后显示总分和逐题结果，重新开始清空。
+
+闪卡先揭晓，再标记已掌握/再练一次；重复标记只更新本卡。前后导航保留本轮标记，新卡回正面；全部评估后可看总结，重新开始清空。它不安排间隔重复，不诊断掌握程度。
+
+空questions/cards显示空态；loading/error仍需title及合法数组，可用message说明。选择、得分、翻面、自评都是组件本地状态，不写文档state，不自动保存/同步/联网；刷新或controller.update的新快照会重置整轮。别加提交URL、成绩上报或持久化承诺，别把按钮演示说成真实考试服务。
 
 ## 4. 绑定与表达式
 
@@ -206,6 +260,9 @@ description: 为技术解释、真坐标图、本地表单、已提供天气数�
 | `FIELD_CONSTRAINT` / `NESTED_FORM` | 检查字段约束类型/上下限，移除表单嵌套 |
 | `CHART_AXIS` / `CHART_BOUNDS` / `CHART_ORDER` / `CHART_DONUT` | 匹配坐标类型、范围、排序及单系列非负组成；不要裁改真实观测 |
 | `WEATHER_DATE` / `WEATHER_RANGE` / `TIMEZONE` | 修正日期/偏移/顺序、百分比与IANA时区，缺测保留null |
+| `SPORTS_ID` / `SPORTS_TEAM` / `SPORTS_DATE` / `SPORTS_FILTER` | 查唯一id、存在的不同球队、时间偏移及初始筛选引用 |
+| `SPORTS_STATUS` / `SPORTS_RESULT` / `SPORTS_PERIOD` / `SPORTS_STAT` / `SPORTS_RECORD` | 匹配状态与比分/胜者、详情标签唯一及赛绩和；不推断赛制 |
+| `LEARNING_ID` / `QUIZ_ANSWER` | 修重复题/卡/选项id，正确答案只引用本题选项且符合单选数量 |
 | `TABLE_WIDTH` | 让每行与列数一致，真正缺测用 null |
 | `UNSAFE_URL` / `UNSUPPORTED_NATIVE` | 使用允许的公开 HTTPS 资源或本文节点；不要绕过校验、伪造私有组件 |
 
@@ -213,7 +270,7 @@ description: 为技术解释、真坐标图、本地表单、已提供天气数�
 
 ## 6. 有终端的 Agent：可选本地路径
 
-同一协议可用本地构建；没有终端时跳过本节，不影响上面的 CDN 路径。核心仓库 `https://github.com/Micraow/Intelligent-UI`，与上面固定 CDN 使用同一提交 `7c490585f3ae4b72999b3dd5db7a0b8ee65ac417`。在库目录先 `npm ci`、`npm run build`，然后：
+同一协议可用本地构建；没有终端时跳过本节，不影响上面的 CDN 路径。核心仓库 `https://github.com/Micraow/Intelligent-UI`，与上面固定 CDN 使用同一提交 `f372c71d31633be85bb228f57fdb07da9e8f2112`。在库目录先 `npm ci`、`npm run build`，然后：
 
 ```sh
 node bin/iui.mjs validate answer.json --json

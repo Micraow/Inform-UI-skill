@@ -162,5 +162,25 @@
   {
     "type": "weather",
     "status": "portable"
+  },
+  {
+    "type": "sports-schedule",
+    "status": "portable"
+  },
+  {
+    "type": "sports-scoreboard",
+    "status": "portable"
+  },
+  {
+    "type": "sports-standings",
+    "status": "portable"
+  },
+  {
+    "type": "quiz",
+    "status": "portable"
+  },
+  {
+    "type": "flashcards",
+    "status": "portable"
   }
 ]

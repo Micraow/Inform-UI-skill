@@ -25,6 +25,8 @@ Intelligent UI Skill 帮助 AI 判断什么时候值得用图、选什么组件�
 - **看懂数据变化**：用折线、柱状、散点、面积或环图表达关系，按真实数值/时间摆放坐标，保留单位、来源和缺测值
 - **组织本地输入**：用表单、文本/数字/邮箱、多行文本、单选和分段选择完成校验、确认与取消，默认不发送或保存数据
 - **说明天气数据**：展示调用方提供的观测/预报，切换日期、单位和图表；没有天气服务也不会冒充实时预报
+- **读懂比赛快照**：用已有数据展示赛程、记分牌和积分榜，保留未知比分、并列名次与来源；不冒充直播
+- **练习与回忆**：本地单选/多选自测、解释反馈、翻面自评与重来，答案公开且不保存成绩
 - **探索“如果改变……”**：用滑块或选择器改变输入，让相关数值同步更新
 - **整理指标和资源**：把关键指标、简短说明与链接放在读者需要的位置
 
@@ -62,7 +64,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Inte
 
 ```sh
 git clone https://github.com/Micraow/Intelligent-UI.git Intelligent-UI
-git -C Intelligent-UI checkout --detach 7c490585f3ae4b72999b3dd5db7a0b8ee65ac417
+git -C Intelligent-UI checkout --detach f372c71d31633be85bb228f57fdb07da9e8f2112
 npm --prefix Intelligent-UI ci
 npm --prefix Intelligent-UI run build
 node Intelligent-UI/bin/iui.mjs validate intelligent-ui-author/examples/hpcc-feedback.json --json
@@ -84,6 +86,8 @@ node Intelligent-UI/bin/iui.mjs build intelligent-ui-author/examples/hpcc-feedba
 | [本地练习计划](examples/local-practice.json) | 字段校验、禁用、提交/取消与指标、柱图的同一state联动 |
 | [已提供的天气数据](examples/supplied-weather.json) | 有来源的数据、日期/单位切换与缺测、空/加载/错误状态 |
 | [真实坐标与五图种](examples/coordinate-scenarios.json) | 不等距X、跨年毫秒时间、微量数据与图种边界 |
+| [合成比赛快照](examples/supplied-sports.json) | 赛程筛选、记分牌、并列排名、扣分和空/加载/错误状态 |
+| [本地自测与闪卡](examples/local-learning.json) | 加权计分、严格多选、翻面自评、回看与重来 |
 | [资源短名单](examples/resource-shortlist.json) | 把有用的链接和介绍融入正文 |
 
 这些示例全部为原创。请一起修改数据与解释；示例数字不是用户的真实测量结果。
@@ -97,7 +101,7 @@ node Intelligent-UI/bin/iui.mjs build intelligent-ui-author/examples/hpcc-feedba
 
 技能不要求 AI 为每次回答重新写 HTML、CSS 或 JavaScript。字体、间距、主题与移动端布局交给库处理。
 
-本轮固定协议有41项节点注册，根技能内嵌32个常用节点的保守生成规范；历史 native 输入明确拒绝。天气展示节点已支持，但数据仍须由调用方提供；体育等后续领域尚未进入当前固定合同。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
+本轮固定协议有46项节点注册，根技能内嵌37个常用节点的保守生成规范；历史 native 输入明确拒绝。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融等未列领域尚未进入当前固定合同。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
 
 ## 运行检查
 
@@ -110,7 +114,7 @@ npm run check:library -- --library ../Intelligent-UI
 
 第一条检查技能结构与文件边界，第二条调用真实库的 API、Schema 和 CLI 验证全部示例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
-[持续验证](https://github.com/Micraow/Intelligent-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 40 组明暗主题和桌面/手机视图：32 组原创示例、4 组根 SKILL 的 CDN HTML 壳、4 组[只读 Skill 后首次生成的完整页面](tests/blind/README.md)。后者的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。CI badge 显示开发分支的最新状态。
+[持续验证](https://github.com/Micraow/Intelligent-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 48 组明暗主题和桌面/手机视图：40 组原创示例（新体育与学习示例直接加载固定CDN）、4 组根 SKILL 的 CDN HTML 壳、4 组[只读 Skill 后首次生成的完整页面](tests/blind/README.md)。后者的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。CI badge 显示开发分支的最新状态。
 
 ## 许可证
 

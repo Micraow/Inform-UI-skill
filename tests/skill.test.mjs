@@ -56,7 +56,7 @@ test('missing observations remain null in chart and inspectable source table', a
 test('support inventory names each portable node once and rejects native', async () => {
   const inventory = await json('references/node-support.json');
   assert.equal(new Set(inventory.map(item => item.type)).size, inventory.length);
-  assert.equal(inventory.length, 41);
+  assert.equal(inventory.length, 46);
   assert.equal(inventory.find(item => item.type === 'native').status, 'rejected');
   assert.equal(inventory.find(item => item.type === 'markdown').status, 'plain-text-fallback');
   assert.ok(inventory.filter(item => !['native', 'markdown'].includes(item.type)).every(item => item.status === 'portable'));

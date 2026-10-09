@@ -23,6 +23,7 @@ const entry = packageJson.exports['.'].import;
 const { compileHtml } = await import(pathToFileURL(path.resolve(library, entry)).href);
 const directory = await mkdtemp(path.join(tmpdir(), 'iui-skill-browser-'));
 const screenshots = argument('--screenshots');
+const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
 if (screenshots) await mkdir(screenshots, { recursive: true });
 let browser;
 let count = 0;
@@ -34,16 +35,88 @@ try {
     for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
       const label = `${name}-${width}-${theme}`;
       const file = path.join(directory, `${label}.html`);
-      await writeFile(file, await compileHtml({ ...document, theme }, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios'].includes(name) ? 'zh-CN' : 'en' }));
+      const cdn = ['supplied-sports', 'local-learning'].includes(name);
+      const authored = { ...document, theme };
+      const html = cdn ? shell.html.replace(/(<script id="iui-spec" type="application\/json">)[\s\S]*?(<\/script>)/, (_, open, close) => open + JSON.stringify(authored).replaceAll('<', '\\u003c') + close).replace('data-theme="auto"', `data-theme="${theme}"`)
+        : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios'].includes(name) ? 'zh-CN' : 'en' });
+      await writeFile(file, html);
       const page = await browser.newPage({ viewport: { width, height: 900 }, colorScheme: theme });
+      if (cdn) {
+        const cdp = await page.context().newCDPSession(page);
+        await cdp.send('Network.enable');
+        await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
+      }
       const errors = [];
+      const responses = [];
       page.on('pageerror', error => errors.push(error.message));
       page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+      page.on('response', response => responses.push({ url: response.url(), status: response.status() }));
       await page.goto(pathToFileURL(file).href);
       await page.waitForSelector('.iui-root');
       const bounds = await page.evaluate(() => ({ scroll: document.documentElement.scrollWidth, viewport: window.innerWidth }));
       assert.ok(bounds.scroll <= bounds.viewport + 1, `${label}: whole-page horizontal overflow ${JSON.stringify(bounds)}`);
       assert.equal(await page.locator('.iui-math-error').count(), 0, `${label}: invalid formula`);
+      if (cdn) {
+        for (const asset of [contract.cdn.global, contract.cdn.style]) assert.ok(responses.some(response => response.url === contract.cdn.baseUrl + asset && response.status === 200));
+        const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+        if (theme === 'dark') assert.notEqual(bg, 'rgb(255, 255, 255)', 'Document shell left a white dark-theme canvas');
+        await page.evaluate(() => document.fonts.ready);
+        if (screenshots) await page.screenshot({ path: path.join(screenshots, `${label}-initial.png`), fullPage: true });
+      }
+      if (name === 'supplied-sports') {
+        const schedule = page.locator('.iui-sports-schedule').first();
+        assert.equal(await schedule.locator('details[data-game-id]').count(), 1);
+        await schedule.getByRole('combobox', { name: '日期', exact: true }).selectOption({ label: '全部' });
+        assert.equal(await schedule.locator('details[data-game-id]').count(), 4);
+        await schedule.getByRole('combobox', { name: '球队', exact: true }).selectOption({ label: '东桥队' });
+        assert.equal(await schedule.locator('details[data-game-id]').count(), 2);
+        const board = page.locator('.iui-sports-scoreboard').first();
+        assert.equal(await board.locator('.iui-sports-score[data-raw-value="0"]').count(), 2);
+        const options = await board.locator('option').allTextContents();
+        const completedMatch = options.find(label => label.includes('西堤') && label.includes('北岸'));
+        assert.ok(completedMatch);
+        await board.getByRole('combobox').selectOption({ label: completedMatch });
+        assert.ok((await board.textContent()).includes('点球'));
+        assert.ok((await board.locator('.iui-sports-winner').textContent()).length > 0);
+        const standings = page.locator('.iui-sports-standings').first();
+        await standings.getByRole('button', { name: /排序.*积分/ }).click();
+        assert.ok((await standings.textContent()).includes('-1'));
+        assert.ok((await standings.textContent()).includes('缺测'));
+        await standings.getByRole('combobox', { name: '球队', exact: true }).selectOption({ label: '西堤队' });
+        assert.equal(await standings.locator('tbody tr').count(), 1);
+        await page.getByText('空、加载和错误状态', { exact: true }).click();
+        assert.ok(await page.getByText('教学错误状态；组件不会自行重试或联系数据服务。', { exact: true }).isVisible());
+      }
+      if (name === 'local-learning') {
+        const quiz = page.locator('.iui-quiz').first();
+        assert.ok(await quiz.getByRole('button', { name: '确认答案', exact: true }).isDisabled());
+        await quiz.getByRole('radio', { name: '40%', exact: true }).check();
+        await quiz.getByRole('button', { name: '确认答案', exact: true }).click();
+        assert.ok((await quiz.locator('.iui-learning-feedback').textContent()).includes('回答正确'));
+        assert.ok(await quiz.getByRole('radio', { name: '40%', exact: true }).isDisabled());
+        await quiz.getByRole('button', { name: '下一题', exact: true }).click();
+        await quiz.getByRole('checkbox', { name: '保留单位与采样口径', exact: true }).check();
+        await quiz.getByRole('button', { name: '确认答案', exact: true }).click();
+        assert.equal(await quiz.locator('.iui-learning-feedback').getAttribute('data-correct'), 'false', 'Partial multiple-choice set received credit');
+        await quiz.getByRole('button', { name: '查看结果', exact: true }).click();
+        assert.equal(await quiz.locator('.iui-learning-score').textContent(), '得分: 2 / 5');
+        await quiz.getByRole('button', { name: '重新开始', exact: true }).click();
+        assert.equal(await quiz.locator('input:checked').count(), 0);
+        const cards = page.locator('.iui-flashcards').first();
+        assert.ok(await cards.getByRole('button', { name: '已掌握', exact: true }).isDisabled());
+        await cards.getByRole('button', { name: '查看答案', exact: true }).click();
+        await cards.getByRole('button', { name: '已掌握', exact: true }).click();
+        await cards.getByRole('button', { name: '下一张', exact: true }).click();
+        assert.equal(await cards.locator('.iui-flashcard').getAttribute('data-side'), 'front');
+        await cards.getByRole('button', { name: '查看答案', exact: true }).click();
+        await cards.getByRole('button', { name: '再练一次', exact: true }).click();
+        await cards.getByRole('button', { name: '查看结果', exact: true }).click();
+        assert.equal(await cards.locator('.iui-learning-score').textContent(), '已掌握: 1 / 2');
+        await cards.getByRole('button', { name: '重新开始', exact: true }).click();
+        assert.equal(await cards.locator('progress').getAttribute('value'), '0');
+        await page.getByText('没有题目或卡片时', { exact: true }).click();
+        assert.ok(await page.getByText('内容暂不可用；没有远程批改或自动重试。', { exact: true }).isVisible());
+      }
       if (name === 'hpcc-feedback') {
         await page.getByRole('slider').focus();
         for (let step = 0; step < 3; step++) await page.keyboard.press('ArrowLeft');
@@ -119,7 +192,6 @@ try {
       console.log(`PASS ${label}`);
     }
   }
-  const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
   const shellFile = path.join(directory, 'web-chat-shell.html');
   await writeFile(shellFile, shell.html);
   for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {

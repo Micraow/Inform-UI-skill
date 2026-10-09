@@ -69,7 +69,7 @@ try {
     const before = JSON.stringify(document);
     const result = api.validateDocument(document);
     assert.equal(result.ok, true, `${name}: ${JSON.stringify(result.issues)}`);
-    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json'].includes(name) ? 'zh-CN' : 'en' };
+    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json', 'supplied-sports.json', 'local-learning.json'].includes(name) ? 'zh-CN' : 'en' };
     const html = await api.compileHtml(result.document, options);
     assert.equal(typeof html, 'string');
     assert.ok(html.toLowerCase().includes('<!doctype html>'), `${name}: no standalone HTML document`);
@@ -117,8 +117,27 @@ try {
   const weather = literalExamples.find(node => node.type === 'weather');
   assert.ok(weather, 'Self-contained weather input example is required');
   const invalidWeather = changes => ({ version: 'iui/1', body: [{ ...structuredClone(weather), ...changes }] });
+  const sports = literalExamples.find(node => node.type === 'sports-scoreboard');
+  const quiz = literalExamples.find(node => node.type === 'quiz');
+  assert.ok(sports && quiz, 'Self-contained new domain examples are required');
+  const changedNode = (node, change) => { const value = structuredClone(node); change(value); return { version: 'iui/1', body: [value] }; };
   const baseChart = { type: 'chart', kind: 'line', xScale: 'linear', xKey: 'x', data: [{ x: 0, y: 1 }, { x: 10, y: 2 }], series: [{ key: 'y', label: 'Synthetic' }] };
   const invalid = [
+    ['sports repeated team id', changedNode(sports, n => n.data.teams.push(n.data.teams[0]))],
+    ['sports unknown opponent', changedNode(sports, n => n.data.games[0].awayTeam = 'missing')],
+    ['sports identical opponents', changedNode(sports, n => n.data.games[0].awayTeam = 'north')],
+    ['sports scheduled zero score', changedNode(sports, n => n.data.games[0].homeScore = 0)],
+    ['sports timestamp without offset', changedNode(sports, n => n.data.games[0].startAt = '2026-10-10T19:00:00')],
+    ['sports unknown selected game', changedNode(sports, n => n.gameId = 'missing')],
+    ['sports live winner', changedNode(sports, n => { n.data.games[0].status = 'live'; n.data.games[0].winnerTeamId = 'north'; })],
+    ['sports scheduled tiebreak', changedNode(sports, n => n.data.games[0].tieBreak = { label: 'Tie', home: 1, away: 0 })],
+    ['sports impossible record', changedNode(sports, n => n.data.standings = [{ teamId: 'north', rank: 1, played: 2, won: 3, drawn: 0, lost: 0, points: 9 }])],
+    ['quiz repeated question id', changedNode(quiz, n => n.questions.push(n.questions[0]))],
+    ['quiz repeated choice id', changedNode(quiz, n => n.questions[0].choices.push(n.questions[0].choices[0]))],
+    ['quiz unknown answer', changedNode(quiz, n => n.questions[0].correct = ['missing'])],
+    ['quiz single multiple answers', changedNode(quiz, n => n.questions[0].correct = ['four', 'five'])],
+    ['quiz missing explanation', changedNode(quiz, n => delete n.questions[0].explanation)],
+    ['flashcards duplicate ids', { version: 'iui/1', body: [{ type: 'flashcards', title: 'Synthetic', cards: [{ id: 'a', front: 'A', back: 'B' }, { id: 'a', front: 'C', back: 'D' }] }] }],
     ['numeric input string state', { version: 'iui/1', state: { count: '2' }, body: [{ type: 'input', kind: 'number', label: 'Count', bind: 'count' }] }],
     ['disabled is not boolean', { version: 'iui/1', body: [{ type: 'field', label: 'Group', disabled: 'yes', children: [{ type: 'text', value: 'Example' }] }] }],
     ['nested form', { version: 'iui/1', body: [{ type: 'form', label: 'Outer', children: [{ type: 'form', label: 'Inner', children: [] }] }] }],
