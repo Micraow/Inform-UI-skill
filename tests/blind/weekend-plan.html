@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>周末户外活动规划｜合成演示</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.css" integrity="sha384-r0zJufAML6IlJGwy3/CCOf9IfetRaVAu0WOIwmVd49QUET9B0brLD+31Rqt3sKuH" crossorigin="anonymous">
+</head>
+<body>
+  <main id="iui">正在加载界面…</main>
+  <noscript>请启用 JavaScript 以查看这个交互文档。</noscript>
+  <script id="iui-spec" type="application/json">
+{
+  "version": "iui/1",
+  "title": "周末户外活动规划｜合成演示",
+  "description": "用明确标注的合成天气与本地偏好表单，试算周末步行计划。",
+  "theme": "auto",
+  "state": {
+    "day": "saturday",
+    "activity": "walk",
+    "hours": 3,
+    "breakMinutes": 30,
+    "note": "带相机，途中留时间拍照。"
+  },
+  "computed": {
+    "speed": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "$": "activity"
+            },
+            "walk"
+          ]
+        },
+        3,
+        4.5
+      ]
+    },
+    "movingMinutes": {
+      "op": "max",
+      "args": [
+        0,
+        {
+          "op": "sub",
+          "args": [
+            {
+              "op": "mul",
+              "args": [
+                {
+                  "$": "hours"
+                },
+                60
+              ]
+            },
+            {
+              "$": "breakMinutes"
+            }
+          ]
+        }
+      ]
+    },
+    "distance": {
+      "op": "mul",
+      "args": [
+        {
+          "op": "div",
+          "args": [
+            {
+              "$": "movingMinutes"
+            },
+            60
+          ]
+        },
+        {
+          "$": "speed"
+        }
+      ]
+    },
+    "dayLabel": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "$": "day"
+            },
+            "saturday"
+          ]
+        },
+        "周六 10 月 10 日",
+        "周日 10 月 11 日"
+      ]
+    },
+    "activityLabel": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "$": "activity"
+            },
+            "walk"
+          ]
+        },
+        "轻松散步",
+        "平缓步道健走"
+      ]
+    },
+    "weatherAdvice": {
+      "op": "if",
+      "args": [
+        {
+          "op": "eq",
+          "args": [
+            {
+              "$": "day"
+            },
+            "saturday"
+          ]
+        },
+        "在本例合成数据中，周六降水概率较低，可优先考虑上午的短途步行。",
+        "在本例合成数据中，周日降水概率为 65%，建议缩短户外安排并准备室内备选。"
+      ]
+    },
+    "timeAdvice": {
+      "op": "if",
+      "args": [
+        {
+          "op": "gt",
+          "args": [
+            {
+              "$": "movingMinutes"
+            },
+            0
+          ]
+        },
+        "下方距离只反映恒定速度与休息时间的简单试算，请按体力和实际路线缩短。",
+        "休息时间已占满可用时长，请增加总时长或减少休息时间。"
+      ]
+    }
+  },
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "把周末留给户外"
+    },
+    {
+      "type": "text",
+      "value": "先看环境，再定节奏。本示例优先考虑周六上午的短途步行；填写活动偏好，即可看到可用步行时间与距离如何变化。"
+    },
+    {
+      "type": "callout",
+      "tone": "caution",
+      "value": "演示声明：地点、天气和步行速度均为自主设定的合成数据，不是实时预报或实地路线建议。出发前请另查目的地最新天气、步道开放情况和返程交通。"
+    },
+    {
+      "type": "section",
+      "heading": "01 · 周末环境：已提供的合成天气",
+      "children": [
+        {
+          "type": "weather",
+          "id": "weekend-weather",
+          "location": {
+            "name": "示例湖畔公园（虚构地点）",
+            "timezone": "Asia/Shanghai"
+          },
+          "updatedAt": "2026-10-10T08:00:00+08:00",
+          "source": {
+            "label": "本页作者编制的合成演示数据；未查询天气服务",
+            "synthetic": true
+          },
+          "units": {
+            "temperature": "celsius"
+          },
+          "current": {
+            "time": "2026-10-10T08:00:00+08:00",
+            "temperature": 18,
+            "condition": "partly-cloudy",
+            "feelsLike": 18,
+            "humidity": 60
+          },
+          "daily": [
+            {
+              "date": "2026-10-10",
+              "low": 16,
+              "high": 24,
+              "condition": "partly-cloudy",
+              "precipitationProbability": 20
+            },
+            {
+              "date": "2026-10-11",
+              "low": 17,
+              "high": 22,
+              "condition": "rain",
+              "precipitationProbability": 65
+            }
+          ],
+          "hourly": [
+            {
+              "time": "2026-10-10T08:00:00+08:00",
+              "temperature": 18,
+              "precipitationProbability": 10
+            },
+            {
+              "time": "2026-10-10T09:00:00+08:00",
+              "temperature": 20,
+              "precipitationProbability": 10
+            },
+            {
+              "time": "2026-10-10T12:00:00+08:00",
+              "temperature": 24,
+              "precipitationProbability": 15
+            },
+            {
+              "time": "2026-10-10T16:00:00+08:00",
+              "temperature": 22,
+              "precipitationProbability": 20
+            },
+            {
+              "time": "2026-10-11T08:00:00+08:00",
+              "temperature": 18,
+              "precipitationProbability": 45
+            },
+            {
+              "time": "2026-10-11T09:00:00+08:00",
+              "temperature": 19,
+              "precipitationProbability": 50
+            },
+            {
+              "time": "2026-10-11T12:00:00+08:00",
+              "temperature": 22,
+              "precipitationProbability": 65
+            },
+            {
+              "time": "2026-10-11T16:00:00+08:00",
+              "temperature": 20,
+              "precipitationProbability": 60
+            }
+          ],
+          "initialDate": "2026-10-10",
+          "status": "ready"
+        },
+        {
+          "type": "caption",
+          "value": "日期为 2026 年 10 月 10–11 日，全部时刻采用 Asia/Shanghai（UTC+08:00）。逐小时仅提供几个示例时点；日降水概率是独立设定的日级数据，未由小时值平均得到。天气组件的视图切换不会查询新数据。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "02 · 填写活动偏好",
+      "children": [
+        {
+          "type": "text",
+          "value": "调整字段会立即更新下方试算。点击“确认本地计划”只校验本表单并显示确认状态，不会发送、保存或预约；刷新页面会恢复初始值。"
+        },
+        {
+          "type": "form",
+          "id": "weekend-preferences",
+          "label": "周末活动偏好",
+          "submitLabel": "确认本地计划",
+          "cancelLabel": "恢复本表单初值",
+          "successMessage": "本地校验通过。请结合实际天气与路线再次确认出行安排。",
+          "errorMessage": "请检查并修正表单中的提示。",
+          "children": [
+            {
+              "type": "segmented",
+              "label": "计划日期",
+              "bind": "day",
+              "required": true,
+              "options": [
+                {
+                  "value": "saturday",
+                  "label": "周六 10/10"
+                },
+                {
+                  "value": "sunday",
+                  "label": "周日 10/11"
+                }
+              ]
+            },
+            {
+              "type": "radio",
+              "label": "活动节奏",
+              "bind": "activity",
+              "required": true,
+              "hint": "仅用于试算：轻松散步按 3 km/h，平缓步道健走按 4.5 km/h；不适用于爬升、技术路段或个人能力评估。",
+              "options": [
+                {
+                  "value": "walk",
+                  "label": "轻松散步"
+                },
+                {
+                  "value": "hike",
+                  "label": "平缓步道健走"
+                }
+              ]
+            },
+            {
+              "type": "input",
+              "kind": "number",
+              "label": "现场活动总时长（小时）",
+              "bind": "hours",
+              "min": 0.5,
+              "max": 8,
+              "step": 0.5,
+              "required": true,
+              "hint": "包含步行与休息，不含往返交通；范围为 0.5–8 小时。"
+            },
+            {
+              "type": "field",
+              "label": "休息安排",
+              "hint": "总休息时间超过活动时长时，试算步行时间按 0 分钟处理，并提示调整。",
+              "children": [
+                {
+                  "type": "slider",
+                  "label": "总休息时间",
+                  "bind": "breakMinutes",
+                  "min": 0,
+                  "max": 90,
+                  "step": 15,
+                  "unit": "分钟"
+                }
+              ]
+            },
+            {
+              "type": "textarea",
+              "label": "随行备忘",
+              "bind": "note",
+              "rows": 3,
+              "maxLength": 300,
+              "placeholder": "例如：带相机、留时间拍照",
+              "hint": "可选，最多 300 个 UTF-16 单元；内容会显示在下方计划预览。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "03 · 当前计划预览",
+      "children": [
+        {
+          "type": "text",
+          "value": {
+            "$": "dayLabel"
+          },
+          "weight": "semibold"
+        },
+        {
+          "type": "text",
+          "value": {
+            "$": "activityLabel"
+          }
+        },
+        {
+          "type": "text",
+          "value": {
+            "$": "weatherAdvice"
+          }
+        },
+        {
+          "type": "metric-grid",
+          "columns": 2,
+          "children": [
+            {
+              "type": "metric",
+              "label": "假设步行速度",
+              "value": {
+                "$": "speed"
+              },
+              "unit": "km/h",
+              "precision": 1,
+              "hint": "合成试算参数，随活动节奏变化"
+            },
+            {
+              "type": "metric",
+              "label": "可用步行时间",
+              "value": {
+                "$": "movingMinutes"
+              },
+              "unit": "分钟",
+              "precision": 0,
+              "hint": "现场活动总时长减去休息时间，最低为 0"
+            },
+            {
+              "type": "metric",
+              "label": "试算总路程",
+              "value": {
+                "$": "distance"
+              },
+              "unit": "km",
+              "precision": 1,
+              "hint": "包括去程与返程；不是单程半径"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": {
+            "$": "timeAdvice"
+          }
+        },
+        {
+          "type": "text",
+          "value": "随行备忘：",
+          "weight": "semibold"
+        },
+        {
+          "type": "text",
+          "value": {
+            "$": "note"
+          }
+        },
+        {
+          "type": "caption",
+          "value": "这里显示当前有效输入的即时预览，并不表示表单已确认。数字框为空或尚未输入完整时，预览可能保留上一次有效数值，请以表单校验提示为准。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "04 · 看懂距离与用时",
+      "children": [
+        {
+          "type": "text",
+          "value": "横轴是真实距离，不是等距类别。1 km 到 3 km 与 3 km 到 6 km 的间隔不同；更改活动节奏后，折线展示同一距离需要多少纯步行时间。"
+        },
+        {
+          "type": "figure",
+          "caption": "推导数据：用时（分钟）= 距离（km）÷ 假设速度（km/h）× 60。图中不含休息、爬升和交通时间；它是通用试算曲线，不代表你已经选择的路线。",
+          "children": [
+            {
+              "type": "chart",
+              "kind": "line",
+              "title": "距离越远，需要多少步行时间？",
+              "xKey": "distance",
+              "xScale": "linear",
+              "xLabel": "总步行距离（km）",
+              "xMin": 0,
+              "xMax": 9,
+              "unit": "分钟",
+              "yMin": 0,
+              "data": [
+                {
+                  "distance": 0,
+                  "minutes": {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "div",
+                        "args": [
+                          0,
+                          {
+                            "$": "speed"
+                          }
+                        ]
+                      },
+                      60
+                    ]
+                  }
+                },
+                {
+                  "distance": 1,
+                  "minutes": {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "div",
+                        "args": [
+                          1,
+                          {
+                            "$": "speed"
+                          }
+                        ]
+                      },
+                      60
+                    ]
+                  }
+                },
+                {
+                  "distance": 3,
+                  "minutes": {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "div",
+                        "args": [
+                          3,
+                          {
+                            "$": "speed"
+                          }
+                        ]
+                      },
+                      60
+                    ]
+                  }
+                },
+                {
+                  "distance": 6,
+                  "minutes": {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "div",
+                        "args": [
+                          6,
+                          {
+                            "$": "speed"
+                          }
+                        ]
+                      },
+                      60
+                    ]
+                  }
+                },
+                {
+                  "distance": 9,
+                  "minutes": {
+                    "op": "mul",
+                    "args": [
+                      {
+                        "op": "div",
+                        "args": [
+                          9,
+                          {
+                            "$": "speed"
+                          }
+                        ]
+                      },
+                      60
+                    ]
+                  }
+                }
+              ],
+              "series": [
+                {
+                  "key": "minutes",
+                  "label": "纯步行用时",
+                  "color": "green"
+                }
+              ],
+              "note": "合成速度参数下的推导值；支持的距离取样为 0、1、3、6、9 km。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "05 · 出门前最后三件事",
+      "children": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "title": "先核实环境",
+              "detail": "查看真实目的地的最新预报与步道开放信息；雷雨、大风或道路封闭时及时调整安排。"
+            },
+            {
+              "title": "为返程留余量",
+              "detail": "试算路程是总路程。若原路返回，去程也要考虑返程所需时间，并额外预留迷路或休息余量。"
+            },
+            {
+              "title": "准备替代安排",
+              "detail": "带饮水、合适鞋服与必要防雨用品；天气变化时选择附近室内活动或延期。"
+            }
+          ]
+        },
+        {
+          "type": "caption",
+          "value": "本页使用库默认纵向布局、响应式组件与自动亮暗主题，未添加自定义组件 DOM 或 CSS。此盲测产物尚未实际打开验证。"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@7c490585f3ae4b72999b3dd5db7a0b8ee65ac417/cdn/iui.global.min.js" integrity="sha384-aCgRqdVDj8wl8C9Rz3p8JuyEkc606WMjP8ykO1kwjrvUVa/EQ9oH5Ne1ocHzA/CD" crossorigin="anonymous"></script>
+  <script>
+    const host = document.getElementById('iui');
+    try {
+      if (!window.IUI) throw new Error('库未加载，请检查网络或 CDN 地址。');
+      const { validateDocument, mount } = window.IUI;
+      const input = JSON.parse(document.getElementById('iui-spec').textContent);
+      const result = validateDocument(input);
+      if (!result.ok) throw new Error(result.issues.map(i => `${i.code} ${i.path}: ${i.message}`).join('\n'));
+      mount(host, result.document, { styles: false });
+    } catch (error) {
+      host.textContent = `未能显示界面：${error.message}`;
+    }
+  </script>
+</body>
+</html>

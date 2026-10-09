@@ -53,6 +53,9 @@ jobs:
       - name: Verify real API, schema and CLI
         working-directory: skill
         run: npm run check:library -- --library ../library
+      - name: Verify immutable blind first output
+        working-directory: skill
+        run: node scripts/verify-blind.mjs --library ../library
       - name: Install browser for fixture regression
         if: matrix.os == 'ubuntu-latest' && matrix.node == 22
         working-directory: library
@@ -61,3 +64,15 @@ jobs:
         if: matrix.os == 'ubuntu-latest' && matrix.node == 22
         working-directory: skill
         run: npm run check:browser -- --library ../library
+      - name: Verify original blind HTML with the real CDN
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 22
+        working-directory: skill
+        run: node scripts/verify-blind.mjs --library ../library --browser --screenshots artifacts/blind
+      - name: Save original blind page screenshots and observations
+        if: always() && matrix.os == 'ubuntu-latest' && matrix.node == 22
+        uses: actions/upload-artifact@v4
+        with:
+          name: blind-first-browser
+          path: skill/artifacts/blind
+          if-no-files-found: ignore
+          retention-days: 7
