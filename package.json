@@ -24,6 +24,8 @@
     "generate:upcoming": "node scripts/generate-upcoming-schemas.mjs",
     "generate:upcoming-six": "node scripts/generate-upcoming-six-schemas.mjs",
     "check:upcoming-six": "node scripts/verify-upcoming-six-source.mjs",
-    "check:next-four-draft": "node candidates/upcoming-ten/verify-four-contracts.mjs"
+    "check:next-four-draft": "node candidates/upcoming-ten/verify-four-contracts.mjs",
+    "generate:upcoming-ten": "node scripts/generate-upcoming-ten-schemas.mjs",
+    "check:upcoming-ten": "node scripts/verify-upcoming-ten-source.mjs"
   }
 }

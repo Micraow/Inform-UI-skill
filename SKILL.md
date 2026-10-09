@@ -765,9 +765,9 @@ Reject duplicate job/variant/question IDs with `DUPLICATE_ID` at the later ID. R
 
 <!-- upcoming-ten-source-authoring -->
 
-## 10. Four more Base contract drafts (integrated asset pending)
+## 10. Four more Base contracts (reviewed107 source)
 
-These four contracts are tested against the reviewed local source snapshot containing them. The future combined107 runtime has not been pinned here. Do not send these nodes to the older26ec shell,3858 runtime or990d103 runtime. See candidates/upcoming-ten/README.md for exact source-checkpoint evidence and current limits.
+These four contracts now use clean source 65742b08d21b8819319ccb9104142d10ea5d8703, together with the preceding six later Base nodes. Use candidates/upcoming-ten schemas/examples with that exact local 107 runtime. The older26ec shell,3858 and990d historical source packages remain separate. Native browser and public-CDN acceptance are not established here. See candidates/upcoming-ten/README.md for exact evidence and limits.
 
 # More Base authoring: supplied business hours, dining dimensions and flight intent/results
 
