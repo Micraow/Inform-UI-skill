@@ -88,3 +88,16 @@ test('the copyable entrypoint contains a complete JSON-backed shell and pinned C
   assert.equal(source.includes('__IUI_'), false, 'Unresolved draft CDN data');
   assert.equal(html.includes('compileHtml'), false, 'Node-only compiler must not appear in the browser shell');
 });
+
+test('46-node blind input and first outputs remain byte-for-byte immutable', async () => {
+  const { createHash } = await import('node:crypto');
+  const hashes = {
+    'input-skill.txt': '15a6d47b737619ef257054c806f5a99e27f9fdfbaf560933bf6470178d1262ea',
+    'basketball-weekly.html': '2d4df5841c54a2cb43672f557f2266b36c5643bbb487f3641c0edadb3d7fab2c',
+    'basketball-weekly.json': 'd4292000b1e985d0e85e4d2ebded8dcbc91d41e6d9de0573f650530a422b4e89'
+  };
+  for (const [file, expected] of Object.entries(hashes)) {
+    assert.equal(createHash('sha256').update(await readFile(path.join(root, 'tests/blind46', file))).digest('hex'), expected, file);
+  }
+  assert.equal((await json('tests/blind46/library-contract.json')).revision, 'f372c71d31633be85bb228f57fdb07da9e8f2112');
+});

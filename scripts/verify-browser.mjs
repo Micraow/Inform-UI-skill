@@ -66,7 +66,7 @@ try {
       if (name === 'supplied-sports') {
         const schedule = page.locator('.iui-sports-schedule').first();
         assert.equal(await schedule.locator('details[data-game-id]').count(), 1);
-        await schedule.getByRole('combobox', { name: '日期', exact: true }).selectOption({ label: '全部' });
+        await schedule.getByRole('combobox', { name: '比赛日期', exact: true }).selectOption({ label: '全部' });
         assert.equal(await schedule.locator('details[data-game-id]').count(), 4);
         await schedule.getByRole('combobox', { name: '球队', exact: true }).selectOption({ label: '东桥队' });
         assert.equal(await schedule.locator('details[data-game-id]').count(), 2);

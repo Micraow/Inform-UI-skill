@@ -72,6 +72,25 @@ jobs:
       - name: Verify immutable blind first output
         working-directory: skill
         run: node scripts/verify-blind.mjs --library ../blind-library
+      - name: Read 46-node blind library revision
+        id: blind46-contract
+        working-directory: skill
+        shell: bash
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync('tests/blind46/library-contract.json')); if(c.repository !== 'Micraow/Intelligent-UI' || !/^[a-f0-9]{40}$/.test(c.revision)) throw new Error('Invalid 46-node blind pin'); fs.appendFileSync(process.env.GITHUB_OUTPUT, 'revision='+c.revision+'\n');"
+      - uses: actions/checkout@v4
+        with:
+          repository: Micraow/Intelligent-UI
+          ref: ${{ steps.blind46-contract.outputs.revision }}
+          path: blind46-library
+      - name: Build 46-node blind library
+        working-directory: blind46-library
+        run: |
+          npm ci
+          npm run build
+      - name: Verify immutable 46-node first draft
+        working-directory: skill
+        run: node scripts/verify-blind46.mjs --library ../blind46-library
       - name: Install browser for fixture regression
         if: matrix.os == 'ubuntu-latest' && matrix.node == 22
         working-directory: library
@@ -84,6 +103,18 @@ jobs:
         if: matrix.os == 'ubuntu-latest' && matrix.node == 22
         working-directory: skill
         run: node scripts/verify-blind.mjs --library ../blind-library --browser --screenshots artifacts/blind
+      - name: Verify original 46-node blind HTML with the real CDN
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 22
+        working-directory: skill
+        run: node scripts/verify-blind46.mjs --library ../blind46-library --browser --screenshots artifacts/blind46
+      - name: Save 46-node blind page screenshots and observations
+        if: always() && matrix.os == 'ubuntu-latest' && matrix.node == 22
+        uses: actions/upload-artifact@v4
+        with:
+          name: blind46-first-browser
+          path: skill/artifacts/blind46
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Save original blind page screenshots and observations
         if: always() && matrix.os == 'ubuntu-latest' && matrix.node == 22
         uses: actions/upload-artifact@v4
