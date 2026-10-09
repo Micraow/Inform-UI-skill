@@ -64,7 +64,7 @@ git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Inte
 
 ```sh
 git clone https://github.com/Micraow/Intelligent-UI.git Intelligent-UI
-git -C Intelligent-UI checkout --detach f372c71d31633be85bb228f57fdb07da9e8f2112
+git -C Intelligent-UI checkout --detach f35e33b146c266ecf16371733c51064129afaec3
 npm --prefix Intelligent-UI ci
 npm --prefix Intelligent-UI run build
 node Intelligent-UI/bin/iui.mjs validate intelligent-ui-author/examples/hpcc-feedback.json --json
@@ -88,6 +88,8 @@ node Intelligent-UI/bin/iui.mjs build intelligent-ui-author/examples/hpcc-feedba
 | [真实坐标与五图种](examples/coordinate-scenarios.json) | 不等距X、跨年毫秒时间、微量数据与图种边界 |
 | [合成比赛快照](examples/supplied-sports.json) | 赛程筛选、记分牌、并列排名、扣分和空/加载/错误状态 |
 | [本地自测与闪卡](examples/local-learning.json) | 加权计分、严格多选、翻面自评、回看与重来 |
+| [供数行情与相对表现](examples/supplied-finance.json) | 来源/延迟、范围、缺测、同一瞬间的共同基准与不可比状态 |
+| [权重与涨跌热图](examples/supplied-heatmap.json) | 正权重面积、色阶饱和、无面积项的键盘/全表与行业筛选 |
 | [资源短名单](examples/resource-shortlist.json) | 把有用的链接和介绍融入正文 |
 
 这些示例全部为原创。请一起修改数据与解释；示例数字不是用户的真实测量结果。
@@ -101,7 +103,7 @@ node Intelligent-UI/bin/iui.mjs build intelligent-ui-author/examples/hpcc-feedba
 
 技能不要求 AI 为每次回答重新写 HTML、CSS 或 JavaScript。字体、间距、主题与移动端布局交给库处理。
 
-本轮固定协议有46项节点注册，根技能内嵌37个常用节点的保守生成规范；历史 native 输入明确拒绝。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融等未列领域尚未进入当前固定合同。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
+本轮固定协议有50项节点注册，根技能内嵌41个常用节点的保守生成规范；历史 native 输入明确拒绝。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融支持供数行情、历史、同基准比较与权重热图；不抓取行情、不换汇、不交易。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
 
 ## 运行检查
 
@@ -114,7 +116,7 @@ npm run check:library -- --library ../Intelligent-UI
 
 第一条检查技能结构与文件边界，第二条调用真实库的 API、Schema 和 CLI 验证全部示例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
 
-[持续验证](https://github.com/Micraow/Intelligent-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 52 组明暗主题和桌面/手机视图：40 组原创示例（新体育与学习示例直接加载固定CDN）、4 组根 SKILL 的 CDN HTML 壳、4 组[历史 41 节点首次产物](tests/blind/README.md)、4 组[46 节点体育与学习首次产物](tests/blind46/README.md)。历史产物的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。46 节点首稿同样保留原始字节，首次通过 API/CLI、独立赛绩与排名计算及原固定 CDN 的体育/测验/闪卡交互验收，详见[结果与保留观察](tests/blind46/RESULTS.md)。CI badge 显示开发分支的最新状态。
+[持续验证](https://github.com/Micraow/Intelligent-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 60 组明暗主题和桌面/手机视图：48 组原创示例（体育、学习、金融和热图直接加载固定CDN）、4 组根 SKILL 的 CDN HTML 壳、4 组[历史 41 节点首次产物](tests/blind/README.md)、4 组[46 节点体育与学习首次产物](tests/blind46/README.md)。历史产物的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。46 节点首稿同样保留原始字节，首次通过 API/CLI、独立赛绩与排名计算及原固定 CDN 的体育/测验/闪卡交互验收，详见[结果与保留观察](tests/blind46/RESULTS.md)。CI badge 显示开发分支的最新状态。
 
 ## 许可证
 

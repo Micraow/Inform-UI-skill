@@ -35,7 +35,7 @@ try {
     for (const width of [390, 1280]) for (const theme of ['light', 'dark']) {
       const label = `${name}-${width}-${theme}`;
       const file = path.join(directory, `${label}.html`);
-      const cdn = ['supplied-sports', 'local-learning'].includes(name);
+      const cdn = ['supplied-sports', 'local-learning', 'supplied-finance', 'supplied-heatmap'].includes(name);
       const authored = { ...document, theme };
       const html = cdn ? shell.html.replace(/(<script id="iui-spec" type="application\/json">)[\s\S]*?(<\/script>)/, (_, open, close) => open + JSON.stringify(authored).replaceAll('<', '\\u003c') + close).replace('data-theme="auto"', `data-theme="${theme}"`)
         : await compileHtml(authored, { lang: ['hpcc-feedback', 'local-practice', 'supplied-weather', 'coordinate-scenarios'].includes(name) ? 'zh-CN' : 'en' });
@@ -86,6 +86,81 @@ try {
         assert.equal(await standings.locator('tbody tr').count(), 1);
         await page.getByText('空、加载和错误状态', { exact: true }).click();
         assert.ok(await page.getByText('教学错误状态；组件不会自行重试或联系数据服务。', { exact: true }).isVisible());
+      }
+      if (name === 'supplied-finance') {
+        const quote = page.locator('.iui-finance[data-kind="finance-quote"]').first();
+        assert.equal(await quote.locator('.iui-finance-price').getAttribute('data-raw-value'), '110');
+        assert.equal(await quote.locator('.iui-finance-change-percent').getAttribute('data-raw-value'), '10');
+        assert.ok((await quote.textContent()).includes('延迟 15 分钟'));
+        const history = page.locator('.iui-finance[data-kind="finance-chart"]').first();
+        const xs = await history.locator('circle[data-finance-time]').evaluateAll(points => points.map(point => +point.getAttribute('cx')));
+        assert.equal(xs.length, 4);
+        assert.ok(Math.abs((xs[1] - xs[0]) / (xs[3] - xs[0]) - 1 / 12) < 1e-8, 'Finance X must use actual time distances');
+        assert.equal(await history.locator('.iui-finance-line').count(), 2, 'Missing price must break the line');
+        await history.getByText('完整数据表', { exact: true }).click();
+        assert.equal(await history.locator('tbody tr').count(), 5);
+        assert.ok((await history.locator('table').textContent()).includes('缺测'));
+        await history.getByRole('button', { name: '后半段', exact: true }).click();
+        assert.equal(await history.locator('tbody tr').count(), 2);
+        await history.getByRole('button', { name: '单点', exact: true }).click();
+        assert.equal(await history.locator('circle[data-finance-time]').count(), 1);
+        await history.getByRole('button', { name: '无观测时段', exact: true }).click();
+        assert.ok(await history.getByText('所选范围内暂无观测记录', { exact: true }).isVisible());
+        await history.getByRole('button', { name: '全部时段', exact: true }).click();
+        const chart = history.locator('svg.iui-finance-chart');
+        await chart.focus();
+        await page.keyboard.press('Home');
+        assert.ok((await history.locator('.iui-finance-readout').textContent()).includes('100 USD'));
+        await page.keyboard.press('End');
+        assert.ok((await history.locator('.iui-finance-readout').textContent()).includes('110 USD'));
+        const comparison = page.locator('.iui-finance[data-kind="finance-comparison"]').first();
+        assert.equal(await comparison.locator('.iui-finance-incomparable').count(), 1);
+        for (const id of ['sample_a', 'sample_b']) {
+          const last = Number(await comparison.locator(`[data-finance-series="${id}"] circle`).last().getAttribute('data-value'));
+          assert.ok(Math.abs(last - 10) < 1e-9, `${id}: common-baseline percentage is wrong`);
+        }
+        await comparison.getByText('完整数据表', { exact: true }).click();
+        const before = await comparison.locator('table').textContent();
+        for (const button of await comparison.locator('[data-finance-action="series"]').all()) await button.click();
+        assert.ok(await comparison.getByText('所有系列已隐藏，请选择上方系列。', { exact: true }).isVisible());
+        assert.equal(await comparison.locator('table').textContent(), before, 'Hiding a series must not remove records');
+        await comparison.locator('[data-finance-action="series"][data-value="sample_a"]').click();
+        await comparison.getByRole('button', { name: '后半段', exact: true }).click();
+        assert.equal(await comparison.locator('tbody tr').count(), 2);
+        const first = Number(await comparison.locator('[data-finance-series="sample_a"] circle').first().getAttribute('data-value'));
+        assert.ok(Math.abs(first + 10) < 1e-9, 'Changing range must not substitute a new baseline');
+        await page.getByText('零基准、空、加载和错误边界', { exact: true }).click();
+        assert.ok(await page.getByText('前收盘需大于零才能计算百分比', { exact: true }).isVisible());
+        assert.ok(await page.getByText('调用方供数不可用；本页没有交易、刷新或重试服务。', { exact: true }).isVisible());
+      }
+      if (name === 'supplied-heatmap') {
+        const heatmap = page.locator('.iui-heatmap').first();
+        const tiles = await heatmap.locator('rect[data-weight]').evaluateAll(items => items.map(item => ({ weight: +item.getAttribute('data-weight'), area: +item.getAttribute('width') * +item.getAttribute('height') })));
+        assert.equal(tiles.length, 3);
+        const total = tiles.reduce((sum, tile) => sum + tile.area, 0);
+        for (const tile of tiles) assert.ok(Math.abs(tile.area / total - tile.weight / 100) < 1e-8);
+        const graphic = heatmap.locator('.iui-heatmap-graphic');
+        await graphic.focus();
+        await page.keyboard.press('End');
+        assert.ok((await heatmap.locator('.iui-heatmap-readout').textContent()).includes('MISSING'));
+        await page.keyboard.press('ArrowLeft');
+        assert.ok((await heatmap.locator('.iui-heatmap-readout').textContent()).includes('-100%'));
+        await page.keyboard.press('Enter');
+        assert.ok(await heatmap.getByRole('table').isVisible());
+        assert.equal(await heatmap.locator('tbody tr').count(), 5);
+        assert.ok((await heatmap.locator('[data-heatmap-row="missing"]').textContent()).includes('缺测'));
+        await heatmap.getByRole('combobox', { name: '行业', exact: true }).selectOption({ label: '研究' });
+        assert.equal(await heatmap.locator('rect[data-weight]').count(), 2);
+        assert.equal(await heatmap.locator('tbody tr').count(), 2);
+        await heatmap.getByRole('combobox', { name: '行业', exact: true }).selectOption({ label: '教学' });
+        assert.equal(await heatmap.locator('rect[data-weight]').count(), 1);
+        assert.equal(await heatmap.locator('tbody tr').count(), 3);
+        await heatmap.getByRole('combobox', { name: '行业', exact: true }).selectOption({ label: '全部行业' });
+        await heatmap.locator('[data-heatmap-cell="alpha"]').click();
+        assert.ok((await heatmap.locator('.iui-heatmap-readout').textContent()).includes('+12%'));
+        await page.getByText('无正权重与供数失败', { exact: true }).click();
+        assert.ok(await page.locator('.iui-heatmap').nth(1).getByText('没有可绘制的正权重记录', { exact: true }).isVisible());
+        assert.ok(await page.getByText('教学错误状态；无自动重试或交易动作。', { exact: true }).isVisible());
       }
       if (name === 'local-learning') {
         const quiz = page.locator('.iui-quiz').first();

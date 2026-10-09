@@ -1,38 +1,38 @@
 ---
 name: intelligent-ui-author
-description: 为技术解释、真坐标图、本地表单、已提供天气/体育数据、本地自测/闪卡、拓扑和受控交互生成 iui/1 JSON；无终端的 Web Chat 可直接用固定 CDN 与本文 HTML 壳交付可运行文档，Agent 也可用本地库。普通文字足够时不强加界面。
+description: 为解释、真坐标图、本地表单、供数天气/体育/金融、本地自测/闪卡生成 iui/1 JSON；无终端Web Chat直接用固定CDN与本文HTML壳交付页面，Agent可用本地库。普通文字足够时不强加界面。
 ---
 
 # Intelligent UI Author
 
-你负责内容、数据、阅读顺序与组件选择；Intelligent-UI 库负责校验、DOM、样式、布局和交互。目标是正文中自然穿插图、公式与有用的控件，形成克制的编辑式解释，不是把每段文字塞进仪表盘卡片。
+你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
-本文件可完整复制给没有终端、无法读取本地文件的 Web Chat。下面内嵌的保守协议子集与 HTML 壳足以生成基础文档，不需要读库源码或其他文件。当前固定完整协议有46个节点注册项（含1个明确拒绝的历史native项）；本文覆盖37个常用节点的保守子集。完整 Schema URL 供有读取能力时扩展；拿到 URL 不等于已经读取其内容。读不到时只用本文明确列出的字段，不猜新组件。
+本文件可完整复制给无终端的Web Chat，内嵌合同与壳不依赖其他文件。固定协议50个节点注册项（含拒绝的native），本文给出41个常用节点的保守生成子集。能读取完整Schema才扩展；只有URL不等于读过合同，不猜字段。
 
-这是一套独立于模型厂商的公开库，无需 OpenAI 账号、API 或私有运行时。`portable` 只是库的后端名称，不是另一种产品版本。CDN 页面需要联网加载库；它不是已发布的 npm 包。
+这是独立公开库，无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
 
 ## 1. 先决定要表达什么
 
-- 先给结论/问题，再给证据或演示，随后解释读者应观察什么。未要求文档/可视化时，短答案可保留普通文字；用户明确要 HTML 时仍交付完整 HTML。
-- 趋势用折线/面积图，类别比较用柱状图，成对观测用散点，少量非负组成用环图；连接/瓶颈用拓扑，推理过程用步骤与公式；少量重要数字用指标，精确数值用表格；推荐用标题、简短正文、链接，图片仅在有用且来源合适时加入。
-- 只有能回答“如果改变输入，会怎样？”时才加控件，且必须连接可见结果。避免无效按钮、无关图表和装饰性卡片。
-- 在正文或图注里标清真实测量、推导值或教学模拟；保留单位、假设、时间和来源。缺测用 `null`，不得补成零或虚构实测。
-- 用 `section`、`figure` 表达分组，默认纵向阅读；`card` 只框住完整演示。不要写组件 HTML/CSS；不要添加固定宽度、像素间距、渐变背景。长公式拆成短公式并解释变量，手机上也能顺着读。
+- 结论/问题 → 证据/演示 → 观察方法。短回答可纯文字；明确要HTML则交完整文件。
+- 趋势用折线/面积，类别比较用柱图，成对观测用散点，非负组成用环图；关系/瓶颈用拓扑，推理用步骤/公式，少量关键数用指标，精确值用表格。推荐用标题/正文/链接，图片须有用且来源合适。
+- 控件必须回答“输入改变会怎样”并连接可见结果；不要无效按钮或装饰图。
+- 标明实测、推导或模拟，保留单位、假设、时间、来源；缺测null不能补零。
+- 默认section/figure纵向阅读，card只框完整演示。不写组件HTML/CSS、固定宽度、像素间距或渐变；长公式拆短并解释变量。
 
 ## 2. 无终端 Web Chat：完整 HTML 路径
 
 固定的公开文件（同一提交，不混用版本）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.schema.json`
 
-全局脚本加载后通过 `window.IUI` 访问浏览器 API：`validateDocument(input)` 返回 `{ok:true,document}` 或 `{ok:false,issues:[{code,path,message}]}`。`mount(element,document,{styles:false})` 把 JSON 渲染到容器；这里由独立 CSS 文件提供样式；必须保留 `styles:false`，使字体相对该 CDN 样式表加载。它返回 `update(nextDocument)`、`dispose()`、`getState()`、`setState(patch)`。**`compileHtml` 是 Node API，不能从浏览器模块导入。** 浏览器的 JSON→界面转换由 `mount` 完成。
+window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
-数学排版使用可视 KaTeX HTML 与辅助阅读用 MathML。CSS 会从同一固定提交的 `cdn/fonts/` 按需加载 20 款官方 MIT WOFF2 字体，并非无字体下载。示例壳未设置 CSP；若宿主另设严格 CSP，除脚本/样式许可外，`font-src` 必须允许 `https://cdn.jsdelivr.net`。不要自行换字体或删除字体规则。
+数学为KaTeX可视HTML及辅助MathML；CSS按需加载同一提交cdn/fonts/的20款官方MIT WOFF2。自设严格CSP须同时许可脚本、样式及font-src https://cdn.jsdelivr.net；不要换字体或删规则。
 
-用户要 HTML 时，交付下列完整壳，并只替换 JSON 数据、页面语言、标题及与JSON theme相同的body data-theme。iui-page是库提供的整页背景入口，margin:0仅移除浏览器外边距；嵌入现有网页时由宿主决定整页背景。不要只输出 JSON 后声称已生成页面，也不要手写图表、卡片或控件 DOM。这个壳中的固定启动脚本仅加载库、解析数据、校验和挂载。
+HTML交付复制完整壳，只改JSON、语言、标题和与JSON theme一致的body data-theme。iui-page控制整页背景，margin:0去浏览器边距；嵌入网页时背景由宿主决定。不以JSON冒充页面，也不手写组件DOM。
 
 ```html
 <!doctype html>
@@ -41,28 +41,15 @@ description: 为技术解释、真坐标图、本地表单、已提供天气/体
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intelligent UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.css" integrity="sha384-C+dusRekNRJiTU/8pVtFBTI6qqJ60MrvrFkZSGX7DdoE7p9++WfH3OKUE1//MnjD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.css" integrity="sha384-R+ybWEp3LYtcukj5okG9CNtbw1tj9iz5/gmk1gujU5Tyg9G8pF5LIBP+WSJ1TmfH" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
   <noscript>请启用 JavaScript 以查看这个交互文档。</noscript>
   <script id="iui-spec" type="application/json">
-  {
-    "version": "iui/1",
-    "theme": "auto",
-    "state": { "x": 4 },
-    "computed": { "twice": { "op": "mul", "args": [2, {"$":"x"}] } },
-    "body": [
-      {"type":"title","level":1,"value":"观察一个输入与结果的关系"},
-      {"type":"text","value":"改变 x，观察 2x 如何同步变化。"},
-      {"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},
-      {"type":"metric","label":"2x","value":{"$":"twice"}},
-      {"type":"math","latex":"y=2x","block":true},
-      {"type":"caption","value":"这是合成教学示例，不是实测数据。"}
-    ]
-  }
+  {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f372c71d31633be85bb228f57fdb07da9e8f2112/cdn/iui.global.min.js" integrity="sha384-iSRKUQ1PkW22WeAPJV0kUHRGTQMLfhge7BMgMaH2YdfeXAHE+YjrutcGVI9TVJS+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@f35e33b146c266ecf16371733c51064129afaec3/cdn/iui.global.min.js" integrity="sha384-ExWzUtY9GmozAptkPneHZmDC/HDRNNA8SN+gug8wRukKTWOkKo2QwNEJOF9ekPZr" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -80,11 +67,11 @@ description: 为技术解释、真坐标图、本地表单、已提供天气/体
 </html>
 ```
 
-嵌入 HTML 时，JSON 的所有 `<` 字符写成 `\u003c`，防止内容里的结束标签提前关闭数据块；不要把用户文本拼进启动脚本。JSON 中的反斜杠也要转义，例如 LaTeX 使用 `"\\frac{a}{b}"`。固定 URL 与 integrity 必须一起保留；不要混用版本，也不要删除完整性校验来掩盖加载失败。不要省略加载错误提示。若聊天宿主不允许运行脚本，给用户完整 HTML 保存为 `.html` 后在联网浏览器打开；不要声称聊天气泡内已经执行。未实际预览时应明确说明。
+嵌入JSON将所有<写成\u003c，防止结束标签关闭数据块；反斜杠要转义，如LaTeX用"\\frac{a}{b}"。不把用户文本拼进启动脚本。固定URL与integrity一起保留，不混版本、不删SRI或加载错误提示。宿主不运行脚本时给完整HTML供保存后联网打开；未预览须说明，不能声称气泡已执行。
 
 ## 3. 内嵌协议：可以直接据此写 JSON
 
-以下是完整 Schema 的**保守子集**，有意省略样式旋钮与进阶节点。记号 `?` 表示可省略，不是 JSON 键的一部分；`S` 是字符串，`N` 是有限数值，`B` 是布尔值，`V` 见下一节，`Node[]` 是本表节点数组。只输出实际 JSON，不输出这些记号。对象不加未列字段。
+以下为保守子集，省略样式旋钮。记号?为可省略，S为字符串、N为有限数值、B为布尔值、V见第4节、Node[]为本文节点数组；输出真实JSON，不输出记号或未列字段。
 
 根对象：`{version:"iui/1", body:Node[], title?:S, description?:S, theme?:"auto"|"light"|"dark", state?:{名称:字符串或数值或布尔值}, computed?:{名称:V}}`。`body` 非空，最多 150 项。状态/计算名称用英文字母或下划线开头，后接字母、数字、下划线，最多 80 字符；两组各最多 80 项，名称不能重名；对象键避开 `__proto__`、`constructor`、`prototype`。不要把 `state` 或 `computed` 写在节点内。
 
@@ -106,7 +93,7 @@ description: 为技术解释、真坐标图、本地表单、已提供天气/体
 | `link` | `value:V, href:S` | 无 |
 | `image` | `src:S, alt:S` | `aspectRatio:"1:1"|"4:3"|"16:9"|"3:4"`，`fit:"cover"|"contain"` |
 
-文字是普通文本，不把 Markdown/HTML 当格式执行。用多个 `text` 节点表示段落，用 `math` 表示公式。链接/图片在本页只使用可公开访问且有权使用的 HTTPS URL；URL 保持在 2,048 字符以内；没有合适图片就省略。普通节点需要来源时用可见图注与 `link`，不猜 `source` 属性；weather 的必填 source 见其专用契约。
+文字不解释Markdown/HTML；段落用text，公式用math。链接/图片只用有权使用的公开HTTPS URL，最多2048字符；无合适图片则省略。普通节点来源用caption/link；领域节点按各自source合同。
 
 ### 指标、表格与图
 
@@ -135,7 +122,7 @@ description: 为技术解释、真坐标图、本地表单、已提供天气/体
 
 ### 本地表单：输入、确认与状态
 
-需要多个有关联的字段、约束和一次本地确认时用 `form`；单个 what-if 数字仍可用 slider。不把普通解释做成收集个人信息的表单。以下四种新输入共享可选 `id:S,hint:S,error:V,required:B,disabled:V`：error 必须解析为字符串（空串表示无自定义错误），disabled 必须解析为布尔值。原 slider/toggle/select 没有这些新增属性；需要整体禁用时放入 field。
+多字段/约束/本地确认用form；单数字试算用slider，不无故收集个人信息。四种输入共享可选id:S,hint:S,error:V,required:B,disabled:V：error解析为字符串（空串无错误），disabled为布尔。slider/toggle/select无这些属性，可放field整体禁用。
 
 | type | 必填字段（除 type） | 额外可选字段 |
 | --- | --- | --- |
@@ -147,14 +134,14 @@ description: 为技术解释、真坐标图、本地表单、已提供天气/体
 
 - text/email/textarea 绑定字符串 state；number 绑定数值 state。radio/segmented 的1–40个选项使用相同原始类型，值唯一，初值属于选项；选项 disabled 是字面布尔值。required 是字面布尔值，不写成表达式。
 - minLength 为0–12000整数，maxLength 为1–12000整数，按 HTML 的 UTF-16 单元计数；上下限有序。number 的 min/max 有序、step 为正数；不要把文本约束写到 number 或把数值约束写到文本。
-- 文档可以有空白或不合约束的字段初值，失焦/提交时显示错误；`validateDocument` 成功不等于用户表单已填写有效。数字的空白/不完整输入只作 DOM 草稿，不把 state 改成 null、空串或 NaN。即使不是 required，清空 number 也要修正或取消；指标保留最后的有效 state，不表示草稿有效。
+- 初值可未填有效，失焦/提交显示错误；结构校验成功不等于表单有效。数字空白/不完整输入仅作DOM草稿，state不变为null/空串/NaN；非required的空number也须修正/取消。指标显示最后有效state，不证明草稿有效。
 - form 不能嵌套。默认省略 action：内置提交按钮只做本地校验、显示结果、派发 `iui:submit`（`{id,values}`）；没有联网、保存或自动刷新。快照只含该表单未禁用的绑定字段，含嵌套 field 内的 slider/toggle/select；不夹带全局无关 state 或 computed。
-- 取消中止进行中的宿主动作，并尝试恢复本表单初值；其它全局约束使恢复无效时显示错误、保留有效状态。用 form 自带取消按钮；普通 `button` 的 reset 会重置整份文档，不能冒充局部取消。
+- form取消中止宿主动作并恢复本表单初值；若违反全局约束则报错、保留有效状态。普通button的reset重置整份文档，不能替代局部取消。
 - **本页 Web Chat 壳不注册宿主动作，必须省略 form.action。** 仅已有可信宿主明确提供并获授权的白名单标识符才可填 action；它不是 URL/函数/fetch。宿主 Promise 产生真实 busy/error/retry，忙碌时防重、取消/替换后忽略迟到结果。不要给 form 编造 `status:"loading"`；无宿主时也不能假称数据已发送。文件上传、日期选择器、富文本与正则 pattern 均未支持。
 
 ### 天气：展示已提供的数据，不接入服务
 
-`weather` 适合展示有来源的当前观测、逐日和逐小时数据。缺乏真实数据时，若任务是示例/教学演示，可明确写 synthetic:true；不能把演示当成实时预报。节点必须包含以下全部字段，状态页也不能省略它们：
+weather展示有来源的当前/逐日/逐小时供数。教学合成标synthetic:true，不称实时预报；所有状态仍须以下必填字段：
 
 ```json
 {"type":"weather","location":{"name":"合成观测点","timezone":"Asia/Shanghai"},"updatedAt":"2026-12-15T08:00:00+08:00","source":{"label":"教学合成数据","synthetic":true},"units":{"temperature":"celsius"},"current":{"time":"2026-12-15T08:00:00+08:00","temperature":12,"condition":"cloudy"},"daily":[{"date":"2026-12-15","low":8,"high":16,"condition":"cloudy","precipitationProbability":30}],"hourly":[{"time":"2026-12-15T08:00:00+08:00","temperature":12,"precipitationProbability":30}]}
@@ -169,15 +156,13 @@ description: 为技术解释、真坐标图、本地表单、已提供天气/体
 - 可选 `id:S,initialDate:S,status:"ready"|"loading"|"error",message:S`；initialDate 必须在 daily 中，无daily就省略。空状态用daily/hourly空数组及已知或null的current；loading/error加说明，不虚构请求进度。
 - ℃/℉、日期、温度/降水概率、图/表切换由组件本地处理，并从原始值换算，不改变输入文档。它们是weather自身视图状态，不是文档state的可绑定字段；不能写 `bind`、API密钥、城市查询或刷新端点。
 
-### 组合时保持边界清楚
+### 组合边界
 
-先用正文解释问题，再用weather交代已提供的环境信息；需要试算时加本地form，将数值输入写入state、推导写入computed，由metric/chart的V字段读取。天气可以独立展示；表单不会自动改weather里的字面数据或查询新预报。一个有效的小组合是“观测背景 → 输入试算倍率 → 不等距坐标图 → 结果解释”，图的横坐标来源和单位应明确。不要为了展示所有组件而堆砌重复图表。
-
-反例：把城市名交给weather让它查天气、把0.4当40%、给form设置URL action、把数字草稿清空写入null、嵌套form、用category画不等距数轴、给donut负数/多系列、给scatter省略xScale，均不符合本版边界。金融、地图、球员档案等未列出的领域节点不在当前固定合同内，不能猜标签名。
+正文交代问题，weather提供环境快照，form输入state，computed推导，metric/chart读取V。不自动把表单连到天气数据。反例：城市名交weather查询、0.4当40%、form设URL action、空数字写null、嵌套form、category画不等距数轴、donut负数/多系列、scatter无xScale。未列地图/球员等节点不要猜标签。
 
 ### 体育：调用方供数的赛程、记分牌与积分榜
 
-选择视图时先问读者要看什么：接下来何时比赛用 `sports-schedule`；一场的当前比分、分节与统计用 `sports-scoreboard`；多队排名与赛绩用 `sports-standings`。三者只显示提供的数据，不能抓比分、自动计时或订阅直播。没有真实数据的教学页必须标明合成。
+赛程用sports-schedule，一场比分/分节/统计用sports-scoreboard，多队排名/赛绩用sports-standings。只展示供数，无抓取/计时/直播；教学合成须标明。
 
 三个节点都必填 `type,data`，可选 `id:S,status:"ready"|"loading"|"error",message:S`。额外字段分别是：
 
@@ -202,13 +187,13 @@ description: 为技术解释、真坐标图、本地表单、已提供天气/体
 
 scheduled的比分必须为null；live的真实0:0保留0；final仍可缺测，不能补零；延期/取消可保留来源提供的中断前比分。不把缺失排名/胜负编成已知值。名称和详情标签一般1–200字符；venue最多300、detail最多3000、note最多500。source.url仅用允许的公开HTTPS来源，库不自动读取它。
 
-loading/error仍需提供合法data，配message说明；无数据用teams/games空数组（积分榜可加standings空数组），不保留指向不存在记录的初始筛选。赛程筛选、记分牌选场、积分榜排序属于各组件本地视图状态，不与文档state绑定；不同视图不会自动联动，`controller.update`用完整快照更新并重置本地选择。窄屏积分榜可在自身区域横向滚动。
+loading/error仍需合法data和message；无数据用空teams/games/standings，删不存在的初始引用。筛选/选场/排序是组件本地状态，不绑state、不跨视图联动；controller.update完整快照重置选择。手机积分榜局部横滚。
 
-组合示例是“来源与更新时刻 → 赛程 → 一场关键比赛的记分牌 → 解释”，需要跨队比较时再放积分榜；不为凑节点而把同一批信息重复三遍。反例：用scheduled+0:0暗示已经开赛、把null补零、以当前比分替来源判冠军、以clock文字声称实时更新、给比分字段放V表达式、传数据服务URL让组件抓取，都不成立。球员档案、逐球事件、投篮图、完整box score、淘汰赛树、赛车圈速仍不支持。
+组合：来源/时刻→赛程→关键场记分牌→解释，需跨队比较才加积分榜，不重复堆砌。禁止scheduled+0:0、null补零、比分判冠军、clock冒充实时、比分填V、服务URL抓取。球员/逐球/投篮图/完整box score/淘汰树/赛车圈速未支持。
 
 ### 学习：本地自测与闪卡
 
-用 `quiz` 检查能客观判定的理解，用 `flashcards` 让读者先回忆再翻面自评。先讲清概念再放少量相关题；不要把主观建议强塞进唯一正确答案。答案与解释由作者提供，应核对事实和计算；答案直接包含在HTML中，不能用于保密考试。
+quiz检验客观理解，flashcards用于先回忆后翻面自评。先讲概念再给少量题；主观建议不设唯一答案。作者核实答案/解释；答案已在HTML中，不适合保密考试。
 
 - `quiz`：`{type:"quiz",title:S,questions:[题,...],id?:S,description?:S,status?:"ready"|"loading"|"error",message?:S}`。
 - 题：`{id:S,kind:"single"|"multiple",prompt:S,choices:[{id:S,label:S},...],correct:[选项id,...],explanation:S,latex?:S,explanationLatex?:S,points?:1..100整数}`。0–100题，每题2–20选项，correct非空且不重复、只引用本题选项；single必须恰好一个答案，multiple可以一个或多个。points默认1。
@@ -223,15 +208,46 @@ loading/error仍需提供合法data，配message说明；无数据用teams/games
 {"type":"quiz","title":"先自己算一算","questions":[{"id":"sum","kind":"single","prompt":"2加3等于多少？","choices":[{"id":"four","label":"4"},{"id":"five","label":"5"}],"correct":["five"],"explanation":"把2和3相加得到5。"}]}
 ```
 
-选择后点确认才显示参考答案/解释；确认后锁定本题，不能重复得分，已提交才能下一题，也可回看。multiple必须与正确集合完全相同才得整题分，没有部分分；进度按题数、成绩按points加权。完成后显示总分和逐题结果，重新开始清空。
+确认后显示答案/解释并锁题、防重复得分，才能下一题；可回看。multiple须集合完全相同，无部分分。进度按题数、成绩按points；完成显示总分/逐题结果，重来清空。
 
-闪卡先揭晓，再标记已掌握/再练一次；重复标记只更新本卡。前后导航保留本轮标记，新卡回正面；全部评估后可看总结，重新开始清空。它不安排间隔重复，不诊断掌握程度。
+闪卡先揭晓再自评，重复标记只更新本卡。导航保留标记、新卡回正面；全评后总结，重来清空。无间隔重复调度或能力诊断。
 
-空questions/cards显示空态；loading/error仍需title及合法数组，可用message说明。选择、得分、翻面、自评都是组件本地状态，不写文档state，不自动保存/同步/联网；刷新或controller.update的新快照会重置整轮。别加提交URL、成绩上报或持久化承诺，别把按钮演示说成真实考试服务。
+空数组为空态；loading/error保留title/合法数组并说明message。学习状态只在组件本轮，不写state、不保存/同步/联网；刷新或update重置。无提交URL/成绩上报/考试服务。
+
+### 金融：调用方供数的行情、历史、比较与热图
+
+当前价格/相对前收盘用finance-quote，单标的时间走势用finance-chart，同一时刻基准的相对表现用finance-comparison，多个标的的权重与涨跌分布用finance-heatmap。来源→快照→必要图→解释，普通数值趋势不必套金融节点。只展示供数，不查询/订阅行情或推断交易时段；合成必须声明，不把教学页当投资建议。
+
+四者必填source:{label:S,synthetic:B,url?:S}，可选id:S,title:S,status:"ready"|"loading"|"error",message:S。source.url仅为公开HTTPS出处，不触发抓取。所有字段为字面值，不接受V/bind/API密钥/服务端点。
+
+- finance-quote必填instrument；finance-chart必填instrument,ranges，可选initialRange。
+- finance-comparison必填instruments:[instrument,...]（2–6个且id唯一）、baselineAt:S、ranges；可选initialRange、timezone:S（轴默认UTC）。
+- instrument:{id:S,symbol:S,name:S,currency:S,timezone:S,asOf:S,marketStatus:M,delayMinutes:D,price:P,previousClose:P,history:[{time:S,price:P},...],exchange?:S}。
+- P为非负有限数或null；currency为3个大写字母；M为open|closed|pre|post|halted|unknown；D为0–10080整数。0分钟仅声明延迟，不保证实时。timezone用IANA；所有时间用真实有效、带Z/明确偏移的ISO时间。
+- history最多500点，真实时间严格递增、不重复、不晚于asOf；null保留断口，0是真实零。price不自动取历史末点。变动为price−previousClose，百分比仅previousClose>0时计算；零/缺测基准不伪造百分比，溢出值拒绝。
+- ranges:[{id:S,label:S,from:S,to:S},...]最多12项，id唯一、from≤to且都带偏移；包含两端，相同时间为单点。ranges:[]为全部；initialRange若给须引用已有id；无观测范围为空态，不补点。
+- 比较每系列须在baselineAt同一瞬间有正历史价，按(price/baseline−1)×100计算；不同偏移同瞬间等价。缺/零基准显示不可比，不借相邻观测。基准可在显示范围外。只比各自币种相对变化，不做汇率换算；调用方说明拆股/复权口径。
+
+最小完整行情；改type为finance-chart并加ranges:[]即可画提供的历史：
+
+```json
+{"type":"finance-quote","source":{"label":"原创合成行情","synthetic":true},"instrument":{"id":"demo","symbol":"DEMO","name":"合成样本","currency":"USD","timezone":"UTC","asOf":"2026-10-09T10:00:00Z","marketStatus":"closed","delayMinutes":15,"price":12,"previousClose":10,"history":[{"time":"2026-10-08T10:00:00Z","price":10},{"time":"2026-10-09T10:00:00Z","price":12}]}}
+```
+
+- finance-heatmap必填asOf:S,timezone:S,weightLabel:S,changeBasis:S,cells:[cell,...]，可选initialSector:S（须存在）。
+- cell:{id:S,symbol:S,name:S,sector:S,weight:P,price:P,currency:S,changePercent:N|null,asOf:S,marketStatus:M,delayMinutes:D}，最多200项、id唯一；cell.asOf不晚于整体asOf。
+- weightLabel说明统一单位/口径的面积权重；changeBasis说明涨跌比较基准。正权重决定面积，0/null/小至不可表达的权重不造面积，仍在完整表。不同币种市值先由调用方统一口径，不把价格当权重。changePercent为百分数：2表示2%，0.02是0.02%。
+- 正值绿、负值红、零/缺测中性，另有符号文字；色阶±10%饱和，原始幅度不被裁成±10。小格可无文字，详情与全表保留记录。行业筛选、方向键/Home/End（含无面积项）、Enter展开表及点选均由库实现。
+
+```json
+{"type":"finance-heatmap","source":{"label":"合成样本","synthetic":true},"asOf":"2026-10-09T10:00:00Z","timezone":"UTC","weightLabel":"统一合成权重","changeBasis":"较合成前收盘","cells":[]}
+```
+
+金融instrument/range/cell的id用体育英文标识规则；名称/标签1–200字符。行情/比较的范围、系列开关、真实时间X、键盘读数与全表由库提供；隐藏系列不删除表内记录。loading/error仍给合法必填数据并说明message，空历史/空cells保留空态，比较仍需2–6个合法标的。视图状态本地独立，update完整快照重置、dispose清理；不保存/联网。不支持K线、成交量双轴、技术指标、汇率换算或交易。反例：无来源称实时、不同币种绝对价格共轴、用各自首点冒充共同基准、按颜色饱和篡改涨跌、0/null补面积。
 
 ## 4. 绑定与表达式
 
-`V` 只能是字符串、有限数值、布尔值、null、`{"$":"名称"}`，或 `{"op":"运算符","args":[V,...]}`。`$` 直接引用一个 state/computed 名称，不是 JavaScript 属性路径。依赖必须无环；计算不得写成函数、字符串公式、模板表达式或任意脚本。用于展示的 LaTeX 仍放在 `math.latex`。
+V为字符串、有限数值、布尔、null、{"$":"名称"}或{"op":"运算符","args":[V,...]}。$只引用state/computed名称，非属性路径；依赖无环，不用函数/字符串公式/模板/脚本。展示公式放math.latex。
 
 | 运算符 | 参数与结果 |
 | --- | --- |
@@ -246,7 +262,7 @@ loading/error仍需提供合法data，配message说明；无数据用teams/games
 
 派生值放进 `computed`，例如 `"total":{"op":"mul","args":[{"$":"rate"},10]}`，在指标或图表数据里用 `{"$":"total"}`。检查整个可选输入范围：分母保持非零，单位一致，不把格式化字符串当图表数值。
 
-浏览器模块也导出 `evaluateState(document,patch)`：成功返回 `{ok:true,state,computed}`，失败返回 `{ok:false,issues}`。先检查 ok，再读取结果。每次从文档初始 state 加本次 patch 求值；要连续变更就显式合并当前 state。它只算数据，不更新 DOM；显示中的页面用 `controller.setState(patch)`。不要把 computed 名称作为 patch 的键。
+evaluateState(document,patch)在浏览器也可用：成功{ok:true,state,computed}，失败{ok:false,issues}，先检查ok。每次由初始state加patch计算；连续变更须合并当前state。它不更新DOM，显示页面用controller.setState(patch)。patch不能写computed。
 
 ## 5. 检查与修复
 
@@ -263,20 +279,21 @@ loading/error仍需提供合法data，配message说明；无数据用teams/games
 | `SPORTS_ID` / `SPORTS_TEAM` / `SPORTS_DATE` / `SPORTS_FILTER` | 查唯一id、存在的不同球队、时间偏移及初始筛选引用 |
 | `SPORTS_STATUS` / `SPORTS_RESULT` / `SPORTS_PERIOD` / `SPORTS_STAT` / `SPORTS_RECORD` | 匹配状态与比分/胜者、详情标签唯一及赛绩和；不推断赛制 |
 | `LEARNING_ID` / `QUIZ_ANSWER` | 修重复题/卡/选项id，正确答案只引用本题选项且符合单选数量 |
+| `FINANCE_DATE` / `FINANCE_ORDER` / `FINANCE_ID` / `FINANCE_RANGE` / `FINANCE_FILTER` / `FINANCE_VALUE` | 查时间/顺序/id/区间或行业引用，确保变化百分比有限；缺基准保留不可比 |
 | `TABLE_WIDTH` | 让每行与列数一致，真正缺测用 null |
 | `UNSAFE_URL` / `UNSUPPORTED_NATIVE` | 使用允许的公开 HTTPS 资源或本文节点；不要绕过校验、伪造私有组件 |
 
-能运行浏览器时，检查桌面和 390 px、亮/暗色、中文换行、数学可读性、键盘控件与可见反馈。不能运行时，仍交付完整 HTML，但标明“尚未实际打开验证”。校验通过不等于事实正确或视觉验收完成。不要用手写 CSS/HTML 掩盖库错误。
+预览检查桌面/390px、明暗、中文/公式、键盘与反馈。未预览仍交完整HTML并说明；结构通过不等于事实/视觉正确，不手写CSS/HTML掩盖库错误。
 
 ## 6. 有终端的 Agent：可选本地路径
 
-同一协议可用本地构建；没有终端时跳过本节，不影响上面的 CDN 路径。核心仓库 `https://github.com/Micraow/Intelligent-UI`，与上面固定 CDN 使用同一提交 `f372c71d31633be85bb228f57fdb07da9e8f2112`。在库目录先 `npm ci`、`npm run build`，然后：
+无终端跳过。核心仓库https://github.com/Micraow/Intelligent-UI使用上述CDN同一提交；在库目录先npm ci、npm run build，再执行：
 
 ```sh
 node bin/iui.mjs validate answer.json --json
 node bin/iui.mjs build answer.json --out answer.html --lang zh-CN
 ```
 
-本地 `compileHtml(input,{backend:'portable',assets:'inline'})` 返回 HTML 字符串；它是 Node API。该 inline 构建把库资源与数学字体的 `data:` URL 一起内嵌；自设严格 CSP 时字体也需允许 `data:`。你选择的远程图片等内容仍可能需要联网。不要使用未经发布验证的 `npx iui`。
+Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内嵌库和数学字体data:URL（严格CSP须允许font-src data:）。所选远程图片仍需联网；不使用未发布的npx iui。
 
-[进阶绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[能力边界](references/support.md)和[更多例子](references/examples.md)是可选资料，不是基础生成的前置条件。用户明确只要 JSON 时仅输出 JSON；要可打开文档时输出完整 HTML。
+可选：[绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[边界](references/support.md)、[例子](references/examples.md)。要求JSON则只交JSON；要页面则交完整HTML。

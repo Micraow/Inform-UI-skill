@@ -1,0 +1,320 @@
+{
+  "version": "iui/1",
+  "theme": "auto",
+  "title": "合成权重与变化分布",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "先分清面积与颜色"
+    },
+    {
+      "type": "text",
+      "value": "所有数据为原创教学合成。面积使用统一权重60:30:10，币种价格不参与面积计算；+12%色阶饱和，但原始读数保留。"
+    },
+    {
+      "type": "finance-heatmap",
+      "title": "面积是权重，颜色是涨跌",
+      "source": {
+        "label": "作者原创合成供数，不对应证券或真实行情",
+        "synthetic": true
+      },
+      "asOf": "2026-10-08T14:30:00Z",
+      "timezone": "Asia/Shanghai",
+      "weightLabel": "统一合成权重（非市值）",
+      "changeBasis": "较同一合成前收盘",
+      "cells": [
+        {
+          "id": "alpha",
+          "symbol": "DEMO_A",
+          "name": "甲（合成）",
+          "sector": "研究",
+          "weight": 60,
+          "price": 110,
+          "currency": "USD",
+          "changePercent": 12,
+          "asOf": "2026-10-08T14:00:00Z",
+          "marketStatus": "closed",
+          "delayMinutes": 15
+        },
+        {
+          "id": "beta",
+          "symbol": "DEMO_B",
+          "name": "乙（合成）",
+          "sector": "教学",
+          "weight": 30,
+          "price": 50,
+          "currency": "EUR",
+          "changePercent": -4,
+          "asOf": "2026-10-08T14:00:00Z",
+          "marketStatus": "closed",
+          "delayMinutes": 15
+        },
+        {
+          "id": "gamma",
+          "symbol": "DEMO_C",
+          "name": "丙（合成）",
+          "sector": "研究",
+          "weight": 10,
+          "price": null,
+          "currency": "JPY",
+          "changePercent": null,
+          "asOf": "2026-10-08T14:00:00Z",
+          "marketStatus": "closed",
+          "delayMinutes": 15
+        },
+        {
+          "id": "zero",
+          "symbol": "ZERO",
+          "name": "零权重（合成）",
+          "sector": "教学",
+          "weight": 0,
+          "price": 0,
+          "currency": "USD",
+          "changePercent": -100,
+          "asOf": "2026-10-08T14:00:00Z",
+          "marketStatus": "closed",
+          "delayMinutes": 15
+        },
+        {
+          "id": "missing",
+          "symbol": "MISSING",
+          "name": "缺权重（合成）",
+          "sector": "教学",
+          "weight": null,
+          "price": 1,
+          "currency": "USD",
+          "changePercent": 0,
+          "asOf": "2026-10-08T14:00:00Z",
+          "marketStatus": "closed",
+          "delayMinutes": 15
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "零与缺失权重不获得伪造面积，但键盘与完整表能查看全部五条。不同币种价格仅供读取，不做换汇。"
+    },
+    {
+      "type": "details",
+      "summary": "无正权重与供数失败",
+      "children": [
+        {
+          "type": "finance-heatmap",
+          "title": "没有可画面积",
+          "source": {
+            "label": "作者原创合成供数，不对应证券或真实行情",
+            "synthetic": true
+          },
+          "asOf": "2026-10-08T14:30:00Z",
+          "timezone": "Asia/Shanghai",
+          "weightLabel": "统一合成权重（非市值）",
+          "changeBasis": "较同一合成前收盘",
+          "cells": [
+            {
+              "id": "zero",
+              "symbol": "ZERO",
+              "name": "零权重（合成）",
+              "sector": "教学",
+              "weight": 0,
+              "price": 0,
+              "currency": "USD",
+              "changePercent": -100,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "missing",
+              "symbol": "MISSING",
+              "name": "缺权重（合成）",
+              "sector": "教学",
+              "weight": null,
+              "price": 1,
+              "currency": "USD",
+              "changePercent": 0,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            }
+          ]
+        },
+        {
+          "type": "finance-heatmap",
+          "title": "空热图",
+          "source": {
+            "label": "作者原创合成供数，不对应证券或真实行情",
+            "synthetic": true
+          },
+          "asOf": "2026-10-08T14:30:00Z",
+          "timezone": "Asia/Shanghai",
+          "weightLabel": "统一合成权重（非市值）",
+          "changeBasis": "较同一合成前收盘",
+          "cells": []
+        },
+        {
+          "type": "finance-heatmap",
+          "title": "等待供数",
+          "source": {
+            "label": "作者原创合成供数，不对应证券或真实行情",
+            "synthetic": true
+          },
+          "asOf": "2026-10-08T14:30:00Z",
+          "timezone": "Asia/Shanghai",
+          "weightLabel": "统一合成权重（非市值）",
+          "changeBasis": "较同一合成前收盘",
+          "cells": [
+            {
+              "id": "alpha",
+              "symbol": "DEMO_A",
+              "name": "甲（合成）",
+              "sector": "研究",
+              "weight": 60,
+              "price": 110,
+              "currency": "USD",
+              "changePercent": 12,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "beta",
+              "symbol": "DEMO_B",
+              "name": "乙（合成）",
+              "sector": "教学",
+              "weight": 30,
+              "price": 50,
+              "currency": "EUR",
+              "changePercent": -4,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "gamma",
+              "symbol": "DEMO_C",
+              "name": "丙（合成）",
+              "sector": "研究",
+              "weight": 10,
+              "price": null,
+              "currency": "JPY",
+              "changePercent": null,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "zero",
+              "symbol": "ZERO",
+              "name": "零权重（合成）",
+              "sector": "教学",
+              "weight": 0,
+              "price": 0,
+              "currency": "USD",
+              "changePercent": -100,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "missing",
+              "symbol": "MISSING",
+              "name": "缺权重（合成）",
+              "sector": "教学",
+              "weight": null,
+              "price": 1,
+              "currency": "USD",
+              "changePercent": 0,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            }
+          ],
+          "status": "loading",
+          "message": "教学加载状态，不联系行情服务。"
+        },
+        {
+          "type": "finance-heatmap",
+          "title": "供数失败",
+          "source": {
+            "label": "作者原创合成供数，不对应证券或真实行情",
+            "synthetic": true
+          },
+          "asOf": "2026-10-08T14:30:00Z",
+          "timezone": "Asia/Shanghai",
+          "weightLabel": "统一合成权重（非市值）",
+          "changeBasis": "较同一合成前收盘",
+          "cells": [
+            {
+              "id": "alpha",
+              "symbol": "DEMO_A",
+              "name": "甲（合成）",
+              "sector": "研究",
+              "weight": 60,
+              "price": 110,
+              "currency": "USD",
+              "changePercent": 12,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "beta",
+              "symbol": "DEMO_B",
+              "name": "乙（合成）",
+              "sector": "教学",
+              "weight": 30,
+              "price": 50,
+              "currency": "EUR",
+              "changePercent": -4,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "gamma",
+              "symbol": "DEMO_C",
+              "name": "丙（合成）",
+              "sector": "研究",
+              "weight": 10,
+              "price": null,
+              "currency": "JPY",
+              "changePercent": null,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "zero",
+              "symbol": "ZERO",
+              "name": "零权重（合成）",
+              "sector": "教学",
+              "weight": 0,
+              "price": 0,
+              "currency": "USD",
+              "changePercent": -100,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            },
+            {
+              "id": "missing",
+              "symbol": "MISSING",
+              "name": "缺权重（合成）",
+              "sector": "教学",
+              "weight": null,
+              "price": 1,
+              "currency": "USD",
+              "changePercent": 0,
+              "asOf": "2026-10-08T14:00:00Z",
+              "marketStatus": "closed",
+              "delayMinutes": 15
+            }
+          ],
+          "status": "error",
+          "message": "教学错误状态；无自动重试或交易动作。"
+        }
+      ]
+    }
+  ]
+}

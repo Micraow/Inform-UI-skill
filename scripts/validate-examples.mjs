@@ -69,7 +69,7 @@ try {
     const before = JSON.stringify(document);
     const result = api.validateDocument(document);
     assert.equal(result.ok, true, `${name}: ${JSON.stringify(result.issues)}`);
-    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json', 'supplied-sports.json', 'local-learning.json'].includes(name) ? 'zh-CN' : 'en' };
+    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json', 'supplied-sports.json', 'local-learning.json', 'supplied-finance.json', 'supplied-heatmap.json'].includes(name) ? 'zh-CN' : 'en' };
     const html = await api.compileHtml(result.document, options);
     assert.equal(typeof html, 'string');
     assert.ok(html.toLowerCase().includes('<!doctype html>'), `${name}: no standalone HTML document`);
@@ -119,10 +119,27 @@ try {
   const invalidWeather = changes => ({ version: 'iui/1', body: [{ ...structuredClone(weather), ...changes }] });
   const sports = literalExamples.find(node => node.type === 'sports-scoreboard');
   const quiz = literalExamples.find(node => node.type === 'quiz');
+  const finance = literalExamples.find(node => node.type === 'finance-quote');
+  const heatmap = literalExamples.find(node => node.type === 'finance-heatmap');
   assert.ok(sports && quiz, 'Self-contained new domain examples are required');
+  assert.ok(finance && heatmap, 'Root finance/heatmap examples are required');
   const changedNode = (node, change) => { const value = structuredClone(node); change(value); return { version: 'iui/1', body: [value] }; };
   const baseChart = { type: 'chart', kind: 'line', xScale: 'linear', xKey: 'x', data: [{ x: 0, y: 1 }, { x: 10, y: 2 }], series: [{ key: 'y', label: 'Synthetic' }] };
   const invalid = [
+    ['finance negative price', changedNode(finance, n => n.instrument.price = -1)],
+    ['finance invalid currency', changedNode(finance, n => n.instrument.currency = 'usd')],
+    ['finance missing delay declaration', changedNode(finance, n => delete n.instrument.delayMinutes)],
+    ['finance timestamp without offset', changedNode(finance, n => n.instrument.asOf = '2026-10-09T10:00:00')],
+    ['finance history reversed', changedNode(finance, n => n.instrument.history.reverse())],
+    ['finance history repeated', changedNode(finance, n => n.instrument.history.push(n.instrument.history.at(-1)))],
+    ['finance history after snapshot', changedNode(finance, n => n.instrument.asOf = '2026-10-08T10:00:00Z')],
+    ['finance initial range missing', { version: 'iui/1', body: [{ ...finance, type: 'finance-chart', ranges: [], initialRange: 'missing' }] }],
+    ['finance range reversed', { version: 'iui/1', body: [{ ...finance, type: 'finance-chart', ranges: [{ id: 'bad', label: 'Bad', from: '2026-10-09T10:00:00Z', to: '2026-10-08T10:00:00Z' }] }] }],
+    ['finance repeated instrument id', { version: 'iui/1', body: [{ type: 'finance-comparison', source: finance.source, instruments: [finance.instrument, finance.instrument], baselineAt: '2026-10-08T10:00:00Z', ranges: [] }] }],
+    ['heatmap filter missing', changedNode(heatmap, n => n.initialSector = 'missing')],
+    ['heatmap invalid timezone', changedNode(heatmap, n => n.timezone = 'Invalid/Zone')],
+    ['heatmap missing area meaning', changedNode(heatmap, n => delete n.weightLabel)],
+    ['heatmap missing change basis', changedNode(heatmap, n => delete n.changeBasis)],
     ['sports repeated team id', changedNode(sports, n => n.data.teams.push(n.data.teams[0]))],
     ['sports unknown opponent', changedNode(sports, n => n.data.games[0].awayTeam = 'missing')],
     ['sports identical opponents', changedNode(sports, n => n.data.games[0].awayTeam = 'north')],

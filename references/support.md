@@ -4,7 +4,7 @@ This matrix describes the independent `iui/1` library matched in [library-contra
 
 ## Public protocol nodes
 
-This pin contains 46 schema nodes: 44 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
+This pin contains 50 schema nodes: 48 rendered surfaces, the explicit markdown plain-text fallback, and rejected native input. The cross-repository check compares this machine-readable [node inventory](node-support.json) with the library schema. The skill fixtures exercise the main authoring path; complete renderer coverage belongs to the library's tests.
 
 | Status | Nodes | Authoring guidance |
 | --- | --- | --- |
@@ -13,6 +13,7 @@ This pin contains 46 schema nodes: 44 rendered surfaces, the explicit markdown p
 | New 41-node contract surface | `input`, `textarea`, `radio`, `segmented`, `field`, `form`, `weather` | Local form validation/state; supplied weather with provenance/timezone. No implicit submission service or forecast retrieval |
 | Supplied sports | `sports-schedule`, `sports-scoreboard`, `sports-standings` | Local filters, match selection and sorting; supplied snapshots, no live provider or rules inference |
 | Local learning | `quiz`, `flashcards` | Weighted local scoring, exact multiple-answer sets, reveal/self-rating/reset; no persistence, secret exams or spaced scheduling |
+| Supplied finance | `finance-quote`, `finance-chart`, `finance-comparison`, `finance-heatmap` | Provided prices/history, exact common baseline, weighted area and supplied changes; no market retrieval, trading or currency conversion |
 | Explicit fallback | `markdown` | Plain text with a visible fallback label; no Markdown formatting is interpreted |
 | Deliberately rejected | `native` | No private runtime is bundled or assumed; use a portable alternative |
 
@@ -70,7 +71,7 @@ The following 52 items classify user-visible jobs, not 52 generator tags. “Par
 | 46 | File navigation | Authorized file links; filesystem navigation requires the host |
 | 47 | Linked entities | Sourced prose/images/links; live entity data requires a service |
 | 48 | Follow-up suggestions | Plain text/list; conversation actions require the host |
-| 49 | Live specialized widgets | `weather` renders supplied source/timezone data. Live retrieval remains a host service; sports views also render supplied snapshots; other unlisted domains remain outside this pin |
+| 49 | Live specialized widgets | `weather` renders supplied source/timezone data. Live retrieval remains a host service; sports and finance views also render supplied snapshots; other unlisted domains remain outside this pin |
 | 50 | Custom app blocks | Restricted state/AST only; no arbitrary app scripts or sandbox claim |
 | 51 | Rich writing editor | Host/editor capability; a rendered document is read-only content |
 | 52 | Structured code with preview | Partial: `code` displays text; execution, advanced highlighting and preview need explicit support |

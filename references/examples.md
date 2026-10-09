@@ -13,6 +13,8 @@ All fixtures are original and use the public `iui/1` protocol. Their measurement
 | [coordinate-scenarios.json](../examples/coordinate-scenarios.json) | 五图种、不等距数值与跨年毫秒时间 | 不等距X用linear/time；微量变化用明确纵轴范围，不改变原数据 |
 | [supplied-sports.json](../examples/supplied-sports.json) | 赛程、记分牌与积分榜的组合 | 来源、时区、null与0、来源胜者/排名/扣分；无自动直播或规则推断 |
 | [local-learning.json](../examples/local-learning.json) | 自测反馈与闪卡自评的完整本地流程 | 题目与答案正确、单选/多选边界、无持久化或保密考试承诺 |
+| [supplied-finance.json](../examples/supplied-finance.json) | 行情、真实时间历史和共同基准比较 | 来源、延迟声明、缺测、零基准、各自币种归一化；无换汇/交易 |
+| [supplied-heatmap.json](../examples/supplied-heatmap.json) | 统一权重面积、涨跌色阶与全记录 | 0/null无伪造面积，色阶饱和不改变原始幅度，小格与缺面积项仍可查表 |
 | [resource-shortlist.json](../examples/resource-shortlist.json) | Useful links embedded in normal prose | Honest project status; omit thumbnails without useful, authorized images |
 
 Change the data and explanation together. A fixture is not evidence for a user's real situation. The HPCC-inspired example demonstrates one simplified proportional feedback relation; it is not an implementation or validation of the full scientific algorithm.

@@ -182,5 +182,21 @@
   {
     "type": "flashcards",
     "status": "portable"
+  },
+  {
+    "type": "finance-quote",
+    "status": "portable"
+  },
+  {
+    "type": "finance-chart",
+    "status": "portable"
+  },
+  {
+    "type": "finance-comparison",
+    "status": "portable"
+  },
+  {
+    "type": "finance-heatmap",
+    "status": "portable"
   }
 ]
