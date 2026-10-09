@@ -150,6 +150,8 @@ npm run check:schema -- --library ../Inform-UI
 
 [持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)覆盖 Linux 的 Node.js 22/24、Windows 与 macOS 的 Node.js 22，以及 Chromium 下的 68 组明暗主题和桌面/手机视图：56 组原创示例（辅助节点、转换器、体育、学习、金融和热图直接加载固定CDN）、4 组根 SKILL 的 CDN HTML 壳、4 组[历史 41 节点首次产物](tests/blind/README.md)、4 组[46 节点体育与学习首次产物](tests/blind46/README.md)。历史产物的作者没有读取源码或其他样例，原始 HTML/JSON 已通过真实 API、448 组数值核对及浏览器交互验收，产物未为测试修改。46 节点首稿同样保留原始字节，首次通过 API/CLI、独立赛绩与排名计算及原固定 CDN 的体育/测验/闪卡交互验收，详见[结果与保留观察](tests/blind46/RESULTS.md)。CI badge 显示开发分支的最新状态。
 
+按需入口、单根范围、Schema 边界与本轮完整验证见[发现与验收记录](references/schema-discovery.md)。纯文档检查点可只跑轻检查，完整功能结果明确绑定到已验提交，不把跳过当通过。
+
 ## 许可证
 
 采用 [MIT License](LICENSE)。欢迎提交原创示例与改进；引用第三方内容时，请保留清楚的来源和兼容许可。
