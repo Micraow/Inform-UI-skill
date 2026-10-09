@@ -10,15 +10,18 @@ import { root } from './check-skill.mjs';
 const pos = process.argv.indexOf('--library');
 const library = path.resolve(pos >= 0 ? process.argv[pos + 1] : process.env.IUI_LIBRARY_DIR || path.join(root, '../Inform-UI'));
 const contract = JSON.parse(await readFile(path.join(root, 'library-contract.json')));
-assert.ok(contract.cdn.schemaIndex, 'Current contract must publish its discovery index');
+const indexArgument = process.argv.indexOf('--index');
+const indexFile = indexArgument >= 0 ? process.argv[indexArgument + 1] : contract.cdn.schemaIndex;
+assert.ok(indexFile, 'Current contract must publish its discovery index, or pass --index for local development');
+const workingTree = process.argv.includes('--allow-working-tree');
 const revision = spawnSync('git', ['-C', library, 'rev-parse', 'HEAD'], { encoding: 'utf8' });
 assert.equal(revision.status, 0);
-assert.equal(revision.stdout.trim(), contract.revision);
-const indexPath = path.join(library, 'cdn', contract.cdn.schemaIndex), directory = path.dirname(indexPath);
+if (!workingTree) assert.equal(revision.stdout.trim(), contract.revision);
+const indexPath = path.join(library, 'cdn', indexFile), directory = path.dirname(indexPath);
 const index = JSON.parse(await readFile(indexPath));
 assert.equal(index.format, 'inform-ui-schema-index/1');
 assert.equal(index.schemaVersion, contract.schemaVersion);
-const require = createRequire(path.join(library, 'package.json')), Ajv = require('ajv');
+const require = createRequire(path.join(library, 'package.json')), Ajv = require('ajv/dist/2020.js').default;
 const pkg = JSON.parse(await readFile(path.join(library, 'package.json')));
 const { validateDocument } = await import(pathToFileURL(path.resolve(library, pkg.exports['.'].import)).href);
 const resolveFile = relative => {
@@ -101,4 +104,4 @@ try {
   assert.equal(valid(mixed), true, JSON.stringify(valid.errors));
   assert.equal(validateDocument(mixed).ok, true);
 } finally { await rm(dir, { recursive: true, force: true }); }
-console.log(`PASS schema discovery: ${index.groups.length} groups, ${files} closed/hash-matched schemas, ${examples} same-pin examples, full inventory ownership, Node-vs-Document boundary and multi-domain union`);
+console.log(`PASS ${workingTree ? "working-tree" : "pinned"} schema discovery: ${index.groups.length} groups, ${files} closed/hash-matched schemas, ${examples} same-pin examples, full inventory ownership, Node-vs-Document boundary and multi-domain union`);
