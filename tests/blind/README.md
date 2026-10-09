@@ -4,6 +4,8 @@
 
 输入为 [cdd0499 的根 SKILL.md](https://github.com/Micraow/Intelligent-UI-skill/blob/cdd04991518f141d95a66e1d3bbf00aba9968eec/SKILL.md)，23779 字节，SHA256 `41f71c5cb1b51910b6dc33ab30694c25ac891d67aa6897c2400d40bdf5c6f8ea`。固定库/CDN 为 `7c490585f3ae4b72999b3dd5db7a0b8ee65ac417`。
 
+相同字节的输入副本保存在 `input-skill.txt`，原库版本保存在 `library-contract.json`。这是历史验收的固定输入，里面的相对引用以当时仓库根目录为基准；今后当前根技能或库升级不改写本次证据，也不让新版本冒充最初的运行环境。
+
 产物 SHA256：
 
 - `weekend-plan.html`：`aea207da253b08ea313235d2aeac43db35cfba0587676b473d343b41e0bc8e47`

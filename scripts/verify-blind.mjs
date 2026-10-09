@@ -10,14 +10,15 @@ import { root, readSkillShell } from './check-skill.mjs';
 
 const arg = name => process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined;
 const library = path.resolve(arg('--library') || process.env.IUI_LIBRARY_DIR || path.join(root, '../Intelligent-UI'));
-const contract = JSON.parse(await readFile(path.join(root, 'library-contract.json')));
+const frozen = path.join(root, 'tests/blind');
+const contract = JSON.parse(await readFile(path.join(frozen, 'library-contract.json')));
 const revision = spawnSync('git', ['-C', library, 'rev-parse', 'HEAD'], { encoding: 'utf8' });
 assert.equal(revision.status, 0);
 assert.equal(revision.stdout.trim(), contract.revision, 'Blind acceptance must use the exact fixed library');
 const pkg = JSON.parse(await readFile(path.join(library, 'package.json')));
 const api = await import(pathToFileURL(path.resolve(library, pkg.exports['.'].import)).href);
-const frozen = path.join(root, 'tests/blind');
 const hashes = {
+  'input-skill.txt': '41f71c5cb1b51910b6dc33ab30694c25ac891d67aa6897c2400d40bdf5c6f8ea',
   'weekend-plan.html': 'aea207da253b08ea313235d2aeac43db35cfba0587676b473d343b41e0bc8e47',
   'weekend-plan.json': '37b9256ab4c41ff5521e2b409c8f7a34d17869c2aba5ff4617f45e4b44c1a704'
 };
@@ -35,7 +36,7 @@ assert.equal(/<style\b|\sstyle=/i.test(html), false);
 for (const asset of ['iui.global.min.js', 'iui.css']) assert.ok(html.includes(contract.cdn.baseUrl + asset));
 for (const integrity of [contract.cdn.globalIntegrity, contract.cdn.styleIntegrity]) assert.ok(html.includes(integrity));
 // The executable bootstrap was copied exactly; the model authored data, not a renderer.
-const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
+const shell = readSkillShell(await readFile(path.join(frozen, 'input-skill.txt'), 'utf8'));
 assert.equal(html.match(/  <script>\n([\s\S]*?)  <\/script>/)[1], shell.html.match(/  <script>\n([\s\S]*?)  <\/script>/)[1]);
 const before = JSON.stringify(document);
 const valid = api.validateDocument(document);
