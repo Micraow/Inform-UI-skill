@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [Capability Search组合消费者](candidates/capability-search/README.md)：准确9793源已验11正16负、6组真实DOM/standalone、345旧定义及21源构建锁，0外网/0服务。186仅注册计数，当前180完成范围先保持；它与原conversational Search是不同合同。
+
 最新[统一183固定CDN组合](candidates/recovery183/README.md) 对准确公开f7c49af9与本地cf3b相同资产完成52manifest字节/SHA/SRI、3dist与双CDN代表流，10原创家族106正158负、8次混合流程通过。该资产固定178/0/78、183登记；后续源当前180/0/76、185登记另计。原164锁保持158/1/97。原生/像素/CI结论另验。
 
 当前恢复分支入口：[已验证的恢复消费者与运行命令](RECOVERY-CONSUMERS.md)。此前[统一164固定资产消费者](candidates/recovery164/README.md) 对公开74d463与本地2dc相同字节完成52资产SHA/SRI、3dist和双CDN代表流核对，20正33负、8次混合流程通过。历史[精确本地 CDN 组合消费者为协议154](candidates/recovery154/README.md)：21份原创示例、144正例/359负例、双入口7组DOM合同通过；该固定资产canonical为142已实现、6部分、108未实现，历史功能验收53不变。公开源码闭包及远端CI另验。Skill 包含原创供数示例、独立 JavaScript 校验和安全文件锁，不捆绑运行库或私有参考。DOM/合同检查不代表原生或像素验收。以下旧合同与推荐保留为历史版本，不能混用资产。

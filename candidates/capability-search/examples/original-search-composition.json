@@ -1,0 +1,320 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "whats-new-capability-search",
+      "id": "paper_search_examples",
+      "label": "Original paper-workshop search examples",
+      "intro": "Read all supplied examples together. These are fictional snapshots.",
+      "locationPrompt": "The area label below is a fictional string.",
+      "offerPreciseLocation": true,
+      "locationAvailable": true,
+      "locationVariant": "widget",
+      "locationWidget": {
+        "type": "ask-user-location",
+        "id": "paper_location_request",
+        "label": "Original optional location-request demonstration",
+        "title": "Choose whether to request location access",
+        "description": "This fictional paper-workshop example only records a local request. No location is read.",
+        "learnMoreUrl": "https://example.test/original-location-notice",
+        "learnMoreLabel": "Read the supplied notice",
+        "notNowLabel": "Keep this example dismissed",
+        "turnOnLabel": "Request the optional permission",
+        "resetLabel": "Restore the supplied request",
+        "requestedLabel": "Original local request accepted",
+        "cancelledLabel": "Original local request canceled"
+      },
+      "inlineLocationLabel": "Request a local area intent",
+      "searchLocation": "Fictional paper quarter",
+      "nativeMapUnavailableLabel": "No map service in this supplied example",
+      "requestedLabel": "Original local search request accepted",
+      "cancelledLabel": "Original local search request canceled",
+      "resetLabel": "Reset the local search receipt",
+      "examples": [
+        {
+          "id": "notes",
+          "title": "Paper-model planning",
+          "notes": [
+            "Compare the supplied room labels.",
+            "Ask about one supplied option."
+          ],
+          "sources": [
+            {
+              "id": "manual",
+              "label": "Original supplied room manual",
+              "url": "https://example.test/room-manual"
+            }
+          ],
+          "exampleLabel": "Original neutral exercise",
+          "ctaLabel": "Ask about the supplied notes",
+          "ctaPrompt": "Explain the fictional paper-model options.",
+          "footer": "Original notes footer"
+        },
+        {
+          "id": "direct",
+          "title": "Direct room request",
+          "notes": [],
+          "sources": [
+            {
+              "id": "manual",
+              "label": "Original supplied room manual",
+              "url": "https://example.test/room-manual"
+            }
+          ],
+          "venue": {
+            "name": "Fictional folding room",
+            "detail": "Entirely synthetic room information",
+            "address": "Fictional area only",
+            "url": "https://example.test/room",
+            "referenceId": "paper_room_reference"
+          },
+          "venueAction": {
+            "kind": "entity",
+            "entityId": "paper_room_entity",
+            "available": true
+          },
+          "prompt": "This prompt is lower priority than the supplied room URL.",
+          "ctaLabel": "Request supplied room information",
+          "searchImage": {
+            "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGMwz1t1aYENw6UFNuZ5qwAqKgX7uDFgQAAAAABJRU5ErkJggg=="
+          },
+          "footer": "Settled room footer"
+        },
+        {
+          "id": "reservation",
+          "title": "Grouped time example",
+          "notes": [],
+          "sources": [
+            {
+              "id": "manual",
+              "label": "Original supplied room manual",
+              "url": "https://example.test/room-manual"
+            }
+          ],
+          "venue": {
+            "name": "Fictional cutting room",
+            "detail": "Entirely synthetic room information",
+            "address": "Fictional area only",
+            "url": "https://example.test/room",
+            "referenceId": "paper_room_reference"
+          },
+          "venueAction": {
+            "kind": "capability",
+            "capabilityId": "paper_room_capability",
+            "available": true
+          },
+          "reservationWidget": {
+            "data": {
+              "label": "Original grouped paper-room times",
+              "groups": [
+                {
+                  "id": "day_0",
+                  "dateLabel": "Fictional day 1",
+                  "partySizeLabel": "2 model builders",
+                  "providerName": "Paper provider",
+                  "times": [
+                    {
+                      "id": "fallback",
+                      "timeLabel": "Supplied fallback",
+                      "bookingQuery": "Review the fictional fallback time."
+                    }
+                  ],
+                  "desktopSlots": [
+                    {
+                      "id": "plain",
+                      "label": "17:00 supplied",
+                      "bookingQuery": "Review the fictional paper-room option."
+                    },
+                    {
+                      "id": "providers",
+                      "label": "18:00 supplied",
+                      "providerOptions": [
+                        {
+                          "id": "paper",
+                          "providerName": "Paper provider",
+                          "bookingQuery": "Review the paper provider option."
+                        },
+                        {
+                          "id": "card",
+                          "providerName": "Card provider",
+                          "url": "https://example.test/card-provider"
+                        }
+                      ]
+                    }
+                  ],
+                  "mobileSlots": [
+                    {
+                      "id": "mobile",
+                      "label": "Mobile supplied option",
+                      "bookingQuery": "Review the fictional mobile option."
+                    }
+                  ]
+                },
+                {
+                  "id": "day_1",
+                  "dateLabel": "Fictional day 2",
+                  "partySizeLabel": "2 model builders",
+                  "providerName": "Paper provider",
+                  "times": [
+                    {
+                      "id": "fallback",
+                      "timeLabel": "Supplied fallback",
+                      "bookingQuery": "Review the fictional fallback time."
+                    }
+                  ],
+                  "desktopSlots": [
+                    {
+                      "id": "plain",
+                      "label": "17:00 supplied",
+                      "bookingQuery": "Review the fictional paper-room option."
+                    },
+                    {
+                      "id": "providers",
+                      "label": "18:00 supplied",
+                      "providerOptions": [
+                        {
+                          "id": "paper",
+                          "providerName": "Paper provider",
+                          "bookingQuery": "Review the paper provider option."
+                        },
+                        {
+                          "id": "card",
+                          "providerName": "Card provider",
+                          "url": "https://example.test/card-provider"
+                        }
+                      ]
+                    }
+                  ],
+                  "mobileSlots": [
+                    {
+                      "id": "mobile",
+                      "label": "Mobile supplied option",
+                      "bookingQuery": "Review the fictional mobile option."
+                    }
+                  ]
+                },
+                {
+                  "id": "day_2",
+                  "dateLabel": "Fictional day 3",
+                  "partySizeLabel": "2 model builders",
+                  "providerName": "Paper provider",
+                  "times": [
+                    {
+                      "id": "fallback",
+                      "timeLabel": "Supplied fallback",
+                      "bookingQuery": "Review the fictional fallback time."
+                    }
+                  ],
+                  "desktopSlots": [
+                    {
+                      "id": "plain",
+                      "label": "17:00 supplied",
+                      "bookingQuery": "Review the fictional paper-room option."
+                    },
+                    {
+                      "id": "providers",
+                      "label": "18:00 supplied",
+                      "providerOptions": [
+                        {
+                          "id": "paper",
+                          "providerName": "Paper provider",
+                          "bookingQuery": "Review the paper provider option."
+                        },
+                        {
+                          "id": "card",
+                          "providerName": "Card provider",
+                          "url": "https://example.test/card-provider"
+                        }
+                      ]
+                    }
+                  ],
+                  "mobileSlots": [
+                    {
+                      "id": "mobile",
+                      "label": "Mobile supplied option",
+                      "bookingQuery": "Review the fictional mobile option."
+                    }
+                  ]
+                }
+              ],
+              "collapsedGroups": 1,
+              "initialGroups": 1,
+              "expandedGroups": 3,
+              "showMoreDatesLabel": "Show all three supplied days",
+              "showFewerDatesLabel": "Show one supplied day",
+              "cancelledLabel": "Original child request canceled",
+              "requestedLabel": "Original child request accepted"
+            }
+          },
+          "footer": "Grouped room footer"
+        },
+        {
+          "id": "waiting",
+          "title": "Supplied pending enrichment",
+          "notes": [],
+          "sources": [
+            {
+              "id": "manual",
+              "label": "Original supplied room manual",
+              "url": "https://example.test/room-manual"
+            }
+          ],
+          "venue": {
+            "name": "Fictional unfinished room",
+            "detail": "Entirely synthetic room information",
+            "address": "Fictional area only",
+            "url": "https://example.test/room",
+            "referenceId": "paper_room_reference"
+          },
+          "reservationWidget": {},
+          "enrichmentPending": true,
+          "nativeMap": true,
+          "searchImage": {
+            "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGMwz1t1aYENw6UFNuZ5qwAqKgX7uDFgQAAAAABJRU5ErkJggg=="
+          },
+          "footer": "This pending footer stays hidden"
+        },
+        {
+          "id": "shell",
+          "title": "Settled widget shell",
+          "notes": [],
+          "sources": [
+            {
+              "id": "manual",
+              "label": "Original supplied room manual",
+              "url": "https://example.test/room-manual"
+            }
+          ],
+          "venue": {
+            "name": "Fictional shell room",
+            "detail": "Entirely synthetic room information",
+            "address": "Fictional area only",
+            "url": "https://example.test/room",
+            "referenceId": "paper_room_reference"
+          },
+          "reservationWidget": {},
+          "footer": "Shell footer is settled"
+        },
+        {
+          "id": "prompt_fallback",
+          "title": "No URL room",
+          "notes": [],
+          "sources": [
+            {
+              "id": "manual",
+              "label": "Original supplied room manual",
+              "url": "https://example.test/room-manual"
+            }
+          ],
+          "venue": {
+            "name": "Fictional prompt-only room",
+            "detail": "No destination is supplied",
+            "address": "Fictional area"
+          },
+          "prompt": "Ask about the prompt-only room.",
+          "footer": "Prompt-only room footer"
+        }
+      ]
+    }
+  ]
+}

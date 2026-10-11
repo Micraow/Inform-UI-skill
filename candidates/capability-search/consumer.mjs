@@ -1,0 +1,2 @@
+/** Only cancel and record local intents. Does not search, navigate, book or read device data. */
+export function attachSearchReceipt(host,output){const names=['iui:capability-search','iui:reservation-pills','iui:ask-location'],listener=e=>{e.preventDefault();output.textContent=`Local ${e.type}: ${e.detail.intent}`;};for(const name of names)host.addEventListener(name,listener);return()=>{for(const name of names)host.removeEventListener(name,listener);};}
