@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [统一213实际CDN组合](candidates/recovery213/README.md)：精确本地资产5081b29b，52资产bytes/SHA/SRI、57锁/3dist及335旧定义全核；14原创家族196正260负同时过ESM/global，8次混合流程＋1实际standalone，0外网服务。固定208/0/48、213登记；当前统一213资产公开仍阻塞，锁publicCommit为null，不提供未验证CDN链接；独立原生结果另核，旧183锁不变。
+
 新增 [Entity/GenImage/Speech三类消费者](candidates/inline-host-media/README.md)：准确3b0614源20正24负、8组DOM/standalone、380旧定义/21锁。150ms预览、图像尺寸null cap/动作优先/localviewer、供数Speech与单次disabled stop均核；0外网/生成/TTS服务，213仅登记，原生与像素另验。
 
 新增 [Care供数目录与日历消费者](candidates/care-providers/README.md)：准确d1e555源16正22负、7组DOM/standalone、372旧定义/20锁。原创虚构目录、两层slot、空cursor、日历/菜单焦点和取消reset均核；0外网/预约服务，210仅登记，无患者数据或医疗判断。

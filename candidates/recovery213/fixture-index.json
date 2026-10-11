@@ -1,0 +1,103 @@
+{
+  "format": "inform-original-fixture-index/1",
+  "fixtures": [
+    {
+      "family": "ask-location",
+      "example": "candidates/ask-location/examples/original-location-request.json",
+      "exampleSha256": "faf3a892c1fb6ba68461fa9b5e3ccf12c1d20ce1d1d8a023c063ba047600d299",
+      "cases": "candidates/ask-location/cases.mjs",
+      "casesSha256": "ed12fda415ca9900cd2ec712cdd62d0454548a03a9a86810ac652d2d4b80414f"
+    },
+    {
+      "family": "reservation-carousel",
+      "example": "candidates/reservation-carousel/examples/original-reservation-cards.json",
+      "exampleSha256": "c70dda84bb9daa61b58875211fe02f407ff61ec4d62df40d4b5dc0aabd58a1d3",
+      "cases": "candidates/reservation-carousel/cases.mjs",
+      "casesSha256": "8c98473e9660d66239208f291caa3dce86cdca7350b8cc4db8f7a04d90a488b5"
+    },
+    {
+      "family": "capability-search",
+      "example": "candidates/capability-search/examples/original-search-composition.json",
+      "exampleSha256": "b894face4e0da013662960f312cd636b676ecd324ac273954941f078a0440c67",
+      "cases": "candidates/capability-search/cases.mjs",
+      "casesSha256": "aed980b1e0a652eb261fb1276b22f7e65c2244aa4cc6fa7b8f28b0010d0ad859"
+    },
+    {
+      "family": "task-cards",
+      "example": "candidates/task-cards/examples/original-task-cards.json",
+      "exampleSha256": "7230238a2fefe1009e183b082b00648a6a60f9cddc0c7d2e0ca7fd761a11ec55",
+      "cases": "candidates/task-cards/cases.mjs",
+      "casesSha256": "47d594ad75bf06e9ab685a0cd4436871ed546d0168919d2dd551fa3b675b47f5"
+    },
+    {
+      "family": "finance-entry",
+      "example": "candidates/finance-entry/examples/original-finance-entry.json",
+      "exampleSha256": "703e4fa9067259bbd0fa5875f9b114ae34ab68d660ef0529925c86fcc9dc36cb",
+      "cases": "candidates/finance-entry/cases.mjs",
+      "casesSha256": "495ace3bcdd4ed3d20a09bede13eed07d3268a1eff06c4f6486949e866aa3b3d"
+    },
+    {
+      "family": "context-actions",
+      "example": "candidates/context-actions/examples/original-context-actions.json",
+      "exampleSha256": "dea4c362e925b634de5878ddcfd471ad35ca930452e3aa325fd813c5d9f115de",
+      "cases": "candidates/context-actions/cases.mjs",
+      "casesSha256": "24fad262ecdd88ed2f2404ff8ce4e72521369082c739c9c1fa9e45100009fe09"
+    },
+    {
+      "family": "equity-watchlist",
+      "example": "candidates/equity-watchlist/examples/original-equity-watchlist.json",
+      "exampleSha256": "43216bbdca4688b01a69ed005b11775493af6cda2ee42f21ae855cc9b940a928",
+      "cases": "candidates/equity-watchlist/cases.mjs",
+      "casesSha256": "4cf2e19cb9bc35cbb21ff68a32bf77e50b2ccf19ef25f011766b48d5229e8e78"
+    },
+    {
+      "family": "supplied-launchers",
+      "example": "candidates/supplied-launchers/examples/original-supplied-launchers.json",
+      "exampleSha256": "527b7b57303fbcca794fe377d9ba6fc6186767ff8215cf246bc8f89b127ae59a",
+      "cases": "candidates/supplied-launchers/cases.mjs",
+      "casesSha256": "b0a634f525e6091999124d5cf19a6af3c2a927973936a3d02866bbcaab32ae82"
+    },
+    {
+      "family": "supplied-discovery",
+      "example": "candidates/supplied-discovery/examples/original-supplied-discovery.json",
+      "exampleSha256": "6e624a07d898555931dfa095fd0ff7065d344be2b98cf7b98921543cf54968b7",
+      "cases": "candidates/supplied-discovery/cases.mjs",
+      "casesSha256": "380b76f8d242e92695d7fbf634402d2cd538679b99b1024b484bb28defa4c3c3"
+    },
+    {
+      "family": "credit-score",
+      "example": "candidates/credit-score/examples/original-credit-score.json",
+      "exampleSha256": "5419a927db8b324c7b6c0d6193589b83f339971e034953ccf2ba8118152d2467",
+      "cases": "candidates/credit-score/cases.mjs",
+      "casesSha256": "92d2fb9e301d178224f48fe4a119c147af7d1fead674ba7eccaac8b34960c19b"
+    },
+    {
+      "family": "supplied-interactions",
+      "example": "candidates/supplied-interactions/examples/original-supplied-interactions.json",
+      "exampleSha256": "4871a4f39ee65512668685240fea080d6fde8530aca674471a8fd47a85381626",
+      "cases": "candidates/supplied-interactions/cases.mjs",
+      "casesSha256": "b463bc4c8b2baf694073e73c5811cdb3e536b7c3b658fbef14cc984f168026cb"
+    },
+    {
+      "family": "learning-viz",
+      "example": "candidates/learning-viz/examples/original-learning-viz.json",
+      "exampleSha256": "0149a2b48e7f49cb9c8bb0766591a6099baa06d0f5fa41d34dde2417147d9fc6",
+      "cases": "candidates/learning-viz/cases.mjs",
+      "casesSha256": "baaa87c506e31fcaabaa47249062688e2042d009383cb0232b77e75b29ed64f3"
+    },
+    {
+      "family": "care-providers",
+      "example": "candidates/care-providers/examples/original-care-providers.json",
+      "exampleSha256": "7defa295698fe99647be2ced4deabd3d9c99c1151d646df68fb595fbb8533336",
+      "cases": "candidates/care-providers/cases.mjs",
+      "casesSha256": "0d8d35d89e3176205a867c8e2b81b3bc3ffd57448923a2118ed1056c7bfe7972"
+    },
+    {
+      "family": "inline-host-media",
+      "example": "candidates/inline-host-media/examples/original-inline-host-media.json",
+      "exampleSha256": "01bcdb9d9d72294be87e60fa7516bb6982c7747ef232eeadf35047e3b5be0a86",
+      "cases": "candidates/inline-host-media/cases.mjs",
+      "casesSha256": "5ac475af0d02a77f9d3aeb6e54f92b92bc777b047fd325915f3b8316f14de18f"
+    }
+  ]
+}

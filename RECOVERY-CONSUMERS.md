@@ -357,3 +357,13 @@ node candidates/inline-host-media/verify-source.mjs --library /path/to/ui-inline
 The source-only213 registration is separate from earlier CDN/native results. No actual lookup, generated imagery, microphone capture or speech playback is claimed.
 
 All three finite inline/media contracts have independent functional confirmation. Exact inventory `5e258b7d323c2d2dcd0f7da8c25b6f0514902c86` records208 implemented (53 historical+155 pending),0 partial and48 missing, with213 registrations. The48 remaining clinical components are not implemented. Existing source/CDN/native scopes remain frozen.
+
+## Exact unified213 CDN combination
+
+[Unified213 consumer](candidates/recovery213/README.md) reads asset5081b29b without rebuilding or copying large artifacts.52 manifest assets pass bytes/SHA256/SHA384 SRI;57 locks include3dist and the fixed208/0/48 inventory.335 previous183 definitions remain exact, with49 new definitions and30 new registrations. Fourteen original families provide196 positive/260 negative contracts through both CDN entry points;8 mixed DOM executions and1 compiled standalone pass with0 external requests/services.
+
+```sh
+node candidates/recovery213/verify-cdn.mjs --library /path/to/exact-unified213
+```
+
+Author3717 full-local and any independent native test batch are separate evidence. This consumer does not change historical183/164 or source-family locks and requests no extra CI.
