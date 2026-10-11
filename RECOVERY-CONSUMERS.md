@@ -367,3 +367,9 @@ node candidates/recovery213/verify-cdn.mjs --library /path/to/exact-unified213
 ```
 
 Author3717 full-local and any independent native test batch are separate evidence. This consumer does not change historical183/164 or source-family locks and requests no extra CI.
+
+## Narrow unified213 header successor
+
+The [933dc consumer](candidates/recovery213-readable-headers/README.md) adds a separate local lock for the two Credit/Care container-header fixes.52 assets/SRI and57 safe leaves pass; the complete schema and208/0/48 inventory remain byte-identical to5081. Removing only the two appended CSS blocks restores the old distribution stylesheet exactly.32 positive/44 negative original affected-family contracts pass through ESM/global, alongside8 header-adjacent flows and1 actual standalone.0 external requests/services were observed.
+
+This is a targeted successor check, not a new aggregate or native pass. `publicCommit:null` remains explicit until immutable public runtime assets are verified. Old5081,183 and164 locks and their executed-test scopes remain unchanged.

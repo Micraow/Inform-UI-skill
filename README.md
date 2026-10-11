@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [统一213标题窄修消费者](candidates/recovery213-readable-headers/README.md)：准确本地933dc后继，52资产/SRI与57锁通过，完整schema仍逐字节等于5081；只重验Credit/Care32正44负、双CDN8次邻近流程及1实际standalone。两处575px容器规则可精确还原旧CSS，0外网服务；未重跑原全量或原生，publicCommit仍null，旧5081/183锁保留。
+
 新增 [统一213实际CDN组合](candidates/recovery213/README.md)：精确本地资产5081b29b，52资产bytes/SHA/SRI、57锁/3dist及335旧定义全核；14原创家族196正260负同时过ESM/global，8次混合流程＋1实际standalone，0外网服务。固定208/0/48、213登记；当前统一213资产公开仍阻塞，锁publicCommit为null，不提供未验证CDN链接；独立原生结果另核，旧183锁不变。
 
 新增 [Entity/GenImage/Speech三类消费者](candidates/inline-host-media/README.md)：准确3b0614源20正24负、8组DOM/standalone、380旧定义/21锁。150ms预览、图像尺寸null cap/动作优先/localviewer、供数Speech与单次disabled stop均核；0外网/生成/TTS服务，213仅登记，原生与像素另验。

@@ -1,0 +1,39 @@
+{
+  "format": "inform-narrow-css-successor/1",
+  "baseAssetCommit": "5081b29b99eea2dce1f09a3588628f9414b5e393",
+  "assetCommit": "933dc0af71457df14e5be50ed53b73522a902e00",
+  "changedLockedPaths": [
+    "cdn/integrity.json",
+    "cdn/iui.min.js",
+    "cdn/iui.min.js.map",
+    "cdn/iui.global.min.js",
+    "cdn/iui.global.min.js.map",
+    "cdn/iui.css",
+    "dist/index.js",
+    "dist/browser.js",
+    "dist/style.css"
+  ],
+  "sourceChangedPaths": [
+    "src/renderer/care-providers.css",
+    "src/renderer/credit-score.css"
+  ],
+  "styles": [
+    {
+      "path": "src/renderer/care-providers.css",
+      "beforeSha256": "e6f99988d653d22a2ffaa5a34c875d9d77819a8e4d81929bcb8532ac3e4cb872",
+      "afterSha256": "ed3193a0ea0b533f19aba849b53d6f9dacc7974f66aed8c71602eea5efed76bb",
+      "beforeBytes": 3230,
+      "afterBytes": 3684,
+      "appendedRules": "/* The local container controls the calendar header independently of viewport width. */\n.iui-root .iui-care-provider{container-type:inline-size}\n@container(max-width:575px){.iui-root .iui-care-calendar{grid-template-columns:repeat(2,minmax(0,1fr))}.iui-root .iui-care-month{grid-column:1/-1}.iui-root .iui-care-calendar>[data-care-action=previous-month],.iui-root .iui-care-calendar>[data-care-action=next-month]{min-inline-size:0;max-inline-size:100%}}\n"
+    },
+    {
+      "path": "src/renderer/credit-score.css",
+      "beforeSha256": "47b14dea4de355527a7923d7beba9e5e8ad4bd0957a85d84e7cedc1bae487d90",
+      "afterSha256": "20be2fef319b45fc420ab5116eaa89f518d8125ddec3bfc6e31f4083c2a89d06",
+      "beforeBytes": 6404,
+      "afterBytes": 6682,
+      "appendedRules": "/* Keep supplied titles readable when the score and disclosure share a narrow header. */\n@container(max-width:575px){.iui-root .iui-credit-header{flex-wrap:wrap}.iui-root .iui-credit-header h3{flex-basis:100%}.iui-root .iui-credit-header .iui-credit-info{max-inline-size:100%}}\n"
+    }
+  ],
+  "unchangedSchemaSha256": "07baf67bb5d4521703fe59a176017a3c8f56c5e596f41c1e704c212d1f62d6e2"
+}

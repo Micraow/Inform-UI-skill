@@ -1,0 +1,298 @@
+{
+  "format": "inform-exact-css-successor-consumer/1",
+  "implementationSource": "3b0614adce1a1e49385961a4940996310b309316",
+  "sourceBeforeAssets": null,
+  "localAssetCommit": "933dc0af71457df14e5be50ed53b73522a902e00",
+  "localAssetTree": "5f43b6552237b9c9cf35a8322b391a168e42a487",
+  "publicCommit": null,
+  "protocolNodes": 213,
+  "predecessorAssetCommit": "5081b29b99eea2dce1f09a3588628f9414b5e393",
+  "files": [
+    {
+      "path": "cdn/integrity.json",
+      "bytes": 12857,
+      "sha256": "b48d0dc84b13aabca171ad59de8ebdd10a5f2758cb1a13bbad55391e6141576b"
+    },
+    {
+      "path": "cdn/iui.min.js",
+      "bytes": 6806904,
+      "sha256": "6f0453ef67216a256b3a802de0919318332594dc6c4550166d1fd399b905f4f9"
+    },
+    {
+      "path": "cdn/iui.min.js.map",
+      "bytes": 6439918,
+      "sha256": "8ef9a15c71d427fab7a19127f50a9985c29cc73fba14287635fda3800fb292a0"
+    },
+    {
+      "path": "cdn/iui.global.min.js",
+      "bytes": 6807066,
+      "sha256": "d574b0e97db5b39802c3091886d851d1c89c217d5b91a8446441ae608c4a5486"
+    },
+    {
+      "path": "cdn/iui.global.min.js.map",
+      "bytes": 6440165,
+      "sha256": "56fdfae6f1956eda2d50d2dfb640ce58390a7782910bb38e713d45d8df34e0ac"
+    },
+    {
+      "path": "cdn/iui.css",
+      "bytes": 353855,
+      "sha256": "676caad09182a4d407aa5604fb332de48c313ed560032e12c96198f4faa2ef9e"
+    },
+    {
+      "path": "cdn/iui.schema.json",
+      "bytes": 716233,
+      "sha256": "07baf67bb5d4521703fe59a176017a3c8f56c5e596f41c1e704c212d1f62d6e2"
+    },
+    {
+      "path": "cdn/LICENSE.txt",
+      "bytes": 1079,
+      "sha256": "788e3c7b655a094e85c0ca86fbc3f0715048e17d3c02c929a301c9dfafbc9378"
+    },
+    {
+      "path": "cdn/THIRD_PARTY_NOTICES.md",
+      "bytes": 7857,
+      "sha256": "5974c31ddb35170b21bcbff7e522ad8ae4a57f57d9faa025b8daf4cf9c40f438"
+    },
+    {
+      "path": "cdn/fonts/LICENSE.txt",
+      "bytes": 1107,
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_AMS-Regular.woff2",
+      "bytes": 28076,
+      "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Caligraphic-Bold.woff2",
+      "bytes": 6912,
+      "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Caligraphic-Regular.woff2",
+      "bytes": 6908,
+      "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Fraktur-Bold.woff2",
+      "bytes": 11348,
+      "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Fraktur-Regular.woff2",
+      "bytes": 11316,
+      "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Main-Bold.woff2",
+      "bytes": 25324,
+      "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Main-BoldItalic.woff2",
+      "bytes": 16780,
+      "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Main-Italic.woff2",
+      "bytes": 16988,
+      "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Main-Regular.woff2",
+      "bytes": 26272,
+      "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Math-BoldItalic.woff2",
+      "bytes": 16400,
+      "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Math-Italic.woff2",
+      "bytes": 16440,
+      "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_SansSerif-Bold.woff2",
+      "bytes": 12216,
+      "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_SansSerif-Italic.woff2",
+      "bytes": 12028,
+      "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_SansSerif-Regular.woff2",
+      "bytes": 10344,
+      "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Script-Regular.woff2",
+      "bytes": 9644,
+      "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Size1-Regular.woff2",
+      "bytes": 5468,
+      "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Size2-Regular.woff2",
+      "bytes": 5208,
+      "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Size3-Regular.woff2",
+      "bytes": 3624,
+      "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Size4-Regular.woff2",
+      "bytes": 4928,
+      "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+    },
+    {
+      "path": "cdn/fonts/KaTeX_Typewriter-Regular.woff2",
+      "bytes": 13568,
+      "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b"
+    },
+    {
+      "path": "cdn/schema/base.schema.json",
+      "bytes": 408116,
+      "sha256": "fc7e261fc3abb328aff31c8b7146dbb25dab8ad1ebf8c1c2519d1a75c3316bed"
+    },
+    {
+      "path": "cdn/schema/charts.schema.json",
+      "bytes": 411050,
+      "sha256": "135f6f9c50fef932b75469d6214f445c6bb0dcfecf371824658a96801241023d"
+    },
+    {
+      "path": "cdn/schema/compatibility.schema.json",
+      "bytes": 412876,
+      "sha256": "c217582d03aaca227841665fa4aa3297c53642a77a0709181a857744dd48b504"
+    },
+    {
+      "path": "cdn/schema/converters.schema.json",
+      "bytes": 415081,
+      "sha256": "5821323e295ae5d1e02afb1cae22a85664486e045c895c3d80d263eb272b0cb0"
+    },
+    {
+      "path": "cdn/schema/finance.schema.json",
+      "bytes": 535313,
+      "sha256": "2ca7d68d76e40263ed7620fdd2ec898a6612272bde372c5df390ee895aaf3585"
+    },
+    {
+      "path": "cdn/schema/forms.schema.json",
+      "bytes": 420840,
+      "sha256": "700554641bcbf9e93b18a49707d637f15af2aa36d0853397645a5bd11365bd8d"
+    },
+    {
+      "path": "cdn/schema/graphics.schema.json",
+      "bytes": 414157,
+      "sha256": "ff6c49099384543a8c981096250051ab4071fea97517b94641b5483b24c13dc6"
+    },
+    {
+      "path": "cdn/schema/index.json",
+      "bytes": 31435,
+      "sha256": "6f594a385cc623f05abe6905876e1eee2d8381195988af6f01b4ca7fc5f74126"
+    },
+    {
+      "path": "cdn/schema/learning.schema.json",
+      "bytes": 482929,
+      "sha256": "c6765b5919718f3d68cdacfc52a67ffed0cad236ae166d40751511e76eb71878"
+    },
+    {
+      "path": "cdn/schema/nodes/base.schema.json",
+      "bytes": 406867,
+      "sha256": "7feda0cc2e870fb3ce2dc56c9d1ed8ffff1a67bb47384d558a0697c4c77edf5a"
+    },
+    {
+      "path": "cdn/schema/nodes/charts.schema.json",
+      "bytes": 4802,
+      "sha256": "396be28a930dbb336dff52f24f18a66e4ef2c1cf7262ccd37afaba11385ca472"
+    },
+    {
+      "path": "cdn/schema/nodes/compatibility.schema.json",
+      "bytes": 5218,
+      "sha256": "162aabbf25cc384f3c871a2baf0e2263f050a222855a68868e920e009b929de7"
+    },
+    {
+      "path": "cdn/schema/nodes/converters.schema.json",
+      "bytes": 7423,
+      "sha256": "44f7b1bc08aa4d3a607ff81133eb5976bccd5c19034ad6584061d803b9ad1ff4"
+    },
+    {
+      "path": "cdn/schema/nodes/finance.schema.json",
+      "bytes": 127655,
+      "sha256": "128c3d6437a2c0c81abc5690263c09944f90583c7d1fc34d51abd883f275f368"
+    },
+    {
+      "path": "cdn/schema/nodes/forms.schema.json",
+      "bytes": 14592,
+      "sha256": "d2b3ba1b4444a0853419b9651678593ccd0178d8005b5556d9304cbdb269b522"
+    },
+    {
+      "path": "cdn/schema/nodes/graphics.schema.json",
+      "bytes": 7909,
+      "sha256": "e286bdc99edaa6bf520778fa8a19844f443c1b071fab05e02ec1ad68a8c6fb67"
+    },
+    {
+      "path": "cdn/schema/nodes/learning.schema.json",
+      "bytes": 77144,
+      "sha256": "ece202d7b02d0217f223cc4ac814056d605b319bb701216626260d749563d22e"
+    },
+    {
+      "path": "cdn/schema/nodes/sports.schema.json",
+      "bytes": 71850,
+      "sha256": "84f5323377e0dd17b35078f455f1c9f6cf3fc41924c47d73332c7274600591e3"
+    },
+    {
+      "path": "cdn/schema/nodes/time.schema.json",
+      "bytes": 4969,
+      "sha256": "e355d6884dd1466a1533aa29babeee8f5d5779ca24bdd60dc6c05dfd28d43036"
+    },
+    {
+      "path": "cdn/schema/nodes/weather.schema.json",
+      "bytes": 22758,
+      "sha256": "a5aac6bc8f332a14b4a1e8f2d52c3ea8534f41a8c94bcd80da82a0b7f2d096b7"
+    },
+    {
+      "path": "cdn/schema/sports.schema.json",
+      "bytes": 479103,
+      "sha256": "c32ffaa81815952529e35447df14f8b1089a7b2a39da8b488864314251e5904e"
+    },
+    {
+      "path": "cdn/schema/time.schema.json",
+      "bytes": 412627,
+      "sha256": "cc98568e99acbc6d1d8502d6048f8287f8c957fe9d7016cd9face9173979be6c"
+    },
+    {
+      "path": "cdn/schema/weather.schema.json",
+      "bytes": 430011,
+      "sha256": "72752a06a36d9160592d94dbfbad9d3b713b37ccc7cd252979959a7b0a082da0"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 12783167,
+      "sha256": "e3158a6df1b3ee2dd171f0e96a9e14b2e4ee51c566c8af0577fa95e2eb78af7c"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 12974592,
+      "sha256": "38092dbe9569acb82493d3b2b343fb58d2cff22a1e39a009d50e76d204d5c087"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 700090,
+      "sha256": "f5f399ddfea213c7a36f58c3a0d3f54fc809d7c314033158dd134ebdb52e44f9"
+    },
+    {
+      "path": "docs/component-progress.json",
+      "bytes": 70467,
+      "sha256": "cd5618b06a0db5651f1500adce05683a3dd6519562ebfdf6adb2eca5d2c0bf60"
+    }
+  ],
+  "runtimeChange": "Only two appended container-query CSS blocks; all other src/ Git blobs unchanged."
+}
