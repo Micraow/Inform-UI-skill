@@ -201,6 +201,8 @@ The recovered consumers default to safe file-closure locks. Original Git identit
 
 ### Restored learning-media source consumer
 
-`candidates/restored-learning-media` now verifies all three finite media practice nodes against exact source/build `f6d4893`, including six actual compiler HTML policies. It adds no CDN or native-playback acceptance. `candidates/restored-net-worth` contains a separate original supply-data draft, ready for the next restored family; its runtime is not yet tested.
+`candidates/restored-learning-media` now verifies all three finite media practice nodes against exact source/build `f6d4893`, including six actual compiler HTML policies. It adds no CDN or native-playback acceptance. `candidates/restored-net-worth` now checks seven ordinary DOM workflows against source/build `b7adf946`; its separate modifier-key limitation is recorded in that guide.
 
 `candidates/restored-weather-category` locks exact source/build `6b49ceb` for two more supplied-data readers. It checks local temperature conversion and category-review receipts with eight DOM workflows; existing CDN locks stay unchanged.
+
+`candidates/restored-pressable` is the next original passive-action draft, with explicit accessible naming, local intent and dynamic disabled examples. It has no restored runtime acceptance yet.
