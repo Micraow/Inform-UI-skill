@@ -83,3 +83,9 @@ The next Upcoming example is neutral data only in `candidates/upcoming-completio
 [Spend trends](candidates/spend-trends/README.md) consumes exact7094076e through10 positive/20 negative new contracts,6/20 legacy Finance contracts and9 DOM/compiler flows. Its21 safe file hashes and299 projected definition hashes are checked. Header totals are explicitly independent of points; comparison uses supplied exact-day or historical totals and leaves missing data unknown. No external request or account service occurs.
 
 Independent functional confirmation now covers all five earlier finite-subset completions. Current inventory is147 implemented (53 historical plus94 pending),1 partial weather and108 missing. Earlier source checkpoint progress files and the142/6/108 frozen CDN descriptor remain historical. Native/reference-pixel verification is not promoted. The prior144/146 snapshots above describe the sequence, not the newest live scope.
+
+## Supplied Link source consumer
+
+[The original Link-family consumer](candidates/supplied-links/README.md) locks exacte6b60a69:10 positive/23 negative Link contracts plus10/20 preceding Spend contracts,8 DOM/compiler flows,23 safe hashes and301 explicitly projected prior definitions. It preserves legacy anchors separately from the new cancelable local open/copy requests. No metadata is fetched or clipboard written; external image gates remain unactivated in this zero-network consumer.
+
+Two new Node definitions yield156 registrations. Canonical147/1/108 is unchanged pending independent three-family confirmation. The old packaged CDN differs from this source and the corresponding aggregate byte-comparison failure is documented; only exact source-built validation/DOM/compiler results are claimed, with no native/pixel acceptance.

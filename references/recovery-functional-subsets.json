@@ -1,6 +1,6 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 154,
+  "protocolNodes": 156,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,

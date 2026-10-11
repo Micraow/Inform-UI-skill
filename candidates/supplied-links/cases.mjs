@@ -1,4 +1,4 @@
-/** Provisional field projection; execute only against the author's frozen source. */
+/** Original bounded contracts for the exact source-built supplied Link family. */
 export function buildCases(input) {
   const edit=fn=>{const d=structuredClone(input);fn(d.body);return d;},positives=[['original supplied link family',structuredClone(input)]],negatives=[];
   const add=(n,fn)=>positives.push([n,edit(fn)]),bad=(n,fn,code='SCHEMA',path)=>negatives.push([n,edit(fn),code,path]);
@@ -29,5 +29,10 @@ export function buildCases(input) {
   bad('overlong supplied snippet',nodes=>{nodes[2].snippet='x'.repeat(2001);});
   bad('too many passive children',nodes=>{nodes[0].children=Array.from({length:33},()=>({type:'text',value:'Original passive content'}));});
   bad('automatic preview endpoint is not supported',nodes=>{nodes[0].previewEndpoint='https://example.test/unrequested';});
+  bad('legacy destination cannot mix supplied URL',nodes=>{nodes[0]={type:'link',value:'Original legacy',href:'https://example.test/legacy',url:'https://example.test/new'};},'LINK_VARIANT');
+  bad('legacy destination cannot mix resolution phase',nodes=>{nodes[0]={type:'link',value:'Original legacy',href:'https://example.test/legacy',status:'pending'};},'LINK_VARIANT');
+  bad('interactive descendant is not passive link content',nodes=>{nodes[0].children=[{type:'button',label:'Nested action',action:{kind:'reset'}}];},'LINK_CONTENT','/body/0/children/0');
+  bad('linked text cannot be nested',nodes=>{nodes[0].children=[{type:'text',runs:[{value:'Nested link',href:'https://example.test/nested'}]}];},'LINK_INTERACTIVE','/body/0/children/0/runs/0/href');
+  bad('external child image requires a separate gate',nodes=>{nodes[0].children=[{type:'image',src:'https://example.test/child.png',alt:'Separate image'}];},'LINK_EXTERNAL_MEDIA','/body/0/children/0/src');
   return{positives,negatives};
 }

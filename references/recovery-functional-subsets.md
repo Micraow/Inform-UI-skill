@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **147 implemented**:53 historical functional acceptances and94 pending native/reference verification. Another1 ID is partial and108 are not implemented. Protocol154 is a separate schema-node count.
+The current source inventory is **147 implemented**:53 historical functional acceptances and94 pending native/reference verification. Another1 ID is partial and108 are not implemented. Protocol156 is a separate schema-node count. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations await independent family confirmation, so this does not increase the147 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
