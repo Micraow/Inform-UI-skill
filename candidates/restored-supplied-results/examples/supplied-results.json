@@ -1,0 +1,203 @@
+{
+  "version": "iui/1",
+  "title": "Fictional supplied tournament and council snapshots",
+  "state": {
+    "unrelated": 0
+  },
+  "body": [
+    {
+      "type": "basketball-tournament",
+      "id": "sample-tournament",
+      "label": "Fictional workshop tournament",
+      "description": "Synthetic contract data. Supplied winner and next-match pointers do not follow score inference.",
+      "observedAt": "2028-02-29T18:45+05:30",
+      "teams": [
+        {
+          "id": "all",
+          "label": "All"
+        },
+        {
+          "id": "violet",
+          "label": "Violet Sample"
+        },
+        {
+          "id": "amber",
+          "label": "Amber Sample"
+        },
+        {
+          "id": "cobalt",
+          "label": "Cobalt Sample"
+        }
+      ],
+      "rounds": [
+        {
+          "id": "opening",
+          "label": "Opening supplied round",
+          "matches": [
+            {
+              "id": "upset",
+              "label": "Archive match",
+              "status": "final",
+              "participants": [
+                {
+                  "teamId": "all",
+                  "score": 100
+                },
+                {
+                  "teamId": "violet",
+                  "score": 2
+                }
+              ],
+              "winnerTeamId": "violet",
+              "advancesTo": "later",
+              "startsAt": "2028-02-29T10:00Z",
+              "note": "The lower score is the explicitly supplied winner. No scoring rule is implied.",
+              "source": {
+                "label": "Fictional source record",
+                "url": "https://example.org/synthetic-results"
+              }
+            },
+            {
+              "id": "unknown",
+              "label": "Cabinet match",
+              "status": "unknown",
+              "participants": [
+                {
+                  "teamId": "amber",
+                  "score": 0
+                },
+                {
+                  "teamId": "cobalt",
+                  "score": null
+                }
+              ],
+              "winnerTeamId": null,
+              "advancesTo": "later"
+            }
+          ]
+        },
+        {
+          "id": "closing",
+          "label": "Later supplied round",
+          "matches": [
+            {
+              "id": "later",
+              "label": "Later match",
+              "status": "scheduled",
+              "participants": [
+                {
+                  "teamId": null,
+                  "placeholder": "Participant not yet supplied",
+                  "score": null
+                },
+                {
+                  "teamId": null,
+                  "placeholder": "Second participant not yet supplied",
+                  "score": null
+                }
+              ],
+              "winnerTeamId": null
+            }
+          ]
+        },
+        {
+          "id": "empty",
+          "label": "Empty supplied round",
+          "matches": []
+        }
+      ],
+      "source": {
+        "label": "Fictional source record",
+        "url": "https://example.org/synthetic-results"
+      }
+    },
+    {
+      "type": "election-results",
+      "id": "sample-council",
+      "label": "Fictional study-council snapshot",
+      "description": "Invented candidates and groups for a software test. No real election, electorate, current data, forecast or political recommendation.",
+      "observedAt": "2028-02-29T18:45+05:30",
+      "contests": [
+        {
+          "id": "archive",
+          "label": "Fictional Archive Council",
+          "status": "counting",
+          "reportedPercent": 12.5,
+          "totalVotes": 1,
+          "observedAt": "2028-02-29T12:00Z",
+          "note": "Total, reporting percentage, shares and outcomes are independent supplied facts.",
+          "candidates": [
+            {
+              "id": "river",
+              "label": "River Specimen",
+              "party": "Archive Circle",
+              "votes": 50,
+              "voteShare": 70,
+              "outcome": "unknown",
+              "note": "This source row has no supplied outcome.",
+              "source": {
+                "label": "Fictional source record",
+                "url": "https://example.org/synthetic-results"
+              }
+            },
+            {
+              "id": "morgan",
+              "label": "Morgan Specimen",
+              "party": "Cabinet Circle",
+              "votes": 50,
+              "voteShare": 70,
+              "outcome": "not-elected"
+            },
+            {
+              "id": "unknown",
+              "label": "Unknown Specimen",
+              "votes": null,
+              "voteShare": null,
+              "outcome": "unknown"
+            },
+            {
+              "id": "zero",
+              "label": "Zero Specimen",
+              "party": "Archive Circle",
+              "votes": 0,
+              "voteShare": 0,
+              "outcome": "elected"
+            }
+          ]
+        },
+        {
+          "id": "cabinet",
+          "label": "Fictional Cabinet Council",
+          "status": "complete",
+          "reportedPercent": null,
+          "totalVotes": null,
+          "candidates": [
+            {
+              "id": "river",
+              "label": "Second River Specimen",
+              "votes": 0,
+              "voteShare": null,
+              "outcome": "unknown"
+            }
+          ],
+          "source": {
+            "label": "Fictional source record",
+            "url": "https://example.org/synthetic-results"
+          }
+        },
+        {
+          "id": "empty",
+          "label": "Fictional empty council",
+          "status": "pending",
+          "reportedPercent": 0,
+          "totalVotes": 0,
+          "candidates": []
+        }
+      ],
+      "source": {
+        "label": "Fictional source record",
+        "url": "https://example.org/synthetic-results"
+      }
+    }
+  ]
+}
