@@ -1,0 +1,44 @@
+{
+  "version": "iui/1",
+  "title": "Independent income labels without estimation",
+  "body": [
+    {
+      "type": "ledger-income-tracker",
+      "label": "Original supplied income snapshot",
+      "hasIncome": true,
+      "estimatedMonthlyIncomeLabel": "900 credits supplied",
+      "incomeSourcesLabel": "Workshop allowance supplied separately",
+      "nextPaycheck": {
+        "name": "Original practice allowance",
+        "amountLabel": "0 credits supplied",
+        "nextPayment": "Day 20, supplied by the caller",
+        "frequency": "No inferred schedule",
+        "accountDetail": "Practice account label",
+        "icon": "briefcase",
+        "logoUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGPQmhZNEmIY1TCqYfhqAABDbxsQbPuAcQAAAABJRU5ErkJggg=="
+      },
+      "id": "supplied-income"
+    },
+    {
+      "type": "ledger-income-tracker",
+      "label": "Explicit missing paycheck fields",
+      "hasIncome": true,
+      "estimatedMonthlyIncomeLabel": "Estimate not supplied",
+      "incomeSourcesLabel": "Sources not supplied",
+      "nextPaycheck": {
+        "name": null,
+        "amountLabel": null,
+        "nextPayment": null
+      },
+      "id": "unknown-paycheck",
+      "dateUnavailableLabel": "Date not supplied"
+    },
+    {
+      "type": "ledger-income-tracker",
+      "id": "no-income",
+      "label": "Explicit no-income snapshot",
+      "hasIncome": false,
+      "emptyLabel": "The caller marked this snapshot as having no recurring income."
+    }
+  ]
+}
