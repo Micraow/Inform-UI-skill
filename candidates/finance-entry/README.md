@@ -21,3 +21,5 @@ The original examples contain synthetic copy, opaque fictional IDs, an original 
 The external-icon case checks that no image exists initially and that capture/ARIA cancellation blocks activation. It does not claim remote download or decoding. Accepted repair/onboarding/prefill/follow-up events only change a local receipt; they do not establish a repaired connection or execute supplied action strings.
 
 Independent functional review passed 10/10 on the same source. Native and original-reference pixel acceptance remain separate. Source192 does not inherit the successful exact183 CI result. Frozen 183/164 CDN locks and all prior source locks are unchanged; no runtime distribution or private reference material is bundled here.
+
+Current inventory source `d5c8f26dc608706fbde7d11f73730a3afc00d667` includes the three presentations in 187/256 implemented components, with 192 registrations. Native/reference-pixel acceptance remains pending for this source.

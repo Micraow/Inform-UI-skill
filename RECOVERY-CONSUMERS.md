@@ -261,3 +261,7 @@ Exact status source `86890c12aced0bc4e5e089584b471f4ddcb3475f` records 184 imple
 ## Finance-entry source192
 
 [Three original finance-entry consumers](candidates/finance-entry/README.md) lock exact source `cbaf3d7c96db6fc6abdd0feaf3782ed49dc6a240`. The 14 positive/18 negative documents and six actual DOM/standalone workflows preserve 353 old definitions and 19 selected source/build hashes. Repair requires supplied CTA plus link ID, initializing remains blocked, onboarding action takes precedence over prompt, and prefill availability does not disable the independent follow-up. Independent functional review passed 10/10. All data is synthetic and every effect is a local request, with zero account, bank, credential or navigation access. The 576px container rule is static CSS evidence; exact183 native results are not extended to this source.
+
+## Current187 finance-entry completion
+
+Exact status source `d5c8f26dc608706fbde7d11f73730a3afc00d667` records 187 implemented canonical components: 53 historical acceptances and 134 pending reference acceptance, zero partial and 69 missing; protocol192 is separate. The three finance-entry views passed independent 10/10 and the original consumer 14 positive/18 negative documents plus six workflows on `cbaf3d7c96db6fc6abdd0feaf3782ed49dc6a240`. This is finite local presentation and intent coverage, with no banking service. The actual CSS breakpoint check does not establish native geometry. Earlier184 records and frozen183/164 locks remain unchanged.

@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 189,
+  "protocolNodes": 192,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 131,
+    "implemented_pending_verification": 134,
     "partial": 0,
-    "not_implemented": 72
+    "not_implemented": 69
   },
-  "completeImplementationCoverage": 184,
+  "completeImplementationCoverage": 187,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope184/0/72 includes independently confirmed three task cards at the exact focus successor. Protocol189 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope187/0/69 includes independently confirmed three supplied finance-entry presentations. Protocol192 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -308,6 +308,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "ce64acabfc6ce7bd5cc0c9048e45b19013b5d409",
       "consumer": "candidates/task-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-repair-bank-connection",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "cbaf3d7c96db6fc6abdd0feaf3782ed49dc6a240",
+      "consumer": "candidates/finance-entry",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-finance-onboarding",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "cbaf3d7c96db6fc6abdd0feaf3782ed49dc6a240",
+      "consumer": "candidates/finance-entry",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "finance-onboarding-suggestions",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "cbaf3d7c96db6fc6abdd0feaf3782ed49dc6a240",
+      "consumer": "candidates/finance-entry",
       "nativeAndPixelAcceptance": false
     }
   ]
