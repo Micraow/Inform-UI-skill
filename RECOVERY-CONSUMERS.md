@@ -171,3 +171,7 @@ Exact status-only source5da1e369ff1ea4880f8815d63fef85f89fbef2be records171 impl
 [The Study consumer](candidates/study-onboarding/README.md) locks exactc6e799:10 positive/16 negative documents,8 DOM/standalone workflows,329 unchanged prior definitions and22 selected hashes. Original explicit orbit periods, single/multiple quiz questions and uneven numeric x/null/zero/negative observations exercise actual interactive renderers. The predecessorba79 chart-reset mismatch was reproduced, kept as a negative control and rerun unchanged on the fixed successor.
 
 The standalone script really grades a supplied quiz answer and renders the chart in JSDOM. External requests/service calls are0. No astronomy-data claim, private capture, fitted values, remote grading or persistence is introduced. Protocol178 is separate from canonical acceptance; existing171 accounting and all164 assets remain unchanged pending a separate reviewed status increment. Native/pixel and browser CSP enforcement are untested here.
+
+## Independently confirmed172 current scope
+
+Exact status-only sourcee92b798e5725fbe28f5470817d4ac4714fab947e records172 implemented (53 historical plus119 pending),1 partial weather and83 missing, with178 protocol registrations. Study passed9 independent cases on itsc6e799 chart-reset successor, followed by the exact consumer10/16 and8 workflows. This accounting update preserves the prior171 record, the originalba79 failure, all earlier source locks and the164 packaged158/1/97 snapshot. Native/pixel and remote CI scope do not increase.

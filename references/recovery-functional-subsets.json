@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 177,
+  "protocolNodes": 178,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 118,
+    "implemented_pending_verification": 119,
     "partial": 1,
-    "not_implemented": 84
+    "not_implemented": 83
   },
-  "completeImplementationCoverage": 171,
+  "completeImplementationCoverage": 172,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope171/1/84 includes independent confirmation of the three finite onboarding-card presentations. Protocol177 is separate. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope172/1/83 includes independent Study confirmation on its chart-reset successor. Protocol178 is separate. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -217,6 +217,13 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "7a324cae9eb31e0e8d24597bf959009d32e445f2",
       "consumer": "candidates/onboarding-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "conversational-onboarding-study",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "c6e7999128b2c4f3474bb40d27ba50958b20f3f6",
+      "consumer": "candidates/study-onboarding",
       "nativeAndPixelAcceptance": false
     }
   ]
