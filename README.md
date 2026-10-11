@@ -205,4 +205,4 @@ The recovered consumers default to safe file-closure locks. Original Git identit
 
 `candidates/restored-weather-category` locks exact source/build `6b49ceb` for two more supplied-data readers. It checks local temperature conversion and category-review receipts with eight DOM workflows; existing CDN locks stay unchanged.
 
-`candidates/restored-pressable` now verifies exact source/build `ae77d323`, including seven passive-action DOM workflows and the narrow NetWorth modifier/IME successor. `candidates/restored-fee-interest` prepares the next original finite fee/interest fixture; it has no runtime acceptance yet.
+`candidates/restored-pressable` now verifies exact source/build `ae77d323`, including seven passive-action DOM workflows and the narrow NetWorth modifier/IME successor. `candidates/restored-fee-interest` now verifies exact source/build `aed78e46` through seven supplied-reader DOM workflows and one compiled HTML artifact. The next `candidates/restored-html-view` fixture is original offline authored content, still draft-only.

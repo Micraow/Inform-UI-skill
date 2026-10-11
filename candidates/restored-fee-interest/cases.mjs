@@ -2,6 +2,7 @@ export function buildCases(input) {
   const edit = fn => { const d = structuredClone(input); fn(d.body[0]); return d; };
   const positives = [
     ['independent supplied totals and display labels', structuredClone(input)],
+    ['six-row disclosure', edit(n => { n.ranges[0].transactions.push({ ...structuredClone(n.ranges[0].transactions[0]), id: 'supplied5', displayName: 'Sixth supplied charge' }); })],
     ['no supplied ranges', edit(n => { n.ranges = []; delete n.initialRangeId; })],
     ['masked disabled reading', edit(n => { n.masked = true; n.disabled = true; })],
     ['literal display copy', edit(n => { n.ranges[0].transactions[0].displayName = '<script>literal charge</script>'; n.ranges[0].transactions[0].amountLabel = '<img src=untrusted>'; })],
