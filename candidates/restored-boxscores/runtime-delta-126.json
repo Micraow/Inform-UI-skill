@@ -1,0 +1,87 @@
+{
+  "baseAsset": "5efdc31a952f291263846cb4320a7890f3fe4b29",
+  "asset": "2a36d9012b70feca5e3d371cbac20c4cca7b2d5f",
+  "changedOldRendererFiles": [
+    {
+      "path": "src/renderer/follow-up-card-group.ts",
+      "beforeSha256": "3eb5e1507ad64338c26489b4e342f0aa8c62a0c1850e62e82f8f4d9b528f97e6",
+      "afterSha256": "a16a5f8f2e2f9a36e38386ec9ba85e8672373ff2b78968354d1785c62debcbdb",
+      "reason": "Replace local ownership guard with shared permanent observed-owner retirement"
+    },
+    {
+      "path": "src/renderer/forms.ts",
+      "beforeSha256": "b6995790dcb5fb602807c4d7a5c459f1867a84422548f558efc1124bebf58fb2",
+      "afterSha256": "19f1eb8280e92a5806c107b7e9c992d8ca39b3c6d7301b18fda3f25d55eef083",
+      "reason": "Preserve touch blur validation until activation and compensate reentrant timer acquisition"
+    },
+    {
+      "path": "src/renderer/index.ts",
+      "beforeSha256": "9c8b8f491ea60b282a9a3b678b6e3a068b4327a663629fa537f6af22bed065fc",
+      "afterSha256": "7ed249a71e803763b35facd79866e5757a73d76785efd36617d77c37fc1eec95",
+      "reason": "Register the two restored Boxscores nodes and stylesheet closure"
+    },
+    {
+      "path": "src/renderer/ledger-records.ts",
+      "beforeSha256": "b7ed975fffce7b76aa2983a0086830f8b353367b6fb9230ffe7d7904d8c3514a",
+      "afterSha256": "852cd547339013020e397de8edb4b9fe730d03cab0f7b5feff1c99a7e2882c49",
+      "reason": "Use shared intent admission gate before reentrant host reads for recurring review"
+    },
+    {
+      "path": "src/renderer/motorsport.ts",
+      "beforeSha256": "33d402df4a882426d54491cdc7173eb52ce0f75e197ec10196c8f2a368d2528b",
+      "afterSha256": "99228225fc648423c5b04ab50b5571f1900999d8d156b11372899fb73b4aec56",
+      "reason": "Use shared intent admission gate before reentrant host accessibility reads"
+    },
+    {
+      "path": "src/renderer/presentation.ts",
+      "beforeSha256": "f4e3a5fbfa969bcfb21467e382e6e7aa2086e1fbfc45439f4387b75fbabcf6cb",
+      "afterSha256": "af8078d00242cd588bd32774bac7cf8e25971ca143bdde5410fd003a2a98f25b",
+      "reason": "Register Boxscores labels in both existing languages"
+    },
+    {
+      "path": "src/renderer/recommendation-card.ts",
+      "beforeSha256": "5acd018bc184550f8e1079635aceb5766e22694acaa705913f19e74cf579b657",
+      "afterSha256": "20b67c9534eceb40656ce8ee61d9da068e60686bc51b8ea8861fe4eadb3d9e75",
+      "reason": "Replace local ownership guard with shared permanent observed-owner retirement"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "beforeSha256": "b8b8ab0c1ba3e933eb046250547a49b14ce6bf891b838d2833af92b07dfb6169",
+      "afterSha256": "efeb5fef476ec71af9810fc13027e950b47ab1c6372ed2ea013c5ca5062d5ad7",
+      "reason": "Use shared composed ancestry ownership and scope-owned bindings for supplied readers"
+    },
+    {
+      "path": "src/renderer/transaction-detail.ts",
+      "beforeSha256": "bccb63ed0ec19d681e0e762e2b0382222d1036492a17287dfaad810f82f86fbf",
+      "afterSha256": "56df821654c5847d0a9c5e28ac4d9c60cc905168819a3648844c6e9d510cba1d",
+      "reason": "Replace local ownership guard with shared permanent observed-owner retirement"
+    }
+  ],
+  "newRendererFiles": [
+    {
+      "path": "src/renderer/boxscore-labels.ts",
+      "bytes": 3433,
+      "sha256": "4f6e4433ba88c692b44a4e109fcc63f76a496d7b87c473813fd91758ada0361b"
+    },
+    {
+      "path": "src/renderer/boxscores.css",
+      "bytes": 1900,
+      "sha256": "40533e4c888d6d04dd1aff0f56b00750e815e1ea217a69a0e00d757e0a14b428"
+    },
+    {
+      "path": "src/renderer/boxscores.ts",
+      "bytes": 15092,
+      "sha256": "b38bed67116e8accb8fb2af5ffff05c865175df30827fd195864813da5d6dcfe"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3446,
+      "sha256": "40b280409806d8f708665862385b9d277c7a64365bdfe34352a9d066a85915f1"
+    }
+  ]
+}

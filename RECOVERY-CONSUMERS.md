@@ -1,11 +1,11 @@
 # Current recovered consumers
 
-The latest recovered consumer is [Motorsport126](candidates/restored-motorsport/README.md), pinned to local runtime asset `5efdc31a952f291263846cb4320a7890f3fe4b29`. It combines restored race-session/standing snapshots with Player and Ledger readers. Protocol 126 is distinct from the canonical inventory: 119 implemented (53 historical functional acceptances plus 66 pending), 132 not implemented, 5 partial, denominator 256.
+The latest recovered consumer is [Boxscores128](candidates/restored-boxscores/README.md), pinned to local runtime asset `2a36d9012b70feca5e3d371cbac20c4cca7b2d5f` with tests-only source HEAD `73bfbeffd408cd10722900caee37425f8e9a234c`. It combines supplied basketball/cricket boxscores with Motorsport, Player and Ledger readers. Protocol128 is distinct from the canonical inventory:121 implemented (53 historical functional acceptances plus68 pending),130 not implemented,5 partial, denominator256.
 
 Run its verifier against your exact rebuilt runtime:
 
 ```sh
-node candidates/restored-motorsport/verify.mjs --library /absolute/path/to/ui-motorsport-restored-integration
+node candidates/restored-boxscores/verify.mjs --library /absolute/path/to/ui-integrated128-final
 npm test
 ```
 
@@ -22,3 +22,5 @@ Player124 validates 10 new positive and 18 negative cases, reuses the Ledger cas
 The publication candidate `09db2e994a42bfa5c75207fd38fe4761277cdb5d` later fixes a shared reset getter boundary. Eight mixed-reader negative controls fail on b58 and pass on that exact successor. The narrow executable check is documented in Player124; its historical full-consumer lock is intentionally unchanged.
 
 Motorsport126 adds original finite schedules and standings, explicit unknown/zero/penalty/tie cases, and a local canceled session receipt. Its exact-asset verifier checks 10 positive/26 negative cases, reuses Player validation and runs 12 mixed-reader DOM flows. It includes the public124 shared reset successor; prior fixed consumer locks and their negative controls remain unchanged.
+
+Boxscores128 validates10 positive/27 negative cases and the Motorsport cases through three runtime entries, then runs17 actual-CDN mixed-reader flows. It checks218 unchanged definitions,136 prior renderer files with nine declared deltas,920 safe locked files and52 CDN assets. Its shared owner and intent-gate successor closes the later-discovered126 accessibility-getter duplicate intent; the historical126 lock and its narrower original evidence remain intact.
