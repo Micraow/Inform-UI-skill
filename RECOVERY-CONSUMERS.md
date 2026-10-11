@@ -273,3 +273,11 @@ Exact status source `d5c8f26dc608706fbde7d11f73730a3afc00d667` records 187 imple
 ## Current190 context-action completion
 
 Exact status source `6b058bfe9ed3a1ec0da690c27a91cb0332d32cb4` records 190 implemented canonical components: 53 historical acceptances and 137 pending reference acceptance, zero partial and 66 missing; protocol195 is separate. The three context presentations passed independent 10/10 and the original consumer 18 positive/20 negative documents plus six workflows on `9344fac1cd4c99efb57c70a3eb5424811243df5b`. This adds finite local display/request coverage, not external provider or plugin execution. Earlier187 records and frozen183/164 locks remain unchanged.
+
+## Supplied equity/watchlist source197
+
+[The original paper-counter consumers](candidates/equity-watchlist/README.md) verify exact35d8 with14 positive/18 negative documents and6 actual DOM/standalone workflows.359 prior definitions and21 selected hashes remain bound. Literal values, directions and tones are independent; no-account requests stay local. The declared two-CSS token successor is verified separately from five unchanged older runtime/global-style files. The576 container threshold is static artifact evidence only. Current inventory3affa867 confirms192/0/64 and197 registrations; exact183/164 locks remain unchanged.
+
+```sh
+node candidates/equity-watchlist/verify-source.mjs --library /path/to/ui-equity-watchlist
+```

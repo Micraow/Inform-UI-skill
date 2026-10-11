@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 195,
+  "protocolNodes": 197,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 137,
+    "implemented_pending_verification": 139,
     "partial": 0,
-    "not_implemented": 66
+    "not_implemented": 64
   },
-  "completeImplementationCoverage": 190,
+  "completeImplementationCoverage": 192,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope190/0/66 includes independently confirmed three supplied context-action presentations. Protocol195 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope192/0/64 includes independently confirmed supplied equity/watchlist tables. Protocol197 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -350,6 +350,20 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "9344fac1cd4c99efb57c70a3eb5424811243df5b",
       "consumer": "candidates/context-actions",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-equity-updates",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "35d8af3cddab95a1e54f00162fdb189ee2432268",
+      "consumer": "candidates/equity-watchlist",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-watchlist",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "35d8af3cddab95a1e54f00162fdb189ee2432268",
+      "consumer": "candidates/equity-watchlist",
       "nativeAndPixelAcceptance": false
     }
   ]

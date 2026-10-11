@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **190 implemented**:53 historical functional acceptances and137 pending reference acceptance. No ID is currently partial and66 are not implemented. Protocol195 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the190 count.
+The current source inventory is **192 implemented**:53 historical functional acceptances and139 pending reference acceptance. No ID is currently partial and64 are not implemented. Protocol197 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the192 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -37,3 +37,5 @@ Task三项以ce64acab准确focus后继完成，独立10/10与原两focus负控�
 FinanceEntry三项以cbaf3d7准确源完成，独立10/10、消费者14正18负/6组。全部示例是合成数据，不访问真实账户或服务；576容器1/3列只验实际CSS合同。当前187/0/69、192登记，旧183原生范围不扩。
 
 Context三项以9344fac准确源完成，独立10/10、消费者18正20负/6组。供数rating/null、主题资源、plugin状态门与成对hint保持显式，0真实导航/插件/遥测。当前190/0/66、195登记，旧183原生范围不扩。
+
+Equity/Watchlist两项准确35d8消费者14正18负/6组，独立新域10与旧Finance/Context20全部通过。供数绝对值、比例、方向与颜色不互算；576仅实际CSS合同，无真实报价或交易。当前192/0/64、197登记，逐ID状态源3affa86736c4da407a6cb97c4082e2638ca6ac85；旧183原生范围不扩。
