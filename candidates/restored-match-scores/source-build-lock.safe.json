@@ -1,0 +1,91 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "f4942414cbd5769b218daf08ea9343383967dd41",
+  "sourceTree": "0b26853a0998ba7a84d985fd89d08b4872656638",
+  "protocolNodes": 133,
+  "scope": "Selected source/build file closure; source-only runtime, no fresh CDN or full acceptance",
+  "cdnExecuted": false,
+  "nativeScenariosExecuted": 0,
+  "files": [
+    {
+      "path": "src/core/match-scores.ts",
+      "bytes": 3261,
+      "sha256": "fe4b88ca66e8ede96a98e0f7193abc753034b1bb5574bf8743d8da1e48ef8c00"
+    },
+    {
+      "path": "src/renderer/match-scores.ts",
+      "bytes": 15156,
+      "sha256": "dfc535dee494129c75cf0f022a7f616f47e863fa2216840da0a1361b6344c23d"
+    },
+    {
+      "path": "src/renderer/match-scores-labels.ts",
+      "bytes": 4324,
+      "sha256": "b279dc2f3b337e48ddfe1cd17d520b8a1a2d5b4821215a560d3c35dbcba3e863"
+    },
+    {
+      "path": "src/renderer/match-scores.css",
+      "bytes": 2342,
+      "sha256": "748c71f1da953ed8b0b2b1eac0a4bb9e1ac32cfb9a9a4589f678080cc8a431ec"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1622,
+      "sha256": "efeb5fef476ec71af9810fc13027e950b47ab1c6372ed2ea013c5ca5062d5ad7"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3446,
+      "sha256": "40b280409806d8f708665862385b9d277c7a64365bdfe34352a9d066a85915f1"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 2768,
+      "sha256": "6cd39f4b672fd7384d587403d5e8722577d5c7b340231f1249f90fd0272b92c7"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 339489,
+      "sha256": "cf88f9af931b364ab2b4e22aa81a31bb89011ea06d843f9ee9a6175a635d7599"
+    },
+    {
+      "path": "src/schema/fragments/index.json",
+      "bytes": 25782,
+      "sha256": "fab678164497562d64b760c597fa283a9fa398cde98de6f97d2153bcc5632cb2"
+    },
+    {
+      "path": "src/schema/fragments/sports.schema.json",
+      "bytes": 251845,
+      "sha256": "617e91a904d68ef36fdb990b2f0d3ffee368780f5d474de87179e0fd69111ca0"
+    },
+    {
+      "path": "src/schema/fragments/base.schema.json",
+      "bytes": 180858,
+      "sha256": "0c880571fb6affb4af98dac973fc098753645c1c0994b2c0cfd16063a455b1ea"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 5851418,
+      "sha256": "f783a19cba858126a429cf88f72074eb5ea8749a59ce1be40746cb0ee8a1d5cf"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 6339274,
+      "sha256": "625e0e1b3ef13c7a7a723fbecd504af386be03229a435276966cb5077ac4d173"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 570928,
+      "sha256": "2efbc8842fe7f42df373ad4b75d5441a75efec75254c217bf4e5797d3c008053"
+    }
+  ]
+}
