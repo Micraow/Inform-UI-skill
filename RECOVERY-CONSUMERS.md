@@ -211,3 +211,9 @@ Icon fallback/release, local receipts, cancellation, pending-reset barriers, rep
 ## Independently confirmed178 current scope
 
 Quiz-only status sourcebc36c74799d9a83c0fecb2c81c62ab6bf0f8888d records177 implemented; final status sourcec3727a77b8cd2c212ab458cd22505f9b7fdf6b18 includes Welcome and records178 (53 historical plus125 pending),0 partial and78 missing. Protocol183 is separate. Quiz passed11 independent cases and consumer12/20 plus7 actual flows; Welcome passed8 independent cases and consumer10/16 plus5 actual flows. Immutable21a/f72 source locks and the164 asset158/1/97 record remain unchanged. The planned unified183 asset/full/native run is a separate future checkpoint, not a result of this accounting update.
+
+## Original AskUserLocation consumer
+
+[The local location-request consumer](candidates/ask-location/README.md) locks exact60154c7f384d09f724b1481f4adadce9247053d5:8 positive/12 negative documents,5 DOM/actual-standalone groups,335 unchanged old definitions and18 selected hashes. It verifies three frozen cancelable intents, dismissal/local receipts, native/local reset, pending barriers and replacement/owner retirement with0 external requests and0 geolocation/permission access.
+
+This source184 is separate from the unified183 checkpoint and existing second-generation LocationChoiceRequest. No real location or device permission result is requested, stored or inferred; native/pixel acceptance and canonical accounting remain separately reviewed.
