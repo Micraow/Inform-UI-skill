@@ -1,0 +1,62 @@
+{
+  "version": "iui/1",
+  "title": "Original supplied follow-up presentations",
+  "body": [
+    {
+      "type": "follow-up-action-bar",
+      "id": "original-footer",
+      "label": "Choose a supplied reading continuation",
+      "presentation": "footer",
+      "actions": [
+        {
+          "id": "outline",
+          "label": "Outline the supplied example",
+          "query": "Outline only the supplied teaching example."
+        },
+        {
+          "id": "compare",
+          "label": "Compare these supplied choices",
+          "query": "Compare the supplied choices without filling in missing facts."
+        },
+        {
+          "id": "questions",
+          "label": "List unanswered questions",
+          "query": "List questions that the supplied example does not answer."
+        },
+        {
+          "id": "simplify",
+          "label": "Explain in simpler words",
+          "query": "Explain only the supplied text using shorter sentences."
+        }
+      ]
+    },
+    {
+      "type": "follow-up-action-bar",
+      "id": "original-pills",
+      "label": "Choose a local teaching request",
+      "presentation": "wrapped_pills",
+      "actions": [
+        {
+          "id": "explain",
+          "label": "Explain the supplied shapes",
+          "query": "Explain the two supplied shapes; leave unknown dimensions unknown.",
+          "intent": "new-turn",
+          "iconSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg=="
+        },
+        {
+          "id": "voice",
+          "label": "Request a local voice session",
+          "query": "Read the supplied teaching text if I choose to activate voice.",
+          "intent": "start-voice",
+          "iconSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg=="
+        },
+        {
+          "id": "sketch",
+          "label": "Open a local image draft",
+          "query": "Prepare a draft depicting two simple supplied shapes.",
+          "intent": "open-image-composer"
+        }
+      ]
+    }
+  ]
+}
