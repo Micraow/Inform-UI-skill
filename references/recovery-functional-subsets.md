@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **200 implemented**:53 historical functional acceptances and147 pending reference acceptance. No ID is currently partial and56 are not implemented. Protocol205 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the200 count.
+The current source inventory is **202 implemented**:53 historical functional acceptances and149 pending reference acceptance. No ID is currently partial and54 are not implemented. Protocol207 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the202 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -45,3 +45,5 @@ HomeworkHelperV2/ImageGen/InternalPartnerApp三项准确70ec：消费者16正20�
 Bento/OpenDetail/Openai三项准确d1b8：消费者14正20负/6实际流，独立10/10。四卡URL优先、null/缺省与空字符串payload、四/all和组织本地请求全核，0外部服务；576/768仅CSS合同。当前198/0/58、203登记，逐ID状态a7c122c28b2ac7341ea8e31ffce6d074355c583a；旧183原生范围不扩。
 
 Credit overview/detail两项准确4c059：消费者16正22负/8实际流，独立13/13。供数label/position/history独立、null/0、完整mask与80ms/Escape/RTL/IME/reset新输入闭合；0真实报告、账户、金融建议或信用决策。当前200/0/56、205登记，逐ID状态3b7623c049b94a9d2d6ba25011f32b847b3a6a9f；旧183原生范围不扩。
+
+Legacy category review/Riddle两项以848a1d焦点后继完成：消费者15正18负/7实际组，独立12/12，原cargo/terminal native-reset DOM焦点双负控0/2→2/2。完整三/all供数和本地七次过河输赢/取消/reset，不修改真实记录或发对话。当前202/0/54、207登记，逐ID状态4c5613b5293ff55b2e1319ec213c24c462311f42；旧183原生范围不扩。

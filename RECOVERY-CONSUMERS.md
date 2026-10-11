@@ -311,3 +311,13 @@ node candidates/credit-score/verify-source.mjs --library /path/to/ui-credit-scor
 ```
 
 The source205 views have independent functional confirmation; current inventory3b7623c0 records200/0/56 with205 registrations. Earlier source/asset scopes remain historical snapshots.
+
+## Supplied interactions source207
+
+[The original legacy-review and river-puzzle consumers](candidates/supplied-interactions/README.md) verify exact848a1d with15 positive/18 negative documents and7 actual DOM/standalone groups.369 old definitions and20 hashes remain bound. The original two native-reset DOM focus probes fail0/2 on6ad and pass2/2 unchanged on848. Exact-label legacy records stay independent of supplied sign; the complete local puzzle includes seven-crossing success, failure, cancellation and canonical reset.0 account/conversation services.
+
+```sh
+node candidates/supplied-interactions/verify-source.mjs --library /path/to/ui-interactions-reset-focus
+```
+
+The final source207 views have independent functional confirmation; current inventory4c5613b5 records202/0/54 with207 registrations. The6ad focus failures remain historical negative controls, and earlier source/CDN acceptance is unchanged.

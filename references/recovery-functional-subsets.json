@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 205,
+  "protocolNodes": 207,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 147,
+    "implemented_pending_verification": 149,
     "partial": 0,
-    "not_implemented": 56
+    "not_implemented": 54
   },
-  "completeImplementationCoverage": 200,
+  "completeImplementationCoverage": 202,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope200/0/56 includes independently confirmed supplied credit overview/history and factor-detail views. Protocol205 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope202/0/54 includes independently confirmed legacy category review and complete local river puzzle, with the reset-focus successor. Protocol207 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -420,6 +420,20 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "4c05918cad3e1a71d250592d1088a46ca32b1900",
       "consumer": "candidates/credit-score",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-low-confidence-category-correction-legacy",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "848a1d20fbc125441c2bb00fd8e88718c08d045f",
+      "consumer": "candidates/supplied-interactions",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "superbowl-riddle",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "848a1d20fbc125441c2bb00fd8e88718c08d045f",
+      "consumer": "candidates/supplied-interactions",
       "nativeAndPixelAcceptance": false
     }
   ]
