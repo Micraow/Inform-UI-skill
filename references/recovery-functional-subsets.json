@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 197,
+  "protocolNodes": 200,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 139,
+    "implemented_pending_verification": 142,
     "partial": 0,
-    "not_implemented": 64
+    "not_implemented": 61
   },
-  "completeImplementationCoverage": 192,
+  "completeImplementationCoverage": 195,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope192/0/64 includes independently confirmed supplied equity/watchlist tables. Protocol197 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope195/0/61 includes independently confirmed supplied HomeworkHelperV2, ImageGen and InternalPartnerApp. Protocol200 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -364,6 +364,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "35d8af3cddab95a1e54f00162fdb189ee2432268",
       "consumer": "candidates/equity-watchlist",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "homework-helper-v2",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "70ecf5b98c8fb4b30b00d47fb25d5960740f526e",
+      "consumer": "candidates/supplied-launchers",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "image-gen",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "70ecf5b98c8fb4b30b00d47fb25d5960740f526e",
+      "consumer": "candidates/supplied-launchers",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "internal-partner-app",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "70ecf5b98c8fb4b30b00d47fb25d5960740f526e",
+      "consumer": "candidates/supplied-launchers",
       "nativeAndPixelAcceptance": false
     }
   ]

@@ -281,3 +281,13 @@ Exact status source `6b058bfe9ed3a1ec0da690c27a91cb0332d32cb4` records 190 imple
 ```sh
 node candidates/equity-watchlist/verify-source.mjs --library /path/to/ui-equity-watchlist
 ```
+
+## Supplied launchers source200
+
+[The original learning/result/partner consumers](candidates/supplied-launchers/README.md) verify exact70ec with16 positive/20 negative documents and6 actual DOM/standalone workflows.361 prior definitions and21 selected source/build hashes remain bound. Local voice acceptance cannot be unlocked by Reset; explicit update creates a new generation. Image result and finite launcher fields are supplied, without service execution. Independent QA10/10 is separate from native/pixel acceptance.
+
+```sh
+node candidates/supplied-launchers/verify-source.mjs --library /path/to/ui-supplied-launchers
+```
+
+The source200 family has independent functional confirmation; current inventory2367a25e records195/0/61 with200 registrations. Original183/164 asset scopes and source197 records remain historical snapshots.
