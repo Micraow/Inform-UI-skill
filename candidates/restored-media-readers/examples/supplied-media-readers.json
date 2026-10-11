@@ -1,0 +1,46 @@
+{
+  "version": "iui/1",
+  "title": "Original finite image and video inputs",
+  "state": {
+    "videoDisabled": false
+  },
+  "body": [
+    {
+      "type": "search-image",
+      "id": "original-square",
+      "searchImage": {
+        "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg==",
+        "thumbnail_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg==",
+        "title": "Original blue square",
+        "content_size": {
+          "width": 16,
+          "height": 16
+        },
+        "thumbnail_size": {
+          "width": 16,
+          "height": 16
+        }
+      },
+      "alt": "Independently generated blue color square",
+      "width": 160,
+      "height": 160,
+      "fit": "contain",
+      "frame": true,
+      "radius": 12,
+      "fallback": "Supplied picture unavailable"
+    },
+    {
+      "type": "youtube",
+      "id": "supplied-video",
+      "label": "Supplied example video identifier",
+      "videoId": "AbCdEf012_-",
+      "loadMode": "on-demand",
+      "startSeconds": 30,
+      "fullscreen": false,
+      "disabled": {
+        "$": "videoDisabled"
+      },
+      "caption": "Synthetic identifier only. No existence, ownership or playback claim. The example starts without a remote player."
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "3b88d369cd0cc918d63354b2d6e9086aad41dd71",
+  "sourceTree": "ab00ceb3bf97d012a21f8df2f051d0156737c1df",
+  "protocolNodes": 144,
+  "scope": "Selected source/build file closure for authored HTML, supplied image and fixed-origin video; no fresh CDN or native-browser acceptance",
+  "cdnExecuted": false,
+  "nativeScenariosExecuted": 0,
+  "files": [
+    {
+      "path": "src/core/html-view.ts",
+      "bytes": 1734,
+      "sha256": "cb4c8bb956f83716f900bfc4d9350ff03f8835940af7f7f9c89b4dd2f409b162"
+    },
+    {
+      "path": "src/core/search-image.ts",
+      "bytes": 2268,
+      "sha256": "ef3237a7a0942c34f46603e8386f7d437505300ec9d15cbd41345b90bf06d563"
+    },
+    {
+      "path": "src/core/youtube.ts",
+      "bytes": 750,
+      "sha256": "1d42de7a9f3ad443bec5bf4b1d46f18cae60f2419d2e3adaf6caba1b1d26d018"
+    },
+    {
+      "path": "src/renderer/html-view.ts",
+      "bytes": 2582,
+      "sha256": "6aedbdecaf884c2a931c4642e30d610e8f1d92484b3e45891e25ac9a6381c3ed"
+    },
+    {
+      "path": "src/renderer/html-view.css",
+      "bytes": 220,
+      "sha256": "d4e8044827625b7d9136d8ae89aedaeb3adfedbe0b2430338ab9032bec9f2519"
+    },
+    {
+      "path": "src/renderer/search-image.ts",
+      "bytes": 9346,
+      "sha256": "9c73ee2e46b855a48aaa3537ea570f03f0ef33d2918e01b2192c61b5f3bb1f35"
+    },
+    {
+      "path": "src/renderer/search-image.css",
+      "bytes": 2533,
+      "sha256": "2077abdb266fe690965a02cbb04ab94925e8ee29409a3a94f162789c87d1dfc8"
+    },
+    {
+      "path": "src/renderer/youtube.ts",
+      "bytes": 7081,
+      "sha256": "0012bf5ba63cb3c73fe506432e2024a9fefc6a5ff994d9da933acd73d5e83a44"
+    },
+    {
+      "path": "src/renderer/youtube.css",
+      "bytes": 1282,
+      "sha256": "b97e544ed82075a5930ddb5a4bfa8f09c79dcf87a500fe3256be3078450f3be0"
+    },
+    {
+      "path": "src/renderer/youtube-labels.ts",
+      "bytes": 1033,
+      "sha256": "e81898f0e5b496b328b63e4c73efb32b1cba7da37f3425a6bfbaf4b4ccbf4fd1"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1656,
+      "sha256": "ce983a28b6664b406c55e834106092c5dc9a8aba18687f04262d82ec37588b24"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3768,
+      "sha256": "d84261882e03203dc3a41eaee408eee4dee57096054efe0177cf29b96297ca9a"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3138,
+      "sha256": "0c11b997147bb0344850bb8ee10f097e2baa225bdd056eae38f2f79e77291a3e"
+    },
+    {
+      "path": "src/compiler.ts",
+      "bytes": 5544,
+      "sha256": "5061aea3eb9fff9c74b8eb7596ab6291eabc4a315f06a48bdf0af698b69db147"
+    },
+    {
+      "path": "src/html-view-policy.ts",
+      "bytes": 1153,
+      "sha256": "2865055a55c459614cf332efe983b5a2f65e8ffe5acd9b230efc0b3c0e2a8611"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1639,
+      "sha256": "48f38879f44576e128ef1315dd61521049cf9116c59f6a563b8855bb3ac092b8"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 46568,
+      "sha256": "51bee9ad7db7016bf6fa5d165f3b964bbe028ff6115389c98099dd901ad28ac1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 6488,
+      "sha256": "51c15edf26cd7bfd31351b9e279523c252d36f270a27ef84caaa7fd51976ad92"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 370169,
+      "sha256": "0a358cbb8096afe9cf2022b3361ec8433a319d1a8fda4cd167cd37ef99004ab5"
+    },
+    {
+      "path": "src/schema/fragments/index.json",
+      "bytes": 26547,
+      "sha256": "4b18fbdba91ab995dd4dd4730e094e8ee63c7ead7b4f439028ec34314f7f06ca"
+    },
+    {
+      "path": "src/schema/fragments/base.schema.json",
+      "bytes": 191520,
+      "sha256": "dc9ac5f94cffb72d05bb6d17513f1fcff56591c32a92a296c5d79f860823dfbf"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 6678717,
+      "sha256": "d6052006238ad9f4ee0b89f59934fe16b2b2a1f6d5c4fdce9a822498ec18e86b"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 6870986,
+      "sha256": "6eb8fae3980e9f77a449c4597c4734217b2369012a45ed5e53b2c1c94054a5b8"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 594891,
+      "sha256": "f83e075e76d1d282786c3e44ab4af20f70b54662a14d2db51e2e9f9c33252fc9"
+    },
+    {
+      "path": "dist/standalone.js",
+      "bytes": 3829515,
+      "sha256": "713cbdcd951bab959ea7caad6f540d9bcd2e3b7092d9934292aa170ee5d989fc"
+    }
+  ]
+}

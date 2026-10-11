@@ -1,4 +1,4 @@
-# Original offline authored HTML draft
+# Original offline authored HTML
 
 The example alternates two fictional supplied labels using a local script and clears the choice with a local event handler. All HTML, CSS and JavaScript are independently authored here. It has no external assets, imports, fetches, service calls, parent messaging or persistence.
 
@@ -6,4 +6,4 @@ HTML View is explicitly scriptable authored content, not a text sanitizer. Use o
 
 The compiler must add hashes for the browser-normalized script and event-handler source only when a rendered HTML View needs them. This does not grant host `script-src 'unsafe-inline'`. Styles and the iframe resource policy remain separate from permissions.
 
-Five positive and eleven negative authoring cases are prepared. There is no runtime or actual script-execution claim yet. Connected-host source-build behavior, iframe attributes and compiler CSP will be checked against one exact pin. Detached-host first-connection behavior is a separate known pending runtime case; native execution and isolation need real-browser evidence.
+Five positive and eleven negative authored HTML cases are included in the [exact144 combined media consumer](../restored-media-readers/README.md). It checks connected and initially detached hosts, iframe attributes, resource retirement and actual compiler CSP against source `3b88d369cd0cc918d63354b2d6e9086aad41dd71`. The shared connection successor closes the original142 detached-start gap in this later source. Actual authored-script execution and native sandbox isolation still need real-browser evidence.

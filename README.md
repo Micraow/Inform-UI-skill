@@ -4,7 +4,7 @@
 
 当前恢复分支入口：[已验证的恢复消费者与运行命令](RECOVERY-CONSUMERS.md)。最新精确 CDN 组合消费者为协议 130；该固定版本的 canonical 清单为 123/256 已实现，其中历史功能验收仍为 53。Skill 包含原创供数示例、独立 JavaScript 校验和安全文件锁，不捆绑运行库或私有参考。DOM/合同检查不代表原生或像素验收。以下旧合同与推荐保留为历史版本，不能混用资产。
 
-较新源构建消费者已推进到 [Pressable140](candidates/restored-pressable/README.md)，同时覆盖 MatchScores、LearningMedia、Weather/Category 与 NetWorth。准确140清单为 133/256 已实现（历史功能验收53＋待验80），未实现122、部分1。新增检查没有提升 CDN/原生验收，130 固定组合资产保持原样。
+较新源构建消费者已推进到 [HTML/Media144](candidates/restored-media-readers/README.md)，同时保留 MatchScores、LearningMedia、Weather/Category、NetWorth、Pressable 与 Fee/Interest 的精确检查点。准确144清单为 137/256 已实现（历史功能验收53＋待验84），未实现118、部分1。新增检查没有提升 CDN/原生验收，130 固定组合资产保持原样。
 
 > Pending acceptance：本分支合同与壳固定 26ec211fa529516af3b1523248f5912c45ec64c6，37 项候选等待同版集中 CI 与原图验收。已验53计数、旧版推荐及用户演示不升级。
 
@@ -205,4 +205,4 @@ The recovered consumers default to safe file-closure locks. Original Git identit
 
 `candidates/restored-weather-category` locks exact source/build `6b49ceb` for two more supplied-data readers. It checks local temperature conversion and category-review receipts with eight DOM workflows; existing CDN locks stay unchanged.
 
-`candidates/restored-pressable` now verifies exact source/build `ae77d323`, including seven passive-action DOM workflows and the narrow NetWorth modifier/IME successor. `candidates/restored-fee-interest` now verifies exact source/build `aed78e46` through seven supplied-reader DOM workflows and one compiled HTML artifact. The next `candidates/restored-html-view` fixture is original offline authored content, still draft-only.
+`candidates/restored-pressable` now verifies exact source/build `ae77d323`, including seven passive-action DOM workflows and the narrow NetWorth modifier/IME successor. `candidates/restored-fee-interest` now verifies exact source/build `aed78e46` through seven supplied-reader DOM workflows and one compiled HTML artifact. The original `candidates/restored-html-view` fixture is now part of the exact144 combined media consumer; `candidates/restored-async-images` prepares the next finite-image family without runtime acceptance.
