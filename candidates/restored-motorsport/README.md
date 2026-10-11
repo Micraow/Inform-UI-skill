@@ -34,3 +34,7 @@ Source URLs, if supplied, must be safe absolute HTTP(S). Observation/session tim
 Ten positive and 26 negative cases pass through actual Node, browser-export and CDN validators; the Player 10 positive/18 negative cases are reused. Twelve actual CDN DOM flows combine Motorsport, Player and Ledger readers with zero external requests. The standalone output is deterministic and remains in memory.
 
 The runtime author separately reports 93 focused passes and an earlier 418-check affected suite. This consumer does not claim a new full-library run or native/pixel acceptance. Current canonical status is 119 implemented (53 historical functional acceptances plus 66 pending), 132 unimplemented and 5 partial, total 256. Protocol 126 is distinct. The two motorsport IDs are restored historical work, not new historical discoveries.
+
+## Later-discovered boundary at this historical pin
+
+An independent activation regression subsequently found that an accessibility getter can synchronously dispatch a second session click before the busy guard is set, causing two local intents at the frozen 126 asset. The original successful cases above do not cover that getter. The original pin and lock stay preserved; the combined Boxscores consumer includes the failing scenario for the next exact runtime successor. Until that successor is tested, do not describe this 126 pin as fully interruption-safe.

@@ -13,3 +13,13 @@ test('Local IDs and explicit references retain precise semantic issue paths',()=
 test('Maximum positive examples stay finite at each declared collection boundary',()=>{
  const [n,c]=buildCases(input).positives.find(([name])=>name==='maximum finite lists')[1].body;assert.equal(n.teams.length,2);assert.equal(n.teams[0].players.length,40);assert.equal(n.periods.length,20);assert.equal(c.innings.length,12);assert.equal(c.innings[0].batting.length,30);assert.equal(c.innings[0].bowling.length,30);
 });
+test('Frozen126 baseline preserves218 definitions and126 node references',async()=>{
+ const base=JSON.parse(await readFile(new URL('../candidates/restored-boxscores/schema-baseline-126.json',import.meta.url))),prior=JSON.parse(await readFile(new URL('../candidates/restored-motorsport/runtime-lock.safe.json',import.meta.url)));
+ assert.equal(base.sourceCommit,prior.sourceCommit);assert.equal(base.schemaSha256,prior.files.find(f=>f.path==='src/schema/iui.schema.json').sha256);assert.equal(Object.keys(base.definitions).length,218);assert.equal(base.nodeRefs.length,126);
+});
+test('Shared consumer verifier rejects an invalid lock before touching a runtime',async()=>{
+ const {mkdtemp,writeFile,rm}=await import('node:fs/promises'),{tmpdir}=await import('node:os'),path=await import('node:path'),{prepareSuppliedConsumer}=await import('../scripts/verify-supplied-consumer.mjs');
+ const directory=await mkdtemp(path.join(tmpdir(),'inform-consumer-negative-'));
+ try {await writeFile(path.join(directory,'runtime-lock.safe.json'),JSON.stringify({format:'invalid'}));await assert.rejects(prepareSuppliedConsumer('/not-read',directory,{protocolNodes:128,canonicalId:'nba-game-boxscore',requiredFiles:[]}),/inform-recovered-consumer-lock/);}
+ finally {await rm(directory,{recursive:true,force:true});}
+});
