@@ -1,0 +1,117 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "conversational-onboarding-study",
+      "id": "shape_study",
+      "label": "Original geometric study",
+      "askLabel": "Supplied question",
+      "visual": {
+        "label": "Two fictional orbit markers",
+        "question": "How do the supplied periods change the markers?",
+        "day": 10,
+        "dayLabel": "Toy day",
+        "yearLabel": "supplied cycles",
+        "yearLength": 50,
+        "resetLabel": "Return toy to zero",
+        "orbits": [
+          {
+            "id": "copper",
+            "label": "Copper marker",
+            "radius": 60,
+            "period": 100,
+            "size": 5,
+            "color": "#AC692F",
+            "ring": true
+          },
+          {
+            "id": "blue",
+            "label": "Blue marker",
+            "radius": 120,
+            "period": 200,
+            "size": 8,
+            "color": "#2B73B5"
+          }
+        ]
+      },
+      "quiz": {
+        "label": "Original shape self-check",
+        "question": "Read the supplied shape definitions.",
+        "title": "Finite shape questions",
+        "description": "All answers are public teaching data.",
+        "questions": [
+          {
+            "id": "round",
+            "kind": "single",
+            "prompt": "Which supplied label names a round shape?",
+            "choices": [
+              {
+                "id": "circle",
+                "label": "Circle"
+              },
+              {
+                "id": "square",
+                "label": "Square"
+              }
+            ],
+            "correct": [
+              "circle"
+            ],
+            "explanation": "The supplied round shape is the circle.",
+            "points": 2
+          },
+          {
+            "id": "corners",
+            "kind": "multiple",
+            "prompt": "Select the two supplied shapes with corners.",
+            "choices": [
+              {
+                "id": "triangle",
+                "label": "Triangle"
+              },
+              {
+                "id": "disk",
+                "label": "Disk"
+              },
+              {
+                "id": "rectangle",
+                "label": "Rectangle"
+              }
+            ],
+            "correct": [
+              "triangle",
+              "rectangle"
+            ],
+            "explanation": "The supplied triangle and rectangle have corners.",
+            "points": 1
+          }
+        ]
+      },
+      "mathGraph": {
+        "label": "Original numeric observations",
+        "question": "Which observations are supplied and which are missing?",
+        "title": "Four explicit sample positions",
+        "description": "Independent illustrative observations, no inferred values.",
+        "seriesLabel": "Supplied height",
+        "data": [
+          {
+            "x": 0,
+            "y": 0
+          },
+          {
+            "x": 1,
+            "y": 4
+          },
+          {
+            "x": 2,
+            "y": null
+          },
+          {
+            "x": 9,
+            "y": -3
+          }
+        ]
+      }
+    }
+  ]
+}

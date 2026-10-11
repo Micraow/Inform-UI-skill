@@ -165,3 +165,9 @@ The actual compiled standalone script mounts all5 instances and handles a cancel
 ## Independently confirmed171 current scope
 
 Exact status-only source5da1e369ff1ea4880f8815d63fef85f89fbef2be records171 implemented (53 historical plus118 pending),1 partial weather and84 missing, with177 protocol registrations. OnboardingFeatureCard, OnboardingPluginSuggestions and OnboardingStarterTasks passed9 independent functional cases on7a324ca, then the exact consumer10/16 and8 workflows. This accounting update leaves the prior168 record, all source locks and the164 packaged158/1/97 snapshot intact. No native/pixel or CI result is promoted.
+
+## Original supplied Study with actual quiz and chart
+
+[The Study consumer](candidates/study-onboarding/README.md) locks exactc6e799:10 positive/16 negative documents,8 DOM/standalone workflows,329 unchanged prior definitions and22 selected hashes. Original explicit orbit periods, single/multiple quiz questions and uneven numeric x/null/zero/negative observations exercise actual interactive renderers. The predecessorba79 chart-reset mismatch was reproduced, kept as a negative control and rerun unchanged on the fixed successor.
+
+The standalone script really grades a supplied quiz answer and renders the chart in JSDOM. External requests/service calls are0. No astronomy-data claim, private capture, fitted values, remote grading or persistence is introduced. Protocol178 is separate from canonical acceptance; existing171 accounting and all164 assets remain unchanged pending a separate reviewed status increment. Native/pixel and browser CSP enforcement are untested here.
