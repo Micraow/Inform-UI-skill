@@ -195,3 +195,9 @@ The same original fixture reproduces the predecessorc979 nested keyboard-reset a
 ## Independently confirmed174 current scope
 
 Exact status-only source5d93a628ce626db1ffca4df95e1681c999ba44b4 records174 implemented (53 historical plus121 pending),0 partial and82 missing, with179 registrations. Search passed10 independent cases and its two original reset/resize negatives on thec900 successor, followed by consumer10/16 and7 DOM/actual-standalone groups. Older173 accounting and the164 asset158/1/97 record remain historical. Native/pixel and CI scope do not increase.
+
+## Original three-contract Quiz consumers
+
+[The Quiz-card consumers](candidates/quiz-cards/README.md) lock exact21a85df79ba7c0f9b2c1d15af4866c79920d4cf3:12 positive/20 negative documents,7 DOM/actual-standalone groups,331 unchanged historical definitions and19 selected hashes. Five original instances distinguish locked follow-up answers and partial submits, exact-match feedback versus query-only choices, and explicitly supplied informal-questionnaire results gated by saved/current/result revisions.
+
+Cancellation, native reset/new input, stale revision7 after retake/reanswer11, supplied generation/progress/result errors, image cleanup and actual compiled script are exercised.0 external requests and0 inference/grading/save/share/clipboard calls were observed. Registration182 and any separate canonical promotion do not change the fixed164 asset or native/pixel evidence.

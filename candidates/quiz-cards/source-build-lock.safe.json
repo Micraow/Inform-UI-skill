@@ -1,0 +1,104 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "21a85df79ba7c0f9b2c1d15af4866c79920d4cf3",
+  "sourceTree": "1125364ae8aee457900697e41e207f43b3d218ba",
+  "protocolNodes": 182,
+  "cdnExecuted": false,
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 1750,
+      "sha256": "a06274825a955e560593247c7dc8d23ee510164f3c89dfd4e6a454df0c6dd807"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 46891,
+      "sha256": "4e42f927b379a2007a3df1708e29d52314e78e3cc8d85351b8a4fa86d8f9cc98"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "bytes": 4001,
+      "sha256": "d773e49c29f3369d6de063163663512e5a180476377b13f119a3af20e199de93"
+    },
+    {
+      "path": "scripts/build-cdn.mjs",
+      "bytes": 5617,
+      "sha256": "9fb661da3c4a401469d26fe5da9e7262db13625a7b00f15bba21e13303243e9b"
+    },
+    {
+      "path": "scripts/quiz-cards-schema.mjs",
+      "bytes": 3603,
+      "sha256": "772b14869f1d9c875f4ea33f2ac31ed1209f47389159ede174e95ce22ec1e0fa"
+    },
+    {
+      "path": "src/core/quiz-cards.ts",
+      "bytes": 8121,
+      "sha256": "2afc2b77728e357a95fa640f0d622c95aeb008e7b977b1d520ba03b85531ac6d"
+    },
+    {
+      "path": "src/renderer/quiz-cards.ts",
+      "bytes": 21393,
+      "sha256": "c2e196ee297551270713c3e13854b7026f50c132667daa7aef11524579424d32"
+    },
+    {
+      "path": "src/renderer/quiz-cards.css",
+      "bytes": 3429,
+      "sha256": "b3359d4a89d8022ed9b7602537ef0204c3f52539a56a1cb12cd56246b72f6873"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 549902,
+      "sha256": "7528f2723e621a1a535b2e10f299bb933f1101c3ae213dff5c31aaa4d66d9285"
+    },
+    {
+      "path": "src/schema/fragments/base.schema.json",
+      "bytes": 305541,
+      "sha256": "4a6ecf9b12dfa3f71310a02a3fb21b41711a0b1aaff865625e64f34b770dbf7f"
+    },
+    {
+      "path": "src/renderer/search-image.ts",
+      "bytes": 9346,
+      "sha256": "9c73ee2e46b855a48aaa3537ea570f03f0ef33d2918e01b2192c61b5f3bb1f35"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3176,
+      "sha256": "20b53a00e2bbab3fe6f89ba30650028836f18d0cae98d75bc37da2f7e696fa6c"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1656,
+      "sha256": "ce983a28b6664b406c55e834106092c5dc9a8aba18687f04262d82ec37588b24"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3768,
+      "sha256": "d84261882e03203dc3a41eaee408eee4dee57096054efe0177cf29b96297ca9a"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 10320214,
+      "sha256": "7192d4899a9249c82fb6d4d4f2cf123143899001e8d87d603104de16493c9fcc"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 10512414,
+      "sha256": "f1daba037914760aa4e34feb581056c1c75e6322e040c11b3bd23e1318bccc46"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 653442,
+      "sha256": "a74790f82f0de6846ea80f7cca47f80e63838dcfb119f820afa1357dd017822e"
+    }
+  ]
+}
