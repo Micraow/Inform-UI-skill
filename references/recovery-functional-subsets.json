@@ -4,14 +4,14 @@
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 94,
+    "implemented_pending_verification": 97,
     "partial": 1,
-    "not_implemented": 108
+    "not_implemented": 105
   },
-  "completeImplementationCoverage": 147,
+  "completeImplementationCoverage": 150,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope147/1/108 includes independent functional confirmation of all five earlier finite-subset completions. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
+  "acceptanceBoundary": "Current source scope150/1/105 includes independent functional confirmation of the five earlier finite-subset completions and three supplied Link presentations. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -46,6 +46,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "7094076e383c1cd062eaefaa87601801bec4ed2c",
       "consumer": "candidates/spend-trends",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "link",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "e6b60a69aa7e889b20743589212642a12128cc18",
+      "consumer": "candidates/supplied-links",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "link-card",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "e6b60a69aa7e889b20743589212642a12128cc18",
+      "consumer": "candidates/supplied-links",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "recommendation-link-card",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "e6b60a69aa7e889b20743589212642a12128cc18",
+      "consumer": "candidates/supplied-links",
       "nativeAndPixelAcceptance": false
     }
   ]

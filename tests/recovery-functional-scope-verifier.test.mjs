@@ -11,11 +11,11 @@ const fixture = (input=scope) => ({ counts: { ...input.counts }, components: [
 ] });
 test('Accounting separates implemented rows, remaining partial functions and protocol registrations', () => {
   const inventory = fixture(), before = JSON.stringify(inventory), result = verifyFunctionalScope(inventory, scope);
-  assert.equal(result.implemented, 147); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 156); assert.equal(result.partialIds.length, 1); assert.equal(JSON.stringify(inventory), before);
+  assert.equal(result.implemented, 150); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 156); assert.equal(result.partialIds.length, 1); assert.equal(JSON.stringify(inventory), before);
 });
 test('Remaining partial weather cannot be promoted by changing only summary or registered-node totals', () => {
   const bad = fixture(); bad.counts.implemented_pending_verification += 1; assert.throws(() => verifyFunctionalScope(bad, scope), /summary differs/);
-  assert.throws(() => verifyFunctionalScope(fixture(), { ...scope, completeImplementationCoverage: 148 }), /exclude partial/);
+  assert.throws(() => verifyFunctionalScope(fixture(), { ...scope, completeImplementationCoverage: scope.completeImplementationCoverage + 1 }), /exclude partial/);
 });
 test('Unknown status, missing row and duplicate canonical ID are rejected', () => {
   for (const mutate of [d => d.components.pop(), d => { d.components[1].id = d.components[0].id; }, d => { d.components[0].status = 'rendered'; }]) {
