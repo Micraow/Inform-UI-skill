@@ -1,0 +1,2 @@
+/** Default cancellation leaves a local suggestion operable. No remote effects exist. */
+export function attachSuggestionReceipts(host,output,{acceptLocally=false}={}){const onAccept=e=>{if(!acceptLocally)e.preventDefault();output.textContent=`${acceptLocally?'Local receipt':'Canceled request'}: ${e.detail.action} / ${e.detail.id??'anonymous'}`;};host.addEventListener('iui:scheduled-task-accept',onAccept);return()=>host.removeEventListener('iui:scheduled-task-accept',onAccept);}

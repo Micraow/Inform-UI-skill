@@ -1,0 +1,20 @@
+export function buildCases(input){const positives=[['original two local branches',structuredClone(input)]],negatives=[],make=edit=>{const d=structuredClone(input);edit(d.body,d);return d;},pos=(name,edit)=>positives.push([name,make(edit)]),bad=(name,edit,code='SCHEMA',path)=>negatives.push([name,make(edit),code,path]);
+ pos('explicit new-turn and no origins',b=>{b[0].action='new-turn';b.forEach(n=>delete n.originSurface);});
+ pos('opt-in ignores supplied guidelines',b=>{b[1].creationGuidelines='Original unused teaching text';});
+ pos('initially submitted',b=>{b.forEach(n=>n.submitted=true);});
+ pos('supplied disabled',b=>{b.forEach(n=>n.disabled=true);});
+ pos('pending suggestions',b=>{b.forEach(n=>{n.status='pending';delete n.creationGuidelines;});});
+ pos('failed literal text',b=>{b.forEach(n=>{n.status='failed';n.fallback='<b>Original unavailable text</b>';delete n.creationGuidelines;});});
+ pos('failed hidden suggestions',b=>{b.forEach(n=>{n.status='failed';delete n.creationGuidelines;});});
+ bad('new-turn needs guidelines',b=>{delete b[0].creationGuidelines;},'SCHEDULED_SUGGESTION_GUIDELINES','/body/0/creationGuidelines');
+ bad('blank guidelines',b=>{b[0].creationGuidelines=' ';},'SCHEDULED_SUGGESTION_TEXT','/body/0/creationGuidelines');
+ bad('blank label',b=>{b[1].label=' ';},'SCHEDULED_SUGGESTION_TEXT','/body/1/label');
+ bad('missing label',b=>{delete b[1].label;});
+ bad('unsupported action',b=>{b[0].action='create-real-task';});
+ bad('unsupported origin',b=>{b[1].originSurface='account';});
+ bad('null phase',b=>{b[0].status=null;});
+ bad('computed disabled',b=>{b[0].disabled={$:'disabled'};});
+ bad('submitted must be boolean',b=>{b[0].submitted='true';});
+ bad('guidelines exceed finite bound',b=>{b[0].creationGuidelines='x'.repeat(12001);});
+ bad('no scheduler fields',b=>{b[0].cron='* * * * *';});
+ return{positives,negatives};}
