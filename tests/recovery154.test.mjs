@@ -13,5 +13,5 @@ test('Recovery154 asset lock excludes source instructions and separates assets f
   assert.ok(lock.files.every(f => !/(AGENTS|node_modules|private|\.\.\/)/.test(f.path))); assert.match(lock.publicSourceBoundary, /does not establish/);
 });
 test('Recovery154 preserves the six-partial canonical interpretation', async () => {
-  const scope = await read('references/recovery-functional-subsets.json'); assert.equal(scope.protocolNodes, 154); assert.equal(scope.completeImplementationCoverage, 142); assert.equal(scope.counts.partial, 6); assert.equal(scope.counts.not_implemented, 108);
+  const scope = await read('candidates/recovery154/canonical-scope.lock.json'); assert.equal(scope.protocolNodes, 154); assert.equal(scope.completeImplementationCoverage, 142); assert.equal(scope.counts.partial, 6); assert.equal(scope.counts.not_implemented, 108);
 });

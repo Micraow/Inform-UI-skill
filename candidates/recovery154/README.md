@@ -16,3 +16,5 @@ Actual results on these bytes:
 Canonical inventory remains **142 implemented (53 historical functional acceptances plus 89 pending), 6 partial and 108 not implemented**. Protocol154 is not the canonical implemented count. The five new limited APIs remain [functional subsets](../../references/recovery-functional-subsets.md), including when their ordinary consumer tests pass.
 
 This proves the locked local assets and these contracts. It does not establish a complete public source checkout, remote CI, native interaction, media decoding or reference pixel fidelity. The earlier public `dc39e2de` source tree omitted generated schema files; public-source repair is separate from this local asset check. All earlier per-family source locks and the130 CDN lock remain immutable historical evidence.
+
+The canonical scope declaration is frozen alongside this consumer. Future promotions in the live authoring guide do not rewrite this historical asset's accounting result.

@@ -14,7 +14,7 @@ export async function verify(library) {
   const checkAssets = async () => { for (const f of lock.files) { const b = await bytesAt(f.path); assert.equal(b.length, f.bytes, f.path); assert.equal(hash(b), f.sha256, f.path); } };
   await checkAssets(); const manifest = JSON.parse(await bytesAt('cdn/integrity.json'));
   for (const [name, f] of Object.entries(manifest.files)) { const b = await bytesAt('cdn/' + name); assert.equal(b.length, f.bytes, name); assert.equal(hash(b), f.sha256, name); assert.equal('sha384-' + hash(b, 'sha384', 'base64'), f.integrity, name); }
-  const scope = verifyFunctionalScope(JSON.parse(await bytesAt('docs/component-progress.json')), await local('../../references/recovery-functional-subsets.json'));
+  const scope = verifyFunctionalScope(JSON.parse(await bytesAt('docs/component-progress.json')), await local('canonical-scope.lock.json'));
   const require = createRequire(path.join(root, 'package.json')), { JSDOM, ResourceLoader, VirtualConsole } = require('jsdom');
   let requests = 0; const errors = []; class Reject extends ResourceLoader { fetch() { requests++; return null; } }
   const consoleFor = () => { const c = new VirtualConsole(); c.on('jsdomError', e => errors.push(e)); return c; };
