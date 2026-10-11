@@ -1,0 +1,14 @@
+{
+  "version": "iui/1",
+  "title": "Original local conversation choices",
+  "body": [{
+    "type": "conversation-suggestions",
+    "id": "local-reading-suggestions",
+    "label": "Choose supplied follow-up text",
+    "suggestions": [
+      { "id": "summarize", "label": "Summarize the supplied example", "prompt": "Summarize only the supplied teaching example in two short sentences." },
+      { "id": "compare", "label": "Compare the supplied choices", "prompt": "Compare the two supplied choices. Keep unknown details explicitly unknown." },
+      { "id": "questions", "label": "List remaining questions", "prompt": "List questions that the supplied example does not answer.", "disabled": true }
+    ]
+  }]
+}

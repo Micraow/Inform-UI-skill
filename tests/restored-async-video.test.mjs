@@ -15,3 +15,8 @@ test('Original receipt cancels the intent and detaches without provider navigati
   const e = new Event('iui:video-open', { cancelable: true }); Object.defineProperty(e, 'detail', { value: { video: videos[1], videos, index: 1 } }); assert.equal(host.dispatchEvent(e), false); assert.match(output.textContent, /Supplied record 2 of 2/); off();
   const next = new Event('iui:video-open', { cancelable: true }); assert.equal(host.dispatchEvent(next), true);
 });
+test('Video149 selected lock is explicit about source-only provider checks', async () => {
+  const lock = JSON.parse(await readFile(new URL('../candidates/restored-async-video/source-build-lock.safe.json', import.meta.url)));
+  assert.equal(lock.sourceCommit, 'a8eebdab7d931c8827613cec1ee4a8e6b014ba01'); assert.equal(lock.protocolNodes, 149); assert.equal(lock.cdnExecuted, false); assert.equal(lock.files.length, 21);
+  assert.ok(lock.files.every(f => !/(AGENTS|private|\.\.\/)/.test(f.path)));
+});

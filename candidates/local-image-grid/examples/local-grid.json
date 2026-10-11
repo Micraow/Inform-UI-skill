@@ -1,0 +1,32 @@
+{
+  "version": "iui/1",
+  "title": "Original finite image grid",
+  "body": [
+    {
+      "type": "image-grid",
+      "id": "original-color-grid",
+      "label": "Choose a supplied original color",
+      "columns": 3,
+      "fit": "contain",
+      "images": [
+        {
+          "id": "blue",
+          "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg==",
+          "alt": "Original blue color square",
+          "caption": "Locally generated blue pixels"
+        },
+        {
+          "id": "orange",
+          "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg==",
+          "alt": "Original orange color square",
+          "caption": "Locally generated orange pixels"
+        },
+        {
+          "id": "green",
+          "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGPQmhZNEmIY1TCqYfhqAABDbxsQbPuAcQAAAABJRU5ErkJggg==",
+          "alt": "Original green color square"
+        }
+      ]
+    }
+  ]
+}
