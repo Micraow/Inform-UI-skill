@@ -1,0 +1,11 @@
+{
+  "version": "iui/1",
+  "state": { "paperSize": 3, "showBorder": false, "paperColor": "amber" },
+  "body": [
+    { "type": "slider", "label": "Original paper marker size", "bind": "paperSize", "min": 0, "max": 10, "step": 1 },
+    { "type": "toggle", "label": "Show original paper border", "bind": "showBorder" },
+    { "type": "select", "label": "Original paper color", "bind": "paperColor", "options": [
+      { "label": "Blue paper", "value": "blue" }, { "label": "Amber paper", "value": "amber" }
+    ] }
+  ]
+}

@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [外层表单 Reset 窄修消费者](candidates/host-form-reset/README.md)：准确391e3cbe源构建已验4组原创DOM流程和10文件SHA；Slider/Toggle/Select的取消、较新输入、原子派生值与换代退役均过。独立source-only锁，不改933公开资产；Input/Textarea/Radio不在本批范围。
+
 新增 [统一213标题窄修消费者](candidates/recovery213-readable-headers/README.md)：准确本地933dc后继已对应公开d1196a06，52远端资产实际取回33,438,701字节并逐项核SHA256/SRI/路径，使用说明含固定目录及完整性值。既有Credit/Care32正44负、双CDN8次流程与standalone结果保持，完整schema等于5081；该公开提交Actions0，不冒称新远端CI。旧5081/183锁保留，后续formReset不混入。
 
 新增 [统一213实际CDN组合](candidates/recovery213/README.md)：精确本地资产5081b29b，52资产bytes/SHA/SRI、57锁/3dist及335旧定义全核；14原创家族196正260负同时过ESM/global，8次混合流程＋1实际standalone，0外网服务。固定208/0/48、213登记；此5081历史锁publicCommit保持null，已公开的933dc后继使用独立锁，旧183锁不变。

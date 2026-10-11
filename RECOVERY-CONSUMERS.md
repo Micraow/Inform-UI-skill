@@ -1,5 +1,7 @@
 # Current recovered consumers
 
+Latest narrow [host-form reset consumer](candidates/host-form-reset/README.md) verifies four actual DOM flows against source `391e3cbe7914d0f8eeaed88ba62e8eee3df29688`, with ten byte-locked files. Only Slider, Toggle and Select are covered. The published933 asset and earlier locks remain unchanged.
+
 The current exact local CDN consumer is [Recovery154](candidates/recovery154/README.md), with 21 original examples, 144 positive/359 negative documents through ESM/global exports and 7 mixed DOM contracts per export. It locks local assets `8e21f4fd06826a42301719ae0c90b007d46589c7`; public-source completeness and remote CI are not claimed. Counts remain 142 implemented, 6 partial, 108 missing.
 
 The earlier immutable full-CDN recovered consumer is [Supplied Results130](candidates/restored-supplied-results/README.md), pinned to local runtime asset `d1db55e6b570ed22dacb82314eba42a369a6be1e` with source HEAD `d1db55e6b570ed22dacb82314eba42a369a6be1e`. Its fictional tournament and council data combine with Boxscores, Motorsport, Player and Ledger readers. Protocol130 is distinct from the canonical inventory:123 implemented (53 historical functional acceptances plus70 pending),128 not implemented,5 partial, denominator256.

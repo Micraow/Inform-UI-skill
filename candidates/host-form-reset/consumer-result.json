@@ -1,0 +1,24 @@
+{
+  "source": "391e3cbe7914d0f8eeaed88ba62e8eee3df29688",
+  "publicCommit": null,
+  "filesChecked": 10,
+  "controls": [
+    "slider",
+    "toggle",
+    "select"
+  ],
+  "fixtureDocumentsValidated": 2,
+  "passed": 4,
+  "failed": 0,
+  "flows": [
+    "External form.reset and its reset button restore all three controlled state and DOM values",
+    "Capture and bubble cancellation preserve edits; later input, state and same-value input win their binding while siblings reset",
+    "Sibling bindings reset atomically before a reciprocal expression that would otherwise divide by zero",
+    "Pending old resets retire on update and dispose; a new generation uses its own supplied initial values"
+  ],
+  "resourceRequests": 0,
+  "serviceCalls": 0,
+  "nativeExecuted": false,
+  "fullSuiteExecuted": false,
+  "boundary": "Four independent JSDOM consumer flows against exact source-built browser bytes. No Input, Textarea, Radio or full CDN package claim."
+}
