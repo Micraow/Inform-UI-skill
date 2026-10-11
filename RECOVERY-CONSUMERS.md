@@ -161,3 +161,7 @@ Exact status-only sourcee4b0b4c3707091ca9c1463fc1aa9ddae373f99d3 records168 impl
 [The three onboarding-card consumers](candidates/onboarding-cards/README.md) lock exact7a324ca:10 positive/16 negative documents,8 DOM/standalone workflows and22 selected hashes. Of326 prior non-Node definitions,325 remain unchanged; one precisely projected Voice resetLabel addition matches37c30c, and3 new card definitions are declared. Five original instances cover featured intents/carousel, the first4 plugin entries with explicit capabilities, and pills/cards/selection task variants.
 
 The actual compiled standalone script mounts all5 instances and handles a canceled local Browse request. External requests and service calls are0. No app is installed or connected, no account or task is created, and no message is submitted. Native/pixel and real browser CSP acceptance remain separate; the164 packaged asset and all prior locks are unchanged.
+
+## Independently confirmed171 current scope
+
+Exact status-only source5da1e369ff1ea4880f8815d63fef85f89fbef2be records171 implemented (53 historical plus118 pending),1 partial weather and84 missing, with177 protocol registrations. OnboardingFeatureCard, OnboardingPluginSuggestions and OnboardingStarterTasks passed9 independent functional cases on7a324ca, then the exact consumer10/16 and8 workflows. This accounting update leaves the prior168 record, all source locks and the164 packaged158/1/97 snapshot intact. No native/pixel or CI result is promoted.

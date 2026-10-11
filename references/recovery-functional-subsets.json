@@ -4,14 +4,14 @@
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 115,
+    "implemented_pending_verification": 118,
     "partial": 1,
-    "not_implemented": 87
+    "not_implemented": 84
   },
-  "completeImplementationCoverage": 168,
+  "completeImplementationCoverage": 171,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope168/1/87 includes independent Voice successor and Advice/Writing functional confirmation. Protocol177 includes three later registrations not promoted here. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope171/1/84 includes independent confirmation of the three finite onboarding-card presentations. Protocol177 is separate. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -196,6 +196,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "744c19b44820a951b663c9646ad011656aa65812",
       "consumer": "candidates/onboarding-advice-writing",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "onboarding-feature-card",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "7a324cae9eb31e0e8d24597bf959009d32e445f2",
+      "consumer": "candidates/onboarding-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "onboarding-plugin-suggestions",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "7a324cae9eb31e0e8d24597bf959009d32e445f2",
+      "consumer": "candidates/onboarding-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "onboarding-starter-tasks",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "7a324cae9eb31e0e8d24597bf959009d32e445f2",
+      "consumer": "candidates/onboarding-cards",
       "nativeAndPixelAcceptance": false
     }
   ]
