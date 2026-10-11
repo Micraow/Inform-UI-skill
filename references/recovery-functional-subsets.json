@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 178,
+  "protocolNodes": 179,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 120,
+    "implemented_pending_verification": 121,
     "partial": 0,
-    "not_implemented": 83
+    "not_implemented": 82
   },
-  "completeImplementationCoverage": 173,
+  "completeImplementationCoverage": 174,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope173/0/83 includes independent Weather functional completion on its navigation successor. Protocol178 is unchanged. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 with its historical partial Weather row; older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope174/0/82 includes independent Search functional completion on its reset/resize successor. Protocol179 is separate. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 with its historical partial Weather row; older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -231,6 +231,13 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "0530db4b7748dae637398f5b57840066b79a3e9d",
       "consumer": "candidates/weather-supplied",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "conversational-onboarding-search",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "c900bd3599ff9ba9b268c17411fcd7f46e5dcdd3",
+      "consumer": "candidates/search-onboarding",
       "nativeAndPixelAcceptance": false
     }
   ]

@@ -191,3 +191,7 @@ Exact status-only sourcea28dc90585ebfb918e5cdda128c37277dc534c18 records173 impl
 [The original Search consumer](candidates/search-onboarding/README.md) locks exactc900bd3599ff9ba9b268c17411fcd7f46e5dcdd3:10 positive/16 negative documents,7 DOM/actual-standalone groups,330 old definitions and22 selected source/build hashes. Its Weather, invented market series and four fictional news cards are explicit offline data. Value900 is independent of the graph's last20, true0/null and DST spacing stay distinct, and source requests remain local/cancelable.
 
 The same original fixture reproduces the predecessorc979 nested keyboard-reset and Window-resize failures, then passes both on the exact successor. Parent reset also yields to newer unit, range and tab input.0 external requests and0 service/location/navigation calls were observed; native media, browser/CSP and pixel acceptance remain pending. Registration179 is separate from the reviewed canonical count and the immutable164 CDN.
+
+## Independently confirmed174 current scope
+
+Exact status-only source5d93a628ce626db1ffca4df95e1681c999ba44b4 records174 implemented (53 historical plus121 pending),0 partial and82 missing, with179 registrations. Search passed10 independent cases and its two original reset/resize negatives on thec900 successor, followed by consumer10/16 and7 DOM/actual-standalone groups. Older173 accounting and the164 asset158/1/97 record remain historical. Native/pixel and CI scope do not increase.

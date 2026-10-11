@@ -11,7 +11,7 @@ const fixture = (input=scope) => ({ counts: { ...input.counts }, components: [
 ] });
 test('Accounting separates implemented rows, remaining partial functions and protocol registrations', () => {
   const inventory = fixture(), before = JSON.stringify(inventory), result = verifyFunctionalScope(inventory, scope);
-  assert.equal(result.implemented, 173); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 178); assert.equal(result.partialIds.length, 0); assert.equal(JSON.stringify(inventory), before);
+  assert.equal(result.implemented, 174); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 179); assert.equal(result.partialIds.length, 0); assert.equal(JSON.stringify(inventory), before);
 });
 test('Canonical totals cannot be changed by altering only summaries or registered-node totals', () => {
   const bad = fixture(); bad.counts.implemented_pending_verification += 1; assert.throws(() => verifyFunctionalScope(bad, scope), /summary differs/);

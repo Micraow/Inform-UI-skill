@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **173 implemented**:53 historical functional acceptances and120 pending native/reference verification. No ID is currently partial and83 are not implemented. Protocol178 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the173 count.
+The current source inventory is **174 implemented**:53 historical functional acceptances and121 pending native/reference verification. No ID is currently partial and82 are not implemented. Protocol179 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the174 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -21,3 +21,5 @@ node scripts/verify-recovery-functional-scope.mjs /path/to/current/component-pro
 ```
 
 The command recomputes counts from256 unique rows, checks the exact partial-ID set (currently empty) and reports the inventory SHA-256. Mismatched summaries or promotions fail. It checks accounting, not runtime or browser acceptance. Use the current inventory rather than an old frozen source's progress file.
+
+Search完成以c900bd35准确后继为准：独立10/10及原两负控转绿，消费者10正16负、7组实际DOM/standalone。三类数据均为显式供数，未接实时服务。
