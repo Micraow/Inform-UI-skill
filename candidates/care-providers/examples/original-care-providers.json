@@ -1,0 +1,1662 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "care-provider-results",
+      "id": "paper_directory",
+      "label": "Original supplied paper directory",
+      "resultStatus": "partial",
+      "partialNotice": "Some fictional supplied entries are absent.",
+      "title": "Fictional directory results",
+      "providers": [
+        {
+          "id": "paper_provider_0",
+          "name": "Fictional Paper Directory 1",
+          "initials": "P0",
+          "photo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg==",
+          "photoAlt": "Original blue square, no person pictured",
+          "specialty": "Supplied demonstration category",
+          "ratingLabel": "0",
+          "reviewCountLabel": "900 supplied reviews",
+          "networkLabel": "Original supplied network text",
+          "inNetwork": false,
+          "summary": "Original synthetic directory entry for interface testing.",
+          "profile": {
+            "url": "https://example.test/paper/profile/0",
+            "query": "This query must not replace the supplied URL."
+          },
+          "locations": [
+            {
+              "id": "paper_location_0_0",
+              "label": "Fictional Paper Room 0/0",
+              "distanceLabel": "0 supplied distance",
+              "modality": "in-person",
+              "partnerLabel": "Original amber square",
+              "partnerLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg==",
+              "partnerGlyph": "P",
+              "actionLabel": "Request room 0/0",
+              "action": {
+                "query": "Use only fictional room 0/0"
+              },
+              "days": [
+                {
+                  "date": "2027-02-04",
+                  "label": "Paper day 1",
+                  "accessibilityLabel": "Select fictional paper day 1",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_0",
+                          "label": "Paper time A0",
+                          "accessibilityLabel": "Paper slot A0",
+                          "url": "https://example.test/paper/direct/a0",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/0"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/0"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_0",
+                          "label": "Paper time B0",
+                          "accessibilityLabel": "Paper slot B0",
+                          "url": "https://example.test/paper/direct/b0"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_0",
+                          "label": "Paper time C0",
+                          "accessibilityLabel": "Paper slot C0",
+                          "url": "https://example.test/paper/direct/c0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-02-19",
+                  "label": "Paper day 2",
+                  "accessibilityLabel": "Select fictional paper day 2",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_1",
+                          "label": "Paper time A1",
+                          "accessibilityLabel": "Paper slot A1",
+                          "url": "https://example.test/paper/direct/a1",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/1"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/1"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_1",
+                          "label": "Paper time B1",
+                          "accessibilityLabel": "Paper slot B1",
+                          "url": "https://example.test/paper/direct/b1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_1",
+                          "label": "Paper time C1",
+                          "accessibilityLabel": "Paper slot C1",
+                          "url": "https://example.test/paper/direct/c1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-03-07",
+                  "label": "Paper day 3",
+                  "accessibilityLabel": "Select fictional paper day 3",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_2",
+                          "label": "Paper time A2",
+                          "accessibilityLabel": "Paper slot A2",
+                          "url": "https://example.test/paper/direct/a2",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/2"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/2"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_2",
+                          "label": "Paper time B2",
+                          "accessibilityLabel": "Paper slot B2",
+                          "url": "https://example.test/paper/direct/b2"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_2",
+                          "label": "Paper time C2",
+                          "accessibilityLabel": "Paper slot C2",
+                          "url": "https://example.test/paper/direct/c2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "paper_location_0_1",
+              "label": "Fictional Paper Room 0/1",
+              "distanceLabel": null,
+              "modality": "telehealth",
+              "actionLabel": "Request room 0/1",
+              "action": {
+                "query": "Use only fictional room 0/1"
+              },
+              "days": [
+                {
+                  "date": "2027-02-04",
+                  "label": "Paper day 1",
+                  "accessibilityLabel": "Select fictional paper day 1",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_0",
+                          "label": "Paper time A0",
+                          "accessibilityLabel": "Paper slot A0",
+                          "url": "https://example.test/paper/direct/a0",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/0"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/0"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_0",
+                          "label": "Paper time B0",
+                          "accessibilityLabel": "Paper slot B0",
+                          "url": "https://example.test/paper/direct/b0"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_0",
+                          "label": "Paper time C0",
+                          "accessibilityLabel": "Paper slot C0",
+                          "url": "https://example.test/paper/direct/c0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-02-19",
+                  "label": "Paper day 2",
+                  "accessibilityLabel": "Select fictional paper day 2",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_1",
+                          "label": "Paper time A1",
+                          "accessibilityLabel": "Paper slot A1",
+                          "url": "https://example.test/paper/direct/a1",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/1"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/1"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_1",
+                          "label": "Paper time B1",
+                          "accessibilityLabel": "Paper slot B1",
+                          "url": "https://example.test/paper/direct/b1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_1",
+                          "label": "Paper time C1",
+                          "accessibilityLabel": "Paper slot C1",
+                          "url": "https://example.test/paper/direct/c1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-03-07",
+                  "label": "Paper day 3",
+                  "accessibilityLabel": "Select fictional paper day 3",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_2",
+                          "label": "Paper time A2",
+                          "accessibilityLabel": "Paper slot A2",
+                          "url": "https://example.test/paper/direct/a2",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/2"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/2"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_2",
+                          "label": "Paper time B2",
+                          "accessibilityLabel": "Paper slot B2",
+                          "url": "https://example.test/paper/direct/b2"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_2",
+                          "label": "Paper time C2",
+                          "accessibilityLabel": "Paper slot C2",
+                          "url": "https://example.test/paper/direct/c2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "paper_provider_1",
+          "name": "Fictional Paper Directory 2",
+          "initials": "P1",
+          "specialty": "Supplied demonstration category",
+          "ratingLabel": null,
+          "reviewCountLabel": "900 supplied reviews",
+          "networkLabel": "Original supplied network text",
+          "inNetwork": false,
+          "summary": "Original synthetic directory entry for interface testing.",
+          "profile": {
+            "url": "https://example.test/paper/profile/1",
+            "query": "This query must not replace the supplied URL."
+          },
+          "locations": [
+            {
+              "id": "paper_location_1_0",
+              "label": "Fictional Paper Room 1/0",
+              "distanceLabel": "0 supplied distance",
+              "modality": "in-person",
+              "partnerLabel": "Original amber square",
+              "partnerLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg==",
+              "partnerGlyph": "P",
+              "actionLabel": "Request room 1/0",
+              "action": {
+                "query": "Use only fictional room 1/0"
+              },
+              "days": [
+                {
+                  "date": "2027-02-04",
+                  "label": "Paper day 1",
+                  "accessibilityLabel": "Select fictional paper day 1",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_0",
+                          "label": "Paper time A0",
+                          "accessibilityLabel": "Paper slot A0",
+                          "url": "https://example.test/paper/direct/a0",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/0"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/0"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_0",
+                          "label": "Paper time B0",
+                          "accessibilityLabel": "Paper slot B0",
+                          "url": "https://example.test/paper/direct/b0"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_0",
+                          "label": "Paper time C0",
+                          "accessibilityLabel": "Paper slot C0",
+                          "url": "https://example.test/paper/direct/c0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-02-19",
+                  "label": "Paper day 2",
+                  "accessibilityLabel": "Select fictional paper day 2",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_1",
+                          "label": "Paper time A1",
+                          "accessibilityLabel": "Paper slot A1",
+                          "url": "https://example.test/paper/direct/a1",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/1"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/1"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_1",
+                          "label": "Paper time B1",
+                          "accessibilityLabel": "Paper slot B1",
+                          "url": "https://example.test/paper/direct/b1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_1",
+                          "label": "Paper time C1",
+                          "accessibilityLabel": "Paper slot C1",
+                          "url": "https://example.test/paper/direct/c1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-03-07",
+                  "label": "Paper day 3",
+                  "accessibilityLabel": "Select fictional paper day 3",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_2",
+                          "label": "Paper time A2",
+                          "accessibilityLabel": "Paper slot A2",
+                          "url": "https://example.test/paper/direct/a2",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/2"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/2"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_2",
+                          "label": "Paper time B2",
+                          "accessibilityLabel": "Paper slot B2",
+                          "url": "https://example.test/paper/direct/b2"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_2",
+                          "label": "Paper time C2",
+                          "accessibilityLabel": "Paper slot C2",
+                          "url": "https://example.test/paper/direct/c2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "paper_location_1_1",
+              "label": "Fictional Paper Room 1/1",
+              "distanceLabel": null,
+              "modality": "telehealth",
+              "actionLabel": "Request room 1/1",
+              "action": {
+                "query": "Use only fictional room 1/1"
+              },
+              "days": [
+                {
+                  "date": "2027-02-04",
+                  "label": "Paper day 1",
+                  "accessibilityLabel": "Select fictional paper day 1",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_0",
+                          "label": "Paper time A0",
+                          "accessibilityLabel": "Paper slot A0",
+                          "url": "https://example.test/paper/direct/a0",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/0"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/0"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_0",
+                          "label": "Paper time B0",
+                          "accessibilityLabel": "Paper slot B0",
+                          "url": "https://example.test/paper/direct/b0"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_0",
+                          "label": "Paper time C0",
+                          "accessibilityLabel": "Paper slot C0",
+                          "url": "https://example.test/paper/direct/c0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-02-19",
+                  "label": "Paper day 2",
+                  "accessibilityLabel": "Select fictional paper day 2",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_1",
+                          "label": "Paper time A1",
+                          "accessibilityLabel": "Paper slot A1",
+                          "url": "https://example.test/paper/direct/a1",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/1"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/1"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_1",
+                          "label": "Paper time B1",
+                          "accessibilityLabel": "Paper slot B1",
+                          "url": "https://example.test/paper/direct/b1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_1",
+                          "label": "Paper time C1",
+                          "accessibilityLabel": "Paper slot C1",
+                          "url": "https://example.test/paper/direct/c1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-03-07",
+                  "label": "Paper day 3",
+                  "accessibilityLabel": "Select fictional paper day 3",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_2",
+                          "label": "Paper time A2",
+                          "accessibilityLabel": "Paper slot A2",
+                          "url": "https://example.test/paper/direct/a2",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/2"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/2"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_2",
+                          "label": "Paper time B2",
+                          "accessibilityLabel": "Paper slot B2",
+                          "url": "https://example.test/paper/direct/b2"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_2",
+                          "label": "Paper time C2",
+                          "accessibilityLabel": "Paper slot C2",
+                          "url": "https://example.test/paper/direct/c2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "paper_provider_2",
+          "name": "Fictional Paper Directory 3",
+          "initials": "P2",
+          "specialty": "Supplied demonstration category",
+          "ratingLabel": "0",
+          "reviewCountLabel": "900 supplied reviews",
+          "networkLabel": "Original supplied network text",
+          "inNetwork": false,
+          "summary": "Original synthetic directory entry for interface testing.",
+          "profile": {
+            "url": "https://example.test/paper/profile/2",
+            "query": "This query must not replace the supplied URL."
+          },
+          "locations": [
+            {
+              "id": "paper_location_2_0",
+              "label": "Fictional Paper Room 2/0",
+              "distanceLabel": "0 supplied distance",
+              "modality": "in-person",
+              "partnerLabel": "Original amber square",
+              "partnerLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg==",
+              "partnerGlyph": "P",
+              "actionLabel": "Request room 2/0",
+              "action": {
+                "query": "Use only fictional room 2/0"
+              },
+              "days": [
+                {
+                  "date": "2027-02-04",
+                  "label": "Paper day 1",
+                  "accessibilityLabel": "Select fictional paper day 1",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_0",
+                          "label": "Paper time A0",
+                          "accessibilityLabel": "Paper slot A0",
+                          "url": "https://example.test/paper/direct/a0",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/0"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/0"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_0",
+                          "label": "Paper time B0",
+                          "accessibilityLabel": "Paper slot B0",
+                          "url": "https://example.test/paper/direct/b0"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_0",
+                          "label": "Paper time C0",
+                          "accessibilityLabel": "Paper slot C0",
+                          "url": "https://example.test/paper/direct/c0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-02-19",
+                  "label": "Paper day 2",
+                  "accessibilityLabel": "Select fictional paper day 2",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_1",
+                          "label": "Paper time A1",
+                          "accessibilityLabel": "Paper slot A1",
+                          "url": "https://example.test/paper/direct/a1",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/1"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/1"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_1",
+                          "label": "Paper time B1",
+                          "accessibilityLabel": "Paper slot B1",
+                          "url": "https://example.test/paper/direct/b1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_1",
+                          "label": "Paper time C1",
+                          "accessibilityLabel": "Paper slot C1",
+                          "url": "https://example.test/paper/direct/c1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-03-07",
+                  "label": "Paper day 3",
+                  "accessibilityLabel": "Select fictional paper day 3",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_2",
+                          "label": "Paper time A2",
+                          "accessibilityLabel": "Paper slot A2",
+                          "url": "https://example.test/paper/direct/a2",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/2"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/2"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_2",
+                          "label": "Paper time B2",
+                          "accessibilityLabel": "Paper slot B2",
+                          "url": "https://example.test/paper/direct/b2"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_2",
+                          "label": "Paper time C2",
+                          "accessibilityLabel": "Paper slot C2",
+                          "url": "https://example.test/paper/direct/c2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "paper_location_2_1",
+              "label": "Fictional Paper Room 2/1",
+              "distanceLabel": null,
+              "modality": "telehealth",
+              "actionLabel": "Request room 2/1",
+              "action": {
+                "query": "Use only fictional room 2/1"
+              },
+              "days": [
+                {
+                  "date": "2027-02-04",
+                  "label": "Paper day 1",
+                  "accessibilityLabel": "Select fictional paper day 1",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_0",
+                          "label": "Paper time A0",
+                          "accessibilityLabel": "Paper slot A0",
+                          "url": "https://example.test/paper/direct/a0",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/0"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/0"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_0",
+                          "label": "Paper time B0",
+                          "accessibilityLabel": "Paper slot B0",
+                          "url": "https://example.test/paper/direct/b0"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_0",
+                          "label": "Paper time C0",
+                          "accessibilityLabel": "Paper slot C0",
+                          "url": "https://example.test/paper/direct/c0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-02-19",
+                  "label": "Paper day 2",
+                  "accessibilityLabel": "Select fictional paper day 2",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_1",
+                          "label": "Paper time A1",
+                          "accessibilityLabel": "Paper slot A1",
+                          "url": "https://example.test/paper/direct/a1",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/1"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/1"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_1",
+                          "label": "Paper time B1",
+                          "accessibilityLabel": "Paper slot B1",
+                          "url": "https://example.test/paper/direct/b1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_1",
+                          "label": "Paper time C1",
+                          "accessibilityLabel": "Paper slot C1",
+                          "url": "https://example.test/paper/direct/c1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "date": "2027-03-07",
+                  "label": "Paper day 3",
+                  "accessibilityLabel": "Select fictional paper day 3",
+                  "countLabel": "700 supplied options",
+                  "groups": [
+                    {
+                      "label": "Original first group",
+                      "slots": [
+                        {
+                          "id": "choose_2",
+                          "label": "Paper time A2",
+                          "accessibilityLabel": "Paper slot A2",
+                          "url": "https://example.test/paper/direct/a2",
+                          "chooseLabel": "Choose original visit label",
+                          "dismissLabel": "Close original visit labels",
+                          "options": [
+                            {
+                              "id": "blue",
+                              "label": "Blue paper visit",
+                              "accessibilityLabel": "Request blue paper visit",
+                              "url": "https://example.test/paper/blue/2"
+                            },
+                            {
+                              "id": "amber",
+                              "label": "Amber paper visit",
+                              "accessibilityLabel": "Request amber paper visit",
+                              "url": "https://example.test/paper/amber/2"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "peer_2",
+                          "label": "Paper time B2",
+                          "accessibilityLabel": "Paper slot B2",
+                          "url": "https://example.test/paper/direct/b2"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Independent second group",
+                      "slots": [
+                        {
+                          "id": "other_2",
+                          "label": "Paper time C2",
+                          "accessibilityLabel": "Paper slot C2",
+                          "url": "https://example.test/paper/direct/c2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "providersToShow": 1,
+      "expandedProvidersToShow": 3,
+      "showMoreLabel": "Show three fictional cards",
+      "noAvailabilityLabel": "No supplied paper slots",
+      "selectedLocationId": "paper_location_0_0",
+      "selectedDate": "2027-02-04",
+      "hasMoreResults": true,
+      "moreResultsLabel": "Request the original next page",
+      "moreResultsQuery": "Request only the next fictional paper page.",
+      "nextCursor": "",
+      "resetLabel": "Reset paper directory",
+      "loadImageLabel": "Load original supplied directory artwork"
+    },
+    {
+      "type": "care-provider-sidebar",
+      "id": "paper_sidebar",
+      "label": "Original supplied paper sidebar",
+      "provider": {
+        "id": "paper_provider_0",
+        "name": "Fictional Paper Directory 1",
+        "initials": "P0",
+        "photo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg==",
+        "photoAlt": "Original blue square, no person pictured",
+        "specialty": "Supplied demonstration category",
+        "ratingLabel": "0",
+        "reviewCountLabel": "900 supplied reviews",
+        "networkLabel": "Original supplied network text",
+        "inNetwork": false,
+        "summary": "Original synthetic directory entry for interface testing.",
+        "profile": {
+          "url": "https://example.test/paper/profile/0",
+          "query": "This query must not replace the supplied URL."
+        },
+        "locations": [
+          {
+            "id": "paper_location_0_0",
+            "label": "Fictional Paper Room 0/0",
+            "distanceLabel": "0 supplied distance",
+            "modality": "in-person",
+            "partnerLabel": "Original amber square",
+            "partnerLogo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg==",
+            "partnerGlyph": "P",
+            "actionLabel": "Request room 0/0",
+            "action": {
+              "query": "Use only fictional room 0/0"
+            },
+            "days": [
+              {
+                "date": "2027-02-04",
+                "label": "Paper day 1",
+                "accessibilityLabel": "Select fictional paper day 1",
+                "countLabel": "700 supplied options",
+                "groups": [
+                  {
+                    "label": "Original first group",
+                    "slots": [
+                      {
+                        "id": "choose_0",
+                        "label": "Paper time A0",
+                        "accessibilityLabel": "Paper slot A0",
+                        "url": "https://example.test/paper/direct/a0",
+                        "chooseLabel": "Choose original visit label",
+                        "dismissLabel": "Close original visit labels",
+                        "options": [
+                          {
+                            "id": "blue",
+                            "label": "Blue paper visit",
+                            "accessibilityLabel": "Request blue paper visit",
+                            "url": "https://example.test/paper/blue/0"
+                          },
+                          {
+                            "id": "amber",
+                            "label": "Amber paper visit",
+                            "accessibilityLabel": "Request amber paper visit",
+                            "url": "https://example.test/paper/amber/0"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "peer_0",
+                        "label": "Paper time B0",
+                        "accessibilityLabel": "Paper slot B0",
+                        "url": "https://example.test/paper/direct/b0"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Independent second group",
+                    "slots": [
+                      {
+                        "id": "other_0",
+                        "label": "Paper time C0",
+                        "accessibilityLabel": "Paper slot C0",
+                        "url": "https://example.test/paper/direct/c0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "date": "2027-02-19",
+                "label": "Paper day 2",
+                "accessibilityLabel": "Select fictional paper day 2",
+                "countLabel": "700 supplied options",
+                "groups": [
+                  {
+                    "label": "Original first group",
+                    "slots": [
+                      {
+                        "id": "choose_1",
+                        "label": "Paper time A1",
+                        "accessibilityLabel": "Paper slot A1",
+                        "url": "https://example.test/paper/direct/a1",
+                        "chooseLabel": "Choose original visit label",
+                        "dismissLabel": "Close original visit labels",
+                        "options": [
+                          {
+                            "id": "blue",
+                            "label": "Blue paper visit",
+                            "accessibilityLabel": "Request blue paper visit",
+                            "url": "https://example.test/paper/blue/1"
+                          },
+                          {
+                            "id": "amber",
+                            "label": "Amber paper visit",
+                            "accessibilityLabel": "Request amber paper visit",
+                            "url": "https://example.test/paper/amber/1"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "peer_1",
+                        "label": "Paper time B1",
+                        "accessibilityLabel": "Paper slot B1",
+                        "url": "https://example.test/paper/direct/b1"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Independent second group",
+                    "slots": [
+                      {
+                        "id": "other_1",
+                        "label": "Paper time C1",
+                        "accessibilityLabel": "Paper slot C1",
+                        "url": "https://example.test/paper/direct/c1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "date": "2027-03-07",
+                "label": "Paper day 3",
+                "accessibilityLabel": "Select fictional paper day 3",
+                "countLabel": "700 supplied options",
+                "groups": [
+                  {
+                    "label": "Original first group",
+                    "slots": [
+                      {
+                        "id": "choose_2",
+                        "label": "Paper time A2",
+                        "accessibilityLabel": "Paper slot A2",
+                        "url": "https://example.test/paper/direct/a2",
+                        "chooseLabel": "Choose original visit label",
+                        "dismissLabel": "Close original visit labels",
+                        "options": [
+                          {
+                            "id": "blue",
+                            "label": "Blue paper visit",
+                            "accessibilityLabel": "Request blue paper visit",
+                            "url": "https://example.test/paper/blue/2"
+                          },
+                          {
+                            "id": "amber",
+                            "label": "Amber paper visit",
+                            "accessibilityLabel": "Request amber paper visit",
+                            "url": "https://example.test/paper/amber/2"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "peer_2",
+                        "label": "Paper time B2",
+                        "accessibilityLabel": "Paper slot B2",
+                        "url": "https://example.test/paper/direct/b2"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Independent second group",
+                    "slots": [
+                      {
+                        "id": "other_2",
+                        "label": "Paper time C2",
+                        "accessibilityLabel": "Paper slot C2",
+                        "url": "https://example.test/paper/direct/c2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "paper_location_0_1",
+            "label": "Fictional Paper Room 0/1",
+            "distanceLabel": null,
+            "modality": "telehealth",
+            "actionLabel": "Request room 0/1",
+            "action": {
+              "query": "Use only fictional room 0/1"
+            },
+            "days": [
+              {
+                "date": "2027-02-04",
+                "label": "Paper day 1",
+                "accessibilityLabel": "Select fictional paper day 1",
+                "countLabel": "700 supplied options",
+                "groups": [
+                  {
+                    "label": "Original first group",
+                    "slots": [
+                      {
+                        "id": "choose_0",
+                        "label": "Paper time A0",
+                        "accessibilityLabel": "Paper slot A0",
+                        "url": "https://example.test/paper/direct/a0",
+                        "chooseLabel": "Choose original visit label",
+                        "dismissLabel": "Close original visit labels",
+                        "options": [
+                          {
+                            "id": "blue",
+                            "label": "Blue paper visit",
+                            "accessibilityLabel": "Request blue paper visit",
+                            "url": "https://example.test/paper/blue/0"
+                          },
+                          {
+                            "id": "amber",
+                            "label": "Amber paper visit",
+                            "accessibilityLabel": "Request amber paper visit",
+                            "url": "https://example.test/paper/amber/0"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "peer_0",
+                        "label": "Paper time B0",
+                        "accessibilityLabel": "Paper slot B0",
+                        "url": "https://example.test/paper/direct/b0"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Independent second group",
+                    "slots": [
+                      {
+                        "id": "other_0",
+                        "label": "Paper time C0",
+                        "accessibilityLabel": "Paper slot C0",
+                        "url": "https://example.test/paper/direct/c0"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "date": "2027-02-19",
+                "label": "Paper day 2",
+                "accessibilityLabel": "Select fictional paper day 2",
+                "countLabel": "700 supplied options",
+                "groups": [
+                  {
+                    "label": "Original first group",
+                    "slots": [
+                      {
+                        "id": "choose_1",
+                        "label": "Paper time A1",
+                        "accessibilityLabel": "Paper slot A1",
+                        "url": "https://example.test/paper/direct/a1",
+                        "chooseLabel": "Choose original visit label",
+                        "dismissLabel": "Close original visit labels",
+                        "options": [
+                          {
+                            "id": "blue",
+                            "label": "Blue paper visit",
+                            "accessibilityLabel": "Request blue paper visit",
+                            "url": "https://example.test/paper/blue/1"
+                          },
+                          {
+                            "id": "amber",
+                            "label": "Amber paper visit",
+                            "accessibilityLabel": "Request amber paper visit",
+                            "url": "https://example.test/paper/amber/1"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "peer_1",
+                        "label": "Paper time B1",
+                        "accessibilityLabel": "Paper slot B1",
+                        "url": "https://example.test/paper/direct/b1"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Independent second group",
+                    "slots": [
+                      {
+                        "id": "other_1",
+                        "label": "Paper time C1",
+                        "accessibilityLabel": "Paper slot C1",
+                        "url": "https://example.test/paper/direct/c1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "date": "2027-03-07",
+                "label": "Paper day 3",
+                "accessibilityLabel": "Select fictional paper day 3",
+                "countLabel": "700 supplied options",
+                "groups": [
+                  {
+                    "label": "Original first group",
+                    "slots": [
+                      {
+                        "id": "choose_2",
+                        "label": "Paper time A2",
+                        "accessibilityLabel": "Paper slot A2",
+                        "url": "https://example.test/paper/direct/a2",
+                        "chooseLabel": "Choose original visit label",
+                        "dismissLabel": "Close original visit labels",
+                        "options": [
+                          {
+                            "id": "blue",
+                            "label": "Blue paper visit",
+                            "accessibilityLabel": "Request blue paper visit",
+                            "url": "https://example.test/paper/blue/2"
+                          },
+                          {
+                            "id": "amber",
+                            "label": "Amber paper visit",
+                            "accessibilityLabel": "Request amber paper visit",
+                            "url": "https://example.test/paper/amber/2"
+                          }
+                        ]
+                      },
+                      {
+                        "id": "peer_2",
+                        "label": "Paper time B2",
+                        "accessibilityLabel": "Paper slot B2",
+                        "url": "https://example.test/paper/direct/b2"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Independent second group",
+                    "slots": [
+                      {
+                        "id": "other_2",
+                        "label": "Paper time C2",
+                        "accessibilityLabel": "Paper slot C2",
+                        "url": "https://example.test/paper/direct/c2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "locationLabel": "Original selected paper room",
+      "modality": "telehealth",
+      "locationOptions": [
+        {
+          "id": "room_a",
+          "label": "Original selected room A",
+          "accessibilityLabel": "Supplied room A is selected",
+          "selected": true,
+          "action": {
+            "query": "Request fictional room A"
+          }
+        },
+        {
+          "id": "room_b",
+          "label": "Original alternative room B",
+          "accessibilityLabel": "Request supplied room B",
+          "selected": false,
+          "action": {
+            "url": "https://example.test/paper/room-b",
+            "query": "URL takes precedence over this query"
+          }
+        }
+      ],
+      "directions": {
+        "label": "Request supplied paper directions",
+        "url": "https://example.test/paper/directions"
+      },
+      "profileLink": {
+        "label": "Request supplied paper profile",
+        "url": "https://example.test/paper/profile"
+      },
+      "appointmentsHeading": "Supplied paper time labels",
+      "noAppointmentsLabel": "No supplied paper times",
+      "days": [
+        {
+          "date": "2027-02-04",
+          "label": "Paper day 1",
+          "accessibilityLabel": "Select fictional paper day 1",
+          "countLabel": "700 supplied options",
+          "groups": [
+            {
+              "label": "Original first group",
+              "slots": [
+                {
+                  "id": "choose_0",
+                  "label": "Paper time A0",
+                  "accessibilityLabel": "Paper slot A0",
+                  "url": "https://example.test/paper/direct/a0"
+                },
+                {
+                  "id": "peer_0",
+                  "label": "Paper time B0",
+                  "accessibilityLabel": "Paper slot B0",
+                  "url": "https://example.test/paper/direct/b0"
+                }
+              ]
+            },
+            {
+              "label": "Independent second group",
+              "slots": [
+                {
+                  "id": "other_0",
+                  "label": "Paper time C0",
+                  "accessibilityLabel": "Paper slot C0",
+                  "url": "https://example.test/paper/direct/c0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "date": "2027-02-19",
+          "label": "Paper day 2",
+          "accessibilityLabel": "Select fictional paper day 2",
+          "countLabel": "700 supplied options",
+          "groups": [
+            {
+              "label": "Original first group",
+              "slots": [
+                {
+                  "id": "choose_1",
+                  "label": "Paper time A1",
+                  "accessibilityLabel": "Paper slot A1",
+                  "url": "https://example.test/paper/direct/a1"
+                },
+                {
+                  "id": "peer_1",
+                  "label": "Paper time B1",
+                  "accessibilityLabel": "Paper slot B1",
+                  "url": "https://example.test/paper/direct/b1"
+                }
+              ]
+            },
+            {
+              "label": "Independent second group",
+              "slots": [
+                {
+                  "id": "other_1",
+                  "label": "Paper time C1",
+                  "accessibilityLabel": "Paper slot C1",
+                  "url": "https://example.test/paper/direct/c1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "date": "2027-03-07",
+          "label": "Paper day 3",
+          "accessibilityLabel": "Select fictional paper day 3",
+          "countLabel": "700 supplied options",
+          "groups": [
+            {
+              "label": "Original first group",
+              "slots": [
+                {
+                  "id": "choose_2",
+                  "label": "Paper time A2",
+                  "accessibilityLabel": "Paper slot A2",
+                  "url": "https://example.test/paper/direct/a2"
+                },
+                {
+                  "id": "peer_2",
+                  "label": "Paper time B2",
+                  "accessibilityLabel": "Paper slot B2",
+                  "url": "https://example.test/paper/direct/b2"
+                }
+              ]
+            },
+            {
+              "label": "Independent second group",
+              "slots": [
+                {
+                  "id": "other_2",
+                  "label": "Paper time C2",
+                  "accessibilityLabel": "Paper slot C2",
+                  "url": "https://example.test/paper/direct/c2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "selectedDate": "2027-02-04",
+      "selectedMonth": 0,
+      "months": [
+        {
+          "id": "mosaic_a",
+          "label": "Original calendar panel A",
+          "firstAvailableDate": "2027-02-04",
+          "days": [
+            {
+              "date": "2027-01-31",
+              "label": "outside",
+              "accessibilityLabel": "Outside supplied panel",
+              "currentMonth": false,
+              "available": false
+            },
+            {
+              "date": "2027-02-04",
+              "label": "04",
+              "accessibilityLabel": "First supplied date cell",
+              "currentMonth": true,
+              "available": true
+            },
+            {
+              "date": "2027-02-19",
+              "label": "19",
+              "accessibilityLabel": "Unavailable supplied date cell",
+              "currentMonth": true,
+              "available": false
+            }
+          ]
+        },
+        {
+          "id": "mosaic_b",
+          "label": "Original calendar panel B",
+          "firstAvailableDate": "2027-03-07",
+          "days": [
+            {
+              "date": "2027-03-07",
+              "label": "07",
+              "accessibilityLabel": "Third supplied date cell",
+              "currentMonth": true,
+              "available": true
+            }
+          ]
+        }
+      ],
+      "weekdayLabels": [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five",
+        "Six",
+        "Seven"
+      ],
+      "previousMonthLabel": "Previous supplied panel",
+      "nextMonthLabel": "Next supplied panel",
+      "closeLabel": "Close original room choices",
+      "resetLabel": "Reset original sidebar"
+    }
+  ]
+}

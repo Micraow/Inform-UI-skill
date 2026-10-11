@@ -333,3 +333,15 @@ node candidates/learning-viz/verify-source.mjs --library /path/to/ui-learning-vi
 Source208 is not a new CDN or native result. The exact183 asset and its3428 Node/742 Chromium CI receipt remain scoped to that frozen version.
 
 The LearningViz source has independent functional confirmation. Exact inventory `bf43b2f8972ff9da7af232d45c773ded7a31322f` records203 implemented (53 historical+150 pending),0 partial and53 missing with208 registrations. This current declaration does not change the frozen183 native scope.
+
+## Supplied directory and calendar source210
+
+[Original Care consumers](candidates/care-providers/README.md) check exactd1e555e6 with16 positive/22 negative documents and7 actual DOM/standalone groups. Supplied rating0/null, slot count labels, stable one-to-three disclosure, exact empty cursor, grouped visit choices, calendar cells and overlay/reset focus remain explicit.372 prior definitions and20 selected hashes are preserved with0 external requests or clinical/booking services.
+
+```sh
+node candidates/care-providers/verify-source.mjs --library /path/to/ui-care-providers
+```
+
+The source-only210 registration is separate from previous CDN/native acceptance. No real provider or patient information is used.
+
+Both Care presentations have independent functional confirmation. Exact inventory `ab6636ada73f8373a53d5893aef2728cf4d2f8fd` records205 implemented (53 historical+152 pending),0 partial and51 missing, with210 registrations. Previous fixed source/CDN/native results keep their original scopes.

@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 208,
+  "protocolNodes": 210,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 150,
+    "implemented_pending_verification": 152,
     "partial": 0,
-    "not_implemented": 53
+    "not_implemented": 51
   },
-  "completeImplementationCoverage": 203,
+  "completeImplementationCoverage": 205,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope203/0/53 includes independently confirmed finite LearningViz with supplied light/dark animation, local playback and ownership. Protocol208 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope205/0/51 includes independently confirmed supplied Care results and sidebar calendar, with finite local requests and ownership. Protocol210 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -441,6 +441,20 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "e6bb5837fa5a7f6ba90b4889013be1350300dc3f",
       "consumer": "candidates/learning-viz",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "care-provider-results",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "d1e555e6467b9188cd87a7e284f5e9326f2cc6b2",
+      "consumer": "candidates/care-providers",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "care-provider-sidebar",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "d1e555e6467b9188cd87a7e284f5e9326f2cc6b2",
+      "consumer": "candidates/care-providers",
       "nativeAndPixelAcceptance": false
     }
   ]
