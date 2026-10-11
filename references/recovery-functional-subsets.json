@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 184,
+  "protocolNodes": 185,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 126,
+    "implemented_pending_verification": 127,
     "partial": 0,
-    "not_implemented": 77
+    "not_implemented": 76
   },
-  "completeImplementationCoverage": 179,
+  "completeImplementationCoverage": 180,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope179/0/77 includes independent AskUserLocation V1 functional completion. Protocol184 is separate. Native/reference pixels and CI remain separate. Unified183 remains178/0/78; frozen164 remains158/1/97 and older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope180/0/76 includes independently confirmed Reservation carousel, with its ordinary reader not separately counted. Protocol185 is separate. Native/reference pixels and CI remain separate. Frozen183 stays178/0/78;164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -273,6 +273,13 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "60154c7f384d09f724b1481f4adadce9247053d5",
       "consumer": "candidates/ask-location",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "reservation-time-pills-ref-carousel",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "37e4ba7af5e0b39f80a80513b145c300757ba21e",
+      "consumer": "candidates/reservation-carousel",
       "nativeAndPixelAcceptance": false
     }
   ]

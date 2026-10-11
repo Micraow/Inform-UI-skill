@@ -1,0 +1,75 @@
+{
+  "format": "inform-original-fixture-index/1",
+  "fixtures": [
+    {
+      "family": "ask-user",
+      "example": "candidates/ask-user/examples/original-requests.json",
+      "exampleSha256": "c7f482a9a89d8ccf48bd546cde60749268bbd5a909e4ffd86471e5a600047292",
+      "cases": "candidates/ask-user/cases.mjs",
+      "casesSha256": "c32f6fbc1d367d9121eb7d21ec130db8155bd8e0f71f5afe6e2c1e838026dc1b"
+    },
+    {
+      "family": "ledger-categories",
+      "example": "candidates/ledger-categories/examples/original-categories.json",
+      "exampleSha256": "13eca5e395418fb8bb13da24fe19e664a38b7ee189457e8523fa3b6dac7c235a",
+      "cases": "candidates/ledger-categories/cases.mjs",
+      "casesSha256": "33a017dfc507563955d2b67aeae7b737d53997d614ffa231e4c7ba4493a889ef"
+    },
+    {
+      "family": "voice-cards",
+      "example": "candidates/voice-cards/examples/original-voice.json",
+      "exampleSha256": "3ee70d95369da5b11c9056dc11826d8dc7b10d2b104c246c658cf9ead25ec714",
+      "cases": "candidates/voice-cards/cases.mjs",
+      "casesSha256": "93e687d5241473d1a3625680da31dc60bff44699131213ae9552510a67bfd4f4"
+    },
+    {
+      "family": "onboarding-advice-writing",
+      "example": "candidates/onboarding-advice-writing/examples/original-demonstrations.json",
+      "exampleSha256": "1f12130b396ed2ba875931a8b39aeed71edef227169da993f57291b8b020466c",
+      "cases": "candidates/onboarding-advice-writing/cases.mjs",
+      "casesSha256": "824d6665cdec21f3f52d2f14f8a0d0f69a802ce9551b97e7cfa21fb071fe2ed8"
+    },
+    {
+      "family": "onboarding-cards",
+      "example": "candidates/onboarding-cards/examples/original-onboarding-cards.json",
+      "exampleSha256": "c94388d1d7151ea5a00ad98011390a212f30d6a7dd4ffaed064545a95ab07c5d",
+      "cases": "candidates/onboarding-cards/cases.mjs",
+      "casesSha256": "aa4a145765cdc7e998161bdc9034b0cc91c9bd581ce9670cba28ada625e359b4"
+    },
+    {
+      "family": "study-onboarding",
+      "example": "candidates/study-onboarding/examples/original-study.json",
+      "exampleSha256": "d0a350e4e0f9f9e1eb27da0900e6b612f9934ef85c4d5dde589e88b6b15ef789",
+      "cases": "candidates/study-onboarding/cases.mjs",
+      "casesSha256": "82b25e8f915e91fc4bd9e35278ec5992ba00a71eda01e9765c2709bd6fbc05dd"
+    },
+    {
+      "family": "weather-supplied",
+      "example": "candidates/weather-supplied/examples/original-weather.json",
+      "exampleSha256": "adceae45968d23c914a2401aafc0f36e6275f7372bc49701b1165e30a8fdd4a8",
+      "cases": "candidates/weather-supplied/cases.mjs",
+      "casesSha256": "81cf0bf423345e39dce13e5aee1e513de6496d9ca879b8fa5edd94589dd66d91"
+    },
+    {
+      "family": "search-onboarding",
+      "example": "candidates/search-onboarding/examples/original-search.json",
+      "exampleSha256": "2720c32541ba9ca77781520e072611fd9681a68b32ff0bb7df3a1e5831685864",
+      "cases": "candidates/search-onboarding/cases.mjs",
+      "casesSha256": "b89b41d98874087f294adf7c296cf52b23887c437dc31351b230e4ae293a45c1"
+    },
+    {
+      "family": "quiz-cards",
+      "example": "candidates/quiz-cards/examples/original-quiz-cards.json",
+      "exampleSha256": "c5a68a4ef6b9e8ac8e7ac145f319e0fde62cb09a798f0e8bd8f021586566de8a",
+      "cases": "candidates/quiz-cards/cases.mjs",
+      "casesSha256": "2a8f14a82337d99e2980e32ebc4b8dbe851481b35b5033a2db5b31e3fcc33ed6"
+    },
+    {
+      "family": "capability-welcome",
+      "example": "candidates/capability-welcome/examples/original-welcome.json",
+      "exampleSha256": "cc31bbaf48147f5b3bb6cebfc9d62c06d5a47d185222a02559a010e87e501c6a",
+      "cases": "candidates/capability-welcome/cases.mjs",
+      "casesSha256": "f8fc40c2b68e0dc26d823338a90ced093b1b6de3148748dfdeb8017d3aae8ae6"
+    }
+  ]
+}

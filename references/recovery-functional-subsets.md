@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **179 implemented**:53 historical functional acceptances and126 pending native/reference verification. No ID is currently partial and77 are not implemented. Protocol184 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the179 count.
+The current source inventory is **180 implemented**:53 historical functional acceptances and127 pending native/reference verification. No ID is currently partial and76 are not implemented. Protocol185 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the180 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -27,3 +27,5 @@ Search完成以c900bd35准确后继为准：独立10/10及原两负控转绿，�
 Quiz三项以21a85df准确源（独立11/11、消费者12正20负/7组）完成，Welcome以f72f89ba（独立8/8、消费者10正16负/5组）完成。结果、能力和动作均显式供数，未进行性格推断或外部服务执行。
 
 AskUserLocation V1以60154c7准确源完成，独立8/8、消费者8正12负/5组；全部操作仅本地可取消意图，0定位/权限访问。单独统一183固定178/0/78不跟随当前计数变化。
+
+Reservation carousel以37e4ba7准确源完成，独立11/11、消费者10正16负/6组。普通ReservationPillsData只为可复用定义，不增加第二个canonical ID。固定183资产计数保持178/0/78。
