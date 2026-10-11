@@ -1,0 +1,88 @@
+{
+  "version": "iui/1",
+  "theme": "light",
+  "body": [
+    {
+      "type": "places-metadata-bar",
+      "id": "paper_place_metadata",
+      "label": "Fictional paper-room metadata",
+      "ratingLabel": "0 supplied",
+      "reviewCountLabel": "0 supplied reviews",
+      "providerLabel": "Fictional room index",
+      "providerUrl": "https://example.test/paper-room-index",
+      "providerLogo": {
+        "light": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg==",
+        "dark": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg=="
+      },
+      "providerLogoWidth": 24,
+      "items": [
+        {
+          "label": "Fictional paper quarter",
+          "color": "secondary"
+        },
+        {
+          "label": "Supplied open label",
+          "color": "positive"
+        }
+      ],
+      "requestedLabel": "Original local context request accepted",
+      "cancelledLabel": "Original local context request canceled",
+      "resetLabel": "Clear this local context receipt",
+      "loadImageLabel": "Load this supplied context image"
+    },
+    {
+      "type": "plugin-followup",
+      "id": "paper_plugin_offer",
+      "label": "Fictional local plugin offer",
+      "available": true,
+      "offerId": "fictional-paper-offer",
+      "pluginId": "fictional-paper-tool",
+      "actionLabel": "Request the supplied plugin option",
+      "context": "Original context text only. No plugin is installed or invoked.",
+      "icon": {
+        "light": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg==",
+        "dark": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGN4UCZHEmIY1TCqYfhqAACGdnQQouyA1gAAAABJRU5ErkJggg=="
+      },
+      "requestedLabel": "Original local context request accepted",
+      "cancelledLabel": "Original local context request canceled",
+      "resetLabel": "Clear this local context receipt",
+      "loadImageLabel": "Load this supplied context image"
+    },
+    {
+      "type": "instant-suggestions",
+      "id": "paper_instant_prompts",
+      "label": "Original finite paper prompts",
+      "title": "Choose an original supplied prompt",
+      "category": "fictional-paper-category",
+      "suggestions": [
+        {
+          "id": "paired",
+          "prompt": "Explain the supplied paper diagram.",
+          "answerId": "original-answer-paper",
+          "entityId": "original-entity-paper"
+        },
+        {
+          "id": "answer_only",
+          "prompt": "Read only the supplied notes.",
+          "answerId": "original-unpaired-answer"
+        },
+        {
+          "id": "entity_only",
+          "prompt": "Compare the fictional labels.",
+          "entityId": "original-unpaired-entity"
+        },
+        {
+          "id": "disabled",
+          "prompt": "This disabled prompt must stay inactive.",
+          "answerId": "original-disabled-answer",
+          "entityId": "original-disabled-entity",
+          "disabled": true
+        }
+      ],
+      "requestedLabel": "Original local context request accepted",
+      "cancelledLabel": "Original local context request canceled",
+      "resetLabel": "Clear this local context receipt",
+      "loadImageLabel": "Load this supplied context image"
+    }
+  ]
+}

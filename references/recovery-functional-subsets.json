@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 192,
+  "protocolNodes": 195,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 134,
+    "implemented_pending_verification": 137,
     "partial": 0,
-    "not_implemented": 69
+    "not_implemented": 66
   },
-  "completeImplementationCoverage": 187,
+  "completeImplementationCoverage": 190,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope187/0/69 includes independently confirmed three supplied finance-entry presentations. Protocol192 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope190/0/66 includes independently confirmed three supplied context-action presentations. Protocol195 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -329,6 +329,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "cbaf3d7c96db6fc6abdd0feaf3782ed49dc6a240",
       "consumer": "candidates/finance-entry",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "places-metadata-bar",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "9344fac1cd4c99efb57c70a3eb5424811243df5b",
+      "consumer": "candidates/context-actions",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "plugin-followup",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "9344fac1cd4c99efb57c70a3eb5424811243df5b",
+      "consumer": "candidates/context-actions",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "instant-suggestions",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "9344fac1cd4c99efb57c70a3eb5424811243df5b",
+      "consumer": "candidates/context-actions",
       "nativeAndPixelAcceptance": false
     }
   ]
