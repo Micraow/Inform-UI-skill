@@ -301,3 +301,13 @@ node candidates/supplied-discovery/verify-source.mjs --library /path/to/ui-suppl
 ```
 
 The source203 family has independent functional confirmation; current inventorya7c122c2 records198/0/58 with203 registrations. Earlier source/asset scopes remain historical snapshots.
+
+## Supplied credit source205
+
+[The original fictional score/detail consumers](candidates/credit-score/README.md) verify exact4c059 with16 positive/22 negative documents and8 actual DOM/standalone workflows.367 old definitions and20 hashes remain bound, with48 authored files/3dist identity matched. Independent score labels, marker and SVG coordinates, full mask including accessible values, actual80ms timers, Escape focus and reset/new input are covered. There is no real financial record, assessment, advice or service call.
+
+```sh
+node candidates/credit-score/verify-source.mjs --library /path/to/ui-credit-score
+```
+
+The source205 views have independent functional confirmation; current inventory3b7623c0 records200/0/56 with205 registrations. Earlier source/asset scopes remain historical snapshots.

@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 203,
+  "protocolNodes": 205,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 145,
+    "implemented_pending_verification": 147,
     "partial": 0,
-    "not_implemented": 58
+    "not_implemented": 56
   },
-  "completeImplementationCoverage": 198,
+  "completeImplementationCoverage": 200,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope198/0/58 includes independently confirmed supplied Bento, OpenDetail and organization presentations. Protocol203 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope200/0/56 includes independently confirmed supplied credit overview/history and factor-detail views. Protocol205 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -406,6 +406,20 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "d1b8d7b5cee8cab1938f35ebe5ff6f6f52cfc24a",
       "consumer": "candidates/supplied-discovery",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-credit-score",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "4c05918cad3e1a71d250592d1088a46ca32b1900",
+      "consumer": "candidates/credit-score",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-credit-score-detail",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "4c05918cad3e1a71d250592d1088a46ca32b1900",
+      "consumer": "candidates/credit-score",
       "nativeAndPixelAcceptance": false
     }
   ]

@@ -5,6 +5,6 @@ const scope = JSON.parse(await readFile(new URL('../references/recovery-function
 test('Current canonical counts exclude remaining finite functional subsets from complete implementation coverage', () => {
   assert.equal(Object.values(scope.counts).reduce((a, b) => a + b, 0), 256);
   assert.equal(scope.completeImplementationCoverage, scope.counts.functionally_verified + scope.counts.implemented_pending_verification);
-  assert.equal(scope.completeImplementationCoverage, 198); assert.equal(scope.protocolNodes, 203); assert.equal(scope.subsets.length, scope.counts.partial); assert.equal(scope.existingPartialId, null);
-  assert.deepEqual(scope.subsets.map(s => s.id), []); assert.equal(scope.implementedFunctionalCompletions.length, 56); assert.ok(scope.implementedFunctionalCompletions.every(s => s.status === 'implemented_pending_verification' && s.nativeAndPixelAcceptance === false));
+  assert.equal(scope.completeImplementationCoverage, 200); assert.equal(scope.protocolNodes, 205); assert.equal(scope.subsets.length, scope.counts.partial); assert.equal(scope.existingPartialId, null);
+  assert.deepEqual(scope.subsets.map(s => s.id), []); assert.equal(scope.implementedFunctionalCompletions.length, 58); assert.ok(scope.implementedFunctionalCompletions.every(s => s.status === 'implemented_pending_verification' && s.nativeAndPixelAcceptance === false));
 });

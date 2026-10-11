@@ -1,0 +1,109 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "4c05918cad3e1a71d250592d1088a46ca32b1900",
+  "sourceTree": "138226aad2de507e69263233858cbe869438e224",
+  "protocolNodes": 205,
+  "cdnExecuted": false,
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 1750,
+      "sha256": "a06274825a955e560593247c7dc8d23ee510164f3c89dfd4e6a454df0c6dd807"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 46891,
+      "sha256": "4e42f927b379a2007a3df1708e29d52314e78e3cc8d85351b8a4fa86d8f9cc98"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "bytes": 4695,
+      "sha256": "39a4ba9c6276844cc26f1ae1328b8590599c1ef8aeb3ba59824abe40a4fd84f0"
+    },
+    {
+      "path": "scripts/build-cdn.mjs",
+      "bytes": 6311,
+      "sha256": "8b13e49c8e8137f7129c5917aa6d441b0392fd1904f3c96ac7e36fdd00422e08"
+    },
+    {
+      "path": "scripts/credit-score-schema.mjs",
+      "bytes": 3128,
+      "sha256": "8f29b5dbf11c7272c79d99267b93c0d77af99ef319aa918344bb186bffa669db"
+    },
+    {
+      "path": "src/core/credit-score.ts",
+      "bytes": 4839,
+      "sha256": "37efad9f9d0ca6105aa2110ad2e42afd1b39e0e917682787025bddcb3a72fa08"
+    },
+    {
+      "path": "src/renderer/credit-score.ts",
+      "bytes": 17761,
+      "sha256": "2ad99f192b2ddbaf46157987345237b9355ce5c431b6df18bd575cf0182d2436"
+    },
+    {
+      "path": "src/renderer/credit-score.css",
+      "bytes": 6404,
+      "sha256": "47b14dea4de355527a7923d7beba9e5e8ad4bd0957a85d84e7cedc1bae487d90"
+    },
+    {
+      "path": "src/renderer/search-image.ts",
+      "bytes": 9346,
+      "sha256": "9c73ee2e46b855a48aaa3537ea570f03f0ef33d2918e01b2192c61b5f3bb1f35"
+    },
+    {
+      "path": "src/renderer/overlays.ts",
+      "bytes": 15398,
+      "sha256": "0d30b6c1868a6d72920587248bd729ba22d896e417a7f498973d161f032e730e"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 665996,
+      "sha256": "935dee92bb34c7974d81168b332723e53289c65665f88a5e1fbe28ae43cfdcee"
+    },
+    {
+      "path": "src/schema/fragments/finance.schema.json",
+      "bytes": 494410,
+      "sha256": "e75f4ba3a07be89b35f4811bcf818927982af8c4e791afb44b2c8dc67d5317d0"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3176,
+      "sha256": "20b53a00e2bbab3fe6f89ba30650028836f18d0cae98d75bc37da2f7e696fa6c"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1656,
+      "sha256": "ce983a28b6664b406c55e834106092c5dc9a8aba18687f04262d82ec37588b24"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3768,
+      "sha256": "d84261882e03203dc3a41eaee408eee4dee57096054efe0177cf29b96297ca9a"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 12047101,
+      "sha256": "8e352908f3465deaebda41a4476509033062c74ba19039aebeb6a8caef6b3439"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 12239409,
+      "sha256": "8a0241eb694d8c3c3900b14e8cbe4e2cc48c5e021432058dbfd869fce8c65826"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 690049,
+      "sha256": "00d00ad10acf48234f199128b3114da3251788175d86770e9c404c25b9a3752a"
+    }
+  ]
+}
