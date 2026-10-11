@@ -9,6 +9,7 @@ export function buildCases(input) {
   ];
   const negative = (name, fn, code = 'SCHEMA', path) => [name, edit(fn), code, path];
   const negatives = [
+    negative('literal null is not a phase', single => { single.status = null; }, 'ASYNC_IMAGE_STATUS', '/body/0/status'),
     negative('unsupported status value', single => { single.status = 'waiting'; }, 'ASYNC_IMAGE_STATUS', '/body/0/status'),
     negative('boolean status is not a phase', (single, group) => { group.status = false; }, 'ASYNC_IMAGE_STATUS', '/body/1/status'),
     negative('unsafe supplied source', single => { single.images[0].content_url = 'javascript:untrusted()'; }, 'UNSAFE_URL', '/body/0/images/0/content_url'),
