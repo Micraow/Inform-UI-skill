@@ -4,16 +4,16 @@ import { readFile } from 'node:fs/promises';
 import { verifyFunctionalScope } from '../scripts/verify-recovery-functional-scope.mjs';
 const scope = JSON.parse(await readFile(new URL('../references/recovery-functional-subsets.json', import.meta.url)));
 const fixture = () => ({ counts: { ...scope.counts }, components: [
-  ...Array.from({ length: 53 }, (_, i) => ({ id: `historical-${i}`, status: 'functionally_verified' })),
-  ...Array.from({ length: 89 }, (_, i) => ({ id: `pending-${i}`, status: 'implemented_pending_verification' })),
+  ...Array.from({ length: scope.counts.functionally_verified }, (_, i) => ({ id: `historical-${i}`, status: 'functionally_verified' })),
+  ...Array.from({ length: scope.counts.implemented_pending_verification }, (_, i) => ({ id: `pending-${i}`, status: 'implemented_pending_verification' })),
   ...[scope.existingPartialId, ...scope.subsets.map(s => s.id)].map(id => ({ id, status: 'partial' })),
-  ...Array.from({ length: 108 }, (_, i) => ({ id: `missing-${i}`, status: 'not_implemented' }))
+  ...Array.from({ length: scope.counts.not_implemented }, (_, i) => ({ id: `missing-${i}`, status: 'not_implemented' }))
 ] });
 test('Accounting separates implemented rows, partial functions and protocol registrations', () => {
   const inventory = fixture(), before = JSON.stringify(inventory), result = verifyFunctionalScope(inventory, scope);
-  assert.equal(result.implemented, 142); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 154); assert.equal(result.partialIds.length, 6); assert.equal(JSON.stringify(inventory), before);
+  assert.equal(result.implemented, 144); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 154); assert.equal(result.partialIds.length, 4); assert.equal(JSON.stringify(inventory), before);
 });
-test('Five limited APIs cannot be promoted by changing only summary or registered-node totals', () => {
+test('Remaining limited APIs cannot be promoted by changing only summary or registered-node totals', () => {
   const bad = fixture(); bad.counts.implemented_pending_verification = 94; assert.throws(() => verifyFunctionalScope(bad, scope), /summary differs/);
   assert.throws(() => verifyFunctionalScope(fixture(), { ...scope, completeImplementationCoverage: 147 }), /exclude partial/);
 });

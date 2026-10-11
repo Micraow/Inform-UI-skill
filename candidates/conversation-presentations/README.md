@@ -1,6 +1,6 @@
 # Supplied conversation presentations
 
-Exact source-build input: `342bc8f2b4a7577c2c89f65826a5921a74c1287a`, tree `aac947c230c5dcb4477425476684aa3e9b823c90`. The protocol remains154; this extends existing conversation-suggestions. Its canonical row remains partial pending independent functional review.
+Exact source-build input: `342bc8f2b4a7577c2c89f65826a5921a74c1287a`, tree `aac947c230c5dcb4477425476684aa3e9b823c90`. The protocol remains154; this extends existing conversation-suggestions. Its canonical row has since passed independent functional confirmation and is implemented pending native/reference-pixel verification.
 
 ```sh
 node candidates/conversation-presentations/verify-source.mjs --library /absolute/path/to/ui-conversation-presentations

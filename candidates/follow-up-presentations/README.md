@@ -1,6 +1,6 @@
 # Supplied follow-up presentations
 
-Exact source-build input: `7b5e55be730ef10decf750e443c528259a04b82b`, tree `d97e108601739ebd51ee4a854ed3c19e8810b656`. This extends the existing FollowUp API without adding a protocol node. Its canonical row remains partial pending independent functional review.
+Exact source-build input: `7b5e55be730ef10decf750e443c528259a04b82b`, tree `d97e108601739ebd51ee4a854ed3c19e8810b656`. This extends the existing FollowUp API without adding a protocol node. Its canonical row has since passed independent functional confirmation and is implemented pending native/reference-pixel verification.
 
 ```sh
 node candidates/follow-up-presentations/verify-source.mjs --library /absolute/path/to/ui-follow-up-presentations

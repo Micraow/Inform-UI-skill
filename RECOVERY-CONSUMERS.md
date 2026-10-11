@@ -63,3 +63,13 @@ The next [Conversation completion data draft](candidates/conversation-completion
 [Conversation presentation completion](candidates/conversation-presentations/README.md) consumes exact source `342bc8f2b4a7577c2c89f65826a5921a74c1287a`:8 positive/14 negative new cases, old6/17 and FollowUp8/16 contracts,8 DOM/compiler workflows,292 preserved definitions under the four-field projection. Distinct phases, optional icons and local voice/new-turn requests are now exercised. Canonical promotion and native/reference acceptance remain separate.
 
 The next [ImageGrid completion supply draft](candidates/image-grid-completion-draft/README.md) provides five original PNG panels, four recommendation records and two irregular rows. It is neutral data awaiting the author's fixed schema, not an additional runtime acceptance.
+
+## Current functional promotion
+
+After independent functional confirmation, FollowUpActionBar and ConversationSuggestions are now implemented pending verification. Current source scope is144 implemented (53 historical accepted plus91 pending),4 partial and108 missing. ImageGrid, Upcoming, Spend and weather remain partial. The old8e21 CDN consumer retains its own142/6/108 snapshot; no native or pixel result is promoted.
+
+## Image-grid presentation completion consumer
+
+Exact source8ade06a is consumed through `candidates/image-grid-presentations`:8 positive/18 negative new contracts,6/15 legacy contracts,8 DOM/compiler flows,292 historical definition hashes and25 safe source-build file hashes. Original five-panel imagery, authored two-plus-three rows, four recommendations, passive live preview and a local-basic viewer have executable examples. This is source-build evidence with synthetic geometry; packaged CDN/native/pixel acceptance is not implied. Canonical Grid remains partial pending independent functional review.
+
+The next Upcoming example is neutral data only in `candidates/upcoming-completion-draft`:top plus2→4 incoming records and top plus2→1 outgoing records. Its3 tests prove replacement rather than concatenation, no expansion for a shorter alternative, and opaque zero/null/refund preservation. Runtime mapping awaits a fixed contract.

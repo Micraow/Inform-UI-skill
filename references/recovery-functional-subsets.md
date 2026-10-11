@@ -1,21 +1,31 @@
-# Functional subset boundaries
+# Functional completion and remaining subsets
 
-The corrected154 inventory is **142 complete implementations**:53 historical functional acceptances and89 awaiting verification. Another6 IDs are partial and108 are not implemented. Protocol154 is a separate schema-node count. The five limited APIs below, plus the existing weather partial, must not be counted as complete canonical implementations.
+The current source inventory is **144 implemented**:53 historical functional acceptances and91 pending verification. Another4 IDs are partial and108 are not implemented. Protocol154 is a separate schema-node count.
 
-- **Follow-up action bar:** local labels and ID receipts work. Footer versus wrapped-pill modes, responsive item selection and separate new-turn/voice/composer branches remain missing. A flat button list does not replace those functions.
-- **Conversation suggestions:** local supplied prompts work. Pending/resolved/failed phases, optional icon/image content and reference input variants and distinct voice/new-turn intent branches are missing.
-- **Image grid:** the finite square grid works. Authored row geometry/flex growth, recommendations with More/Fewer, live-activity mode and viewer navigation are missing.
-- **Upcoming activity:** supplied labels and a kind filter work. Incoming/outgoing flow selection, expansion state and conditional expandedItems replacement are missing. The current kind filter is not that workflow.
-- **Spend so far this month:** opaque totals and independent category-share bars work. A monthly temporal series, month/comparison controls, trend curve and point inspection are missing. Category shares are not a substitute for the temporal chart.
+FollowUpActionBar and ConversationSuggestions have now passed independent functional confirmation:
 
-Each candidate keeps its immutable source/build lock and positive/negative tests. These are compatibility checks for the implemented subset. Promotion requires restoring and testing the missing functional contracts on an exact input. Native interaction and visual fidelity remain separate evidence. Earlier Skill progress text that counted these five as implemented was incorrect; the correction does not roll back their working subset code or tests.
+- [FollowUp presentations](../candidates/follow-up-presentations/README.md), source7b5e55b: Footer/wrapped modes, renderer-container selection, phases, optional icons and distinct local new-turn/voice/composer requests, with old ID-only compatibility.
+- [Conversation presentations](../candidates/conversation-presentations/README.md), source342bc8f: distinct phases, optional icons, local new-turn/voice requests and old prompt-only compatibility.
 
-Machine-readable counts and missing features: [recovery-functional-subsets.json](recovery-functional-subsets.json).
+Both remain pending native/reference-pixel verification. Neither executes a host service. This promotion does not rewrite their earlier finite source locks.
 
-Check a supplied inventory before reporting progress:
+## Remaining partial functionality
+
+- **Image grid:** the earlier finite square grid is tested. Authored row geometry/flex growth, recommendations with More/Fewer, live-activity mode and viewer workflow need confirmation on the new exact candidate before promotion.
+- **Upcoming activity:** supplied labels and a kind filter work. Incoming/outgoing flow selection, expansion state and conditional expandedItems replacement remain missing from the consumed finite contract.
+- **Spend so far this month:** opaque totals and independent category-share bars work. A monthly temporal series, month/comparison controls, trend curve and point inspection remain missing from the consumed finite contract.
+- The pre-existing **weather** row also remains partial in the source inventory.
+
+Each candidate keeps its immutable source/build lock and positive/negative tests. Promotion requires implementing and checking the missing functional contracts on exact input. Native interaction and visual fidelity are separate evidence. The earlier five finite APIs were incorrectly counted as complete implementations; that accounting was corrected before these two genuine functional completions.
+
+## Current versus historical accounting
+
+The current machine-readable declaration is [recovery-functional-subsets.json](recovery-functional-subsets.json). The exact8e21 CDN consumer instead keeps its historical142/6/108 declaration in its own [frozen scope](../candidates/recovery154/canonical-scope.lock.json). Future promotions must not change that old result.
+
+Check a supplied current inventory before reporting progress:
 
 ```sh
 node scripts/verify-recovery-functional-scope.mjs /path/to/component-progress.json
 ```
 
-The command recomputes counts from all256 unique rows, checks the exact six partial IDs and reports the inventory SHA-256. Mismatched summaries or promotions fail. It is an accounting check, not a runtime acceptance or a replacement for the canonical source inventory. Tests use synthetic ID rows solely to exercise the verifier.
+The command recomputes counts from256 unique rows, checks the exact remaining partial IDs and reports the inventory SHA-256. Mismatched summaries or promotions fail. It checks accounting, not runtime or browser acceptance; synthetic test IDs only exercise the verifier.

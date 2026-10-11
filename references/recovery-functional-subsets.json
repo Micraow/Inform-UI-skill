@@ -4,32 +4,13 @@
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 89,
-    "partial": 6,
+    "implemented_pending_verification": 91,
+    "partial": 4,
     "not_implemented": 108
   },
-  "completeImplementationCoverage": 142,
+  "completeImplementationCoverage": 144,
   "existingPartialId": "weather",
   "subsets": [
-    {
-      "id": "follow-up-action-bar",
-      "status": "partial",
-      "missing": [
-        "Footer and wrapped_pills presentations",
-        "Responsive item selection",
-        "Distinct new-turn, voice and composer intent branches"
-      ]
-    },
-    {
-      "id": "conversation-suggestions",
-      "status": "partial",
-      "missing": [
-        "Pending, resolved and failed phases",
-        "Optional icon and image content",
-        "Reference input and presentation variants",
-        "Distinct local voice and new-turn intent branches"
-      ]
-    },
     {
       "id": "image-grid",
       "status": "partial",
@@ -59,5 +40,21 @@
       ]
     }
   ],
-  "acceptanceBoundary": "Existing consumers validate these declared finite subsets only. They do not establish complete canonical reference functionality, native behavior or visual fidelity."
+  "acceptanceBoundary": "Current source scope144/4/108 includes independently function-tested FollowUp and Conversation completions. Remaining finite subsets do not establish complete canonical functionality. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
+  "implementedFunctionalCompletions": [
+    {
+      "id": "follow-up-action-bar",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "7b5e55be730ef10decf750e443c528259a04b82b",
+      "consumer": "candidates/follow-up-presentations",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "conversation-suggestions",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "342bc8f2b4a7577c2c89f65826a5921a74c1287a",
+      "consumer": "candidates/conversation-presentations",
+      "nativeAndPixelAcceptance": false
+    }
+  ]
 }
