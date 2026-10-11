@@ -131,3 +131,11 @@ External requests and file-body reads are both0. No real user file, upload, acco
 ## Independently confirmed160 source scope
 
 Independent AskUser review passed8 functional cases on exactcbba6f19. Separate status source19a514637d1c40d20a984f83ada98ecd5f1a952b records160 implemented (53 historical plus107 pending),1 partial weather and95 missing, with166 protocol registrations. This accounting update does not change the published Ask consumer, the164 asset's158/1/97 frozen inventory, or native/pixel acceptance. File-review examples remain synthetic metadata only with0 body reads and0 external requests.
+
+## Original supplied category family
+
+[The Ledger category consumer](candidates/ledger-categories/README.md) locks exactd174caef:10 positive/15 negative documents,8 DOM/compiler groups,316 unchanged historical definitions and20 selected hashes. Its three original views deliberately keep total900, category12/zero/null/refund, stack weights, percent text and bar geometry independent. Two inline logos are original color panels. More replaces2 top rows with4 full rows; month changes, single/multi-month reset, cancellation and newer input follow the supplied contract.
+
+External requests are0. Masking changes display labels but is not a secret-data boundary; frozen local detail still carries supplied values and masking flags. Recent/detail lists are passive. Protocol169 is only registration here; canonical promotion requires separate independent functional review. The164 frozen CDN and older source locks are unchanged, with no new native/pixel or remote CI acceptance.
+
+Independent Ledger category review passed9 functional cases on exactd174caef. Separate status source019e02cfd47a89d829c73f27420d79a952070855 records163 implemented (53 historical plus110 pending),1 partial weather and92 missing, with169 protocol registrations. This update does not rewrite the164 asset's158/1/97 frozen scope or promote native/reference pixel acceptance.

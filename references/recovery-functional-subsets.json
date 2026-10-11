@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 166,
+  "protocolNodes": 169,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 107,
+    "implemented_pending_verification": 110,
     "partial": 1,
-    "not_implemented": 95
+    "not_implemented": 92
   },
-  "completeImplementationCoverage": 160,
+  "completeImplementationCoverage": 163,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope160/1/95 includes independent functional confirmation of AskUserDetails/AskUserFiles. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope163/1/92 includes independent functional confirmation of the three supplied category views. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -140,6 +140,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "cbba6f1903b89d3380da2761b4f8e5e7f0eaabbc",
       "consumer": "candidates/ask-user",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-spend-by-category",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "d174caef6bc964f0ab35fa042bfb014600bf10ac",
+      "consumer": "candidates/ledger-categories",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-spend-by-category-detail",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "d174caef6bc964f0ab35fa042bfb014600bf10ac",
+      "consumer": "candidates/ledger-categories",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-spend-by-category-recent-transactions",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "d174caef6bc964f0ab35fa042bfb014600bf10ac",
+      "consumer": "candidates/ledger-categories",
       "nativeAndPixelAcceptance": false
     }
   ]

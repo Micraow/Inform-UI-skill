@@ -1,0 +1,177 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "ledger-spend-by-category",
+      "id": "practice_categories",
+      "label": "Fictional category display",
+      "compactTitle": "Practice categories",
+      "unknownLabel": "Not supplied",
+      "maskedLabel": "Concealed teaching value",
+      "moreLabel": "All supplied categories",
+      "lessLabel": "Top supplied categories",
+      "monetaryValueReferencesEnabled": true,
+      "months": [
+        {
+          "id": "latest",
+          "label": "First supplied period",
+          "optionLabel": "Period A",
+          "optionGroup": "Original periods",
+          "totalLabel": "900 practice units",
+          "segments": [
+            {
+              "id": "weight_a",
+              "label": "Weight A",
+              "weight": 2,
+              "color": "blue"
+            },
+            {
+              "id": "weight_b",
+              "label": "Weight B",
+              "weight": 7,
+              "color": "orange"
+            }
+          ],
+          "topCategories": [
+            {
+              "id": "paper",
+              "key": "practice-paper",
+              "label": "Fictional paper",
+              "amountLabel": "12 practice units",
+              "percentLabel": "65 supplied percent",
+              "filledPct": 17,
+              "color": "blue",
+              "icon": "◇",
+              "detailEnabled": true,
+              "detailLabel": "Inspect fictional paper",
+              "topDetailLabel": "Original top detail",
+              "topDetailAmountLabel": "3 practice units",
+              "topDetailShareLabel": "7 supplied percent"
+            },
+            {
+              "id": "zero",
+              "label": "Fictional zero",
+              "amountLabel": "0 practice units",
+              "percentLabel": "0 supplied percent",
+              "filledPct": 0,
+              "color": "green"
+            }
+          ],
+          "categories": [
+            {
+              "id": "paper",
+              "key": "practice-paper",
+              "label": "Fictional paper",
+              "amountLabel": "12 practice units",
+              "percentLabel": "65 supplied percent",
+              "filledPct": 17,
+              "color": "blue",
+              "icon": "◇",
+              "detailEnabled": true,
+              "detailLabel": "Inspect fictional paper",
+              "topDetailLabel": "Original top detail",
+              "topDetailAmountLabel": "3 practice units",
+              "topDetailShareLabel": "7 supplied percent"
+            },
+            {
+              "id": "zero",
+              "label": "Fictional zero",
+              "amountLabel": "0 practice units",
+              "percentLabel": "0 supplied percent",
+              "filledPct": 0,
+              "color": "green"
+            },
+            {
+              "id": "unknown",
+              "label": "Unknown practice record",
+              "amountLabel": null,
+              "percentLabel": null,
+              "filledPct": 43,
+              "color": "orange"
+            },
+            {
+              "id": "return",
+              "label": "Fictional return",
+              "amountLabel": "−4 practice units",
+              "percentLabel": "2 supplied percent",
+              "filledPct": 9,
+              "color": "#725DA8"
+            }
+          ]
+        },
+        {
+          "id": "earlier",
+          "label": "Second supplied period",
+          "optionLabel": "Period B",
+          "optionGroup": "Original periods",
+          "totalLabel": null,
+          "segments": [],
+          "topCategories": [
+            {
+              "id": "return",
+              "label": "Fictional return",
+              "amountLabel": "−4 practice units",
+              "percentLabel": "2 supplied percent",
+              "filledPct": 9,
+              "color": "#725DA8"
+            }
+          ],
+          "categories": [
+            {
+              "id": "return",
+              "label": "Fictional return",
+              "amountLabel": "−4 practice units",
+              "percentLabel": "2 supplied percent",
+              "filledPct": 9,
+              "color": "#725DA8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ledger-spend-by-category-detail",
+      "label": "Fictional group display",
+      "unknownLabel": "Not supplied",
+      "maskedLabel": "Concealed teaching value",
+      "groups": [
+        {
+          "id": "zero",
+          "label": "Zero group",
+          "subtotalLabel": "0 practice units",
+          "filledPct": 0
+        },
+        {
+          "id": "unknown",
+          "label": "Unknown group",
+          "subtotalLabel": null,
+          "filledPct": 57
+        }
+      ]
+    },
+    {
+      "type": "ledger-spend-by-category-recent-transactions",
+      "label": "Fictional recent entries",
+      "unknownLabel": "Not supplied",
+      "maskedLabel": "Concealed teaching value",
+      "transactions": [
+        {
+          "id": "blue",
+          "title": "Imaginary blue notebook",
+          "dateLabel": "Original day A",
+          "amountLabel": "0 practice units",
+          "logoSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAM0lEQVR4nGP4+v0nTRHDqAWjFgxVC+SzDpKHRi0YtWDUglELRi0YVhZQEY1aMGrBELAAAOthrHibFiyXAAAAAElFTkSuQmCC",
+          "icon": "◇"
+        },
+        {
+          "id": "orange",
+          "title": "Imaginary orange notebook",
+          "dateLabel": null,
+          "amountLabel": null,
+          "logoSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAM0lEQVR4nGP4+v0nTRHDqAWjFgxVC+7nyJGHRi0YtWDUglELRi0YVhZQEY1aMGrBELAAAJPo0UjHUD71AAAAAElFTkSuQmCC",
+          "icon": "□"
+        }
+      ]
+    }
+  ]
+}
