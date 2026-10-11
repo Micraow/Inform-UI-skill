@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 179,
+  "protocolNodes": 183,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 121,
+    "implemented_pending_verification": 125,
     "partial": 0,
-    "not_implemented": 82
+    "not_implemented": 78
   },
-  "completeImplementationCoverage": 174,
+  "completeImplementationCoverage": 178,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope174/0/82 includes independent Search functional completion on its reset/resize successor. Protocol179 is separate. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 with its historical partial Weather row; older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope178/0/78 includes independent Quiz and capability-welcome functional completions. Protocol183 is separate. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 with its historical partial Weather row; older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -238,6 +238,34 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "c900bd3599ff9ba9b268c17411fcd7f46e5dcdd3",
       "consumer": "candidates/search-onboarding",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "follow-up-quiz",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "21a85df79ba7c0f9b2c1d15af4866c79920d4cf3",
+      "consumer": "candidates/quiz-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "multiple-choice-block-v2",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "21a85df79ba7c0f9b2c1d15af4866c79920d4cf3",
+      "consumer": "candidates/quiz-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "personality-quiz",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "21a85df79ba7c0f9b2c1d15af4866c79920d4cf3",
+      "consumer": "candidates/quiz-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "whats-new-capability-welcome",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "f72f89ba9cdcf9b2736021bbb800a1dd658d8421",
+      "consumer": "candidates/capability-welcome",
       "nativeAndPixelAcceptance": false
     }
   ]

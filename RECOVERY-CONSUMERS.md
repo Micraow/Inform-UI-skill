@@ -207,3 +207,7 @@ Cancellation, native reset/new input, stale revision7 after retake/reanswer11, s
 [The Welcome consumer](candidates/capability-welcome/README.md) locks exactf72f89ba9cdcf9b2736021bbb800a1dd658d8421:10 positive/16 negative documents,5 DOM/actual-standalone groups,334 unchanged prior definitions and19 selected hashes. Eight original supplied pills deliberately repeat labels and reorder actions, proving explicit ID mapping for prompt/URL/capability requests while voice and missing mappings remain disabled.
 
 Icon fallback/release, local receipts, cancellation, pending-reset barriers, replacement and owner retirement are verified with0 external requests and0 device/permission/telemetry/navigation calls. Registration183 does not modify the older164 CDN or native/pixel acceptance. Its separate canonical accounting waits for reviewed three-party closure.
+
+## Independently confirmed178 current scope
+
+Quiz-only status sourcebc36c74799d9a83c0fecb2c81c62ab6bf0f8888d records177 implemented; final status sourcec3727a77b8cd2c212ab458cd22505f9b7fdf6b18 includes Welcome and records178 (53 historical plus125 pending),0 partial and78 missing. Protocol183 is separate. Quiz passed11 independent cases and consumer12/20 plus7 actual flows; Welcome passed8 independent cases and consumer10/16 plus5 actual flows. Immutable21a/f72 source locks and the164 asset158/1/97 record remain unchanged. The planned unified183 asset/full/native run is a separate future checkpoint, not a result of this accounting update.
