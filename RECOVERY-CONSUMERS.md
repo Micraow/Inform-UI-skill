@@ -345,3 +345,15 @@ node candidates/care-providers/verify-source.mjs --library /path/to/ui-care-prov
 The source-only210 registration is separate from previous CDN/native acceptance. No real provider or patient information is used.
 
 Both Care presentations have independent functional confirmation. Exact inventory `ab6636ada73f8373a53d5893aef2728cf4d2f8fd` records205 implemented (53 historical+152 pending),0 partial and51 missing, with210 registrations. Previous fixed source/CDN/native results keep their original scopes.
+
+## Inline entity and finite media-host source213
+
+[Original inline/media consumers](candidates/inline-host-media/README.md) check exact3b0614ad with20 positive/24 negative documents and8 actual DOM/standalone groups. Entity150ms preview and priority, supplied-image sizing/null cap/local gallery and finite speech-host status/requests are explicit.380 prior definitions and21 selected hashes are preserved with0 external requests or host-service calls.
+
+```sh
+node candidates/inline-host-media/verify-source.mjs --library /path/to/ui-inline-host-media
+```
+
+The source-only213 registration is separate from earlier CDN/native results. No actual lookup, generated imagery, microphone capture or speech playback is claimed.
+
+All three finite inline/media contracts have independent functional confirmation. Exact inventory `5e258b7d323c2d2dcd0f7da8c25b6f0514902c86` records208 implemented (53 historical+155 pending),0 partial and48 missing, with213 registrations. The48 remaining clinical components are not implemented. Existing source/CDN/native scopes remain frozen.

@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **205 implemented**:53 historical functional acceptances and152 pending reference acceptance. No ID is currently partial and51 are not implemented. Protocol210 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the205 count.
+The current source inventory is **208 implemented**:53 historical functional acceptances and155 pending reference acceptance. No ID is currently partial and48 are not implemented. Protocol213 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the208 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -51,3 +51,5 @@ Legacy category review/Riddle两项以848a1d焦点后继完成：消费者15正1
 LearningViz以e6bb5837准确源完成：独立11/11及旧引擎18项、原创消费者12正16负/8组DOM与standalone。真实SVG引擎有限播放/主题暂停/取消reset与bitmap资源门已核；原生/像素范围未增加。精确bf43b2f8逐ID状态为203＝53历史＋150待验、0部分、53未实现，208仅协议登记。
 
 Care Results/Sidebar以d1e555e6准确源完成：独立12/12、原创消费者16正22负/7组实际DOM与standalone。两层slot/精确cursor/供数日历/overlay/reset焦点已核，0真实预约或医疗服务。精确ab6636ad逐ID状态为205＝53历史＋152待验、0部分、51未实现；210登记不作完成数，原生与像素范围未变。
+
+Entity/GenImage/SpeechSynthesizer以3b0614ad准确源完成：独立13/13、原创消费者20正24负/8组实际DOM与standalone。悬停/尺寸/本地查看器/供数speech合同均核，0真实生成、TTS或外部服务。精确5e258b7d逐ID状态为208＝53历史＋155待完整验收、0部分、48未实现；213为协议登记。剩余48临床组件未实施，原生与像素范围未变。

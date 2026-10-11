@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 210,
+  "protocolNodes": 213,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 152,
+    "implemented_pending_verification": 155,
     "partial": 0,
-    "not_implemented": 51
+    "not_implemented": 48
   },
-  "completeImplementationCoverage": 205,
+  "completeImplementationCoverage": 208,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope205/0/51 includes independently confirmed supplied Care results and sidebar calendar, with finite local requests and ownership. Protocol210 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope208/0/48 includes independently confirmed inline Entity, supplied GenImage and finite SpeechSynthesizer host contracts. Protocol213 is separate. The remaining48 clinical components are not implemented. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -455,6 +455,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "d1e555e6467b9188cd87a7e284f5e9326f2cc6b2",
       "consumer": "candidates/care-providers",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "entity",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "3b0614adce1a1e49385961a4940996310b309316",
+      "consumer": "candidates/inline-host-media",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "gen-image",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "3b0614adce1a1e49385961a4940996310b309316",
+      "consumer": "candidates/inline-host-media",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "speech-synthesizer",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "3b0614adce1a1e49385961a4940996310b309316",
+      "consumer": "candidates/inline-host-media",
       "nativeAndPixelAcceptance": false
     }
   ]
