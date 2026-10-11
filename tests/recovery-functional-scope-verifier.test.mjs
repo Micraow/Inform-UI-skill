@@ -11,7 +11,7 @@ const fixture = (input=scope) => ({ counts: { ...input.counts }, components: [
 ] });
 test('Accounting separates implemented rows, remaining partial functions and protocol registrations', () => {
   const inventory = fixture(), before = JSON.stringify(inventory), result = verifyFunctionalScope(inventory, scope);
-  assert.equal(result.implemented, 152); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 158); assert.equal(result.partialIds.length, 1); assert.equal(JSON.stringify(inventory), before);
+  assert.equal(result.implemented, 155); assert.equal(result.canonicalTotal, 256); assert.equal(result.protocolNodes, 162); assert.equal(result.partialIds.length, 1); assert.equal(JSON.stringify(inventory), before);
 });
 test('Remaining partial weather cannot be promoted by changing only summary or registered-node totals', () => {
   const bad = fixture(); bad.counts.implemented_pending_verification += 1; assert.throws(() => verifyFunctionalScope(bad, scope), /summary differs/);

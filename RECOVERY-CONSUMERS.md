@@ -103,3 +103,9 @@ The successor's `title ?? query` is explicitly an original fallback addition; it
 ## Independently confirmed152 scope
 
 Independent Tab/Visual review passed12 cases on query-fallback successor53a5b33. The separately frozen status source136cb2d records152 implemented (53 historical plus99 pending),1 partial weather and103 missing, with158 protocol registrations. The implementation53a5 consumer lock retains its earlier progress snapshot and runtime hashes; current status is checked separately. Native/reference-pixel acceptance and the old packaged CDN are unchanged.
+
+## Supplied automation consumer and current155 scope
+
+[The supplied Automation family](candidates/supplied-automation/README.md) consumes exact6742f8b:12 positive/22 negative original documents,11/20 preceding collection contracts,8 actual DOM/compiler workflows,308 unchanged prior definitions and19 selected file hashes. Original notebook exercises keep schedule labels opaque, cap the list at five supplied records, distinguish empty/null/phase states, and exercise local canceled requests, disclosure, explicit layouts, reset and replacement. No real task, account, time-zone interpretation or external request is used.
+
+The earlieracae source failed embedded-versus-standalone CSS ordering. Successor957 corrected it but failed whole-plan reset while collapsed. The final6742 source passes both original checks; old failures remain documented. This source registers162 nodes, including a ScheduledTaskSuggestion definition that this Automation consumer does not execute. The current canonical inventory remains155 implemented (53 historical plus102 pending),1 partial weather and100 missing. That accounting and the exact source-built results do not promote native/pixel acceptance or change the old packaged CDN.

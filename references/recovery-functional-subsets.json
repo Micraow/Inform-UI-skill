@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 158,
+  "protocolNodes": 162,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 99,
+    "implemented_pending_verification": 102,
     "partial": 1,
-    "not_implemented": 103
+    "not_implemented": 100
   },
-  "completeImplementationCoverage": 152,
+  "completeImplementationCoverage": 155,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope152/1/103 includes independent functional confirmation of the prior completions plus TabbedSection and VisualCardCarousel. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
+  "acceptanceBoundary": "Current source scope155/1/100 includes independent functional confirmation of the earlier completions and three supplied automation presentations. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -81,6 +81,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "53a5b33b9f7a4a7da73112fdf8ea422fdc40949b",
       "consumer": "candidates/tabbed-visual",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "display-automation",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "6742f8bfaef3f03cac547eab7a7ce7d3aec9bc92",
+      "consumer": "candidates/supplied-automation",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "list-automations",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "6742f8bfaef3f03cac547eab7a7ce7d3aec9bc92",
+      "consumer": "candidates/supplied-automation",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "automation-plan-summary",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "6742f8bfaef3f03cac547eab7a7ce7d3aec9bc92",
+      "consumer": "candidates/supplied-automation",
       "nativeAndPixelAcceptance": false
     }
   ]
