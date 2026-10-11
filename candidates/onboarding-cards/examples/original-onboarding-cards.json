@@ -1,0 +1,176 @@
+{
+  "version": "iui/1",
+  "theme": "light",
+  "body": [
+    {
+      "type": "onboarding-feature-card",
+      "id": "features",
+      "label": "Original feature samples",
+      "title": "Finite supplied features",
+      "welcomeHeading": "An original shape workspace",
+      "welcomeBody": "Try a **supplied demonstration**.\n\n[Plain-text note](https://example.test/unused)",
+      "features": [
+        {
+          "id": "think",
+          "featureId": "intelligence",
+          "title": "Compare paper shapes",
+          "description": "A supplied reasoning topic.",
+          "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ5BN/Ubi0ahBowaNGkS2QVTLtKMG0dAgAGPSengEhkiIAAAAAElFTkSuQmCC",
+          "darkImageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ9Ctxd7Eo1GDRg0aNYhsg6iWaUcNoqFBACDcuygb6sKnAAAAAElFTkSuQmCC",
+          "artworkLabel": "Original panel",
+          "tooltip": "Local thinking request"
+        },
+        {
+          "id": "draw",
+          "featureId": "images",
+          "title": "Imagine a paper model",
+          "description": "A supplied image topic."
+        },
+        {
+          "id": "plan",
+          "featureId": "work",
+          "title": "Organize a model",
+          "description": "A supplied planning topic."
+        }
+      ],
+      "benefits": [
+        {
+          "id": "static",
+          "title": "Finite content",
+          "description": "This row is passive.",
+          "symbol": "□"
+        },
+        {
+          "id": "planning",
+          "title": "Inspect the planning idea",
+          "description": "A local feature request.",
+          "featureId": "work",
+          "symbol": "◇"
+        }
+      ]
+    },
+    {
+      "type": "onboarding-plugin-suggestions",
+      "id": "plugins",
+      "label": "Fictional app suggestions",
+      "title": "Original integration examples",
+      "canBrowse": true,
+      "browseLabel": "Request a local app list",
+      "canConnect": true,
+      "plugins": [
+        {
+          "id": "paper_notes",
+          "label": "Imaginary paper notes",
+          "status": "available",
+          "connectLabel": "Request paper notes",
+          "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ5BN/Ubi0ahBowaNGkS2QVTLtKMG0dAgAGPSengEhkiIAAAAAElFTkSuQmCC",
+          "darkImageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ9Ctxd7Eo1GDRg0aNYhsg6iWaUcNoqFBACDcuygb6sKnAAAAAElFTkSuQmCC"
+        },
+        {
+          "id": "shape_calendar",
+          "label": "Imaginary shape calendar",
+          "status": "connected",
+          "statusLabel": "Supplied connected"
+        },
+        {
+          "id": "model_files",
+          "label": "Imaginary model files",
+          "status": "unavailable",
+          "statusLabel": "Supplied unavailable"
+        },
+        {
+          "id": "disabled_sketch",
+          "label": "Imaginary disabled sketch",
+          "status": "available",
+          "disabled": true
+        },
+        {
+          "id": "hidden_fifth",
+          "label": "Fifth supplied entry",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "type": "onboarding-starter-tasks",
+      "id": "pills",
+      "label": "Original prompt pills",
+      "heading": "Choose a fictional topic",
+      "tasks": [
+        {
+          "id": "outline",
+          "label": "Paper model outline",
+          "description": "An invented tabletop project.",
+          "prompt": "List three fictional paper shapes.",
+          "starterPromptId": "original-outline",
+          "completed": true,
+          "symbol": "◇",
+          "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ5BN/Ubi0ahBowaNGkS2QVTLtKMG0dAgAGPSengEhkiIAAAAAElFTkSuQmCC"
+        },
+        {
+          "id": "preview",
+          "label": "Imaginary layout preview",
+          "description": "Only a local supplied request.",
+          "prompt": "Describe an imaginary layout preview.",
+          "requiresSitePreview": true,
+          "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ5BN/Ubi0ahBowaNGkS2QVTLtKMG0dAgAGPSengEhkiIAAAAAElFTkSuQmCC"
+        }
+      ]
+    },
+    {
+      "type": "onboarding-starter-tasks",
+      "id": "cards",
+      "label": "Original prompt cards",
+      "heading": "Read a fictional task",
+      "variant": "cards",
+      "actionLabel": "Request topic",
+      "canRequestSitePreview": true,
+      "tasks": [
+        {
+          "id": "outline",
+          "label": "Paper model outline",
+          "description": "An invented tabletop project.",
+          "prompt": "List three fictional paper shapes.",
+          "starterPromptId": "original-outline",
+          "completed": true,
+          "symbol": "◇",
+          "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ5BN/Ubi0ahBowaNGkS2QVTLtKMG0dAgAGPSengEhkiIAAAAAElFTkSuQmCC"
+        },
+        {
+          "id": "preview",
+          "label": "Imaginary layout preview",
+          "description": "Only a local supplied request.",
+          "prompt": "Describe an imaginary layout preview.",
+          "requiresSitePreview": true,
+          "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ5BN/Ubi0ahBowaNGkS2QVTLtKMG0dAgAGPSengEhkiIAAAAAElFTkSuQmCC"
+        }
+      ]
+    },
+    {
+      "type": "onboarding-starter-tasks",
+      "id": "selection",
+      "label": "Original local choices",
+      "heading": "Select a paper shape",
+      "variant": "selection",
+      "selectedTaskId": "square",
+      "resetLabel": "Restore original shape",
+      "tasks": [
+        {
+          "id": "circle",
+          "label": "Circle",
+          "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAKklEQVR4nGP4+v0nVRDDqEEDZ5BN/Ubi0ahBowaNGkS2QVTLtKMG0dAgAGPSengEhkiIAAAAAElFTkSuQmCC"
+        },
+        {
+          "id": "square",
+          "label": "Square",
+          "symbol": "□"
+        },
+        {
+          "id": "triangle",
+          "label": "Triangle",
+          "disabled": true
+        }
+      ]
+    }
+  ]
+}
