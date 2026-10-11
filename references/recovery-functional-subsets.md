@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **202 implemented**:53 historical functional acceptances and149 pending reference acceptance. No ID is currently partial and54 are not implemented. Protocol207 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the202 count.
+The current source inventory is **203 implemented**:53 historical functional acceptances and150 pending reference acceptance. No ID is currently partial and53 are not implemented. Protocol208 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the203 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -47,3 +47,5 @@ Bento/OpenDetail/Openai三项准确d1b8：消费者14正20负/6实际流，独�
 Credit overview/detail两项准确4c059：消费者16正22负/8实际流，独立13/13。供数label/position/history独立、null/0、完整mask与80ms/Escape/RTL/IME/reset新输入闭合；0真实报告、账户、金融建议或信用决策。当前200/0/56、205登记，逐ID状态3b7623c049b94a9d2d6ba25011f32b847b3a6a9f；旧183原生范围不扩。
 
 Legacy category review/Riddle两项以848a1d焦点后继完成：消费者15正18负/7实际组，独立12/12，原cargo/terminal native-reset DOM焦点双负控0/2→2/2。完整三/all供数和本地七次过河输赢/取消/reset，不修改真实记录或发对话。当前202/0/54、207登记，逐ID状态4c5613b5293ff55b2e1319ec213c24c462311f42；旧183原生范围不扩。
+
+LearningViz以e6bb5837准确源完成：独立11/11及旧引擎18项、原创消费者12正16负/8组DOM与standalone。真实SVG引擎有限播放/主题暂停/取消reset与bitmap资源门已核；原生/像素范围未增加。精确bf43b2f8逐ID状态为203＝53历史＋150待验、0部分、53未实现，208仅协议登记。

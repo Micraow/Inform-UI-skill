@@ -321,3 +321,15 @@ node candidates/supplied-interactions/verify-source.mjs --library /path/to/ui-in
 ```
 
 The final source207 views have independent functional confirmation; current inventory4c5613b5 records202/0/54 with207 registrations. The6ad focus failures remain historical negative controls, and earlier source/CDN acceptance is unchanged.
+
+## Learning visualization source208
+
+[Original finite-animation consumer](candidates/learning-viz/README.md) checks exacte6bb5837 with12 positive/16 negative documents and8 actual DOM/standalone groups. The official SVG engine renders original blue/amber marker data.371 old definitions and20 selected hashes are preserved; theme pause, finite end/restart, cancellation/reset/newer input, bitmap consent and timer/owner cleanup are covered with0 external requests.
+
+```sh
+node candidates/learning-viz/verify-source.mjs --library /path/to/ui-learning-viz
+```
+
+Source208 is not a new CDN or native result. The exact183 asset and its3428 Node/742 Chromium CI receipt remain scoped to that frozen version.
+
+The LearningViz source has independent functional confirmation. Exact inventory `bf43b2f8972ff9da7af232d45c773ded7a31322f` records203 implemented (53 historical+150 pending),0 partial and53 missing with208 registrations. This current declaration does not change the frozen183 native scope.

@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 207,
+  "protocolNodes": 208,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 149,
+    "implemented_pending_verification": 150,
     "partial": 0,
-    "not_implemented": 54
+    "not_implemented": 53
   },
-  "completeImplementationCoverage": 202,
+  "completeImplementationCoverage": 203,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope202/0/54 includes independently confirmed legacy category review and complete local river puzzle, with the reset-focus successor. Protocol207 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope203/0/53 includes independently confirmed finite LearningViz with supplied light/dark animation, local playback and ownership. Protocol208 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -434,6 +434,13 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "848a1d20fbc125441c2bb00fd8e88718c08d045f",
       "consumer": "candidates/supplied-interactions",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "learning-viz-dil",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "e6bb5837fa5a7f6ba90b4889013be1350300dc3f",
+      "consumer": "candidates/learning-viz",
       "nativeAndPixelAcceptance": false
     }
   ]
