@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 186,
+  "protocolNodes": 189,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 128,
+    "implemented_pending_verification": 131,
     "partial": 0,
-    "not_implemented": 75
+    "not_implemented": 72
   },
-  "completeImplementationCoverage": 181,
+  "completeImplementationCoverage": 184,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope181/0/75 includes independently confirmed CapabilitySearch composition. Protocol186 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope184/0/72 includes independently confirmed three task cards at the exact focus successor. Protocol189 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -287,6 +287,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "9793e1a66b0ec4e5711a6615129ec5617e7823b2",
       "consumer": "candidates/capability-search",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "push-drip-series-intro",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "ce64acabfc6ce7bd5cc0c9048e45b19013b5d409",
+      "consumer": "candidates/task-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "stop-push-drip-series",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "ce64acabfc6ce7bd5cc0c9048e45b19013b5d409",
+      "consumer": "candidates/task-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "task-autopause-card",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "ce64acabfc6ce7bd5cc0c9048e45b19013b5d409",
+      "consumer": "candidates/task-cards",
       "nativeAndPixelAcceptance": false
     }
   ]

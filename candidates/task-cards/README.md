@@ -24,3 +24,5 @@ JSDOM/standalone-script execution is not native browser or pixel acceptance. The
 ## Focus successor
 
 The initial source `1c01a344` passed the ordinary flows but failed two additional focus probes: after accepted Cancel, focus remained on the hidden confirmation button. Both probes pass unchanged on this exact `ce64acab` successor. The consumer additionally checks that canceled cancellation leaves focus and the panel unchanged. Focus is restored only when appropriate; no service behavior is added.
+
+Subsequent independent functional review passed 10/10 on `ce64acab`; both original focus probes also passed. Current inventory includes all three presentations in 184/256 implemented components, with 189 registrations. Their new native/reference-pixel acceptance remains pending.

@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **181 implemented**:53 historical functional acceptances and128 pending reference acceptance. No ID is currently partial and75 are not implemented. Protocol186 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the181 count.
+The current source inventory is **184 implemented**:53 historical functional acceptances and131 pending reference acceptance. No ID is currently partial and72 are not implemented. Protocol189 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the184 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -31,3 +31,5 @@ AskUserLocation V1以60154c7准确源完成，独立8/8、消费者8正12负/5�
 Reservation carousel以37e4ba7准确源完成，独立11/11、消费者10正16负/6组。普通ReservationPillsData只为可复用定义，不增加第二个canonical ID。固定183资产计数保持178/0/78。
 
 CapabilitySearch以9793e1a准确源完成，独立10/10、消费者11正16负/6组。复用真实ordinary Reservation与Location子域，全部例子同时展示；当前181/0/75、186登记。统一183实际CI3428 Node/742 Chromium只覆盖其固定178范围，不延伸到该source186。
+
+Task三项以ce64acab准确focus后继完成，独立10/10与原两focus负控均转绿，消费者12正18负/6组。Intro/Stop确认始终不可用；Task的resume/settings/delete只本地请求，未执行通知、调度或删除。当前184/0/72、189登记，未扩展旧183原生范围。
