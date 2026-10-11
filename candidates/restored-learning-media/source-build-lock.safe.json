@@ -1,0 +1,97 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "f6d4893ffebfc8e3ba9f6b48b04b957a236cb7e1",
+  "implementationCommit": "bb213abb2ae7c8947944e61f85ba858c0c47c833",
+  "sourceTree": "285be74978dde5f44c5c3f458f6b3b3d8ad9309a",
+  "protocolNodes": 136,
+  "scope": "Selected source/build file closure; actual compiler HTML and browser DOM, no fresh CDN or native media acceptance",
+  "cdnExecuted": false,
+  "nativeScenariosExecuted": 0,
+  "files": [
+    {
+      "path": "src/core/learning-media.ts",
+      "bytes": 3005,
+      "sha256": "3f127c1da9660cfbee1cd37d1e5d3dd92ce37d79e20b54a190253eced5909565"
+    },
+    {
+      "path": "src/renderer/learning-media.ts",
+      "bytes": 11142,
+      "sha256": "f5af6721448476453484dda2fb01e9da82a207d4959c7223b70e06fd8cc68c42"
+    },
+    {
+      "path": "src/renderer/learning-media-labels.ts",
+      "bytes": 2224,
+      "sha256": "282ce5762478bd2211104e6461d16ce80dc6dc042e5f017224a641e6958b3b2a"
+    },
+    {
+      "path": "src/renderer/learning-media.css",
+      "bytes": 3609,
+      "sha256": "ce94e723cc9991e09c821bcbd4507adee0554bdcba3e6ef82fc7fa09c5f729fc"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1622,
+      "sha256": "efeb5fef476ec71af9810fc13027e950b47ab1c6372ed2ea013c5ca5062d5ad7"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3446,
+      "sha256": "40b280409806d8f708665862385b9d277c7a64365bdfe34352a9d066a85915f1"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 2768,
+      "sha256": "6cd39f4b672fd7384d587403d5e8722577d5c7b340231f1249f90fd0272b92c7"
+    },
+    {
+      "path": "src/compiler.ts",
+      "bytes": 4299,
+      "sha256": "4bc78beb36cbec7aeb448da37d6cfdc9db54a2665aa06cf4fa34b6a8fd435caa"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 344523,
+      "sha256": "52d165f119d5d553866227caa1bf3e212e8c86c18eeb6dbb7f5f29c911f479f1"
+    },
+    {
+      "path": "src/schema/fragments/index.json",
+      "bytes": 26030,
+      "sha256": "8f6f29a009b8f002df0ab6729cad4a40d429fe9a082a3eaa42829d842c682f85"
+    },
+    {
+      "path": "src/schema/fragments/learning.schema.json",
+      "bytes": 196443,
+      "sha256": "f3adfce9ad7f88ca5b7d3956bb3379752458d39fe8f77324c32e1966062d89ff"
+    },
+    {
+      "path": "src/schema/fragments/base.schema.json",
+      "bytes": 180858,
+      "sha256": "00e5d98adc22cdec32cf0e2431469f7fce270495c18d89a01533a743ba90a1ac"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 5939853,
+      "sha256": "96c66deef28783a979cb9bd4fe09f87f3919d17207c4a96b9f11917a7bf97381"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 6427029,
+      "sha256": "fbe1f225c466846f5149dfa2da6c43323e1de9cde7b4297caad92da8d25b6369"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 574538,
+      "sha256": "e939f24db85063c3e95131b7c4d510a5f8f182c0f42189f688d440c0e6e54d48"
+    },
+    {
+      "path": "dist/standalone.js",
+      "bytes": 3589937,
+      "sha256": "8f2ebfa15f44291a203a6e7edcec5a070503e41d8604e7463a9ab96c3923d96f"
+    }
+  ]
+}

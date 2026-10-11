@@ -198,3 +198,7 @@ The separate [recovered TransactionDetail candidate](candidates/recovered-transa
 For the latest recovered branch, use the [unified 118 Recommendation consumer](candidates/recovered-recommendation/README.md). It combines three supplied reading families, verifies the concrete CopyWords busy-state repair and retains both earlier 116/117 pins. The final runtime aggregate is 1769/1771 with two historical missing-font failures, then the exact font-only successor passes both gates (14 targeted checks). All native/pixel acceptance remains pending.
 
 The recovered consumers default to safe file-closure locks. Original Git identities are preserved as provenance; excluded agent-guidance metadata and Git history are not required. Historical complete locks remain unchanged locally and are not part of the safe restore increment. The current 118 consumer has also passed against a real clean source extraction without Git metadata.
+
+### Restored learning-media source consumer
+
+`candidates/restored-learning-media` now verifies all three finite media practice nodes against exact source/build `f6d4893`, including six actual compiler HTML policies. It adds no CDN or native-playback acceptance. `candidates/restored-net-worth` contains a separate original supply-data draft, ready for the next restored family; its runtime is not yet tested.
