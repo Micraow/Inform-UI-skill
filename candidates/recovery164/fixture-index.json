@@ -1,0 +1,19 @@
+{
+  "format": "inform-original-fixture-index/1",
+  "fixtures": [
+    {
+      "family": "supplied-automation",
+      "example": "candidates/supplied-automation/examples/original-automation.json",
+      "exampleSha256": "c3db0147f69575756aeb24ea5420ea5b4b295edef07b206be0cc5826111b8861",
+      "cases": "candidates/supplied-automation/cases.mjs",
+      "casesSha256": "0050482caa628ee1ef4000de58942c4564e589cc36926906d5f876178c5bcd22"
+    },
+    {
+      "family": "scheduled-suggestion",
+      "example": "candidates/scheduled-suggestion/examples/original-suggestions.json",
+      "exampleSha256": "50907f61ee96c98390b486d4cfbc5d16fc09c3f85f98b900fc8b0e0747b27808",
+      "cases": "candidates/scheduled-suggestion/cases.mjs",
+      "casesSha256": "03cd15725447042197b9d4a49aea07fc2452050f20f43a4ffe6b95dfa20dd6f6"
+    }
+  ]
+}

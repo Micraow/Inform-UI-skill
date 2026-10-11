@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 162,
+  "protocolNodes": 164,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 102,
+    "implemented_pending_verification": 105,
     "partial": 1,
-    "not_implemented": 100
+    "not_implemented": 97
   },
-  "completeImplementationCoverage": 155,
+  "completeImplementationCoverage": 158,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope155/1/100 includes independent functional confirmation of the earlier completions and three supplied automation presentations. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
+  "acceptanceBoundary": "Current source scope158/1/97 includes independent functional confirmation of ScheduledTaskSuggestion and EntityOverview/EntityCard. Weather remains partial. Native/reference pixels and CI remain separate. Older154 CDN keeps142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -102,6 +102,30 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "6742f8bfaef3f03cac547eab7a7ce7d3aec9bc92",
       "consumer": "candidates/supplied-automation",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "scheduled-task-suggestion",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "ede2f9f54cb06c14b533ec3a5c59ff5ab1872a71",
+      "consumer": "candidates/scheduled-suggestion",
+      "consumerBoundary": "Original source and representative CDN contracts",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "entity-overview",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "ede2f9f54cb06c14b533ec3a5c59ff5ab1872a71",
+      "consumer": null,
+      "consumerBoundary": "Independent runtime functional confirmation; this CDN consumer checks registration but does not execute this family",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "entity-card",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "ede2f9f54cb06c14b533ec3a5c59ff5ab1872a71",
+      "consumer": null,
+      "consumerBoundary": "Independent runtime functional confirmation; this CDN consumer checks registration but does not execute this family",
       "nativeAndPixelAcceptance": false
     }
   ]
