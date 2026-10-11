@@ -175,3 +175,9 @@ The standalone script really grades a supplied quiz answer and renders the chart
 ## Independently confirmed172 current scope
 
 Exact status-only sourcee92b798e5725fbe28f5470817d4ac4714fab947e records172 implemented (53 historical plus119 pending),1 partial weather and83 missing, with178 protocol registrations. Study passed9 independent cases on itsc6e799 chart-reset successor, followed by the exact consumer10/16 and8 workflows. This accounting update preserves the prior171 record, the originalba79 failure, all earlier source locks and the164 packaged158/1/97 snapshot. Native/pixel and remote CI scope do not increase.
+
+## Original additive Weather consumer
+
+[The Weather supplied-view consumer](candidates/weather-supplied/README.md) locks exact0530db4:11 positive/16 negative documents,8 DOM/standalone workflows and20 selected hashes. Of330 prior definitions,329 remain byte-equivalent as JSON, while the one Weather definition projects exactly to its historical hash after only the declared optional fields are removed. No new registration is added.
+
+The original DST fixture preserves old required snapshots/defaults and adds explicit display labels, chart/table/compact views, a cross-midnight window, responsive follow-ups and local request capabilities. Originalf996 CtrlEnd/composingHome failures are retained; both assertions pass on0530. Actual standalone executes, with0 external requests and0 location/share/clipboard/service probes. Native/pixel/CSP acceptance and the immutable164 asset scope remain separate; Weather canonical promotion is recorded in a separate reviewed accounting update.
