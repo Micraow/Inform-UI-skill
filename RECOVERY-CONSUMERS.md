@@ -77,3 +77,9 @@ The next Upcoming example is neutral data only in `candidates/upcoming-completio
 ## Upcoming flow completion consumer
 
 [Upcoming flows](candidates/upcoming-flows/README.md) now maps the original teaching fixture to exact source8446e162:9 positive/16 negative new contracts plus6/20 legacy Finance documents,8 actual DOM/compiler flows,297 projected historical definition hashes and22 safe source/build hashes. It checks fixed top records, conditional replacement expansion, flow switching, reset ordering, opaque zero/null/unknown labels, passive versus explicitly enabled detail and distinct pending/failed/no-account states. This is source-build evidence only; native layout and canonical promotion are separate. All earlier finite locks remain unchanged.
+
+## Monthly trends and current functional scope
+
+[Spend trends](candidates/spend-trends/README.md) consumes exact7094076e through10 positive/20 negative new contracts,6/20 legacy Finance contracts and9 DOM/compiler flows. Its21 safe file hashes and299 projected definition hashes are checked. Header totals are explicitly independent of points; comparison uses supplied exact-day or historical totals and leaves missing data unknown. No external request or account service occurs.
+
+Independent functional confirmation now covers all five earlier finite-subset completions. Current inventory is147 implemented (53 historical plus94 pending),1 partial weather and108 missing. Earlier source checkpoint progress files and the142/6/108 frozen CDN descriptor remain historical. Native/reference-pixel verification is not promoted. The prior144/146 snapshots above describe the sequence, not the newest live scope.

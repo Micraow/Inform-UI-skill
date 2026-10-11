@@ -4,7 +4,7 @@
 
 当前恢复分支入口：[已验证的恢复消费者与运行命令](RECOVERY-CONSUMERS.md)。最新[精确本地 CDN 组合消费者为协议154](candidates/recovery154/README.md)：21份原创示例、144正例/359负例、双入口7组DOM合同通过；该固定资产canonical为142已实现、6部分、108未实现，历史功能验收53不变。公开源码闭包及远端CI另验。Skill 包含原创供数示例、独立 JavaScript 校验和安全文件锁，不捆绑运行库或私有参考。DOM/合同检查不代表原生或像素验收。以下旧合同与推荐保留为历史版本，不能混用资产。
 
-较新源构建消费者包含 [FollowUp](candidates/follow-up-presentations/README.md)、[Conversation](candidates/conversation-presentations/README.md) 与 [ImageGrid 补全候选](candidates/image-grid-presentations/README.md)，同时保留 [Finance154](candidates/local-finance-readers/README.md)、 MatchScores、LearningMedia、Weather/Category、NetWorth、Pressable 与 Fee/Interest 的精确检查点。当前源清单为 144/256 已实现（历史功能验收53＋待验91），部分4、未实现108；FollowUp与Conversation的功能补全已通过独立确认，ImageGrid/Upcoming/Spend与原weather仍为partial，详见[功能子集边界](references/recovery-functional-subsets.md)。新增154本地CDN组合检查不提升原生或完整功能验收，130固定组合资产保持原样。
+较新源构建消费者新增 [Upcoming双流](candidates/upcoming-flows/README.md) 与 [Spend月序列](candidates/spend-trends/README.md)，并包含 [FollowUp](candidates/follow-up-presentations/README.md)、[Conversation](candidates/conversation-presentations/README.md) 与 [ImageGrid 补全候选](candidates/image-grid-presentations/README.md)，同时保留 [Finance154](candidates/local-finance-readers/README.md)、 MatchScores、LearningMedia、Weather/Category、NetWorth、Pressable 与 Fee/Interest 的精确检查点。当前源清单为 147/256 已实现（历史功能验收53＋待验94），部分1、未实现108；FollowUp、Conversation、ImageGrid、Upcoming与Spend五项功能补全已通过独立确认，原weather仍为partial，详见[功能子集边界](references/recovery-functional-subsets.md)。新增154本地CDN组合检查不提升原生或完整功能验收，130固定组合资产保持原样。
 
 > Pending acceptance：本分支合同与壳固定 26ec211fa529516af3b1523248f5912c45ec64c6，37 项候选等待同版集中 CI 与原图验收。已验53计数、旧版推荐及用户演示不升级。
 

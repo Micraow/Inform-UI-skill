@@ -1,31 +1,23 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **144 implemented**:53 historical functional acceptances and91 pending verification. Another4 IDs are partial and108 are not implemented. Protocol154 is a separate schema-node count.
+The current source inventory is **147 implemented**:53 historical functional acceptances and94 pending native/reference verification. Another1 ID is partial and108 are not implemented. Protocol154 is a separate schema-node count.
 
-FollowUpActionBar and ConversationSuggestions have now passed independent functional confirmation:
+The five earlier finite subsets now have independently confirmed functional completions:
 
-- [FollowUp presentations](../candidates/follow-up-presentations/README.md), source7b5e55b: Footer/wrapped modes, renderer-container selection, phases, optional icons and distinct local new-turn/voice/composer requests, with old ID-only compatibility.
-- [Conversation presentations](../candidates/conversation-presentations/README.md), source342bc8f: distinct phases, optional icons, local new-turn/voice requests and old prompt-only compatibility.
+- [FollowUp presentations](../candidates/follow-up-presentations/README.md), source7b5e55b: Footer/wrapped modes, container selection, phases, icons and distinct local requests.
+- [Conversation presentations](../candidates/conversation-presentations/README.md), source342bc8f: phases, icons, local new-turn/voice requests and legacy compatibility.
+- [ImageGrid presentations](../candidates/image-grid-presentations/README.md), source8ade06a: authored row geometry/flex, recommendations/disclosure, passive live view and a local-basic viewer.
+- [Upcoming flows](../candidates/upcoming-flows/README.md), source8446e162: incoming/outgoing selection, fixed top records, conditional replacement expansion, native reset and explicitly enabled detail.
+- [Spend trends](../candidates/spend-trends/README.md), source7094076e: explicit monthly series, comparisons, point inspection, current-day limits and native reset.
 
-Both remain pending native/reference-pixel verification. Neither executes a host service. This promotion does not rewrite their earlier finite source locks.
-
-## Remaining partial functionality
-
-- **Image grid:** the earlier finite square grid is tested. Authored row geometry/flex growth, recommendations with More/Fewer, live-activity mode and viewer workflow need confirmation on the new exact candidate before promotion.
-- **Upcoming activity:** supplied labels and a kind filter work. Incoming/outgoing flow selection, expansion state and conditional expandedItems replacement remain missing from the consumed finite contract.
-- **Spend so far this month:** opaque totals and independent category-share bars work. A monthly temporal series, month/comparison controls, trend curve and point inspection remain missing from the consumed finite contract.
-- The pre-existing **weather** row also remains partial in the source inventory.
-
-Each candidate keeps its immutable source/build lock and positive/negative tests. Promotion requires implementing and checking the missing functional contracts on exact input. Native interaction and visual fidelity are separate evidence. The earlier five finite APIs were incorrectly counted as complete implementations; that accounting was corrected before these two genuine functional completions.
+All five remain pending native/reference-pixel verification. Local requests do not execute host services. This promotion does not rewrite their earlier finite source locks or the older source checkpoint inventories. The pre-existing **weather** row remains partial.
 
 ## Current versus historical accounting
 
-The current machine-readable declaration is [recovery-functional-subsets.json](recovery-functional-subsets.json). The exact8e21 CDN consumer instead keeps its historical142/6/108 declaration in its own [frozen scope](../candidates/recovery154/canonical-scope.lock.json). Future promotions must not change that old result.
-
-Check a supplied current inventory before reporting progress:
+The current machine-readable declaration is [recovery-functional-subsets.json](recovery-functional-subsets.json). The exact8e21 CDN consumer keeps its historical142/6/108 declaration in its own [frozen scope](../candidates/recovery154/canonical-scope.lock.json). Future promotions must not change that old result. The earlier five finite APIs were incorrectly counted as complete implementations; that accounting was corrected before these genuine functional completions.
 
 ```sh
-node scripts/verify-recovery-functional-scope.mjs /path/to/component-progress.json
+node scripts/verify-recovery-functional-scope.mjs /path/to/current/component-progress.json
 ```
 
-The command recomputes counts from256 unique rows, checks the exact remaining partial IDs and reports the inventory SHA-256. Mismatched summaries or promotions fail. It checks accounting, not runtime or browser acceptance; synthetic test IDs only exercise the verifier.
+The command recomputes counts from256 unique rows, checks the remaining partial ID and reports the inventory SHA-256. Mismatched summaries or promotions fail. It checks accounting, not runtime or browser acceptance. Use the current inventory rather than an old frozen source's progress file.

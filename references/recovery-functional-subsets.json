@@ -4,43 +4,14 @@
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 91,
-    "partial": 4,
+    "implemented_pending_verification": 94,
+    "partial": 1,
     "not_implemented": 108
   },
-  "completeImplementationCoverage": 144,
+  "completeImplementationCoverage": 147,
   "existingPartialId": "weather",
-  "subsets": [
-    {
-      "id": "image-grid",
-      "status": "partial",
-      "missing": [
-        "Row aspect ratios and per-item flex growth",
-        "Recommendation rows and More/Fewer disclosure",
-        "Live-activity presentation",
-        "Viewer workflow"
-      ]
-    },
-    {
-      "id": "ledger-upcoming-activity",
-      "status": "partial",
-      "missing": [
-        "Incoming and outgoing flow selection",
-        "Expansion state",
-        "Conditional expandedItems replacement"
-      ]
-    },
-    {
-      "id": "ledger-spend-so-far-this-month",
-      "status": "partial",
-      "missing": [
-        "Monthly temporal series",
-        "Month and comparison controls",
-        "Trend curve and point inspection"
-      ]
-    }
-  ],
-  "acceptanceBoundary": "Current source scope144/4/108 includes independently function-tested FollowUp and Conversation completions. Remaining finite subsets do not establish complete canonical functionality. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
+  "subsets": [],
+  "acceptanceBoundary": "Current source scope147/1/108 includes independent functional confirmation of all five earlier finite-subset completions. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -54,6 +25,27 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "342bc8f2b4a7577c2c89f65826a5921a74c1287a",
       "consumer": "candidates/conversation-presentations",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "image-grid",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "8ade06a5158a5fc4f47a824e5246744eec31fa82",
+      "consumer": "candidates/image-grid-presentations",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-upcoming-activity",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "8446e162e9ffd405f80c42345173b3a979bb8bd4",
+      "consumer": "candidates/upcoming-flows",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ledger-spend-so-far-this-month",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "7094076e383c1cd062eaefaa87601801bec4ed2c",
+      "consumer": "candidates/spend-trends",
       "nativeAndPixelAcceptance": false
     }
   ]
