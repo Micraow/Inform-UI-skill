@@ -4,14 +4,14 @@
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 119,
-    "partial": 1,
+    "implemented_pending_verification": 120,
+    "partial": 0,
     "not_implemented": 83
   },
-  "completeImplementationCoverage": 172,
-  "existingPartialId": "weather",
+  "completeImplementationCoverage": 173,
+  "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope172/1/83 includes independent Study confirmation on its chart-reset successor. Protocol178 is separate. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope173/0/83 includes independent Weather functional completion on its navigation successor. Protocol178 is unchanged. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 with its historical partial Weather row; older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -224,6 +224,13 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "c6e7999128b2c4f3474bb40d27ba50958b20f3f6",
       "consumer": "candidates/study-onboarding",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "weather",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "0530db4b7748dae637398f5b57840066b79a3e9d",
+      "consumer": "candidates/weather-supplied",
       "nativeAndPixelAcceptance": false
     }
   ]

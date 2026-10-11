@@ -22,7 +22,8 @@ export function verifyFunctionalScope(inventory, scope) {
   const implemented = counts.functionally_verified + counts.implemented_pending_verification;
   if (implemented !== scope.completeImplementationCoverage) fail('implemented count must exclude partial rows');
   const partialIds = inventory.components.filter(row => row.status === 'partial').map(row => row.id).sort();
-  const expectedPartialIds = [scope.existingPartialId, ...scope.subsets.map(row => row.id)].sort();
+  if (scope.existingPartialId !== null && (typeof scope.existingPartialId !== 'string' || !scope.existingPartialId.trim())) fail('legacy partial ID must be a nonblank string or explicit null');
+  const expectedPartialIds = [...(scope.existingPartialId === null ? [] : [scope.existingPartialId]), ...scope.subsets.map(row => row.id)].sort();
   if (JSON.stringify(partialIds) !== JSON.stringify(expectedPartialIds)) fail('partial IDs differ from declared functional subsets');
   if (!scope.subsets.every(row => row.status === 'partial' && Array.isArray(row.missing) && row.missing.length > 0)) fail('each subset needs explicit missing functions');
   return { canonicalTotal: inventory.components.length, implemented, counts, partialIds, protocolNodes: scope.protocolNodes, boundary: 'Accounting check only; no runtime, browser or visual acceptance.' };
