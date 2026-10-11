@@ -15,7 +15,7 @@ export async function prepareSuppliedConsumer(library,directory,options) {
   const apis=await Promise.all(['cdn/iui.min.js','dist/browser.js','dist/index.js'].map(file=>import(pathToFileURL(path.join(root,file)))));
   const [api,,node]=apis;
   for(const group of options.cases) {
-    for(const [name,spec]of group.positives)for(const runtime of apis)assert.equal(runtime.validateDocument(spec).ok,true,name);
+    for(const [name,spec]of group.positives)for(const runtime of apis){const result=runtime.validateDocument(spec);assert.equal(result.ok,true,name+': '+JSON.stringify(result));}
     for(const [name,spec,code,issuePath]of group.negatives)for(const runtime of apis){const r=runtime.validateDocument(spec);assert.equal(r.ok,false,name);assert.ok(r.issues.some(i=>i.code===code&&(!issuePath||i.path===issuePath)),name+': '+JSON.stringify(r));}
   }
   const schema=JSON.parse(await readFile(path.join(root,'src/schema/iui.schema.json'))),baseline=JSON.parse(await local(options.baselineFile)),previous=JSON.parse(await local(options.previousLock));
@@ -23,7 +23,7 @@ export async function prepareSuppliedConsumer(library,directory,options) {
   for(const [name,digest]of Object.entries(baseline.definitions))assert.equal(hash(JSON.stringify(schema.$defs[name])),digest,name);
   assert.deepEqual(schema.$defs.Node.oneOf.filter(r=>!options.addedDefinitions.map(name=>'#/$defs/'+name).includes(r.$ref)),baseline.nodeRefs);
   const index=JSON.parse(await readFile(path.join(root,'src/schema/fragments/index.json')));
-  for(const type of options.types)assert.equal(index.nodeOwners[type],options.owner);
+  for(const type of options.types)assert.equal(index.nodeOwners[type],options.nodeOwners?.[type]??options.owner);
   const delta=JSON.parse(await local(options.deltaFile));assert.equal(delta.baseAsset,previous.assetCommit);assert.equal(delta.asset,lock.assetCommit);
   const oldRenderer=previous.files.filter(f=>f.path.startsWith('src/renderer/'));
   const oldNames=new Set(oldRenderer.map(f=>f.path)),changedNames=delta.changedOldRendererFiles.map(f=>f.path),newNames=delta.newRendererFiles.map(f=>f.path);
@@ -33,8 +33,9 @@ export async function prepareSuppliedConsumer(library,directory,options) {
   assert.deepEqual(lock.files.filter(f=>f.path.startsWith('src/renderer/')&&!oldNames.has(f.path)).map(f=>f.path).sort(),newNames.slice().sort(),'Every newly locked renderer file is declared');
   for(const file of oldRenderer){const changed=delta.changedOldRendererFiles.find(f=>f.path===file.path);if(changed){assert.equal(changed.beforeSha256,file.sha256);assert.ok(changed.reason);}assert.equal(hash(await readFile(path.join(root,file.path))),changed?.afterSha256??file.sha256,file.path);}
   for(const file of delta.newRendererFiles)assert.equal(hash(await readFile(path.join(root,file.path))),file.sha256,file.path);
-  const validators=['src/schema/iui.schema.json','src/schema/fragments/'+options.owner+'.schema.json'];
-  for(const file of validators){const validate=new Ajv({strict:false,allErrors:true}).compile(JSON.parse(await readFile(path.join(root,file))));for(const [name,spec]of options.cases[0].positives)assert.equal(validate(spec),true,name);}
+  const fragmentCases=options.fragmentCases??[{owner:options.owner,positives:options.cases[0].positives}];
+  const validators=[{file:'src/schema/iui.schema.json',positives:options.cases[0].positives},...fragmentCases.map(group=>({...group,file:'src/schema/fragments/'+group.owner+'.schema.json'}))];
+  for(const group of validators){const validate=new Ajv({strict:false,allErrors:true}).compile(JSON.parse(await readFile(path.join(root,group.file))));for(const [name,spec]of group.positives)assert.equal(validate(spec),true,name+' '+group.file);for(const [name,spec]of group.negatives??[])assert.equal(validate(spec),false,name+' '+group.file);}
   const baseValidate=new Ajv({strict:false,allErrors:true}).compile(JSON.parse(await readFile(path.join(root,'src/schema/fragments/base.schema.json'))));assert.equal(baseValidate(options.cases[0].positives[0][1]),false);
   const css=await readFile(path.join(root,'dist/style.css'),'utf8'),external=await readFile(path.join(root,'cdn/iui.css'),'utf8'),family=await readFile(path.join(root,options.styleFile),'utf8');
   for(const runtime of apis){assert.equal(hash(runtime.styles),hash(css));assert.ok(runtime.styles.includes(family));}assert.ok(external.includes(family));

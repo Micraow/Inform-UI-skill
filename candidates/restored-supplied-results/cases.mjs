@@ -11,7 +11,7 @@ export function buildCases(input){
  ['literal labels and source context',edit((t,e)=>{t.label='<img src=untrusted>';t.rounds[0].matches[0].note='<script>supplied text</script>';e.contests[0].candidates[0].party='<svg onload=untrusted>';})],
  ['all declared statuses and outcomes',edit((t,e)=>{t.rounds[0].matches=['scheduled','live','final','postponed','cancelled','unknown'].map((status,i)=>({...structuredClone(t.rounds[0].matches[0]),id:'status'+i,status}));e.contests=['pending','counting','complete','recount','unknown'].map((status,i)=>({...structuredClone(e.contests[0]),id:'contest'+i,status}));})],
  ['maximum finite collections',edit((t,e)=>{t.teams=Array.from({length:128},(_,i)=>({id:'team'+i,label:'Synthetic team '+i}));t.rounds=Array.from({length:12},(_,r)=>({id:'round'+r,label:'Synthetic round '+r,matches:Array.from({length:32},(_,m)=>({id:'match'+r+'_'+m,label:'Synthetic match '+r+' / '+m,status:'unknown',participants:[{teamId:null,score:null},{teamId:null,score:null}],winnerTeamId:null}))}));e.contests=Array.from({length:40},(_,c)=>({id:'contest'+c,label:'Synthetic council '+c,status:'unknown',reportedPercent:null,totalVotes:null,candidates:Array.from({length:50},(_,i)=>({id:'candidate'+i,label:'Synthetic candidate '+i,votes:null,voteShare:null,outcome:'unknown'}))}));})],
- ['safe links and explicit offset dates',edit((t,e)=>{t.observedAt='2028-02-29T23:59:59-12:00';e.contests[1].observedAt='2028-03-01T00:00+14:00';e.contests[0].candidates[0].source.url='https://example.org/original?q=supplied#context';})],
+ ['safe links and explicit offset dates',edit((t,e)=>{t.observedAt='2028-02-29T23:59-12:00';e.contests[1].observedAt='2028-03-01T00:00+14:00';e.contests[0].candidates[0].source.url='https://example.org/original?q=supplied#context';})],
  ];
  const structural=(name,fn)=>[name,edit(fn),'SCHEMA'];
  const semantic=(name,fn,code,path)=>[name,edit(fn),code,path];
@@ -50,5 +50,6 @@ export function buildCases(input){
  structural('contest overflow',(t,e)=>e.contests=Array(41).fill(e.contests[0])),
  structural('candidate overflow',(t,e)=>e.contests[0].candidates=Array(51).fill(e.contests[0].candidates[0])),
  structural('timestamp without offset',t=>t.observedAt='2028-02-29T10:00'),
+ structural('seconds outside minute-precision timestamp contract',t=>t.observedAt='2028-02-29T23:59:59-12:00'),
  ];return{positives,negatives};
 }

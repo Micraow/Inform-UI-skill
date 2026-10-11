@@ -1,11 +1,11 @@
 # Current recovered consumers
 
-The latest recovered consumer is [Boxscores128](candidates/restored-boxscores/README.md), pinned to local runtime asset `2a36d9012b70feca5e3d371cbac20c4cca7b2d5f` with tests-only source HEAD `73bfbeffd408cd10722900caee37425f8e9a234c`. It combines supplied basketball/cricket boxscores with Motorsport, Player and Ledger readers. Protocol128 is distinct from the canonical inventory:121 implemented (53 historical functional acceptances plus68 pending),130 not implemented,5 partial, denominator256.
+The latest recovered consumer is [Supplied Results130](candidates/restored-supplied-results/README.md), pinned to local runtime asset `d1db55e6b570ed22dacb82314eba42a369a6be1e` with source HEAD `d1db55e6b570ed22dacb82314eba42a369a6be1e`. Its fictional tournament and council data combine with Boxscores, Motorsport, Player and Ledger readers. Protocol130 is distinct from the canonical inventory:123 implemented (53 historical functional acceptances plus70 pending),128 not implemented,5 partial, denominator256.
 
 Run its verifier against your exact rebuilt runtime:
 
 ```sh
-node candidates/restored-boxscores/verify.mjs --library /absolute/path/to/ui-integrated128-final
+node candidates/restored-supplied-results/verify.mjs --library /absolute/path/to/ui-supplied-results-restored
 npm test
 ```
 
@@ -24,3 +24,5 @@ The publication candidate `09db2e994a42bfa5c75207fd38fe4761277cdb5d` later fixes
 Motorsport126 adds original finite schedules and standings, explicit unknown/zero/penalty/tie cases, and a local canceled session receipt. Its exact-asset verifier checks 10 positive/26 negative cases, reuses Player validation and runs 12 mixed-reader DOM flows. It includes the public124 shared reset successor; prior fixed consumer locks and their negative controls remain unchanged.
 
 Boxscores128 validates10 positive/27 negative cases and the Motorsport cases through three runtime entries, then runs17 actual-CDN mixed-reader flows. It checks218 unchanged definitions,136 prior renderer files with nine declared deltas,920 safe locked files and52 CDN assets. Its shared owner and intent-gate successor closes the later-discovered126 accessibility-getter duplicate intent; the historical126 lock and its narrower original evidence remain intact.
+
+Supplied Results130 validates10 positive/35 negative cases, reuses Boxscores validation and runs17 ten-reader actual-CDN flows. It preserves226 prior definitions, checks141 prior renderer files with three declared changes,934 safe locked files and52 assets. Tournament is sports-owned and election is base-owned; sports includes base as a dependency. Data are fictional, with no live political data, result inference, prediction or provider action. Native/pixel acceptance and the inherited Player CSS geometry remain separately unclaimed here.
