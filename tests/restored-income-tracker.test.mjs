@@ -13,3 +13,8 @@ test('Income drafts preserve inputs and exercise supplied-data boundaries', () =
   assert.equal(c.negatives.find(([n]) => n === 'income requires a supplied estimate label')[3], '/body/0/estimatedMonthlyIncomeLabel');
   assert.equal(c.positives.find(([n]) => n === 'masked amounts preserve absent data')[1].body[1].nextPaycheck.amountLabel, null);
 });
+test('Income148 consumer locks the exact source-built input without changing older acceptance', async () => {
+  const lock = JSON.parse(await readFile(new URL('../candidates/restored-income-tracker/source-build-lock.safe.json', import.meta.url)));
+  assert.equal(lock.sourceCommit, '9b66f5a7cef9225d0b6aa8774e54a51d10611482'); assert.equal(lock.protocolNodes, 148); assert.equal(lock.cdnExecuted, false); assert.equal(lock.files.length, 17);
+  assert.ok(lock.files.every(f => !/(AGENTS|private|\.\.\/)/.test(f.path) && /^[a-f0-9]{64}$/.test(f.sha256)));
+});
