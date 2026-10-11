@@ -217,3 +217,7 @@ Quiz-only status sourcebc36c74799d9a83c0fecb2c81c62ab6bf0f8888d records177 imple
 [The local location-request consumer](candidates/ask-location/README.md) locks exact60154c7f384d09f724b1481f4adadce9247053d5:8 positive/12 negative documents,5 DOM/actual-standalone groups,335 unchanged old definitions and18 selected hashes. It verifies three frozen cancelable intents, dismissal/local receipts, native/local reset, pending barriers and replacement/owner retirement with0 external requests and0 geolocation/permission access.
 
 This source184 is separate from the unified183 checkpoint and existing second-generation LocationChoiceRequest. No real location or device permission result is requested, stored or inferred; native/pixel acceptance and canonical accounting remain separately reviewed.
+
+## Independently confirmed179 current scope
+
+Exact status source84ebf9cc6094e5e1ade6b2bea2561ccab2964e64 records179 implemented (53 historical plus126 pending),0 partial and77 missing, with184 registrations. AskUserLocation V1 passed8 independent cases and consumer8/12 plus5 actual flows without device access. The183 combination stays pinned to178/0/78 and the164 asset to158/1/97. No native, location-permission, pixel or CI result is implied by the current accounting change.

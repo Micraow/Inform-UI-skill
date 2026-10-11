@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 183,
+  "protocolNodes": 184,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 125,
+    "implemented_pending_verification": 126,
     "partial": 0,
-    "not_implemented": 78
+    "not_implemented": 77
   },
-  "completeImplementationCoverage": 178,
+  "completeImplementationCoverage": 179,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope178/0/78 includes independent Quiz and capability-welcome functional completions. Protocol183 is separate. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 with its historical partial Weather row; older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope179/0/77 includes independent AskUserLocation V1 functional completion. Protocol184 is separate. Native/reference pixels and CI remain separate. Unified183 remains178/0/78; frozen164 remains158/1/97 and older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -266,6 +266,13 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "f72f89ba9cdcf9b2736021bbb800a1dd658d8421",
       "consumer": "candidates/capability-welcome",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "ask-user-location",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "60154c7f384d09f724b1481f4adadce9247053d5",
+      "consumer": "candidates/ask-location",
       "nativeAndPixelAcceptance": false
     }
   ]
