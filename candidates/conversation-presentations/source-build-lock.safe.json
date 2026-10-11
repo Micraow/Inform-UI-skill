@@ -1,0 +1,124 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "342bc8f2b4a7577c2c89f65826a5921a74c1287a",
+  "sourceTree": "aac947c230c5dcb4477425476684aa3e9b823c90",
+  "protocolNodes": 154,
+  "cdnExecuted": false,
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 1750,
+      "sha256": "a06274825a955e560593247c7dc8d23ee510164f3c89dfd4e6a454df0c6dd807"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 46891,
+      "sha256": "4e42f927b379a2007a3df1708e29d52314e78e3cc8d85351b8a4fa86d8f9cc98"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "bytes": 3120,
+      "sha256": "4c109b5c9090778d9ab4c88573ca33ecef5b7a2fcc1a58d22bbba533af6e1a42"
+    },
+    {
+      "path": "scripts/build-cdn.mjs",
+      "bytes": 4736,
+      "sha256": "59b2cefb2a898ec308bf6eec24751e37f8c064bfff63deb86cd01b35443ca4eb"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 394353,
+      "sha256": "4f16c4c2be3b8d7dd39c8568fa3666b8d0ec2ef428f198f81e3d8868514530e5"
+    },
+    {
+      "path": "src/schema/fragments/base.schema.json",
+      "bytes": 207107,
+      "sha256": "9799015c6f321717edfed54a00fcf9e2cef3f890b1969f2c042ceb3ffde52896"
+    },
+    {
+      "path": "src/schema/fragments/index.json",
+      "bytes": 27202,
+      "sha256": "f9ae80e5f2cf826b94f4d66e120f6ef567b7b2165dec7d0a5876ace104f88eba"
+    },
+    {
+      "path": "src/core/conversation-suggestions.ts",
+      "bytes": 1261,
+      "sha256": "72f0ca01ffe420c4e504a3380cd3fd63d33183432c72b84ff3bf7b08388a65d9"
+    },
+    {
+      "path": "src/renderer/conversation-suggestions.ts",
+      "bytes": 3224,
+      "sha256": "9f0a9986c10a759a61b6c5565a5cecd17ffafd8d1d47a68c531a76e09fb135dd"
+    },
+    {
+      "path": "src/renderer/conversation-suggestions.css",
+      "bytes": 1328,
+      "sha256": "1319f227aa241cd827b4d45e01885d112e692852eccf554713d647dddab4d972"
+    },
+    {
+      "path": "src/renderer/follow-up-action-bar.ts",
+      "bytes": 3863,
+      "sha256": "2972c8d2c8cf65636fe31f211c7b2aaefe2528708a5fbe666d67d56b54053dda"
+    },
+    {
+      "path": "src/renderer/follow-up-action-bar.css",
+      "bytes": 2634,
+      "sha256": "3174f04c3e3fa9b83e3f6c0a3a6dcc237671f3b32bcba36eece5b66db638e8ba"
+    },
+    {
+      "path": "src/renderer/index.ts",
+      "bytes": 40079,
+      "sha256": "44c8eb338283036dd8d5abb4c903b4d0bac40497911c07e9e8faad1cff13345b"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1656,
+      "sha256": "ce983a28b6664b406c55e834106092c5dc9a8aba18687f04262d82ec37588b24"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3138,
+      "sha256": "0c11b997147bb0344850bb8ee10f097e2baa225bdd056eae38f2f79e77291a3e"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3768,
+      "sha256": "d84261882e03203dc3a41eaee408eee4dee57096054efe0177cf29b96297ca9a"
+    },
+    {
+      "path": "src/renderer/search-image.ts",
+      "bytes": 9346,
+      "sha256": "9c73ee2e46b855a48aaa3537ea570f03f0ef33d2918e01b2192c61b5f3bb1f35"
+    },
+    {
+      "path": "docs/component-progress.json",
+      "bytes": 60234,
+      "sha256": "4ec2ddd49b382e6be85489af8881c604a05af3d348d4f190e4f0a87c977fe344"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 7710392,
+      "sha256": "0683def4726cdc20d14c2cfd88a2a71ad5f675ee6ab3daab1ab2a23b6ec6544a"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 7902427,
+      "sha256": "8eba496fe27c8c044477da14dad76b4665df865da12f7a87973dcecbb36bdcce"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 610823,
+      "sha256": "8c6dc583baef6c236f22bd47c3c0d93e6e8731835292a37394aaaaf041d32cfc"
+    }
+  ]
+}
