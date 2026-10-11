@@ -1,6 +1,6 @@
 # Current recovered consumers
 
-The latest recovered consumer is [Supplied Results130](candidates/restored-supplied-results/README.md), pinned to local runtime asset `d1db55e6b570ed22dacb82314eba42a369a6be1e` with source HEAD `d1db55e6b570ed22dacb82314eba42a369a6be1e`. Its fictional tournament and council data combine with Boxscores, Motorsport, Player and Ledger readers. Protocol130 is distinct from the canonical inventory:123 implemented (53 historical functional acceptances plus70 pending),128 not implemented,5 partial, denominator256.
+The latest full-CDN recovered consumer is [Supplied Results130](candidates/restored-supplied-results/README.md), pinned to local runtime asset `d1db55e6b570ed22dacb82314eba42a369a6be1e` with source HEAD `d1db55e6b570ed22dacb82314eba42a369a6be1e`. Its fictional tournament and council data combine with Boxscores, Motorsport, Player and Ledger readers. Protocol130 is distinct from the canonical inventory:123 implemented (53 historical functional acceptances plus70 pending),128 not implemented,5 partial, denominator256.
 
 Run its verifier against your exact rebuilt runtime:
 
@@ -27,4 +27,15 @@ Boxscores128 validates10 positive/27 negative cases and the Motorsport cases thr
 
 Supplied Results130 validates10 positive/35 negative cases, reuses Boxscores validation and runs17 ten-reader actual-CDN flows. It preserves226 prior definitions, checks141 prior renderer files with three declared changes,934 safe locked files and52 assets. Tournament is sports-owned and election is base-owned; sports includes base as a dependency. Data are fictional, with no live political data, result inference, prediction or provider action. Native/pixel acceptance and the inherited Player CSS geometry remain separately unclaimed here.
 
-The newer [MatchScores133 source-build checkpoint](candidates/restored-match-scores/README.md) uses exact source `f4942414cbd5769b218daf08ea9343383967dd41`:8 positive/21 negative cases in Node and browser-export builds,7 common DOM flows,234 preserved definitions and16 locked source/build files. It deliberately reads no CDN and runs no fresh full suite. Current133 implementation progress is126/256; the exact130 CDN history above remains unchanged. Original three-card LearningMedia fixtures are also prepared for the next restoration, with no runtime acceptance claimed for that draft.
+The newer [MatchScores133 source-build checkpoint](candidates/restored-match-scores/README.md) uses exact source `f4942414cbd5769b218daf08ea9343383967dd41`:8 positive/21 negative cases in Node and browser-export builds,7 common DOM flows,234 preserved definitions and16 locked source/build files. It deliberately reads no CDN and runs no fresh full suite. Current133 implementation progress is126/256; the exact130 CDN history above remains unchanged. Later source-build consumers are listed below; they do not replace that immutable CDN history.
+
+## Later exact source-build families
+
+These lightweight entries read the actual Node/browser builds, full/domain schemas, family CSS and deterministic compiler HTML where noted. Their locks intentionally cover selected source/build files; they are not entire runtime archives. No new CDN or native/pixel acceptance is inferred. Run each `verify-source.mjs --library /path/to/its/exact/runtime`.
+
+- [LearningMedia136](candidates/restored-learning-media/README.md): source `f6d4893ffebfc8e3ba9f6b48b04b957a236cb7e1`, six positive/sixteen negative documents, seven DOM workflows and six real compiler HTML policies. Generated PNG/WAV inputs are original. Native decoding/playback is untested.
+- [Weather/Category138](candidates/restored-weather-category/README.md): source `6b49ceb620cbc4f0af1c9fffab99fb93593499e8`, six positive/eighteen negative documents, eight DOM workflows, 254 preserved definitions and one compiled HTML artifact. Local review receipts perform no account writes.
+- [NetWorth139](candidates/restored-net-worth/README.md): source `b7adf9469994524366913e68e9d42ea063284885`, five positive/twelve negative documents, seven ordinary DOM workflows, 259 preserved definitions and one HTML artifact. The Ctrl+Home limitation is retained with that exact older result.
+- [Pressable140](candidates/restored-pressable/README.md): source `ae77d32314548ddb6e345051c6a9cea1cea3773b`, five positive/ten negative documents, seven action DOM workflows plus one NetWorth modifier/IME successor check, 262 preserved definitions and one HTML artifact. The inherited NetWorth limitation is closed only in this newer tested source.
+
+The exact140 canonical inventory is133 implemented out of256 (53 historical functional acceptances plus80 pending),122 not implemented and1 partial. Protocol-node count140 is a different measure. Next Fee/Interest original fixtures remain draft-only until an exact restored runtime is tested.
