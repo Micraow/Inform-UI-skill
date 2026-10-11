@@ -210,3 +210,5 @@ The recovered consumers default to safe file-closure locks. Original Git identit
 The [original Search onboarding consumer](candidates/search-onboarding/README.md) uses exactsourcec900bd35 for three supplied Weather/Finance/News views. Its10 positive/16 negative contracts and7 DOM/actual-standalone workflows preserve330 prior definitions and the frozen164 asset lock. No live lookup provider is called.
 
 The [original three-contract Quiz consumers](candidates/quiz-cards/README.md) verify exactsource21a85df with12 positive/20 negative documents and7 DOM/actual-standalone workflows. Follow-up, local exact-match/query-only and supplied-result questionnaire contracts stay distinct;331 prior definitions and the fixed164 asset are preserved. No personality inference or external grading is performed.
+
+The [original capability-welcome consumer](candidates/capability-welcome/README.md) verifies exactsourcef72f89ba with10 positive/16 negative documents and5 DOM/actual-standalone workflows. Supplied action IDs, local receipts, unsupported voice/missing mappings and icon/reset ownership are explicit.334 prior definitions and the fixed164 CDN are unchanged.

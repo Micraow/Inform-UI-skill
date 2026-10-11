@@ -1,0 +1,2 @@
+/** Record and cancel an explicit local welcome intent; no navigation, capability service or telemetry. */
+export function attachWelcomeReceipt(host,output){const receive=e=>{e.preventDefault();output.textContent=`Requested welcome action: ${e.detail.itemId}/${e.detail.intent}`;};host.addEventListener('iui:capability-welcome',receive);return()=>host.removeEventListener('iui:capability-welcome',receive);}

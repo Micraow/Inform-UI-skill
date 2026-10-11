@@ -201,3 +201,9 @@ Exact status-only source5d93a628ce626db1ffca4df95e1681c999ba44b4 records174 impl
 [The Quiz-card consumers](candidates/quiz-cards/README.md) lock exact21a85df79ba7c0f9b2c1d15af4866c79920d4cf3:12 positive/20 negative documents,7 DOM/actual-standalone groups,331 unchanged historical definitions and19 selected hashes. Five original instances distinguish locked follow-up answers and partial submits, exact-match feedback versus query-only choices, and explicitly supplied informal-questionnaire results gated by saved/current/result revisions.
 
 Cancellation, native reset/new input, stale revision7 after retake/reanswer11, supplied generation/progress/result errors, image cleanup and actual compiled script are exercised.0 external requests and0 inference/grading/save/share/clipboard calls were observed. Registration182 and any separate canonical promotion do not change the fixed164 asset or native/pixel evidence.
+
+## Original capability-welcome consumer
+
+[The Welcome consumer](candidates/capability-welcome/README.md) locks exactf72f89ba9cdcf9b2736021bbb800a1dd658d8421:10 positive/16 negative documents,5 DOM/actual-standalone groups,334 unchanged prior definitions and19 selected hashes. Eight original supplied pills deliberately repeat labels and reorder actions, proving explicit ID mapping for prompt/URL/capability requests while voice and missing mappings remain disabled.
+
+Icon fallback/release, local receipts, cancellation, pending-reset barriers, replacement and owner retirement are verified with0 external requests and0 device/permission/telemetry/navigation calls. Registration183 does not modify the older164 CDN or native/pixel acceptance. Its separate canonical accounting waits for reviewed three-party closure.
