@@ -1,0 +1,60 @@
+{
+  "format": "inform-public-native-ci-receipt/1",
+  "publicCommit": "f7c49af9a2a19da635ce97ca78f41521a5722e2e",
+  "publicTree": "5a1f6aab85354351b557f6be323f4e572c00fcd6",
+  "localAssetCommit": "cf3b47fd5629fa30809a019663d587a6982b5ee5",
+  "protocolNodes": 183,
+  "fixedCanonicalImplemented": 178,
+  "run": {
+    "id": 38151422002,
+    "jobId": 114505510166,
+    "url": "https://github.com/Micraow/Inform-UI/actions/runs/38151422002",
+    "status": "completed",
+    "conclusion": "success",
+    "headSha": "f7c49af9a2a19da635ce97ca78f41521a5722e2e",
+    "updatedAt": "2026-10-11T15:43:56Z"
+  },
+  "node": {
+    "passed": 3428,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 440215.297511
+  },
+  "browser": {
+    "passed": 742,
+    "failed": 0,
+    "workers": 1,
+    "reportedDuration": "6.8m",
+    "testFiles": 92,
+    "method": "Actual lock-pinned Chromium in this GitHub Actions run; downloaded raw log and report ZIP."
+  },
+  "generated": "Generated schema/types/validators/styles/CDN files match the committed snapshot.",
+  "artifact": {
+    "id": 11707366591,
+    "bytes": 56716487,
+    "sha256": "9a437e6bcda07b67f86754fbe72dd483bd4cfc5529166aca8cc333dd1bd52ef3",
+    "entries": 562,
+    "manifestEntriesMatched": 52,
+    "nodeTypes": 183,
+    "manifestComparison": "full JSON equals independently verified frozen CDN manifest"
+  },
+  "newNativeCasesByFile": {
+    "tests/browser/ask-user.spec.mjs": 3,
+    "tests/browser/capability-welcome.spec.mjs": 2,
+    "tests/browser/conversational-onboarding.spec.mjs": 2,
+    "tests/browser/ledger-category.spec.mjs": 2,
+    "tests/browser/onboarding-cards.spec.mjs": 3,
+    "tests/browser/quiz-cards.spec.mjs": 3,
+    "tests/browser/search-onboarding.spec.mjs": 2,
+    "tests/browser/study-onboarding.spec.mjs": 2,
+    "tests/browser/voice-cards.spec.mjs": 3,
+    "tests/browser/weather-supplied.spec.mjs": 3
+  },
+  "newNativeCases": 25,
+  "limits": [
+    "Original-reference pixel equality is not established.",
+    "AskUserLocation184, Reservation185 and CapabilitySearch186 are outside this fixed CI.",
+    "Individual historical test names explicitly identify any mock/adapters; success does not establish real external provider services."
+  ],
+  "evidence": "Run identity/status directly read from GitHub. Test totals, report ZIP and complete52-asset match independently checked against the frozen local asset. This receipt does not rerun the suite or change source-consumer locks."
+}

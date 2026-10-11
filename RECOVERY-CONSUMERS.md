@@ -237,3 +237,13 @@ Current status-only sourceb0dfa07254d2e7a43f7c5b8f7b12a371581ee277 separately re
 ## Capability Search source186
 
 [This original all-at-once composition](candidates/capability-search/README.md) locks source9793e1a66b0ec4e5711a6615129ec5617e7823b2. It passes 11 positive/16 negative documents, six DOM/actual-standalone workflows, 345 unchanged prior definitions and 21 selected hashes. Five new definitions add one registered node. Its real ordinary reservation and location children retain separate request namespaces and state; no live service or location API is used. Current canonical accounting remains 180 pending independent confirmation of this candidate. The exact183 asset remains 178/0/78 and contains no source186 changes.
+
+## Subsequent exact183 native result
+
+[The public183 run](https://github.com/Micraow/Inform-UI/actions/runs/38151422002) has completed successfully: 3,428 Node and 742 Chromium tests passed, with the report artifact's 52-asset manifest equal to fixed cf3/f7. The [separate receipt](references/unified183-native-ci.json) binds those results to that exact commit. Later source184–186 and original-reference pixel equality remain outside this run; source-consumer locks are unchanged.
+
+## Current181 status
+
+Exact status source `257dee4a5bfd387b650ae9d0997f80bf8eec9662` records 181 implemented canonical components: 53 historical functional acceptances plus 128 pending reference acceptance, zero partial and 75 missing. It has 186 protocol registrations. The row-level inventory SHA-256 is `d814d1cb0aa6c0626c84a7bac7b304e9c94c9a37f3aed40678197f0e5cc0ee1d`.
+
+CapabilitySearch source `9793e1a66b0ec4e5711a6615129ec5617e7823b2` passed 10 independent functional cases and the original consumer's 11 positive/16 negative documents plus six actual workflows. This status record does not claim a published runtime commit for source186. The preceding current180 entry and all frozen source/asset locks remain historical evidence; the separate successful183 native result does not extend to source186.

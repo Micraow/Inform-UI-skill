@@ -31,3 +31,7 @@ This exact asset inventory has178 implemented canonical components:53 historical
 These checks execute CDN JavaScript in JSDOM. They do not establish native browser layout/keyboard defaults, image/audio decoding, real CSP enforcement, reference pixels, remote CI or a complete public-source rebuild. The upstream full-check/CI results are reported separately. Every per-family source lock and the old164 asset lock stay immutable.
 
 Upstream author report for this asset:3428/3428 local checks and generated-clean exit0. The initial3424/3426 log involved two historical test-scope assumptions, retained separately. Consumer execution does not rerun that aggregate. Native run38151422002 is separate and not accepted by this record.
+
+## Subsequent native CI result
+
+[Run 38151422002](https://github.com/Micraow/Inform-UI/actions/runs/38151422002) subsequently completed successfully for the exact public `f7c49af9` commit: 3,428 Node tests and 742 Chromium tests passed. The downloaded report's 52-asset manifest equals this frozen asset. The separate [CI receipt](../../references/unified183-native-ci.json) records 25 new executed cases in ten files relative to 164. This does not extend the result to AskLocation184, Reservation185, CapabilitySearch186 or reference-pixel equality. The original consumer run and its lock are unchanged.

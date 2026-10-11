@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 185,
+  "protocolNodes": 186,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 127,
+    "implemented_pending_verification": 128,
     "partial": 0,
-    "not_implemented": 76
+    "not_implemented": 75
   },
-  "completeImplementationCoverage": 180,
+  "completeImplementationCoverage": 181,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope180/0/76 includes independently confirmed Reservation carousel, with its ordinary reader not separately counted. Protocol185 is separate. Native/reference pixels and CI remain separate. Frozen183 stays178/0/78;164 stays158/1/97;154 stays142/6/108.",
+  "acceptanceBoundary": "Current source scope181/0/75 includes independently confirmed CapabilitySearch composition. Protocol186 is separate. Exact183 native run3428 Node/742 Chromium applies only to its frozen178/0/78 asset; later source and reference pixels are separate. Frozen164 stays158/1/97;154 stays142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -280,6 +280,13 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "37e4ba7af5e0b39f80a80513b145c300757ba21e",
       "consumer": "candidates/reservation-carousel",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "whats-new-capability-search",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "9793e1a66b0ec4e5711a6615129ec5617e7823b2",
+      "consumer": "candidates/capability-search",
       "nativeAndPixelAcceptance": false
     }
   ]
