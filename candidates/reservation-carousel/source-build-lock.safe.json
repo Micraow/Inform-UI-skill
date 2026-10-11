@@ -1,0 +1,109 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "37e4ba7af5e0b39f80a80513b145c300757ba21e",
+  "sourceTree": "69fdd72ba268c57cffe113ed7abea5facc8c72b5",
+  "protocolNodes": 185,
+  "cdnExecuted": false,
+  "files": [
+    {
+      "path": "package.json",
+      "bytes": 1750,
+      "sha256": "a06274825a955e560593247c7dc8d23ee510164f3c89dfd4e6a454df0c6dd807"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 46891,
+      "sha256": "4e42f927b379a2007a3df1708e29d52314e78e3cc8d85351b8a4fa86d8f9cc98"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "bytes": 4192,
+      "sha256": "0b6f074a370073c102ed4160c2c6890ef71b530db8a22244bdefeb7af65e77bb"
+    },
+    {
+      "path": "scripts/build-cdn.mjs",
+      "bytes": 5808,
+      "sha256": "4f826344188960c534058ba4a851773aa5fb39aaaebfbee24aaa55ff5cc8704b"
+    },
+    {
+      "path": "scripts/reservation-pills-schema.mjs",
+      "bytes": 3625,
+      "sha256": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37"
+    },
+    {
+      "path": "src/core/reservation-pills.ts",
+      "bytes": 10118,
+      "sha256": "bd220d29957250c203cde97f15228b46a56d9b076678cce8f185eaec6210b9e3"
+    },
+    {
+      "path": "src/renderer/reservation-pills.ts",
+      "bytes": 22459,
+      "sha256": "cdf3142bf5628579b824a6c49b6a6451cd9cf18150f500d7a3d30a2a57e379fb"
+    },
+    {
+      "path": "src/renderer/reservation-pills.css",
+      "bytes": 4708,
+      "sha256": "75ea9fd90fd866cfe619408e93bf3f7691b34ee5b929b6387b73bbad053ea767"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 573841,
+      "sha256": "b9d74b6803885aca64bf80d01086a0e8f20c421eb5109a3edaec9b374686f440"
+    },
+    {
+      "path": "src/schema/fragments/base.schema.json",
+      "bytes": 327493,
+      "sha256": "a809fdd1167be67bd056dee7f9feb5b909f9ca82dc7f32182e58930cff40a5b1"
+    },
+    {
+      "path": "src/renderer/search-image.ts",
+      "bytes": 9346,
+      "sha256": "9c73ee2e46b855a48aaa3537ea570f03f0ef33d2918e01b2192c61b5f3bb1f35"
+    },
+    {
+      "path": "src/renderer/carousel.ts",
+      "bytes": 6145,
+      "sha256": "b76b561ce7363183c6a17c1cc805c0eafcbfa8542127b3d3890724e3430afea7"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3176,
+      "sha256": "20b53a00e2bbab3fe6f89ba30650028836f18d0cae98d75bc37da2f7e696fa6c"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1656,
+      "sha256": "ce983a28b6664b406c55e834106092c5dc9a8aba18687f04262d82ec37588b24"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3768,
+      "sha256": "d84261882e03203dc3a41eaee408eee4dee57096054efe0177cf29b96297ca9a"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 10668464,
+      "sha256": "0b3a76d679f17100d2159b1e00f8b2264dd15e435886d4394613fc2f5eedee05"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 10860677,
+      "sha256": "57c888407165aa2e5873be9c67d98547e3ec0bcfae706bd2b33e1d38269d4ad1"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 661808,
+      "sha256": "b4e49461c36ff1f0542fb6ff3ee29cc7f58f79f92102397ecc6ec7ffd5ca3db5"
+    }
+  ]
+}

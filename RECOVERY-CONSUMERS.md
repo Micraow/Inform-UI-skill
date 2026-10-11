@@ -221,3 +221,9 @@ This source184 is separate from the unified183 checkpoint and existing second-ge
 ## Independently confirmed179 current scope
 
 Exact status source84ebf9cc6094e5e1ade6b2bea2561ccab2964e64 records179 implemented (53 historical plus126 pending),0 partial and77 missing, with184 registrations. AskUserLocation V1 passed8 independent cases and consumer8/12 plus5 actual flows without device access. The183 combination stays pinned to178/0/78 and the164 asset to158/1/97. No native, location-permission, pixel or CI result is implied by the current accounting change.
+
+## Original canonical reservation-card consumer
+
+[The reservation-card consumer](candidates/reservation-carousel/README.md) locks exact37e4ba7af5e0b39f80a80513b145c300757ba21e:10 positive/16 negative documents,6 DOM/actual-standalone groups,336 unchanged historical definitions and20 selected hashes. It deliberately distinguishes the canonical first-group/mobile-five/no-inheritance/three-photo contract from the reusable ordinary grouped reader.
+
+Nine new definitions contain exactly one registered Node. Frozen purpose-specific requests, capability gating, cancellation, image release, reset and finite rail behavior are verified with0 external/provider/navigation/location calls. All rooms and identifiers are fictional; no reservations occur. Source185 and current canonical promotion do not rewrite frozen183/164 assets or native/pixel acceptance.
