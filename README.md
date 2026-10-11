@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [Task三卡消费者](candidates/task-cards/README.md)：准确ce64后继已验12正18负、6组实际DOM/standalone，350旧定义/18源构建锁。Intro/Stop确认不可用且不自产stopped，Task仅本地可取消请求；当前181保持，189仅注册计数，待独立功能验收。
+
 新增 [Capability Search组合消费者](candidates/capability-search/README.md)：准确9793源已验11正16负、6组真实DOM/standalone、345旧定义及21源构建锁，0外网/0服务。独立QA10/10已闭合，当前181完成；186仅注册计数；它与原conversational Search是不同合同。
 
 最新[统一183固定CDN组合](candidates/recovery183/README.md) 对准确公开f7c49af9与本地cf3b相同资产完成52manifest字节/SHA/SRI、3dist与双CDN代表流，10原创家族106正158负、8次混合流程通过。该资产固定178/0/78、183登记；后续源当前181/0/75、186登记另计。原164锁保持158/1/97。准确183的[原生CI](https://github.com/Micraow/Inform-UI/actions/runs/38151422002) 已实际通过3428项Node及742项Chromium，52资产与固定版本相同；184之后源码与参考像素不借此结论。

@@ -247,3 +247,9 @@ Current status-only sourceb0dfa07254d2e7a43f7c5b8f7b12a371581ee277 separately re
 Exact status source `257dee4a5bfd387b650ae9d0997f80bf8eec9662` records 181 implemented canonical components: 53 historical functional acceptances plus 128 pending reference acceptance, zero partial and 75 missing. It has 186 protocol registrations. The row-level inventory SHA-256 is `d814d1cb0aa6c0626c84a7bac7b304e9c94c9a37f3aed40678197f0e5cc0ee1d`.
 
 CapabilitySearch source `9793e1a66b0ec4e5711a6615129ec5617e7823b2` passed 10 independent functional cases and the original consumer's 11 positive/16 negative documents plus six actual workflows. This status record does not claim a published runtime commit for source186. The preceding current180 entry and all frozen source/asset locks remain historical evidence; the separate successful183 native result does not extend to source186.
+
+## Task cards source189
+
+[Three original task-card consumers](candidates/task-cards/README.md) lock exact focus successor `ce64acabfc6ce7bd5cc0c9048e45b19013b5d409`. The 12 positive/18 negative documents and six actual DOM/standalone workflows preserve 350 old definitions and 18 selected source/build hashes. The unavailable series confirmations have no handlers or stop intent. Task actions are frozen, cancelable local requests with no notification, scheduler or account operation. Current canonical181 remains unchanged pending independent review. No source189 result is inferred from the earlier successful183 native run.
+
+Task189 predecessor `1c01a344` passed the ordinary consumer but left focus in a hidden confirmation panel after accepted Cancel. Both original intro/stop focus probes failed on that predecessor and pass unchanged on `ce64acab`. The consumer now checks focus restoration after acceptance and focus preservation after canceled cancellation. The original source and failed evidence are retained separately.
