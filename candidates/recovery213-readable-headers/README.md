@@ -13,4 +13,19 @@ This narrow consumer reruns only the two affected original fixture families:32 p
 
 The JSDOM consumer verifies DOM and CSS contracts, not rendered line boxes or screenshots. Its390px host style does not constitute geometry evidence. The author's prior3717 full-suite result belongs to5081; this successor does not inherit a newly executed aggregate pass. Separate native/geometry results need their own receipt. No build, dependency install, large runtime copy or extra CI is performed here.
 
-`publicCommit` remains `null`: unified213 UI assets have not been independently verified as public. Publishing this original Skill consumer does not publish those assets. No unverified CDN URL is provided. Canonical scope remains208/256 implemented (53 historical plus155 pending complete reference acceptance),0 partial and48 unimplemented;213 is the registration count. The original5081 and183/164 locks remain immutable.
+## Verified public assets
+
+The exact assets are now published at [commitd1196a06e0561bc384d94eb6ff625ea61309969d](https://github.com/Micraow/Inform-UI/commit/d1196a06e0561bc384d94eb6ff625ea61309969d), tree `7c087b53926399dd14904defe1e0370b0b2f00bf`. [public-assets.json](public-assets.json) records independent retrieval of all52 assets,33,438,701 decoded bytes, plus the manifest, canonical inventory and two affected source stylesheets. SHA256 and SHA384 SRI were recomputed from the retrieved bytes and matched the remote manifest and existing933dc lock. The complete remote tree contains1356 leaves; the consumer verifies the listed asset paths rather than claiming a fresh full-source audit.
+
+Download the immutable [cdn directory](https://github.com/Micraow/Inform-UI/tree/d1196a06e0561bc384d94eb6ff625ea61309969d/cdn) and preserve its relative paths when serving it from your application's origin. The ESM entry is `cdn/iui.min.js`; the classic-script entry is `cdn/iui.global.min.js`; styles are `cdn/iui.css`. Keep `fonts/`, schema fragments and license/notices beside them. This adds no runtime service dependency or mutable branch URL. GitHub file pages are download/source links, not a promise that a browser can execute their HTML pages as scripts.
+
+For a same-origin classic-script integration, these are the verified stylesheet and script integrity values:
+
+```html
+<link rel="stylesheet" href="./cdn/iui.css" integrity="sha384-vpWLuUSZguS08LERv+5TKoaX9TMv6hdROmNemcLgfKh3nsrMA2XU1xB9tOQNET+7">
+<script src="./cdn/iui.global.min.js" integrity="sha384-xDu2+5qiMiRSDWIRqHXSUMMQAXsHa086V0HiYqHeqAaFNBr/+Ck0Zh8YQu+WAfk3"></script>
+```
+
+The public commit used `[skip ci]`; its Actions query returned0 runs. The prior exact933dc DOM/standalone execution and separate local native/geometry results are not new remote-CI passes. No subsequent form-reset change is included in this immutable pin.
+
+Canonical scope remains208/256 implemented (53 historical plus155 pending complete reference acceptance),0 partial and48 unimplemented;213 is the registration count. The original5081 lock retains `publicCommit:null`, and183/164 remain immutable.

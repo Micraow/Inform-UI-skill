@@ -4,7 +4,7 @@
   "sourceBeforeAssets": null,
   "localAssetCommit": "933dc0af71457df14e5be50ed53b73522a902e00",
   "localAssetTree": "5f43b6552237b9c9cf35a8322b391a168e42a487",
-  "publicCommit": null,
+  "publicCommit": "d1196a06e0561bc384d94eb6ff625ea61309969d",
   "protocolNodes": 213,
   "predecessorAssetCommit": "5081b29b99eea2dce1f09a3588628f9414b5e393",
   "files": [
@@ -294,5 +294,8 @@
       "sha256": "cd5618b06a0db5651f1500adce05683a3dd6519562ebfdf6adb2eca5d2c0bf60"
     }
   ],
-  "runtimeChange": "Only two appended container-query CSS blocks; all other src/ Git blobs unchanged."
+  "runtimeChange": "Only two appended container-query CSS blocks; all other src/ Git blobs unchanged.",
+  "publicTree": "7c087b53926399dd14904defe1e0370b0b2f00bf",
+  "publicAssetReceipt": "public-assets.json",
+  "publicAssetDirectory": "https://github.com/Micraow/Inform-UI/tree/d1196a06e0561bc384d94eb6ff625ea61309969d/cdn"
 }
