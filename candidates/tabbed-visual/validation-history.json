@@ -1,0 +1,23 @@
+{
+  "format": "inform-consumer-validation-history/1",
+  "before": {
+    "sourceCommit": "38d7d7bfb0f78df091cddee4cb03ef327cf1a9fe",
+    "ordinaryPositive": 10,
+    "ordinaryNegative": 20,
+    "ordinaryFlows": 9,
+    "queryOnlyTitle": {
+      "expected": "Original query-only reading",
+      "actual": "undefined title node",
+      "passed": false
+    }
+  },
+  "after": {
+    "sourceCommit": "53a5b33b9f7a4a7da73112fdf8ea422fdc40949b",
+    "positive": 11,
+    "negative": 20,
+    "flows": 9,
+    "queryOnlyTitlePassed": true,
+    "externalRequests": 0
+  },
+  "boundary": "Visible query fallback is an original library addition. No native/pixel/CDN acceptance is implied."
+}

@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 156,
+  "protocolNodes": 158,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 97,
+    "implemented_pending_verification": 99,
     "partial": 1,
-    "not_implemented": 105
+    "not_implemented": 103
   },
-  "completeImplementationCoverage": 150,
+  "completeImplementationCoverage": 152,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope150/1/105 includes independent functional confirmation of the five earlier finite-subset completions and three supplied Link presentations. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
+  "acceptanceBoundary": "Current source scope152/1/103 includes independent functional confirmation of the prior completions plus TabbedSection and VisualCardCarousel. Weather remains partial. Native and visual acceptance remain separate. Historical8e21 CDN keeps its frozen142/6/108 accounting.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -67,6 +67,20 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "e6b60a69aa7e889b20743589212642a12128cc18",
       "consumer": "candidates/supplied-links",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "tabbed-section",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "53a5b33b9f7a4a7da73112fdf8ea422fdc40949b",
+      "consumer": "candidates/tabbed-visual",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "visual-card-carousel",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "53a5b33b9f7a4a7da73112fdf8ea422fdc40949b",
+      "consumer": "candidates/tabbed-visual",
       "nativeAndPixelAcceptance": false
     }
   ]

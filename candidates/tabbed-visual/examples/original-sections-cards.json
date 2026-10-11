@@ -1,0 +1,88 @@
+{
+  "version": "iui/1",
+  "title": "Original supplied sections and visual cards",
+  "body": [
+    {
+      "type": "tabbed-section",
+      "id": "original_sections",
+      "label": "Original teaching sections",
+      "tabs": [
+        {
+          "id": "overview",
+          "label": "Overview",
+          "title": "Original supplied overview",
+          "content": "**Original supplied text** with a [passive reading label](https://example.test/reading).\n\n- Observe the blue panel\n- Compare the orange panel"
+        },
+        {
+          "id": "observations",
+          "label": "Observations",
+          "title": "Original supplied observations",
+          "content": "> A supplied observation stays local.\n\n![A passive image label](https://example.test/not-fetched.png)\n\n<script>literal teaching text</script>"
+        },
+        {
+          "id": "notation",
+          "label": "Notation",
+          "title": "Original literal notation",
+          "content": "`blue + orange` is supplied text, not an executable expression."
+        }
+      ]
+    },
+    {
+      "type": "visual-card-carousel",
+      "id": "original_cards",
+      "title": "Original teaching panel collection",
+      "items": [
+        {
+          "id": "blue_panel",
+          "label": "Open original blue panel reading",
+          "title": "Original blue panel",
+          "query": "Supplied blue teaching query",
+          "caption": "Original portrait panel",
+          "subtitle": "An original color study",
+          "source": "Example teaching source",
+          "metadata": "Supplied96×144 PNG",
+          "reason": "Compare the two explicitly supplied colors.",
+          "summary": "This summary is original copy and is not fetched from the link.",
+          "image": {
+            "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAACQCAIAAAB4aPl2AAAA7klEQVR4nO3QQQ2AMADAwOnBHMKmjxB+OOC7LlxSAc2N63700Vh+EA8QIECAAIUDBAgQIEDhAAECBAhQOECAAAECFA4QIECAAIUDBAgQIEDhAAECBGhboOOcuwQIECBAgMIBAgQIEKBwgAABAgQoHCBAgAABCgcIECBAgMIBAgQIEKBwgAABAgQoHCBAgAABCgcIECBAgMIBAgQIEKBwgAABAgQoHCBAgAABCgcIECBAgMIBAgQIEKBwgJJAfwgQIECAAIUDBAgQIEDhAAECBAhQOECAAAECFA4QIECAAIUDBAgQIEDhAAECBAhQuBeRvTiX38XjcwAAAABJRU5ErkJggg==",
+            "title": "Original blue teaching panel"
+          },
+          "url": "https://example.test/teaching/blue"
+        },
+        {
+          "id": "orange_entity",
+          "label": "Open original orange teaching entity",
+          "title": "Original orange panel",
+          "caption": "Original entity example",
+          "subtitle": "Entity takes precedence",
+          "source": "Example local source",
+          "metadata": "Supplied teaching entity",
+          "reason": "Use the supplied entity request rather than the accompanying URL.",
+          "summary": "A local entity receipt performs no entity lookup.",
+          "image": {
+            "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAACQCAIAAAB4aPl2AAAA7klEQVR4nO3QQQ2AMADAwKlCDxJnjhB+OOC7LlxSAc2N63700Vh+EA8QIECAAIUDBAgQIEDhAAECBAhQOECAAAECFA4QIECAAIUDBAgQIEDhAAECBGhboHkeuwQIECBAgMIBAgQIEKBwgAABAgQoHCBAgAABCgcIECBAgMIBAgQIEKBwgAABAgQoHCBAgAABCgcIECBAgMIBAgQIEKBwgAABAgQoHCBAgAABCgcIECBAgMIBAgQIEKBwgJJAfwgQIECAAIUDBAgQIEDhAAECBAhQOECAAAECFA4QIECAAIUDBAgQIEDhAAECBAhQuBfHn1inW+OMZwAAAABJRU5ErkJggg==",
+            "title": "Original orange teaching panel"
+          },
+          "entity": {
+            "id": "teaching_orange",
+            "kind": "teaching-panel"
+          },
+          "url": "https://example.test/not-selected"
+        },
+        {
+          "id": "loading_panel",
+          "label": "Original pending image card",
+          "title": "Original loading state",
+          "caption": "No image is supplied yet",
+          "imageLoading": true
+        },
+        {
+          "id": "absent_panel",
+          "label": "Original absent image card",
+          "title": "Original absent state",
+          "summary": "The absent-image state stays distinct from loading."
+        }
+      ]
+    }
+  ]
+}

@@ -93,3 +93,13 @@ Two new Node definitions yield156 registrations. Canonical147/1/108 is unchanged
 ## Independent Link confirmation and current150 scope
 
 Independent Link family review passed12 functional cases after the exact source-built consumer. Canonical `link`, `link-card` and `recommendation-link-card` are now included in150 implemented (53 historical plus97 pending),1 partial weather and105 missing. Protocol registrations remain156 because Link extends an existing node and only two registrations are new. The separate status source5cc18f4 updates the inventory without changing the e6b consumer lock, old packaged CDN or native/pixel acceptance.
+
+## Supplied sections and visual cards
+
+[The Tab/Visual consumer](candidates/tabbed-visual/README.md) locks exact53a5b33 after preserving the38d7 query-only negative control. It passes11 positive/20 negative new documents plus10/23 preceding Link documents,9 DOM/compiler workflows,303 unchanged prior definitions and24 selected file hashes. Original three-tab/four-card data covers passive Markdown, canceled selection, horizontal/vertical keys, reset ordering, seven display fields, distinct images/loading/absence, measured scrolling, entity precedence, both local intents and reversed galleries.
+
+The successor's `title ?? query` is explicitly an original fallback addition; it is not asserted to be the reference's prior visible behavior. Source registrations are158, current canonical promotions are recorded separately, and the old packaged CDN/native/pixel status remains unchanged.
+
+## Independently confirmed152 scope
+
+Independent Tab/Visual review passed12 cases on query-fallback successor53a5b33. The separately frozen status source136cb2d records152 implemented (53 historical plus99 pending),1 partial weather and103 missing, with158 protocol registrations. The implementation53a5 consumer lock retains its earlier progress snapshot and runtime hashes; current status is checked separately. Native/reference-pixel acceptance and the old packaged CDN are unchanged.
