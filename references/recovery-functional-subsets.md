@@ -1,6 +1,6 @@
 # Functional completion and remaining subsets
 
-The current source inventory is **195 implemented**:53 historical functional acceptances and142 pending reference acceptance. No ID is currently partial and61 are not implemented. Protocol200 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the195 count.
+The current source inventory is **198 implemented**:53 historical functional acceptances and145 pending reference acceptance. No ID is currently partial and58 are not implemented. Protocol203 is a separate schema-node count. TabbedSection and VisualCardCarousel add two registrations and have passed independent functional confirmation on the exact query-fallback successor. The new source-built Link family adds two registrations and extends the existing Link node; its three canonical presentations have passed independent functional confirmation and are included in the198 count.
 
 The five earlier finite subsets now have independently confirmed functional completions:
 
@@ -41,3 +41,5 @@ Context三项以9344fac准确源完成，独立10/10、消费者18正20负/6组�
 Equity/Watchlist两项准确35d8消费者14正18负/6组，独立新域10与旧Finance/Context20全部通过。供数绝对值、比例、方向与颜色不互算；576仅实际CSS合同，无真实报价或交易。当前192/0/64、197登记，逐ID状态源3affa86736c4da407a6cb97c4082e2638ca6ac85；旧183原生范围不扩。
 
 HomeworkHelperV2/ImageGen/InternalPartnerApp三项准确70ec：消费者16正20负/6实际流，独立10/10。学习三文本模式及独立voice共四模式，接受voice单次锁；图像状态及partner请求纯供数，0录音/生成/外部应用服务。当前195/0/61、200登记，逐ID状态2367a25e52d0c81e9df48b9242ea5057f30b7ab2；旧183原生范围不扩。
+
+Bento/OpenDetail/Openai三项准确d1b8：消费者14正20负/6实际流，独立10/10。四卡URL优先、null/缺省与空字符串payload、四/all和组织本地请求全核，0外部服务；576/768仅CSS合同。当前198/0/58、203登记，逐ID状态a7c122c28b2ac7341ea8e31ffce6d074355c583a；旧183原生范围不扩。

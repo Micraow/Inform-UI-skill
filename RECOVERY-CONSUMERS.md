@@ -291,3 +291,13 @@ node candidates/supplied-launchers/verify-source.mjs --library /path/to/ui-suppl
 ```
 
 The source200 family has independent functional confirmation; current inventory2367a25e records195/0/61 with200 registrations. Original183/164 asset scopes and source197 records remain historical snapshots.
+
+## Supplied discovery source203
+
+[The original Bento/detail/organization consumers](candidates/supplied-discovery/README.md) verify exactd1b8 with14 positive/20 negative documents and6 actual DOM/standalone workflows.364 prior definitions and19 selected source/build hashes remain bound, and48 source/3dist files match the authored manifest. Supplied URL priority, exact null/empty payload handling, four/all disclosure and local requests are exercised without external services.576/768 are static container-CSS evidence, not native geometry.
+
+```sh
+node candidates/supplied-discovery/verify-source.mjs --library /path/to/ui-supplied-discovery
+```
+
+The source203 family has independent functional confirmation; current inventorya7c122c2 records198/0/58 with203 registrations. Earlier source/asset scopes remain historical snapshots.
