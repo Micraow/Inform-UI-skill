@@ -1,0 +1,16 @@
+{
+  "sourceCommit": "a3345630f7683db5b7ae77d729ecc000abab65d3",
+  "upstreamSharedFix": "61046060eff4fe506afb6e41e3189a1bcb04adcb",
+  "priorInput": "a8eebdab7d931c8827613cec1ee4a8e6b014ba01",
+  "files": [
+    {
+      "path": "src/renderer/youtube-api.ts",
+      "sha256": "22b1c31e37561885c2d02615fbda87941fcd03ce76b112d61812862adce84eb9"
+    },
+    {
+      "path": "src/renderer/async-video.css",
+      "sha256": "338d1463608625eb28c152b1d54ab2f859777ef319d6a4e496cf7c94eef791db"
+    }
+  ],
+  "scope": "Consumer checks exact source bytes and common canceled-video flow. Independent QA owns shared timeout/cascade regression evidence; no live SDK or native playback claim."
+}

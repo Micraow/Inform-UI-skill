@@ -1,5 +1,7 @@
 # Original local follow-up action consumer
 
+Canonical status: **partial**. Footer and wrapped_pills modes, responsive action selection and separate new-turn/voice/composer branches are not implemented. Passing the local ID-intent checks does not complete the reference component.
+
 Three supplied actions express local reading choices. The third is explicitly disabled. Labels and IDs are independently authored. No prompt text, generated answer, search endpoint or navigation target is embedded.
 
 `attachActionReceipt(host, output)` cancels `iui:follow-up-action` and writes the selected ID as local text. Keep the output outside the renderer's mount host. Applications can separately decide what an accepted action means; this example makes no provider request.

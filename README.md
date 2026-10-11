@@ -4,7 +4,7 @@
 
 当前恢复分支入口：[已验证的恢复消费者与运行命令](RECOVERY-CONSUMERS.md)。最新精确 CDN 组合消费者为协议 130；该固定版本的 canonical 清单为 123/256 已实现，其中历史功能验收仍为 53。Skill 包含原创供数示例、独立 JavaScript 校验和安全文件锁，不捆绑运行库或私有参考。DOM/合同检查不代表原生或像素验收。以下旧合同与推荐保留为历史版本，不能混用资产。
 
-较新源构建消费者已推进到 [Conversation151](candidates/local-conversation-suggestions/README.md)，同时保留 MatchScores、LearningMedia、Weather/Category、NetWorth、Pressable 与 Fee/Interest 的精确检查点。准确151清单为 144/256 已实现（历史功能验收53＋待验91），未实现111、部分1。新增检查没有提升 CDN/原生验收，130 固定组合资产保持原样。
+较新源构建消费者已推进到 [Finance154](candidates/local-finance-readers/README.md)，同时保留 MatchScores、LearningMedia、Weather/Category、NetWorth、Pressable 与 Fee/Interest 的精确检查点。纠正后的154清单为 142/256 已实现（历史功能验收53＋待验89），部分6、未实现108；五个新有限API仍缺原功能，只通过子集合同检查，详见[功能子集边界](references/recovery-functional-subsets.md)。新增检查没有提升 CDN/原生验收，130 固定组合资产保持原样。
 
 > Pending acceptance：本分支合同与壳固定 26ec211fa529516af3b1523248f5912c45ec64c6，37 项候选等待同版集中 CI 与原图验收。已验53计数、旧版推荐及用户演示不升级。
 
