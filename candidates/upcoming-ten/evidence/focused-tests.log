@@ -1,0 +1,38 @@
+✔ pending input lock separates accepted assets, exact frozen sources and 37 canonical identities (143.324971ms)
+✔ candidate example bytes match their explicitly locked original source inputs (845.102852ms)
+✔ candidate source index declares every candidate ownership without copying a second schema (9.718676ms)
+✔ root common guidance is gated, candidate literals are parseable, pending shell matches exact candidate and accepted contract snapshot remains separate (17.068869ms)
+✔ candidate path checks reject traversal and absolute paths (27.955349ms)
+✔ core30 provenance preserves earlier manifests and exact staged verification boundary (5985.621556ms)
+✔ current37 lock preserves distinct historical30 bytes and exact current97 evidence (53.889184ms)
+✔ skill metadata, local references and public distribution boundary are valid (983.20595ms)
+✔ distribution boundary rejects evidence, runtime captures and non-JS implementation files (1.35904ms)
+✔ all example inputs are complete documents with no native or executable escape hatch (5594.767162ms)
+✔ minimal prose stays usable without decorative layout or state (11.428499ms)
+✔ missing observations remain null in chart and inspectable source table (6.072262ms)
+✔ support inventory names each portable node once and rejects native (49.37369ms)
+✔ metadata parsing accepts Windows line endings and a UTF-8 BOM (68.588763ms)
+✔ the copyable entrypoint contains a complete JSON-backed shell and pinned CDN integrity (76.692284ms)
+✔ 46-node blind input and first outputs remain byte-for-byte immutable (61.079882ms)
+✔ current branding uses Inform UI while the reference and immutable historical records stay explicit (32.792602ms)
+✔ root discovers every registered node while complete guide retains deep contracts without an artificial size ceiling (93.578602ms)
+✔ six later Base candidates have their own immutable103 source package and preserve53/37 history (604.682392ms)
+✔ later Base guide is inline after an exact archived100 prefix (25.468238ms)
+✔ prepared native-select recovery is exactly two declared case changes and leaves original37 source untouched (9.376344ms)
+✔ upcoming source package is independently pinned and never upgrades accepted counts (140.541708ms)
+✔ all generated full/subset/example bytes are locked with unique ownership (583.129634ms)
+✔ new Base guidance is inline and frozen37 guidance prefix remains exact (94.288833ms)
+✔ negative examples distinguish semantic defects from legal incomplete poll drafts (6.184507ms)
+✔ four reviewed contracts are explicit drafts with exact source files and no combined runtime claim (118.979309ms)
+✔ all common guidance is inline after the exact prior103 source prefix (83.796045ms)
+✔ normal, unknown and invalid cases preserve exact semantic layers (17.332022ms)
+✔ reviewed107 package binds exact source proof and generated schemas without replacing draft history (203.420613ms)
+✔ the current source gate reads its full guidance while historical gates stop at their own prefix (2.415846ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8075.650406

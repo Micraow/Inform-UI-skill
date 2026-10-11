@@ -1,0 +1,33 @@
+✔ pending input lock separates accepted assets, exact frozen sources and 37 canonical identities (19.847846ms)
+✔ candidate example bytes match their explicitly locked original source inputs (146.760363ms)
+✔ candidate source index declares every candidate ownership without copying a second schema (5.344444ms)
+✔ root common guidance is gated, candidate literals are parseable, pending shell matches exact candidate and accepted contract snapshot remains separate (8.927597ms)
+✔ candidate path checks reject traversal and absolute paths (12.776342ms)
+✔ core30 provenance preserves earlier manifests and exact staged verification boundary (763.02886ms)
+✔ current37 lock preserves distinct historical30 bytes and exact current97 evidence (20.692128ms)
+✔ skill metadata, local references and public distribution boundary are valid (757.940346ms)
+✔ distribution boundary rejects evidence, runtime captures and non-JS implementation files (4.633921ms)
+✔ all example inputs are complete documents with no native or executable escape hatch (99.851666ms)
+✔ minimal prose stays usable without decorative layout or state (2.570721ms)
+✔ missing observations remain null in chart and inspectable source table (3.103695ms)
+✔ support inventory names each portable node once and rejects native (3.724401ms)
+✔ metadata parsing accepts Windows line endings and a UTF-8 BOM (10.675896ms)
+✔ the copyable entrypoint contains a complete JSON-backed shell and pinned CDN integrity (9.195287ms)
+✔ 46-node blind input and first outputs remain byte-for-byte immutable (9.346667ms)
+✔ current branding uses Inform UI while the reference and immutable historical records stay explicit (51.200864ms)
+✔ root discovers every registered node while complete guide retains deep contracts without an artificial size ceiling (12.529361ms)
+✔ six later Base candidates have their own immutable103 source package and preserve53/37 history (100.621935ms)
+✔ later Base guide is inline after an exact archived100 prefix (17.114129ms)
+✔ prepared native-select recovery is exactly two declared case changes and leaves original37 source untouched (7.195374ms)
+✔ upcoming source package is independently pinned and never upgrades accepted counts (27.261003ms)
+✔ all generated full/subset/example bytes are locked with unique ownership (63.419902ms)
+✔ new Base guidance is inline and frozen37 guidance prefix remains exact (8.306508ms)
+✔ negative examples distinguish semantic defects from legal incomplete poll drafts (2.815101ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1262.516275

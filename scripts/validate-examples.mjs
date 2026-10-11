@@ -75,7 +75,9 @@ try {
     const before = JSON.stringify(document);
     const result = api.validateDocument(document);
     assert.equal(result.ok, true, `${name}: ${JSON.stringify(result.issues)}`);
-    const options = { backend: 'portable', assets: 'inline', lang: ['hpcc-feedback.json', 'local-practice.json', 'supplied-weather.json', 'coordinate-scenarios.json', 'supplied-sports.json', 'local-learning.json', 'supplied-finance.json', 'supplied-heatmap.json', 'local-converters.json', 'auxiliary-surfaces.json', 'foundation-explainer.json', 'local-time.json', 'local-overlays.json', 'local-number-draft.json', 'timed-local-practice.json', 'local-status-primitives.json', 'primitives-with-form-and-time.json', 'loading-numeric-progress.json', 'loading-placeholder-shapes.json', 'supplied-source-reading.json'].includes(name) ? 'zh-CN' : 'en' };
+    const exampleLanguages = JSON.parse(await readFile(path.join(root, 'references/example-languages.json'), 'utf8'));
+    assert.ok(['en','zh-CN'].includes(exampleLanguages[name.replace(/\.json$/, '')]), 'Missing supported example language: '+name);
+    const options = { backend: 'portable', assets: 'inline', lang: exampleLanguages[name.replace(/\.json$/, '')] };
     const html = await api.compileHtml(result.document, options);
     assert.equal(typeof html, 'string');
     assert.ok(html.toLowerCase().includes('<!doctype html>'), `${name}: no standalone HTML document`);

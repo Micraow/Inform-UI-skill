@@ -1,0 +1,11 @@
+{
+  "format": "inform-four-authoring-jsdom/1",
+  "checks": [
+    "business split/overnight/closed/missing day/state focus/native reset/no dialing",
+    "dining selected-dimension threshold/zero versus missing/text+occasion/reset/disclosure identity/outside input",
+    "flight intent cancel/reentry/route/ordered return/strict traveler grammar/reset/required-control ownership",
+    "results cancel/reentry/explicit-currency price ordering/stops/duration/source-order reset/retained selection and details"
+  ],
+  "nativeBrowser": "not-run",
+  "visualAcceptance": false
+}

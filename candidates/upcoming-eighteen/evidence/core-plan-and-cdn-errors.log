@@ -1,0 +1,25 @@
+✔ candidate CDN browser launch failure receives explicit evidence without a page (15.329382ms)
+✔ outer CDN failure does not overwrite the first detailed page failure (4.924532ms)
+✔ CDN failure writer refuses a symlink rather than following or replacing it (5.460654ms)
+✔ exact candidate manifest binds ten same-byte examples and locale map (210.372203ms)
+✔ candidate receipt rejects missing manifest path (57.598537ms)
+✔ candidate receipt rejects missing manifest file (59.140236ms)
+✔ candidate receipt rejects wrong manifest path (58.670801ms)
+✔ candidate receipt rejects wrong manifest digest (65.150441ms)
+✔ candidate receipt rejects altered candidate example (146.755591ms)
+✔ candidate receipt rejects wrong source revision (70.553275ms)
+✔ candidate receipt rejects wrong widths (80.272575ms)
+✔ candidate receipt rejects wrong themes (82.122431ms)
+✔ candidate receipt rejects wrong candidate group (64.213215ms)
+✔ candidate receipt rejects wrong source runner hash (83.482737ms)
+✔ candidate receipt rejects wrong planned example digest (75.342051ms)
+✔ alphabetically ordered core plans preserve exact candidate set binding (633.490123ms)
+✔ actual generated core115 plan metadata/order resolves the current exact Skill candidate (107.388002ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2024.025259

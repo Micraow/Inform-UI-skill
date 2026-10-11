@@ -1,0 +1,38 @@
+export function buildCases(document) {
+ const edit=fn=>{const d=structuredClone(document);fn(d.body[0],d.body[1]);return d};
+ const positives=[['supplied status and plan',structuredClone(document)]];
+ const add=(name,fn)=>positives.push([name,edit(fn)]);
+ add('pending status without content',n=>{n.status='pending';delete n.data});
+ add('failed literal status fallback',n=>{n.status='failed';delete n.data;n.fallback='<b>Snapshot unavailable</b>'});
+ add('resolved missing content',n=>{n.status='resolved';delete n.data});
+ add('empty status description',n=>n.data.description='');
+ add('pending plan',(_,n)=>{n.status='pending';delete n.data});
+ add('failed plan without invented retry',(_,n)=>{n.status='failed';delete n.data});
+ add('disabled plan',(_,n)=>n.disabled=true);
+ add('selected task',(_,n)=>n.data.selectedTaskId='labels');
+ add('compact completed snapshot',(_,n)=>{n.data.mode='compact';n.data.completedTaskIds=['labels'];n.data.latestCompletedTaskId='labels'});
+ add('finished supplied snapshot',(_,n)=>{n.data.mode='compact';n.data.completedTaskIds=n.data.tasks.map(t=>t.id)});
+ add('empty task set remains empty',(_,n)=>n.data.tasks=[]);
+ const negatives=[];const bad=(name,code,fn,path)=>negatives.push([name,edit(fn),code,path]);
+ bad('blank finance label','FINANCE_STATUS_LABEL',n=>n.label=' ','/body/0/label');
+ bad('blank finance title','FINANCE_STATUS_TITLE',n=>n.data.title=' ','/body/0/data/title');
+ bad('finance pending with content','SCHEMA',n=>n.status='pending');
+ bad('finance failed with content','SCHEMA',n=>n.status='failed');
+ bad('finance expression masquerading as text','SCHEMA',n=>n.data.title={$:'title'});
+ bad('finance account service','SCHEMA',n=>n.accountId='live-account');
+ bad('finance callback','SCHEMA',n=>n.onClick='refresh()');
+ bad('missing plan status','SCHEMA',(_,n)=>delete n.status);
+ bad('pending plan with resolved content','SCHEMA',(_,n)=>n.status='pending');
+ bad('blank plan label','PROMPT_CHECKLIST_TEXT',(_,n)=>n.label=' ','/body/1/label');
+ bad('blank task title','PROMPT_CHECKLIST_TEXT',(_,n)=>n.data.tasks[0].title=' ','/body/1/data/tasks/0/title');
+ bad('blank prompt text','PROMPT_CHECKLIST_TEXT',(_,n)=>n.data.tasks[0].prompts[0].promptText=' ','/body/1/data/tasks/0/prompts/0/promptText');
+ bad('duplicate task ID','DUPLICATE_ID',(_,n)=>n.data.tasks[1].id='labels','/body/1/data/tasks/1/id');
+ bad('duplicate prompt ID','DUPLICATE_ID',(_,n)=>n.data.tasks[0].prompts[1].id='zero','/body/1/data/tasks/0/prompts/1/id');
+ bad('remote prompt image','UNSAFE_URL',(_,n)=>n.data.tasks[0].prompts[0].imageData='https://remote.example.test/choice.png','/body/1/data/tasks/0/prompts/0/imageData');
+ bad('executable prompt image','UNSAFE_URL',(_,n)=>n.data.tasks[0].prompts[0].imageData='data:image/svg+xml;base64,PHN2Zz48L3N2Zz4=');
+ bad('string disabled','SCHEMA',(_,n)=>n.disabled='true');
+ bad('inferred completion expression','SCHEMA',(_,n)=>n.data.completedTaskIds={$:'complete'});
+ bad('host service callback','SCHEMA',(_,n)=>n.onPrompt='sendQuery()');
+ bad('oversized prompt','SCHEMA',(_,n)=>n.data.tasks[0].prompts[0].promptText='x'.repeat(8001));
+ return{positives,negatives};
+}

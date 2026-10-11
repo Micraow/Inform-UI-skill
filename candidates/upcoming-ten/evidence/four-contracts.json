@@ -1,0 +1,37 @@
+{
+  "format": "inform-next-four-contracts/1",
+  "sourceRevision": "65742b08d21b8819319ccb9104142d10ea5d8703",
+  "workingTreeDirty": false,
+  "draftWorkingTree": false,
+  "observedHashes": {
+    "dist/index.js": "1d9258bd448cfa785f63a4b85288b29193c74bee5a878b79272f444c4c9656f7",
+    "dist/browser.js": "5ce1d0de6ec4682c50e36094eae5176d5cf4f435b79c5f3df5ccba6a82a9b9c9",
+    "src/schema/iui.schema.json": "2bb0614c6a5edb33c2655af39d4140c82cf2858f5063e4227f871c388add8b22",
+    "src/schema/fragments/base.schema.json": "a3b0a279ef9d91874d02df37e2ee0456510d8b058130eb31bf441fb74d866c19",
+    "src/schema/fragments/nodes/base.schema.json": "5ddc66ca61336798c6c014a7a0e72522e0d7a2321ad2b7cae37712624f5ed3ed",
+    "src/schema/fragments/index.json": "a323b3125dfcba442d63716c88b104ce64687baa2312473a86ca9027f54c70e5",
+    "docs/local-places.md": "0c57b79c87aadfdf7fa4e0bec839533aab14ad9e0ad4a67b3d654baacd78f8e6",
+    "docs/flight-discovery.md": "82d0447826178b21cc8406d19539d43e9503d66227965e34a92f4126c5bed420",
+    "examples/local-places.json": "979dc6ea519b8ef3aeb76de1e413e2cec47bd5dc541d1c3ba4b2d07feca83f3a",
+    "examples/flight-discovery.json": "17cfc7e6ab0373a9679288e75c4603cc8b3f266803885db2a142a97d71bcfff1"
+  },
+  "fixtures": [
+    {
+      "name": "local-places",
+      "sha256": "979dc6ea519b8ef3aeb76de1e413e2cec47bd5dc541d1c3ba4b2d07feca83f3a",
+      "htmlSha256": "cbe5c4fcd3bc27651d3483855cc71aa15a69372a3032b4162b2e0995dd3a5e85"
+    },
+    {
+      "name": "flight-discovery",
+      "sha256": "17cfc7e6ab0373a9679288e75c4603cc8b3f266803885db2a142a97d71bcfff1",
+      "htmlSha256": "684e5586242a3855119e546c3a6077ec61992130177c40f98edcdf1261bb3315"
+    }
+  ],
+  "guidanceLiterals": 4,
+  "negativeCases": 33,
+  "positiveBoundaries": 12,
+  "acceptedCanonical": 53,
+  "nativeBrowser": "not-run",
+  "cdn": "not-run",
+  "ci": "not-run"
+}

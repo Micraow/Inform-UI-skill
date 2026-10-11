@@ -1,0 +1,21 @@
+{
+  "revision": "a586a6bea9c82376152c73dd7cfcdf1634c5383f",
+  "files": {
+    "SKILL.md": {
+      "snapshot": "baseline103/SKILL.md.source.txt",
+      "sha256": "3c9f20edc69a1b293bfc0e008495c5730e53e5b04bf119be3d9a370ffadd3da9"
+    },
+    "package.json": {
+      "snapshot": "baseline103/package.json.source.txt",
+      "sha256": "64af52fd089de843a40e0146dd8c9c5ae12660a11ace0586afc31283fcf387c8"
+    },
+    "scripts/verify-upcoming-six-source.mjs": {
+      "snapshot": "baseline103/scripts/verify-upcoming-six-source.mjs.source.txt",
+      "sha256": "f2fb444322838891b4568cd967b36ed2befc57cd6d55004c18c82135b15b6cce"
+    },
+    "tests/upcoming-six.test.mjs": {
+      "snapshot": "baseline103/tests/upcoming-six.test.mjs.source.txt",
+      "sha256": "b65b8bfef7f0acc3f514d0c956f0881cf55564c2d157946054a8933ac7cbb0cf"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "repository": "Micraow/Inform-UI",
+  "revision": "d370ffb2df310fce0da9299e6e254a58509ba544",
+  "packageName": "@micraow/inform-ui",
+  "packageVersion": "0.1.0",
+  "schemaVersion": "iui/1",
+  "apiExports": [
+    "validateDocument",
+    "compileHtml",
+    "evaluateState"
+  ],
+  "schemaExport": "./schema",
+  "cli": "bin/iui.mjs",
+  "cdn": {
+    "baseUrl": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/",
+    "global": "iui.global.min.js",
+    "module": "iui.min.js",
+    "style": "iui.css",
+    "schema": "iui.schema.json",
+    "globalIntegrity": "sha384-XBQUcvwQ5klmCxmtzuqnW22k5Fsme+uWeKIKB9VP9/5JKuhSpt/mmLVKJu8zLaAt",
+    "styleIntegrity": "sha384-pGHEnylvKkWQgEUFwcGDbc2NWfdeTz6vVMLvAxw3eJI7y0wPCjU7gWGAI+wG1dOe",
+    "fonts": "fonts/",
+    "fontCount": 20,
+    "fontLicense": "MIT (KaTeX 0.18.2 official WOFF2 assets)",
+    "schemaIndex": "schema/index.json"
+  }
+}

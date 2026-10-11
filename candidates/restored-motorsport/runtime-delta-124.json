@@ -1,0 +1,41 @@
+{
+  "baseAsset": "b58bdabfa63e539722226e124e5e47176c3102fe",
+  "asset": "5efdc31a952f291263846cb4320a7890f3fe4b29",
+  "changedOldRendererFiles": [
+    {
+      "path": "src/renderer/index.ts",
+      "beforeSha256": "78b6a5205e8324ccc78c675c5529023a8923f38b4f61f063ee338e229485b905",
+      "afterSha256": "9c8b8f491ea60b282a9a3b678b6e3a068b4327a663629fa537f6af22bed065fc",
+      "reason": "Register two restored motorsport nodes and exact stylesheet closure"
+    },
+    {
+      "path": "src/renderer/presentation.ts",
+      "beforeSha256": "2565301e5353875d82aefc4a13a920c0991dd7a8c207ed8040ab66a074a95317",
+      "afterSha256": "f4e3a5fbfa969bcfb21467e382e6e7aa2086e1fbfc45439f4387b75fbabcf6cb",
+      "reason": "Register motorsport labels in both existing languages"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "beforeSha256": "712fd96db02d6792d03675389ff65947a746bc551c1c1866876e438f3225de6a",
+      "afterSha256": "6cd39f4b672fd7384d587403d5e8722577d5c7b340231f1249f90fd0272b92c7",
+      "reason": "Public124 shared reset entry captures revision before host target/form reads"
+    }
+  ],
+  "newRendererFiles": [
+    {
+      "path": "src/renderer/motorsport-labels.ts",
+      "bytes": 3079,
+      "sha256": "06d05635b4d066e5bde9f1c3b90a2bfc82d977dd5d2752360265d92527777416"
+    },
+    {
+      "path": "src/renderer/motorsport.css",
+      "bytes": 2326,
+      "sha256": "dcf6a8fffd6b91bb03b7c600a59f6e3a398e7f801620d219bf277b7d3659acae"
+    },
+    {
+      "path": "src/renderer/motorsport.ts",
+      "bytes": 15595,
+      "sha256": "33d402df4a882426d54491cdc7173eb52ce0f75e197ec10196c8f2a368d2528b"
+    }
+  ]
+}

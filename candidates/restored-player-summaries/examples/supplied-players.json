@@ -1,0 +1,111 @@
+{
+  "version": "iui/1",
+  "title": "Synthetic player snapshot comparison",
+  "body": [
+    {
+      "type": "nba-player-summary",
+      "id": "supplied-nba",
+      "label": "Basketball records supplied for practice",
+      "player": "Robin Sample",
+      "observedAt": "2028-02-29T09:15+08:00",
+      "description": "Fictional records. Similar period labels do not imply comparable scopes.",
+      "records": [
+        {
+          "id": "alpha",
+          "season": "All",
+          "team": "Sample Harbor",
+          "scope": "regular-season",
+          "games": 4,
+          "minutesPerGame": 12,
+          "pointsPerGame": 7.25,
+          "reboundsPerGame": 0,
+          "assistsPerGame": 1,
+          "note": "Supplied per-game figures, no recalculation."
+        },
+        {
+          "id": "beta",
+          "season": "All",
+          "team": "Sample Ridge",
+          "scope": "playoffs",
+          "games": 2,
+          "minutesPerGame": 12,
+          "pointsPerGame": 7.25,
+          "reboundsPerGame": 0,
+          "assistsPerGame": 1
+        },
+        {
+          "id": "zero",
+          "season": "Unordered period B",
+          "team": "Sample Harbor",
+          "scope": "preseason",
+          "games": 0,
+          "minutesPerGame": 12,
+          "pointsPerGame": 0,
+          "reboundsPerGame": 0,
+          "assistsPerGame": 1
+        },
+        {
+          "id": "unknown",
+          "season": "Period not supplied",
+          "team": null,
+          "scope": "unknown",
+          "games": null,
+          "minutesPerGame": null,
+          "pointsPerGame": null,
+          "reboundsPerGame": null,
+          "assistsPerGame": null
+        }
+      ]
+    },
+    {
+      "type": "tennis-player-summary",
+      "id": "supplied-tennis",
+      "label": "Tennis records supplied for practice",
+      "player": "Morgan Sample",
+      "description": "Fictional values. Match totals and rank have separate supplied scopes.",
+      "records": [
+        {
+          "id": "clay",
+          "season": "All",
+          "surface": "clay",
+          "matches": 1,
+          "wins": 9,
+          "losses": 7,
+          "titles": 2,
+          "rank": 8,
+          "note": "Different supplied scopes intentionally do not reconcile."
+        },
+        {
+          "id": "hard",
+          "season": "All",
+          "surface": "hard",
+          "matches": 4,
+          "wins": 3,
+          "losses": 1,
+          "titles": 0,
+          "rank": 4
+        },
+        {
+          "id": "grass",
+          "season": "Unordered period B",
+          "surface": "grass",
+          "matches": 0,
+          "wins": 0,
+          "losses": 0,
+          "titles": 0,
+          "rank": 4
+        },
+        {
+          "id": "unknown",
+          "season": "Period not supplied",
+          "surface": "unknown",
+          "matches": null,
+          "wins": null,
+          "losses": null,
+          "titles": null,
+          "rank": null
+        }
+      ]
+    }
+  ]
+}

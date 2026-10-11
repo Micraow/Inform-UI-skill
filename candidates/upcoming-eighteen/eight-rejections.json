@@ -1,0 +1,3394 @@
+[
+  {
+    "name": "duplicate participant",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "alex",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "available"
+                },
+                {
+                  "participantId": "sam",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/participants/1/id"
+  },
+  {
+    "name": "duplicate activity",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "sam",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "available"
+                },
+                {
+                  "participantId": "sam",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "walk",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/options/1/id"
+  },
+  {
+    "name": "unknown availability participant",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "sam",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "absent",
+                  "status": "available"
+                },
+                {
+                  "participantId": "sam",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "ACTIVITY_PARTICIPANT",
+    "path": "/body/0/options/0/availability/0/participantId"
+  },
+  {
+    "name": "duplicate availability",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "sam",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "available"
+                },
+                {
+                  "participantId": "alex",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/options/0/availability/1/participantId"
+  },
+  {
+    "name": "impossible activity time",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "sam",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2027-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "available"
+                },
+                {
+                  "participantId": "sam",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "ACTIVITY_TIME",
+    "path": "/body/0/options/0/startsAt"
+  },
+  {
+    "name": "nonincreasing activity",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "sam",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T10:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "available"
+                },
+                {
+                  "participantId": "sam",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "ACTIVITY_ORDER",
+    "path": "/body/0/options/0/endsAt"
+  },
+  {
+    "name": "unsafe activity source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "sam",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "available"
+                },
+                {
+                  "participantId": "sam",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "javascript:bad()"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/options/1/source/url"
+  },
+  {
+    "name": "missing participant population",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation.",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "available"
+                },
+                {
+                  "participantId": "sam",
+                  "status": "unknown"
+                }
+              ]
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "availability array required",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "shared-activity-planner",
+          "id": "planner",
+          "label": "Compare supplied activity options",
+          "participants": [
+            {
+              "id": "alex",
+              "label": "Example participant A"
+            },
+            {
+              "id": "sam",
+              "label": "Example participant B"
+            }
+          ],
+          "options": [
+            {
+              "id": "walk",
+              "label": "Illustrative park walk",
+              "startsAt": "2028-02-29T10:00Z",
+              "endsAt": "2028-02-29T11:00Z",
+              "location": "Example meeting point",
+              "description": "A fictional activity option, not an invitation."
+            },
+            {
+              "id": "museum",
+              "label": "Illustrative museum visit",
+              "startsAt": "2028-02-29T14:00Z",
+              "endsAt": "2028-02-29T16:00Z",
+              "availability": [
+                {
+                  "participantId": "alex",
+                  "status": "unavailable"
+                }
+              ],
+              "source": {
+                "label": "Example activity source",
+                "url": "https://example.org/activity"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "duplicate agenda ID",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "event-sidebar",
+          "id": "event-panel",
+          "eventId": "example-event",
+          "label": "Example community event",
+          "organizer": "Example organization",
+          "location": "Illustrative venue",
+          "startsAt": "2028-02-29T09:00Z",
+          "endsAt": "2028-02-29T17:00Z",
+          "description": "A supplied event snapshot, not a live calendar entry.",
+          "agenda": [
+            {
+              "id": "welcome",
+              "label": "Welcome session",
+              "category": "Talk",
+              "startsAt": "2028-02-29T09:00Z",
+              "endsAt": "2028-02-29T10:00Z",
+              "speaker": "Example speaker",
+              "description": "Original supplied introductory session."
+            },
+            {
+              "id": "welcome",
+              "label": "Hands-on session",
+              "category": "Workshop",
+              "startsAt": "2028-02-29T11:00Z",
+              "endsAt": "2028-02-29T12:30Z",
+              "description": "A synthetic workshop description."
+            }
+          ],
+          "source": {
+            "label": "Example event source",
+            "url": "https://example.org/event"
+          }
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/agenda/1/id"
+  },
+  {
+    "name": "invalid event time",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "event-sidebar",
+          "id": "event-panel",
+          "eventId": "example-event",
+          "label": "Example community event",
+          "organizer": "Example organization",
+          "location": "Illustrative venue",
+          "startsAt": "2027-02-29T09:00Z",
+          "endsAt": "2028-02-29T17:00Z",
+          "description": "A supplied event snapshot, not a live calendar entry.",
+          "agenda": [
+            {
+              "id": "welcome",
+              "label": "Welcome session",
+              "category": "Talk",
+              "startsAt": "2028-02-29T09:00Z",
+              "endsAt": "2028-02-29T10:00Z",
+              "speaker": "Example speaker",
+              "description": "Original supplied introductory session."
+            },
+            {
+              "id": "practice",
+              "label": "Hands-on session",
+              "category": "Workshop",
+              "startsAt": "2028-02-29T11:00Z",
+              "endsAt": "2028-02-29T12:30Z",
+              "description": "A synthetic workshop description."
+            }
+          ],
+          "source": {
+            "label": "Example event source",
+            "url": "https://example.org/event"
+          }
+        }
+      ]
+    },
+    "code": "ACTIVITY_TIME",
+    "path": "/body/0/startsAt"
+  },
+  {
+    "name": "nonincreasing event",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "event-sidebar",
+          "id": "event-panel",
+          "eventId": "example-event",
+          "label": "Example community event",
+          "organizer": "Example organization",
+          "location": "Illustrative venue",
+          "startsAt": "2028-02-29T09:00Z",
+          "endsAt": "2028-02-29T09:00Z",
+          "description": "A supplied event snapshot, not a live calendar entry.",
+          "agenda": [
+            {
+              "id": "welcome",
+              "label": "Welcome session",
+              "category": "Talk",
+              "startsAt": "2028-02-29T09:00Z",
+              "endsAt": "2028-02-29T10:00Z",
+              "speaker": "Example speaker",
+              "description": "Original supplied introductory session."
+            },
+            {
+              "id": "practice",
+              "label": "Hands-on session",
+              "category": "Workshop",
+              "startsAt": "2028-02-29T11:00Z",
+              "endsAt": "2028-02-29T12:30Z",
+              "description": "A synthetic workshop description."
+            }
+          ],
+          "source": {
+            "label": "Example event source",
+            "url": "https://example.org/event"
+          }
+        }
+      ]
+    },
+    "code": "ACTIVITY_ORDER",
+    "path": "/body/0/endsAt"
+  },
+  {
+    "name": "agenda before event",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "event-sidebar",
+          "id": "event-panel",
+          "eventId": "example-event",
+          "label": "Example community event",
+          "organizer": "Example organization",
+          "location": "Illustrative venue",
+          "startsAt": "2028-02-29T09:00Z",
+          "endsAt": "2028-02-29T17:00Z",
+          "description": "A supplied event snapshot, not a live calendar entry.",
+          "agenda": [
+            {
+              "id": "welcome",
+              "label": "Welcome session",
+              "category": "Talk",
+              "startsAt": "2028-02-29T08:00Z",
+              "endsAt": "2028-02-29T10:00Z",
+              "speaker": "Example speaker",
+              "description": "Original supplied introductory session."
+            },
+            {
+              "id": "practice",
+              "label": "Hands-on session",
+              "category": "Workshop",
+              "startsAt": "2028-02-29T11:00Z",
+              "endsAt": "2028-02-29T12:30Z",
+              "description": "A synthetic workshop description."
+            }
+          ],
+          "source": {
+            "label": "Example event source",
+            "url": "https://example.org/event"
+          }
+        }
+      ]
+    },
+    "code": "EVENT_AGENDA_RANGE",
+    "path": "/body/0/agenda/0/startsAt"
+  },
+  {
+    "name": "agenda after event",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "event-sidebar",
+          "id": "event-panel",
+          "eventId": "example-event",
+          "label": "Example community event",
+          "organizer": "Example organization",
+          "location": "Illustrative venue",
+          "startsAt": "2028-02-29T09:00Z",
+          "endsAt": "2028-02-29T17:00Z",
+          "description": "A supplied event snapshot, not a live calendar entry.",
+          "agenda": [
+            {
+              "id": "welcome",
+              "label": "Welcome session",
+              "category": "Talk",
+              "startsAt": "2028-02-29T09:00Z",
+              "endsAt": "2028-02-29T10:00Z",
+              "speaker": "Example speaker",
+              "description": "Original supplied introductory session."
+            },
+            {
+              "id": "practice",
+              "label": "Hands-on session",
+              "category": "Workshop",
+              "startsAt": "2028-02-29T11:00Z",
+              "endsAt": "2028-02-29T18:00Z",
+              "description": "A synthetic workshop description."
+            }
+          ],
+          "source": {
+            "label": "Example event source",
+            "url": "https://example.org/event"
+          }
+        }
+      ]
+    },
+    "code": "EVENT_AGENDA_RANGE",
+    "path": "/body/0/agenda/1/endsAt"
+  },
+  {
+    "name": "calendar provider extra",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "event-sidebar",
+          "id": "event-panel",
+          "eventId": "example-event",
+          "label": "Example community event",
+          "organizer": "Example organization",
+          "location": "Illustrative venue",
+          "startsAt": "2028-02-29T09:00Z",
+          "endsAt": "2028-02-29T17:00Z",
+          "description": "A supplied event snapshot, not a live calendar entry.",
+          "agenda": [
+            {
+              "id": "welcome",
+              "label": "Welcome session",
+              "category": "Talk",
+              "startsAt": "2028-02-29T09:00Z",
+              "endsAt": "2028-02-29T10:00Z",
+              "speaker": "Example speaker",
+              "description": "Original supplied introductory session."
+            },
+            {
+              "id": "practice",
+              "label": "Hands-on session",
+              "category": "Workshop",
+              "startsAt": "2028-02-29T11:00Z",
+              "endsAt": "2028-02-29T12:30Z",
+              "description": "A synthetic workshop description."
+            }
+          ],
+          "source": {
+            "label": "Example event source",
+            "url": "https://example.org/event"
+          },
+          "calendarId": "external"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "blank definition",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "word-card",
+          "id": "vocabulary-card",
+          "wordId": "serendipity",
+          "term": "serendipity",
+          "pronunciation": "/ˌserənˈdɪpəti/",
+          "partOfSpeech": "noun · supplied label",
+          "definition": "",
+          "translation": "意外发现美好事物的机缘。",
+          "examples": [
+            {
+              "text": "Finding the little bookshop during our walk was pure serendipity.",
+              "translation": "散步时偶然发现那家小书店，真是美好的机缘。"
+            }
+          ],
+          "source": {
+            "label": "Original illustrative vocabulary source",
+            "url": "https://example.org/vocabulary"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "too many word examples",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "word-card",
+          "id": "vocabulary-card",
+          "wordId": "serendipity",
+          "term": "serendipity",
+          "pronunciation": "/ˌserənˈdɪpəti/",
+          "partOfSpeech": "noun · supplied label",
+          "definition": "Finding something useful or pleasant when you were not specifically looking for it.",
+          "translation": "意外发现美好事物的机缘。",
+          "examples": [
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            },
+            {
+              "text": "Original example"
+            }
+          ],
+          "source": {
+            "label": "Original illustrative vocabulary source",
+            "url": "https://example.org/vocabulary"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "speech provider extra",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "word-card",
+          "id": "vocabulary-card",
+          "wordId": "serendipity",
+          "term": "serendipity",
+          "pronunciation": "/ˌserənˈdɪpəti/",
+          "partOfSpeech": "noun · supplied label",
+          "definition": "Finding something useful or pleasant when you were not specifically looking for it.",
+          "translation": "意外发现美好事物的机缘。",
+          "examples": [
+            {
+              "text": "Finding the little bookshop during our walk was pure serendipity.",
+              "translation": "散步时偶然发现那家小书店，真是美好的机缘。"
+            }
+          ],
+          "source": {
+            "label": "Original illustrative vocabulary source",
+            "url": "https://example.org/vocabulary"
+          },
+          "audioUrl": "https://example.org/audio"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "unsafe word source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "word-card",
+          "id": "vocabulary-card",
+          "wordId": "serendipity",
+          "term": "serendipity",
+          "pronunciation": "/ˌserənˈdɪpəti/",
+          "partOfSpeech": "noun · supplied label",
+          "definition": "Finding something useful or pleasant when you were not specifically looking for it.",
+          "translation": "意外发现美好事物的机缘。",
+          "examples": [
+            {
+              "text": "Finding the little bookshop during our walk was pure serendipity.",
+              "translation": "散步时偶然发现那家小书店，真是美好的机缘。"
+            }
+          ],
+          "source": {
+            "label": "Original illustrative vocabulary source",
+            "url": "file:///private"
+          }
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/source/url"
+  },
+  {
+    "name": "newline word key",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "word-card",
+          "id": "vocabulary-card",
+          "wordId": "term\n",
+          "term": "serendipity",
+          "pronunciation": "/ˌserənˈdɪpəti/",
+          "partOfSpeech": "noun · supplied label",
+          "definition": "Finding something useful or pleasant when you were not specifically looking for it.",
+          "translation": "意外发现美好事物的机缘。",
+          "examples": [
+            {
+              "text": "Finding the little bookshop during our walk was pure serendipity.",
+              "translation": "散步时偶然发现那家小书店，真是美好的机缘。"
+            }
+          ],
+          "source": {
+            "label": "Original illustrative vocabulary source",
+            "url": "https://example.org/vocabulary"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "duplicate copy ID",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "copy-words",
+          "id": "word-copy",
+          "label": "Select supplied vocabulary",
+          "words": [
+            {
+              "id": "a",
+              "text": "serendipity",
+              "note": "Original supplied example word"
+            },
+            {
+              "id": "a",
+              "text": "curiosity"
+            },
+            {
+              "id": "c",
+              "text": "明亮"
+            }
+          ],
+          "initialSelectedIds": [
+            "a",
+            "c"
+          ],
+          "separator": "lines"
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/words/1/id"
+  },
+  {
+    "name": "unknown selected word",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "copy-words",
+          "id": "word-copy",
+          "label": "Select supplied vocabulary",
+          "words": [
+            {
+              "id": "a",
+              "text": "serendipity",
+              "note": "Original supplied example word"
+            },
+            {
+              "id": "b",
+              "text": "curiosity"
+            },
+            {
+              "id": "c",
+              "text": "明亮"
+            }
+          ],
+          "initialSelectedIds": [
+            "missing"
+          ],
+          "separator": "lines"
+        }
+      ]
+    },
+    "code": "COPY_WORD_ID",
+    "path": "/body/0/initialSelectedIds/0"
+  },
+  {
+    "name": "duplicate word selection",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "copy-words",
+          "id": "word-copy",
+          "label": "Select supplied vocabulary",
+          "words": [
+            {
+              "id": "a",
+              "text": "serendipity",
+              "note": "Original supplied example word"
+            },
+            {
+              "id": "b",
+              "text": "curiosity"
+            },
+            {
+              "id": "c",
+              "text": "明亮"
+            }
+          ],
+          "initialSelectedIds": [
+            "a",
+            "a"
+          ],
+          "separator": "lines"
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/initialSelectedIds/1"
+  },
+  {
+    "name": "too many copy words",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "copy-words",
+          "id": "word-copy",
+          "label": "Select supplied vocabulary",
+          "words": [
+            {
+              "id": "w0",
+              "text": "Original"
+            },
+            {
+              "id": "w1",
+              "text": "Original"
+            },
+            {
+              "id": "w2",
+              "text": "Original"
+            },
+            {
+              "id": "w3",
+              "text": "Original"
+            },
+            {
+              "id": "w4",
+              "text": "Original"
+            },
+            {
+              "id": "w5",
+              "text": "Original"
+            },
+            {
+              "id": "w6",
+              "text": "Original"
+            },
+            {
+              "id": "w7",
+              "text": "Original"
+            },
+            {
+              "id": "w8",
+              "text": "Original"
+            },
+            {
+              "id": "w9",
+              "text": "Original"
+            },
+            {
+              "id": "w10",
+              "text": "Original"
+            },
+            {
+              "id": "w11",
+              "text": "Original"
+            },
+            {
+              "id": "w12",
+              "text": "Original"
+            },
+            {
+              "id": "w13",
+              "text": "Original"
+            },
+            {
+              "id": "w14",
+              "text": "Original"
+            },
+            {
+              "id": "w15",
+              "text": "Original"
+            },
+            {
+              "id": "w16",
+              "text": "Original"
+            },
+            {
+              "id": "w17",
+              "text": "Original"
+            },
+            {
+              "id": "w18",
+              "text": "Original"
+            },
+            {
+              "id": "w19",
+              "text": "Original"
+            },
+            {
+              "id": "w20",
+              "text": "Original"
+            },
+            {
+              "id": "w21",
+              "text": "Original"
+            },
+            {
+              "id": "w22",
+              "text": "Original"
+            },
+            {
+              "id": "w23",
+              "text": "Original"
+            },
+            {
+              "id": "w24",
+              "text": "Original"
+            },
+            {
+              "id": "w25",
+              "text": "Original"
+            },
+            {
+              "id": "w26",
+              "text": "Original"
+            },
+            {
+              "id": "w27",
+              "text": "Original"
+            },
+            {
+              "id": "w28",
+              "text": "Original"
+            },
+            {
+              "id": "w29",
+              "text": "Original"
+            },
+            {
+              "id": "w30",
+              "text": "Original"
+            },
+            {
+              "id": "w31",
+              "text": "Original"
+            },
+            {
+              "id": "w32",
+              "text": "Original"
+            },
+            {
+              "id": "w33",
+              "text": "Original"
+            },
+            {
+              "id": "w34",
+              "text": "Original"
+            },
+            {
+              "id": "w35",
+              "text": "Original"
+            },
+            {
+              "id": "w36",
+              "text": "Original"
+            },
+            {
+              "id": "w37",
+              "text": "Original"
+            },
+            {
+              "id": "w38",
+              "text": "Original"
+            },
+            {
+              "id": "w39",
+              "text": "Original"
+            },
+            {
+              "id": "w40",
+              "text": "Original"
+            },
+            {
+              "id": "w41",
+              "text": "Original"
+            },
+            {
+              "id": "w42",
+              "text": "Original"
+            },
+            {
+              "id": "w43",
+              "text": "Original"
+            },
+            {
+              "id": "w44",
+              "text": "Original"
+            },
+            {
+              "id": "w45",
+              "text": "Original"
+            },
+            {
+              "id": "w46",
+              "text": "Original"
+            },
+            {
+              "id": "w47",
+              "text": "Original"
+            },
+            {
+              "id": "w48",
+              "text": "Original"
+            },
+            {
+              "id": "w49",
+              "text": "Original"
+            },
+            {
+              "id": "w50",
+              "text": "Original"
+            },
+            {
+              "id": "w51",
+              "text": "Original"
+            },
+            {
+              "id": "w52",
+              "text": "Original"
+            },
+            {
+              "id": "w53",
+              "text": "Original"
+            },
+            {
+              "id": "w54",
+              "text": "Original"
+            },
+            {
+              "id": "w55",
+              "text": "Original"
+            },
+            {
+              "id": "w56",
+              "text": "Original"
+            },
+            {
+              "id": "w57",
+              "text": "Original"
+            },
+            {
+              "id": "w58",
+              "text": "Original"
+            },
+            {
+              "id": "w59",
+              "text": "Original"
+            },
+            {
+              "id": "w60",
+              "text": "Original"
+            },
+            {
+              "id": "w61",
+              "text": "Original"
+            },
+            {
+              "id": "w62",
+              "text": "Original"
+            },
+            {
+              "id": "w63",
+              "text": "Original"
+            },
+            {
+              "id": "w64",
+              "text": "Original"
+            },
+            {
+              "id": "w65",
+              "text": "Original"
+            },
+            {
+              "id": "w66",
+              "text": "Original"
+            },
+            {
+              "id": "w67",
+              "text": "Original"
+            },
+            {
+              "id": "w68",
+              "text": "Original"
+            },
+            {
+              "id": "w69",
+              "text": "Original"
+            },
+            {
+              "id": "w70",
+              "text": "Original"
+            },
+            {
+              "id": "w71",
+              "text": "Original"
+            },
+            {
+              "id": "w72",
+              "text": "Original"
+            },
+            {
+              "id": "w73",
+              "text": "Original"
+            },
+            {
+              "id": "w74",
+              "text": "Original"
+            },
+            {
+              "id": "w75",
+              "text": "Original"
+            },
+            {
+              "id": "w76",
+              "text": "Original"
+            },
+            {
+              "id": "w77",
+              "text": "Original"
+            },
+            {
+              "id": "w78",
+              "text": "Original"
+            },
+            {
+              "id": "w79",
+              "text": "Original"
+            },
+            {
+              "id": "w80",
+              "text": "Original"
+            }
+          ],
+          "initialSelectedIds": [
+            "a",
+            "c"
+          ],
+          "separator": "lines"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "unsupported separator",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "copy-words",
+          "id": "word-copy",
+          "label": "Select supplied vocabulary",
+          "words": [
+            {
+              "id": "a",
+              "text": "serendipity",
+              "note": "Original supplied example word"
+            },
+            {
+              "id": "b",
+              "text": "curiosity"
+            },
+            {
+              "id": "c",
+              "text": "明亮"
+            }
+          ],
+          "initialSelectedIds": [
+            "a",
+            "c"
+          ],
+          "separator": "pipe"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "oversized word note",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "copy-words",
+          "id": "word-copy",
+          "label": "Select supplied vocabulary",
+          "words": [
+            {
+              "id": "a",
+              "text": "serendipity",
+              "note": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            },
+            {
+              "id": "b",
+              "text": "curiosity"
+            },
+            {
+              "id": "c",
+              "text": "明亮"
+            }
+          ],
+          "initialSelectedIds": [
+            "a",
+            "c"
+          ],
+          "separator": "lines"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "half citation range",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 40,
+          "lines": [
+            "// Original illustrative snippet",
+            "export function square(value: number) {",
+            "  return value * value;",
+            "}",
+            ""
+          ],
+          "citedStart": 41,
+          "source": {
+            "label": "Example code source",
+            "url": "https://example.org/code"
+          }
+        }
+      ]
+    },
+    "code": "CITE_LINE_RANGE",
+    "path": "/body/0/citedEnd"
+  },
+  {
+    "name": "citation before window",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 40,
+          "lines": [
+            "// Original illustrative snippet",
+            "export function square(value: number) {",
+            "  return value * value;",
+            "}",
+            ""
+          ],
+          "citedStart": 39,
+          "citedEnd": 43,
+          "source": {
+            "label": "Example code source",
+            "url": "https://example.org/code"
+          }
+        }
+      ]
+    },
+    "code": "CITE_LINE_RANGE",
+    "path": "/body/0/citedStart"
+  },
+  {
+    "name": "citation after window",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 40,
+          "lines": [
+            "// Original illustrative snippet",
+            "export function square(value: number) {",
+            "  return value * value;",
+            "}",
+            ""
+          ],
+          "citedStart": 41,
+          "citedEnd": 45,
+          "source": {
+            "label": "Example code source",
+            "url": "https://example.org/code"
+          }
+        }
+      ]
+    },
+    "code": "CITE_LINE_RANGE",
+    "path": "/body/0/citedEnd"
+  },
+  {
+    "name": "overflow absolute line window",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 10000000,
+          "lines": [
+            "// Original illustrative snippet",
+            "export function square(value: number) {",
+            "  return value * value;",
+            "}",
+            ""
+          ],
+          "citedStart": 41,
+          "citedEnd": 43,
+          "source": {
+            "label": "Example code source",
+            "url": "https://example.org/code"
+          }
+        }
+      ]
+    },
+    "code": "CITE_LINE_RANGE",
+    "path": "/body/0/lines"
+  },
+  {
+    "name": "reversed citation range",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 40,
+          "lines": [
+            "// Original illustrative snippet",
+            "export function square(value: number) {",
+            "  return value * value;",
+            "}",
+            ""
+          ],
+          "citedStart": 43,
+          "citedEnd": 41,
+          "source": {
+            "label": "Example code source",
+            "url": "https://example.org/code"
+          }
+        }
+      ]
+    },
+    "code": "CITE_LINE_RANGE",
+    "path": "/body/0/citedEnd"
+  },
+  {
+    "name": "executable code extra",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 40,
+          "lines": [
+            "// Original illustrative snippet",
+            "export function square(value: number) {",
+            "  return value * value;",
+            "}",
+            ""
+          ],
+          "citedStart": 41,
+          "citedEnd": 43,
+          "source": {
+            "label": "Example code source",
+            "url": "https://example.org/code"
+          },
+          "execute": true
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "empty line collection",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 40,
+          "lines": [],
+          "citedStart": 41,
+          "citedEnd": 43,
+          "source": {
+            "label": "Example code source",
+            "url": "https://example.org/code"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "unsafe code source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "code-cite",
+          "label": "Supplied example function citation",
+          "fileName": "example.ts · label only",
+          "language": "TypeScript · supplied label",
+          "startLine": 40,
+          "lines": [
+            "// Original illustrative snippet",
+            "export function square(value: number) {",
+            "  return value * value;",
+            "}",
+            ""
+          ],
+          "citedStart": 41,
+          "citedEnd": 43,
+          "source": {
+            "label": "Example code source",
+            "url": "data:text/plain,x"
+          }
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/source/url"
+  },
+  {
+    "name": "duplicate page number",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "file-cite",
+          "label": "Supplied document excerpts",
+          "fileName": "example-report.pdf · label only",
+          "mediaType": "application/pdf · supplied label",
+          "totalPages": 12,
+          "initialPage": 5,
+          "pages": [
+            {
+              "number": 2,
+              "label": "Overview",
+              "text": "This original synthetic paragraph represents a supplied page excerpt. No file has been opened."
+            },
+            {
+              "number": 2,
+              "label": "Method",
+              "text": "The second supplied excerpt preserves its page label and literal text. Missing pages are not fabricated.",
+              "source": {
+                "label": "Example page source",
+                "url": "https://example.org/document/page5"
+              }
+            },
+            {
+              "number": 9,
+              "label": "Notes",
+              "text": "A third original excerpt for demonstrating local navigation."
+            }
+          ],
+          "source": {
+            "label": "Example document source",
+            "url": "https://example.org/document"
+          }
+        }
+      ]
+    },
+    "code": "DUPLICATE_PAGE",
+    "path": "/body/0/pages/1/number"
+  },
+  {
+    "name": "page beyond supplied total",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "file-cite",
+          "label": "Supplied document excerpts",
+          "fileName": "example-report.pdf · label only",
+          "mediaType": "application/pdf · supplied label",
+          "totalPages": 8,
+          "initialPage": 5,
+          "pages": [
+            {
+              "number": 2,
+              "label": "Overview",
+              "text": "This original synthetic paragraph represents a supplied page excerpt. No file has been opened."
+            },
+            {
+              "number": 5,
+              "label": "Method",
+              "text": "The second supplied excerpt preserves its page label and literal text. Missing pages are not fabricated.",
+              "source": {
+                "label": "Example page source",
+                "url": "https://example.org/document/page5"
+              }
+            },
+            {
+              "number": 9,
+              "label": "Notes",
+              "text": "A third original excerpt for demonstrating local navigation."
+            }
+          ],
+          "source": {
+            "label": "Example document source",
+            "url": "https://example.org/document"
+          }
+        }
+      ]
+    },
+    "code": "CITE_PAGE_RANGE",
+    "path": "/body/0/pages/2/number"
+  },
+  {
+    "name": "unavailable initial excerpt",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "file-cite",
+          "label": "Supplied document excerpts",
+          "fileName": "example-report.pdf · label only",
+          "mediaType": "application/pdf · supplied label",
+          "totalPages": 12,
+          "initialPage": 3,
+          "pages": [
+            {
+              "number": 2,
+              "label": "Overview",
+              "text": "This original synthetic paragraph represents a supplied page excerpt. No file has been opened."
+            },
+            {
+              "number": 5,
+              "label": "Method",
+              "text": "The second supplied excerpt preserves its page label and literal text. Missing pages are not fabricated.",
+              "source": {
+                "label": "Example page source",
+                "url": "https://example.org/document/page5"
+              }
+            },
+            {
+              "number": 9,
+              "label": "Notes",
+              "text": "A third original excerpt for demonstrating local navigation."
+            }
+          ],
+          "source": {
+            "label": "Example document source",
+            "url": "https://example.org/document"
+          }
+        }
+      ]
+    },
+    "code": "CITE_PAGE_RANGE",
+    "path": "/body/0/initialPage"
+  },
+  {
+    "name": "empty page text",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "file-cite",
+          "label": "Supplied document excerpts",
+          "fileName": "example-report.pdf · label only",
+          "mediaType": "application/pdf · supplied label",
+          "totalPages": 12,
+          "initialPage": 5,
+          "pages": [
+            {
+              "number": 2,
+              "label": "Overview",
+              "text": ""
+            },
+            {
+              "number": 5,
+              "label": "Method",
+              "text": "The second supplied excerpt preserves its page label and literal text. Missing pages are not fabricated.",
+              "source": {
+                "label": "Example page source",
+                "url": "https://example.org/document/page5"
+              }
+            },
+            {
+              "number": 9,
+              "label": "Notes",
+              "text": "A third original excerpt for demonstrating local navigation."
+            }
+          ],
+          "source": {
+            "label": "Example document source",
+            "url": "https://example.org/document"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "too many page excerpts",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "file-cite",
+          "label": "Supplied document excerpts",
+          "fileName": "example-report.pdf · label only",
+          "mediaType": "application/pdf · supplied label",
+          "totalPages": 12,
+          "initialPage": 5,
+          "pages": [
+            {
+              "number": 1,
+              "text": "Original"
+            },
+            {
+              "number": 2,
+              "text": "Original"
+            },
+            {
+              "number": 3,
+              "text": "Original"
+            },
+            {
+              "number": 4,
+              "text": "Original"
+            },
+            {
+              "number": 5,
+              "text": "Original"
+            },
+            {
+              "number": 6,
+              "text": "Original"
+            },
+            {
+              "number": 7,
+              "text": "Original"
+            },
+            {
+              "number": 8,
+              "text": "Original"
+            },
+            {
+              "number": 9,
+              "text": "Original"
+            },
+            {
+              "number": 10,
+              "text": "Original"
+            },
+            {
+              "number": 11,
+              "text": "Original"
+            },
+            {
+              "number": 12,
+              "text": "Original"
+            },
+            {
+              "number": 13,
+              "text": "Original"
+            },
+            {
+              "number": 14,
+              "text": "Original"
+            },
+            {
+              "number": 15,
+              "text": "Original"
+            },
+            {
+              "number": 16,
+              "text": "Original"
+            },
+            {
+              "number": 17,
+              "text": "Original"
+            },
+            {
+              "number": 18,
+              "text": "Original"
+            },
+            {
+              "number": 19,
+              "text": "Original"
+            },
+            {
+              "number": 20,
+              "text": "Original"
+            },
+            {
+              "number": 21,
+              "text": "Original"
+            },
+            {
+              "number": 22,
+              "text": "Original"
+            },
+            {
+              "number": 23,
+              "text": "Original"
+            },
+            {
+              "number": 24,
+              "text": "Original"
+            },
+            {
+              "number": 25,
+              "text": "Original"
+            },
+            {
+              "number": 26,
+              "text": "Original"
+            },
+            {
+              "number": 27,
+              "text": "Original"
+            },
+            {
+              "number": 28,
+              "text": "Original"
+            },
+            {
+              "number": 29,
+              "text": "Original"
+            },
+            {
+              "number": 30,
+              "text": "Original"
+            },
+            {
+              "number": 31,
+              "text": "Original"
+            }
+          ],
+          "source": {
+            "label": "Example document source",
+            "url": "https://example.org/document"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "remote preview extra",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "file-cite",
+          "label": "Supplied document excerpts",
+          "fileName": "example-report.pdf · label only",
+          "mediaType": "application/pdf · supplied label",
+          "totalPages": 12,
+          "initialPage": 5,
+          "pages": [
+            {
+              "number": 2,
+              "label": "Overview",
+              "text": "This original synthetic paragraph represents a supplied page excerpt. No file has been opened."
+            },
+            {
+              "number": 5,
+              "label": "Method",
+              "text": "The second supplied excerpt preserves its page label and literal text. Missing pages are not fabricated.",
+              "source": {
+                "label": "Example page source",
+                "url": "https://example.org/document/page5"
+              }
+            },
+            {
+              "number": 9,
+              "label": "Notes",
+              "text": "A third original excerpt for demonstrating local navigation."
+            }
+          ],
+          "source": {
+            "label": "Example document source",
+            "url": "https://example.org/document"
+          },
+          "previewUrl": "https://example.org/file.pdf"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "unsafe page source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "file-cite",
+          "label": "Supplied document excerpts",
+          "fileName": "example-report.pdf · label only",
+          "mediaType": "application/pdf · supplied label",
+          "totalPages": 12,
+          "initialPage": 5,
+          "pages": [
+            {
+              "number": 2,
+              "label": "Overview",
+              "text": "This original synthetic paragraph represents a supplied page excerpt. No file has been opened."
+            },
+            {
+              "number": 5,
+              "label": "Method",
+              "text": "The second supplied excerpt preserves its page label and literal text. Missing pages are not fabricated.",
+              "source": {
+                "label": "Example page source",
+                "url": "https://u:p@example.org/"
+              }
+            },
+            {
+              "number": 9,
+              "label": "Notes",
+              "text": "A third original excerpt for demonstrating local navigation."
+            }
+          ],
+          "source": {
+            "label": "Example document source",
+            "url": "https://example.org/document"
+          }
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/pages/1/source/url"
+  },
+  {
+    "name": "duplicate fact ID",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-fact-table",
+          "label": "Supplied example facts",
+          "facts": [
+            {
+              "id": "height",
+              "label": "Example height",
+              "value": "12.50",
+              "unit": "m",
+              "group": "Dimensions",
+              "observedAt": "2028-02-29T10:00Z",
+              "note": "Original illustrative value; no measurement was taken.",
+              "source": {
+                "label": "Example fact source",
+                "url": "https://example.org/fact"
+              }
+            },
+            {
+              "id": "height",
+              "label": "Example width",
+              "value": null,
+              "unit": "m",
+              "group": "Dimensions"
+            },
+            {
+              "id": "material",
+              "label": "Example material",
+              "value": "Illustrative timber",
+              "group": "Materials"
+            },
+            {
+              "id": "note",
+              "label": "Supplied blank note",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/facts/1/id"
+  },
+  {
+    "name": "numeric fact instead of literal",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-fact-table",
+          "label": "Supplied example facts",
+          "facts": [
+            {
+              "id": "height",
+              "label": "Example height",
+              "value": 0,
+              "unit": "m",
+              "group": "Dimensions",
+              "observedAt": "2028-02-29T10:00Z",
+              "note": "Original illustrative value; no measurement was taken.",
+              "source": {
+                "label": "Example fact source",
+                "url": "https://example.org/fact"
+              }
+            },
+            {
+              "id": "width",
+              "label": "Example width",
+              "value": null,
+              "unit": "m",
+              "group": "Dimensions"
+            },
+            {
+              "id": "material",
+              "label": "Example material",
+              "value": "Illustrative timber",
+              "group": "Materials"
+            },
+            {
+              "id": "note",
+              "label": "Supplied blank note",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "missing fact value",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-fact-table",
+          "label": "Supplied example facts",
+          "facts": [
+            {
+              "id": "height",
+              "label": "Example height",
+              "unit": "m",
+              "group": "Dimensions",
+              "observedAt": "2028-02-29T10:00Z",
+              "note": "Original illustrative value; no measurement was taken.",
+              "source": {
+                "label": "Example fact source",
+                "url": "https://example.org/fact"
+              }
+            },
+            {
+              "id": "width",
+              "label": "Example width",
+              "value": null,
+              "unit": "m",
+              "group": "Dimensions"
+            },
+            {
+              "id": "material",
+              "label": "Example material",
+              "value": "Illustrative timber",
+              "group": "Materials"
+            },
+            {
+              "id": "note",
+              "label": "Supplied blank note",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "impossible observation time",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-fact-table",
+          "label": "Supplied example facts",
+          "facts": [
+            {
+              "id": "height",
+              "label": "Example height",
+              "value": "12.50",
+              "unit": "m",
+              "group": "Dimensions",
+              "observedAt": "2027-02-29T10:00Z",
+              "note": "Original illustrative value; no measurement was taken.",
+              "source": {
+                "label": "Example fact source",
+                "url": "https://example.org/fact"
+              }
+            },
+            {
+              "id": "width",
+              "label": "Example width",
+              "value": null,
+              "unit": "m",
+              "group": "Dimensions"
+            },
+            {
+              "id": "material",
+              "label": "Example material",
+              "value": "Illustrative timber",
+              "group": "Materials"
+            },
+            {
+              "id": "note",
+              "label": "Supplied blank note",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    "code": "FACT_TIME",
+    "path": "/body/0/facts/0/observedAt"
+  },
+  {
+    "name": "unsafe attributed fact",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-fact-table",
+          "label": "Supplied example facts",
+          "facts": [
+            {
+              "id": "height",
+              "label": "Example height",
+              "value": "12.50",
+              "unit": "m",
+              "group": "Dimensions",
+              "observedAt": "2028-02-29T10:00Z",
+              "note": "Original illustrative value; no measurement was taken.",
+              "source": {
+                "label": "Example fact source",
+                "url": "javascript:bad()"
+              }
+            },
+            {
+              "id": "width",
+              "label": "Example width",
+              "value": null,
+              "unit": "m",
+              "group": "Dimensions"
+            },
+            {
+              "id": "material",
+              "label": "Example material",
+              "value": "Illustrative timber",
+              "group": "Materials"
+            },
+            {
+              "id": "note",
+              "label": "Supplied blank note",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/facts/0/source/url"
+  },
+  {
+    "name": "too many facts",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-fact-table",
+          "label": "Supplied example facts",
+          "facts": [
+            {
+              "id": "f0",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f1",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f2",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f3",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f4",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f5",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f6",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f7",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f8",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f9",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f10",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f11",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f12",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f13",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f14",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f15",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f16",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f17",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f18",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f19",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f20",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f21",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f22",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f23",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f24",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f25",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f26",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f27",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f28",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f29",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f30",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f31",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f32",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f33",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f34",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f35",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f36",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f37",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f38",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f39",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f40",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f41",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f42",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f43",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f44",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f45",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f46",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f47",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f48",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f49",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f50",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f51",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f52",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f53",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f54",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f55",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f56",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f57",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f58",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f59",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f60",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f61",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f62",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f63",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f64",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f65",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f66",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f67",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f68",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f69",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f70",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f71",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f72",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f73",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f74",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f75",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f76",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f77",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f78",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f79",
+              "label": "Fact",
+              "value": null
+            },
+            {
+              "id": "f80",
+              "label": "Fact",
+              "value": null
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "empty group label",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-fact-table",
+          "label": "Supplied example facts",
+          "facts": [
+            {
+              "id": "height",
+              "label": "Example height",
+              "value": "12.50",
+              "unit": "m",
+              "group": "",
+              "observedAt": "2028-02-29T10:00Z",
+              "note": "Original illustrative value; no measurement was taken.",
+              "source": {
+                "label": "Example fact source",
+                "url": "https://example.org/fact"
+              }
+            },
+            {
+              "id": "width",
+              "label": "Example width",
+              "value": null,
+              "unit": "m",
+              "group": "Dimensions"
+            },
+            {
+              "id": "material",
+              "label": "Example material",
+              "value": "Illustrative timber",
+              "group": "Materials"
+            },
+            {
+              "id": "note",
+              "label": "Supplied blank note",
+              "value": ""
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "duplicate entity ID",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": "Example district"
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "https://example.org/entity/museum"
+              },
+              "image": {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGOwKEt8eriM4enhMouyRAAtEAZbDWz0hgAAAABJRU5ErkJggg==",
+                "alt": "Original project two-color checker swatch"
+              }
+            },
+            {
+              "id": "museum",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/entities/1/id"
+  },
+  {
+    "name": "unknown initial entity",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": "Example district"
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "https://example.org/entity/museum"
+              },
+              "image": {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGOwKEt8eriM4enhMouyRAAtEAZbDWz0hgAAAABJRU5ErkJggg==",
+                "alt": "Original project two-color checker swatch"
+              }
+            },
+            {
+              "id": "book",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ],
+          "initialSelectedId": "absent"
+        }
+      ]
+    },
+    "code": "ENTITY_SELECTION",
+    "path": "/body/0/initialSelectedId"
+  },
+  {
+    "name": "remote entity image",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": "Example district"
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "https://example.org/entity/museum"
+              },
+              "image": {
+                "src": "https://example.org/image.png",
+                "alt": "Original project two-color checker swatch"
+              }
+            },
+            {
+              "id": "book",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "ENTITY_IMAGE",
+    "path": "/body/0/entities/0/image/src"
+  },
+  {
+    "name": "SVG entity image",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": "Example district"
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "https://example.org/entity/museum"
+              },
+              "image": {
+                "src": "data:image/svg+xml;base64,PHN2Zy8+",
+                "alt": "Original project two-color checker swatch"
+              }
+            },
+            {
+              "id": "book",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "ENTITY_IMAGE",
+    "path": "/body/0/entities/0/image/src"
+  },
+  {
+    "name": "missing image alt",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": "Example district"
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "https://example.org/entity/museum"
+              },
+              "image": {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGOwKEt8eriM4enhMouyRAAtEAZbDWz0hgAAAABJRU5ErkJggg=="
+              }
+            },
+            {
+              "id": "book",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "numeric entity field",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": 0
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "https://example.org/entity/museum"
+              },
+              "image": {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGOwKEt8eriM4enhMouyRAAtEAZbDWz0hgAAAABJRU5ErkJggg==",
+                "alt": "Original project two-color checker swatch"
+              }
+            },
+            {
+              "id": "book",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "too many entities",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "e0",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e1",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e2",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e3",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e4",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e5",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e6",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e7",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e8",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e9",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e10",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e11",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e12",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e13",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e14",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e15",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e16",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e17",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e18",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e19",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e20",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e21",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e22",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e23",
+              "label": "Entity",
+              "category": "Example"
+            },
+            {
+              "id": "e24",
+              "label": "Entity",
+              "category": "Example"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "unsafe entity source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": "Example district"
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "file:///private"
+              },
+              "image": {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGOwKEt8eriM4enhMouyRAAtEAZbDWz0hgAAAABJRU5ErkJggg==",
+                "alt": "Original project two-color checker swatch"
+              }
+            },
+            {
+              "id": "book",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/entities/0/source/url"
+  },
+  {
+    "name": "null initial entity ID",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "entity-thumbnail-list",
+          "id": "entities",
+          "label": "Supplied example entities",
+          "entities": [
+            {
+              "id": "museum",
+              "label": "Example museum",
+              "category": "Place",
+              "description": "An original fictional place record.",
+              "fields": [
+                {
+                  "label": "Area",
+                  "value": "Example district"
+                }
+              ],
+              "source": {
+                "label": "Example entity source",
+                "url": "https://example.org/entity/museum"
+              },
+              "image": {
+                "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGOwKEt8eriM4enhMouyRAAtEAZbDWz0hgAAAABJRU5ErkJggg==",
+                "alt": "Original project two-color checker swatch"
+              }
+            },
+            {
+              "id": "book",
+              "label": "Example book",
+              "category": "Work",
+              "description": "An original fictional publication record.",
+              "fields": [
+                {
+                  "label": "Edition label",
+                  "value": "As supplied"
+                }
+              ]
+            },
+            {
+              "id": "garden",
+              "label": "Example garden",
+              "category": "Place",
+              "description": "A second fictional place record."
+            }
+          ],
+          "initialSelectedId": null
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  }
+]

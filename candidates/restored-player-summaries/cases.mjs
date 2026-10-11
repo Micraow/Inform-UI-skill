@@ -1,0 +1,34 @@
+export function buildCases(document) {
+  const edited = fn => { const d = structuredClone(document); fn(d.body[0], d.body[1]); return d; };
+  const positives = [['original supplied snapshots', structuredClone(document)]], negatives = [];
+  const add = (name, fn) => positives.push([name, edited(fn)]);
+  const bad = (name, fn, code = 'SCHEMA', path) => negatives.push([name, edited(fn), code, path]);
+  add('empty records', (a, t) => { a.records = []; t.records = []; });
+  add('one hundred finite records', (a, t) => { for (const n of [a,t]) n.records = Array.from({length:100}, (_,i) => ({...n.records[0], id:'record_'+i})); });
+  add('duplicate supplied period labels', (a, t) => { a.records[1].season = a.records[0].season; t.records[1].season = t.records[0].season; });
+  add('literal context text', a => { a.player = '<b>Fictional</b>'; a.records[0].note = '<img src=untrusted>'; });
+  add('real leap timestamp', a => { a.observedAt = '2028-02-29T23:59-05:00'; });
+  add('source links are explicitly supplied', (a, t) => { a.source = {label:'Fictional evidence',url:'https://example.org/records'}; t.records[0].source = {label:'Fictional scope',url:'https://example.org/scope'}; });
+  add('all unknown numbers', (a, t) => { for (const n of [a,t]) for (const r of n.records) for (const [k,v] of Object.entries(r)) if (typeof v === 'number') r[k] = null; });
+  add('independent tennis totals', (_, t) => { Object.assign(t.records[0], {matches:1,wins:9,losses:7}); });
+  add('numeric upper bounds', (a, t) => { Object.assign(a.records[0], {games:1000000,minutesPerGame:10000,pointsPerGame:10000,reboundsPerGame:10000,assistsPerGame:10000}); Object.assign(t.records[0], {matches:1000000,wins:1000000,losses:1000000,titles:1000000,rank:1000000}); });
+  bad('live endpoint', a => { a.endpoint = 'https://example.org/feed'; });
+  bad('state binding', a => { a.bind = 'player'; });
+  bad('unbounded records', a => { a.records = Array.from({length:101}, (_,i) => ({...a.records[0],id:'r'+i})); });
+  bad('omitted unknown average', a => { delete a.records[0].pointsPerGame; });
+  bad('string average', a => { a.records[0].pointsPerGame = '7.25'; });
+  bad('negative games', a => { a.records[0].games = -1; });
+  bad('fractional games', a => { a.records[0].games = 1.5; });
+  bad('excessive average', a => { a.records[0].pointsPerGame = 10001; });
+  bad('zero rank', (_, t) => { t.records[0].rank = 0; });
+  bad('fractional rank', (_, t) => { t.records[0].rank = 1.5; });
+  bad('negative wins', (_, t) => { t.records[0].wins = -1; });
+  bad('unknown surface enum', (_, t) => { t.records[0].surface = 'water'; });
+  bad('unknown scope enum', a => { a.records[0].scope = 'forecast'; });
+  bad('duplicate basketball record ID', a => { a.records[1].id = a.records[0].id; }, 'DUPLICATE_ID', '/body/0/records/1/id');
+  bad('duplicate tennis record ID', (_, t) => { t.records[1].id = t.records[0].id; }, 'DUPLICATE_ID', '/body/1/records/1/id');
+  bad('impossible Gregorian date', a => { a.observedAt = '2027-02-29T12:00Z'; }, 'PLAYER_SUMMARY_TIME', '/body/0/observedAt');
+  bad('unsafe root source', a => { a.source = {label:'Unsafe',url:'javascript:run()'}; }, 'UNSAFE_URL', '/body/0/source/url');
+  bad('relative row source', (_, t) => { t.records[0].source = {label:'Relative',url:'/scope'}; }, 'UNSAFE_URL', '/body/1/records/0/source/url');
+  return {positives, negatives};
+}

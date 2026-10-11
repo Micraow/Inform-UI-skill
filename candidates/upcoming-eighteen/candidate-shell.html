@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inform UI 解释文档</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6bc30ab8cb15eb4351b1859dacef74e7f8a9a574/cdn/iui.css" integrity="sha384-FOo76BR3tBB4hlkSVaNEKY9Biuyrd/4hDraOLiamfmeiFxdyPJV/NLITBo0rfi6a" crossorigin="anonymous">
+</head>
+<body class="iui-page" data-theme="auto" style="margin:0">
+  <main id="iui">正在加载界面…</main>
+  <noscript>请启用 JavaScript 以查看这个交互文档。</noscript>
+  <script id="iui-spec" type="application/json">
+  {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@6bc30ab8cb15eb4351b1859dacef74e7f8a9a574/cdn/iui.global.min.js" integrity="sha384-wdttIofR5hdc8ZJrv2oZeOlxZhD3mjOrEPGXdffxiSfs4O2Q3B6Am6a5SJWk9A1H" crossorigin="anonymous"></script>
+  <script>
+    const host = document.getElementById('iui');
+    try {
+      if (!window.IUI) throw new Error('库未加载，请检查网络或 CDN 地址。');
+      const { validateDocument, mount } = window.IUI;
+      const input = JSON.parse(document.getElementById('iui-spec').textContent);
+      const result = validateDocument(input);
+      if (!result.ok) throw new Error(result.issues.map(i => `${i.code} ${i.path}: ${i.message}`).join('\n'));
+      mount(host, result.document, { styles: false });
+    } catch (error) {
+      host.textContent = `未能显示界面：${error.message}`;
+    }
+  </script>
+</body>
+</html>

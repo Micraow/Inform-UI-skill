@@ -1,0 +1,17 @@
+{
+  "format": "inform-eight-authoring-jsdom/1",
+  "runtimeSha256": "a621f8e8ea761661c610f53a5db7c52edf76e768be3ec0c728c0872226a2c78b",
+  "checks": [
+    "planner per-person preference/frozen cancelable review/reentry/native preservation/explicit reset",
+    "event category filter/local frozen review/native reset/source row identity",
+    "word reversible reveal/frozen cancelable self-mark/reentry/retained local state",
+    "copy cancellation prevents access/exact preview/reentry/fulfilled stub only/rejected stub manual fallback",
+    "code supplied absolute range/exact blank-preserving manual selection/no clipboard API",
+    "file supplied sparse page navigation/stale selection cleared/exact excerpt/native reset",
+    "facts null versus explicit blank/literal numeric text/filter/native reset/row identity",
+    "entity frozen cancellation/reentry/filtered selected detail/reset preserves selection/image failure/moved button ownership"
+  ],
+  "nativeBrowser": "not-run",
+  "systemClipboard": "not-run",
+  "visualAcceptance": false
+}

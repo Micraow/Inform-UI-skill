@@ -4,7 +4,11 @@ For web chat without a terminal, copy the complete [root SKILL.md](../SKILL.md):
 
 The library lives at [Micraow/Inform-UI](https://github.com/Micraow/Inform-UI). Its current local package name is `@micraow/inform-ui`, version `0.1.0`. This repository does **not** assume an npm release. Use the exact source revision in [library-contract.json](../library-contract.json); CI checks out that revision rather than a moving branch.
 
-## Checkout workflow
+## Pending acceptance
+
+This branch pins 5c7f as a candidate only. Use the exact clean asset checkout and the integrator-proven same-version runtime; do not repeat an unchanged core build or consumer run. The full checked command list and unique execution owner are in [pending acceptance](../candidates/pending-batch/README.md). Browser/CI and visual inspection remain pending.
+
+## General checkout workflow
 
 With this skill checkout and the library in sibling directories, install and build the library first:
 
@@ -30,13 +34,13 @@ npm run check:components -- --library ../Inform-UI
 npm run check:primitives -- --library ../Inform-UI
 ```
 
-Use `--library` with the actual checkout path; the script also accepts `IUI_LIBRARY_DIR`. The script never downloads or silently swaps a missing dependency. Rebuild the library after changing its source. The default check verifies the checkout HEAD against the pin. Use `--allow-working-tree` only for deliberate local development; it does not establish release compatibility.
+Use `--library` with the actual checkout path; the script also accepts `IUI_LIBRARY_DIR`. The script never downloads or silently swaps a missing dependency. Rebuild the library after changing its source. The default check verifies the checkout HEAD against the pin. Pending acceptance requires a clean exact checkout; no working-tree override is allowed.
 
 ## Schema discovery
 
 `library-contract.json` pins the runtime, full schema and `cdn.schemaIndex` together. Resolve every metadata and example path against that index URL, not against the repository root. Use `documentSchema` for authoring (base plus the selected domain); `nodeSchema` is field lookup only, with a Node root and domain-restricted recursive children. The complete schema remains authoritative. For mixed domains, run `node scripts/schema-subset.mjs --groups base,forms,charts,finance --out union.schema.json` in the exact library checkout. Structural validation never replaces `validateDocument` semantic checks. Index token estimates are only Unicode code points / 4 rounded up, not measured model token counts.
 
-`check:schema` checks all 11 groups, 23 schema files and 19 examples, local reference closure, hashes, metadata, unique node ownership, native rejection boundaries and a real cross-domain union. The browser suite additionally reads the real CDN index and selected bundles/examples from a file:// page with cache disabled.
+`check:schema` checks all same-pin groups, schema files and index-declared examples, local reference closure, hashes, metadata, unique node ownership, native rejection boundaries and a real cross-domain union. The browser suite additionally reads the real CDN index and selected bundles/examples from a file:// page with cache disabled.
 
 ## ESM API
 
@@ -87,6 +91,6 @@ The matched library checkout includes Playwright as a development dependency. In
 npm run check:browser -- --library ../Inform-UI
 ```
 
-The script checks all twenty-four fixtures at 390/1280 px in light/dark themes, no whole-page overflow or browser errors, keyboard slider updates, form submit/cancel and invalid drafts, weather unit/date/table controls, true-coordinate geometry and timestamp readout, reset and table disclosure, supplied sports filters/selection/sorting, and complete local quiz/flashcard flows, financial missing values/range/common-baseline comparison, heatmap weight ratios/filter/keyboard/full table, same-SVG keyboard-to-pointer switching, converter drafts/units/modes/swaps/resets, and auxiliary renderer boundaries. Loading, sources, foundation, time, overlay, numeric-draft, primitives, auxiliary, converter, sports, learning, finance and heatmap fixtures use the current root HTML shell and its real fixed CDN. Use `--screenshots artifacts/screenshots` to inspect original rendered output locally; screenshots are not committed; CI may retain only original generated fixture screenshots as short-lived artifacts. Historical 41-node and 46-node blind acceptance each use their own frozen library checkouts from tests/blind/library-contract.json and tests/blind46/library-contract.json. `IUI_BROWSER_EXECUTABLE` can select an already-installed compatible Chromium. API checks and browser checks are separate: report a browser launch failure as unverified rendering, not a passing preview.
+The script checks all current root fixtures at 390/1280 px in light/dark themes, no whole-page overflow or browser errors, keyboard slider updates, form submit/cancel and invalid drafts, weather unit/date/table controls, true-coordinate geometry and timestamp readout, reset and table disclosure, supplied sports filters/selection/sorting, and complete local quiz/flashcard flows, financial missing values/range/common-baseline comparison, heatmap weight ratios/filter/keyboard/full table, same-SVG keyboard-to-pointer switching, converter drafts/units/modes/swaps/resets, and auxiliary renderer boundaries. Loading, sources, foundation, time, overlay, numeric-draft, primitives, auxiliary, converter, sports, learning, finance and heatmap fixtures use the current root HTML shell and its real fixed CDN. Use `--screenshots artifacts/screenshots` to inspect original rendered output locally; screenshots are not committed; CI may retain only original generated fixture screenshots as short-lived artifacts. Historical 41-node and 46-node blind acceptance each use their own frozen library checkouts from tests/blind/library-contract.json and tests/blind46/library-contract.json. `IUI_BROWSER_EXECUTABLE` can select an already-installed compatible Chromium. API checks and browser checks are separate: report a browser launch failure as unverified rendering, not a passing preview.
 
 The additional `npm run check:components:browser -- --library ../Inform-UI --screenshots artifacts/components` runs seven current-component documents at 390/768/1100 px in both themes (42 views), with actual keyboard/pointer actions, timer controls, nested overlays, number draft/host-state rules, flow/icon/pulse semantics and reduced-motion checks. It consumes the frozen library inline build; the main browser suite separately exercises the real pinned CDN HTML shell. Prepared checks are not passed results; see the [current acceptance record](schema-discovery.md).

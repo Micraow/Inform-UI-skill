@@ -1,0 +1,383 @@
+{
+  "format": "inform-local-guidance-input/1",
+  "candidateOnly": true,
+  "acceptedAssetRevision": "d370ffb2df310fce0da9299e6e254a58509ba544",
+  "scope": "37 canonical source candidates; current97 asset, no browser acceptance",
+  "items": [
+    {
+      "canonicalId": "base-carousel",
+      "nodeTypes": [
+        "carousel"
+      ],
+      "examples": [
+        "examples/carousel-basic.json",
+        "examples/carousel.json"
+      ],
+      "contract": "docs/carousel.md"
+    },
+    {
+      "canonicalId": "code-block",
+      "nodeTypes": [
+        "code"
+      ],
+      "examples": [
+        "examples/code.json"
+      ],
+      "contract": "docs/code.md"
+    },
+    {
+      "canonicalId": "base-pie-chart",
+      "nodeTypes": [
+        "chart"
+      ],
+      "examples": [
+        "examples/pie.json"
+      ],
+      "contract": "docs/pie.md"
+    },
+    {
+      "canonicalId": "base-checkbox",
+      "nodeTypes": [
+        "input"
+      ],
+      "examples": [
+        "examples/checkbox-practice.json"
+      ],
+      "contract": "docs/forms.md"
+    },
+    {
+      "canonicalId": "base-markdown",
+      "nodeTypes": [
+        "markdown"
+      ],
+      "examples": [
+        "examples/markdown-subset.json"
+      ],
+      "contract": "docs/markdown.md"
+    },
+    {
+      "canonicalId": "base-date-picker",
+      "nodeTypes": [
+        "input"
+      ],
+      "examples": [
+        "examples/date-practice.json"
+      ],
+      "contract": "docs/forms.md"
+    },
+    {
+      "canonicalId": "tab-group",
+      "nodeTypes": [
+        "tab-group",
+        "tab-panel"
+      ],
+      "examples": [
+        "examples/tabs.json",
+        "examples/tabs-local-state.json"
+      ],
+      "contract": "docs/tabs.md"
+    },
+    {
+      "canonicalId": "learning-fill-blank-card",
+      "nodeTypes": [
+        "fill-blank"
+      ],
+      "examples": [
+        "examples/fill-blank-practice.json"
+      ],
+      "contract": "docs/fill-blank.md"
+    },
+    {
+      "canonicalId": "learning-sentence-builder-card",
+      "nodeTypes": [
+        "sentence-builder"
+      ],
+      "examples": [
+        "examples/sentence-builder.json"
+      ],
+      "contract": "docs/sentence-builder.md"
+    },
+    {
+      "canonicalId": "checklist",
+      "nodeTypes": [
+        "checklist"
+      ],
+      "examples": [
+        "examples/checklist.json",
+        "examples/checklist-form.json"
+      ],
+      "contract": "docs/checklist.md"
+    },
+    {
+      "canonicalId": "learning-vocab-card",
+      "nodeTypes": [
+        "vocab-card"
+      ],
+      "examples": [
+        "examples/vocab-card.json"
+      ],
+      "contract": "docs/vocab-card.md"
+    },
+    {
+      "canonicalId": "rating",
+      "nodeTypes": [
+        "rating"
+      ],
+      "examples": [
+        "examples/rating.json"
+      ],
+      "contract": "docs/rating.md"
+    },
+    {
+      "canonicalId": "base-favicon",
+      "nodeTypes": [
+        "favicon"
+      ],
+      "examples": [
+        "examples/favicon.json"
+      ],
+      "contract": "docs/favicon.md"
+    },
+    {
+      "canonicalId": "calendar-agenda",
+      "nodeTypes": [
+        "agenda"
+      ],
+      "examples": [
+        "examples/agenda.json"
+      ],
+      "contract": "docs/agenda.md"
+    },
+    {
+      "canonicalId": "base-button",
+      "nodeTypes": [
+        "button"
+      ],
+      "examples": [
+        "examples/button-actions.json"
+      ],
+      "contract": "docs/button-actions.md"
+    },
+    {
+      "canonicalId": "restaurant-menu",
+      "nodeTypes": [
+        "restaurant-menu"
+      ],
+      "examples": [
+        "examples/restaurant-menu.json"
+      ],
+      "contract": "docs/restaurant-menu.md"
+    },
+    {
+      "canonicalId": "prompt-suggestions",
+      "nodeTypes": [
+        "prompt-suggestions"
+      ],
+      "examples": [
+        "examples/prompt-suggestions.json"
+      ],
+      "contract": "docs/prompt-suggestions.md"
+    },
+    {
+      "canonicalId": "base-label",
+      "nodeTypes": [
+        "label"
+      ],
+      "examples": [
+        "examples/field-labels.json"
+      ],
+      "contract": "docs/label.md"
+    },
+    {
+      "canonicalId": "person-profile",
+      "nodeTypes": [
+        "person-profile"
+      ],
+      "examples": [
+        "examples/person-profile.json"
+      ],
+      "contract": "docs/person-profile.md"
+    },
+    {
+      "canonicalId": "writing-block",
+      "nodeTypes": [
+        "writing-block"
+      ],
+      "examples": [
+        "examples/writing-block.json"
+      ],
+      "contract": "docs/writing-block.md"
+    },
+    {
+      "canonicalId": "news-article",
+      "nodeTypes": [
+        "news-article"
+      ],
+      "examples": [
+        "examples/news-article.json"
+      ],
+      "contract": "docs/news-article.md"
+    },
+    {
+      "canonicalId": "entity-reviews",
+      "nodeTypes": [
+        "entity-reviews"
+      ],
+      "examples": [
+        "examples/entity-reviews.json"
+      ],
+      "contract": "docs/entity-reviews.md"
+    },
+    {
+      "canonicalId": "restaurant-availability",
+      "nodeTypes": [
+        "restaurant-availability"
+      ],
+      "examples": [
+        "examples/restaurant-availability.json"
+      ],
+      "contract": "docs/restaurant-availability.md"
+    },
+    {
+      "canonicalId": "reddit-thread-card",
+      "nodeTypes": [
+        "reddit-thread-card"
+      ],
+      "examples": [
+        "examples/reddit-thread-card.json"
+      ],
+      "contract": "docs/reddit-thread-card.md"
+    },
+    {
+      "canonicalId": "base-animate",
+      "nodeTypes": [
+        "animate"
+      ],
+      "examples": [
+        "examples/motion.json"
+      ],
+      "contract": "docs/motion.md"
+    },
+    {
+      "canonicalId": "base-celebration",
+      "nodeTypes": [
+        "celebration"
+      ],
+      "examples": [
+        "examples/motion.json"
+      ],
+      "contract": "docs/motion.md"
+    },
+    {
+      "canonicalId": "email-draft",
+      "nodeTypes": [
+        "email-draft"
+      ],
+      "examples": [
+        "examples/email-draft.json"
+      ],
+      "contract": "docs/draft-review.md"
+    },
+    {
+      "canonicalId": "task-expansion-card",
+      "nodeTypes": [
+        "task-expansion-card"
+      ],
+      "examples": [
+        "examples/task-expansion-card.json"
+      ],
+      "contract": "docs/draft-review.md"
+    },
+    {
+      "canonicalId": "location-choice-request",
+      "nodeTypes": [
+        "location-choice-request"
+      ],
+      "examples": [
+        "examples/location-choice-request.json"
+      ],
+      "contract": "docs/location-choice-request.md"
+    },
+    {
+      "canonicalId": "business-gallery",
+      "nodeTypes": [
+        "business-gallery"
+      ],
+      "examples": [
+        "examples/business-gallery.json"
+      ],
+      "contract": "docs/business-gallery.md"
+    },
+    {
+      "canonicalId": "flight-option",
+      "nodeTypes": [
+        "flight-option"
+      ],
+      "examples": [
+        "examples/flight-option.json"
+      ],
+      "contract": "docs/travel-events.md"
+    },
+    {
+      "canonicalId": "artist-upcoming-events",
+      "nodeTypes": [
+        "artist-upcoming-events"
+      ],
+      "examples": [
+        "examples/artist-upcoming-events.json"
+      ],
+      "contract": "docs/travel-events.md"
+    },
+    {
+      "canonicalId": "asset-distribution",
+      "nodeTypes": [
+        "asset-distribution"
+      ],
+      "examples": [
+        "examples/finance-lists.json"
+      ],
+      "contract": "docs/finance-lists.md"
+    },
+    {
+      "canonicalId": "transaction-list",
+      "nodeTypes": [
+        "transaction-list"
+      ],
+      "examples": [
+        "examples/finance-lists.json"
+      ],
+      "contract": "docs/finance-lists.md"
+    },
+    {
+      "canonicalId": "onboarding-selection",
+      "nodeTypes": [
+        "onboarding-selection"
+      ],
+      "examples": [
+        "examples/onboarding-selection.json"
+      ],
+      "contract": "docs/onboarding-selection.md"
+    },
+    {
+      "canonicalId": "package-tracker",
+      "nodeTypes": [
+        "package-tracker"
+      ],
+      "examples": [
+        "examples/supplied-trackers.json"
+      ],
+      "contract": "docs/supplied-trackers.md"
+    },
+    {
+      "canonicalId": "flight-tracker",
+      "nodeTypes": [
+        "flight-tracker"
+      ],
+      "examples": [
+        "examples/supplied-trackers.json"
+      ],
+      "contract": "docs/supplied-trackers.md"
+    }
+  ],
+  "sourceRevision": "26ec211fa529516af3b1523248f5912c45ec64c6"
+}

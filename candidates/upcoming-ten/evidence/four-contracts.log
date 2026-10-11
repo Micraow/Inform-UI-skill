@@ -1,0 +1,3 @@
+PASS local-places: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS flight-discovery: exact fixture,full/Base/node schemas,validator parity,deterministic API/CLI bytes
+PASS four contracts: 4 literals,33 exact rejection cases,12 positive boundaries; no browser/CDN/CI acceptance

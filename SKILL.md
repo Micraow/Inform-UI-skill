@@ -5,11 +5,11 @@ description: 为解释、真坐标图、本地表单、供数天气/体育/金�
 
 # Inform UI Author
 
-> 当前固定资产为 d370ffb2df310fce0da9299e6e254a58509ba544；核心338项本地测试、241项Chromium场景及42旧＋18新消费者已通过集中CI。Skill入口四平台检查及100视图回归也已通过；精确范围见 references/schema-discovery.md。
+> 本分支为 pending acceptance，待验资产固定 26ec211fa529516af3b1523248f5912c45ec64c6。37 项候选与 97 个协议节点尚未通过本轮浏览器、集中 CI 与原图验收；已验 53 个组件及旧版推荐不升级。历史 d370 证据见 references/schema-discovery.md。
 
 你负责内容、来源、阅读顺序和选型；库负责校验、DOM、样式、布局与交互。正文自然穿插图、公式和必要控件，不把每段话塞进卡片。
 
-本文件是默认Agent入口，也能单独提供给普通Web Chat生成基础内容。本版固定协议有66个注册项：64个渲染节点、markdown纯文本降级、native明确拒绝。协议节点数不是组件目录验收计数。单根内嵌下述常用基础、布局、图、控件、表单、学习、单位换算与受控SVG的生成规则。天气、体育、金融、货币快照等深领域须先读取同版索引指向的完整合同与示例；不能只凭名称猜字段。无法读取外部资料的Web Chat可额外接收完整Schema或WEB-CHAT-GUIDE.md全文。
+本文件是默认Agent入口，也能单独提供给普通Web Chat生成基础内容。本版固定协议有97个注册项：96个portable节点、native明确拒绝。协议节点数不是组件目录验收计数。单根内嵌下述常用基础、布局、图、控件、表单、学习、单位换算与受控SVG的生成规则。天气、体育、金融、货币快照等深领域须先读取同版索引指向的完整合同与示例；不能只凭名称猜字段。无法读取外部资料的Web Chat可额外接收完整Schema或WEB-CHAT-GUIDE.md全文。
 
 Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模型厂商账号/API/私有运行时依赖。portable是后端名称。CDN需要联网，npm包尚未发布。
 
@@ -23,12 +23,12 @@ Inform UI为独立非官方社区实现，参考OpenAI Intelligent UI；无模�
 
 ## 2. 无终端 Web Chat：完整 HTML 路径
 
-固定的公开文件（实际取回字节已核对，保持同一提交）：
+固定的候选公开文件（本地提交字节已核对；公开 HTTP 字节检查以本轮独立报告为准，浏览器验收仍待完成，保持同一提交）：
 
-- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.global.min.js`
-- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.min.js`
-- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.css`
-- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.schema.json`
+- 浏览器全局脚本：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.global.min.js`
+- 进阶 ESM（可选）：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.min.js`
+- 样式：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.css`
+- 完整 JSON Schema：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.schema.json`
 
 window.IUI提供浏览器API：validateDocument(input)返回{ok:true,document}或{ok:false,issues:[{code,path,message}]}；mount(element,document,{styles:false})渲染JSON并返回update(nextDocument)、dispose()、getState()、setState(patch)。保留styles:false让字体相对CDN样式表加载。compileHtml仅为Node API，不能在浏览器导入。
 
@@ -43,7 +43,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inform UI 解释文档</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.css" integrity="sha384-pGHEnylvKkWQgEUFwcGDbc2NWfdeTz6vVMLvAxw3eJI7y0wPCjU7gWGAI+wG1dOe" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.css" integrity="sha384-N2DaPltTxy2wOal7Y0E4rFGkV0RQnZDSxaBNjptMX9emhUrH5Ns2KuSUooS2yeT9" crossorigin="anonymous">
 </head>
 <body class="iui-page" data-theme="auto" style="margin:0">
   <main id="iui">正在加载界面…</main>
@@ -51,7 +51,7 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
   <script id="iui-spec" type="application/json">
   {"version":"iui/1","theme":"auto","state":{"x":4},"computed":{"twice":{"op":"mul","args":[2,{"$":"x"}]}},"body":[{"type":"title","level":1,"value":"观察一个输入与结果的关系"},{"type":"text","value":"改变 x，观察 2x 如何同步变化。"},{"type":"slider","label":"输入 x","bind":"x","min":1,"max":10,"step":1},{"type":"metric","label":"2x","value":{"$":"twice"}},{"type":"math","latex":"y=2x","block":true},{"type":"caption","value":"这是合成教学示例，不是实测数据。"}]}
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/iui.global.min.js" integrity="sha384-XBQUcvwQ5klmCxmtzuqnW22k5Fsme+uWeKIKB9VP9/5JKuhSpt/mmLVKJu8zLaAt" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.global.min.js" integrity="sha384-rNkoDurazsyrGG/Mn2h+KAShhESbJT2MgsAuslXIF07vsI5dHj9xH6qThngwj+Ce" crossorigin="anonymous"></script>
   <script>
     const host = document.getElementById('iui');
     try {
@@ -75,11 +75,11 @@ HTML交付复制下壳，只改JSON、语言、标题和与JSON theme一致的bo
 
 本根已给出常用基础、布局、图、控件、表单、学习、单位换算与受控SVG的生成规则。只用这些明确字段时，不必先下载完整Schema。深入供数领域或核对进阶字段时，走最短路线：版本化索引 → 所需schema → 同版示例。
 
-索引：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@d370ffb2df310fce0da9299e6e254a58509ba544/cdn/schema/index.json`
+索引：`https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/schema/index.json`
 
 | 需求与选型 | 索引group | 节点与重要边界 |
 | --- | --- | --- |
-| 正文、富文本、引用、布局、结构化表格、进度/占位、资料链接与提示/面板 | base | 本根内嵌；markdown仅纯文本降级，不执行格式 |
+| 正文、富文本、引用、布局、结构化表格、进度/占位、资料链接与提示/面板 | base | 本根内嵌；markdown为有限子集，详见第7节 |
 | 关联字段、约束与一次本地确认 | forms | input/textarea/radio/segmented/field/form；默认不联网，宿主动作须明确配置和授权 |
 | 类别比较、真数轴、时间趋势、散点或组成 | charts | chart；正确选category/linear/time，不造缺测或裁极值 |
 | 关系/瓶颈示意、原创小型静态矢量 | graphics | topology/svg；不是地理地图、原始SVG或脚本容器 |
@@ -356,7 +356,7 @@ quiz检验客观理解，flashcards用于先回忆后翻面自评。先讲概念
 | spacer | {type:"spacer",height?:0..200整数,id?:S} | 少数明确留白需要；height默认16像素。正常正文依赖自动间距，不用它拼桌面坐标布局 |
 | box | {type:"box",children:Node[],id?:S} | 通用容器；有章节/图注语义时改用section/figure，有完整独立内容才用card |
 | carousel | {type:"carousel",children:Node[],id?:S} | 同级短条目/授权图片需要横向浏览时用；组件为可聚焦的横向区域，不是自动播放、远程分页或图片编辑器。空数组不造占位内容 |
-| markdown | {type:"markdown",value:S,id?:S} | 只用于明确保留原始Markdown文本；界面会显示纯文本降级提示，不执行Markdown格式。正常正文用text/list/title/math，不期待星号变粗或链接自动生成 |
+| markdown | {type:"markdown",value:S,id?:S} | 本待验版本支持有限 Markdown 子集，HTML及不支持语法保持字面文本；具体边界见第7节，非 CommonMark，不执行 HTML |
 
 box/card/row/col/grid共享可选布局字段：gap、padding为0–16整数；radius为none/sm/md/lg/xl/2xl；border为B；background为none/surface/surface-secondary/surface-tertiary/success-soft/danger-soft/info-soft；align为start/center/end/stretch；justify为start/center/end/between/around；width为30–1400整数或"100%"/"auto"。grid另有columns 1–6。默认省略这些旋钮，避免固定像素宽度；它们是受控JSON字段，不授权写CSS或塞HTML。children最多500项。辅助节点的id、language为1–200字符；正文value按各节点约束，不把id误当全局state引用。
 
@@ -458,3 +458,445 @@ node bin/iui.mjs build answer.json --out answer.html --lang zh-CN
 Node的compileHtml(input,{backend:"portable",assets:"inline"})返回HTML，内嵌库和数学字体data:URL（严格CSP须允许font-src data:）。所选远程图片仍需联网；不使用未发布的npx iui。
 
 可选：[绑定](references/schema-and-binding.md)、[Agent工作流](references/library-workflow.md)、[边界](references/support.md)、[例子](references/examples.md)。要求JSON则只交JSON；要页面则交完整HTML。
+
+## 7. 隔离候选：30 项本地组件指导，尚未浏览器验收
+
+本节仅用于显式选择冻结本地候选 26ec211fa529516af3b1523248f5912c45ec64c6 的源码测试。第 1–6 节、HTML 壳和 library-contract.json 已在本待验分支统一固定到此版本；这是验收输入转换，未替换已验推荐与用户演示。候选有 97 个协议节点，37 个待验收 canonical 组件；协议节点、增强项与已验收组件是不同计数。在原24项基础上追加 animate、celebration、email-draft、task-expansion-card、location-choice-request、business-gallery 六项；37份唯一JSON不与组件数混计。候选源与构建哈希见[独立输入锁](candidates/pending-batch/library-candidate-lock37.json)，运行方法见[候选说明](candidates/pending-batch/README.md)。这些字段是同版待验合同，不是浏览器或交付通过承诺。
+
+本节保留常用基础完整生成规则，不要求先读另一份基础指南。候选分类索引仅由同一完整 Schema 与源索引派生；不另写 Schema。以下长度为 Unicode 码点，除非明确说明；全局资源预算仍适用。key以英文字母或下划线开头，后接字母、数字、下划线、点或短横线，总长1–80；普通节点id仍为1–200字符。所有内容需为原创、授权或调用方提供，不补造来源、身份、价格、答案或可用性。
+
+### 常用基础增强
+
+- carousel 沿用 children:0–500 个节点；新增 label?:1–200 字符、controls?:B（默认 true）。同级短内容才用轮播。按钮移动一个可视宽度，无循环、自动播放或远程分页；隐藏按钮仍保留原生滚动。子节点的 forms/time 等领域仍须分别加载。
+- code 保留字面 value（最多 12000 码点）和 language；新增 copy?:B、highlight?:B，默认 false。inline:true 禁止任一增强为 true。高亮仅有限 js/javascript、ts/typescript、json、py/python 别名，不是执行或语法验证。复制只由真实用户点击向写入专用 Clipboard API 请求原字符串；不可用或拒绝则提示手动选择，不读剪贴板、不请求权限，不把测试 stub 当作真实复制成功。
+- markdown 在本候选才支持原创有限 Markdown 子集，已验收 d370 仍是纯文本降级。仍只填 value:S（最多 12000 码点），无新字段。支持列首 ATX 标题、单层列表/引用、精确三反引号或波浪线围栏、单反引号代码、平面强调与显式安全链接；不是 CommonMark。HTML、图片、表格、任务框、嵌套或不支持语法保持字面文本，超解析预算整体退回原文，不截断。数学/图表/交互继续用专用节点，不把用户输入当 HTML。
+- chart 新增 kind:"pie"，沿用 chart 的 xKey、data、series、title/unit/status 等完整字段。与 donut 一样仅一个系列、category xScale、有限非负值或 null；禁止多系列、Cartesian 范围或裁值。份额分母只计已知值，0 与 null 保留在明细且不画扇区。无正值时显示实情，不能将缺测改成 0。
+- input.kind:"checkbox" 使用原有 label、bind，bind 必须为已声明 boolean。required 只在提交时要求勾选；false 是合法 state。可配 hint/error/disabled；禁止 placeholder、数字/文本范围和 indeterminate。需要表单生命周期时选它，轻量开关仍可用 toggle。
+- input.kind:"date" 使用 label、bind；state 为 "" 或真实 Gregorian YYYY-MM-DD（0001–9999年）字符串。可选 minDate/maxDate 为有序、含端点真实日期；禁止 placeholder、min/max/step、minLength/maxLength。有效但越界的初始/宿主值可显示，提交仍检查字段约束；用户不完整/越界草稿不覆盖已接受 state。日期不含时区/时刻，原生选择器外观由浏览器决定，没有预约或提醒服务。
+- label：{type:"label",text:S,target:S,id?:S}。text/target 为1–200字符；target 指同一文档唯一的 authored ID，只支持 input（含上述五种 kind）、textarea、slider、toggle、select。它是额外原生标签，不替代控件原必填 label，不接管 form，不打开隐藏面板、不绕过禁用。radio/segmented/任意正文不能作为目标。
+
+```json candidate-only
+{"version":"iui/1","state":{"agreed":false,"day":"2024-02-29"},"body":[{"type":"form","id":"local","label":"本地练习","children":[{"type":"label","text":"补充确认说明","target":"consent"},{"type":"input","id":"consent","kind":"checkbox","label":"我已阅读这份合成练习","bind":"agreed","required":true},{"type":"input","kind":"date","label":"练习日期","bind":"day","minDate":"2024-01-01","maxDate":"2024-12-31"}]}]}
+```
+
+### 本地切换、选择与操作
+
+- tab-group：必有 label:1–200字符、children:1–20 个直接 tab-panel；可选 initial:S 与普通 id。tab-panel 必有文档内唯一 id、label:1–200字符、children:0–500 个节点，可选 disabled:B。至少一项启用，initial 只能指启用的直接面板。不能单独放 tab-panel，不能把 tab-group 放进 form（含深层）。完整 form 可以放在单个 panel 内。隐藏面板保留 DOM、草稿与计时，无远程加载/URL 同步/持久化；多个节点只算一个 tab-group canonical 组件。
+- checklist：必有 label:1–200字符、items:0–50 个 {id,label,bind,hint?,disabled?}；项 id 唯一，label 为1–200字符，bind 是各不相同的已声明 boolean state。hint 最多1000字符；项和整体 disabled 可用解析为 boolean 的 V。整体可加 filter?:B、bulk?:B（均默认 true）、emptyText?:最多1000字符及普通 id。批量只改启用项，原子提交，空集合不造百分比。可在 form 中，提交只含启用字段；不连接外部任务/提醒。
+- rating：必有 label:1–200字符、bind；可选 max:2–10整数（默认5）、disabled:解析为boolean的V、clearable:B（默认true）、hint:最多1000字符、普通id。state 必须是0..max整数，0表示未评分。是用户显式选择，不是供数均分。不能放进协议form或外部HTML form，不属于表单提交/取消；无自动保存。
+- button：保留必有 label 与 action。可选 disabled:解析为boolean的V、tone:"default"|"primary"|"danger"、hint:最多1000字符及普通id。action 严格三分支：{kind:"set",bind:S,value:字面scalar}；{kind:"reset"}；{kind:"host",name:有界key}。分支不能混字段。网页聊天默认用set/reset，不生成未经配置的host操作。
+- host 按钮只查显式 mount options.actions 的自有函数，不接受 URL/代码。适配器收到所有当前声明 state 的只读快照（不是form启用字段子集，排除computed与未提交草稿）及signal；不替form校验或提交。没有适配器就报告不可用；可信用户手势不是此回调的权限边界，宿主合成click也可触发。宿主负责授权、隐私与任何外部副作用；取消为协作中止，不能承诺远端回滚。普通inline编译不能序列化处理器。
+- prompt-suggestions：必有 label:1–200字符、items:1–12个 {id,text}；id 符合key且唯一，text 为1–2000字符，允许重复可见文本；可加 description:最多1000字符、initialVisible:1–12整数（默认6，按实际项数收窄）、普通id。只显示提供的建议。明确激活派发可取消 iui:suggestion 事件，detail 为 {componentId:string|null,suggestionId:string,text:string}；不发消息、不插入聊天、不联网。取消保留旧选择；未取消只表示本地选择，不能宣称外部提交成功。挂载/展开/清空/state更新不发该事件。
+
+```json candidate-only
+{"version":"iui/1","state":{"one":false,"two":true,"score":0},"body":[{"type":"tab-group","label":"本地练习","children":[{"type":"tab-panel","id":"tasks","label":"清单","children":[{"type":"checklist","label":"合成练习步骤","items":[{"id":"read","label":"阅读说明","bind":"one"},{"id":"check","label":"核对结果","bind":"two"}]}]},{"type":"tab-panel","id":"review","label":"自评","children":[{"type":"rating","label":"个人自评，未保存","bind":"score"},{"type":"button","label":"清除本页选择","action":{"kind":"reset"}}]}]}]}
+```
+
+### 来源、有限记录与写作
+
+- favicon：必有 label:1–200字符；可加 src（允许的图片URL，最多12000字符）、fallback:1–2个字面码点、size:"sm"|"md"|"lg"（默认md）、普通id。只使用已提供且有权使用的图，不猜域名/图标服务。无图则本地fallback；允许的base64 PNG/JPEG/GIF/WebP可本地显示，远程图须用户明确点加载才请求，失败可重试。禁SVG data、凭据与不安全URL。no-referrer不能保证目标没有cookies。
+- agenda：必有 label:1–200字符、events:0–100；可选 description:最多2000字符、普通id。事件为 {id,date,title,start?,end?,location?,description?,status?,url?}；局部id唯一；date为真实YYYY-MM-DD；title为1–200字符；start/end为HH:mm，end需start且同日更晚；location最多500、description最多2000、status为planned/cancelled、url为安全绝对HTTP(S)且最多2048字符。按日期/时刻稳定排序，未给时刻明确未知，不推断全天或时区。只本地筛选供数记录，无日历连接、空闲推断或预约。
+- restaurant-menu：必有 title:1–200字符、currency:三位大写ASCII、sections:0–20个 {id,title,items}。每节items为0–40个 {id,name,price,description?,tags?,status?}；name/title为1–200字符，price为有限非负数或null，description最多2000，tags为0–8个1–40字符，status为available/unavailable。整个菜单最多200项，节id唯一、项id跨节唯一。可选整体description最多2000、source:{label:1–200字符,url?:安全绝对HTTP(S)≤2048}、普通id。价格原数值显示不硬舍入，0不等于缺失；未知状态明确未知。字面搜索/分类筛选不验证价格、营业或饮食安全，不点餐/付款；禁止嵌在form中。
+- person-profile：必有 name:1–200字符；可选 role/organization/location:1–200字符、biography:0–6000、expanded:B（默认false）、facts:0–12个 {id,label,value}（label1–200、value1–2000）、links:0–8个 {id,label,url}（label1–200、url安全绝对HTTP(S)≤2048）、source:{label:1–200字符,url?:安全绝对HTTP(S)≤2048}、普通id。facts/links各自id唯一。只展示供数与原生传记展开，无人员搜索、身份验证、推断隐私、联系按钮或自动网络请求。
+- writing-block：必有 label:1–200字符、value:0–12000字面字符；可选 editable:B（默认true）、note:最多1000字符、普通id。值独立于state，CRLF/CR明确标准化为LF；编辑、计数、Revert与Copy基于可见标准化文本，其余Unicode不变。不可嵌form。只本地编辑/选择/真实点击复制，无收件人、发送、保存、富文本、AI改写或持久化。超限草稿不截断，但禁止复制；复制旧版本完成时不能宣称当前版本已复制。unrelated setState 保留草稿，合法整文update会重建。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"prompt-suggestions","label":"可选阅读方向，只在本页选择","items":[{"id":"terms","text":"解释术语"},{"id":"example","text":"给出原创例子"}]},{"type":"writing-block","label":"本地草稿，未保存或发送","value":"这是原创合成练习。\r\n可以在本页编辑。"},{"type":"person-profile","name":"虚构讲解员","biography":"本条仅为原创合成演示，不代表真实人物。"}]}
+```
+
+候选学习节点 fill-blank、sentence-builder、vocab-card 的完整供数规则见[学习候选合同](references/pending-learning.md)。最短路径仍为：同版索引的nodeOwners → 对应Document包 → 同版例子。base容器内有learning/forms/time节点时必须取真实并集；nodeSchema不是Document根。正例结构通过仍须完整validateDocument验证日期、引用、状态、URL和领域语义；prepared测试、JSDOM或编译成功都不是浏览器/视觉/CI验收。
+
+### 四类供数记录：新闻、评论、餐位与讨论（同版候选）
+
+以下四个节点的 nodeOwners 均为 base。只显示作者已有且有权使用的有限记录；不得推断实时性、身份可信度、验证结果或缺失数据。没有服务连接，来源标签/链接不证明内容真实。所有字符串均为 Unicode 码点计数的字面文本，不能写 HTML、脚本或 V 表达式；未知字段拒绝。下列长度为含端点上限。普通可选 id 与既有节点相同；安全链接须绝对 HTTP(S)、无凭据且通过核心 URL 规则，源 URL 最多 2048 字符。挂载不请求链接，明确打开时以新标签页提示及 noopener/noreferrer/no-referrer 导航；no-referrer 不是匿名或无 cookies 保证。
+
+- news-article：必有 headline:1–300、source:{label:1–200,url?:1–2048}；可选 summary:0–4000、author:1–200、published:真实 Gregorian YYYY-MM-DD（0001–9999）、paragraphs:0–30 个各1–4000字面段落、expanded:B（默认false）、tags:0–8 个各1–40标签。浮动发布日期不含时区，不转相对时间。仅非空 paragraphs 创建原生 details，按供数顺序保留全文；未供正文不造正文。原生展开在无关 setState 后保留，合法整文 update 按 expanded 重建。无抓取、feed、图片、即时新闻、可信分、分享或保存。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"news-article","headline":"虚构图书角的目录练习","source":{"label":"原创合成文章，未经事实核验"},"published":"2024-02-29","summary":"用于界面练习的虚构摘要。","paragraphs":["这是原创合成正文，不代表真实事件。"],"tags":["合成示例"]}]}
+```
+
+- entity-reviews：必有 label:1–200、items:0–50；可选 description:0–2000、source:{label:1–200,url?:1–2048}。每条必有 {id:key,author:1–200,body:1–4000,rating:1–5整数或null}，可选 title:1–200、date:真实YYYY-MM-DD、url:1–2048。项id在本集合唯一；rating必须提供，null表示未提供，0不合法。评分筛选为 All/Rated/Unrated/恰好5..1；排序为供数序/最新供数日期/最高评分/最低评分，缺值永远后置，同值保留原序。过滤隐藏原行、排序移动原DOM，保留原生正文展开；只统计所提供集合，不能生成总评、外部总数、认证购买或推断星数。不是 rating 用户评分控件，没有发表/提交/投票/分页服务。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"entity-reviews","label":"虚构阅览室供数评论","source":{"label":"原创合成集合"},"items":[{"id":"supplied","author":"虚构读者甲","body":"这条合成评论有明确供数评分。","rating":5,"date":"2024-02-29"},{"id":"missing","author":"虚构读者乙","body":"这条合成评论未提供评分，不推测。","rating":null}]}]}
+```
+
+- restaurant-availability：必有 title/venue:各1–200、partySize:1–20整数、timeZoneLabel:1–100字面标签、slots:0–100个 {id:key,date:真实YYYY-MM-DD,time:严格00:00–23:59的HH:mm,available:B}；可选 description:0–2000、source:{label:1–200,url?:1–2048}。项id和date+time组合均唯一。按日期/时刻稳定升序；本地日期筛选保留所有行DOM和已选时刻，即使所选行被隐藏。明确显示供数状态及尚未预约；不推断时区/DST/时间点/当前可订，也不刷新。
+- 明确激活可见、可用且启用的餐位按钮，才派发一次可冒泡、可取消、不composed的 iui:reservation-choice 事件，冻结detail严格为 {componentId:string|null,slotId,date,time,partySize:number,venue,timeZoneLabel}；componentId来自authored id。取消保留旧选择，未取消也只代表本地选择；无任何预订确认。宿主 .click() 同样可触发，因此事件不是权限边界，宿主须独立授权外部副作用。过滤/Clear/挂载/state更新不发选择事件；Clear不清日期筛选。隐藏、不可用、继承禁用或pending form时不能选；同步update/dispose不应在旧DOM继续写入。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"restaurant-availability","id":"sample_dinner","title":"原创合成时段，只作本地选择","venue":"虚构庭院餐厅","partySize":2,"timeZoneLabel":"作者提供的餐厅墙上时间","slots":[{"id":"early","date":"2024-02-29","time":"18:00","available":true},{"id":"later","date":"2024-02-29","time":"18:30","available":false}]}]}
+```
+
+- reddit-thread-card：必有 title:1–300、author:1–200、body:0–6000、source:{label:1–200,url?:1–2048}、comments:0–50个顶层评论；可选 community:1–200、score:-1000000000..1000000000整数或null、expanded:B（默认false）。每个评论必有 {id:key,author:1–200,body:1–4000}，可选同范围score或null、replies:0–20个相同闭合递归评论。包括replies在内总数最多100，顶层为第1层，最多4层；id在整棵评论树唯一。缺失/null分数明确未提供，0和负数原样保留，不推导票数含义。非空顶层comments才创建原生details并应用expanded；回复details默认关闭。不猜作者/社区URL，不解析Markdown，不连接Reddit或提供投票/回复/登录。计数仅为供数评论及回复，不能叫平台总评论数。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"reddit-thread-card","title":"虚构阅读讨论","author":"虚构发帖人","body":"这是一段原创合成讨论，没有连接服务。","source":{"label":"本地原创合成数据"},"score":0,"comments":[{"id":"first","author":"虚构回应者","body":"**保留字面内容**，不当作Markdown解析。","score":null,"replies":[{"id":"reply","author":"虚构回复者","body":"此处展示原始供数负值。","score":-1}]}]}]}
+```
+
+四者均可放入完整form，局部控件没有bind/name，不进入FormData或form提交快照。评论筛选/排序和餐位选择遵守继承禁用；新闻/讨论的原生阅读展开与普通链接仍可阅读。无关state变化保留局部DOM、展开与选择；合法整文更新重建，非法更新保持原状。所有例子先用同版base Document片验结构，再用完整validateDocument验语义：NEWS_DATE→published、REVIEW_DATE→items/i/date、AVAILABILITY_DATE→slots/i/date、DUPLICATE_SLOT→重复slots/i/time、DUPLICATE_ID→重复id、THREAD_DEPTH→第5层评论、THREAD_COUNT→遍历第101条评论、UNSAFE_URL→实际链接字段。不能因schema通过而略过日期/递归/唯一性/安全URL检查。
+
+### 有界预览、草稿审阅与供数地点/图片
+
+以下六个 canonical 组件归属 base，包含五份唯一 JSON 例子；animate 与 celebration 共用 motion.json，不能算成两次相同 consumer 执行。新增基础能力仍只属于同版隔离候选。字段字符串按 Unicode 码点计数；所有可见内容来自调用方提供的原创/授权材料，不推断任务已完成、邮件已发送、地点已定位或商家已核验。
+
+- animate：必有 label:1–200、children:0–50；可选 effect:"fade"|"rise"（默认fade）、duration:100–1000整数毫秒（默认300）、disabled:B（字面布尔，默认false）、普通id。children是普通节点，所含forms/time等领域仍需各自Document片。内容一直挂载、可读；仅明确激活Preview才播放一次有限WAAPI预览。空children有空态且无预览控件。没有autoplay、loop、自定CSS/keyframes或定时轮询。
+- celebration：必有 label:1–200、message:1–1000；可选 duration:300–1800整数毫秒（默认900）、disabled:B（字面布尔，默认false）、普通id。消息始终以供数说明展示，不代表经核验的成就/完成。明确Preview只在独立装饰条显示六个固定原创形状，不遮挡正文/焦点，不播放声音、不创建全页粒子。
+- 两者的Preview/Stop为原生type=button；playing时再次Preview、idle时Stop都严格无效且保持可聚焦。遵守继承禁用和pending form。reduced-motion生效时保持静态并明确说明，偏好改变会停止已有预览；缺WAAPI时如实显示不可用，不伪造播放或使用timer兜底。停止/update/dispose清理本实例资源；无关state更新保留内容、草稿与局部状态。宿主合成click也可触发预览，不能将其当作权限证明；没有宿主回调、联网、存储或共享state写入。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"animate","label":"明确预览一次，文字始终可读","effect":"rise","duration":300,"children":[{"type":"text","value":"原创合成说明。点击预览只改变短暂的视觉效果。"}]},{"type":"celebration","label":"作者提供的消息","message":"谢谢阅读。这段文字不代表任何任务已经完成。","duration":900}]}
+```
+
+- email-draft：必有 label:1–200、subject:0–300、body:0–12000、to:0–20个各1–320字面字符串；可选cc:同to、note:0–1000、editable:B（默认true）、普通id。to必填但允许空数组。收件字符串/抄送/主题只读，保留供数顺序、重复和空白，不推断地址、不校验可投递性、不生成mailto。body直接复用writing-block的本地LF标准化、码点预算、编辑/选择/恢复及真实显式Clipboard写入边界。Copy只含当前可见正文，不含收件人/主题。无关setState保留草稿，合法整文update重建；只读正文仍可选择。没有bind、发送、保存、附件、导出、账号或邮件服务；禁止嵌入协议form（包括深层），返回EMAIL_FORM。外部原生disabled fieldset阻止编辑/动作；不存在独立disabled字段，不猜测它。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"email-draft","label":"原创邮件示例，只在本页审阅","to":["虚构读者 <reader@example.invalid>"],"cc":[],"subject":"阅读提纲草稿","body":"你好，\r\n这是一段原创合成正文。请在本页审阅。\r\n它没有被保存或发送。","note":"复制只包含正文；此示例不连接邮箱。"}]}
+```
+
+- task-expansion-card：必有 title:1–200、steps:1–20个 {id:key,title:1–200,description?:0–2000,details?:0–6000,reviewed?:B}；可选summary:0–2000、disabled:解析为boolean的V（默认false）、普通id。step id在卡片内唯一，重复返回TASK_REVIEW_ID。step reviewed默认为false；只记录本页“已阅读/审阅”，不能宣称实际任务已执行或完成。原生details初始关闭；有限计数仅在阅读标记数改变时更新。Reset恢复提供的reviewed初值，不折叠details；与初值相同的边界为可聚焦、aria-disabled的严格无效动作。与checklist不同，这些复选框没有bind/name，不进入共享state、FormData或form快照；可以置于form，pending/disabled时不能改变。无定时任务、截止日期、调度、宿主事件、存储或联网。
+
+```json candidate-only
+{"version":"iui/1","state":{"locked":false},"body":[{"type":"task-expansion-card","title":"提供的阅读提纲，只作本地审阅","disabled":{"$":"locked"},"steps":[{"id":"read","title":"阅读说明","details":"查看作者给出的范围。勾选仅表示在本页看过文字。","reviewed":true},{"id":"consider","title":"考虑下一步","description":"是否执行任何真实操作，需在本示例之外另行决定。"}]}]}
+```
+
+- location-choice-request：必有label:1–200、options:1–12个 {id:key,label:1–200,address?:0–1000,description?:0–1000}；可选整体description:0–2000、source:{label:1–200,url?:安全绝对HTTP(S)1–2048}、普通id。选项id本集合唯一。显示供数地点文字与普通原生按钮，保留原序；初始无选择。没有坐标、设备定位、距离推断、地图/导航、查找、订位或位置权限；不要填这些字段。
+- 明确激活选项派发可冒泡、可取消、不composed的iui:location-choice，冻结detail严格为{componentId:string|null,optionId:string,label:string,address:string|null}；缺地址为null，提供空串仍为空串。未取消只接受本页选择；preventDefault保留旧选择并提示未接受。重复点击已选项是新的明确请求；Clear不发事件，空选择时严格无效。继承禁用、pending form、隐藏/脱离旧树时不能激活；同步update/dispose不能继续旧写入。宿主合成click仍可触发，事件不授予外部行动权限。允许置于form，但没有bind/name或提交行为；来源链接仅供阅读，不自动读取。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"location-choice-request","id":"supplied_places","label":"两个虚构地点，只通知本页","options":[{"id":"courtyard","label":"虚构庭院","address":"合成示例巷1号"},{"id":"reading_room","label":"虚构阅览室","description":"没有提供地址，不补造定位信息。"}],"source":{"label":"作者原创合成地点列表"}}]}
+```
+
+- business-gallery：必有label:1–200、images:1–12个 {id:key,src:1–500000,alt:1–2000,caption?:0–2000}；可选description:0–2000、普通id。图片id本集合唯一；alt必填且非空。使用既有image节点完全相同的安全URL规则：允许的HTTP(S)或base64 PNG/JPEG/GIF/WebP；禁SVG/HTML data、凭据、相对路径与恶意URL。合法URL不证明许可、解码成功或图片真实性。
+- 图片按供数顺序放在原生figure的响应式网格中，fit固定contain；没有轮播、lightbox、modal、缩略图预载、商家查证、图片搜索/生成、上传或评分。每张远程图片分别复用image的显式加载同意门；激活前不创建该远程img/src，加载一张不授权其他图片。内联raster不请求网络。caption与alt保留；仅真实load/error改变状态，不用占位图冒充成功。no-referrer不保证无cookies。已同意且发出的浏览器请求不能被renderer承诺撤销，但旧/隐藏/继承禁用控件不能启动新请求。可以在form内，无name/bind/提交字段；无关state更新保留各图局部状态。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"business-gallery","label":"原创合成图片集合，未经商家核验","images":[{"id":"supplied","src":"https://example.invalid/original-synthetic-image.png","alt":"作者描述的虚构庭院场景","caption":"供数示例。只有明确同意加载这一张图片时才请求该地址。"}]}]}
+```
+
+示例中供数地址/收件人均为合成数据，不代表真实收件目标或实时地点。结构子集通过仍须调用同版完整validateDocument，检查子节点所属领域、布尔disabled、TASK_REVIEW_ID、EMAIL_FORM、DUPLICATE_ID和UNSAFE_URL的准确路径；不要用生成例子或局部source/JSDOM测试代替浏览器、服务、Clipboard、CDN或CI验收。
+
+## 8. 后续七项：供数航程、活动、本地选择与状态快照（候选，未验收）
+
+仅在取得同版已实现合同和示例后生成以下节点。它们属于当前同版待验准备；旧 7978 的 90 节点资产不支持本节新增合同，不能据此提高已验收数量。当前整合版本有 97 个协议节点，53 个已验收组件加 37 个待验候选；协议节点与验收组件不是同一计数。
+
+选型：比较一份已提供的航程用 flight-option；已提供的艺术家活动列表用 artist-upcoming-events；本页单选/多选引导用 onboarding-selection；已提供的包裹/航班状态用 package-tracker / flight-tracker。这些归 base。金额分布 asset-distribution 与交易记录 transaction-list 归 finance；先按未来同版索引取 finance Document 包及 finance-lists.json，不拿 base 包冒充 finance 合同。
+
+所有示例是原创虚构数据。不要从组件名字推断实时数据服务、账户、订单、订票、物流/航班位置、支付或持久化。没有数据时保留未知状态、空列表和明确说明；不编造来源、时刻、延迟、进度或完成承诺。
+
+### 供数航程 flight-option
+
+必有 label:1–200 字符、optionId:key、legs:1–8。每段为 {id:key,carrier,number,departure,arrival,cabin?}，段 id 局部唯一；carrier/number/cabin 为1–200字符。departure/arrival 为 {airport,at,name?}，airport 恰为三个大写 ASCII 字母。可选 description/note:最多2000字符、price:{amount:0–1e12有限数,currency:三个大写ASCII字母}、source:{label,url}、普通 id。币种只是供数标签，不核实汇率或币种元数据，不自行舍入费用。
+
+at 只接受 YYYY-MM-DDTHH:mmZ 或 YYYY-MM-DDTHH:mm±HH:mm，真实公历年份1000–9999、分钟精度、偏移不超过±14:00。不得给秒、小数秒、无偏移时间或 IANA 区域名。每段到达必须晚于起飞，下一段起飞可等于、不可早于前段到达；按合法时刻推导时长，保留原偏移和输入顺序。不要把“墙上时间字符串大小”当作跨时区先后。
+
+选择/清除只更改本地选择并发出可取消 iui:flight-choice，冻结 detail 为 {id:作者id或null,optionId:选中id或null}；preventDefault 保留原选择。无 bind、账户、购票、FormData、自动导航或保存。无关 setState 保留选择与 details；update 重置，dispose 清理。不得把选择反馈写成“已预订”。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"flight-option","label":"原创合成航程，不是可售机票","optionId":"demo_route","legs":[{"id":"leg_one","carrier":"Example Air","number":"EX 101","departure":{"airport":"LHR","at":"2028-02-29T09:00Z"},"arrival":{"airport":"JFK","at":"2028-02-29T07:00-05:00"}}]}]}
+```
+
+### 供数活动 artist-upcoming-events
+
+必有 artist:1–200字符、events:0–40。每项为 {id:key,title,date,venue,start?,timeZoneLabel?,location?,description?,url?}；id 局部唯一，date 为真实 YYYY-MM-DD（1000–9999），start 为严格 HH:mm；短文字1–200字符，description 最多2000。组件可选 label、description、source:{label,url}、普通 id。
+
+按供数顺序展示，允许历史日期、重复日期/场地和未给时间。timeZoneLabel 只是字面标签，不转换为时刻；名称“upcoming”不证明当前未来、演出有效或有票。跨月时原生筛选只隐藏现有行，保留 details 与焦点；没有请求、host event、FormData 或排序。普通外层表单重置可恢复 All，取消/失活及更新竞争保留一致状态。链接仅为明确给出的安全绝对 HTTP(S)，不猜票务端点。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"artist-upcoming-events","artist":"原创虚构乐团","events":[{"id":"demo_event","title":"合成活动记录","date":"2028-02-29","venue":"虚构场地","start":"19:30","timeZoneLabel":"作者提供的场地时间标签"}]}]}
+```
+
+### 本页引导 onboarding-selection
+
+必有 label 和2–12个 options:[{id,label,description?}]，id 局部唯一；label1–200字符、选项说明最多1000。组件可选 description:最多2000、mode:single/multiple（默认single）、initial:已有且不重复的选项ID数组（默认空）、minimum:默认1且可为0、maximum:单选固定1/多选默认选项数、continueLabel:1–200、字面布尔 disabled、普通 id。minimum 不大于 maximum，maximum 不大于选项数；初选不得超过上限，少于 minimum 是允许的草稿。
+
+单选原生 radio、多选原生 checkbox。超上限保留原草稿并提示；继续不足下限时聚焦第一个选项，满足时发出可取消 iui:onboarding-choice，冻结 detail={componentId:作者id或null,selectedIds:按来源顺序的ID}。取消不清草稿；“准备好”不是注册/保存/后端成功。重置恢复 initial；外层原生 form.reset 不重置该卡。没有 bind、导航、网络、存储或字符串回调。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"onboarding-selection","label":"原创合成本页选择","mode":"multiple","minimum":1,"maximum":2,"options":[{"id":"read","label":"阅读"},{"id":"practice","label":"练习"},{"id":"review","label":"复习"}]}]}
+```
+
+### 供数包裹 package-tracker
+
+必有 label、carrier、trackingId:1–200字符，status:pre-transit/in-transit/out-for-delivery/delivered/exception/unknown，observedAt:上述严格带偏移分钟时刻，milestones:0–40。每项 {id:key,label,state:complete/current/pending,occurredAt?,location?,description?}，id 唯一，最多1项 current；pending 禁止 occurredAt，complete/current 可缺时刻。可选 destination、expectedDelivery:1–200字面标签、description:最多2000、source:{label,url}、普通 id。
+
+expectedDelivery 只是来源给出的预计文字，不能解析成保证到达或倒计时。上层 status 与里程碑原样显示，不擅自调和矛盾；无当前标记也是合法快照。原生 all/complete/current/pending 筛选只作用于本地行。未知状态、空记录、无匹配筛选分别呈现。
+
+### 供数航班 flight-tracker
+
+必有 label、carrier、flightNumber:1–200字符，status:scheduled/boarding/departed/landed/cancelled/diverted/unknown，observedAt:严格带偏移分钟时刻，departure/arrival 和 updates:0–40。端点为 {airport:三位大写ASCII,scheduledAt,name?,estimatedAt?,actualAt?,terminal?,gate?}。scheduled/estimated/actual 三类时刻分别展示，只有同类两端都给出时才要求到达晚于起飞；不拿计划替代实际，不跨类别比较或推断延误。每条更新 {id:key,at,message,kind:information/change/disruption,description?}，id唯一，保留来源顺序。
+
+可选 description、source:{label,url}、普通 id。缺 estimatedAt/actualAt 明示未提供；diverted 不自动生成新目的地。没有地图、位置、系统时钟、进度百分比、轮询、通知、预订或提供方连接。原生更新类别筛选、重置与 disclosure 保留本地状态；controls 不进入 FormData。update/dispose 及取消/失活外层重置尊重生命周期。
+
+```json candidate-only
+{"version":"iui/1","body":[{"type":"package-tracker","label":"原创合成包裹快照","carrier":"Example Parcel","trackingId":"DEMO_ONLY","status":"unknown","observedAt":"2028-02-29T10:00Z","milestones":[]},{"type":"flight-tracker","label":"原创合成航班快照","carrier":"Example Air","flightNumber":"EX 101","status":"scheduled","observedAt":"2028-02-29T08:00Z","departure":{"airport":"LHR","scheduledAt":"2028-02-29T09:00Z"},"arrival":{"airport":"JFK","scheduledAt":"2028-02-29T07:00-05:00"},"updates":[]}]}
+```
+
+### 共同行为边界
+
+这些本地 controls 不替代用户授权。disabled/pending fieldset、hidden/inert、脱离或挪出所属组件的 controls 必须阻止变更；原生首 legend 例外按平台语义处理。安全来源链接和 details 只是阅读操作。需要 host 消费可取消事件时由宿主显式接入；组件本身不调用提供方服务。最终真实键盘/触摸/鼠标、主题、390/768/1100、RTL、强制颜色、溢出、焦点、重复/中断/reset/update/dispose 都由集中浏览器验收覆盖；本指导、编译和 JSDOM 结果不代表浏览器通过。
+
+<!-- upcoming-three-source-authoring -->
+
+## 8. Later Base source authoring (separate revision)
+
+The shell and pending37 contract above remain pinned to26ec. The following three nodes require corrected source3858d0a502956d283f3d60ab8c2481f691e50522 and must not be sent to that older shell. Use the local library at that exact revision with the schemas/examples in candidates/upcoming-three. Native browser and CDN acceptance for these later nodes is not established.
+
+# Upcoming Base guidance: local poll composer and supplied readers
+
+Draft for the next source cohort. Keep this material in SKILL.md because all three nodes belong to Base. The full schema remains the sole authored schema; generate closed Base/document and Base/node subsets from it. Do not hand-maintain a second schema. Current pending37 locks and acceptance remain separate.
+
+## Choose the exact component
+
+Use `create-interactive-poll` to edit a local prospective poll draft. Use `email-preview` for supplied plain text and metadata. Use `file-nav-list` for a supplied bounded metadata graph. These are separate canonical nodes, not aliases. Never invent polling services, mailbox access, filesystem operations, publishing, voting, downloads, bindings, or provider endpoints.
+
+## create-interactive-poll
+
+Required: `label` (1–200 Unicode code points), `options` (2–8 `{id,label}` rows). IDs must be unique strict ASCII keys, starting with a letter or underscore and followed by letters, digits, `_`, `.`, or `-`, maximum 80 characters. Option labels may initially be empty and are at most 200 code points. Optional `question` is at most 500 code points, `description` at most 2000, `multiple` and `disabled` booleans, and ordinary node `id`.
+
+An incomplete draft is a valid document. Do not reject blank question/labels or initially repeated labels at authoring time. Prepare separately requires a nonblank trimmed question and option labels, and pairwise distinct trimmed labels. It preserves the exact original strings in the event. Duplicate IDs are always invalid.
+
+Add, remove, and reorder are bounded local edits. Stable IDs follow rows. Preview is literal read-only draft text and may show incomplete placeholders; edits hide an outdated preview. Reset restores the authored draft. `multiple` describes prospective selection, not recorded votes. These controls do not bind document state or add FormData entries; an outside form reset leaves the draft intact.
+
+Successful Prepare emits cancelable, bubbling, non-composed `iui:poll-ready` with frozen detail `{componentId,question,options,multiple}`; `options` and every `{id,label}` row are frozen too. A missing authored node ID becomes null. Cancellation leaves the draft intact with local not-accepted status. Ready is only a local event result. It does not publish, invite, persist, collect votes, or infer results.
+
+```json upcoming-only
+{"version":"iui/1","body":[{"type":"create-interactive-poll","label":"Draft a local question","question":"","options":[{"id":"first","label":""},{"id":"second","label":""}]}]}
+```
+
+Retained handlers never rewrite externally moved inputs or reclaim moved option rows. Prepare requires the question, multiple-mode input, and every current option input to remain owned and enabled, with checks repeated after event construction and dispatch. Host interruption cannot produce a stale ready status or focus an outside invalid input. Disabled/pending, hidden/inert, detached and moved-outside controls cannot initiate operations.
+
+## email-preview
+
+Required: `subject` (1–500 code points), `from` person, `to` (0–40 people), and `body` (0–20000). A person is `{address,name?}` with literal address 1–320 and optional name 1–200; it does not assert a verified mailbox. Optional `cc` (0–40), `sentAt`, `quotedText` (0–20000), `attachments` (0–20), `source`, and ordinary `id`.
+
+Body and quoted text are rendered as text, including strings resembling markup. Never put HTML payloads or reply/forward/read mutations into the document. A long body has an explicit full/excerpt toggle. Native recipient and quoted-text disclosures preserve the supplied content.
+
+Attachments use unique key `id`, `name` (1–200), optional integer `sizeBytes` (0–1e12), `mediaType` (1–200), `description` (up to 2000), and `url`. Missing size/type stays unknown; zero bytes is real zero. Local name search filters supplied rows without fetching previews. No automatic media, download, or thumbnail.
+
+## file-nav-list
+
+Required: `label` (1–200) and `entries` (0–120). Optional `description` (up to 2000), `initialFolderId`, `source`, and ordinary `id`.
+
+Each entry has unique key `id`, `name` (1–200), and `kind` (`folder` or `file`). Optional `parentId` is null/omitted for a root entry, otherwise the ID of a supplied folder. Optional description is at most 2000. Folder entries cannot carry file-only fields. Files may add `category` (`document`, `image`, `audio`, `video`, `archive`, `other`), `sizeBytes`, `mediaType`, `modifiedAt`, and `url`. Do not guess category from extensions or MIME. Names and IDs, even containing slashes in names, are metadata rather than paths.
+
+Parents must exist and be folders, ancestry must be acyclic, and each entry has at most four folder ancestors. `initialFolderId`, when present, must identify a supplied folder. Breadcrumbs and folder buttons navigate locally. Navigation clears search/category and focuses the destination heading; Reset filters keeps the current folder. Filters operate only in the current folder. Category filters retain navigable folders subject to name search. Missing category has an explicit not-supplied choice. Empty list, empty folder, and no matches are distinct.
+
+Reader controls do not bind state or enter FormData. Unrelated state changes preserve local navigation, filters, disclosures and focus. Update replaces the document; dispose retires handlers. A non-canceled external native form reset restores reader filters while preserving folder/disclosures, unless disabled, hidden or inert. New explicit input wins a queued reset.
+
+## Shared reader times and links
+
+Times must be real Gregorian minute timestamps, years 1000–9999, with `Z` or an explicit offset no greater than ±14:00: `2028-02-29T09:00+01:00`. Reject impossible dates, seconds, floating local times and timezone names. Render supplied offsets literally; do not convert times or infer freshness.
+
+`source` is `{label,url}` (label 1–200, URL 1–2048). Attachment/file URLs also have at most 2048 characters and must be allowed absolute HTTP(S), without credentials or unsafe whitespace. Links open with opener/referrer protection. They do not preload, resolve providers, or automatically download.
+
+```json upcoming-only
+{"version":"iui/1","body":[{"type":"email-preview","subject":"Synthetic note","from":{"address":"sender@example.org"},"to":[],"body":"<b>This remains literal text.</b>","attachments":[{"id":"empty","name":"Empty supplied file","sizeBytes":0},{"id":"unknown","name":"Unknown supplied size"}]},{"type":"file-nav-list","label":"Supplied metadata","entries":[{"id":"folder","name":"Example folder","kind":"folder"},{"id":"file","name":"literal/name.txt","kind":"file","parentId":"folder","sizeBytes":0}],"initialFolderId":"folder"}]}
+```
+
+## Rejection examples and their actual layer
+
+- Poll duplicate option ID: `DUPLICATE_ID` at the later `/body/0/options/1/id`. Blank draft labels are valid; invalid Prepare is a runtime check, not a schema rejection.
+- Reader `2027-02-29T09:00Z`: `READER_TIME` at `/body/0/sentAt` or the exact file `modifiedAt` path.
+- Repeated attachment/entry ID: `DUPLICATE_ID` at the later ID.
+- Missing parent or file used as parent: `FILE_PARENT` at the entry `parentId`.
+- Cyclic parent chain: `FILE_CYCLE` at the affected entry `parentId`.
+- Five folder ancestors: `FILE_DEPTH` at the affected entry `parentId`.
+- Missing/file initial folder: `FILE_FOLDER` at `/body/0/initialFolderId`.
+- `javascript:` or credential-bearing reader links: `UNSAFE_URL` at the exact URL path.
+- Provider/action/binding extras, folder byte-size fields, oversized arrays or negative byte sizes: structural rejection. Never silently strip, coerce, or repair an invalid document.
+
+<!-- upcoming-six-source-authoring -->
+
+## 9. Combined later Base source authoring (103-node revision)
+
+The following source-only cohort uses clean990d7e4af2a4cde6f01db4be628863c0378b011e. It includes all six later Base nodes: poll/email/files above plus jobs/product-card/related questions below. Use candidates/upcoming-six schemas/examples with that exact local runtime. The older26ec shell and3858 historical source package remain separate. No new CDN or native-browser acceptance is established.
+
+# More Base authoring: supplied jobs, product choice and related questions
+
+Use these exact distinct nodes: `jobs`, `product-card`, `sidebar-people-also-ask`. Every record, answer, price and status is supplied by the author. No live data, ranking, applications, purchases, answer generation or model-provider binding is implied. All three belong to Base, so keep their practical usage here in SKILL.md; domain-specific schemas remain generated subsets of the single full schema.
+
+## jobs: show supplied opportunities and a local shortlist
+
+Choose `jobs` when the reader needs to compare supplied job records and keep a local shortlist. Required `label` (1–200 code points) and `jobs` (0–40 records); optional `description` (up to2000), source and ordinary node ID. Each job requires unique key `id`, `title`, `organization`, `location`, `workplace`, and `employment`. Workplace is `remote`, `hybrid`, `onsite`, or `unknown`; employment is `full-time`, `part-time`, `contract`, `internship`, or `unknown`. Preserve unknown classifications instead of guessing from prose.
+
+Optional job description is plain text. Salary is `{minimum,maximum,currency,period}` with 0≤minimum≤maximum≤1e12, supplied uppercase three-letter currency label, and hour/month/year period. No conversion occurs. Optional `postedDate` and `deadlineDate` are real Gregorian YYYY-MM-DD dates, years1000–9999, and deadline cannot precede posting. These are supplied dates, not proof that an opening is live, expired, suitable or recommended. Optional job URL and source URL must be allowed absolute HTTP(S).
+
+Search matches title/organization/location; workplace/employment filters combine. A shortlist click emits frozen, bubbling, cancelable, non-composed `iui:job-shortlist` detail `{componentId,jobId,shortlisted}`. Accepted clicks toggle only local state; cancellation keeps prior state. Shortlist-only filtering may hide a removed row and intentionally relocates focus. Reset clears filters but preserves the shortlist. No application, message, upload, account or persistence follows.
+
+```json upcoming103-only
+{"version":"iui/1","body":[{"type":"jobs","label":"Supplied examples, not live openings","jobs":[{"id":"role_one","title":"Example engineer","organization":"Example studio","location":"Region as supplied","workplace":"remote","employment":"full-time","salary":{"minimum":80000,"maximum":100000,"currency":"USD","period":"year"},"postedDate":"2028-02-29","deadlineDate":"2028-03-15"},{"id":"role_two","title":"Example researcher","organization":"Example lab","location":"Not specified by source","workplace":"unknown","employment":"unknown"}]}]}
+```
+
+## product-card: review a supplied local choice
+
+Choose `product-card` for a product snapshot whose supplied variants and quantity need a local review step. Required `productId` (local key), `name` (1–200), and `availability` (`available`, `unavailable`, `unknown`). Optional brand/seller (1–200), description (up to5000), price, 0–12 variants, initialVariantId, initialQuantity, disabled, source, embedded image and ordinary node ID.
+
+A price is `{amount,currency}` with finite amount0–1e12 and uppercase three-letter supplied currency label. A variant has unique key `id`, label1–200, availability, and optional price. Selected variant price overrides base price; otherwise it inherits the base price. No price anywhere remains unknown, while amount0 is a real zero. When variants exist, require an explicit selection or valid initialVariantId; never auto-select a guessed preference.
+
+Initial quantity is an integer1–20. Runtime quantity text accepts ordinary decimal notation, optional leading zeros and trailing `.0` digits, capped at64 characters. Exponents and nonzero fractional tails are rejected, not rounded. The UI computes an exact decimal item subtotal only. Do not label it a checkout total or invent fees, tax, shipping, discounts, stock or exchange rates.
+
+Review emits frozen cancelable `iui:product-choice` detail `{componentId,productId,variantId,quantity,availability,unitPrice,itemSubtotal}`, including a frozen nested price. Supplied unavailable status, missing required variant or invalid quantity blocks review. Unknown availability may be reviewed locally and remains unknown in the detail. Cancellation retains the draft; explicit review may be repeated and synchronous reentry is blocked. Reset restores the authored draft. No cart, purchase, reservation or payment is made.
+
+Optional image is `{src,alt}`: bounded embedded base64 PNG/JPEG/WebP only, src up to300000 characters and alt1–2000. Remote URLs, SVG and animated GIF are rejected. Decode failure shows a local fallback. Prefer omitting an image over inventing or fetching one.
+
+```json upcoming103-only
+{"version":"iui/1","body":[{"type":"product-card","productId":"sample_notebook","name":"Supplied notebook example","availability":"unknown","price":{"amount":12.5,"currency":"USD"},"variants":[{"id":"plain","label":"Plain cover","availability":"available"},{"id":"grid","label":"Grid cover","availability":"unknown","price":{"amount":13.75,"currency":"USD"}}],"initialVariantId":"plain","initialQuantity":2,"description":"Local review only. Availability is supplied, not checked."}]}
+```
+
+## sidebar-people-also-ask: read supplied questions and provenance
+
+Choose this node for supplied questions with explicit answer/missing-answer semantics and per-answer sources. It does not discover popular questions, rank relevance, search externally, generate answers, verify truth or infer authority. It is not a generic accordion alias.
+
+Required `label` (1–200) and `items` (0–40). Optional description up to2000 and initially `expanded` supplied IDs (0–40, unique). Each item requires a unique key ID, question1–500, and answer either null or a string0–10000 code points. Null means no answer supplied. Empty string is an exactly empty answer and must not be rewritten as missing. Optional sources has at most5 `{label,url}` records, with label1–200 and allowed absolute HTTP(S) URL.
+
+Native disclosures preserve order and may stay open together. Local case-insensitive substring search covers question and literal answer text; max200 UTF-16 units, rejecting oversized forged input without replacing the accepted query. Clear and external native reset clear only search, preserving reading state. Distinguish empty collection, no matches, no supplied answer and no supplied source.
+
+```json upcoming103-only
+{"version":"iui/1","body":[{"type":"sidebar-people-also-ask","label":"Questions about this supplied sample","expanded":["scope"],"items":[{"id":"scope","question":"What is supplied here?","answer":"An original local example. No external search or answer generation occurs.","sources":[{"label":"Illustrative source","url":"https://example.org/reference"}]},{"id":"unverified","question":"Was the source independently verified?","answer":null},{"id":"empty","question":"What is the exactly empty supplied response?","answer":""}]}]}
+```
+
+## Local controls, safe links and rejection examples
+
+All text is literal. HTTP(S) links open separately with opener/referrer protection and never preload. Controls use no binding or payload name and do not enter host FormData/action snapshots. Unrelated state updates preserve local draft/filter/disclosure state. Update replaces authored content; disposal retires handlers. Disabled/pending, hidden/inert, detached and outside-owned controls cannot activate or be rewritten; event construction and dispatch are interruption boundaries.
+
+Reject duplicate job/variant/question IDs with `DUPLICATE_ID` at the later ID. Reject impossible job dates with `JOB_DATE`, reversed dates with `JOB_DATE_ORDER` at deadlineDate, and reversed pay with `JOB_PAY_RANGE` at salary.maximum. Unknown initial variant is `PRODUCT_VARIANT`; remote/unsupported image is `PRODUCT_IMAGE`; unsafe links are `UNSAFE_URL`. Unknown expanded question is `QUESTION_REFERENCE`; duplicate expansion is `DUPLICATE_ID`. Forbidden provider/HTML/binding fields, fractional initial quantity and excess arrays are structural errors. Do not strip bad fields, silently round or repair invalid documents.
+
+<!-- upcoming-ten-source-authoring -->
+
+## 10. Four more Base contracts (reviewed107 source)
+
+These four contracts now use clean source 65742b08d21b8819319ccb9104142d10ea5d8703, together with the preceding six later Base nodes. Use candidates/upcoming-ten schemas/examples with that exact local 107 runtime. The older26ec shell,3858 and990d historical source packages remain separate. Native browser and public-CDN acceptance are not established here. See candidates/upcoming-ten/README.md for exact evidence and limits.
+
+# More Base authoring: supplied business hours, dining dimensions and flight intent/results
+
+These are four exact distinct Base nodes: `local-business`, `restaurant-reviews`, `flight-search-form`, `flight-results`. Keep their practical rules in SKILL.md. All records are supplied, local interactions use native controls, and no provider, live lookup, location permission, booking or payment is implied.
+
+## local-business: supplied weekly hours without a clock
+
+Required name/category (1–200 code points), address (1–1000), and hours (0–7 unique weekday records). Optional description up to3000, phoneLabel/timezoneLabel (1–200), services/accessibility (0–20 strings of1–200), source, initialDay and ordinary node ID. Phone and timezone are literal labels, not dialing links or executable timezone rules.
+
+Each hours record requires day (`monday` through `sunday`), status (`hours`, `closed`, `unknown`), and periods (0–4). Optional note is up to1000. Each period is `{opens,closes,nextDay?}` with strict24-hour HH:MM values. `hours` requires1–4 periods; closed/unknown requires none. Period duration must be greater than zero and at most24 hours. Overnight closing requires nextDay:true. Supply intervals in opening order without overlap within that day. Do not infer cross-day consistency, holiday exceptions, timezone offsets or current open/closed state.
+
+Initial day must have a supplied record; otherwise the first supplied record is used. Never use the computer's current weekday. Users can select an omitted day and see hours not supplied. Services/accessibility remain literal native disclosures. A source is an ordinary safe HTTP(S) link, not directions, calling, booking or external lookup.
+
+```json upcoming107-only
+{"version":"iui/1","body":[{"type":"local-business","name":"Example kitchen","category":"Supplied café label","address":"Illustrative address","hours":[{"day":"monday","status":"hours","periods":[{"opens":"09:00","closes":"12:00"},{"opens":"13:00","closes":"17:00"}]},{"day":"friday","status":"hours","periods":[{"opens":"18:00","closes":"01:00","nextDay":true}]},{"day":"sunday","status":"unknown","periods":[]}],"initialDay":"monday","timezoneLabel":"Venue local time as supplied"}]}
+```
+
+## restaurant-reviews: choose a supplied dining dimension
+
+Required label and restaurantName (1–200), reviews (0–60); optional description up to2000, source and ordinary ID. A review requires unique key ID, author1–200, text1–6000 and occasion (`breakfast`, `lunch`, `dinner`, `other`, `unknown`). Optional numeric rating/food/service/atmosphere scores are0–5. JSON `rating` is the overall dimension; never substitute it for a missing food/service/atmosphere score. Zero is valid and omission is unknown, not zero. Optional visitDate is a real Gregorian YYYY-MM-DD date, years1000–9999; dishes is0–12 labels of1–200; per-review source preserves attribution without verifying the author or claim.
+
+The chosen dimension drives both visible score and minimum threshold. Every numeric threshold, including zero, excludes reviews missing that dimension. Text search matches author, review text and dish labels; occasion combines with other filters. Preserve source order and full native disclosures; do not invent averages, weights, rankings or verification. Reset clears filters. No feed, voting, posting or authentication occurs.
+
+```json upcoming107-only
+{"version":"iui/1","body":[{"type":"restaurant-reviews","label":"Supplied dining notes","restaurantName":"Example kitchen","reviews":[{"id":"zero","author":"Example diner A","text":"A synthetic record with an explicitly supplied zero service score.","occasion":"lunch","rating":3,"food":4,"service":0,"dishes":["Example soup"]},{"id":"unknown","author":"Example diner B","text":"Only this supplied text is available.","occasion":"unknown"}]}]}
+```
+
+## flight-search-form: prepare local intent from supplied airports
+
+Required label1–200 and airports (2–80 unique `{code,label}` choices). Codes are exact uppercase three-letter strings; labels1–200. Optional description up to2000, disabled, initialOrigin/initialDestination, initialDepartureDate/initialReturnDate, initialTravelers and ordinary ID. No airport lookup or present-day default is implied.
+
+Initial airports, if supplied, must exist and differ. Dates are real Gregorian YYYY-MM-DD, years1000–9999. An initial return needs a departure and cannot precede it. Initial travelers is an integer1–9, default1. Omitted route/dates create a valid incomplete draft. Prepare requires two different supplied airports, departure, optional ordered return and decimal whole travelers1–9. Runtime traveler text permits leading zeros and trailing `.0` digits, max64 characters; exponents and nonzero fractional tails are rejected rather than rounded. Invalid Prepare retains the draft and focuses the relevant owned control.
+
+Frozen `iui:flight-search` detail is `{componentId,origin,destination,departureDate,returnDate,travelers}`. The event bubbles, is cancelable and non-composed. It is local intent only, not an external search request. Cancellation retains the draft; repeated explicit preparation is allowed and synchronous reentry is blocked. Inputs have no names/bindings and are dissociated from outside native forms. Explicit reset restores authored initial values.
+
+```json upcoming107-only
+{"version":"iui/1","body":[{"type":"flight-search-form","label":"Prepare a local example intent","airports":[{"code":"AAA","label":"Example origin"},{"code":"BBB","label":"Example destination"}]}]}
+```
+
+## flight-results: filter supplied itineraries, never compare unlabeled money
+
+Required label1–200 and results (0–40). Optional description up to2000, source and ordinary ID. Each result requires unique key ID, label1–200 and legs (1–8); optional price, note up to2000 and source. A leg requires unique key ID within that result, carrier/number (1–200), departure and arrival endpoints, optional cabin1–200. Endpoints contain uppercase three-letter airport and strict minute timestamp with Z or an offset up to±14:00; optional name1–200. Use actual Gregorian dates, years1000–9999. Each arrival must be strictly later than departure as an offset-adjusted instant; later legs must not depart before the preceding arrival.
+
+Optional price is supplied nonnegative amount≤1e12 with uppercase three-letter currency. Missing price stays unknown, while zero is real zero. No fare, availability, fee, tax, quote, exchange rate or booking is calculated.
+
+Carrier filtering matches any leg's exact supplied carrier label. Stops means leg count minus one, not inferred route structure. Currency filtering admits only explicitly priced results in that exact currency. Price sorting requires selecting a supplied currency first; clearing it resets price order to supplied order. Departure sorting compares initial offset-adjusted instants. Duration sorting uses final arrival minus initial departure, including connections. Ties retain supplied order. Native details keep identity while filtering/sorting; rows moved outside are never reclaimed.
+
+Frozen cancelable, bubbling, non-composed `iui:flight-result-select` detail is `{componentId,resultId}`. Accepted events change local pressed selection only; cancellation preserves the previous choice. Reset clears filters but keeps selection. Nothing is booked, purchased, reserved or sent remotely.
+
+```json upcoming107-only
+{"version":"iui/1","body":[{"type":"flight-results","label":"Supplied synthetic results","results":[{"id":"zero","label":"Explicit zero-price example","price":{"amount":0,"currency":"USD"},"legs":[{"id":"a","carrier":"Example Air","number":"EA 1","departure":{"airport":"AAA","at":"2028-02-29T09:00Z"},"arrival":{"airport":"BBB","at":"2028-02-29T11:00Z"}}]},{"id":"unknown","label":"No supplied price","legs":[{"id":"b","carrier":"Example Air","number":"EA 2","departure":{"airport":"AAA","at":"2028-02-29T12:00+01:00"},"arrival":{"airport":"BBB","at":"2028-02-29T15:00+01:00"}}]}]}]}
+```
+
+## Reject rather than repair
+
+Duplicate/unknown initial weekday → BUSINESS_DAY; incompatible hours status/periods → BUSINESS_HOURS; nonpositive or over24-hour period → BUSINESS_PERIOD at closes; unordered/overlapping periods → BUSINESS_OVERLAP at the later opens. Strict HH:MM shape violations are structural errors.
+
+Duplicate dining IDs → DUPLICATE_ID; impossible visit date → DINING_DATE; scores outside0–5, null instead of an omitted score, and unsupported ranking/provider fields are structural errors.
+
+Duplicate airport choices → DUPLICATE_ID; unknown initial airport → SEARCH_AIRPORT; identical initial airports → SEARCH_ROUTE; impossible initial date → SEARCH_DATE; return without departure or earlier return → SEARCH_RETURN. Fractional initial travelers is a structural error; incomplete runtime drafts remain legal documents.
+
+Duplicate result/leg IDs → DUPLICATE_ID; impossible timestamp → FLIGHT_TIME; reversed leg/connection chronology → FLIGHT_ORDER; unsafe sources → UNSAFE_URL. Never silently substitute a date, guess an airport, drop bad fields or coerce currency.
+
+Shared controls require actual live ownership and enabled, visible/non-inert ancestry. Native reader resets respect cancellation, newer input, partial movement and shadow roots; no outside-owned DOM is rewritten. Unrelated state updates retain local controls/disclosures. Update replaces the authored snapshot and disposal retires callbacks. All text is literal and source links are absolute HTTP(S) with opener/referrer protection, without prefetch or automatic navigation.
+
+<!-- upcoming-eighteen-source-authoring -->
+
+# More Base authoring: planning, vocabulary, citations and supplied facts
+
+For one complete 115 candidate entry, use candidates/upcoming-eighteen/AUTHORING.md, with its own exact runtime pin, full schema and generated Base/domain bundles. The historical top-level CDN shell does not support these eight nodes. Browser/CDN acceptance remains pending.
+
+Use the exact distinct Base types below. Keep these common contracts in SKILL.md. The full schema is the canonical definition and Base/domain bundles are generated from it. All examples are original synthetic material. No model service, private runtime, lookup, invitation, calendar write or inferred verification is implied. The copy-words control is the explicit exception to purely local reading: after a user-triggered, non-canceled intent, it attempts an actual clipboard write.
+
+## shared-activity-planner and event-sidebar
+
+A planner requires label (1–200 code points), participants (1–12 unique `{id,label}` records) and options (0–20). Participant labels are 1–200; IDs are strict local keys, not identity verification. An option requires unique id, label (1–200), startsAt, endsAt and availability (0–12 `{participantId,status}` records). Status is available/unavailable/unknown; references must name supplied participants and cannot repeat within an option. Missing availability remains unknown. Optional location is 1–200, description up to 3000 and source is a safe supplied link. Planner description is up to 2000; disabled is optional.
+
+All time intervals use real Gregorian minute timestamps, years 1000–9999, with explicit Z or offsets up to ±14:00. End must follow start as an offset-adjusted instant. Candidate activities may overlap. Never substitute system time or infer attendance, consent, replies, rankings or a winning option.
+
+The participant selector edits only that person's local unset/yes/maybe/no preference. Supplied availability is never changed. No option is preselected. Explicit reset clears preferences and selection; outside native form reset preserves the local draft. Review emits bubbling, cancelable, non-composed iui:activity-plan with frozen `{componentId,optionId,preferences}`. The frozen array contains frozen `{participantId,value}` entries in source order for the selected option only. Cancellation retains edits; repeated explicit review is allowed and synchronous reentry is blocked. Nothing is invited or booked.
+
+An event sidebar requires eventId, label (1–200), startsAt, endsAt and agenda (0–40). Optional organizer/location are 1–200, description up to 5000, and source remains supplied. Each agenda entry requires unique id, label, category (1–200 each), startsAt and endsAt; optional speaker is 1–200 and description up to 3000. Entries must fit inside the overall interval. Concurrent entries are legal and retain source order. Category filtering preserves native disclosures. Frozen local iui:event-review detail is `{componentId,eventId}`; it bubbles and is cancelable/non-composed, without calendar export, RSVP, registration or reservation.
+
+```json upcoming115-only
+{"version":"iui/1","body":[{"type":"shared-activity-planner","label":"Compare supplied possibilities","participants":[{"id":"person","label":"Example participant"}],"options":[{"id":"walk","label":"Example walk","startsAt":"2028-02-29T10:00Z","endsAt":"2028-02-29T11:00Z","availability":[]}]},{"type":"event-sidebar","eventId":"example_event","label":"Supplied event","startsAt":"2028-02-29T09:00Z","endsAt":"2028-02-29T17:00Z","agenda":[]}]}
+```
+
+## word-card and copy-words
+
+A word card requires wordId, term (1–200) and literal definition (1–5000). Optional pronunciation and partOfSpeech are supplied labels (1–200), translation up to 2000, examples (0–8 `{text,translation?}` records; text 1–1000, translation up to 1000), initiallyRevealed, disabled and source. Reveal is reversible. Known/review/unset is a local self-mark, not a mastery score or inferred assessment. Frozen cancelable, bubbling, non-composed iui:word-mark detail is `{componentId,wordId,mark}`. Cancellation preserves the current mark; no external progress, speech or dictionary lookup occurs.
+
+Copy words requires label (1–200) and words (0–80 unique `{id,text,note?}` records). Text is literal 1–200, note up to 1000; duplicate text with different IDs is allowed and retained. Optional initialSelectedIds must be unique supplied IDs. Omitted means all selected; an empty array means none. Optional separator is lines/comma/space, default lines. Description is up to 2000 and disabled is optional. Preview preserves source order and exact text; no trimming, normalization, sorting or deduplication.
+
+Explicit Copy emits frozen, bubbling, cancelable, non-composed iui:words-copy detail `{componentId,wordIds,separator,text}`, with frozen IDs. Cancellation prevents even clipboard access. Otherwise the owned document's navigator.clipboard.writeText receives the exact preview. Only its fulfilled promise earns success status. Missing, denied, throwing or rejected clipboard access gives visible manual-copy instructions, without automatic retry or hidden fallback. Pending writes block duplicate operations and edits. An issued request cannot be revoked, but replacement/disposal/moved controls suppress stale UI updates and never reclaim external focus. Manual selection rechecks ownership, pending state and draft revision after focus. Clipboard permissions and actual system results require real browser verification.
+
+```json upcoming115-only
+{"version":"iui/1","body":[{"type":"word-card","wordId":"curiosity","term":"curiosity","definition":"An interest in learning or discovering something.","translation":"好奇心","examples":[{"text":"Curiosity led us to ask another question."}]},{"type":"copy-words","label":"Select supplied words","words":[{"id":"first","text":"curiosity"},{"id":"second","text":"curiosity"},{"id":"third","text":"明亮"}],"initialSelectedIds":[],"separator":"lines"}]}
+```
+
+## code-cite and file-cite
+
+Code citation requires label and fileName (1–200), startLine (integer 1–10,000,000) and lines (1–120 literal strings, each up to 2000). Blank lines remain blank. Optional language is only a label (1–200), not a syntax plugin. Optional citedStart/citedEnd must appear together, be ordered and lie in the supplied window; its last absolute line cannot exceed 10,000,000. Without a range, all supplied lines are cited.
+
+Context reveal changes only visibility of supplied surrounding lines, keeping absolute numbering and row identity. Manual selection exposes exactly the cited lines joined by newline, with no line numbers or extra characters. It selects an owned readonly textarea for the user's system Copy command. There is no code execution, clipboard API or file access.
+
+File citation requires label/fileName (1–200) and pages (1–30 unique records). Each page has number (integer 1–10,000,000), text (1–6000), optional label (1–200) and source. Optional totalPages has the same integer bounds and cannot be below any supplied page. InitialPage must have an excerpt; otherwise the first supplied record is shown. Preserve source order, including noncontiguous page numbers. Optional mediaType is a label (1–200), not a loader. No missing page, OCR, PDF preview, download or filesystem path resolution is generated.
+
+Page navigation keeps retained panels and hides/clears the manual preview to prevent stale selection. Native reset restores the initial supplied page. A focus listener changing page, moving controls or making the preview hidden/inert cancels subsequent selection. Both citation readers use safe optional sources and literal content.
+
+```json upcoming115-only
+{"version":"iui/1","body":[{"type":"code-cite","label":"Supplied code excerpt","fileName":"example.ts · label only","startLine":10,"lines":["// Supplied context","return value;",""],"citedStart":11,"citedEnd":12},{"type":"file-cite","label":"Supplied page excerpts","fileName":"example.pdf · label only","totalPages":12,"initialPage":9,"pages":[{"number":2,"text":"Original supplied overview excerpt."},{"number":9,"text":"Original supplied notes excerpt. No other page is fabricated."}]}]}
+```
+
+## sidebar-fact-table and entity-thumbnail-list
+
+A fact table requires label (1–200) and facts (0–80 unique `{id,label,value}` records). Fact label is 1–200 and value is a literal string up to 2000 or null. Null means not supplied; empty string means an explicitly empty supplied value. Numeric/date-looking text is not parsed, reformatted or computed. Use "0" for a literal zero, not numeric 0. Optional unit/group are 1–200; note up to 3000, observedAt a valid explicit-offset Gregorian minute timestamp, and source a supplied attribution link. Table description is up to 2000.
+
+Text search covers field/value/unit/group and combines with exact group filtering. Ungrouped has an explicit choice; internal encoded option values must not be authored as group labels. Headers/caption retain semantics, note disclosures retain identity, and Reset clears filters. No source is verified or refreshed.
+
+An entity list requires label (1–200) and entities (0–24 unique `{id,label,category}` records; label/category 1–200). Optional description up to 3000, fields (0–8 literal `{label,value}` pairs; label 1–200 and value string up to 2000), source and image. Image is bounded embedded base64 PNG/JPEG/WebP only, src up to 140000 and alt 1–2000. Remote images, SVG and GIF are rejected. Omitted or failed images show neutral local fallback. Do not infer identity from an image. The original fixture checker swatch is project-owned, not a reference-product capture.
+
+Text/category filters combine without silently clearing selection. Optional initialSelectedId must exist. Frozen cancelable, bubbling, non-composed iui:entity-select detail is `{componentId,entityId}`; explicit Clear uses null. Cancellation keeps prior selection. Filtering a selected entity outside the visible list leaves its detail visible with an explicit explanatory note. Reset clears filters while retaining selection; Clear changes selection. Optional disabled suppresses interactions while ordinary source links remain reading links.
+
+```json upcoming115-only
+{"version":"iui/1","body":[{"type":"sidebar-fact-table","label":"Supplied literal facts","facts":[{"id":"zero","label":"Literal zero","value":"0","unit":"items"},{"id":"unknown","label":"Missing value","value":null},{"id":"blank","label":"Explicit blank","value":""}]},{"type":"entity-thumbnail-list","label":"Supplied entities","entities":[{"id":"sample","label":"Example entity","category":"Illustrative","fields":[{"label":"Literal label","value":"As supplied"}]}]}]}
+```
+
+## Shared ownership and rejection rules
+
+Safe sources are absolute HTTP(S), without credentials or executable/relative URLs, using opener/referrer protection and no prefetch. Controls have no payload names/bindings. Native resets follow each contract, respecting cancellation, newer edits and lifecycle. The reviewed guard follows observable assignedSlot, parent and shadow-host ancestry and preserves native disabled-fieldset rules. It does not claim arbitrary computed-CSS visibility or private closed-shadow slot internals. No moved-outside control, row, preview or image is reclaimed or rewritten. Focus and event construction/dispatch are interruption boundaries. Replacement/disposal retires listeners and pending UI work.
+
+Planner duplicate IDs → DUPLICATE_ID; unknown availability participant → ACTIVITY_PARTICIPANT; invalid instants → ACTIVITY_TIME; non-increasing intervals → ACTIVITY_ORDER; agenda outside event → EVENT_AGENDA_RANGE. Copy duplicate IDs/selection → DUPLICATE_ID; unknown selected word → COPY_WORD_ID. Citation half-ranges, reversed/outside ranges and overflowing windows → CITE_LINE_RANGE; duplicate pages → DUPLICATE_PAGE; unavailable initial page or page above total → CITE_PAGE_RANGE. Duplicate facts/entities → DUPLICATE_ID; invalid observedAt → FACT_TIME; unknown initial entity → ENTITY_SELECTION; unsupported/remote image → ENTITY_IMAGE. Unsafe links → UNSAFE_URL. Missing required fields, numeric facts, excess arrays and provider/HTML/execution extras are structural errors. Reject rather than silently repair, drop, coerce or invent content.

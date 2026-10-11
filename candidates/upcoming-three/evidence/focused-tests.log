@@ -1,0 +1,30 @@
+✔ pending input lock separates accepted assets, exact frozen sources and 37 canonical identities (35.060858ms)
+✔ candidate example bytes match their explicitly locked original source inputs (241.888515ms)
+✔ candidate source index declares every candidate ownership without copying a second schema (7.305124ms)
+✔ root common guidance is gated, candidate literals are parseable, pending shell matches exact candidate and accepted contract snapshot remains separate (10.595713ms)
+✔ candidate path checks reject traversal and absolute paths (20.120443ms)
+✔ core30 provenance preserves earlier manifests and exact staged verification boundary (753.821718ms)
+✔ current37 lock preserves distinct historical30 bytes and exact current97 evidence (310.370913ms)
+✔ skill metadata, local references and public distribution boundary are valid (629.862743ms)
+✔ distribution boundary rejects evidence, runtime captures and non-JS implementation files (1.367904ms)
+✔ all example inputs are complete documents with no native or executable escape hatch (439.94171ms)
+✔ minimal prose stays usable without decorative layout or state (6.933261ms)
+✔ missing observations remain null in chart and inspectable source table (4.260882ms)
+✔ support inventory names each portable node once and rejects native (5.651769ms)
+✔ metadata parsing accepts Windows line endings and a UTF-8 BOM (10.488732ms)
+✔ the copyable entrypoint contains a complete JSON-backed shell and pinned CDN integrity (4.083894ms)
+✔ 46-node blind input and first outputs remain byte-for-byte immutable (8.520308ms)
+✔ current branding uses Inform UI while the reference and immutable historical records stay explicit (22.134514ms)
+✔ root discovers every registered node while complete guide retains deep contracts without an artificial size ceiling (8.686403ms)
+✔ upcoming source package is independently pinned and never upgrades accepted counts (42.283569ms)
+✔ all generated full/subset/example bytes are locked with unique ownership (264.453034ms)
+✔ new Base guidance is inline and frozen37 guidance prefix remains exact (29.294569ms)
+✔ negative examples distinguish semantic defects from legal incomplete poll drafts (4.9628ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1972.643088

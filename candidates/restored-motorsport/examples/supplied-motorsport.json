@@ -1,0 +1,147 @@
+{
+  "version": "iui/1",
+  "title": "Fictional motorsport records for local reading",
+  "body": [
+    {
+      "type": "f1-races",
+      "id": "supplied-weekends",
+      "label": "Supplied fictional weekend schedule",
+      "description": "Original synthetic data. Session status and offset times are supplied, never inferred from the current clock.",
+      "races": [
+        {
+          "id": "estuary",
+          "label": "Estuary Practice Weekend",
+          "season": 2028,
+          "round": 1,
+          "circuit": "Synthetic Estuary Circuit",
+          "location": "Sample Coast",
+          "sessions": [
+            {
+              "id": "qualifying",
+              "label": "Supplied qualifying",
+              "kind": "qualifying",
+              "status": "complete",
+              "startsAt": "2028-02-29T23:30-02:00",
+              "endsAt": "2028-03-01T03:00Z",
+              "note": "Original offsets remain visible; no local-zone conversion is implied."
+            },
+            {
+              "id": "race",
+              "label": "Supplied main session",
+              "kind": "race",
+              "status": "scheduled",
+              "startsAt": "2028-03-02T10:00+05:30"
+            }
+          ]
+        },
+        {
+          "id": "plateau",
+          "label": "Plateau Weekend",
+          "season": 2028,
+          "round": 2,
+          "circuit": "Synthetic Plateau Circuit",
+          "location": "Sample Highlands",
+          "sessions": [
+            {
+              "id": "race",
+              "label": "Postponed session",
+              "kind": "race",
+              "status": "postponed",
+              "startsAt": null
+            },
+            {
+              "id": "practice",
+              "label": "Unconfirmed practice",
+              "kind": "practice",
+              "status": "unknown",
+              "startsAt": null
+            }
+          ]
+        },
+        {
+          "id": "archive",
+          "label": "Archive Weekend",
+          "season": 2027,
+          "round": 1,
+          "circuit": "Synthetic Archive Circuit",
+          "location": "Sample City",
+          "sessions": []
+        }
+      ]
+    },
+    {
+      "type": "f1-standings",
+      "id": "supplied-ranking",
+      "label": "Supplied fictional standings snapshot",
+      "season": 2028,
+      "observedAt": "2028-03-02T04:30Z",
+      "description": "No scoring rule or tie-break is calculated. Points and ranks remain supplied values.",
+      "standings": [
+        {
+          "id": "river",
+          "label": "River Sample",
+          "kind": "driver",
+          "team": "Sample Coast",
+          "rank": 2,
+          "points": 18.5,
+          "wins": 0,
+          "note": "A supplied tie without an invented tie-break."
+        },
+        {
+          "id": "morgan",
+          "label": "Morgan Sample",
+          "kind": "driver",
+          "team": "Sample Hills",
+          "rank": 1,
+          "points": 25,
+          "wins": 1
+        },
+        {
+          "id": "avery",
+          "label": "Avery Sample",
+          "kind": "driver",
+          "team": "Sample Coast",
+          "rank": 2,
+          "points": 18.5,
+          "wins": null
+        },
+        {
+          "id": "zero",
+          "label": "Zero Sample",
+          "kind": "driver",
+          "rank": 5,
+          "points": 0,
+          "wins": 0
+        },
+        {
+          "id": "penalty",
+          "label": "Penalty Sample",
+          "kind": "driver",
+          "rank": 6,
+          "points": -0.5
+        },
+        {
+          "id": "unknown",
+          "label": "Unknown Sample",
+          "kind": "driver",
+          "rank": null,
+          "points": null
+        },
+        {
+          "id": "coast",
+          "label": "Sample Coast",
+          "kind": "constructor",
+          "rank": 1,
+          "points": 999
+        },
+        {
+          "id": "hills",
+          "label": "Sample Hills",
+          "kind": "constructor",
+          "rank": 2,
+          "points": 25
+        }
+      ]
+    }
+  ]
+}

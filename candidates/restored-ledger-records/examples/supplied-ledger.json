@@ -1,0 +1,16 @@
+{
+ "version":"iui/1",
+ "title":"Read finite practice ledger records",
+ "body":[
+  {"type":"ledger-accounts","id":"practice-accounts","label":"Supplied practice account snapshots","accounts":[
+   {"id":"zero","label":"Practice cash zero","institution":"Synthetic North","kind":"cash","status":"active","suffix":"0042","balance":{"amount":"-0.0000","currency":"USD"},"observedAt":"2028-02-29T12:30Z","note":"The supplied sign and decimal places are retained; this is not a bank connection."},
+   {"id":"precise","label":"Practice exact balance","institution":"Synthetic South","kind":"investment","status":"active","balance":{"amount":"999999999999999999.000000000000000001","currency":"EUR"}},
+   {"id":"unknown","label":"Practice unknown balance","institution":"Synthetic North","kind":"other","status":"unknown","balance":{"amount":null,"currency":"JPY"}}
+  ]},
+  {"type":"ledger-recurring-transactions","id":"practice-recurring","label":"Supplied practice recurring records","records":[
+   {"id":"refund","label":"Supplied periodic credit","cadence":"monthly","status":"scheduled","direction":"incoming","estimatedAmount":{"amount":"-0.100000000000000001","currency":"USD"},"nextDate":"2028-03-01","note":"The supplied direction is kept; the signed amount is not reclassified."},
+   {"id":"paused","label":"Supplied paused membership","cadence":"yearly","status":"paused","direction":"outgoing","estimatedAmount":{"amount":"25.0000","currency":"EUR"},"nextDate":"2028-04-01"},
+   {"id":"undated","label":"Supplied undated item","cadence":"unknown","status":"unknown","direction":"unknown"}
+  ],"initialReviewedIds":["paused"]}
+ ]
+}

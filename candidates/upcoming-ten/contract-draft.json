@@ -1,0 +1,44 @@
+{
+  "format": "inform-reviewed-contract-draft/1",
+  "candidateOnly": true,
+  "skillBaseline": "a586a6bea9c82376152c73dd7cfcdf1634c5383f",
+  "historicalIntegratedAsset": "990d7e4af2a4cde6f01db4be628863c0378b011e",
+  "futureIntegratedAsset": null,
+  "expectedFutureProtocolNodes": 107,
+  "observedDraftProtocolNodes": 106,
+  "reviewedSourceCheckpoints": {
+    "localPlaces": "ecdafd3356349508a998774738662170c5a91079",
+    "flightDiscovery": "de9e5bac81b93a004031048f4e013ed1c56a1997"
+  },
+  "newCanonical": [
+    "local-business",
+    "restaurant-reviews",
+    "flight-search-form",
+    "flight-results"
+  ],
+  "group": "base",
+  "guidanceLiterals": 4,
+  "negativeCases": 33,
+  "positiveBoundaries": 12,
+  "sourceFiles": {
+    "guidance-source.md": "615b5018bddb4d1a83105f20e9762b80c4a8f99092947ed2888c6c7812d18d37",
+    "examples/local-places.json": "979dc6ea519b8ef3aeb76de1e413e2cec47bd5dc541d1c3ba4b2d07feca83f3a",
+    "examples/flight-discovery.json": "17cfc7e6ab0373a9679288e75c4603cc8b3f266803885db2a142a97d71bcfff1",
+    "four-rejections.json": "ad1268e367b33466e9f30490c6e9c2995b7509c154292f254245293c1ea853cd",
+    "four-positive-boundaries.json": "067e1092073912904d41dc45d448c376e23d833e8f4a6319acecbe52f7c453e9",
+    "verify-four-contracts.mjs": "9fc96e5ea4c60f9168596d6ee2b5447a82f485916c64fb8064557d7ae92a6b66",
+    "verify-four-interactions.mjs": "174f0a2365bd1c4d2ec9fa5b5169591e18df8d8eb145519550589004981eed51",
+    "evidence/draft106-four-contracts.json": "2a6d80ef319337ab601420098259b5f1969c460bdbe0fb54c1f170fa74c329d8",
+    "evidence/draft106-four-contracts.log": "261bd2adad4820e7ea477c5467ac64fa07af94240c3a36731c33713410d5e8a2",
+    "evidence/draft106-four-interactions.json": "8d1c0bf61ce95a2606074eda219eb3fc348b02f7fdbe1e935173735a3c9feb99",
+    "evidence/draft106-four-interactions.log": "7917830d1958f9c762654da4689d87b1c95a0239d74d46d598eafc727591f3f6"
+  },
+  "verification": {
+    "draftWorkingTree": true,
+    "immutableCombinedRuntime": false,
+    "nativeBrowser": "not-run",
+    "cdn": "not-run",
+    "ci": "not-run",
+    "acceptancePromotion": false
+  }
+}

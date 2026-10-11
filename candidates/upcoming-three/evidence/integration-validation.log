@@ -1,0 +1,16 @@
+PASS 360 exact proof inputs, 134 runtime files, regenerated23 schemas and 56 committed examples; source-only
+PASS fixture create-interactive-poll: full/Base/node schema, API/browser parity, deterministic compile and CLI bytes
+PASS fixture mail-files: full/Base/node schema, API/browser parity, deterministic compile and CLI bytes
+PASS upcoming draft: 2 fixtures, 3 Base nodes, 2 literals, 23 negative cases, JSDOM local poll checks. No acceptance promotion.
+PASS schema group base: closed document/node ownership and 36 supplied examples
+PASS schema group forms: closed document/node ownership and 6 supplied examples
+PASS schema group charts: closed document/node ownership and 3 supplied examples
+PASS schema group graphics: closed document/node ownership and 1 supplied examples
+PASS schema group weather: closed document/node ownership and 1 supplied examples
+PASS schema group sports: closed document/node ownership and 1 supplied examples
+PASS schema group learning: closed document/node ownership and 4 supplied examples
+PASS schema group finance: closed document/node ownership and 2 supplied examples
+PASS schema group converters: closed document/node ownership and 1 supplied examples
+PASS schema group time: closed document/node ownership and 1 supplied examples
+PASS schema group compatibility: closed document/node ownership and 0 supplied examples
+PASS upcoming100: all11 domain ownership boundaries,23 schemas,56 indexed examples, immutable baseline37 prefix and exact inline Base guidance

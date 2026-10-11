@@ -1,0 +1,574 @@
+[
+  {
+    "name": "duplicate job",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "engineer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/jobs/1/id"
+  },
+  {
+    "name": "invalid date",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2027-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "JOB_DATE",
+    "path": "/body/0/jobs/0/postedDate"
+  },
+  {
+    "name": "deadline before posting",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-02-28",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "JOB_DATE_ORDER",
+    "path": "/body/0/jobs/0/deadlineDate"
+  },
+  {
+    "name": "reversed salary",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 1,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "JOB_PAY_RANGE",
+    "path": "/body/0/jobs/0/salary/maximum"
+  },
+  {
+    "name": "unsafe job link",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "javascript:bad()"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/jobs/0/url"
+  },
+  {
+    "name": "duplicate variant",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "plain",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          }
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/variants/1/id"
+  },
+  {
+    "name": "missing variant",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          },
+          "initialVariantId": "missing"
+        }
+      ]
+    },
+    "code": "PRODUCT_VARIANT",
+    "path": "/body/0/initialVariantId"
+  },
+  {
+    "name": "remote image",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          },
+          "image": {
+            "src": "https://example.org/image.png",
+            "alt": "Synthetic"
+          }
+        }
+      ]
+    },
+    "code": "PRODUCT_IMAGE",
+    "path": "/body/0/image/src"
+  },
+  {
+    "name": "unsafe product source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "file:///private"
+          }
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/source/url"
+  },
+  {
+    "name": "fraction initial quantity",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1.5,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "provider extra",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ],
+          "provider": "invented"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  }
+]

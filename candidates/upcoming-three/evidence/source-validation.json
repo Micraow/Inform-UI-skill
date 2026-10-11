@@ -1,0 +1,46 @@
+{
+  "format": "inform-upcoming-three-authoring-source-check/1",
+  "draft": true,
+  "libraryHead": "3858d0a502956d283f3d60ab8c2481f691e50522",
+  "libraryDirty": false,
+  "sourceInputs": {
+    "dist/index.js": "5b098ef32a7951478f929ecc909ddd4f2833bad51adcd889366aec5f003008ed",
+    "dist/browser.js": "1764a87c0727cc16a034f64206f2334db1ec6c44ab515c135148ab220d2f30e6",
+    "dist/standalone.js": "dc6206944afd924c9340a385f8a8090ece37fc0f3237197de17b3bfac5a7c0ef",
+    "dist/style.css": "b454a88784a083fc9700dc600cca1d3d69d0f1981e795a38493d09e1ae78cca4",
+    "src/schema/iui.schema.json": "ed80c9791b33618f223b97e0315af964f2be4e60451600448b4b1c38ed121d0d",
+    "src/schema/fragments/index.json": "07fc2f737ce056af5476c6813d5e619969313e98d680f49606b50832466ac9d7",
+    "src/schema/fragments/base.schema.json": "8cbffa5ccd6b26a356130b96aaf82805e7200c577b5d3ce61ff173eabe7c5819",
+    "src/schema/fragments/nodes/base.schema.json": "1be07cd007ea510a0f64749c5ead41c9a669bd19d0b42fb2faba61e79a54d9a5",
+    "docs/create-interactive-poll.md": "ee9b3005428bfbf3926051f06d2d1bd6e1848d8e071ceb20d8157199eb0fbde9",
+    "docs/mail-files.md": "905f2bc791ad48d4cebef6d4f2a3b2f723b1d99ae71211d5b933d2dbbd935a33"
+  },
+  "protocolNodes": 100,
+  "acceptedCanonical": 53,
+  "currentPendingCanonical": 37,
+  "upcomingCanonical": 3,
+  "fixtures": [
+    {
+      "name": "create-interactive-poll",
+      "sha256": "79410a06d521a1f5ece89ec072dc175ba0069da7bb98653d1e53d2d8af578396",
+      "htmlSha256": "28d09bd68837577c05ab4a4011af1b34588e11ba1d8f9dbf00bc33a231df8577"
+    },
+    {
+      "name": "mail-files",
+      "sha256": "69e6e96dfa40c5fb06061ae16a6b2fb3d8c4a9e84022eb0ee750897210922cff",
+      "htmlSha256": "c85e991614cf7e49d01703c847b0d3df0381f71ea3ecd0cc140fea49a937165e"
+    }
+  ],
+  "guidanceLiterals": 2,
+  "negativeCases": 23,
+  "pollRuntimeChecks": [
+    "blank draft validates but Prepare rejects",
+    "trimmed duplicate labels reject Prepare",
+    "exact strings preserved in frozen local event",
+    "atomic invalid update",
+    "idempotent disposal"
+  ],
+  "browser": "not-run",
+  "cdn": "not-run",
+  "ci": "not-run"
+}

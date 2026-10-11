@@ -12,8 +12,72 @@
     "status": "portable"
   },
   {
+    "type": "agenda",
+    "status": "portable"
+  },
+  {
+    "type": "person-profile",
+    "status": "portable"
+  },
+  {
+    "type": "news-article",
+    "status": "portable"
+  },
+  {
+    "type": "entity-reviews",
+    "status": "portable"
+  },
+  {
+    "type": "restaurant-availability",
+    "status": "portable"
+  },
+  {
+    "type": "onboarding-selection",
+    "status": "portable"
+  },
+  {
+    "type": "location-choice-request",
+    "status": "portable"
+  },
+  {
+    "type": "business-gallery",
+    "status": "portable"
+  },
+  {
+    "type": "flight-option",
+    "status": "portable"
+  },
+  {
+    "type": "artist-upcoming-events",
+    "status": "portable"
+  },
+  {
+    "type": "package-tracker",
+    "status": "portable"
+  },
+  {
+    "type": "flight-tracker",
+    "status": "portable"
+  },
+  {
+    "type": "reddit-thread-card",
+    "status": "portable"
+  },
+  {
     "type": "markdown",
-    "status": "plain-text-fallback"
+    "status": "portable"
+  },
+  {
+    "type": "writing-block",
+    "status": "portable"
+  },
+  {
+    "type": "email-draft",
+    "status": "portable"
+  },
+  {
+    "type": "task-expansion-card",
+    "status": "portable"
   },
   {
     "type": "code",
@@ -37,6 +101,10 @@
   },
   {
     "type": "link",
+    "status": "portable"
+  },
+  {
+    "type": "favicon",
     "status": "portable"
   },
   {
@@ -120,11 +188,35 @@
     "status": "portable"
   },
   {
+    "type": "prompt-suggestions",
+    "status": "portable"
+  },
+  {
+    "type": "animate",
+    "status": "portable"
+  },
+  {
+    "type": "celebration",
+    "status": "portable"
+  },
+  {
     "type": "carousel",
     "status": "portable"
   },
   {
+    "type": "tab-panel",
+    "status": "portable"
+  },
+  {
+    "type": "tab-group",
+    "status": "portable"
+  },
+  {
     "type": "list",
+    "status": "portable"
+  },
+  {
+    "type": "restaurant-menu",
     "status": "portable"
   },
   {
@@ -148,7 +240,19 @@
     "status": "portable"
   },
   {
+    "type": "label",
+    "status": "portable"
+  },
+  {
     "type": "slider",
+    "status": "portable"
+  },
+  {
+    "type": "checklist",
+    "status": "portable"
+  },
+  {
+    "type": "rating",
     "status": "portable"
   },
   {
@@ -232,6 +336,18 @@
     "status": "portable"
   },
   {
+    "type": "fill-blank",
+    "status": "portable"
+  },
+  {
+    "type": "sentence-builder",
+    "status": "portable"
+  },
+  {
+    "type": "vocab-card",
+    "status": "portable"
+  },
+  {
     "type": "finance-quote",
     "status": "portable"
   },
@@ -245,6 +361,14 @@
   },
   {
     "type": "finance-heatmap",
+    "status": "portable"
+  },
+  {
+    "type": "asset-distribution",
+    "status": "portable"
+  },
+  {
+    "type": "transaction-list",
     "status": "portable"
   },
   {

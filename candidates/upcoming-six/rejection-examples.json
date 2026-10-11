@@ -1,0 +1,2756 @@
+[
+  {
+    "name": "duplicate poll ID",
+    "document": {
+      "version": "iui/1",
+      "title": "Original local poll composer",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "create-interactive-poll",
+          "id": "example-poll",
+          "label": "Compose an example activity poll",
+          "description": "Synthetic draft. No invitation or vote collection occurs.",
+          "question": "Which supplied activity would you prefer?",
+          "options": [
+            {
+              "id": "walk",
+              "label": "Example walking route"
+            },
+            {
+              "id": "walk",
+              "label": "Example museum visit"
+            },
+            {
+              "id": "cafe",
+              "label": "Example café stop"
+            }
+          ],
+          "multiple": false
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/options/1/id"
+  },
+  {
+    "name": "impossible sent date",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "email-preview",
+          "subject": "Example itinerary notes",
+          "from": {
+            "name": "Example sender",
+            "address": "sender@example.org"
+          },
+          "to": [
+            {
+              "name": "Example recipient",
+              "address": "recipient@example.org"
+            }
+          ],
+          "cc": [
+            {
+              "address": "observer@example.org"
+            }
+          ],
+          "sentAt": "2027-02-29T09:00Z",
+          "body": "These are supplied plain-text notes.\n\nNo mailbox is connected. Links and attachments are only the metadata supplied with this example.",
+          "quotedText": "An original quoted-text example. No external content was fetched.",
+          "attachments": [
+            {
+              "id": "notes",
+              "name": "Example notes.txt",
+              "mediaType": "text/plain",
+              "sizeBytes": 1024,
+              "url": "https://example.org/notes"
+            },
+            {
+              "id": "image",
+              "name": "Example photo metadata",
+              "mediaType": "image/png"
+            }
+          ],
+          "source": {
+            "label": "Synthetic message source",
+            "url": "https://example.org/message"
+          }
+        }
+      ]
+    },
+    "code": "READER_TIME",
+    "path": "/body/0/sentAt"
+  },
+  {
+    "name": "duplicate attachment",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "email-preview",
+          "subject": "Example itinerary notes",
+          "from": {
+            "name": "Example sender",
+            "address": "sender@example.org"
+          },
+          "to": [
+            {
+              "name": "Example recipient",
+              "address": "recipient@example.org"
+            }
+          ],
+          "cc": [
+            {
+              "address": "observer@example.org"
+            }
+          ],
+          "sentAt": "2028-02-29T09:00+01:00",
+          "body": "These are supplied plain-text notes.\n\nNo mailbox is connected. Links and attachments are only the metadata supplied with this example.",
+          "quotedText": "An original quoted-text example. No external content was fetched.",
+          "attachments": [
+            {
+              "id": "notes",
+              "name": "Example notes.txt",
+              "mediaType": "text/plain",
+              "sizeBytes": 1024,
+              "url": "https://example.org/notes"
+            },
+            {
+              "id": "notes",
+              "name": "Example photo metadata",
+              "mediaType": "image/png"
+            }
+          ],
+          "source": {
+            "label": "Synthetic message source",
+            "url": "https://example.org/message"
+          }
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/attachments/1/id"
+  },
+  {
+    "name": "unsafe attachment",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "email-preview",
+          "subject": "Example itinerary notes",
+          "from": {
+            "name": "Example sender",
+            "address": "sender@example.org"
+          },
+          "to": [
+            {
+              "name": "Example recipient",
+              "address": "recipient@example.org"
+            }
+          ],
+          "cc": [
+            {
+              "address": "observer@example.org"
+            }
+          ],
+          "sentAt": "2028-02-29T09:00+01:00",
+          "body": "These are supplied plain-text notes.\n\nNo mailbox is connected. Links and attachments are only the metadata supplied with this example.",
+          "quotedText": "An original quoted-text example. No external content was fetched.",
+          "attachments": [
+            {
+              "id": "notes",
+              "name": "Example notes.txt",
+              "mediaType": "text/plain",
+              "sizeBytes": 1024,
+              "url": "javascript:alert(1)"
+            },
+            {
+              "id": "image",
+              "name": "Example photo metadata",
+              "mediaType": "image/png"
+            }
+          ],
+          "source": {
+            "label": "Synthetic message source",
+            "url": "https://example.org/message"
+          }
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/attachments/0/url"
+  },
+  {
+    "name": "credential source",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "email-preview",
+          "subject": "Example itinerary notes",
+          "from": {
+            "name": "Example sender",
+            "address": "sender@example.org"
+          },
+          "to": [
+            {
+              "name": "Example recipient",
+              "address": "recipient@example.org"
+            }
+          ],
+          "cc": [
+            {
+              "address": "observer@example.org"
+            }
+          ],
+          "sentAt": "2028-02-29T09:00+01:00",
+          "body": "These are supplied plain-text notes.\n\nNo mailbox is connected. Links and attachments are only the metadata supplied with this example.",
+          "quotedText": "An original quoted-text example. No external content was fetched.",
+          "attachments": [
+            {
+              "id": "notes",
+              "name": "Example notes.txt",
+              "mediaType": "text/plain",
+              "sizeBytes": 1024,
+              "url": "https://example.org/notes"
+            },
+            {
+              "id": "image",
+              "name": "Example photo metadata",
+              "mediaType": "image/png"
+            }
+          ],
+          "source": {
+            "label": "Synthetic message source",
+            "url": "https://user:password@example.org/"
+          }
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/source/url"
+  },
+  {
+    "name": "missing parent",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder.",
+              "parentId": "absent"
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "FILE_PARENT",
+    "path": "/body/0/entries/0/parentId"
+  },
+  {
+    "name": "file parent",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder.",
+              "parentId": "readme"
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "FILE_PARENT",
+    "path": "/body/0/entries/0/parentId"
+  },
+  {
+    "name": "cycle",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder.",
+              "parentId": "travel"
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "FILE_CYCLE",
+    "path": "/body/0/entries/0/parentId"
+  },
+  {
+    "name": "missing initial folder",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder."
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ],
+          "initialFolderId": "absent"
+        }
+      ]
+    },
+    "code": "FILE_FOLDER",
+    "path": "/body/0/initialFolderId"
+  },
+  {
+    "name": "file initial folder",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder."
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ],
+          "initialFolderId": "readme"
+        }
+      ]
+    },
+    "code": "FILE_FOLDER",
+    "path": "/body/0/initialFolderId"
+  },
+  {
+    "name": "duplicate entry",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder."
+            },
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/entries/1/id"
+  },
+  {
+    "name": "impossible file date",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder."
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme",
+              "modifiedAt": "2027-02-29T09:00Z"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "READER_TIME",
+    "path": "/body/0/entries/2/modifiedAt"
+  },
+  {
+    "name": "unsafe file link",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder."
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "data:text/plain,secret"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/entries/2/url"
+  },
+  {
+    "name": "fifth ancestor",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "folder0",
+              "name": "Folder 0",
+              "kind": "folder"
+            },
+            {
+              "id": "folder1",
+              "name": "Folder 1",
+              "kind": "folder",
+              "parentId": "folder0"
+            },
+            {
+              "id": "folder2",
+              "name": "Folder 2",
+              "kind": "folder",
+              "parentId": "folder1"
+            },
+            {
+              "id": "folder3",
+              "name": "Folder 3",
+              "kind": "folder",
+              "parentId": "folder2"
+            },
+            {
+              "id": "folder4",
+              "name": "Folder 4",
+              "kind": "folder",
+              "parentId": "folder3"
+            },
+            {
+              "id": "folder5",
+              "name": "Folder 5",
+              "kind": "folder",
+              "parentId": "folder4"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "FILE_DEPTH",
+    "path": "/body/0/entries/5/parentId"
+  },
+  {
+    "name": "poll provider",
+    "document": {
+      "version": "iui/1",
+      "title": "Original local poll composer",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "create-interactive-poll",
+          "id": "example-poll",
+          "label": "Compose an example activity poll",
+          "description": "Synthetic draft. No invitation or vote collection occurs.",
+          "question": "Which supplied activity would you prefer?",
+          "options": [
+            {
+              "id": "walk",
+              "label": "Example walking route"
+            },
+            {
+              "id": "museum",
+              "label": "Example museum visit"
+            },
+            {
+              "id": "cafe",
+              "label": "Example café stop"
+            }
+          ],
+          "multiple": false,
+          "provider": "remote"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "poll too few",
+    "document": {
+      "version": "iui/1",
+      "title": "Original local poll composer",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "create-interactive-poll",
+          "id": "example-poll",
+          "label": "Compose an example activity poll",
+          "description": "Synthetic draft. No invitation or vote collection occurs.",
+          "question": "Which supplied activity would you prefer?",
+          "options": [
+            {
+              "id": "walk",
+              "label": "Example walking route"
+            }
+          ],
+          "multiple": false
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "poll too many",
+    "document": {
+      "version": "iui/1",
+      "title": "Original local poll composer",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "create-interactive-poll",
+          "id": "example-poll",
+          "label": "Compose an example activity poll",
+          "description": "Synthetic draft. No invitation or vote collection occurs.",
+          "question": "Which supplied activity would you prefer?",
+          "options": [
+            {
+              "id": "x0",
+              "label": "x"
+            },
+            {
+              "id": "x1",
+              "label": "x"
+            },
+            {
+              "id": "x2",
+              "label": "x"
+            },
+            {
+              "id": "x3",
+              "label": "x"
+            },
+            {
+              "id": "x4",
+              "label": "x"
+            },
+            {
+              "id": "x5",
+              "label": "x"
+            },
+            {
+              "id": "x6",
+              "label": "x"
+            },
+            {
+              "id": "x7",
+              "label": "x"
+            },
+            {
+              "id": "x8",
+              "label": "x"
+            }
+          ],
+          "multiple": false
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "poll question overflow",
+    "document": {
+      "version": "iui/1",
+      "title": "Original local poll composer",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "create-interactive-poll",
+          "id": "example-poll",
+          "label": "Compose an example activity poll",
+          "description": "Synthetic draft. No invitation or vote collection occurs.",
+          "question": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "options": [
+            {
+              "id": "walk",
+              "label": "Example walking route"
+            },
+            {
+              "id": "museum",
+              "label": "Example museum visit"
+            },
+            {
+              "id": "cafe",
+              "label": "Example café stop"
+            }
+          ],
+          "multiple": false
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "poll label overflow",
+    "document": {
+      "version": "iui/1",
+      "title": "Original local poll composer",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "create-interactive-poll",
+          "id": "example-poll",
+          "label": "Compose an example activity poll",
+          "description": "Synthetic draft. No invitation or vote collection occurs.",
+          "question": "Which supplied activity would you prefer?",
+          "options": [
+            {
+              "id": "walk",
+              "label": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            },
+            {
+              "id": "museum",
+              "label": "Example museum visit"
+            },
+            {
+              "id": "cafe",
+              "label": "Example café stop"
+            }
+          ],
+          "multiple": false
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "HTML property",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "email-preview",
+          "subject": "Example itinerary notes",
+          "from": {
+            "name": "Example sender",
+            "address": "sender@example.org"
+          },
+          "to": [
+            {
+              "name": "Example recipient",
+              "address": "recipient@example.org"
+            }
+          ],
+          "cc": [
+            {
+              "address": "observer@example.org"
+            }
+          ],
+          "sentAt": "2028-02-29T09:00+01:00",
+          "body": "These are supplied plain-text notes.\n\nNo mailbox is connected. Links and attachments are only the metadata supplied with this example.",
+          "quotedText": "An original quoted-text example. No external content was fetched.",
+          "attachments": [
+            {
+              "id": "notes",
+              "name": "Example notes.txt",
+              "mediaType": "text/plain",
+              "sizeBytes": 1024,
+              "url": "https://example.org/notes"
+            },
+            {
+              "id": "image",
+              "name": "Example photo metadata",
+              "mediaType": "image/png"
+            }
+          ],
+          "source": {
+            "label": "Synthetic message source",
+            "url": "https://example.org/message"
+          },
+          "html": "<b>bad</b>"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "negative bytes",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "email-preview",
+          "subject": "Example itinerary notes",
+          "from": {
+            "name": "Example sender",
+            "address": "sender@example.org"
+          },
+          "to": [
+            {
+              "name": "Example recipient",
+              "address": "recipient@example.org"
+            }
+          ],
+          "cc": [
+            {
+              "address": "observer@example.org"
+            }
+          ],
+          "sentAt": "2028-02-29T09:00+01:00",
+          "body": "These are supplied plain-text notes.\n\nNo mailbox is connected. Links and attachments are only the metadata supplied with this example.",
+          "quotedText": "An original quoted-text example. No external content was fetched.",
+          "attachments": [
+            {
+              "id": "notes",
+              "name": "Example notes.txt",
+              "mediaType": "text/plain",
+              "sizeBytes": -1,
+              "url": "https://example.org/notes"
+            },
+            {
+              "id": "image",
+              "name": "Example photo metadata",
+              "mediaType": "image/png"
+            }
+          ],
+          "source": {
+            "label": "Synthetic message source",
+            "url": "https://example.org/message"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "folder bytes",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "travel",
+              "kind": "folder",
+              "name": "Travel notes",
+              "description": "A supplied folder.",
+              "sizeBytes": 0
+            },
+            {
+              "id": "empty",
+              "kind": "folder",
+              "name": "Empty folder"
+            },
+            {
+              "id": "readme",
+              "kind": "file",
+              "name": "Readme.txt",
+              "category": "document",
+              "mediaType": "text/plain",
+              "sizeBytes": 0,
+              "url": "https://example.org/readme"
+            },
+            {
+              "id": "pdf",
+              "parentId": "travel",
+              "kind": "file",
+              "name": "Itinerary.pdf",
+              "category": "document",
+              "sizeBytes": 32768,
+              "modifiedAt": "2028-02-29T08:00Z",
+              "url": "https://example.org/itinerary"
+            },
+            {
+              "id": "photos",
+              "parentId": "travel",
+              "kind": "folder",
+              "name": "Photo metadata"
+            },
+            {
+              "id": "photo",
+              "parentId": "photos",
+              "kind": "file",
+              "name": "Example view.png",
+              "category": "image",
+              "mediaType": "image/png",
+              "description": "Only metadata. No thumbnail is requested."
+            },
+            {
+              "id": "unknown",
+              "kind": "file",
+              "name": "Unknown metadata"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "too many entries",
+    "document": {
+      "version": "iui/1",
+      "title": "Original synthetic message and file metadata",
+      "state": {
+        "other": 0
+      },
+      "body": [
+        {
+          "type": "file-nav-list",
+          "label": "Example supplied files",
+          "description": "Synthetic metadata, not a filesystem connection.",
+          "entries": [
+            {
+              "id": "x0",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x1",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x2",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x3",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x4",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x5",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x6",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x7",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x8",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x9",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x10",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x11",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x12",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x13",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x14",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x15",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x16",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x17",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x18",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x19",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x20",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x21",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x22",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x23",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x24",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x25",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x26",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x27",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x28",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x29",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x30",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x31",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x32",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x33",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x34",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x35",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x36",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x37",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x38",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x39",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x40",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x41",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x42",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x43",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x44",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x45",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x46",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x47",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x48",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x49",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x50",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x51",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x52",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x53",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x54",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x55",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x56",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x57",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x58",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x59",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x60",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x61",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x62",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x63",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x64",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x65",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x66",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x67",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x68",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x69",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x70",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x71",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x72",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x73",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x74",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x75",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x76",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x77",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x78",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x79",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x80",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x81",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x82",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x83",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x84",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x85",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x86",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x87",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x88",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x89",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x90",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x91",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x92",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x93",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x94",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x95",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x96",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x97",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x98",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x99",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x100",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x101",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x102",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x103",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x104",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x105",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x106",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x107",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x108",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x109",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x110",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x111",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x112",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x113",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x114",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x115",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x116",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x117",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x118",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x119",
+              "name": "x",
+              "kind": "file"
+            },
+            {
+              "id": "x120",
+              "name": "x",
+              "kind": "file"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "duplicate job",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "engineer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/jobs/1/id"
+  },
+  {
+    "name": "invalid date",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2027-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "JOB_DATE",
+    "path": "/body/0/jobs/0/postedDate"
+  },
+  {
+    "name": "deadline before posting",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-02-28",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "JOB_DATE_ORDER",
+    "path": "/body/0/jobs/0/deadlineDate"
+  },
+  {
+    "name": "reversed salary",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 1,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "JOB_PAY_RANGE",
+    "path": "/body/0/jobs/0/salary/maximum"
+  },
+  {
+    "name": "unsafe job link",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "javascript:bad()"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/jobs/0/url"
+  },
+  {
+    "name": "duplicate variant",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "plain",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          }
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/variants/1/id"
+  },
+  {
+    "name": "missing variant",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          },
+          "initialVariantId": "missing"
+        }
+      ]
+    },
+    "code": "PRODUCT_VARIANT",
+    "path": "/body/0/initialVariantId"
+  },
+  {
+    "name": "remote image",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          },
+          "image": {
+            "src": "https://example.org/image.png",
+            "alt": "Synthetic"
+          }
+        }
+      ]
+    },
+    "code": "PRODUCT_IMAGE",
+    "path": "/body/0/image/src"
+  },
+  {
+    "name": "unsafe product source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "file:///private"
+          }
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/source/url"
+  },
+  {
+    "name": "fraction initial quantity",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "product-card",
+          "id": "sample-product",
+          "productId": "example-notebook",
+          "name": "Example notebook",
+          "brand": "Example brand",
+          "seller": "Example seller",
+          "description": "An original product fixture; no real offer or checkout.",
+          "availability": "unknown",
+          "price": {
+            "amount": 12.5,
+            "currency": "USD"
+          },
+          "variants": [
+            {
+              "id": "plain",
+              "label": "Plain cover",
+              "availability": "available"
+            },
+            {
+              "id": "grid",
+              "label": "Grid cover",
+              "availability": "unknown",
+              "price": {
+                "amount": 13.75,
+                "currency": "USD"
+              }
+            },
+            {
+              "id": "unavailable",
+              "label": "Unavailable example",
+              "availability": "unavailable"
+            }
+          ],
+          "initialQuantity": 1.5,
+          "source": {
+            "label": "Synthetic product source",
+            "url": "https://example.org/product"
+          }
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "provider extra",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "jobs",
+          "id": "supplied-jobs",
+          "label": "Example supplied opportunities",
+          "description": "Fictional records for demonstrating local filtering only.",
+          "jobs": [
+            {
+              "id": "engineer",
+              "title": "Example engineer",
+              "organization": "Example Studio",
+              "location": "Example region",
+              "workplace": "remote",
+              "employment": "full-time",
+              "salary": {
+                "minimum": 100000,
+                "maximum": 130000,
+                "currency": "USD",
+                "period": "year"
+              },
+              "postedDate": "2028-02-29",
+              "deadlineDate": "2028-03-20",
+              "description": "Original illustrative role description, not a live opening.",
+              "url": "https://example.org/jobs/engineer"
+            },
+            {
+              "id": "designer",
+              "title": "Example designer",
+              "organization": "Example Workshop",
+              "location": "Example city",
+              "workplace": "hybrid",
+              "employment": "contract",
+              "description": "A second synthetic supplied role."
+            },
+            {
+              "id": "assistant",
+              "title": "Example assistant",
+              "organization": "Example Studio",
+              "location": "Location label as supplied",
+              "workplace": "unknown",
+              "employment": "part-time"
+            }
+          ],
+          "provider": "invented"
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "duplicate question",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "scope",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/items/1/id"
+  },
+  {
+    "name": "unknown expansion",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "missing-id"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "QUESTION_REFERENCE",
+    "path": "/body/0/expanded/0"
+  },
+  {
+    "name": "duplicate expansion",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope",
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/expanded/1"
+  },
+  {
+    "name": "unsafe answer source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://user:password@example.org"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/items/0/sources/0/url"
+  },
+  {
+    "name": "missing answer field",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?"
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "HTML field",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ],
+              "html": "<b>bad</b>"
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "too many sources",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  }
+]

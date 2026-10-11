@@ -1,0 +1,307 @@
+[
+  {
+    "name": "duplicate question",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "scope",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/items/1/id"
+  },
+  {
+    "name": "unknown expansion",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "missing-id"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "QUESTION_REFERENCE",
+    "path": "/body/0/expanded/0"
+  },
+  {
+    "name": "duplicate expansion",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope",
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "DUPLICATE_ID",
+    "path": "/body/0/expanded/1"
+  },
+  {
+    "name": "unsafe answer source",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://user:password@example.org"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "UNSAFE_URL",
+    "path": "/body/0/items/0/sources/0/url"
+  },
+  {
+    "name": "missing answer field",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?"
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "HTML field",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Example source",
+                  "url": "https://example.org/reference"
+                }
+              ],
+              "html": "<b>bad</b>"
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  },
+  {
+    "name": "too many sources",
+    "document": {
+      "version": "iui/1",
+      "body": [
+        {
+          "type": "sidebar-people-also-ask",
+          "label": "Questions about the supplied sample",
+          "description": "Original demonstration text; no remote answer service.",
+          "expanded": [
+            "scope"
+          ],
+          "items": [
+            {
+              "id": "scope",
+              "question": "What does this sample provide?",
+              "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+              "sources": [
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                },
+                {
+                  "label": "Synthetic",
+                  "url": "https://example.org/"
+                }
+              ]
+            },
+            {
+              "id": "missing",
+              "question": "Has the source been independently verified?",
+              "answer": null
+            },
+            {
+              "id": "literal",
+              "question": "Can the answer contain markup?",
+              "answer": "<script>literal text</script> is displayed as text, never run."
+            }
+          ]
+        }
+      ]
+    },
+    "code": "SCHEMA"
+  }
+]

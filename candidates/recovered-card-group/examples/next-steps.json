@@ -1,0 +1,57 @@
+{
+  "version": "iui/1",
+  "title": "A queueing example: choose what to inspect",
+  "theme": "light",
+  "body": [
+    {
+      "type": "title",
+      "level": 1,
+      "value": "What changes when two flows share a link?"
+    },
+    {
+      "type": "text",
+      "value": "This is a supplied teaching scenario. A shared output link can become the limiting resource even when the upstream links have spare capacity. Choose the next explanation you want to inspect."
+    },
+    {
+      "type": "follow-up-card-group",
+      "id": "queueing-next-steps",
+      "label": "Choose a next step for the queueing example",
+      "items": [
+        {
+          "id": "assumptions",
+          "label": "Inspect the assumptions",
+          "description": "Review the supplied model before comparing any loads.",
+          "emoji": "🔎",
+          "intent": {
+            "kind": "query",
+            "query": "Explain the assumptions of this supplied two-flow queueing example."
+          }
+        },
+        {
+          "id": "source",
+          "label": "Read the supplied reference",
+          "description": "This sample records a destination intent without opening it.",
+          "emoji": "📖",
+          "intent": {
+            "kind": "url",
+            "url": "https://example.org/queueing-reference"
+          }
+        },
+        {
+          "id": "outline",
+          "label": "Prepare an explanation outline",
+          "description": "A host may offer the supplied outline request for review.",
+          "intent": {
+            "kind": "prefill",
+            "surface": "work",
+            "query": "Outline a short explanation of shared-link bottlenecks using only the supplied scenario."
+          }
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "value": "Synthetic teaching content. The example performs no search, model request or navigation."
+    }
+  ]
+}

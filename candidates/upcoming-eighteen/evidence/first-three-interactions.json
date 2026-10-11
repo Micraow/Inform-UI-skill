@@ -1,0 +1,10 @@
+{
+  "format": "inform-first-three-authoring-jsdom/1",
+  "checks": [
+    "poll frozen rows/cancelable local intent/reentry/explicit repeat/no form payload",
+    "email supplied attachment search/disclosure retention/native reset/no preview fetch",
+    "file nested folder navigation/back/heading focus/reset preserves folder/row identity"
+  ],
+  "nativeBrowser": "not-run",
+  "visualAcceptance": false
+}

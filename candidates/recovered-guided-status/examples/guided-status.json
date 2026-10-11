@@ -1,0 +1,43 @@
+{
+  "version": "iui/1",
+  "title": "Read a supplied practice snapshot",
+  "body": [
+    {
+      "type": "ledger-finance-status-banner",
+      "id": "snapshot-note",
+      "label": "Supplied snapshot completeness",
+      "data": {
+        "title": "One practice day is not supplied",
+        "description": "October 3 is absent from this synthetic snapshot. Absence does not mean zero spending or a live connection failure."
+      }
+    },
+    {
+      "type": "prompt-checklist",
+      "id": "reading-plan",
+      "label": "Supplied snapshot reading steps",
+      "status": "resolved",
+      "data": {
+        "title": "Read the supplied labels",
+        "mode": "full",
+        "tasks": [
+          {
+            "id": "labels",
+            "title": "Separate zero, refund and missing",
+            "prompts": [
+              {"id":"zero","label":"Read a true zero","promptText":"Explain why the supplied USD 0.00 is a known zero.","summary":"Keep an explicit zero distinct from absent data.","icon":"info"},
+              {"id":"refund","label":"Read a supplied refund","promptText":"Explain the supplied refund label without inferring a new transaction.","icon":"arrow-left"},
+              {"id":"missing","label":"Read an unknown amount","promptText":"Explain why an absent amount remains unknown.","icon":"warning"},
+              {"id":"extra","label":"Additional supplied choice","promptText":"This fourth supplied choice is outside the three visible detail choices."}
+            ],
+            "tryOwnPromptText": "Ask a question about these supplied labels."
+          },
+          {"id":"source","title":"Keep the original snapshot date","prompts":[],"tryOwnPromptText":"Read the date supplied with this practice snapshot."}
+        ],
+        "completedTaskIds": [],
+        "showCompletedItemsLabel": "Show earlier completed steps",
+        "tryOwnLabel": "Choose my own question",
+        "completion": {"headline":"Supplied steps are complete","body":"Completion came from the caller's snapshot. Choosing a prompt did not complete a task.","showCompletedItemsLabel":"Review supplied steps"}
+      }
+    }
+  ]
+}
