@@ -55,3 +55,5 @@ The exact140 canonical inventory is133 implemented out of256 (53 historical func
 ## Canonical scope correction
 
 The five original finite ActionBar/Conversation/ImageGrid/Upcoming/Spend APIs are **partial functional subsets**, not complete implementations awaiting only visual checks. Their missing contracts are listed in [functional subset boundaries](references/recovery-functional-subsets.md) and the machine-readable inventory. All existing test counts describe the implemented subset, and source/build locks remain unchanged. The earlier144/147 complete-implementation totals were incorrect.
+
+The next [Conversation completion data draft](candidates/conversation-completion-draft/README.md) adds original phase, optional-icon and distinct voice/new-turn fixture records. It has no new runtime schema or acceptance pin yet.
