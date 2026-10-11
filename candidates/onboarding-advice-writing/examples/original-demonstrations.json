@@ -1,0 +1,59 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "conversational-onboarding-advice",
+      "id": "advice_demo",
+      "label": "Original tabletop demonstrations",
+      "askLabel": "Supplied question",
+      "stepByStep": {
+        "label": "Arrange shapes",
+        "question": "How could three paper shapes be arranged?",
+        "title": "Original shape sequence",
+        "diagnosis": "The imaginary pieces are loose on an empty tray.",
+        "steps": [
+          "Place the drawn circle on the left.",
+          "Place the square beside it.",
+          "Keep the triangle on the right."
+        ],
+        "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAIAAAAUMWhjAAAALElEQVR4nGP4+v0nTRHDqAUj1YKQzDXkoVELRi0YtWDUAipaQEU0asEIsAAAgvRc+rQ8yewAAAAASUVORK5CYII=",
+        "imageAlt": "An original blue panel"
+      },
+      "recipe": {
+        "label": "Snack draft",
+        "question": "Show a fictional recipe layout.",
+        "name": "Invented fruit-and-oat bowl",
+        "content": "**Supplied ingredient list**\n\n- Fictional fruit\n- Fictional oats\n\nRead [the plain-text note](https://example.test/unused)."
+      },
+      "quickFix": {
+        "label": "Check the layout",
+        "question": "Why does the imagined paper model lean?",
+        "title": "Supplied layout check",
+        "diagnosticQuestion": "Are its paper feet aligned?",
+        "nextStep": "Re-read the supplied layout drawing."
+      }
+    },
+    {
+      "type": "conversational-onboarding-writing",
+      "id": "writing_demo",
+      "label": "Original writing samples",
+      "translation": {
+        "label": "Two-language sample",
+        "question": "Show two supplied lines with indentation.",
+        "sourceText": "Blue circle\n  Green square\n",
+        "translatedText": "蓝色圆形\n  绿色方形\n"
+      },
+      "email": {
+        "label": "Draft letter",
+        "question": "Show an invented club notice.",
+        "subject": "Fictional shape club",
+        "content": "Hello **imaginary team**,\n\nThe paper model demonstration is ready.\n\n[Plain-text note](https://example.test/unused)"
+      },
+      "message": {
+        "label": "Greeting draft",
+        "question": "Show a fictional robot birthday greeting.",
+        "content": "Happy model-day, **imaginary robot**.\n\nThis supplied greeting has no real recipient."
+      }
+    }
+  ]
+}

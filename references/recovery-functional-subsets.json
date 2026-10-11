@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 169,
+  "protocolNodes": 177,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 110,
+    "implemented_pending_verification": 115,
     "partial": 1,
-    "not_implemented": 92
+    "not_implemented": 87
   },
-  "completeImplementationCoverage": 163,
+  "completeImplementationCoverage": 168,
   "existingPartialId": "weather",
   "subsets": [],
-  "acceptanceBoundary": "Current source scope163/1/92 includes independent functional confirmation of the three supplied category views. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
+  "acceptanceBoundary": "Current source scope168/1/87 includes independent Voice successor and Advice/Writing functional confirmation. Protocol177 includes three later registrations not promoted here. Weather remains partial. Native/reference pixels and CI remain separate. Frozen164 CDN remains158/1/97 and older154 remains142/6/108.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -161,6 +161,41 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "d174caef6bc964f0ab35fa042bfb014600bf10ac",
       "consumer": "candidates/ledger-categories",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "learning-speak-card",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "37c30c2327def539b50278c3beded9fcf04d6da9",
+      "consumer": "candidates/voice-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "learning-voice-mode-launcher-card",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "37c30c2327def539b50278c3beded9fcf04d6da9",
+      "consumer": "candidates/voice-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "offer-voice-conversation",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "37c30c2327def539b50278c3beded9fcf04d6da9",
+      "consumer": "candidates/voice-cards",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "conversational-onboarding-advice",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "744c19b44820a951b663c9646ad011656aa65812",
+      "consumer": "candidates/onboarding-advice-writing",
+      "nativeAndPixelAcceptance": false
+    },
+    {
+      "id": "conversational-onboarding-writing",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "744c19b44820a951b663c9646ad011656aa65812",
+      "consumer": "candidates/onboarding-advice-writing",
       "nativeAndPixelAcceptance": false
     }
   ]

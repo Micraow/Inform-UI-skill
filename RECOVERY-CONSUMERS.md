@@ -139,3 +139,19 @@ Independent AskUser review passed8 functional cases on exactcbba6f19. Separate s
 External requests are0. Masking changes display labels but is not a secret-data boundary; frozen local detail still carries supplied values and masking flags. Recent/detail lists are passive. Protocol169 is only registration here; canonical promotion requires separate independent functional review. The164 frozen CDN and older source locks are unchanged, with no new native/pixel or remote CI acceptance.
 
 Independent Ledger category review passed9 functional cases on exactd174caef. Separate status source019e02cfd47a89d829c73f27420d79a952070855 records163 implemented (53 historical plus110 pending),1 partial weather and92 missing, with169 protocol registrations. This update does not rewrite the164 asset's158/1/97 frozen scope or promote native/reference pixel acceptance.
+
+## Original supplied voice family
+
+[The Voice source consumer](candidates/voice-cards/README.md) locks exact37c30c:15 positive/17 negative documents,8 DOM/compiler groups,321 unchanged historical definitions and21 selected hashes. Three original examples distinguish supplied capabilities/phases from local start/stop/play/finish receipts. Recall, all-success navigation, cancel/retry, single-flight Finish, native reset ordering and generation replacement are exercised.
+
+External requests and voice-service/device probes are both0. No microphone, speech synthesis/recognition, real session or account service is accessed. Protocol172 does not itself promote canonical scope. The independent12-case successor review confirms all3 finite presentations, including the original reset failures; old164 asset locks remain unchanged. These are source-built DOM/compiler results, with native/pixel acceptance still pending.
+
+## Original advice and writing demonstrations
+
+[The two onboarding consumers](candidates/onboarding-advice-writing/README.md) lock exact744c19b:8 positive/12 negative documents,6 DOM/compiler groups,324 unchanged prior definitions and22 selected hashes. Six complete supplied presentations preserve translation whitespace, numbered instructions, recipe/email/greeting Markdown, local cancellation and LTR/RTL/IME keyboard/reset behavior. Switching away releases the original inline image.
+
+External requests are0. No private sample, generated advice, translation service, actual message recipient or registration is involved. This174 source predates the separate Voice reset fix; that unrelated failure is not exercised or relabeled by these passing tests. The Voice consumer uses its own37c30c successor. Both remain source-built results with no new CDN/native/pixel acceptance.
+
+## Independently confirmed168 current scope
+
+Exact status-only sourcee4b0b4c3707091ca9c1463fc1aa9ddae373f99d3 records168 implemented (53 historical plus115 pending),1 partial weather and87 missing. Its177 registrations include3 later nodes not promoted by these consumers. Voice uses37c30c and Advice/Writing uses744c19b; their distinct source locks are preserved. The164 packaged asset remains158/1/97, with no new native/pixel or CI claim.
