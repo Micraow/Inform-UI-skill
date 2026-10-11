@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [FinanceEntry三族消费者](candidates/finance-entry/README.md)：准确cbaf源已验14正18负、6组实际DOM/standalone、353旧定义/19源构建锁，独立QA10/10。Repair/init、action优先prompt、prefill与followup独立且0银行/账户调用；192仅注册计数，当前完成数单独更新，576容器断点仅CSS合同证据。
+
 新增 [Task三卡消费者](candidates/task-cards/README.md)：准确ce64后继已验12正18负、6组实际DOM/standalone，350旧定义/18源构建锁。Intro/Stop确认不可用且不自产stopped，Task仅本地可取消请求；独立10/10与两focus负控已闭合，当前184完成，189仅注册计数。
 
 新增 [Capability Search组合消费者](candidates/capability-search/README.md)：准确9793源已验11正16负、6组真实DOM/standalone、345旧定义及21源构建锁，0外网/0服务。独立QA10/10已闭合，当前184完成；186为该源注册计数；它与原conversational Search是不同合同。
