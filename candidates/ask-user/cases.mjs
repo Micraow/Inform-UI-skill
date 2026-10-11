@@ -1,0 +1,25 @@
+export function buildCases(input){const positives=[['default request-only CTAs',structuredClone(input)]],negatives=[],make=edit=>{const d=structuredClone(input);edit(d.body,d);return d;},pos=(n,f)=>positives.push([n,make(f)]),bad=(n,f,code='SCHEMA',path)=>negatives.push([n,make(f),code,path]);
+ pos('explicit local reviews',b=>b.forEach(n=>n.localReview=true));
+ pos('unknown capability',b=>b.forEach(n=>delete n.enabled));
+ pos('hidden CTAs',b=>b.forEach(n=>n.showCTA=false));
+ pos('pending requests',(b,d)=>{d.body=b.map(n=>({type:n.type,label:n.label,status:'pending'}));});
+ pos('failed literal requests',(b,d)=>{d.body=b.map(n=>({type:n.type,label:n.label,status:'failed',fallback:'<b>Original unavailable text</b>'}));});
+ pos('failed hidden requests',(b,d)=>{d.body=b.map(n=>({type:n.type,label:n.label,status:'failed'}));});
+ pos('empty local questions',b=>{b[0].questions=[];b[0].localReview=true;b[0].emptyLabel='No supplied practice questions';});
+ pos('photo review',b=>{b[1].kind='photo';b[1].localReview=true;});
+ pos('explicit disabled requests',b=>b.forEach(n=>n.disabled=true));
+ bad('blank request label',b=>{b[0].label=' ';},'ASK_USER_DATA','/body/0/label');
+ bad('missing button text',b=>{delete b[0].buttonLabel;});
+ bad('pending details forbid active questions',b=>{b[0].status='pending';});
+ bad('duplicate question',b=>{b[0].questions[1].id=b[0].questions[0].id;},'ASK_USER_DATA','/body/0/questions/1/id');
+ bad('blank question label',b=>{b[0].questions[0].label=' ';},'ASK_USER_DATA','/body/0/questions/0/label');
+ bad('select needs options',b=>{b[0].questions[2].options=[];},'ASK_USER_DATA','/body/0/questions/2/options');
+ bad('duplicate option',b=>{b[0].questions[2].options[1].value='plain';},'ASK_USER_DATA','/body/0/questions/2/options/1/value');
+ bad('unknown initial selection',b=>{b[0].questions[2].initialValue='other';},'ASK_USER_DATA','/body/0/questions/2/initialValue');
+ bad('initial text too long',b=>{b[0].questions[0].initialValue='x'.repeat(41);},'ASK_USER_DATA','/body/0/questions/0/initialValue');
+ bad('text cannot own options',b=>{b[0].questions[0].options=[{value:'x',label:'X'}];},'ASK_USER_DATA','/body/0/questions/0/options');
+ bad('single-file mode rejects plural maximum',b=>{b[1].multiple=false;},'ASK_USER_DATA','/body/1/maxFiles');
+ bad('unsupported file kind',b=>{b[1].kind='directory';});
+ bad('bounded file count',b=>{b[1].maxFiles=21;});
+ bad('no upload endpoint',b=>{b[1].uploadEndpoint='https://example.test/unused';});
+ return{positives,negatives};}
