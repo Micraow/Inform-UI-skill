@@ -1,0 +1,121 @@
+{
+  "format": "inform-source-build-contract/1",
+  "sourceCommit": "6b49ceb620cbc4f0af1c9fffab99fb93593499e8",
+  "sourceTree": "bd79bb209f5b6b38b30d5c96d18d8652e2d2b80b",
+  "protocolNodes": 138,
+  "scope": "Selected source/build file closure; no fresh CDN or native-browser acceptance",
+  "cdnExecuted": false,
+  "nativeScenariosExecuted": 0,
+  "files": [
+    {
+      "path": "src/core/weather-sidebar.ts",
+      "bytes": 1244,
+      "sha256": "4cbf3c3d56a0ed868114bb8d71ec8a0110a3fdf8e01187c6c122eb5f767e1695"
+    },
+    {
+      "path": "src/core/category-correction.ts",
+      "bytes": 1370,
+      "sha256": "6fe85c1693f135387bc03fa793df08a22c38947bb9f7484a16f079646737f804"
+    },
+    {
+      "path": "src/renderer/weather-sidebar.ts",
+      "bytes": 7371,
+      "sha256": "6b0e30e38919a1991241114e2d62075d75de56046d83682cb59cb24ad8f1ff0a"
+    },
+    {
+      "path": "src/renderer/weather-sidebar.css",
+      "bytes": 1914,
+      "sha256": "7f98aad6e64d9a492754fa005872d9e0a70025fb2d92e05af4d05b83f91f89d1"
+    },
+    {
+      "path": "src/renderer/weather.ts",
+      "bytes": 22888,
+      "sha256": "e0bda1a941d3246ce97d73297e3584145c5bece39469abd069850cc11e5beff5"
+    },
+    {
+      "path": "src/renderer/category-correction.ts",
+      "bytes": 12656,
+      "sha256": "ec199066e7c985aa69999467fd772c944adfd5bc90a74cf6e75adb32c8ac4310"
+    },
+    {
+      "path": "src/renderer/category-correction-labels.ts",
+      "bytes": 2324,
+      "sha256": "b9d9f9b43d17ea7193ffdbdc919a306638d298c05e87ace13a0d28072be1bcaa"
+    },
+    {
+      "path": "src/renderer/category-correction.css",
+      "bytes": 2120,
+      "sha256": "aec8d1f76ba8fa401c51208fcc3bfb1dd50901764921496b7672208258778fa7"
+    },
+    {
+      "path": "src/renderer/supplied-reader-lifecycle.ts",
+      "bytes": 1622,
+      "sha256": "efeb5fef476ec71af9810fc13027e950b47ab1c6372ed2ea013c5ca5062d5ad7"
+    },
+    {
+      "path": "src/renderer/owned-tree.ts",
+      "bytes": 3446,
+      "sha256": "40b280409806d8f708665862385b9d277c7a64365bdfe34352a9d066a85915f1"
+    },
+    {
+      "path": "src/renderer/generation.ts",
+      "bytes": 3488,
+      "sha256": "381d97242d3dd868a340de9fd2420173a28fb923efeb1d8ee83b2cb9bbd1e8ad"
+    },
+    {
+      "path": "src/renderer/intent-gate.ts",
+      "bytes": 550,
+      "sha256": "fb9e9546ee7bff892ef068c1b052367b30e907aa664afd53b5d4bb87b6137e43"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3138,
+      "sha256": "0c11b997147bb0344850bb8ee10f097e2baa225bdd056eae38f2f79e77291a3e"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 351205,
+      "sha256": "e070522a37433b8995c747f5df7578b53d1fc13b1ceabe5815e395ca2c8d4aab"
+    },
+    {
+      "path": "src/schema/fragments/index.json",
+      "bytes": 26218,
+      "sha256": "1e7bbb65da0cd52a9bac7b200042c3d5a3faec4c2ca73a896b3d79d6487b20d9"
+    },
+    {
+      "path": "src/schema/fragments/weather.schema.json",
+      "bytes": 190624,
+      "sha256": "ce6476853cfbdd33f4c39743b344d8c18f324931013ce536da1a39c78971b3d0"
+    },
+    {
+      "path": "src/schema/fragments/finance.schema.json",
+      "bytes": 219685,
+      "sha256": "a91668858cbfc683543c0e344998283b217c93e613a9061bf313228c1190181f"
+    },
+    {
+      "path": "src/schema/fragments/base.schema.json",
+      "bytes": 180858,
+      "sha256": "7e38e5af559eec225e5c9e4880efca8cdf071e1b1bb6bed760aca00410adac1b"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 6063215,
+      "sha256": "6d8fc2b2ca255e1b8102538e8fe7c4825c84219e3a641cc7c1daddc82ab526c0"
+    },
+    {
+      "path": "dist/browser.js",
+      "bytes": 6550401,
+      "sha256": "81284278df6dddc05a9621b226afe31aaf88f125a30afe3fa2f7b416614d4db6"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 578574,
+      "sha256": "b07f9f354315ffa9f80705ad3a98f00cdffd4e8855a9dd06c508a0a0679d6b3c"
+    },
+    {
+      "path": "dist/standalone.js",
+      "bytes": 3656841,
+      "sha256": "17be58169416c2279030c15241a56ac864bb47351314acb6f5c845aaf7b52e92"
+    }
+  ]
+}
