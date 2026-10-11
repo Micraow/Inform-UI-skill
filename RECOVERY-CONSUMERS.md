@@ -185,3 +185,9 @@ The original DST fixture preserves old required snapshots/defaults and adds expl
 ## Independently confirmed173 current scope
 
 Exact status-only sourcea28dc90585ebfb918e5cdda128c37277dc534c18 records173 implemented (53 historical plus120 pending),0 partial and83 missing, with178 registrations unchanged. Weather passed11 independent cases and its original navigation regressions on0530db4, then the exact consumer11/16 and8 workflows. The accounting verifier now explicitly supports an empty partial set while testing compatibility with older weather-partial inventories. This does not alter the earlier172 record or the164 packaged158/1/97 snapshot. Native/pixel and remote CI acceptance remain separate.
+
+## Original Search onboarding consumer
+
+[The original Search consumer](candidates/search-onboarding/README.md) locks exactc900bd3599ff9ba9b268c17411fcd7f46e5dcdd3:10 positive/16 negative documents,7 DOM/actual-standalone groups,330 old definitions and22 selected source/build hashes. Its Weather, invented market series and four fictional news cards are explicit offline data. Value900 is independent of the graph's last20, true0/null and DST spacing stay distinct, and source requests remain local/cancelable.
+
+The same original fixture reproduces the predecessorc979 nested keyboard-reset and Window-resize failures, then passes both on the exact successor. Parent reset also yields to newer unit, range and tab input.0 external requests and0 service/location/navigation calls were observed; native media, browser/CSP and pixel acceptance remain pending. Registration179 is separate from the reviewed canonical count and the immutable164 CDN.

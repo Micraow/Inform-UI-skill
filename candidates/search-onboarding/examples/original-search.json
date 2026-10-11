@@ -1,0 +1,292 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "conversational-onboarding-search",
+      "id": "offline_lookup",
+      "label": "Original supplied lookup demonstrations",
+      "askLabel": "Original question",
+      "weather": {
+        "label": "Supplied sky",
+        "question": "Which observations are known at the fictional Delta Station?",
+        "snapshot": {
+          "type": "weather",
+          "id": "lookup_weather",
+          "location": {
+            "name": "Fictional Delta Station",
+            "timezone": "America/New_York"
+          },
+          "updatedAt": "2026-11-01T00:00:00-04:00",
+          "source": {
+            "label": "Original synthetic teaching snapshot",
+            "synthetic": true
+          },
+          "units": {
+            "temperature": "celsius"
+          },
+          "current": {
+            "time": "2026-11-01T00:00:00-04:00",
+            "temperature": 0,
+            "feelsLike": null,
+            "humidity": 0,
+            "condition": "clear",
+            "description": "Original current-snapshot description",
+            "temperatureLabels": {
+              "celsius": "Supplied zero C",
+              "fahrenheit": "Supplied thirty-two F",
+              "a11yCelsius": "Original zero Celsius observation",
+              "a11yFahrenheit": "Original thirty-two Fahrenheit observation"
+            }
+          },
+          "daily": [
+            {
+              "date": "2026-11-01",
+              "low": -3,
+              "high": 4,
+              "condition": "clear",
+              "precipitationProbability": 0,
+              "label": "First synthetic day",
+              "description": "Original first-day forecast"
+            },
+            {
+              "date": "2026-11-02",
+              "low": 1,
+              "high": 7,
+              "condition": "rain",
+              "precipitationProbability": 25,
+              "label": "Second synthetic day",
+              "description": "Original second-day forecast",
+              "highLabels": {
+                "celsius": "Supplied high seven C",
+                "fahrenheit": "Supplied high forty-four point six F"
+              },
+              "lowLabels": {
+                "celsius": "Supplied low one C",
+                "fahrenheit": "Supplied low thirty-three point eight F"
+              },
+              "followUps": [
+                {
+                  "id": "second_day",
+                  "label": "Read the second day",
+                  "query": "Describe the supplied second-day rows"
+                }
+              ]
+            },
+            {
+              "date": "2026-11-03",
+              "low": null,
+              "high": null,
+              "condition": "unknown",
+              "precipitationProbability": null,
+              "label": "Unknown synthetic day"
+            }
+          ],
+          "hourly": [
+            {
+              "time": "2026-11-01T00:00:00-04:00",
+              "temperature": 0,
+              "precipitationProbability": 0,
+              "label": "Midnight sample",
+              "description": "Original clear observation",
+              "condition": "clear"
+            },
+            {
+              "time": "2026-11-01T01:00:00-04:00",
+              "temperature": 2,
+              "precipitationProbability": 10
+            },
+            {
+              "time": "2026-11-01T01:00:00-05:00",
+              "temperature": null,
+              "precipitationProbability": null
+            },
+            {
+              "time": "2026-11-01T04:00:00-05:00",
+              "temperature": -1,
+              "precipitationProbability": 100,
+              "condition": "rain"
+            },
+            {
+              "time": "2026-11-01T23:00:00-05:00",
+              "temperature": 3,
+              "precipitationProbability": 0
+            },
+            {
+              "time": "2026-11-02T02:00:00-05:00",
+              "temperature": 4,
+              "precipitationProbability": 25
+            },
+            {
+              "time": "2026-11-03T12:00:00-05:00",
+              "temperature": null,
+              "precipitationProbability": null
+            }
+          ],
+          "initialDate": "2026-11-01",
+          "useCurrent": true,
+          "chartWindow": {
+            "points": 6,
+            "startTime": "2026-11-01T00:00:00-04:00"
+          },
+          "regionLabel": "Original synthetic forecast",
+          "tableDateLabel": "Supplied observation table",
+          "labels": {
+            "missing": "Not supplied",
+            "conditions": "Supplied sky",
+            "selected": "Selected synthetic day"
+          },
+          "share": {
+            "label": "Request a local share",
+            "available": true,
+            "placement": "bottom"
+          },
+          "locationAction": {
+            "label": "Request a different supplied place",
+            "available": true,
+            "query": "Describe an invented station"
+          },
+          "followUps": [
+            {
+              "id": "topic_0",
+              "label": "Original topic 1",
+              "query": "Read synthetic observation 1"
+            },
+            {
+              "id": "topic_1",
+              "label": "Original topic 2",
+              "query": "Read synthetic observation 2"
+            },
+            {
+              "id": "topic_2",
+              "label": "Original topic 3",
+              "query": "Read synthetic observation 3"
+            },
+            {
+              "id": "topic_3",
+              "label": "Original topic 4",
+              "query": "Read synthetic observation 4"
+            }
+          ]
+        }
+      },
+      "stock": {
+        "label": "Supplied index",
+        "question": "Read the invented Pattern Index without live prices.",
+        "snapshot": {
+          "type": "finance-chart",
+          "id": "pattern_index",
+          "title": "Original synthetic Pattern Index",
+          "source": {
+            "label": "Original synthetic market lesson",
+            "url": "https://example.test/synthetic-index",
+            "synthetic": true
+          },
+          "instrument": {
+            "id": "pattern",
+            "symbol": "PTRN",
+            "name": "Fictional Pattern Index",
+            "currency": "USD",
+            "exchange": "SYNTHETIC",
+            "timezone": "America/New_York",
+            "asOf": "2026-11-01T05:00:00-05:00",
+            "marketStatus": "closed",
+            "delayMinutes": 0,
+            "price": 900,
+            "previousClose": 0,
+            "history": [
+              {
+                "time": "2026-11-01T00:00:00-04:00",
+                "price": 0
+              },
+              {
+                "time": "2026-11-01T01:00:00-04:00",
+                "price": 4
+              },
+              {
+                "time": "2026-11-01T01:00:00-05:00",
+                "price": null
+              },
+              {
+                "time": "2026-11-01T04:00:00-05:00",
+                "price": 20
+              }
+            ]
+          },
+          "ranges": [
+            {
+              "id": "all",
+              "label": "All supplied observations",
+              "from": "2026-11-01T00:00:00-04:00",
+              "to": "2026-11-01T05:00:00-05:00"
+            },
+            {
+              "id": "zero",
+              "label": "Only the true zero",
+              "from": "2026-11-01T00:00:00-04:00",
+              "to": "2026-11-01T00:00:00-04:00"
+            },
+            {
+              "id": "gap",
+              "label": "Only the missing observation",
+              "from": "2026-11-01T01:00:00-05:00",
+              "to": "2026-11-01T01:00:00-05:00"
+            },
+            {
+              "id": "empty",
+              "label": "No supplied observations",
+              "from": "2026-10-31T00:00:00-04:00",
+              "to": "2026-10-31T01:00:00-04:00"
+            }
+          ],
+          "initialRange": "all"
+        }
+      },
+      "news": {
+        "label": "Fictional source cards",
+        "question": "Read these four explicitly supplied fictional notices.",
+        "summaries": [
+          {
+            "text": "The imaginary shape club labeled its paper samples.",
+            "sourceId": "shapes"
+          },
+          {
+            "text": "The fictional workshop published a made-up timetable.",
+            "sourceId": "workshop"
+          }
+        ],
+        "items": [
+          {
+            "id": "shapes",
+            "title": "Original fictional shape labels",
+            "url": "https://example.test/shapes",
+            "sourceLabel": "Shape Club",
+            "dateLabel": "Supplied first day",
+            "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGMwz1t1aYENw6UFNuZ5qwAqKgX7uDFgQAAAAABJRU5ErkJggg==",
+            "faviconSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGMwz1t1aYENw6UFNuZ5qwAqKgX7uDFgQAAAAABJRU5ErkJggg=="
+          },
+          {
+            "id": "workshop",
+            "title": "Original fictional workshop timetable",
+            "url": "https://example.test/workshop",
+            "sourceLabel": "Workshop",
+            "dateLabel": "Supplied second day"
+          },
+          {
+            "id": "garden",
+            "title": "Original imaginary garden ledger",
+            "url": "https://example.test/garden",
+            "sourceLabel": "Garden Desk",
+            "imageSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGMwz1t1aYENw6UFNuZ5qwAqKgX7uDFgQAAAAABJRU5ErkJggg=="
+          },
+          {
+            "id": "archive",
+            "title": "Original fictional archive shelf",
+            "url": "https://example.test/archive",
+            "sourceLabel": "Archive Desk"
+          }
+        ],
+        "emptyLabel": "No supplied fictional notices"
+      }
+    }
+  ]
+}

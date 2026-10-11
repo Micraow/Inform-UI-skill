@@ -206,3 +206,5 @@ The recovered consumers default to safe file-closure locks. Original Git identit
 `candidates/restored-weather-category` locks exact source/build `6b49ceb` for two more supplied-data readers. It checks local temperature conversion and category-review receipts with eight DOM workflows; existing CDN locks stay unchanged.
 
 `candidates/restored-pressable` now verifies exact source/build `ae77d323`, including seven passive-action DOM workflows and the narrow NetWorth modifier/IME successor. `candidates/restored-fee-interest` now verifies exact source/build `aed78e46` through seven supplied-reader DOM workflows and one compiled HTML artifact. The original `candidates/restored-html-view` fixture is now part of the exact144 combined media consumer; `candidates/restored-async-images` prepares the next finite-image family without runtime acceptance.
+
+The [original Search onboarding consumer](candidates/search-onboarding/README.md) uses exactsourcec900bd35 for three supplied Weather/Finance/News views. Its10 positive/16 negative contracts and7 DOM/actual-standalone workflows preserve330 prior definitions and the frozen164 asset lock. No live lookup provider is called.
