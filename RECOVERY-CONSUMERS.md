@@ -127,3 +127,7 @@ The actual256-row inventory records158 implemented (53 historical plus105 pendin
 [The AskUser source consumer](candidates/ask-user/README.md) locks exactcbba6f19:10 positive/14 negative documents,7 DOM/compiler workflows,314 unchanged historical definitions and19 selected hashes. It checks default request-only CTAs separately from the original optional local review. Text/textarea/select answers and synthetic file metadata are copied/frozen; cancel/update/reset preserve their declared ownership and input ordering. Size/count/MIME presentation checks use only fictional metadata, including a true0-byte entry.
 
 External requests and file-body reads are both0. No real user file, upload, account or device capability is accessed. Protocol166 does not by itself promote canonical acceptance. The existing164 CDN lock and its158/1/97 snapshot are unchanged; this source-only consumer can be integrated separately after independent functional review.
+
+## Independently confirmed160 source scope
+
+Independent AskUser review passed8 functional cases on exactcbba6f19. Separate status source19a514637d1c40d20a984f83ada98ecd5f1a952b records160 implemented (53 historical plus107 pending),1 partial weather and95 missing, with166 protocol registrations. This accounting update does not change the published Ask consumer, the164 asset's158/1/97 frozen inventory, or native/pixel acceptance. File-review examples remain synthetic metadata only with0 body reads and0 external requests.
