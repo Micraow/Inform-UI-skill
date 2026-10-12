@@ -1,7 +1,7 @@
 {
   "format": "inform-skill-asset-lock/1",
   "localAssetCommit": "0e2ea9105fb362539d135a5344f60ec2cf3e8ec6",
-  "publicCommit": null,
+  "publicCommit": "fed5f86f49e73f908ac9ea98966b1515a3aaa597",
   "sourcePublicCommit": "29d8813ff4632ba5ca28010246cf57d3e8a96634",
   "protocolNodes": 214,
   "scope": {
@@ -360,5 +360,6 @@
       "sha256": "ea18ea89f371f561953a61b2201b3178fc20b4649f27c5a8af7f1f515e68d295",
       "gitBlob": "8a226357b0b6f340e5218ed4ebd7c585a6cd9f29"
     }
-  ]
+  ],
+  "publicTree": "f80dcbaad75fc018e626832eb4cc371d368c9d20"
 }

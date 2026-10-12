@@ -31,7 +31,19 @@ individually in the result. A resource termination is not a product assertion fa
 
 This verifies software arithmetic and UI behavior. It does not establish clinical
 validity, native geometry or pixel equivalence. The214 registrations and209
-implemented functions are separate metrics. Source publication29d8813f does not
-by itself publish these CDN bytes; `publicCommit:null` means the package has not
-yet been independently verified at a public asset commit. No usable remote asset
-URL is asserted while that value is null.
+implemented functions are separate metrics. The original local execution receipt records the then-unpublished package with
+`publicCommit:null`. The asset lock now records the independently verified public
+identity below. Source publication29d8813f and asset publicationfed5f86f are separate.
+
+## Verified public assets
+
+The immutable [public commitfed5f86f](https://github.com/Micraow/Inform-UI/commit/fed5f86f49e73f908ac9ea98966b1515a3aaa597) has tree `f80dcbaad75fc018e626832eb4cc371d368c9d20`. [public-assets.json](public-assets.json) records retrieval of all52 payloads,33,595,227 decoded bytes, plus the integrity manifest,209 inventory and release README. SHA256 and SHA384 SRI were recomputed from actual remote bytes and matched the original0e2 lock. The complete public tree has1371 leaves. No source file differs from verified209 source publication29d8813f.
+
+Download the fixed [cdn directory](https://github.com/Micraow/Inform-UI/tree/fed5f86f49e73f908ac9ea98966b1515a3aaa597/cdn) and serve its relative paths from your application origin. Preserve `fonts/`, schema fragments and license/notices. Use `cdn/iui.min.js` for ESM, `cdn/iui.global.min.js` for classic scripts and `cdn/iui.css` for styling. The GitHub pages are download/source links, not executable-script URLs. No additional service dependency or mutable branch URL is required.
+
+```html
+<link rel="stylesheet" href="./cdn/iui.css" integrity="sha384-0kMQhv+IeLB3k9K2Iic4YGek3C5voMn3N+ehB4ie+qwZm+Z78H+UFzLB25uqbPBW">
+<script src="./cdn/iui.global.min.js" integrity="sha384-6ld6YB9oNPR3xIa+phv8gDjWq7qIck+oV3yk1tKLgfwOwN3YWL1qaCxmIC+06+LJ"></script>
+```
+
+The publication used `[skip ci]` and has0 Actions runs. This identity check reruns no DOM or native tests. Earlier local214 consumer/native results retain their exact scope; later overlay lifecycle and Form/Details source-only fixes are not in this asset. The original933 and183 locks are unchanged.

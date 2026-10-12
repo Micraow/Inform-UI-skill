@@ -158,7 +158,7 @@ export async function verify(library, selectedEntry = 'esm') {
       standaloneResult = { executed: true, bytes: Buffer.byteLength(html), sha256: hash(html) };
     }
     assert.deepEqual(errors, []); assert.equal(requests, 0); assert.equal(services, 0); await identity();
-    return { localAssetCommit: lock.localAssetCommit, publicCommit: null, protocolNodes: 214, scope: lock.scope,
+    return { localAssetCommit: lock.localAssetCommit, publicCommit: lock.publicCommit, protocolNodes: 214, scope: lock.scope,
       assetsVerified: 52, lockedFiles: 58, preservedDefinitions: 384, positiveDocumentsPerEntry: 12, negativeDocumentsPerEntry: 8,
       entries: selectedEntry === 'standalone' ? [] : [selectedEntry], exports, passed: flows.length, failed: 0, flows,
       standalone: standaloneResult, resourceRequests: requests, serviceCalls: services,
