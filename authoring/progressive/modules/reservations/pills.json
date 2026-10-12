@@ -2,8 +2,8 @@
   "format": "inform-ui-progressive-task/1",
   "schemaVersion": "iui/1",
   "runtime": {
-    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
-    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8"
   },
   "rootKind": "document",
   "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
@@ -11,7 +11,7 @@
     "schemaVersion": "iui/1",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
     },
     "requestedComponents": [
       "reservation-time-pills-ref-carousel"
@@ -49,13 +49,13 @@
       "examples/schema-modules/reservation-pills.json"
     ],
     "migrationCoverage": {
-      "migratedNodeCount": 141,
+      "migratedNodeCount": 218,
       "totalNodeCount": 218
     }
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "urn:micraow:inform-ui:source-selection:584dfe6e00137179894d51cddfd34f2b3d6728849a30c033153f6102eae45382",
+    "$id": "urn:micraow:inform-ui:source-selection:20293bc10b422e81d3a14041a98f191f2ab27d5e0a45702df0b8487c2d101f3d",
     "title": "IUIDocument",
     "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
     "type": "object",
@@ -1042,8 +1042,8 @@
     }
   ],
   "identity": {
-    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
-    "schemaSha256": "74d4a210f09bc36a1df5103d0843c3ee47bb1fe5516dac31b0be8e5428ef3f53",
+    "indexSha256": "74b2ec1c0ff1901be2b9bbac74a4141e155e95186904b881a762b4ba7cdfc7fc",
+    "schemaSha256": "035f70f41f1e836c3d65dd24ab3d983973b90e7b7f11ffd091d44a3e6f4d6691",
     "schemaBytes": 16154
   },
   "manifestPath": "pills.json.manifest.json"

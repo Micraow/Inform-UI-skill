@@ -1,0 +1,74 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
+    }
+  },
+  "category": "travel",
+  "modules": [
+    {
+      "id": "travel/snapshots",
+      "title": "Supplied travel events and tracker snapshots",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/travel-events.md",
+        "docs/supplied-trackers.md"
+      ],
+      "taskPath": "../modules/travel/snapshots.json",
+      "components": [
+        {
+          "type": "flight-option",
+          "definition": "FlightOptionNode",
+          "schemaPointer": "#/schema/$defs/FlightOptionNode"
+        },
+        {
+          "type": "artist-upcoming-events",
+          "definition": "ArtistUpcomingEventsNode",
+          "schemaPointer": "#/schema/$defs/ArtistUpcomingEventsNode"
+        },
+        {
+          "type": "package-tracker",
+          "definition": "PackageTrackerNode",
+          "schemaPointer": "#/schema/$defs/PackageTrackerNode"
+        },
+        {
+          "type": "flight-tracker",
+          "definition": "FlightTrackerNode",
+          "schemaPointer": "#/schema/$defs/FlightTrackerNode"
+        }
+      ]
+    },
+    {
+      "id": "travel/discovery",
+      "title": "Flight discovery",
+      "dependsOn": [
+        "travel/snapshots",
+        "decisions/supplied"
+      ],
+      "semanticContractPaths": [
+        "docs/flight-discovery.md"
+      ],
+      "taskPath": "../modules/travel/discovery.json",
+      "components": [
+        {
+          "type": "flight-search-form",
+          "definition": "FlightSearchFormNode",
+          "schemaPointer": "#/schema/$defs/FlightSearchFormNode"
+        },
+        {
+          "type": "flight-results",
+          "definition": "FlightResultsNode",
+          "schemaPointer": "#/schema/$defs/FlightResultsNode"
+        }
+      ]
+    }
+  ]
+}

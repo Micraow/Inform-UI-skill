@@ -2,8 +2,8 @@
   "format": "inform-ui-progressive-task/1",
   "schemaVersion": "iui/1",
   "runtime": {
-    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
-    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8"
   },
   "rootKind": "document",
   "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
@@ -11,7 +11,7 @@
     "schemaVersion": "iui/1",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
     },
     "requestedComponents": [
       "lottie"
@@ -49,13 +49,13 @@
       "examples/schema-modules/lottie.json"
     ],
     "migrationCoverage": {
-      "migratedNodeCount": 141,
+      "migratedNodeCount": 218,
       "totalNodeCount": 218
     }
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "urn:micraow:inform-ui:source-selection:a7a5365dd9b43b6281ca9e791e34699d8c596ddef656071bfc86f3bcf776b614",
+    "$id": "urn:micraow:inform-ui:source-selection:c5d78c718794d7a37ce21b7455f1d6b0acd2f0b50c425e7fb11f3a46153da786",
     "title": "IUIDocument",
     "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
     "type": "object",
@@ -545,8 +545,8 @@
     }
   ],
   "identity": {
-    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
-    "schemaSha256": "7fb33ea71cb35b9dcf86c2e8df9c1235de616f9bfb17c5a0f049426952f90191",
+    "indexSha256": "74b2ec1c0ff1901be2b9bbac74a4141e155e95186904b881a762b4ba7cdfc7fc",
+    "schemaSha256": "e80a725a6d0c63a7545b5e3b4e10050541fb1f01ff27908702eaa6ec06951731",
     "schemaBytes": 6717
   },
   "manifestPath": "lottie.json.manifest.json"

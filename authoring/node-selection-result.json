@@ -1,7 +1,7 @@
 {
   "format": "inform-ui-explicit-node-consumer-result/1",
-  "sourceCommit": "f974055196d821e71a680bb1ce849d29c2d522b7",
-  "passed": 16,
+  "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+  "passed": 21,
   "failed": 0,
   "cases": [
     {
@@ -12,9 +12,9 @@
       ],
       "sourceComponents": 44,
       "definitions": 5,
-      "taskBytes": 82589,
+      "taskBytes": 84168,
       "schemaBytes": 10235,
-      "contractBytes": 60460
+      "contractBytes": 62031
     },
     {
       "name": "slider-zero",
@@ -23,9 +23,9 @@
       ],
       "sourceComponents": 41,
       "definitions": 3,
-      "taskBytes": 74970,
+      "taskBytes": 76549,
       "schemaBytes": 4678,
-      "contractBytes": 59390
+      "contractBytes": 60961
     },
     {
       "name": "false-zero-null",
@@ -37,9 +37,9 @@
       ],
       "sourceComponents": 44,
       "definitions": 7,
-      "taskBytes": 85506,
+      "taskBytes": 87085,
       "schemaBytes": 12300,
-      "contractBytes": 60460
+      "contractBytes": 62031
     },
     {
       "name": "typed-tabs",
@@ -50,41 +50,70 @@
       ],
       "sourceComponents": 44,
       "definitions": 6,
-      "taskBytes": 82609,
+      "taskBytes": 84188,
       "schemaBytes": 9980,
-      "contractBytes": 60460
+      "contractBytes": 62031
+    },
+    {
+      "name": "native",
+      "components": [
+        "native"
+      ],
+      "sourceComponents": 1,
+      "definitions": 3,
+      "taskBytes": 17237,
+      "schemaBytes": 7887,
+      "contractBytes": 5622
+    },
+    {
+      "name": "local-converters",
+      "components": [
+        "currency-converter",
+        "unit-converter"
+      ],
+      "sourceComponents": 2,
+      "definitions": 5,
+      "taskBytes": 29571,
+      "schemaBytes": 10098,
+      "contractBytes": 14066
+    },
+    {
+      "name": "image-grid",
+      "components": [
+        "image-grid"
+      ],
+      "sourceComponents": 1,
+      "definitions": 9,
+      "taskBytes": 25570,
+      "schemaBytes": 8447,
+      "contractBytes": 11630
+    },
+    {
+      "name": "html-view",
+      "components": [
+        "html-view"
+      ],
+      "sourceComponents": 1,
+      "definitions": 3,
+      "taskBytes": 15061,
+      "schemaBytes": 4180,
+      "contractBytes": 7092
+    },
+    {
+      "name": "flight-discovery",
+      "components": [
+        "flight-results",
+        "flight-search-form"
+      ],
+      "sourceComponents": 10,
+      "definitions": 10,
+      "taskBytes": 57766,
+      "schemaBytes": 9553,
+      "contractBytes": 40795
     }
   ],
   "defaultModuleInterfaceChanged": false,
   "allSemanticContractsRetained": true,
   "newRuntimeOrBrowserTests": false,
-  "networkRequests": 0,
-  "sourcePublic": "c060802fe8d8f4ec2df58c9be88f2a11d409f0e9",
-  "adapterUnitTests": {
-    "passed": 14,
-    "failed": 0
-  },
-  "existingFocusedTests": {
-    "passed": 25,
-    "failed": 0
-  },
-  "semanticContractsExactCopy": true,
-  "wholeWorkflowBytesMeasured": false,
-  "regressions": [
-    "Opaque metadata cannot satisfy requested node coverage.",
-    "A node-root output still validates each complete Document example.",
-    "Handled two-output publish failures restore prior files."
-  ],
-  "limits": [
-    "Structural examples and dependency/identity checks only. Same-version runtime semantic validation is still required.",
-    "All source-module semantic contracts are retained; no per-node semantic splitting is claimed.",
-    "Null is preserved where valid, not accepted in fields whose canonical schema forbids null.",
-    "Output rollback covers handled I/O failures, not process termination or concurrent readers.",
-    "No model-quality, token, renderer or native-browser measurement."
-  ],
-  "fullSkillRegression": {
-    "passed": 519,
-    "failed": 0,
-    "nativeBrowserRun": false
-  }
+  "networkRequests": 0
 }

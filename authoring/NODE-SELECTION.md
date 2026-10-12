@@ -4,12 +4,12 @@ The category and module task packs remain the default. This optional adapter is 
 
 ## One command, explicit types and examples
 
-With a checkout of the verified runtime source [c060802](https://github.com/Micraow/Inform-UI/commit/c060802fe8d8f4ec2df58c9be88f2a11d409f0e9), run from this Skill checkout:
+With a checkout of the verified runtime source [50054d2](https://github.com/Micraow/Inform-UI/commit/50054d2e436e8a0e215043ad3839f78623ecf4f8), run from this Skill checkout:
 
 ```sh
 node scripts/node-source-consumer.mjs \
   --library /path/to/Inform-UI \
-  --revision c060802fe8d8f4ec2df58c9be88f2a11d409f0e9 \
+  --revision 50054d2e436e8a0e215043ad3839f78623ecf4f8 \
   --components row,text \
   --examples authoring/node-examples/row-text.json \
   --output task.json
@@ -47,7 +47,7 @@ These examples are original, non-medical and local. They are examples of structu
 
 ## Evidence and limits
 
-The [verification result](node-selection-result.json) records exact-source integration checks and pure adapter tests. It includes deterministic request order, definition closure, typed-child rejection, generic-child rejection, complete example coverage, local-path safety and both root kinds. The final local run passed16 integration cases,14 adapter unit tests and all519 Skill tests. Existing module selection remains unchanged.
+The [verification result](node-selection-result.json) records exact-source integration checks and pure adapter tests. It includes deterministic request order, definition closure, typed-child rejection, generic-child rejection, complete example coverage, local-path safety and both root kinds. The current exact-source integration result is regenerated against the complete 218-node source. The original optional-interface run passed16 integration cases,14 adapter unit tests and all519 Skill tests. Existing module selection remains unchanged.
 
 The initial isolated measurement retained every module semantic contract and used identical task-specific examples on both sides. Four examples saved about62–67KB of UTF-8 input, while narrowed complete comparison envelopes still needed roughly72–79KB. Existing module-wide examples were incompatible with the narrowed schema in each case; that is why this interface requires explicit matching examples instead of reusing the family examples automatically. These are byte measurements, not tokens or model-quality results. The current adapter adds its own instructions and provenance, so use its recorded task bytes rather than treating the initial experiment as an exact prediction.
 

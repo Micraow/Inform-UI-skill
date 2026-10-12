@@ -1,0 +1,1062 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
+    },
+    "requestedComponents": [
+      "jobs"
+    ],
+    "requestedModules": [
+      "decisions/supplied"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "decisions/supplied"
+    ],
+    "includedComponents": [
+      "jobs",
+      "product-card",
+      "local-business",
+      "restaurant-reviews"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/decision-cards.md",
+      "docs/local-places.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/decision-cards.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/local-places.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/supplied-decisions.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 218,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:acdc169048daf64b300eed8b0bbaaa45ba3c388dcbe0da6b055be6ec94777289",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "BusinessHoursDay": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "enum": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday",
+              "saturday",
+              "sunday"
+            ]
+          },
+          "status": {
+            "enum": [
+              "hours",
+              "closed",
+              "unknown"
+            ]
+          },
+          "periods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/BusinessHoursPeriod"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "day",
+          "status",
+          "periods"
+        ],
+        "additionalProperties": false
+      },
+      "BusinessHoursPeriod": {
+        "type": "object",
+        "properties": {
+          "opens": {
+            "type": "string",
+            "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$(?![\\s\\S])"
+          },
+          "closes": {
+            "type": "string",
+            "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$(?![\\s\\S])"
+          },
+          "nextDay": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "opens",
+          "closes"
+        ],
+        "additionalProperties": false
+      },
+      "DecisionSource": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "label",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "DiningReview": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "author": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 6000
+          },
+          "rating": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "food": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "service": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "atmosphere": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "visitDate": {
+            "type": "string",
+            "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$(?![\\s\\S])",
+            "minLength": 10,
+            "maxLength": 10
+          },
+          "occasion": {
+            "enum": [
+              "breakfast",
+              "lunch",
+              "dinner",
+              "other",
+              "unknown"
+            ]
+          },
+          "dishes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "minItems": 0,
+            "maxItems": 12
+          },
+          "source": {
+            "$ref": "#/$defs/PlaceSource"
+          }
+        },
+        "required": [
+          "id",
+          "author",
+          "text",
+          "occasion"
+        ],
+        "additionalProperties": false
+      },
+      "JobSalary": {
+        "type": "object",
+        "properties": {
+          "minimum": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000000000
+          },
+          "maximum": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000000000
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$(?![\\s\\S])",
+            "minLength": 3,
+            "maxLength": 3
+          },
+          "period": {
+            "enum": [
+              "hour",
+              "month",
+              "year"
+            ]
+          }
+        },
+        "required": [
+          "minimum",
+          "maximum",
+          "currency",
+          "period"
+        ],
+        "additionalProperties": false
+      },
+      "JobsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "jobs"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "jobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SuppliedJob"
+            },
+            "minItems": 0,
+            "maxItems": 40
+          },
+          "source": {
+            "$ref": "#/$defs/DecisionSource"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "jobs"
+        ],
+        "additionalProperties": false
+      },
+      "LocalBusinessNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "local-business"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "address": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 3000
+          },
+          "phoneLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "timezoneLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hours": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/BusinessHoursDay"
+            },
+            "minItems": 0,
+            "maxItems": 7
+          },
+          "initialDay": {
+            "enum": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday",
+              "saturday",
+              "sunday"
+            ]
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "minItems": 0,
+            "maxItems": 20
+          },
+          "accessibility": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "minItems": 0,
+            "maxItems": 20
+          },
+          "source": {
+            "$ref": "#/$defs/PlaceSource"
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "category",
+          "address",
+          "hours"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/JobsNode"
+          },
+          {
+            "$ref": "#/$defs/ProductCardNode"
+          },
+          {
+            "$ref": "#/$defs/LocalBusinessNode"
+          },
+          {
+            "$ref": "#/$defs/RestaurantReviewsNode"
+          }
+        ]
+      },
+      "PlaceSource": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "label",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "ProductCardNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "product-card"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "productId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "brand": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "seller": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 5000
+          },
+          "availability": {
+            "enum": [
+              "available",
+              "unavailable",
+              "unknown"
+            ]
+          },
+          "price": {
+            "$ref": "#/$defs/SuppliedPrice"
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ProductVariant"
+            },
+            "minItems": 0,
+            "maxItems": 12
+          },
+          "initialVariantId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "initialQuantity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "image": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300000
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "required": [
+              "src",
+              "alt"
+            ],
+            "additionalProperties": false
+          },
+          "source": {
+            "$ref": "#/$defs/DecisionSource"
+          }
+        },
+        "required": [
+          "type",
+          "productId",
+          "name",
+          "availability"
+        ],
+        "additionalProperties": false
+      },
+      "ProductVariant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "availability": {
+            "enum": [
+              "available",
+              "unavailable",
+              "unknown"
+            ]
+          },
+          "price": {
+            "$ref": "#/$defs/SuppliedPrice"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "availability"
+        ],
+        "additionalProperties": false
+      },
+      "RestaurantReviewsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "restaurant-reviews"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "restaurantName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/DiningReview"
+            },
+            "minItems": 0,
+            "maxItems": 60
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "$ref": "#/$defs/PlaceSource"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "restaurantName",
+          "reviews"
+        ],
+        "additionalProperties": false
+      },
+      "SuppliedJob": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "organization": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "workplace": {
+            "enum": [
+              "remote",
+              "hybrid",
+              "onsite",
+              "unknown"
+            ]
+          },
+          "employment": {
+            "enum": [
+              "full-time",
+              "part-time",
+              "contract",
+              "internship",
+              "unknown"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 5000
+          },
+          "salary": {
+            "$ref": "#/$defs/JobSalary"
+          },
+          "postedDate": {
+            "type": "string",
+            "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$(?![\\s\\S])",
+            "minLength": 10,
+            "maxLength": 10
+          },
+          "deadlineDate": {
+            "type": "string",
+            "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$(?![\\s\\S])",
+            "minLength": 10,
+            "maxLength": 10
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "organization",
+          "location",
+          "workplace",
+          "employment"
+        ],
+        "additionalProperties": false
+      },
+      "SuppliedPrice": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000000000
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$(?![\\s\\S])",
+            "minLength": 3,
+            "maxLength": 3
+          }
+        },
+        "required": [
+          "amount",
+          "currency"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/decision-cards.md",
+      "sourceBytes": 7649,
+      "sourceSha256": "248aa5132695d617137817f98374141abadab5e07a536d9f16dab048c0e62d4c",
+      "bytes": 7649,
+      "sha256": "248aa5132695d617137817f98374141abadab5e07a536d9f16dab048c0e62d4c",
+      "text": "# Supplied Jobs and Product Card\n\nCanonical inventory IDs: `jobs` (Jobs), `product-card` (Product Card). Both belong to Base. These are independent original TypeScript renderers, using supplied synthetic fixture data and native controls. The protocol now includes 102 node types; this is not a canonical acceptance count.\n\n## Jobs\n\nRequired `label` and `jobs` (0–40 records). Each record has unique `id`, `title`, `organization`, `location`, `workplace` (`remote`, `hybrid`, `onsite`, `unknown`) and `employment` (`full-time`, `part-time`, `contract`, `internship`, `unknown`). Optional plain-text `description`, salary `{minimum,maximum,currency,period}`, Gregorian `postedDate`/`deadlineDate`, and HTTP(S) `url`. Pay bounds are 0–1e12; maximum must not be less than minimum. Currency is an uppercase three-letter supplied label, not a currency conversion. Period is hour/month/year. Deadline cannot precede posting. No current-time, expiry, eligibility, ranking or live-opening inference.\n\nSearch matches title, organization and location; workplace/employment filters combine. A local shortlist toggle dispatches frozen `iui:job-shortlist` detail `{componentId,jobId,shortlisted}`. It bubbles, is cancelable and does not cross shadow boundaries. Cancellation preserves prior local state. Accepted explicit clicks toggle the local shortlist; no application, upload, recruiting action, account, recommendation or persistence occurs. Shortlist-only view hides unsaved records and safely relocates focus when a focused record is removed. Reset clears filters, preserving the shortlist. Native external reset supports cancellation, partial-control removal and interrupted lifecycle without writing outside-owned controls.\n\n## Product Card\n\nRequired `productId`, `name`, and supplied `availability` (`available`, `unavailable`, `unknown`). Optional brand/seller/plain-text description, price `{amount,currency}`, 0–12 unique variants `{id,label,availability,price?}`, initial variant and quantity (1–20), disabled controls, source, and embedded raster image. Initial variant must exist. Selected variant price overrides the base price; otherwise it inherits it. Unknown price/availability remain explicit.\n\nThe native variant selector, quantity input and bounded steppers drive an exact decimal item subtotal. Quantity must be a whole decimal 1–20, with optional leading zeros and trailing `.0` digits; exponent notation and nonzero fractional tails are rejected rather than silently rounded. Decimal input is capped at 64 characters. No fees, tax, shipping, discounts, exchange rates, stock verification or merchant total are inferred.\n\nReview dispatches frozen cancelable `iui:product-choice` detail `{componentId,productId,variantId,quantity,availability,unitPrice,itemSubtotal}` with a frozen nested price. Missing variant, invalid quantity or supplied unavailable status blocks review. Unknown availability can be reviewed locally and remains unknown in the detail. Cancellation retains the draft; repeated explicit review is allowed and synchronous reentry is blocked. Reset returns to supplied initial selection. Inputs have no Form payload names/binds and are dissociated from outer native forms. There is no cart, purchase, checkout, payment, reservation, network request or provider API.\n\nImages accept only bounded embedded base64 PNG/JPEG/WebP; remote, SVG and animated GIF sources are rejected. Failed decoding shows a local fallback. Text is literal; ordinary source links require safe absolute HTTP(S), open separately with noopener/noreferrer and no referrer. No private assets or OpenAI runtime are used.\n\n## Lifecycle and source map\n\nControls require live mounted ownership, enabled state and visible/non-inert ancestors. Retained detached/reparented controls cannot activate, and paint/restore does not rewrite outside controls. Host event construction/dispatch is treated as an interruption boundary; disposal or replacement retires handlers and prevents later mutation. Unrelated state updates retain local drafts and native disclosure state; a valid document replacement rebuilds from supplied values.\n\n- Schema source: `scripts/generate-schema.mjs`, `scripts/schema-subsets.mjs`\n- Semantic validation: `src/core/decision-cards.ts`\n- Renderers: `src/renderer/jobs.ts`, `src/renderer/product-card.ts`, `src/renderer/decision-labels.ts`\n- Fixture: `examples/decision-cards.json`\n- Unit contract: `tests/decision-cards.test.mjs`\n- Public types: `tests/decision-cards-types-consumer.mts`\n\nBrowser acceptance remains unexecuted. Native popup behavior, pointer/touch, visual layout and screen-reader behavior require real browser review. Current source remains separate from the frozen 97-node acceptance checkpoint. Inherited poll code must receive the separately reviewed ownership fix before later combined acceptance.\n\n## Local checkpoint evidence\n\n- Generation/build, CDN build, TypeScript no-emit, public type consumer and source-boundary checks passed.\n- Combined decision-card, mail/file, Forms and core run: 161/161 passed (`/tmp/inform-decision-cards-focused-final.log`).\n- Final decision-card-only run after adding authored pending-Forms and shadow-root coverage: 53/53 passed (`/tmp/inform-decision-cards-contract-final.log`). Earlier failures were test-fixture mistakes (an undefined JSON property and mismatched empty-label expectation), corrected without production workaround.\n- Prepared browser test syntax checked. No local browser run or CI run was attempted; no visual or browser acceptance is claimed.\n- Source-only integration requires schema generation/build/CDN rebuilding. Generated artifacts are preserved locally but deliberately excluded from the source commit. Root owns remote backup and combined acceptance.\n\nSafe source recovery consists only of the schema generator/subset map, public exports, core inspector/wiring, renderer/wiring/labels/CSS, fixture, this document, focused tests/type consumer/browser spec, and the core/schema count assertions. There are no credentials, capture files, private assets, compiled dependencies or generated CDN artifacts in the source patch.\n- Selected schema owner/closed-reference metrics, domain fixture compatibility, and CDN/source byte identity checks: 3/3 passed (`/tmp/inform-decision-cards-schema.log`).\n\n## Required schema-package semantics\n\nStructural schema acceptance must be followed by `validateDocument`. `inspectDecisionCard` preserves these additional checks:\n\n- Jobs IDs and product variant IDs are unique within their own list (`DUPLICATE_ID`). An explicit initial variant must occur in the supplied variants (`PRODUCT_VARIANT`), including when the list is empty.\n- Supplied posting and deadline dates must be real Gregorian dates in years 1000–9999 (`JOB_DATE`); if both exist the deadline may equal, but cannot precede, posting (`JOB_DATE_ORDER`). Salary minimum may equal maximum; a smaller maximum is rejected (`JOB_PAY_RANGE`). No observation-time inference is made.\n- The top-level source URL and each job URL require both an absolute HTTP(S) prefix and the core safe-URL policy (`UNSAFE_URL`). Images must satisfy both the embedded base64 PNG/JPEG/WebP prefix and the core safe-image policy (`PRODUCT_IMAGE`). A matching prefix alone does not establish safety.\n- Ordinary strings retain their declared length constraints without an additional trim/nonblank rule. Optional descriptions may be empty; whitespace is not silently normalized. Missing price remains missing rather than becoming zero. Initial quantity is a structural integer 1–20; the separate interactive quantity draft rules above do not loosen this input contract.\n"
+    },
+    {
+      "path": "docs/local-places.md",
+      "sourceBytes": 6004,
+      "sourceSha256": "6bd8549065a38300e04c8225d0767d99d39a657a16c39ee5680ad61ab13724f9",
+      "bytes": 6004,
+      "sha256": "6bd8549065a38300e04c8225d0767d99d39a657a16c39ee5680ad61ab13724f9",
+      "text": "# Supplied local places\n\nAuthoritative inventory IDs are `local-business` (Local Business) and `restaurant-reviews` (Restaurant Reviews); both were listed not implemented. Both new nodes belong to Base. Their own contracts and original renderers provide distinct business-hours and dining-dimension behavior; neither is an alias or counted as accepted merely from schema presence.\n\n## Local business\n\nRequired name, category, address and 0–7 unique supplied weekday records. Each day contains a status (`hours`, `closed`, `unknown`) and periods. Hours requires 1–4 opening intervals; closed/unknown requires an empty interval array. Times are strict HH:MM. An overnight interval requires `nextDay:true`; intervals span greater than zero and at most 24 hours and must be ordered/nonoverlapping within each supplied day. Cross-day consistency, timezone offsets, holidays and live operational status are not inferred.\n\nThe weekday select changes a retained, accessible local hours panel with split periods, explicit overnight labels, closed states and missing-day states. It defaults to the supplied initial day or first supplied record, never the computer's current day. Selecting an omitted day says hours not supplied. Phone and timezone are literal supplied labels, not dialing links or executable timezone rules. Services, accessibility and description are literal native disclosures. No calling, location access, directions, booking or external lookup is performed. Optional source is an ordinary safe HTTP(S) link.\n\n## Restaurant reviews\n\nRequired label, restaurant name, and 0–60 unique review records with id, author, literal text and occasion (`breakfast`, `lunch`, `dinner`, `other`, `unknown`). Optional overall/food/service/atmosphere scores are supplied numbers 0–5; zero is valid, missing is unknown. Optional valid Gregorian visit date, 0–12 dish labels and per-review source preserve attribution without verifying it.\n\nUnlike a generic review list, users choose a dining rating dimension. The visible score and minimum threshold use that chosen dimension; missing scores are excluded when any numeric threshold is active, including zero. Text search matches author, review text and supplied dish labels; occasion combines with the other filters. Source order is retained, no weighted ranking or aggregate score is invented. Native disclosures expose full review text and the individual dimensions, keeping DOM identity/open state during local filtering and unrelated state updates. Reset clears filters. No review feed, authentication, voting, posting or author verification exists.\n\n## Lifecycle, safety and integration\n\nActual controls require live ownership, connection, enabled state and non-hidden/non-inert ancestry. Paint and restore skip externally moved controls/rows/scores; no outside DOM is reclaimed. Native outer resets use the previously audited revision-aware reader helper, including partial-control removal, cancellation and shadow roots. All controls omit Forms names/binds; authored pending Forms keep them disabled. Replacement/disposal retires callbacks and reset work. Text remains literal and sources require safe absolute HTTP(S), opening separately with noopener/noreferrer and no referrer. No remote media, private captures, runtime service or credentials are required.\n\nSource map: `scripts/generate-schema.mjs`, `scripts/schema-subsets.mjs`, `src/core/local-places.ts`, `src/renderer/local-places.ts`, `src/renderer/places-labels.ts`, their standard wiring/CSS, `examples/local-places.json`, `tests/local-places.test.mjs`, public types consumer and prepared browser spec. Generate/build/CDN must run after source-only integration. Browser and visual acceptance are outstanding; this candidate does not change the frozen acceptance checkpoint. Inherited poll ownership and the separate people-also-ask source need their own reviewed integration.\n\n## Checkpoint verification\n\nGeneration/build, CDN build, TypeScript no-emit, public type consumer, source-boundary and prepared browser-spec syntax checks passed. Initial component run: 41/41. Final component/decision-card/Forms run: 135/135 (`/tmp/inform-local-places-final.log`); separate core run: 19/19 (`/tmp/inform-local-places-core.log`). The CSS test verifies all referenced theme tokens exist and selectors use the mounted root. No browser run, screenshot approval or CI claim. Source-only commits preserve generated files unstaged for recovery; root handles remote backup and combined acceptance.\nSelected schema owner/closed-reference metrics, domain fixture compatibility and CDN/source byte identity checks also passed 3/3 (`/tmp/inform-local-places-schema.log`).\n\n## Required schema-package semantics\n\nRun `validateDocument` after structural validation. `inspectLocalPlace` adds:\n\n- Weekdays cannot repeat, and an explicit initial day must have a supplied record (`BUSINESS_DAY`). Exactly `status:'hours'` requires a nonempty period list; both `closed` and `unknown` require an empty list (`BUSINESS_HOURS`).\n- A period's end is its closing minute plus 1440 only when `nextDay:true`. Its duration must be greater than zero and at most 1440 minutes (`BUSINESS_PERIOD`). Equal clock times are therefore valid for an explicit next-day 24-hour period, but invalid for a same-day period. Each subsequent opening must be at or after the previous adjusted closing (`BUSINESS_OVERLAP`): touching intervals are accepted; unsorted or overlapping periods are rejected. No cross-day consistency is inferred.\n- Dining review IDs are unique (`DUPLICATE_ID`). Visit dates, when supplied, must be real Gregorian dates in years 1000–9999 (`DINING_DATE`). Ratings are optional numbers in 0–5, including valid zero; null is not a rating value.\n- Both the top-level source and each review source need an absolute HTTP(S) prefix plus the core safe-URL policy (`UNSAFE_URL`). Literal labels/text keep schema length constraints without extra trim/nonblank checks; optional descriptions and notes can be empty.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/supplied-decisions.json",
+      "bytes": 5078,
+      "sha256": "5b3d58cb059beec057ea9b6b31ec1cc7868c02ebaa5b173b60a134c283e2af03",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "jobs",
+            "id": "supplied-jobs",
+            "label": "Example supplied opportunities",
+            "description": "Fictional records for demonstrating local filtering only.",
+            "jobs": [
+              {
+                "id": "engineer",
+                "title": "Example engineer",
+                "organization": "Example Studio",
+                "location": "Example region",
+                "workplace": "remote",
+                "employment": "full-time",
+                "salary": {
+                  "minimum": 100000,
+                  "maximum": 130000,
+                  "currency": "USD",
+                  "period": "year"
+                },
+                "postedDate": "2028-02-29",
+                "deadlineDate": "2028-03-20",
+                "description": "Original illustrative role description, not a live opening.",
+                "url": "https://example.org/jobs/engineer"
+              },
+              {
+                "id": "designer",
+                "title": "Example designer",
+                "organization": "Example Workshop",
+                "location": "Example city",
+                "workplace": "hybrid",
+                "employment": "contract",
+                "description": "A second synthetic supplied role."
+              },
+              {
+                "id": "assistant",
+                "title": "Example assistant",
+                "organization": "Example Studio",
+                "location": "Location label as supplied",
+                "workplace": "unknown",
+                "employment": "part-time"
+              }
+            ]
+          },
+          {
+            "type": "product-card",
+            "id": "sample-product",
+            "productId": "example-notebook",
+            "name": "Example notebook",
+            "brand": "Example brand",
+            "seller": "Example seller",
+            "description": "An original product fixture; no real offer or checkout.",
+            "availability": "unknown",
+            "price": {
+              "amount": 12.5,
+              "currency": "USD"
+            },
+            "variants": [
+              {
+                "id": "plain",
+                "label": "Plain cover",
+                "availability": "available"
+              },
+              {
+                "id": "grid",
+                "label": "Grid cover",
+                "availability": "unknown",
+                "price": {
+                  "amount": 13.75,
+                  "currency": "USD"
+                }
+              },
+              {
+                "id": "unavailable",
+                "label": "Unavailable example",
+                "availability": "unavailable"
+              }
+            ],
+            "initialQuantity": 1,
+            "source": {
+              "label": "Synthetic product source",
+              "url": "https://example.org/product"
+            }
+          },
+          {
+            "type": "local-business",
+            "name": "Example Corner Kitchen",
+            "category": "Fictional café",
+            "address": "Illustrative address supplied by the document",
+            "phoneLabel": "Phone not supplied",
+            "timezoneLabel": "Local venue time as supplied",
+            "description": "A synthetic business record. No live business lookup.",
+            "hours": [
+              {
+                "day": "monday",
+                "status": "hours",
+                "periods": [
+                  {
+                    "opens": "09:00",
+                    "closes": "12:00"
+                  },
+                  {
+                    "opens": "13:00",
+                    "closes": "17:00"
+                  }
+                ]
+              },
+              {
+                "day": "friday",
+                "status": "hours",
+                "periods": [
+                  {
+                    "opens": "18:00",
+                    "closes": "01:00",
+                    "nextDay": true
+                  }
+                ],
+                "note": "An illustrative overnight period."
+              },
+              {
+                "day": "sunday",
+                "status": "closed",
+                "periods": []
+              }
+            ],
+            "initialDay": "monday",
+            "services": [
+              "Counter service",
+              "Takeaway as supplied"
+            ],
+            "accessibility": [
+              "Step-free entrance as supplied"
+            ],
+            "source": {
+              "label": "Example business source",
+              "url": "https://example.org/business"
+            }
+          },
+          {
+            "type": "restaurant-reviews",
+            "label": "Supplied dining experiences",
+            "restaurantName": "Example Corner Kitchen",
+            "reviews": [
+              {
+                "id": "a",
+                "author": "Example diner A",
+                "text": "An original illustrative lunch review mentioning the lentil soup.",
+                "occasion": "lunch",
+                "rating": 4,
+                "food": 4.5,
+                "service": 3,
+                "atmosphere": 4,
+                "visitDate": "2028-02-29",
+                "dishes": [
+                  "Lentil soup"
+                ],
+                "source": {
+                  "label": "Example review source",
+                  "url": "https://example.org/review/a"
+                }
+              },
+              {
+                "id": "b",
+                "author": "Example diner B",
+                "text": "An illustrative dinner review with a different service rating.",
+                "occasion": "dinner",
+                "rating": 3,
+                "food": 3,
+                "service": 5,
+                "dishes": [
+                  "Roasted vegetables"
+                ]
+              },
+              {
+                "id": "c",
+                "author": "Example diner C",
+                "text": "Only the supplied text is available; no rating was supplied.",
+                "occasion": "unknown"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "74b2ec1c0ff1901be2b9bbac74a4141e155e95186904b881a762b4ba7cdfc7fc",
+    "schemaSha256": "5abf7c0acc255138c1fcad00ed1628caf33c776c35cb673c7e0020a609bc78b1",
+    "schemaBytes": 16885
+  },
+  "manifestPath": "supplied.json.manifest.json"
+}

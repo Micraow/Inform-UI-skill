@@ -1,0 +1,568 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
+    },
+    "requestedComponents": [
+      "ledger-spend-so-far-this-month"
+    ],
+    "requestedModules": [
+      "finance/ledger-spend"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "finance/ledger-spend"
+    ],
+    "includedComponents": [
+      "ledger-spend-so-far-this-month"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/supplied-finance-display-contract.md#spending"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/supplied-finance-display-contract.md#spending",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/ledger-spend.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 218,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:07e89b80d9a104e7f50f95ace4938eb449e6c410ab9a7226c8d4614f72232f91",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "LedgerSpendSoFarThisMonthNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ledger-spend-so-far-this-month"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "periodLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "totalLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SpendCategory"
+            },
+            "minItems": 0,
+            "maxItems": 24
+          },
+          "months": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SpendTrendSeries"
+            },
+            "minItems": 1,
+            "maxItems": 24
+          },
+          "averageSeries": {
+            "$ref": "#/$defs/SpendTrendSeries"
+          },
+          "previousSeries": {
+            "$ref": "#/$defs/SpendTrendSeries"
+          },
+          "selectedMonth": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "comparison": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "resolved",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hasConnectedAccounts": {
+            "type": "boolean"
+          },
+          "noAccountsLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "previousLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "averageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "comparisonLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "masked": {
+            "type": "boolean"
+          },
+          "maskedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "periodLabel",
+          "totalLabel",
+          "categories"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LedgerSpendSoFarThisMonthNode"
+          }
+        ]
+      },
+      "SpendCategory": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amountLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fraction": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "amountLabel",
+          "fraction"
+        ],
+        "additionalProperties": false
+      },
+      "SpendTrendPoint": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 31
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "day",
+          "value",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "SpendTrendSeries": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "totalValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "totalLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "dayCount": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 31
+          },
+          "points": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SpendTrendPoint"
+            },
+            "minItems": 0,
+            "maxItems": 32
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "daysElapsed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 31
+          },
+          "groupLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "totalValue",
+          "totalLabel",
+          "dayCount",
+          "points"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/supplied-finance-display-contract.md#spending",
+      "sourceBytes": 6915,
+      "sourceSha256": "b4179a9f0851352dd07e2b74fdbc9ff1fc0165a69996569c6a2bbcfb448b4b60",
+      "bytes": 2645,
+      "sha256": "eab4b488fa229554a477df17c9de1ac95a0835354570901e3144224003407696",
+      "text": "## Spending\n\n`ledger-spend-so-far-this-month` requires label, periodLabel, totalLabel (text or null), and 0–24 categories. `SPEND_LABEL` checks only top-level `label`, `periodLabel`, non-null `totalLabel`; each category `label` and non-null `amountLabel`; each supplied series `label`; and each non-null point `label`. This is not a blanket trim rule: optional comparison/fallback/masking/control labels, series `totalLabel` and `groupLabel` retain their structural constraints without an added trim check. Null display amounts remain unknown, not zero.\n\nCategory IDs are unique within categories (`SPEND_ID`). Fractions independently range 0–1 or null and need not sum to one; totals and display labels are never derived from category bars. Masking hides known amounts and numeric geometry; null and genuine zero stay distinct. Local category activation emits frozen, bubbling, cancelable, non-composed `iui:spend-category` detail `{id}`, without navigation or account operations.\n\nOptional months contain 1–24 supplied records. Month IDs are unique and may not be `previous` or `average` (`SPEND_MONTH_ID`). `selectedMonth` must name one (`SPEND_MONTH`). `comparison` must name a supplied month, `previous`, or `average`; average requires `averageSeries`, and the selected/default-first month cannot compare with itself (`SPEND_COMPARISON`). Previous without a supplied predecessor is legal and remains unavailable. Helper series IDs are not checked against the months list; there is no extra global series-ID uniqueness rule.\n\nEach series has dayCount 1–31, up to 32 points and independently supplied finite numeric values/totals or null. Point days strictly increase and cannot exceed dayCount; day zero is legal. `current:true` requires daysElapsed, which cannot exceed dayCount (`SPEND_DAY`). Future points after daysElapsed may still be supplied; the display treats them as unavailable rather than rejecting the schema. No monotonicity, sum, sign or consistency relation between numeric values and display labels is imposed. Current comparisons use an exact supplied point at daysElapsed, historical comparisons use supplied total values; missing points stay unknown, with no interpolation of display values or calculated average. A displayed difference uses the existing numeric subtraction/rounding behavior, not parsed money labels.\n\nLocal month/comparison controls and pointer/keyboard inspection preserve the existing behavior. Native reset restores supplied initial selection unless cancelled or superseded by newer input. Pending/failed/disconnected states remain supplied presentation data, not provider connection state.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/ledger-spend.json",
+      "bytes": 1165,
+      "sha256": "d17f580f3626de539a364267dbe4e54a802342f98e19d1e5ff2d213d7cfc9fb9",
+      "document": {
+        "version": "iui/1",
+        "title": "Original synthetic supplied ledger spend example",
+        "description": "Fictional teaching data; no account, market, payment, or provider connection.",
+        "body": [
+          {
+            "type": "ledger-spend-so-far-this-month",
+            "label": "Fictional supplied spending",
+            "periodLabel": "Author-provided period",
+            "totalLabel": null,
+            "categories": [
+              {
+                "id": "sample",
+                "label": "Example category",
+                "amountLabel": "USD 0.00 supplied",
+                "fraction": 0
+              }
+            ],
+            "months": [
+              {
+                "id": "october",
+                "label": "Synthetic October",
+                "totalValue": 0,
+                "totalLabel": "USD 0.00 supplied",
+                "dayCount": 31,
+                "points": [
+                  {
+                    "day": 0,
+                    "value": 0,
+                    "label": "USD 0.00 supplied"
+                  },
+                  {
+                    "day": 1,
+                    "value": null,
+                    "label": null
+                  }
+                ],
+                "current": true,
+                "daysElapsed": 1
+              }
+            ],
+            "selectedMonth": "october",
+            "comparison": "previous"
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "74b2ec1c0ff1901be2b9bbac74a4141e155e95186904b881a762b4ba7cdfc7fc",
+    "schemaSha256": "d9304192cdb1e9e192e38e3a1333677f4a59b0492aadb61a568a22691c392855",
+    "schemaBytes": 9251
+  },
+  "manifestPath": "ledger-spend.json.manifest.json"
+}

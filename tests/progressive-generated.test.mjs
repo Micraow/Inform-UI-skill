@@ -10,8 +10,8 @@ const root=fileURLToPath(new URL('../authoring/progressive/',import.meta.url)),r
 test('all generated artifacts have exact recorded identities and a single source version',async()=>{
  const g=await json('generation.json'),index=await json('index.json');assert.equal(index.source.sourceCommit,g.source.sourceCommit);assert.deepEqual(index.source.sourceIdentity,g.source.sourceIdentity);
  for(const entry of g.artifacts){const b=await read(entry.path);assert.equal(b.length,entry.bytes,entry.path);assert.equal(hash(b),entry.sha256,entry.path);}
- assert.equal(g.fullSchema.canonicalByteEqual,true);assert.equal(index.migrationCoverage.migratedNodeCount,141);assert.equal(index.migrationCoverage.totalNodeCount,218);
- const legacy=await json(index.migrationCoverage.legacyIndexPath);assert.equal(legacy.componentTypes.length,77);assert.deepEqual(legacy.source,g.source);
+ assert.equal(g.fullSchema.canonicalByteEqual,true);assert.equal(index.migrationCoverage.migratedNodeCount,218);assert.equal(index.migrationCoverage.totalNodeCount,218);
+ const legacy=await json(index.migrationCoverage.legacyIndexPath);assert.equal(legacy.componentTypes.length,0);assert.deepEqual(legacy.source,g.source);
 });
 
 test('category -> module -> complete schema/semantics/example paths are reachable and signatures remain exact',async()=>{
@@ -24,7 +24,7 @@ test('category -> module -> complete schema/semantics/example paths are reachabl
    for(const [name,d]of Object.entries(task.schema.$defs))if(name!=='Node')assert.deepEqual(d,full.$defs[name],m.id+' '+name);
   }
  }
- assert.equal(count,141);
+ assert.equal(count,218);
 });
 
 test('questionnaire task includes transitive semantic rules and original self-contained example',async()=>{
@@ -42,12 +42,12 @@ test('full WebChat schema is generated and manifests preserve complete Node orde
 
 test('actual source inventory selects modules deterministically and rejects unknown/unmigrated components',async()=>{
  const index=await json('source-index.json');inspectSourceIndex(index);assert.deepEqual(planComponentSelection(index,['questionnaire','text']),planComponentSelection(index,['text','questionnaire']));
- assert.throws(()=>planComponentSelection(index,['invented-component']),/unknown component/);assert.throws(()=>planComponentSelection(index,[index.migrationCoverage.legacyNodeTypes[0]]),/not migrated/);
+ assert.throws(()=>planComponentSelection(index,['invented-component']),/unknown component/);assert.equal(index.migrationCoverage.legacyNodeTypes.length,0); for(const component of index.components)assert.ok(planComponentSelection(index,[component.type]).includedComponents.includes(component.type));
  const plan=planComponentSelection(index,['slider']);assert.ok(plan.includedComponents.length===41);assert.ok(plan.includedComponents.includes('link'));assert.ok(!plan.includedComponents.includes('questionnaire'));
 });
 
 test('published source supplement covers every authoritative source file without changing the CDN identity',async()=>{
- const publication=await json('source-public.json'),index=await json('index.json'),sourceIndex=await json('source-index.json');assert.equal(publication.publicCommit,index.source.publicCommit);assert.equal(publication.sourceCommit,index.source.sourceCommit);assert.equal(publication.publicCommit,'549d7c044224b429e62d4774e44e4bad48bc4583');assert.equal(publication.cdnIncludesQuestionnaire,false);
+ const publication=await json('source-public.json'),index=await json('index.json'),sourceIndex=await json('source-index.json');assert.equal(publication.publicCommit,index.source.publicCommit);assert.equal(publication.sourceCommit,index.source.sourceCommit);assert.equal(publication.publicCommit,'50054d2e436e8a0e215043ad3839f78623ecf4f8');assert.equal(publication.cdnIncludesQuestionnaire,false);
  for(const [p,digest]of Object.entries(sourceIndex.sourceFiles)){const f=publication.verifiedFiles.find(x=>x.path===p);assert.ok(f,p);assert.equal(f.sha256,digest,p);}
  assert.ok(publication.verifiedFiles.some(f=>f.path==='src/schema/iui.schema.json'));assert.equal(publication.cdnCommit,'fed5f86f49e73f908ac9ea98966b1515a3aaa597');
 });
@@ -107,4 +107,23 @@ test('supplied records and local choices retain all named semantic contracts',as
  const records=await json('modules/content/supplied-records.json'),choices=await json('modules/choices/local.json');assert.equal(records.selection.includedComponents.length,4);assert.equal(choices.selection.includedComponents.length,5);
  for(const p of ['docs/agenda.md','docs/person-profile.md','docs/news-article.md','docs/entity-reviews.md'])assert.ok(records.contracts.some(c=>c.path===p));
  for(const p of ['docs/restaurant-availability.md','docs/onboarding-selection.md','docs/create-interactive-poll.md','docs/location-choice-request.md','docs/business-gallery.md'])assert.ok(choices.contracts.some(c=>c.path===p));
+});
+
+test('complete migration accounts for each registered node once and keeps legacy payload byte-identical',async()=>{
+ const source=await json('source-index.json'),full=await json('webchat/iui.schema.json'),generation=await json('generation.json');
+ assert.equal(source.modules.length,90);assert.equal(source.components.length,218);assert.equal(new Set(source.components.map(c=>c.type)).size,218);assert.deepEqual(source.migrationCoverage.legacyNodeTypes,[]);
+ const fullTypes=full.$defs.Node.oneOf.map(ref=>full.$defs[ref.$ref.slice(8)].properties.type.const);
+ assert.deepEqual(source.components.map(c=>c.type).sort(),fullTypes.sort());
+ assert.equal(generation.artifacts.length,209);assert.equal(generation.fullSchema.bytes,751247);assert.equal(generation.fullSchema.sha256,'c59d34b171ee7cc54e278a857688d834363bbd6ff064f9ff503abfb74bdd0c92');
+ const publication=await json('source-public.json');assert.equal(publication.sourceCommit,publication.publicCommit);assert.equal(publication.verifiedFiles.length,340);assert.equal(publication.unchangedGeneratedArtifacts.count,27);assert.equal(publication.unchangedGeneratedArtifacts.allByteEqual,true);
+ const verified=new Map(publication.verifiedFiles.map(file=>[file.path,file]));
+ for(const module of source.modules)for(const file of [module.sourcePath,module.contractPath,...module.semanticContractPaths,...module.examplePaths])assert.ok(verified.has(file.split('#')[0]),file);
+});
+
+test('formerly legacy families carry their own semantic contracts and complete examples',async()=>{
+ for(const [moduleId,type]of [['travel/discovery','flight-search-form'],['converters/local','unit-converter'],['graphics/vector','svg'],['compatibility/native','native'],['content/html-view','html-view'],['media/image-grid','image-grid'],['sports/statistics','nba-game-boxscore'],['finance/net-worth','ledger-net-worth']]){
+  const task=await json('modules/'+moduleId+'.json');assert.ok(task.selection.includedComponents.includes(type),moduleId);assert.ok(task.contracts.length&&task.examples.length);assert.ok(task.selection.contractSelections.every(c=>c.followLinks===false));assertClosedSchema(task.schema);
+ }
+ const native=await json('modules/compatibility/native.json');assert.ok(native.contracts.some(c=>c.path==='docs/security.md'));
+ const snapshot=await json('modules/finance/snapshots.json');assert.ok(snapshot.selection.resolvedModules.includes('shared/finance-source'));
 });

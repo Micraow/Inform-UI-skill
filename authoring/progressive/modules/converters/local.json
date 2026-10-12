@@ -1,0 +1,591 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
+    },
+    "requestedComponents": [
+      "unit-converter"
+    ],
+    "requestedModules": [
+      "converters/local"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "shared/finance-source",
+      "converters/local"
+    ],
+    "includedComponents": [
+      "unit-converter",
+      "currency-converter"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/finance-snapshot-contract.md#source-and-literal-text",
+      "docs/converters.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/finance-snapshot-contract.md#source-and-literal-text",
+        "followLinks": false
+      },
+      {
+        "path": "docs/converters.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/local-converters.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 218,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:c0ccc0ba4e9154400076416dd3fd5ed03a843f70acd609117d04c999cd6ff811",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "CurrencyConverterNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "currency-converter"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "source": {
+            "$ref": "#/$defs/FinanceSource"
+          },
+          "asOf": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(?::\\d{2}(?:\\.\\d{1,3})?)?(?:Z|[+-]\\d{2}:\\d{2})$",
+            "maxLength": 40
+          },
+          "base": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "rates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{3}$"
+                },
+                "rate": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Units of this currency per one base-currency unit; null means unavailable."
+                }
+              },
+              "required": [
+                "currency",
+                "rate"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 200
+          },
+          "amount": {
+            "type": "number"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "precision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "loading",
+              "error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "source",
+          "asOf",
+          "base",
+          "rates",
+          "amount"
+        ],
+        "additionalProperties": false
+      },
+      "FinanceSource": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "synthetic": {
+            "type": "boolean"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "label",
+          "synthetic"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/UnitConverterNode"
+          },
+          {
+            "$ref": "#/$defs/CurrencyConverterNode"
+          }
+        ]
+      },
+      "UnitConverterNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "unit-converter"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "category": {
+            "enum": [
+              "length",
+              "mass",
+              "temperature",
+              "speed",
+              "area",
+              "volume",
+              "time",
+              "pressure",
+              "data"
+            ]
+          },
+          "amount": {
+            "type": "number"
+          },
+          "from": {
+            "enum": [
+              "m",
+              "cm",
+              "mm",
+              "km",
+              "in",
+              "ft",
+              "yd",
+              "mi",
+              "nmi",
+              "kg",
+              "g",
+              "mg",
+              "t",
+              "lb",
+              "oz",
+              "K",
+              "C",
+              "F",
+              "m-s",
+              "km-h",
+              "ft-s",
+              "mph",
+              "kn",
+              "m2",
+              "cm2",
+              "km2",
+              "ft2",
+              "ha",
+              "acre",
+              "L",
+              "mL",
+              "m3",
+              "gal-us",
+              "gal-imp",
+              "s",
+              "ms",
+              "min",
+              "h",
+              "d",
+              "Pa",
+              "kPa",
+              "MPa",
+              "bar",
+              "atm",
+              "psi",
+              "B",
+              "bit",
+              "kB",
+              "MB",
+              "GB",
+              "KiB",
+              "MiB",
+              "GiB"
+            ],
+            "description": "length: m, cm, mm, km, in, ft, yd, mi, nmi; mass: kg, g, mg, t, lb, oz; temperature: K, C, F; speed: m-s, km-h, ft-s, mph, kn; area: m2, cm2, km2, ft2, ha, acre; volume: L, mL, m3, gal-us, gal-imp; time: s, ms, min, h, d; pressure: Pa, kPa, MPa, bar, atm, psi; data: B, bit, kB, MB, GB, KiB, MiB, GiB"
+          },
+          "to": {
+            "enum": [
+              "m",
+              "cm",
+              "mm",
+              "km",
+              "in",
+              "ft",
+              "yd",
+              "mi",
+              "nmi",
+              "kg",
+              "g",
+              "mg",
+              "t",
+              "lb",
+              "oz",
+              "K",
+              "C",
+              "F",
+              "m-s",
+              "km-h",
+              "ft-s",
+              "mph",
+              "kn",
+              "m2",
+              "cm2",
+              "km2",
+              "ft2",
+              "ha",
+              "acre",
+              "L",
+              "mL",
+              "m3",
+              "gal-us",
+              "gal-imp",
+              "s",
+              "ms",
+              "min",
+              "h",
+              "d",
+              "Pa",
+              "kPa",
+              "MPa",
+              "bar",
+              "atm",
+              "psi",
+              "B",
+              "bit",
+              "kB",
+              "MB",
+              "GB",
+              "KiB",
+              "MiB",
+              "GiB"
+            ],
+            "description": "length: m, cm, mm, km, in, ft, yd, mi, nmi; mass: kg, g, mg, t, lb, oz; temperature: K, C, F; speed: m-s, km-h, ft-s, mph, kn; area: m2, cm2, km2, ft2, ha, acre; volume: L, mL, m3, gal-us, gal-imp; time: s, ms, min, h, d; pressure: Pa, kPa, MPa, bar, atm, psi; data: B, bit, kB, MB, GB, KiB, MiB, GiB"
+          },
+          "precision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12,
+            "description": "Maximum significant digits, default 8; raw values are retained."
+          },
+          "temperatureMode": {
+            "enum": [
+              "absolute",
+              "difference"
+            ],
+            "description": "Temperature only. Absolute includes scale offsets and must be >= 0 K; difference converts signed intervals without offsets."
+          }
+        },
+        "required": [
+          "type",
+          "category",
+          "amount",
+          "from",
+          "to"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/finance-snapshot-contract.md#source-and-literal-text",
+      "sourceBytes": 4886,
+      "sourceSha256": "9fb00756489549a5d4d9902a2e74239e823fca7069c4ac631c9aa87e3dc0f97a",
+      "bytes": 1301,
+      "sha256": "ecfcd397d4d1638f5c14f9fc20775f129e9e7ebfabcbab9bb8621de3d6b54c9e",
+      "text": "## Source and literal text\n\n`FinanceSource` requires `label` and `synthetic`; `url` is optional. The literal `synthetic` flag describes the supplied source, not a verified provenance claim. A nonempty URL must pass the existing safe-link policy (`UNSAFE_URL`). Omitted URL and the empty string are valid; a whitespace URL is not. There is no blanket `trim()` rule on finance display strings: schema-valid whitespace-only titles, source labels, names, symbols, range labels, sector, weightLabel, changeBasis and messages retain their existing behavior. Time zones and timestamps have the specific checks below. Do not impose the stricter label rules of later ledger display families here.\n\nPrices, previous closes and heatmap weights are nonnegative finite numbers or explicit null. Zero is known data; null means missing. Currency is the existing three-capital-letter pattern, not a currency registry or conversion request. Optional component `id` remains a document-wide node identifier; record IDs have the collection scopes below. No new ID normalization or pattern tightening is introduced. In particular, legacy finance currency/record-key patterns retain their existing end-anchor behavior; the stricter exact-end currency/supplied-key patterns of later ledger records are not substituted here.\n"
+    },
+    {
+      "path": "docs/converters.md",
+      "sourceBytes": 7446,
+      "sourceSha256": "b97892569b881d07ebb6508422ad1b2a7b6316377e6a6813e8b19cf1e39765cd",
+      "bytes": 7446,
+      "sha256": "b97892569b881d07ebb6508422ad1b2a7b6316377e6a6813e8b19cf1e39765cd",
+      "text": "# 单位与货币换算\n\n开发分支新增 `unit-converter` 与 `currency-converter`。源码已接入，九个浏览器场景通过；52节点固定CDN为4b6c1f0，真实file://六组亮暗/尺寸验收在[run37878019661](https://github.com/Micraow/Inform-UI/actions/runs/37878019661)通过。\n\n两个组件都在本地运行，不写入文档 state，不请求报价，不执行交易。[完整教学 JSON](../examples/converters.json) 与 [状态 fixture](../examples/converters/states.json) 可用于本地编译及统一组件 Demo。\n\n## 单位\n\n最小节点：\n\n```json\n{\"type\":\"unit-converter\",\"category\":\"length\",\"amount\":1,\"from\":\"m\",\"to\":\"cm\"}\n```\n\n必填 `category`、有限数字 `amount`、同类别的 `from` 和 `to`。可选 `title`、`id`、`precision`（1–12个有效数字，默认8），以及仅用于温度的 `temperatureMode`（默认 `absolute`）。类别与单位 ID 如下；大小写有意义。\n\n| category | 类别 | 单位 ID |\n|---|---|---|\n| length | 长度 | `m`, `cm`, `mm`, `km`, `in`, `ft`, `yd`, `mi`, `nmi` |\n| mass | 质量 | `kg`, `g`, `mg`, `t`, `lb`, `oz` |\n| temperature | 温度 | `K`, `C`, `F` |\n| speed | 速度 | `m-s`, `km-h`, `ft-s`, `mph`, `kn` |\n| area | 面积 | `m2`, `cm2`, `km2`, `ft2`, `ha`, `acre` |\n| volume | 体积 | `L`, `mL`, `m3`, `gal-us`, `gal-imp` |\n| time | 时长 | `s`, `ms`, `min`, `h`, `d` |\n| pressure | 压强 | `Pa`, `kPa`, `MPa`, `bar`, `atm`, `psi` |\n| data | 数据量 | `B`, `bit`, `kB`, `MB`, `GB`, `KiB`, `MiB`, `GiB` |\n\n`absolute` 包含温标偏移，不能低于 0 K / −273.15 °C / −459.67 °F。`difference` 只换算带符号的温差，以 Δ 标注：10 Δ°C = 18 Δ°F。其他类别允许负值，适用于带方向的量。日是86400秒固定时长；不提供日历月份/年份或时区换算。美制液体与英制加仑分别命名；不支持美制干量加仑或美国测量英尺。\n\n输入接受十进制和科学记数法；空串、未完成的 `1e`、千位分隔符、十六进制及非有限数字不会被解释成0。界面保留输入草稿并显示错误。极小非零数使用科学记数法，超出 JavaScript Number 可表示范围明确报错。显示经过舍入，原始结果保留在提示和 `data-raw-value` 中。\n\n类别切换保留数值并选用该类别有效单位；“互换”只交换单位，数值保持不变；“重置”恢复节点初始类别、单位、模式与数值。\n\n## 货币快照\n\n```json\n{\"type\":\"currency-converter\",\"amount\":100,\"base\":\"USD\",\"from\":\"USD\",\"to\":\"EUR\",\"asOf\":\"2026-10-09T09:00:00+08:00\",\"source\":{\"label\":\"原创合成汇率\",\"synthetic\":true},\"rates\":[{\"currency\":\"EUR\",\"rate\":0.8},{\"currency\":\"GBP\",\"rate\":null}]}\n```\n\n必填有限 `amount`、3位大写 `base`、`rates`、带显式时区的真实日期格式 `asOf`，以及 `source`（必填 `label`、`synthetic`，可选安全 URL）。币种代码是调用方标识；本库不维护实时 ISO 名单，也不据代码推断可交易性。\n\n`rate` 表示1单位 base 可换得多少该币种，必须正有限或 null（缺测）。base隐含汇率1，若显式提供也必须为1。列表币种不得重复。`from` 默认base；`to` 默认第一个其他币种，若没有则相同币种。初始选择必须是base或列表中的币种。相同币种保持原数值，缺测跨币种汇率即使输入0也仍为“不可换算”。\n\n金额经两个相对base的汇率换算，数值核心避免极端有限比值的中间溢出；最终无法表示的结果仍明确报错。未计入费用、点差、税务或结算规则。所有汇率、缺测、来源与原始带时区时刻在数据表/页脚可见；不根据当前时钟冒称实时或自动判定新旧。\n\n`status` 为 ready/loading/error（默认ready），可选 `message`。空rates显示空态；loading/error保留来源/时刻并隐藏计算控件。换新快照通过标准 `controller.update(nextDocument)`，旧事件随更新/销毁移除。\n\n## 校验与验收\n\n结构错误为 `SCHEMA`；语义错误包含 `UNIT_ID`、`UNIT_MODE`、`UNIT_RANGE`、`CURRENCY_ID`、`CURRENCY_RATE`、`CURRENCY_DATE`、`CURRENCY_RANGE`、`UNSAFE_URL`，均带 JSON pointer 路径。输入之后的非法草稿/不可表示结果直接显示在当前组件，不改上次文档数据。\n\nNode测试覆盖九类独立已知值、绝对零度、温差、空/坏输入、缺测/零值/同币种、极端汇率、重置、焦点、来源、update/dispose及离线编译。Chromium矩阵覆盖390/768/1100亮暗、键盘、状态、无溢出与无网络请求，执行结论以CI为准。\n\n## 数值来源\n\n常量为公开事实，代码与界面为原创；没有复制抓取网站实现。单位注册表是 [`src/data/units.json`](../src/data/units.json)，与校验、Schema说明和控件共用。\n\n- [NIST SI温度说明](https://www.nist.gov/pml/owm/si-units-temperature)：Kelvin/Celsius与温差\n- [NIST SP811换算因子](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8)：国际英尺、英里、海里、加仑、英亩、压力等\n- [NIST SP811脚注](https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes)：国际磅0.45359237 kg等精确定义\n- [NIST二进制前缀](https://physics.nist.gov/cuu/Units/binary.html)：kB/MB与KiB/MiB的区别\n\n## 源模块与不收紧的历史边界\n\n`converters/local` 维护既有两个换算节点，依赖 `shared/value` 与仅提供 `FinanceSource` 的 `shared/finance-source`。单位代码和 Schema 中的类别说明直接读取维护中的 `src/data/units.json`，不从全量 Schema 反切或另存一份常量表。模块读取注册表后同步安装声明；所选结构 Schema 后仍须执行原有完整 `validateDocument`。\n\n单位 Schema 的 from/to 枚举包含注册表的所有单位；同一类别检查由语义层完成。跨类别代码即使分别是有效单位也会被拒绝。amount 可为负数和零；绝对温度按各原温标阈值校验，温差可为负。非温度类别只要出现 temperatureMode 就报错，不能因为值为 absolute 而忽略它。换算溢出及非零值下溢成零均报数值范围错误；不会悄悄返回 Infinity 或把非零量当作零。已有浮点策略和默认精度保持不变。\n\n货币 rates 为0–200条，币种必须三位大写 ASCII 字母；不校验 ISO 名单或可交易性。重复条目总会被拒绝，显式 base 条目必须恰为1，不能为 null。初始 from/to 必须存在于 base 或已供列表；其汇率可以为 null。相同币种直接保留 amount；跨币种缺测返回未知，输入为0也不补成结果0。有限极端汇率使用既有数值实现，最终溢出或非零结果下溢报错；金额不被默认理解为交易、账户余额或支付指令。\n\n`asOf` 使用原有通用 timestamp 规则，真实日期、显式 `Z` 或偏移，允许秒和1–3位小数秒且须能解析成有限瞬间；不套用 `flightAt` 的仅分钟、1000年起点或14小时偏移上限。非空来源 URL 使用通用安全链接策略（受限 HTTP(S)/mailto/tel/片段），可省略或为空；这里不强加供源 reader 的 HTTP(S) 专用规则。可选 title 与必填 source.label 为1–200字符，不额外 trim 或判定 nonblank；message（≤12000）可为空。不同状态仍做相同结构和语义检查，无当前时钟、汇率新鲜度、舍入费用、税务或交易规则推断。\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/local-converters.json",
+      "bytes": 814,
+      "sha256": "d3e1bb8aa756014e28f2febd62922375cd90db5db95e93b1b2307a596432b9f2",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "unit-converter",
+            "title": "Local signed temperature difference",
+            "category": "temperature",
+            "amount": -10,
+            "from": "C",
+            "to": "F",
+            "temperatureMode": "difference",
+            "precision": 8
+          },
+          {
+            "type": "currency-converter",
+            "title": "Original synthetic exchange snapshot",
+            "source": {
+              "label": "Original fictional supplied rates",
+              "synthetic": true
+            },
+            "asOf": "2028-02-29T12:00:30.125Z",
+            "base": "XYZ",
+            "rates": [
+              {
+                "currency": "ABC",
+                "rate": 0.5
+              },
+              {
+                "currency": "DEF",
+                "rate": null
+              }
+            ],
+            "amount": 0,
+            "from": "XYZ",
+            "to": "DEF",
+            "precision": 8
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "74b2ec1c0ff1901be2b9bbac74a4141e155e95186904b881a762b4ba7cdfc7fc",
+    "schemaSha256": "a435e7deefd89bd1c591fa435c3cc81cea222f2b0f13cb0482b4ef5413f80bcb",
+    "schemaBytes": 10091
+  },
+  "manifestPath": "local.json.manifest.json"
+}

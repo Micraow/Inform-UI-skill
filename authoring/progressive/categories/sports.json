@@ -1,0 +1,129 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
+    }
+  },
+  "category": "sports",
+  "modules": [
+    {
+      "id": "sports/motorsport",
+      "title": "Supplied motorsport snapshots",
+      "dependsOn": [
+        "travel/snapshots"
+      ],
+      "semanticContractPaths": [
+        "docs/motorsport.md"
+      ],
+      "taskPath": "../modules/sports/motorsport.json",
+      "components": [
+        {
+          "type": "f1-races",
+          "definition": "F1RacesNode",
+          "schemaPointer": "#/schema/$defs/F1RacesNode"
+        },
+        {
+          "type": "f1-standings",
+          "definition": "F1StandingsNode",
+          "schemaPointer": "#/schema/$defs/F1StandingsNode"
+        }
+      ]
+    },
+    {
+      "id": "sports/model",
+      "title": "Supplied schedule scoreboard and standings",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/sports.md"
+      ],
+      "taskPath": "../modules/sports/model.json",
+      "components": [
+        {
+          "type": "sports-schedule",
+          "definition": "SportsScheduleNode",
+          "schemaPointer": "#/schema/$defs/SportsScheduleNode"
+        },
+        {
+          "type": "sports-scoreboard",
+          "definition": "SportsScoreboardNode",
+          "schemaPointer": "#/schema/$defs/SportsScoreboardNode"
+        },
+        {
+          "type": "sports-standings",
+          "definition": "SportsStandingsNode",
+          "schemaPointer": "#/schema/$defs/SportsStandingsNode"
+        }
+      ]
+    },
+    {
+      "id": "sports/match-scores",
+      "title": "Supplied basketball soccer and football matches",
+      "dependsOn": [
+        "travel/snapshots"
+      ],
+      "semanticContractPaths": [
+        "docs/match-scores.md"
+      ],
+      "taskPath": "../modules/sports/match-scores.json",
+      "components": [
+        {
+          "type": "nba-scores",
+          "definition": "NbaScoresNode",
+          "schemaPointer": "#/schema/$defs/NbaScoresNode"
+        },
+        {
+          "type": "soccer-games",
+          "definition": "SoccerGamesNode",
+          "schemaPointer": "#/schema/$defs/SoccerGamesNode"
+        },
+        {
+          "type": "american-football-games",
+          "definition": "AmericanFootballGamesNode",
+          "schemaPointer": "#/schema/$defs/AmericanFootballGamesNode"
+        }
+      ]
+    },
+    {
+      "id": "sports/statistics",
+      "title": "Supplied boxscores and player records",
+      "dependsOn": [
+        "travel/snapshots"
+      ],
+      "semanticContractPaths": [
+        "docs/boxscores.md",
+        "docs/player-summaries.md"
+      ],
+      "taskPath": "../modules/sports/statistics.json",
+      "components": [
+        {
+          "type": "nba-game-boxscore",
+          "definition": "NbaGameBoxscoreNode",
+          "schemaPointer": "#/schema/$defs/NbaGameBoxscoreNode"
+        },
+        {
+          "type": "cricket-match-boxscore",
+          "definition": "CricketMatchBoxscoreNode",
+          "schemaPointer": "#/schema/$defs/CricketMatchBoxscoreNode"
+        },
+        {
+          "type": "nba-player-summary",
+          "definition": "NbaPlayerSummaryNode",
+          "schemaPointer": "#/schema/$defs/NbaPlayerSummaryNode"
+        },
+        {
+          "type": "tennis-player-summary",
+          "definition": "TennisPlayerSummaryNode",
+          "schemaPointer": "#/schema/$defs/TennisPlayerSummaryNode"
+        }
+      ]
+    }
+  ]
+}

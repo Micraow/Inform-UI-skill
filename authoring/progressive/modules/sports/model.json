@@ -1,0 +1,1136 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
+    },
+    "requestedComponents": [
+      "sports-schedule"
+    ],
+    "requestedModules": [
+      "sports/model"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "sports/model"
+    ],
+    "includedComponents": [
+      "sports-schedule",
+      "sports-scoreboard",
+      "sports-standings"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/sports.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/sports.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/sports-model.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 218,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:6ea295dc75788a5bafc02665f5feec2a71bc4e78a2198e81b767722fe62dd28d",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/SportsScheduleNode"
+          },
+          {
+            "$ref": "#/$defs/SportsScoreboardNode"
+          },
+          {
+            "$ref": "#/$defs/SportsStandingsNode"
+          }
+        ]
+      },
+      "SportsData": {
+        "type": "object",
+        "properties": {
+          "league": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "sport": {
+                "enum": [
+                  "football",
+                  "basketball",
+                  "baseball",
+                  "hockey",
+                  "other"
+                ]
+              },
+              "season": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "sport"
+            ],
+            "additionalProperties": false
+          },
+          "timezone": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "updatedAt": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(?::\\d{2}(?:\\.\\d{1,3})?)?(?:Z|[+-]\\d{2}:\\d{2})$",
+            "maxLength": 40
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "synthetic": {
+                "type": "boolean"
+              },
+              "url": {
+                "type": "string",
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "label",
+              "synthetic"
+            ],
+            "additionalProperties": false
+          },
+          "teams": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SportsTeam"
+            },
+            "minItems": 0,
+            "maxItems": 100
+          },
+          "games": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SportsGame"
+            },
+            "minItems": 0,
+            "maxItems": 300
+          },
+          "standings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SportsStanding"
+            },
+            "minItems": 0,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "league",
+          "timezone",
+          "updatedAt",
+          "source",
+          "teams",
+          "games"
+        ],
+        "additionalProperties": false
+      },
+      "SportsGame": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "startAt": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}(?::\\d{2}(?:\\.\\d{1,3})?)?(?:Z|[+-]\\d{2}:\\d{2})$",
+            "maxLength": 40
+          },
+          "homeTeam": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "awayTeam": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "status": {
+            "enum": [
+              "scheduled",
+              "live",
+              "final",
+              "postponed",
+              "cancelled"
+            ]
+          },
+          "homeScore": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "awayScore": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "period": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "clock": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "stage": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "venue": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "neutral": {
+            "type": "boolean"
+          },
+          "winnerTeamId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 3000
+          },
+          "periodScores": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "home": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000000
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "away": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 1000000
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "label",
+                "home",
+                "away"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 30
+          },
+          "tieBreak": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "home": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "away": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "label",
+              "home",
+              "away"
+            ],
+            "additionalProperties": false
+          },
+          "stats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "home": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 200
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "away": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 200
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "label",
+                "home",
+                "away"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "id",
+          "startAt",
+          "homeTeam",
+          "awayTeam",
+          "status",
+          "homeScore",
+          "awayScore"
+        ],
+        "additionalProperties": false
+      },
+      "SportsScheduleNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "sports-schedule"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "data": {
+            "$ref": "#/$defs/SportsData"
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "loading",
+              "error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "initialDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "initialTeamId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "initialStage": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "SportsScoreboardNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "sports-scoreboard"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "data": {
+            "$ref": "#/$defs/SportsData"
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "loading",
+              "error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "gameId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          }
+        },
+        "required": [
+          "type",
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "SportsStanding": {
+        "type": "object",
+        "properties": {
+          "teamId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "group": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10000
+          },
+          "played": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "won": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "drawn": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lost": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "points": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "for": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "against": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "teamId",
+          "rank",
+          "played",
+          "won",
+          "drawn",
+          "lost",
+          "points"
+        ],
+        "additionalProperties": false
+      },
+      "SportsStandingsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "sports-standings"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "data": {
+            "$ref": "#/$defs/SportsData"
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "loading",
+              "error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "initialTeamId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "initialGroup": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "data"
+        ],
+        "additionalProperties": false
+      },
+      "SportsTeam": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "shortName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 16
+          },
+          "color": {
+            "enum": [
+              "blue",
+              "green",
+              "orange",
+              "red",
+              "purple",
+              "gray"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/sports.md",
+      "sourceBytes": 7613,
+      "sourceSha256": "5a27cc59105bb1adafc534bdc0606f7f46b02fdfc3f91f75baa6b2fb89e23750",
+      "bytes": 7613,
+      "sha256": "5a27cc59105bb1adafc534bdc0606f7f46b02fdfc3f91f75baa6b2fb89e23750",
+      "text": "# 体育：调用方供数的赛程、记分牌与积分榜\n\n开发分支新增 `sports-schedule`、`sports-scoreboard`、`sports-standings`，共用一个 `data` 对象。它们是独立的领域视图，支持本地筛选、比赛详情、记分牌切换和积分榜排序。旧7c490585 CDN不含这三个节点；当前固定50节点入口与实际加载验收见[CDN文档](cdn.md)。\n\n[完整原创 JSON](../examples/sports.json) · [状态样本](../examples/sports/states.json) · [正式 Schema](../src/schema/iui.schema.json)\n\n## 最小例子\n\n```json\n{\n  \"version\": \"iui/1\",\n  \"body\": [{\n    \"type\": \"sports-scoreboard\",\n    \"data\": {\n      \"league\": {\"id\": \"demo\", \"name\": \"合成示例杯\", \"sport\": \"football\"},\n      \"timezone\": \"Asia/Shanghai\",\n      \"updatedAt\": \"2026-10-08T18:00:00+08:00\",\n      \"source\": {\"label\": \"原创教学数据\", \"synthetic\": true},\n      \"teams\": [{\"id\": \"a\", \"name\": \"甲队\"}, {\"id\": \"b\", \"name\": \"乙队\"}],\n      \"games\": [{\"id\": \"g\", \"startAt\": \"2026-10-08T19:00:00+08:00\", \"homeTeam\": \"a\", \"awayTeam\": \"b\", \"status\": \"scheduled\", \"homeScore\": null, \"awayScore\": null}]\n    }\n  }]\n}\n```\n\n## 共享数据合同\n\n- `league`：`id`、`name`、`sport`（football / basketball / baseball / hockey / other），可选 `season`。\n- `timezone`：明确的 IANA 时区。`updatedAt` 与比赛 `startAt` 是含 UTC 偏移的时间戳。日期分组按指定时区，夏令时重复小时会显示偏移。\n- `source`：`label`、`synthetic`，可选安全的 `url`。合成数据明确标记；来源链接不会自动请求。\n- `teams`：最多100队，唯一 `id`、`name`，可选 `shortName`、六色语义 `color`。图形标识是原创文字缩写，无商标图片下载。\n- `games`：最多300场，唯一 `id`、`startAt`、`homeTeam`、`awayTeam`、`status`、`homeScore`、`awayScore`。参赛队必须存在且不同；分数为非负整数或 `null`。\n- `standings`：可选，最多100行。`teamId`、`rank`、`played`、`won`、`drawn`、`lost`、`points` 必填。除名次外允许 `null`；积分可为负数，保留来源给出的扣分。可选 `group`、`for`、`against`、`note`。\n\n比赛状态为 `scheduled` / `live` / `final` / `postponed` / `cancelled`。未开赛必须用 `null` 分数；进行中的真实 0:0 保留零。已结束仍可有缺测比分，不补零。延期或取消可能保留中断前的分数，不自动推断比赛结果。\n\n可选比赛详情：`period`、`clock`、`stage`、`venue`、`neutral`、`detail`；`periodScores` 是 `{label,home,away}` 数组，`tieBreak` 是同形对象，`stats` 是同形数组（统计值可为字符串、数值或null）。同一数组内标签不重复。加赛/点球只属于进行中或已结束场次；`winnerTeamId` 仅适用于已结束比赛且必须是参赛队。\n\n库不推断不同联赛的赛制、计时、总分规则、胜负或排名：例如点球、弃权、两回合总比分都可能需要调用方明确解释。分节值可以缺测，不强求其和等于总比分。已知胜/平/负之和不得超过场次，三项全知时必须相等。每个视图内每队只能有一条积分记录；不同赛季/联赛用独立节点表示。\n\n## 交互与状态\n\n- 赛程按实际时间排序，按当地日期分组；日期、球队、阶段可组合筛选。原生详情组件可键盘展开，包含完整带偏移时间。可选 `initialDate`（允许无比赛日期）、`initialTeamId`、`initialStage`。\n- 记分牌通过原生选择器切换比赛；可选 `gameId`，否则优先首场进行中比赛，再取时间最早一场。主客队、明确获胜标记、分节和统计分开展示。\n- 积分榜可选 `initialTeamId` / `initialGroup`。名次与各数值列可排序，保留数据源的并列名次；缺测总在末尾，相同值稳定排序。窄屏表格在有名称且可聚焦的区域内横向滚动。\n- 三种节点都接受 `status: ready | loading | error` 及可选 `message`。空数据/无匹配有单独可读提示。loading/error 隐藏控件、分别暴露 busy/status 或 alert。\n- 筛选与排序属于视图状态，不改全局 `state`；`controller.update` 接收新的完整快照并重置局部选择，`dispose` 移除事件。库不轮询、不倒计时、不自动联系体育数据服务。\n\n## 支持边界与校验\n\n当前覆盖上述三个领域视图，不包含球员档案、逐球事件、投篮图、完整 box score、淘汰赛树、赛车圈速或赛道动画。一个带统计表的记分牌不代表这些组件已完成。\n\n语义诊断：`SPORTS_ID`、`SPORTS_TEAM`、`SPORTS_DATE`、`SPORTS_STATUS`、`SPORTS_RESULT`、`SPORTS_PERIOD`、`SPORTS_STAT`、`SPORTS_RECORD`、`SPORTS_FILTER`，以及共用 `TIMEZONE` / `UNSAFE_URL`。结构错误仍返回 `SCHEMA`。所有错误沿用 `{code,path,message}`，非法更新不会替换当前页面。\n\n## 源模块与精确校验边界\n\n`sports/model` 维护原有三个节点及其共享 `SportsData` 定义，依赖 `shared/value`。这套历史 sports 数据合同与 `sports/match-scores` 的 supplied 比分合同不同；不得互相套用状态、URL、时间或 ID 限制。选定结构 Schema 后仍须运行未改动的完整 `validateDocument`。\n\n- `short` 字段（如球队名、联赛名、来源名、分组、阶段、period/统计 label）长度为1–200，但没有额外 trim/nonblank 语义检查。`shortName` 为1–16。可选 venue（≤300）、detail（≤3000）、standing note（≤500）、message（≤12000）及 stats 字符串（≤200）可为空。\n- 球队、比赛、联赛和引用使用既有 `key` 正则，不替换为较严格的 `suppliedKey`。它以 ASCII 字母或下划线开头，后接至多79个 ASCII 字母、数字、下划线、点或连字符；保持原正则字面定义；当前 JavaScript/AJV 校验拒绝尾随换行符。引用按原字符串精确匹配。可选节点 id 沿用1–200字符及文档内唯一规则。\n- 球队 ID、比赛 ID 各在自己的列表唯一。periodScores label、stats label 各在每场自己的列表唯一；不同列表可以重用标签。standing 每队只出现一次，rank 为1–10000整数，允许并列。比分、场次、胜平负、进失球为0–1000000整数或 null；points 为数值或 null，可为负或小数。stats 数值不限定为整数。\n- 只有 scheduled 主客总分必须同时为 null；不要求其他状态分数非空。只有明确的 `winnerTeamId` 要求 final 且为该场参赛队，比分本身不会推断赢家。tieBreak 只允许 live/final；periodScores 没有该状态限制，也不要求各期求和等于总分。\n- played 非 null 时，已知 won/drawn/lost 之和不可大于 played；三者均已知则必须相等。played 为 null 时不作该求和检查。不校验 points 与胜平负的计分公式。\n- `updatedAt`/`startAt` 使用既有 timestamp helper：真实 `YYYY-MM-DD` 日期、显式 `Z` 或偏移，分钟后允许秒及1–3位小数秒，且须被 JavaScript 日期解析为有限值。这里不套用 `flightAt` 的1000年起点、仅分钟或14小时偏移上限；例如 `+15:00` 保留历史可解析行为。`initialDate` 必须通过真实日期回读检查，但可以没有对应比赛。时区由运行环境的 `Intl.DateTimeFormat` 识别。\n- 初始球队、比赛、阶段、分组必须引用已有相应内容。来源 URL 可省略或为空；非空时使用通用安全链接策略，允许安全的 HTTP(S)、受限 mailto/tel 或片段，不额外要求 HTTP(S)。不会请求来源、校验来源真实性或推断更新时间与开赛时间先后。\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/sports-model.json",
+      "bytes": 6831,
+      "sha256": "bcb4295c96d60b2f1e6df68b96ca6dd89f061297154eca802ca7b9555593ad24",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "sports-schedule",
+            "data": {
+              "league": {
+                "id": "cedar_cup",
+                "name": "Fictional Cedar Cup",
+                "sport": "football",
+                "season": "Original sample"
+              },
+              "timezone": "UTC",
+              "updatedAt": "2028-02-29T12:00:30.125Z",
+              "source": {
+                "label": "Original fictional sample",
+                "synthetic": true
+              },
+              "teams": [
+                {
+                  "id": "cedar",
+                  "name": "Cedar"
+                },
+                {
+                  "id": "harbor",
+                  "name": "Harbor"
+                }
+              ],
+              "games": [
+                {
+                  "id": "future",
+                  "startAt": "2028-03-01T15:00Z",
+                  "homeTeam": "cedar",
+                  "awayTeam": "harbor",
+                  "status": "scheduled",
+                  "homeScore": null,
+                  "awayScore": null,
+                  "stage": "Exhibition"
+                },
+                {
+                  "id": "finished",
+                  "startAt": "2028-02-29T09:00Z",
+                  "homeTeam": "harbor",
+                  "awayTeam": "cedar",
+                  "status": "final",
+                  "homeScore": 0,
+                  "awayScore": 0,
+                  "winnerTeamId": "cedar",
+                  "tieBreak": {
+                    "label": "Supplied decision",
+                    "home": 3,
+                    "away": 4
+                  },
+                  "periodScores": [
+                    {
+                      "label": "First",
+                      "home": null,
+                      "away": null
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Supplied observation",
+                      "home": "missing",
+                      "away": null
+                    }
+                  ]
+                }
+              ],
+              "standings": [
+                {
+                  "teamId": "cedar",
+                  "rank": 1,
+                  "played": 1,
+                  "won": 1,
+                  "drawn": 0,
+                  "lost": 0,
+                  "points": 2.5,
+                  "group": "Sample"
+                },
+                {
+                  "teamId": "harbor",
+                  "rank": 2,
+                  "played": 1,
+                  "won": 0,
+                  "drawn": 0,
+                  "lost": 1,
+                  "points": -0.5,
+                  "group": "Sample"
+                }
+              ]
+            },
+            "initialDate": "2028-03-02",
+            "initialStage": "Exhibition"
+          },
+          {
+            "type": "sports-scoreboard",
+            "data": {
+              "league": {
+                "id": "cedar_cup",
+                "name": "Fictional Cedar Cup",
+                "sport": "football",
+                "season": "Original sample"
+              },
+              "timezone": "UTC",
+              "updatedAt": "2028-02-29T12:00:30.125Z",
+              "source": {
+                "label": "Original fictional sample",
+                "synthetic": true
+              },
+              "teams": [
+                {
+                  "id": "cedar",
+                  "name": "Cedar"
+                },
+                {
+                  "id": "harbor",
+                  "name": "Harbor"
+                }
+              ],
+              "games": [
+                {
+                  "id": "future",
+                  "startAt": "2028-03-01T15:00Z",
+                  "homeTeam": "cedar",
+                  "awayTeam": "harbor",
+                  "status": "scheduled",
+                  "homeScore": null,
+                  "awayScore": null,
+                  "stage": "Exhibition"
+                },
+                {
+                  "id": "finished",
+                  "startAt": "2028-02-29T09:00Z",
+                  "homeTeam": "harbor",
+                  "awayTeam": "cedar",
+                  "status": "final",
+                  "homeScore": 0,
+                  "awayScore": 0,
+                  "winnerTeamId": "cedar",
+                  "tieBreak": {
+                    "label": "Supplied decision",
+                    "home": 3,
+                    "away": 4
+                  },
+                  "periodScores": [
+                    {
+                      "label": "First",
+                      "home": null,
+                      "away": null
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Supplied observation",
+                      "home": "missing",
+                      "away": null
+                    }
+                  ]
+                }
+              ],
+              "standings": [
+                {
+                  "teamId": "cedar",
+                  "rank": 1,
+                  "played": 1,
+                  "won": 1,
+                  "drawn": 0,
+                  "lost": 0,
+                  "points": 2.5,
+                  "group": "Sample"
+                },
+                {
+                  "teamId": "harbor",
+                  "rank": 2,
+                  "played": 1,
+                  "won": 0,
+                  "drawn": 0,
+                  "lost": 1,
+                  "points": -0.5,
+                  "group": "Sample"
+                }
+              ]
+            },
+            "gameId": "finished"
+          },
+          {
+            "type": "sports-standings",
+            "data": {
+              "league": {
+                "id": "cedar_cup",
+                "name": "Fictional Cedar Cup",
+                "sport": "football",
+                "season": "Original sample"
+              },
+              "timezone": "UTC",
+              "updatedAt": "2028-02-29T12:00:30.125Z",
+              "source": {
+                "label": "Original fictional sample",
+                "synthetic": true
+              },
+              "teams": [
+                {
+                  "id": "cedar",
+                  "name": "Cedar"
+                },
+                {
+                  "id": "harbor",
+                  "name": "Harbor"
+                }
+              ],
+              "games": [
+                {
+                  "id": "future",
+                  "startAt": "2028-03-01T15:00Z",
+                  "homeTeam": "cedar",
+                  "awayTeam": "harbor",
+                  "status": "scheduled",
+                  "homeScore": null,
+                  "awayScore": null,
+                  "stage": "Exhibition"
+                },
+                {
+                  "id": "finished",
+                  "startAt": "2028-02-29T09:00Z",
+                  "homeTeam": "harbor",
+                  "awayTeam": "cedar",
+                  "status": "final",
+                  "homeScore": 0,
+                  "awayScore": 0,
+                  "winnerTeamId": "cedar",
+                  "tieBreak": {
+                    "label": "Supplied decision",
+                    "home": 3,
+                    "away": 4
+                  },
+                  "periodScores": [
+                    {
+                      "label": "First",
+                      "home": null,
+                      "away": null
+                    }
+                  ],
+                  "stats": [
+                    {
+                      "label": "Supplied observation",
+                      "home": "missing",
+                      "away": null
+                    }
+                  ]
+                }
+              ],
+              "standings": [
+                {
+                  "teamId": "cedar",
+                  "rank": 1,
+                  "played": 1,
+                  "won": 1,
+                  "drawn": 0,
+                  "lost": 0,
+                  "points": 2.5,
+                  "group": "Sample"
+                },
+                {
+                  "teamId": "harbor",
+                  "rank": 2,
+                  "played": 1,
+                  "won": 0,
+                  "drawn": 0,
+                  "lost": 1,
+                  "points": -0.5,
+                  "group": "Sample"
+                }
+              ]
+            },
+            "initialTeamId": "cedar",
+            "initialGroup": "Sample"
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "74b2ec1c0ff1901be2b9bbac74a4141e155e95186904b881a762b4ba7cdfc7fc",
+    "schemaSha256": "fabd3a7ce1536f07ab9f641616336ac156cefa439c64ebc94aff3f1f1d1a5455",
+    "schemaBytes": 16968
+  },
+  "manifestPath": "model.json.manifest.json"
+}

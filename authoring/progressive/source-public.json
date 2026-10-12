@@ -1,10 +1,16 @@
 {
   "format": "inform-ui-progressive-public-source/1",
-  "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
-  "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583",
-  "publicTree": "8c383796f9ce64a68fae6ae7c45c126a35ba2949",
-  "url": "https://github.com/Micraow/Inform-UI/commit/549d7c044224b429e62d4774e44e4bad48bc4583",
+  "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+  "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+  "publicTree": "df4518fb113d72e5f61a3221eed7951faf15d666",
+  "url": "https://github.com/Micraow/Inform-UI/commit/50054d2e436e8a0e215043ad3839f78623ecf4f8",
   "verifiedFiles": [
+    {
+      "path": "docs/activity-planning.md",
+      "bytes": 7383,
+      "sha256": "b2385e398fb985b57dde50dcbbd977047aa4a85e9b3f9ed1b6efba810c6fbb6a",
+      "gitBlob": "8bf030d14a8e7662e071e0d43688f77fd19a8a35"
+    },
     {
       "path": "docs/agenda.md",
       "bytes": 4965,
@@ -34,6 +40,12 @@
       "bytes": 6057,
       "sha256": "134b21618a154a2d916fd32a80ff7c13548eee829320ddff8cc79b860a2e6f49",
       "gitBlob": "ac17bc7e35483fd527a5f2ea1b44ee980bee347b"
+    },
+    {
+      "path": "docs/boxscores.md",
+      "bytes": 3551,
+      "sha256": "36555cc7d2d18f94baa3aa904ccfafcdea4f0e9a7d074353e37a90ffb8dde2f5",
+      "gitBlob": "582be8501d30198065ecc3d143ed082f988bdb76"
     },
     {
       "path": "docs/business-gallery.md",
@@ -96,10 +108,22 @@
       "gitBlob": "4e818fd2b0f1771ff98ce8164084ffc5d410f7c2"
     },
     {
+      "path": "docs/conversation-suggestions.md",
+      "bytes": 501,
+      "sha256": "5a974c0f4ce8061e2711d29c1af0fb190c949f1581c1fdae18372da72560c591",
+      "gitBlob": "7b754050a6132235aff1de02c956fb5154f9afb9"
+    },
+    {
       "path": "docs/conversational-onboarding.md",
       "bytes": 3628,
       "sha256": "64a5144027d0ce39ff2b56fcd326218c717d96e720e4cdc0ae239394a456125b",
       "gitBlob": "9462262df55c172952efcc93d6849aca949a4dab"
+    },
+    {
+      "path": "docs/converters.md",
+      "bytes": 7446,
+      "sha256": "b97892569b881d07ebb6508422ad1b2a7b6316377e6a6813e8b19cf1e39765cd",
+      "gitBlob": "a3f621f3f46cd9292f02a89558e67becfad22a7e"
     },
     {
       "path": "docs/corrected-age.md",
@@ -126,6 +150,12 @@
       "gitBlob": "add867e3149d889fe203715956ed9faf7cbbfcb3"
     },
     {
+      "path": "docs/decision-cards.md",
+      "bytes": 7649,
+      "sha256": "248aa5132695d617137817f98374141abadab5e07a536d9f16dab048c0e62d4c",
+      "gitBlob": "06a8fb816e7d2e25c9f356de505ae1df23e46020"
+    },
+    {
       "path": "docs/draft-review.md",
       "bytes": 3753,
       "sha256": "cb06ac588ae4b9ce839640d927c60a641463613663a4b6b76ac80e4f6b06171a",
@@ -136,6 +166,12 @@
       "bytes": 6842,
       "sha256": "4efeaa0876ba10c772f8b6d9f094f547579e20a582fc3c1f59fbe2a01fe76d52",
       "gitBlob": "b3eef0a722ff32cd9c9dde0b3b5ab2a04bff3700"
+    },
+    {
+      "path": "docs/entity-facts.md",
+      "bytes": 6574,
+      "sha256": "2afd9162059cfad1b358f3894cc6b0767ce9552a7ed0c6bd0335ae44daf954e3",
+      "gitBlob": "236b7b48a6e97428930308e1365bbb1492330293"
     },
     {
       "path": "docs/entity-reviews.md",
@@ -168,6 +204,42 @@
       "gitBlob": "fb85ebfb4ada065c75976e9274765db87ee45dd7"
     },
     {
+      "path": "docs/finance-snapshot-contract.md",
+      "bytes": 4886,
+      "sha256": "9fb00756489549a5d4d9902a2e74239e823fca7069c4ac631c9aa87e3dc0f97a",
+      "gitBlob": "c2f722834b5b623faa594a712fe1cdce908ee2bf"
+    },
+    {
+      "path": "docs/finance-status.md",
+      "bytes": 481,
+      "sha256": "ca26d9cf0ebbd64332b640ad327d888f65a05432427c5be3a092e97ff40ba4b0",
+      "gitBlob": "702b5a1c4b89e771997aec99f928b8354cc89fd5"
+    },
+    {
+      "path": "docs/flight-discovery.md",
+      "bytes": 7682,
+      "sha256": "a7ab60879c572da434fe62ad2cb4aa860f5a790f662bf01e99bce994fd918c33",
+      "gitBlob": "58ed9853ae27098ece7409de21f0c6b99f593c23"
+    },
+    {
+      "path": "docs/follow-up-action-bar.md",
+      "bytes": 630,
+      "sha256": "ef250e7cc4e8de875715f4a9eae321fdfed781c4d102bf52eaad320cdacddc3c",
+      "gitBlob": "a648f90cf4dbe4f66d5b0c1e15545889be38d58b"
+    },
+    {
+      "path": "docs/follow-up-card-group.md",
+      "bytes": 474,
+      "sha256": "5909c4843348db38890cb7727f10ebbbaea1b489411ee799819953d7018a0d42",
+      "gitBlob": "4ed947de2a4ccf8726a813475e57c6bf689bd0d6"
+    },
+    {
+      "path": "docs/follow-up-presentations.md",
+      "bytes": 2842,
+      "sha256": "c51313244f84e2bf9f0f3ceda62d7356b5b9809f8bd124d3a7da8ab482d7bdc7",
+      "gitBlob": "8c15730dcab63246e442cf77ae26aa027ac98693"
+    },
+    {
       "path": "docs/forms.md",
       "bytes": 9559,
       "sha256": "2cecde5ea94b08a0208ae913342fdae34f7ceebaf701b0aff30e29df881d924b",
@@ -186,6 +258,12 @@
       "gitBlob": "a26cab02c85bd9a8157771a23f4002edbf6931e8"
     },
     {
+      "path": "docs/image-grid-presentations.md",
+      "bytes": 4797,
+      "sha256": "72abf3fadc74ce13e0f3fc3829ed096d2ba07d84db987c82f46ce1f49e0cd2b8",
+      "gitBlob": "817327be791653ea31dc0c7533df3f4e4627f71a"
+    },
+    {
       "path": "docs/inline-host-media.md",
       "bytes": 6007,
       "sha256": "a5e4cdcf3b8a2a700e03b8284362e4910c637b2dd54e3ff6d7d6043db114e67e",
@@ -196,6 +274,12 @@
       "bytes": 3710,
       "sha256": "f516a5f47fabf0077e371f0f881caf6b139c372133d6f8e716a4ecd30e461a0c",
       "gitBlob": "96fce5c69db795c3a827e0e5873ed0802b3282e7"
+    },
+    {
+      "path": "docs/learning-practice-media-contract.md",
+      "bytes": 2794,
+      "sha256": "da02139861177fe65b93d7a85ed3fd43d46d3958b7579d15a178ba8b0f23490d",
+      "gitBlob": "5a4ede6c268ca5e1cc221e8a23aab887bbdb7c5f"
     },
     {
       "path": "docs/learning-viz.md",
@@ -216,10 +300,28 @@
       "gitBlob": "de364a95db79329535d86b8057db90c9cc1f8bb7"
     },
     {
+      "path": "docs/ledger-history-contract.md",
+      "bytes": 2112,
+      "sha256": "92ee6dd74f6f37fce997094d7103cef703a1d42685f0dcbe8ec04e87bfa70571",
+      "gitBlob": "c623f85d516eb80a7420e1cdae983d31691cdf50"
+    },
+    {
+      "path": "docs/ledger-source-contract.md",
+      "bytes": 5996,
+      "sha256": "99e5f95b94565ca7ac5aa67537efbb308788a5e7611bc450692a9c815daea69a",
+      "gitBlob": "c653c176794a5ba8f1e519260bff63a54c85478c"
+    },
+    {
       "path": "docs/loading.md",
       "bytes": 2865,
       "sha256": "ae80d7d618ba5da85cb8e1c91a07248637de53b4fb1d4b89128b57fd220e1363",
       "gitBlob": "abedadd8a71665669f4daa5dba131dcde818b20f"
+    },
+    {
+      "path": "docs/local-places.md",
+      "bytes": 6004,
+      "sha256": "6bd8549065a38300e04c8225d0767d99d39a657a16c39ee5680ad61ab13724f9",
+      "gitBlob": "1b12b10e806a9a5a796776a47846b3dadf684bd0"
     },
     {
       "path": "docs/location-choice-request.md",
@@ -234,10 +336,28 @@
       "gitBlob": "47d1012744454fd7ad846c4a6066974f1067771a"
     },
     {
+      "path": "docs/mail-files.md",
+      "bytes": 8351,
+      "sha256": "6628ead5b89585495515f7deab78859c4cfbf083fed8f2b4b6b97a9080ddbda4",
+      "gitBlob": "26e7aafbf0e075f33f5112c97c56d23f13980cdf"
+    },
+    {
       "path": "docs/markdown.md",
       "bytes": 4713,
       "sha256": "3c7a246087d2a9a644cf45a6e9932d7069be2c7b8fc31ff018f9a29c4ac9ac03",
       "gitBlob": "96854da0ccb756041f6e715cb5ef3f6c03a41303"
+    },
+    {
+      "path": "docs/match-scores.md",
+      "bytes": 4134,
+      "sha256": "fbef5533eecb2d0a9110f259934f3be77a8a0070d957c98d465a7b56597db4bd",
+      "gitBlob": "0cedf125b1fd65dd08bbbfaf23735d7e4b08155f"
+    },
+    {
+      "path": "docs/media-collection-semantics.md",
+      "bytes": 11678,
+      "sha256": "b57aa7597d97ffcae9877f2af107acd5788ee3926895284c71690e071440565d",
+      "gitBlob": "f4427c6b5a91ed50abf1c806f05e5058cd38e230"
     },
     {
       "path": "docs/media-readers.md",
@@ -250,6 +370,12 @@
       "bytes": 2353,
       "sha256": "438d0073d5566ebc355960b48edfeca85c1b582597833e5b4a23eea55d07a3bc",
       "gitBlob": "b1c5e72058855796bd3399128a70bf13f90fdf18"
+    },
+    {
+      "path": "docs/motorsport.md",
+      "bytes": 3622,
+      "sha256": "7f14ce8deac8bb5f6bf0abfcd5f77a49aae99bef3ecc23b5de95135292188f0a",
+      "gitBlob": "d8e39a6e562ff38a9dd7fa35328712e9a24db37e"
     },
     {
       "path": "docs/news-article.md",
@@ -294,10 +420,22 @@
       "gitBlob": "1b8e03cc83354592692b2d30025d859a5db764b1"
     },
     {
+      "path": "docs/player-summaries.md",
+      "bytes": 7884,
+      "sha256": "6df945797296641a8a3ce931a99d3e7a0974367546ede94b14e30142a8fff20a",
+      "gitBlob": "4ee1a5fb356e04c0c506431cf676925cb37c2823"
+    },
+    {
       "path": "docs/primitives.md",
       "bytes": 2653,
       "sha256": "42d3f49ec6a88a2d0dddf61ae1eac12f64f1a6e267b395467aafc5044c321482",
       "gitBlob": "3a9f3e5b51d9755fb783e3f9d1db51b018f30264"
+    },
+    {
+      "path": "docs/prompt-checklist.md",
+      "bytes": 756,
+      "sha256": "5dc588d8a437b258232844b2335eef743bf31c72a0fecf62a25f740bb4caa01c",
+      "gitBlob": "961b9dd372774f6b4e6c17fdbb22a11055ce5325"
     },
     {
       "path": "docs/prompt-suggestions.md",
@@ -330,6 +468,24 @@
       "gitBlob": "382cfe78a1351cc5fc5aaf075f588eca755aacc2"
     },
     {
+      "path": "docs/recommendation-card.md",
+      "bytes": 527,
+      "sha256": "e07c7052fd277c9f78fde944f26241f3e68cfc38ce8173282e404ae7dc796bdf",
+      "gitBlob": "23c69790f4bb7189c2b61b5f5b507ba9bba75162"
+    },
+    {
+      "path": "docs/reddit-thread-card.md",
+      "bytes": 5464,
+      "sha256": "454dc3b9958965bbf9097c97730892bac3f5351dfadcacc5115dbd1f2ccc7637",
+      "gitBlob": "9f0520d370024c3d6e909df18a6d5aedb44fcb49"
+    },
+    {
+      "path": "docs/related-questions.md",
+      "bytes": 5548,
+      "sha256": "802dd63e8c7d89da146492f65ed1fff54116f8aee329876ddc11b55a1ea38531",
+      "gitBlob": "893e42f40f51ef3d9babb38dcd50e04e7beac62a"
+    },
+    {
       "path": "docs/reservation-pills.md",
       "bytes": 10633,
       "sha256": "e863d1217f2021295ddc1b07f5b6973c756e3f73298e8cef8cdd06331fa8d5b7",
@@ -354,10 +510,22 @@
       "gitBlob": "f272fb97c1bf2bc1d08c9ecea7ad5d6a4948d735"
     },
     {
+      "path": "docs/scheduled-suggestion.md",
+      "bytes": 2438,
+      "sha256": "a8503a950c75d8f36be9d581041e96a7fc5b951562fb9bc27c0967b1a05b2df1",
+      "gitBlob": "e7cf23abf6f7758e1bcd6b7249f445aa51a8ca78"
+    },
+    {
       "path": "docs/schema-source-modules.md",
-      "bytes": 13078,
-      "sha256": "a4a74e49b7ca7cdffbd6680593b98a6713cb9236c70ca7c89fc53b0186be2c60",
-      "gitBlob": "6c7ad64dbdaa0110622557551255f24ceb9f4dd3"
+      "bytes": 16311,
+      "sha256": "8ff1456db53f26378786726f4b808d01d3aeb479fcc95e5c7001e66972e01090",
+      "gitBlob": "95827fd76d4523bf596bba46dce2d18a936db424"
+    },
+    {
+      "path": "docs/search-onboarding.md",
+      "bytes": 4299,
+      "sha256": "6f3dbfd6dddd15c6b6c52839fb6031be50399a6b866c1b5e38875c25c719f0de",
+      "gitBlob": "eb381c9c079790841522b165e841909ab7e42bde"
     },
     {
       "path": "docs/security.md",
@@ -379,9 +547,15 @@
     },
     {
       "path": "docs/source-citations.md",
-      "bytes": 4902,
-      "sha256": "627b594ce07a3d4725757003e942da45d79a0841e2449a1365baaae1bc5549fc",
-      "gitBlob": "850ecec1416a53d1b80ee2c43fcbd68b424861a9"
+      "bytes": 6473,
+      "sha256": "192b0f7333d200b75b64d2d329706702977a22eb13ca72d83aa40ae15130e9ea",
+      "gitBlob": "8d0701cfc6f22bae9bee4008588224703d099230"
+    },
+    {
+      "path": "docs/sports.md",
+      "bytes": 7613,
+      "sha256": "5a27cc59105bb1adafc534bdc0606f7f46b02fdfc3f91f75baa6b2fb89e23750",
+      "gitBlob": "8d43200ff271d51ed836132d5ad767cc765c52b1"
     },
     {
       "path": "docs/study-onboarding.md",
@@ -394,6 +568,12 @@
       "bytes": 4554,
       "sha256": "1e78763bf59bef4ea21d6cf95cff215f72341eb89f593c8a9d78d01c4980ed32",
       "gitBlob": "06456affa9281e29749dd1a2d2440f338b84a955"
+    },
+    {
+      "path": "docs/supplied-finance-display-contract.md",
+      "bytes": 6915,
+      "sha256": "b4179a9f0851352dd07e2b74fdbc9ff1fc0165a69996569c6a2bbcfb448b4b60",
+      "gitBlob": "e91892015a711db41be394bfe59477ff917176ee"
     },
     {
       "path": "docs/supplied-interactions.md",
@@ -414,6 +594,24 @@
       "gitBlob": "9426c6f1a260b6984de030eca93e59f26a7fa01a"
     },
     {
+      "path": "docs/supplied-results.md",
+      "bytes": 3740,
+      "sha256": "d63cd9c0774d66d67529f23e0dfe0cf058b1af18c47489f94c4f0d8ed388c111",
+      "gitBlob": "db15ab9f6b02879639232b0ad9d8f20dee725081"
+    },
+    {
+      "path": "docs/supplied-trackers.md",
+      "bytes": 6479,
+      "sha256": "8e222c60b4c67788ca1799852df34866a115b38279e5cf9b79fb6f5af9934b00",
+      "gitBlob": "81b867d19557d1f659dbd90df902089bbd3d91f7"
+    },
+    {
+      "path": "docs/tabbed-visual.md",
+      "bytes": 4614,
+      "sha256": "d2864b6e08f332051b1a26ea21f9d3d8f8d16471718f214c2d834cfd58dea9aa",
+      "gitBlob": "5adafe335c0a4713c2f49511515ba5daf32040cb"
+    },
+    {
       "path": "docs/tabs.md",
       "bytes": 2135,
       "sha256": "ef8337548985b10701ecfcc58ccf8be378c04aecf8c0d695026a88ff52ad6dd3",
@@ -432,16 +630,46 @@
       "gitBlob": "cad1cb8ce05f9bde2194a28d2f5e53157926dd59"
     },
     {
+      "path": "docs/transaction-detail.md",
+      "bytes": 640,
+      "sha256": "35c58da113ccd00627ba11a374e4ac2524a5ee0e9b2be21a26c2754d44795792",
+      "gitBlob": "4d2115cc58292bbe7d8788587362f92589534a80"
+    },
+    {
+      "path": "docs/travel-events.md",
+      "bytes": 7662,
+      "sha256": "757618196f1f47768690753e991300bd3c5a90681c994334f32256505d23b87c",
+      "gitBlob": "8f54bde9c393276a64e40c17c89ab2c33d7261dc"
+    },
+    {
+      "path": "docs/vector-compatibility.md",
+      "bytes": 2270,
+      "sha256": "82700ff34f16a52d0a3fc2e27baec0e067d05d60aaccc3fb04bd4cc94a96f6e4",
+      "gitBlob": "79e0ce5e2eea7063d74e0193cf1787d07cd1db6c"
+    },
+    {
       "path": "docs/vocab-card.md",
       "bytes": 4581,
       "sha256": "9567c55b9fb9d3bf0cee608810c1a33645b2b7845e19b77c30cbe0d5d9b4fc8e",
       "gitBlob": "ee6545d693d3abe91fbfab793064ebad04925bcb"
     },
     {
+      "path": "docs/vocabulary-tools.md",
+      "bytes": 8101,
+      "sha256": "dec51f4639e9cd5d10b1331af003657f1de057ce0d215747eef95b3d9ba0b08d",
+      "gitBlob": "f0c7072ca2660bbf1b29963f0448efcf56530911"
+    },
+    {
       "path": "docs/voice-cards.md",
       "bytes": 5816,
       "sha256": "ca2595cfc3e37a8c5e3da03bc64f80982d03b08fe07e6c0be0176a2fcdf91d13",
       "gitBlob": "4ae5c885bcb0a699b4c3ec59d1dbbac3fdf445ce"
+    },
+    {
+      "path": "docs/weather-sidebar.md",
+      "bytes": 3079,
+      "sha256": "42b3b511ac73e4878923c38dc8051c3bae2427fa2a649c29777101de4c0814bf",
+      "gitBlob": "7a91d6934342cbc6d0bd564b0ab57aac5c43de8d"
     },
     {
       "path": "docs/weather.md",
@@ -462,6 +690,18 @@
       "gitBlob": "0c469e2ddd8859589c543ca8277feb0c5313c47b"
     },
     {
+      "path": "examples/schema-modules/action-bars.json",
+      "bytes": 1059,
+      "sha256": "ec4546fb5fbbe8e87153f261e6c3995fe27780bf5a343a06a505ff3d35d809ba",
+      "gitBlob": "c6594048659b1c8243e8bdf2e443f0105126b82b"
+    },
+    {
+      "path": "examples/schema-modules/activity-planning.json",
+      "bytes": 1601,
+      "sha256": "dc5100693be94dbaafd31e85852ac7ab32c05592d3a524288c98d8b7f406b5d6",
+      "gitBlob": "4418e083efaa034120171cf5abe652bf9b384d55"
+    },
+    {
       "path": "examples/schema-modules/ask-location.json",
       "bytes": 571,
       "sha256": "f99b6c65d7d3bee28147ebfa9b07f4796d3052154ec090317f91fe20d24a0ae6",
@@ -472,6 +712,18 @@
       "bytes": 1067,
       "sha256": "567e4b09fa0663ba413cb0d24b2b2d171a235edf69458b23c7d28bf52f28ba98",
       "gitBlob": "12c1fa011892dab1e9a6634d7f9d354042b87667"
+    },
+    {
+      "path": "examples/schema-modules/async-images.json",
+      "bytes": 994,
+      "sha256": "b72252b1c316a8d372de053f2c7647b182ad1af55643234a086a0b2632ca4104",
+      "gitBlob": "c6baebf5c4dcfd63a04117a21f63c12c94ae1361"
+    },
+    {
+      "path": "examples/schema-modules/async-video.json",
+      "bytes": 387,
+      "sha256": "786f3201050c73620f1eea1e701e8b773edce8981774728eb1fc772402a4eca7",
+      "gitBlob": "a17650fd2c35dea5c709ec07d49ad3e2dddd13f3"
     },
     {
       "path": "examples/schema-modules/automation.json",
@@ -540,6 +792,18 @@
       "gitBlob": "9a49f29659cf1626428879c315e06776df177fbc"
     },
     {
+      "path": "examples/schema-modules/discussion-thread.json",
+      "bytes": 741,
+      "sha256": "ac4d9bbff572eb302c356e29f3aa3a70b03b3e332d12b5792b9eb628b17e93ca",
+      "gitBlob": "641892257cd3a4834996cb0882174459ee0cb658"
+    },
+    {
+      "path": "examples/schema-modules/entity-facts.json",
+      "bytes": 1648,
+      "sha256": "7b45b94f204eee5e687d4987c86322aa652781db52f174611845cef3fa50e81d",
+      "gitBlob": "369921283cd40e4a85ab2f220846a838870b88a2"
+    },
+    {
       "path": "examples/schema-modules/entity.json",
       "bytes": 2361,
       "sha256": "492982877dcd04c73d1b58b8f74b0a26ef772629cf5586d50866ec1d3f2a0593",
@@ -552,10 +816,34 @@
       "gitBlob": "d226ccd2aa74f084d81359b6b25d59df4bb1b9f3"
     },
     {
+      "path": "examples/schema-modules/fee-interest.json",
+      "bytes": 3716,
+      "sha256": "ab2700172da0601c8e00bf8c3eaa35406c0329b6d5478eb845b881ea1b2eb114",
+      "gitBlob": "e7fb3092088609dc18f9c54e8aa6a16bb2b5523e"
+    },
+    {
       "path": "examples/schema-modules/finance-entry.json",
       "bytes": 1826,
       "sha256": "f576393bec7cc0ce0ae1ee6786870caa63ab616ba33ebc6131713f35663c80a8",
       "gitBlob": "98217a500361551e1dfef2bd9787b2b6c6e3b136"
+    },
+    {
+      "path": "examples/schema-modules/finance-snapshots.json",
+      "bytes": 5078,
+      "sha256": "0f8b788d7ac7f7a6cb66d5e59a5e14875af8820a74cce7ba1538edfadc4bd31c",
+      "gitBlob": "a6cddebd07b1f8423f21c532b227939218bcd6a1"
+    },
+    {
+      "path": "examples/schema-modules/flight-discovery.json",
+      "bytes": 1532,
+      "sha256": "10ef6438eb0c0c34eab8133036ca63856d8cd9cee76ddf9b7c53fdaaef1406b5",
+      "gitBlob": "7495c7c4a0096358c780cf8798df9d4081962d2d"
+    },
+    {
+      "path": "examples/schema-modules/follow-up-card-group.json",
+      "bytes": 1098,
+      "sha256": "75d9f5bce92ad333a929ad18872f846a1d3806270b301bb067c745e89a4799ff",
+      "gitBlob": "3d9c86e7a139b15144263e521d0f2eebc49e1755"
     },
     {
       "path": "examples/schema-modules/forms.json",
@@ -570,6 +858,18 @@
       "gitBlob": "b64e56511c0571589e1b7f01f2d6a8a4b7ddbd77"
     },
     {
+      "path": "examples/schema-modules/html-view.json",
+      "bytes": 477,
+      "sha256": "b3e01ac576ffe5011f4e7a3773bf8c59ff76e93de0b6dd02766c212d06445b61",
+      "gitBlob": "7e34814cd1c87f8355b8ee33613e2fe32c807f1d"
+    },
+    {
+      "path": "examples/schema-modules/image-grid.json",
+      "bytes": 1195,
+      "sha256": "f1c975f63a3c612143cb06b96183e521e01d361013ec5953c4c580f374b47ae6",
+      "gitBlob": "43fe90db446264f78586ec34041e20079fd940d1"
+    },
+    {
       "path": "examples/schema-modules/inline-host-media.json",
       "bytes": 2358,
       "sha256": "a490ae9457c7ec54ef22f66b68ca641343f7d1985d7b908fa4d06213c14c3d14",
@@ -580,6 +880,12 @@
       "bytes": 275,
       "sha256": "c18f68666fb14eca9f4ddfbec1d4faada980d59e9ee9bd574f670bba03d1e7c4",
       "gitBlob": "8677f8998fb78ece3236e91c34ed7a5ced0da15b"
+    },
+    {
+      "path": "examples/schema-modules/learning-media.json",
+      "bytes": 2011,
+      "sha256": "83ca66e990a5af825f47fe4962efdddb8c134d8001a53cc2d533680f162a3ced",
+      "gitBlob": "2e014bb7664108159dce903df1bc0ddc66d85f8e"
     },
     {
       "path": "examples/schema-modules/learning-viz.json",
@@ -600,10 +906,58 @@
       "gitBlob": "c92408b703db3ff7e7049540e351ca89d2d671fe"
     },
     {
+      "path": "examples/schema-modules/ledger-correction.json",
+      "bytes": 965,
+      "sha256": "f19d131291e4ca2811553b78ee75978a9a9f7d48be1d00e6b74fa9a9fd6cc983",
+      "gitBlob": "9fdea79de0ac7146e369ac6ed776f8ce5a77c15e"
+    },
+    {
+      "path": "examples/schema-modules/ledger-income.json",
+      "bytes": 771,
+      "sha256": "51d0ed37eb31c02b3899a0d2c0e4258cf1df2e22e2d2a78213d59abf15a82193",
+      "gitBlob": "7b07810ca34fd23a68e0170fad8b2d86d3096fc5"
+    },
+    {
+      "path": "examples/schema-modules/ledger-lists.json",
+      "bytes": 1316,
+      "sha256": "3e578ea2ae1892e78651f99f843175dfd546fc5bbb4106dcc5e9b4a187c73bf8",
+      "gitBlob": "1a61db5151f705099322c2800aa9a11a0f2ebaf9"
+    },
+    {
+      "path": "examples/schema-modules/ledger-records.json",
+      "bytes": 1474,
+      "sha256": "9ca771549b4b7f5fdbd69b93ef0f6efc3e9629d79c1f140c38e14ce4855ca834",
+      "gitBlob": "1d3af48e788d617c6ee9da8483bad8b6948184c3"
+    },
+    {
+      "path": "examples/schema-modules/ledger-spend.json",
+      "bytes": 1165,
+      "sha256": "d17f580f3626de539a364267dbe4e54a802342f98e19d1e5ff2d213d7cfc9fb9",
+      "gitBlob": "94d8daebd055403f86bb79cda655baacd553312c"
+    },
+    {
+      "path": "examples/schema-modules/ledger-upcoming.json",
+      "bytes": 1618,
+      "sha256": "c2d903d9e0800ac014385426a6a9a5fa69a1d9f0fe533c72630ccb6284ea8e75",
+      "gitBlob": "75da79beb82433c9284ac93d2063725c10e89bf6"
+    },
+    {
+      "path": "examples/schema-modules/link-cards.json",
+      "bytes": 753,
+      "sha256": "d037252fbb2e85d4ca40cdf95a30382ba782475848fe9c2f90ed6e0e38aca790",
+      "gitBlob": "5d297e5c17b6bb2eb4facf76f03c6b879bbdd6d1"
+    },
+    {
       "path": "examples/schema-modules/local-choices.json",
       "bytes": 4348,
       "sha256": "50511f6b0b8a2737f4c1ee8410426d248a349be3cce728c6bfed6619046e0228",
       "gitBlob": "ab338177ab79039aed8c83e91eb0df40d9f35a17"
+    },
+    {
+      "path": "examples/schema-modules/local-converters.json",
+      "bytes": 814,
+      "sha256": "d3e1bb8aa756014e28f2febd62922375cd90db5db95e93b1b2307a596432b9f2",
+      "gitBlob": "a4091c2125d241fc3a1ca5bdcdf0c3e3de4d1db0"
     },
     {
       "path": "examples/schema-modules/lottie.json",
@@ -618,10 +972,28 @@
       "gitBlob": "83817766dfed4927197eaea66b54cdda511fb0ee"
     },
     {
+      "path": "examples/schema-modules/native.json",
+      "bytes": 120,
+      "sha256": "ce21d44957ab280c8279a4e7baa1055bc60c75f2674bb3b5e439e3c67f54e40d",
+      "gitBlob": "4a9f814625ff5cdc1d4aef94bb2f4de28ebcf296"
+    },
+    {
+      "path": "examples/schema-modules/net-worth.json",
+      "bytes": 1714,
+      "sha256": "976bb877195decf4e5beb707a31c9c4470982365cb64bd1ccb012d7d3055f76d",
+      "gitBlob": "24a6ce8a65f64938dc29d5d29b916beb86c4c2e4"
+    },
+    {
       "path": "examples/schema-modules/onboarding-cards.json",
       "bytes": 2371,
       "sha256": "78e46cbfac7b817e9707b7a75421d9c3d582abc604d07d39319307a68f46bfc2",
       "gitBlob": "0de7165d5fd163b9b511ccd9a1f09cbceb9cb99b"
+    },
+    {
+      "path": "examples/schema-modules/pressable.json",
+      "bytes": 513,
+      "sha256": "300174db8034759c388a60b10bd22dba081557ea5e185cf575882ff179e57cc6",
+      "gitBlob": "a5ef5759bfc35313be34de50ab4463c5bba05c28"
     },
     {
       "path": "examples/schema-modules/qsofa.json",
@@ -648,10 +1020,64 @@
       "gitBlob": "079a1c761986fccd6673c731e6bcadd195fb679f"
     },
     {
+      "path": "examples/schema-modules/scheduled-suggestion.json",
+      "bytes": 531,
+      "sha256": "bdd3f98fb93c32ff433fa51ff709fdcccd5b5310c48b15606f293c85e3dc263b",
+      "gitBlob": "c6addfec13af3bd3ef69ee3f1f5a1c4a7108bc2a"
+    },
+    {
+      "path": "examples/schema-modules/search-onboarding.json",
+      "bytes": 8232,
+      "sha256": "4ecbd7374b97e1c95d4743174bcee9670e4e86e499a8c1f3782fc4b67a09dbf9",
+      "gitBlob": "f2c6ee4d5f03e0830accdd3fda2e908b8838dfee"
+    },
+    {
+      "path": "examples/schema-modules/snapshot-cards.json",
+      "bytes": 1906,
+      "sha256": "24744f4229f2e68737e08f2ed66aa2e3bf7cfecab7a1c754c570d78270851ee1",
+      "gitBlob": "80f1718a8b69235e8201953a4efa940e6b868388"
+    },
+    {
+      "path": "examples/schema-modules/source-citations.json",
+      "bytes": 1132,
+      "sha256": "d92a0fe6794deaeac6b89e5a9a8943a51ad95ea60b74476cd75ffff315116278",
+      "gitBlob": "770b3eae6d635c7973534a5d793dd029c16c53d3"
+    },
+    {
+      "path": "examples/schema-modules/sports-match-scores.json",
+      "bytes": 4189,
+      "sha256": "b25cefb86519251e494464fcca8c8da213b6fc96cc0ce65bd4b9610f780446f8",
+      "gitBlob": "ad900314ae82a718802c51082423e4b1b59a3f1a"
+    },
+    {
+      "path": "examples/schema-modules/sports-model.json",
+      "bytes": 6831,
+      "sha256": "bcb4295c96d60b2f1e6df68b96ca6dd89f061297154eca802ca7b9555593ad24",
+      "gitBlob": "1a5c1129485b9f4b12ed17a33541c1aff8bf8b2e"
+    },
+    {
+      "path": "examples/schema-modules/sports-motorsport.json",
+      "bytes": 1733,
+      "sha256": "c5a5894d430ac60a4cc9c4f5d2e2ac12a05e755b8a12ff3d94f8d361265fd52d",
+      "gitBlob": "8f5a3819828c71ae7e64a70c947c24043d1aba8e"
+    },
+    {
+      "path": "examples/schema-modules/sports-statistics.json",
+      "bytes": 3764,
+      "sha256": "98dcd08979e3d74208b332c77eadc1f6cc02b027acc878c06a18b4809f0aeee6",
+      "gitBlob": "89bced76356fbad93e4c69f0c90bb2de66fb1bf9"
+    },
+    {
       "path": "examples/schema-modules/study-onboarding.json",
       "bytes": 1779,
       "sha256": "79d28ac6c1acd1c3c27daa18e949cfd475f9f518302575099d062e842273c8a9",
       "gitBlob": "5cb525227fba68020063ea5fb5ab89bf6453831a"
+    },
+    {
+      "path": "examples/schema-modules/supplied-decisions.json",
+      "bytes": 5078,
+      "sha256": "5b3d58cb059beec057ea9b6b31ec1cc7868c02ebaa5b173b60a134c283e2af03",
+      "gitBlob": "2039cc9bea510ac45a5df31f614176f61d19c6a3"
     },
     {
       "path": "examples/schema-modules/supplied-discovery.json",
@@ -672,10 +1098,34 @@
       "gitBlob": "d879cd08584b29b6415680eb463622dad16e24e3"
     },
     {
+      "path": "examples/schema-modules/supplied-readers.json",
+      "bytes": 3687,
+      "sha256": "02fa910910dd2e94a5366c564a24c08d86da698a1b6eb34c5bcb2611c8e770f9",
+      "gitBlob": "9c4e5f9c5d050b2abf33c4546ec1a37bd4c64c51"
+    },
+    {
       "path": "examples/schema-modules/supplied-records.json",
       "bytes": 5771,
       "sha256": "cd665205b8f206e979e57022bcd3395fea55a9ae359afc1d6ebb0b0ea1a21934",
       "gitBlob": "bbc0941c8868eec4c1e2ca1a39c44e0a5bc858a1"
+    },
+    {
+      "path": "examples/schema-modules/supplied-results.json",
+      "bytes": 2793,
+      "sha256": "bce3cee84497626eb4f24d3c71ad2d607c183e050724132e5279ea6b004f64d9",
+      "gitBlob": "cd578585d77f4fadd9b11e02e93c91e28f5dfdb8"
+    },
+    {
+      "path": "examples/schema-modules/svg.json",
+      "bytes": 361,
+      "sha256": "7ac83105ab6b27ce7ca438d79e226213cfc81ffc28eff9ca1904a3de01af66a3",
+      "gitBlob": "48991d1a733691608269cafdc125a18cade7e749"
+    },
+    {
+      "path": "examples/schema-modules/tabbed-section.json",
+      "bytes": 750,
+      "sha256": "a7232ff2ba2a4f2307fe98820c47940cb5352ffacb41aa80e0d561180551456d",
+      "gitBlob": "66a02b89f5b4c0aaeb27a2035c0bba5d5a3877bc"
     },
     {
       "path": "examples/schema-modules/task-cards.json",
@@ -702,10 +1152,40 @@
       "gitBlob": "2891510f35865996cdd25cd622ca621ccebe3cda"
     },
     {
+      "path": "examples/schema-modules/transaction-detail.json",
+      "bytes": 1734,
+      "sha256": "05d878c8eccbb2ccdd56a23ad52d65ee26d7f09b529fd4498219f9197b067d48",
+      "gitBlob": "2aa986028d1c345bac6d73b465e6ca626ab7e36b"
+    },
+    {
+      "path": "examples/schema-modules/travel-snapshots.json",
+      "bytes": 5419,
+      "sha256": "71cca5414c02d64d44ca613652ab9d7b175af2bbc59902cc55a4735dffbd72b3",
+      "gitBlob": "8d794dc1bf532ace0a25407b07a4fa9ad1711169"
+    },
+    {
+      "path": "examples/schema-modules/visual-cards.json",
+      "bytes": 1142,
+      "sha256": "65b394a3cdc7297daf8b34df40bfb4c5b3f6cfc65b4389eb4b23d3c857e1f811",
+      "gitBlob": "3f74248c5b402c702501075ce5749e0d59e8f95e"
+    },
+    {
+      "path": "examples/schema-modules/vocabulary-tools.json",
+      "bytes": 1001,
+      "sha256": "ab6e877474361f20bbce4f3cae621313445cc98d6e81b069ba83331777cac3f3",
+      "gitBlob": "6b1340bd6dc7f78f63e7606f16dc0cf98731d4c5"
+    },
+    {
       "path": "examples/schema-modules/voice-cards.json",
       "bytes": 1122,
       "sha256": "6018cdb030ce2d4c06b41637c091562d7110e669a3bcf0e382c3dbb8d4b2ccd5",
       "gitBlob": "ca924d5e2944fbef072f9e5f7c8e20a7f0519cf0"
+    },
+    {
+      "path": "examples/schema-modules/weather-sidebar.json",
+      "bytes": 875,
+      "sha256": "fed36d4dc003838ea57dc63fca0133124c2f61ee2f88bebf50afde979fb84a53",
+      "gitBlob": "7b8203be88bec37eed4145749448f6b0820555aa"
     },
     {
       "path": "examples/schema-modules/weather.json",
@@ -925,21 +1405,45 @@
     },
     {
       "path": "scripts/schema-source/canonical.mjs",
-      "bytes": 48431,
-      "sha256": "b7f24f3fed3589a787e14e241c7c496a9657d3bfc05dd5f8e204c45c153a25e1",
-      "gitBlob": "a5e46a3d27a74ce8abb9f09a1853a3c61a4173fb"
+      "bytes": 3997,
+      "sha256": "0ef80d2f2f3d1c91641c677091973db82a5fcb27fbecce1ae753272c1d3e63f7",
+      "gitBlob": "ee6749e8ceaf62f9713173ce9db6432c3bc7c09a"
     },
     {
       "path": "scripts/schema-source/catalog.mjs",
-      "bytes": 28316,
-      "sha256": "ffb354e523bea41a6162432fe22a79c7dbaa0c7e07cc318b79ec17566cba70ba",
-      "gitBlob": "9e31588485883e495d015a30f4207fc549fde5e4"
+      "bytes": 57203,
+      "sha256": "fce124c4a2bad570c692e82e8b391d0e973f76d9e03b903d71e1a7c47290eeb4",
+      "gitBlob": "de75f7d345c47c786607cdaca5a29f4784fac63d"
     },
     {
       "path": "scripts/schema-source/envelope.mjs",
       "bytes": 927,
       "sha256": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
       "gitBlob": "7e7169834dc4f9314355e5d6da13ecc7155dfc53"
+    },
+    {
+      "path": "scripts/schema-source/modules/action-bars.mjs",
+      "bytes": 1099,
+      "sha256": "e99d41e2a2ac3f96343ed782b1013bf19ac6e0974fd0799d8608a7f86248b039",
+      "gitBlob": "95b8a4acd2f4d1c3c3d5d986b1dd5165a6c50bbf"
+    },
+    {
+      "path": "scripts/schema-source/modules/activity-planning.mjs",
+      "bytes": 1476,
+      "sha256": "c2e4f78117f4c41c8775a2deb718ce437aa45b498c44f28edcb7b0fd54eab339",
+      "gitBlob": "ff376c149e804b977ffa7cc50c0ad36b4c42ad84"
+    },
+    {
+      "path": "scripts/schema-source/modules/async-images.mjs",
+      "bytes": 804,
+      "sha256": "86879b70e3bf5e58994e194cd9ab5b713426af2b4eb87ac8157c09a6a8e82ecf",
+      "gitBlob": "f307bca9f3926176d7a4ac15330b1771d4d7a7bb"
+    },
+    {
+      "path": "scripts/schema-source/modules/async-video.mjs",
+      "bytes": 459,
+      "sha256": "2a3de2ec3f93b635ca613096dc823519866e9729586405e55b7c4dce0a106110",
+      "gitBlob": "704a8680fd2dbd4237ea81ba3537ad118d048c20"
     },
     {
       "path": "scripts/schema-source/modules/button.mjs",
@@ -960,10 +1464,64 @@
       "gitBlob": "50f1812369778967735e11dfa99f88a0122e63f8"
     },
     {
+      "path": "scripts/schema-source/modules/discussion-thread.mjs",
+      "bytes": 836,
+      "sha256": "4330dae2619f3bf7fb64c4915af232cfe58e7d2fe79cd4dc025c8a6f294761ba",
+      "gitBlob": "988cbd7c3be7a217cbc1e1ff9bdd2252abfa0040"
+    },
+    {
+      "path": "scripts/schema-source/modules/entity-facts.mjs",
+      "bytes": 1230,
+      "sha256": "1f7376a8e1a22f5e0c0b6be1faa73be48c35b6ac66d21c99c5a5bff361dcc057",
+      "gitBlob": "c328711ca27d9fc6c33f62eed65125ff222fe1e4"
+    },
+    {
+      "path": "scripts/schema-source/modules/fee-interest.mjs",
+      "bytes": 422,
+      "sha256": "a303a1f6e335a75d5672ed4ecc9e821953054a5c49ba1071c21f38f4d28c59e3",
+      "gitBlob": "a356f40e04bb89bf7e6866e5ef4649e5f7514614"
+    },
+    {
+      "path": "scripts/schema-source/modules/finance-snapshots.mjs",
+      "bytes": 2198,
+      "sha256": "1471bd50750876763881aa896577b24a5000162c599d46ee456ce6360f91c81d",
+      "gitBlob": "2f09d6581056f0b5b427d4dee9ce6c700cf86159"
+    },
+    {
+      "path": "scripts/schema-source/modules/finance-source.mjs",
+      "bytes": 275,
+      "sha256": "0368e8c9ac95a4efd11a60f5297f3e39298fc7a2598d299d7f1b7abd6e576fbd",
+      "gitBlob": "e99d4b75f0949512615bde8991c48b6fac47ab39"
+    },
+    {
+      "path": "scripts/schema-source/modules/flight-discovery.mjs",
+      "bytes": 1158,
+      "sha256": "913f43605d7b4c098bbe7f9b4cc4afa37fd592fe169989617fe02d0fa6bd3c0d",
+      "gitBlob": "33e19eed1e990df3d9af4e51a7d94cc4d115391e"
+    },
+    {
+      "path": "scripts/schema-source/modules/follow-up-cards.mjs",
+      "bytes": 883,
+      "sha256": "86f4d915466b5b7b2002608c49b34640c6ca22b7b0c936edf5a74c1471c73f16",
+      "gitBlob": "9d8e548025ae707eb9c749f0304042af7ada0f07"
+    },
+    {
       "path": "scripts/schema-source/modules/forms.mjs",
       "bytes": 2249,
       "sha256": "b675784efdcf1ab58d4547edd9031643b43c483f79c86a648c7cf5c2b35deffb",
       "gitBlob": "79083fd720fdf078b2271ef81d378db439b30f1a"
+    },
+    {
+      "path": "scripts/schema-source/modules/html-view.mjs",
+      "bytes": 447,
+      "sha256": "3dbeb7ee71f150f894ec2e340073de3940ecddba68af1cac7f61cf9d93cd1415",
+      "gitBlob": "655b83b8c0e1812608fd81ee2b92a74f2c245235"
+    },
+    {
+      "path": "scripts/schema-source/modules/image-grid.mjs",
+      "bytes": 1514,
+      "sha256": "b18a23785ecb7226c10082eaa606429718afee9c760d795dd49bd7247d075636",
+      "gitBlob": "633c135cad226e86f39e30b40165202bcd1a33b6"
     },
     {
       "path": "scripts/schema-source/modules/layout.mjs",
@@ -972,16 +1530,94 @@
       "gitBlob": "dc4ca9fda84759d7f1ac58c7e8803303789fa7dd"
     },
     {
+      "path": "scripts/schema-source/modules/learning-media.mjs",
+      "bytes": 531,
+      "sha256": "1fdf4dda0666e99eabad77c298a7d20c75360d326f7899ce54e6e1615e5231a5",
+      "gitBlob": "9a2b8c2eaaba86822758d13dee9cbf78367ae066"
+    },
+    {
       "path": "scripts/schema-source/modules/learning.mjs",
       "bytes": 2373,
       "sha256": "6e4969527bb0121379d36229503a60c0513b4678833389307badd089890f3fbe",
       "gitBlob": "e97abeac36ae85dac5a548b4fc4158a8f450a3c8"
     },
     {
+      "path": "scripts/schema-source/modules/ledger-correction.mjs",
+      "bytes": 1054,
+      "sha256": "38ef3abdf2ebb74807b9fc45d384c3ff7a5887ba80c021a2b08f23bdab74a305",
+      "gitBlob": "d48293229abf246a587fa1f189ccc1cfcc876de5"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-income-paycheck.mjs",
+      "bytes": 501,
+      "sha256": "7fb9983fc3855098d2ce5f5fa70327b4fa6533f998f9bdcd6c2b15a06ae45041",
+      "gitBlob": "9e29f5b16e432aa25974202a8449bf89a22d7bdf"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-income.mjs",
+      "bytes": 616,
+      "sha256": "128d67f779c2885d17df3771eadfa610da10073ae306903fa032770a49362a2a",
+      "gitBlob": "5247e028d4e49b69d11460bbbb0d07d618ae4d03"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-lists.mjs",
+      "bytes": 1111,
+      "sha256": "6200f98dbb82945507990deff3c40c0b89451af87242bf753c6b082bbf01f9dd",
+      "gitBlob": "8cdf12f65ec44141e05113603ed890f184ff24cc"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-money.mjs",
+      "bytes": 432,
+      "sha256": "437fa6bfe83c70e9ddd4a1b7daf5765b282c3753233e14323a132cfbcde24c4d",
+      "gitBlob": "813e0a34a2db1d0ac9f9d096dc092969f82b49c0"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-records.mjs",
+      "bytes": 1416,
+      "sha256": "ce4e0e1fe99f5791039b87d77b244885ae31829195ae002566f779d4f5e9aea2",
+      "gitBlob": "4b62eaa779127633ff4f88bcc816238a11c3ecb1"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-source.mjs",
+      "bytes": 461,
+      "sha256": "b77d69cbd65810408692b8a1eeded5e60fedfc1f19d8511207bdc131dcbec801",
+      "gitBlob": "9befc3aab339a3ad449bda1d6415d1443ba2d7a2"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-spend.mjs",
+      "bytes": 1479,
+      "sha256": "c593231c64c10d2e3965c5107ce6813929ae7fc0c5e799a26a9e06dadeb05fcb",
+      "gitBlob": "c06272d8253140f05ba52475b97a0b50d6297dad"
+    },
+    {
+      "path": "scripts/schema-source/modules/ledger-upcoming.mjs",
+      "bytes": 1243,
+      "sha256": "5eedb8b5da7d39332ad2452e57b62dbc120a09bb1d49ca9fce86e482f1719fb0",
+      "gitBlob": "63f51f4b7bf421a9433fd5c6a71bc2b0bab70e60"
+    },
+    {
+      "path": "scripts/schema-source/modules/link-cards.mjs",
+      "bytes": 273,
+      "sha256": "e967cd0a8fc566af17290c86c2e97ba3eabc40580d4309b7f860db07d7f605c7",
+      "gitBlob": "2c0d322b0f3ce1a677e01b9ddd04cd9aadd08d40"
+    },
+    {
       "path": "scripts/schema-source/modules/local-choices.mjs",
       "bytes": 2737,
       "sha256": "497bbfdb2b9924c2ef715a4fed87152d70c0c2f0fda755ae87c19071dda723de",
       "gitBlob": "ac380b38782aeec71fc3e775407c0a815a34412e"
+    },
+    {
+      "path": "scripts/schema-source/modules/local-converters.mjs",
+      "bytes": 1826,
+      "sha256": "3739aea560393ee509d872546d04d51d776569b3a8951dc6ae3e838f315b645d",
+      "gitBlob": "548d4ffb43dd45f0227af0528e930a6e336c1144"
+    },
+    {
+      "path": "scripts/schema-source/modules/lookup.mjs",
+      "bytes": 249,
+      "sha256": "e434241844ee56ef90646f00919adbb03a13d9a182962a3dc453528386d9da71",
+      "gitBlob": "b38d00f43e02429dcd144ad0b36c218a962a2f23"
     },
     {
       "path": "scripts/schema-source/modules/lottie.mjs",
@@ -996,16 +1632,106 @@
       "gitBlob": "07425041856bc71e04eba630820db1fd718493b4"
     },
     {
+      "path": "scripts/schema-source/modules/native.mjs",
+      "bytes": 1328,
+      "sha256": "1c783b60da27ee4e60ecfccab3a253a9d565522606936ceb6ff130dafdf57ec8",
+      "gitBlob": "c6257283ef3c385a0adfca2c3c2a2dbd1bde0b71"
+    },
+    {
+      "path": "scripts/schema-source/modules/net-worth.mjs",
+      "bytes": 412,
+      "sha256": "cb48b8cca4860484f1fe970466e6b8b54c00e08e99b359ad1bca91620907bb55",
+      "gitBlob": "294dd46d72188410c584a524d38aa132f8cd1df9"
+    },
+    {
+      "path": "scripts/schema-source/modules/pressable.mjs",
+      "bytes": 448,
+      "sha256": "3da808fef54a87d266ad577a1ddda0b13a078e38890ca81fcd31e9e5641d7d86",
+      "gitBlob": "ecccc77d25d4ced3168e56604e2bb4b325159189"
+    },
+    {
       "path": "scripts/schema-source/modules/questionnaire.mjs",
       "bytes": 2226,
       "sha256": "20c3f21bbe56f7284b325d18717aee1d9bc0912e4304f4d82e9faae255625206",
       "gitBlob": "da80425ed1500808ae6347389f6532b214e463b7"
     },
     {
+      "path": "scripts/schema-source/modules/scheduled-suggestion.mjs",
+      "bytes": 522,
+      "sha256": "e9e7d501fa846b5e78436486e9594531a575d1148163c160042b2288a27ccaf1",
+      "gitBlob": "5f056ea20bb23ad55940c8bd1685609469628ee1"
+    },
+    {
+      "path": "scripts/schema-source/modules/snapshot-cards.mjs",
+      "bytes": 936,
+      "sha256": "64cddd2585a8d6e163cfcf5fd9c954406465c8b7794c98bd48a5c042162160ea",
+      "gitBlob": "756a72dfa8fa9a1d8897783912c25c7683f750b3"
+    },
+    {
+      "path": "scripts/schema-source/modules/source-citations.mjs",
+      "bytes": 902,
+      "sha256": "c9459bbf471dfb6b7b9614d95b4f746254d27f5ded425c5d9e216e335c64f481",
+      "gitBlob": "48a734dcafa9d25dd5e1b1c49a40aef6af15cf93"
+    },
+    {
+      "path": "scripts/schema-source/modules/sports-match-scores.mjs",
+      "bytes": 3740,
+      "sha256": "0d19a4e417cb051afdefb5ef0eba5d7e01a8988342ddcb1876a88f814b9550a2",
+      "gitBlob": "87fd817b33914ba30da4fa52040051e3721f2a37"
+    },
+    {
+      "path": "scripts/schema-source/modules/sports-model.mjs",
+      "bytes": 2409,
+      "sha256": "be4a0e1e73a1f6fb31adb685a8bab165b66393b433ad605c6a961635be8ffe92",
+      "gitBlob": "a618fbde7f85016ff14f6350c5428fc70305117b"
+    },
+    {
+      "path": "scripts/schema-source/modules/sports-motorsport.mjs",
+      "bytes": 1607,
+      "sha256": "6704887086fe3041370b5fba7494923c0ac9285a46708a6d04b78ef6d6f8553a",
+      "gitBlob": "9d28675878ab77dfc39ccf235c2a24a8819bb7bb"
+    },
+    {
+      "path": "scripts/schema-source/modules/sports-statistics.mjs",
+      "bytes": 4061,
+      "sha256": "788eb69e012308bc00250a0f56f46f3cda1292d18c37a812b111afce98946fa2",
+      "gitBlob": "d66637fb3ef900581f45c05192c3486f07321a58"
+    },
+    {
+      "path": "scripts/schema-source/modules/supplied-decisions.mjs",
+      "bytes": 3521,
+      "sha256": "671edbc4f8f21be5b5958e4461b2540a3446ff35558d02114115a5bf732030d5",
+      "gitBlob": "c4acbfaa92ffdae5d62ab628d368d3a8b9cfae63"
+    },
+    {
+      "path": "scripts/schema-source/modules/supplied-readers.mjs",
+      "bytes": 2204,
+      "sha256": "65b77cf44358dc1f170954a3bc33a83981043db0dff439880557c17f4fe1377a",
+      "gitBlob": "cff36cbfd8c5139c7236bedf2411bd7f21252e7f"
+    },
+    {
       "path": "scripts/schema-source/modules/supplied-records.mjs",
       "bytes": 2395,
       "sha256": "07f5668349d7659556020b04297feb5826e6931175816a0fd33158384cae772c",
       "gitBlob": "d587c5907e60fc39d217d9dbfd1b4dd7409ad5ee"
+    },
+    {
+      "path": "scripts/schema-source/modules/supplied-results.mjs",
+      "bytes": 2280,
+      "sha256": "539b9d28250f9aa2eacf9e683e0dcdd6686c33e8de1146304a7eaca94f76b8a6",
+      "gitBlob": "5b178c05d1fa88d4345dea36dbeefcf99544306f"
+    },
+    {
+      "path": "scripts/schema-source/modules/svg.mjs",
+      "bytes": 634,
+      "sha256": "48091470c259c9d1d49e55d9e68bc55dad266d83444af9d2115a4d35ab6e24a9",
+      "gitBlob": "80c3ab70dd2970daff941d1fd42b3426d05b34b0"
+    },
+    {
+      "path": "scripts/schema-source/modules/tabbed-section.mjs",
+      "bytes": 538,
+      "sha256": "622e8718ae8e5f85c4a2c2a5dc1b54308f185442e71eb938252e7843c3d7d4e7",
+      "gitBlob": "f6e986b084c9c4bb7d8e77f3cf0e712b0211fb12"
     },
     {
       "path": "scripts/schema-source/modules/text.mjs",
@@ -1026,10 +1752,40 @@
       "gitBlob": "2b1c5838149791e0ca6b7200a0758f0c2eb1dc13"
     },
     {
+      "path": "scripts/schema-source/modules/transaction-detail.mjs",
+      "bytes": 240,
+      "sha256": "8667a0ec47f287f4a4d79033403834356fcde453a8b15603e4d9a17885db388e",
+      "gitBlob": "a7286312cbe6913c7715a509dd069e6b63c4e388"
+    },
+    {
+      "path": "scripts/schema-source/modules/travel-snapshots.mjs",
+      "bytes": 3081,
+      "sha256": "c57e2cb634f7f1e5364048e61b30c397b942c6ce03413dabc86b6f3f383fe2d1",
+      "gitBlob": "e9d01ee70b8ecb5e34481102660a7670d6fb4d08"
+    },
+    {
       "path": "scripts/schema-source/modules/value.mjs",
       "bytes": 464,
       "sha256": "cd3cff6c06049c061d5b56cfbb85e2f68ae322c7efd5bb3d0526706eede7cc5f",
       "gitBlob": "eac4a17c48c3022c495e9ab3469a0d2f123fb326"
+    },
+    {
+      "path": "scripts/schema-source/modules/visual-cards.mjs",
+      "bytes": 884,
+      "sha256": "99033299b3a8a81263deafec0709aac9d66b285bad6848687fc0ea451648295f",
+      "gitBlob": "d9837f432779d65be8867fffdf1d8da871b98aa0"
+    },
+    {
+      "path": "scripts/schema-source/modules/vocabulary-tools.mjs",
+      "bytes": 969,
+      "sha256": "3425c53ab5afc3e30d3b3e0777d1c038e5e20b6e558e1a8510fe041d8f169104",
+      "gitBlob": "cbd0b7ab8c6aab4a84e4a33cb1a664b6979718eb"
+    },
+    {
+      "path": "scripts/schema-source/modules/weather-sidebar.mjs",
+      "bytes": 848,
+      "sha256": "d5bd96eb4838d68eeb859a972120f1b22e030eeed56a216fc34715e635441aae",
+      "gitBlob": "021882deab491690f68a866eb4a653a523536cf1"
     },
     {
       "path": "scripts/schema-source/modules/weather.mjs",
@@ -1039,9 +1795,9 @@
     },
     {
       "path": "scripts/schema-source/primitives.mjs",
-      "bytes": 2011,
-      "sha256": "359ae2c962bf7264e214d01ceed475437f8409c255021d4a12a7db652f735346",
-      "gitBlob": "0a5e22d12bb6be973d1b45446b43237e103bfab2"
+      "bytes": 2497,
+      "sha256": "a51ee1a1893e15630d507d68b4c08a3c34b911e7553bfe1680799535490adfd6",
+      "gitBlob": "9bb00f87ff05d17fc59aff25d391cfe9a25f879e"
     },
     {
       "path": "scripts/schema-source/registry.mjs",
@@ -1290,13 +2046,13 @@
       "gitBlob": "bb1b6ec3c274a2f1dd783128444f7f1265c97585"
     }
   ],
-  "checked": "Exact Git blob and byte size against the immutable remote tree for source modules, all declared required semantic contracts, examples, canonical schema and the Lottie source guard.",
+  "checked": "Exact Git blobs, SHA-256 and byte sizes against a clean checkout of the immutable public commit for all source modules, declared semantic contracts, examples, canonical schema and Lottie source guard.",
   "cdnCommit": "fed5f86f49e73f908ac9ea98966b1515a3aaa597",
   "cdnIncludesQuestionnaire": false,
   "cdnIncludesLottieLayerTypeFix": false,
   "unchangedGeneratedArtifacts": {
     "count": 27,
-    "comparedToSourceCommit": "f974055196d821e71a680bb1ce849d29c2d522b7",
+    "comparedToSourceCommit": "549d7c044224b429e62d4774e44e4bad48bc4583",
     "allByteEqual": true
   }
 }

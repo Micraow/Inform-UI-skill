@@ -12,8 +12,8 @@ test('five original cases retain a frozen method and explicit source',async()=>{
  assert.equal(result.passed,5);assert.equal(result.failed,0);assert.equal(result.cases.length,5);
  assert.equal(result.methodSha256,hash(await read('authoring/design-workflows/METHOD.md')));
  assert.equal(result.casesSha256,hash(await read('authoring/design-workflows/cases.json')));
- assert.equal(result.sourcePublic,'549d7c044224b429e62d4774e44e4bad48bc4583');
- assert.equal(result.sourceCommit,'5e965ee98bee2b26c351b5ecc80f3e453557be33');
+ assert.equal(result.sourcePublic,'50054d2e436e8a0e215043ad3839f78623ecf4f8');
+ assert.equal(result.sourceCommit,'50054d2e436e8a0e215043ad3839f78623ecf4f8');
 });
 test('whole input sums include matching entry, navigation, brief, example and extra node guide',async()=>{
  for(const c of result.cases){

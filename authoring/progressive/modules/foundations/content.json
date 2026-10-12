@@ -2,8 +2,8 @@
   "format": "inform-ui-progressive-task/1",
   "schemaVersion": "iui/1",
   "runtime": {
-    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
-    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
+    "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+    "publicCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8"
   },
   "rootKind": "document",
   "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
@@ -11,7 +11,7 @@
     "schemaVersion": "iui/1",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
+      "value": "c140323b7066a20f47d570cb2fb4ab68d228d0e70db6f1a105732fa001290eb0"
     },
     "requestedComponents": [
       "markdown"
@@ -77,13 +77,13 @@
       "examples/schema-modules/content.json"
     ],
     "migrationCoverage": {
-      "migratedNodeCount": 141,
+      "migratedNodeCount": 218,
       "totalNodeCount": 218
     }
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "urn:micraow:inform-ui:source-selection:7fe9ff5661283342b9c32c90ce7e1e1428f74ee69eb8dbabfbea1c5c5b3c31db",
+    "$id": "urn:micraow:inform-ui:source-selection:58db0a242954f21fbba7caa0cfdaf50eb67c1d6be9a18521846d69b70ecc2be4",
     "title": "IUIDocument",
     "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
     "type": "object",
@@ -664,8 +664,8 @@
     },
     {
       "path": "docs/schema-source-modules.md#content",
-      "sourceBytes": 13078,
-      "sourceSha256": "a4a74e49b7ca7cdffbd6680593b98a6713cb9236c70ca7c89fc53b0186be2c60",
+      "sourceBytes": 16311,
+      "sourceSha256": "8ff1456db53f26378786726f4b808d01d3aeb479fcc95e5c7001e66972e01090",
       "bytes": 1212,
       "sha256": "82bde7887677198df6be5f03a80dab0bf1b571fd0c28c77c2b31e446b30efd76",
       "text": "## content\n\n`foundations/content` owns markdown, writing-block, email-draft, task-expansion-card, code, math, badge, divider and spacer. Load the [bounded Markdown contract](markdown.md), [local writing contract](writing-block.md) and [code contract](code.md) for their specific behavior. Those historical documents retain their original release-stage notes; selection does not claim a new browser acceptance run.\n\nCode is displayed, never executed. Its inline branch excludes block copy/highlight controls; text is literal. Math takes authored LaTeX under the existing bounded renderer, not executable JavaScript. Badge values may use the shared expression grammar; divider and spacer are structural display nodes.\n\nEmail drafts contain caller-supplied recipients, subject and body. They provide local review/editing, not email delivery or account access. Task expansion cards display supplied steps and local reviewed state, not a task executor. Writing, Markdown and email values are literal strings rather than references to a bound answer. Full semantic validation remains required, including component restrictions inside forms. Selection does not turn local edits into a submitted answer or persist them.\n"
@@ -763,8 +763,8 @@
     }
   ],
   "identity": {
-    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
-    "schemaSha256": "c8c52288d59660dc3946a8bc2f5c1e35568e39fcc601a7f89c133b7e8626d74b",
+    "indexSha256": "74b2ec1c0ff1901be2b9bbac74a4141e155e95186904b881a762b4ba7cdfc7fc",
+    "schemaSha256": "95d5f79f275c2a627fc908ca6b995e229f15776e1d6ce77aeaef202fa43aa9dc",
     "schemaBytes": 11898
   },
   "manifestPath": "content.json.manifest.json"
