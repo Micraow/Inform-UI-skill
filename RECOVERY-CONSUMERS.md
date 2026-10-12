@@ -24,6 +24,13 @@ GCS or ROX merely because the repository also contains their newer source files.
 
 ## Recent executable consumers
 
+The independent [declarative questionnaire](candidates/questionnaire/README.md)
+adds a generic source-build contract with original nonmedical inputs. Its runtime
+lock identifies protocol218; it is not part of the published214 package. The
+historical212/256 inventory is unchanged. The remaining44 dedicated components
+are outside the current implementation target, rather than being marked complete
+by a generic form.
+
 | Consumer | Exact verified source/asset | Actual checks |
 | --- | --- | --- |
 | [GCS scorecard](candidates/gcs-scorecard/README.md) | `901406db5d3a02c2dffa069c670e983076502096` | 143 arithmetic checks including 120 numeric triplets; 10 accepted/14 rejected documents; seven DOM/standalone flows |

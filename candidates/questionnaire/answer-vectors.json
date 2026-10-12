@@ -1,0 +1,350 @@
+{
+  "description": "Original nonmedical packing arithmetic and explicit answer validity. No service or real event data.",
+  "cases": [
+    {
+      "id": "ordinary-onsite",
+      "answers": {
+        "mode": "onsite",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "ready",
+        "computed": {
+          "totalPackets": 6,
+          "spareSeats": null
+        }
+      }
+    },
+    {
+      "id": "required-unknown",
+      "answers": {
+        "mode": "onsite",
+        "participants": null,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "incomplete",
+        "computed": {},
+        "validity": {
+          "participants": "unknown"
+        }
+      }
+    },
+    {
+      "id": "required-empty",
+      "answers": {
+        "mode": "onsite",
+        "participants": "",
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "incomplete",
+        "computed": {},
+        "validity": {
+          "participants": "unknown"
+        }
+      }
+    },
+    {
+      "id": "invalid-number",
+      "answers": {
+        "mode": "onsite",
+        "participants": "two",
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "participants": "invalid"
+        }
+      }
+    },
+    {
+      "id": "zero-is-real",
+      "answers": {
+        "mode": "onsite",
+        "participants": 2,
+        "packsEach": 0,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "ready",
+        "computed": {
+          "totalPackets": 0,
+          "spareSeats": null
+        }
+      }
+    },
+    {
+      "id": "false-is-real",
+      "answers": {
+        "mode": "onsite",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "ready",
+        "computed": {
+          "totalPackets": 6,
+          "spareSeats": null
+        }
+      }
+    },
+    {
+      "id": "boolean-unknown",
+      "answers": {
+        "mode": "onsite",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": null,
+        "seats": null
+      },
+      "expected": {
+        "status": "incomplete",
+        "computed": {},
+        "validity": {
+          "borrowed": "unknown"
+        }
+      }
+    },
+    {
+      "id": "boolean-string-is-invalid",
+      "answers": {
+        "mode": "onsite",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": "false",
+        "seats": null
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "borrowed": "invalid"
+        }
+      }
+    },
+    {
+      "id": "lower-bound",
+      "answers": {
+        "mode": "onsite",
+        "participants": 0,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "participants": "invalid"
+        }
+      }
+    },
+    {
+      "id": "upper-bound",
+      "answers": {
+        "mode": "onsite",
+        "participants": 21,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "participants": "invalid"
+        }
+      }
+    },
+    {
+      "id": "step-invalid",
+      "answers": {
+        "mode": "onsite",
+        "participants": 2.5,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "participants": "invalid"
+        }
+      }
+    },
+    {
+      "id": "maximum-valid",
+      "answers": {
+        "mode": "onsite",
+        "participants": 20,
+        "packsEach": 5,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "ready",
+        "computed": {
+          "totalPackets": 100,
+          "spareSeats": null
+        }
+      }
+    },
+    {
+      "id": "travel-unknown",
+      "answers": {
+        "mode": "travel",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "incomplete",
+        "computed": {},
+        "validity": {
+          "seats": "unknown"
+        }
+      }
+    },
+    {
+      "id": "travel-cross-invalid",
+      "answers": {
+        "mode": "travel",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": 1
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "seats": "invalid"
+        }
+      }
+    },
+    {
+      "id": "travel-equal-boundary",
+      "answers": {
+        "mode": "travel",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": 2
+      },
+      "expected": {
+        "status": "ready",
+        "computed": {
+          "totalPackets": 6,
+          "spareSeats": 0
+        }
+      }
+    },
+    {
+      "id": "travel-valid",
+      "answers": {
+        "mode": "travel",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": 8
+      },
+      "expected": {
+        "status": "ready",
+        "computed": {
+          "totalPackets": 6,
+          "spareSeats": 6
+        }
+      }
+    },
+    {
+      "id": "dependent-pending",
+      "answers": {
+        "mode": "travel",
+        "participants": null,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": 8
+      },
+      "expected": {
+        "status": "incomplete",
+        "computed": {},
+        "validity": {
+          "participants": "unknown",
+          "seats": "pending"
+        }
+      }
+    },
+    {
+      "id": "hidden-invalid-draft",
+      "answers": {
+        "mode": "onsite",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": "8x"
+      },
+      "expected": {
+        "status": "ready",
+        "computed": {
+          "totalPackets": 6,
+          "spareSeats": null
+        },
+        "validity": {
+          "seats": "hidden"
+        }
+      }
+    },
+    {
+      "id": "unknown-choice",
+      "answers": {
+        "mode": "train",
+        "participants": 2,
+        "packsEach": 3,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "mode": "invalid"
+        }
+      }
+    },
+    {
+      "id": "invalid-beats-incomplete",
+      "answers": {
+        "mode": "onsite",
+        "participants": null,
+        "packsEach": 6,
+        "borrowed": false,
+        "seats": null
+      },
+      "expected": {
+        "status": "invalid",
+        "computed": {},
+        "validity": {
+          "participants": "unknown",
+          "packsEach": "invalid"
+        }
+      }
+    }
+  ]
+}

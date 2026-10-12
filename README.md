@@ -55,10 +55,17 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/minimal.json --out an
 
 ## 原创示例与必要验证
 
+### 通用问卷扩展
+
+Agent 可以用 JSON 声明字段、前序字段控制的条件显示、跨字段校验、有限表达式计算和版本来源，参见 [原创活动打包问卷](candidates/questionnaire/README.md)。未知或无效答案会立即移除旧结果；隐藏答案按明确的保留或清除策略处理，并排除于提交快照。提交可本地取消，宿主异步处理收到冻结快照和取消信号。
+
+此消费者对应单独的源构建候选，新增协议登记为218；公开运行源码与打包资产仍以上面的固定版本为准。历史212/256对照不变，剩余44个专用组件不再作为当前逐项实现目标。通用问卷不意味着这些组件已实现，也不能代替具体规则的独立正确性与适用性审查。
+
 | 示例或消费者 | 覆盖内容 |
 | --- | --- |
 | [最小文字](examples/minimal.json) | 不添加无必要装饰 |
 | [瓶颈与反馈](examples/hpcc-feedback.json) | 正文、拓扑、公式与本地输入 |
+| [通用问卷](candidates/questionnaire/README.md) | 非医疗原创分支问卷、未知与无效草稿、冻结结果快照及本地取消提交 |
 | [GCS scorecard](candidates/gcs-scorecard/README.md) | 120 个数值组合，NT/未知，信息 tabs、独立 defaults 与本地 summary |
 | [ROX 显式单位](candidates/rox-scorecard/README.md) | 百分数/分数、零/缺失、未经舍入比较与 reset |
 | [qSOFA 共识数值](candidates/qsofa-scorecard/README.md) | 两种显式意识状态输入、GCS14边界、未知/NT与Reset；运行源尚未公开 |

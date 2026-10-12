@@ -1,0 +1,32 @@
+{
+  "source": "29c6905e19d00f60ad4d945d766a6fbf516f2f9c",
+  "publicCommit": null,
+  "protocolNodes": 218,
+  "canonicalScopeAtFreeze": 212,
+  "arithmeticChecks": 26,
+  "originalJsonVectors": 20,
+  "positiveDocuments": 10,
+  "negativeDocuments": 20,
+  "passed": 7,
+  "failed": 0,
+  "flows": [
+    "Unknown, invalid draft and pending cross-field validation remove stale results; explicit false and zero remain valid answers",
+    "Retain and clear hidden policies differ explicitly; hidden raw drafts are excluded from snapshots and calculations, reactivation revalidates, and hidden focus returns to visible Reset",
+    "Canceled local submit has no success; immutable answers, results, version and sources belong to one revision, and listener edits prevent stale acceptance",
+    "Local and host form reset preserve cancellation and newer inputs; accepted reset restores unknown defaults and transfers focus out of a hidden branch",
+    "A missing required answer receives submit focus ahead of an optional unknown field; the optional null answer does not block otherwise complete results",
+    "Named local asynchronous adapters receive an immutable snapshot and abort signal; canceled or duplicate submissions do not call them, and editing/update/dispose aborts stale completion",
+    "Actual offline compiled standalone executes the same declarative questionnaire and a cancelable frozen result snapshot"
+  ],
+  "filesChecked": 47,
+  "standalone": {
+    "executed": true,
+    "bytes": 7807092,
+    "sha256": "806ebd8b7b042d8bfce2d7ec0a2e707b145926c286deb14d005a48e19dd3262b"
+  },
+  "resourceRequests": 0,
+  "serviceCalls": 0,
+  "nativeExecutedByConsumer": false,
+  "fullNewCDN": false,
+  "boundary": "Original synthetic nonmedical packing questionnaire; JSON only, bounded expressions and explicit local adapters. Historical component inventory is unchanged."
+}
