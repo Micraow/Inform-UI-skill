@@ -1,0 +1,69 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "calculator-glasgow-coma-scale-gcs",
+      "id": "original_numeric_triplet",
+      "label": "Original supplied numeric record",
+      "subtitle": "Fictional values for software testing only.",
+      "initial": {
+        "version": "gcs-six-motor-levels",
+        "population": "adult",
+        "eye": 2,
+        "verbal": 3,
+        "motor": 4
+      },
+      "defaults": {
+        "version": "gcs-six-motor-levels",
+        "population": "adult",
+        "eye": 1,
+        "verbal": 2,
+        "motor": 3
+      },
+      "scoreLabel": "Numeric sum",
+      "summaryPrefix": "Original record",
+      "copyLabel": "Request local summary",
+      "notes": [
+        "Keep all three supplied components visible.",
+        "This fixture does not represent a patient."
+      ],
+      "infoSections": [
+        {
+          "id": "inputs",
+          "label": "Original input notes",
+          "body": "This panel contains supplied numeric data."
+        },
+        {
+          "id": "arithmetic",
+          "label": "Original arithmetic notes",
+          "body": "Missing and untestable components stay distinct."
+        },
+        {
+          "id": "audit",
+          "label": "Original audit notes",
+          "body": "Literal <strong>text</strong> is displayed without markup."
+        }
+      ],
+      "activeInfoId": "inputs",
+      "fields": {
+        "eye": {
+          "variant": "segmented",
+          "label": "Supplied E value",
+          "help": "Select one supplied numeric value.",
+          "optionHelp": {
+            "NT": "An explicit unavailable marker from this fictional record.",
+            "4": "The fourth numeric choice in this fixture."
+          }
+        },
+        "verbal": {
+          "variant": "select",
+          "label": "Supplied V value"
+        },
+        "motor": {
+          "variant": "select",
+          "label": "Supplied M value"
+        }
+      }
+    }
+  ]
+}

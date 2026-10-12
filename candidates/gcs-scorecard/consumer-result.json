@@ -1,0 +1,34 @@
+{
+  "source": "901406db5d3a02c2dffa069c670e983076502096",
+  "publicCommit": null,
+  "protocolNodes": 215,
+  "canonicalScopeAtFreeze": 209,
+  "arithmeticChecks": 143,
+  "numericCombinations": 120,
+  "positiveDocuments": 10,
+  "negativeDocuments": 14,
+  "passed": 7,
+  "failed": 0,
+  "flows": [
+    "Live numeric and segmented/select controls preserve component states, selected help, NT/unknown suppression and a cancelable local summary request",
+    "Information tabs support cancellation and guarded RTL keyboard navigation; literal notes stay inert and independent defaults reset ratings without resetting the tab",
+    "Host reset cancellation and newer native/local-intent input supersede stale reset while an accepted independent default baseline remains usable",
+    "On-demand totals honor cancellation, stale-result removal and callback input/replacement; pending reset cannot resurrect a disposed generation",
+    "Invalid raw values and unsupported version/population remain explicit without a total or fabricated clinical output; disabled controls stay passive",
+    "Pending, hidden failure, literal supplied fallback and resolved phases replace one another through the public controller",
+    "Actual compiled offline standalone executes the original live and on-demand numeric fixtures"
+  ],
+  "filesChecked": 45,
+  "preservedDefinitions": 386,
+  "standalone": {
+    "executed": true,
+    "bytes": 7597749,
+    "sha256": "994031aa7fc8d62d32a4ff66e68866313e2d29a9920e0034abaa0738873760ac"
+  },
+  "resourceRequests": 0,
+  "serviceCalls": 0,
+  "clinicalValidation": false,
+  "nativeExecutedByConsumer": false,
+  "fullNewCDN": false,
+  "boundary": "Software arithmetic over fictional explicitly supplied adult six-motor-level component ratings and local UI only; no examination, severity, prognosis or treatment output."
+}

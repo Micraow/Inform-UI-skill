@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [原创 GCS 数值计分消费者](candidates/gcs-scorecard/README.md)：准确 901406db 源构建通过 143 算术检查（含全部 120 数值组合）、10 正 14 负和 7 组真实 DOM/standalone；45 叶与 386 旧定义核齐。六级 motor 的 adult 显式版本、NT/未知分量、live/on-demand、独立 defaults、信息 tabs 与本地 summary 请求均验；0 服务。215 仅登记，完成数仍 209 候选快照，软件通过不代表临床验证。
+
 新增 [Overlay与Form披露焦点窄修消费者](candidates/overlay-form-disclosure/README.md)：准确3bcff1a源构建4组真实DOM、12叶身份通过，0服务；两overlay资源晚返回、closed Details内required还焦与换代退役均核。已实际对应source-only公开693d0ef5，7源码叶取回SHA相等、54旧CDN叶不变；fed5资产不含这两后继，未冒称新CDN/native。
 
 新增 [统一214轻量资产消费者](candidates/recovery214/README.md)：准确本地0e2ea910的52资产/SRI、58锁与384旧定义通过，ESM/global各12正8负、共8组宿主Reset及日期DOM流程，加实际standalone通过；0外部服务、11host合同绿。209完成/214登记独立计数，已实际对应公开fed5f86f，52远端载荷33,595,227字节逐项SHA/SRI核齐，Actions0；旧933锁不改。

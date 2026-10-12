@@ -1,5 +1,7 @@
 # Current recovered consumers
 
+The [original GCS numeric scorecard consumer](candidates/gcs-scorecard/README.md) pins source `901406db5d3a02c2dffa069c670e983076502096`. It verifies 143 arithmetic cases including all 120 numeric triplets, 10 accepted/14 rejected documents and seven actual DOM/standalone flows. Component values, NT/unknown suppression, explicit version, information tabs, independent defaults and cancelable local intents remain distinct. All 45 source/build leaves and 386 prior definitions match. This is software verification over fictional supplied values, with zero services; clinical validity and new native/CDN coverage are not claimed. The 209 inventory snapshot and published 214/fed5 assets remain fixed.
+
 The [original corrected-date consumer](candidates/corrected-age/README.md) pins source `371074e4e5358a0c0e4020240b7c3c4a3e98b8e3`: eight accepted/eight rejected documents, seven actual DOM and standalone flows,51 locked files and384 prior definition hashes. Inputs are synthetic, service calls are zero, and software acceptance is separate from clinical validation or native coverage. The214 registrations do not change an older asset lock.
 
 The [text/choice host-reset consumer](candidates/host-fields-reset/README.md) verifies five local-global DOM groups on exact `44c0de48bd76932a0111a3be195d90411b1c7195`, including invalid numeric drafts. The separately verified391e source is public at `cf2ed1e8d5df2fb5d0d44872ce0d9ca62434ac84`; its remote CDN/dist remain933.
