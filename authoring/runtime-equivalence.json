@@ -1,0 +1,44 @@
+{
+  "source": "29c6905e19d00f60ad4d945d766a6fbf516f2f9c",
+  "publicCommit": null,
+  "representatives": [
+    {
+      "path": "examples/minimal.json",
+      "exactCanonical": true,
+      "semanticValidation": true,
+      "stateEvaluationEquivalent": true
+    },
+    {
+      "path": "examples/hpcc-feedback.json",
+      "exactCanonical": true,
+      "semanticValidation": true,
+      "stateEvaluationEquivalent": true
+    },
+    {
+      "path": "examples/rtt-trend.json",
+      "exactCanonical": true,
+      "semanticValidation": true,
+      "stateEvaluationEquivalent": true
+    },
+    {
+      "path": "examples/primitives-with-form-and-time.json",
+      "exactCanonical": true,
+      "semanticValidation": true,
+      "stateEvaluationEquivalent": true
+    },
+    {
+      "path": "candidates/questionnaire/examples/event-packing.json",
+      "exactCanonical": true,
+      "semanticValidation": true,
+      "stateEvaluationEquivalent": true
+    }
+  ],
+  "questionnaireVectors": 20,
+  "packDefinitions": 5,
+  "passed": 25,
+  "failed": 0,
+  "externalServiceCalls": 0,
+  "modelGenerationExperimentExecuted": false,
+  "nativeExecuted": false,
+  "boundary": "Deterministic transformation and actual runtime equivalence only; no claim about model accuracy or token savings."
+}
