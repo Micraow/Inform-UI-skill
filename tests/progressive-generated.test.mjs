@@ -10,8 +10,8 @@ const root=fileURLToPath(new URL('../authoring/progressive/',import.meta.url)),r
 test('all generated artifacts have exact recorded identities and a single source version',async()=>{
  const g=await json('generation.json'),index=await json('index.json');assert.equal(index.source.sourceCommit,g.source.sourceCommit);assert.deepEqual(index.source.sourceIdentity,g.source.sourceIdentity);
  for(const entry of g.artifacts){const b=await read(entry.path);assert.equal(b.length,entry.bytes,entry.path);assert.equal(hash(b),entry.sha256,entry.path);}
- assert.equal(g.fullSchema.canonicalByteEqual,true);assert.equal(index.migrationCoverage.migratedNodeCount,110);assert.equal(index.migrationCoverage.totalNodeCount,218);
- const legacy=await json(index.migrationCoverage.legacyIndexPath);assert.equal(legacy.componentTypes.length,108);assert.deepEqual(legacy.source,g.source);
+ assert.equal(g.fullSchema.canonicalByteEqual,true);assert.equal(index.migrationCoverage.migratedNodeCount,120);assert.equal(index.migrationCoverage.totalNodeCount,218);
+ const legacy=await json(index.migrationCoverage.legacyIndexPath);assert.equal(legacy.componentTypes.length,98);assert.deepEqual(legacy.source,g.source);
 });
 
 test('category -> module -> complete schema/semantics/example paths are reachable and signatures remain exact',async()=>{
@@ -24,7 +24,7 @@ test('category -> module -> complete schema/semantics/example paths are reachabl
    for(const [name,d]of Object.entries(task.schema.$defs))if(name!=='Node')assert.deepEqual(d,full.$defs[name],m.id+' '+name);
   }
  }
- assert.equal(count,110);
+ assert.equal(count,120);
 });
 
 test('questionnaire task includes transitive semantic rules and original self-contained example',async()=>{
@@ -47,7 +47,7 @@ test('actual source inventory selects modules deterministically and rejects unkn
 });
 
 test('published source supplement covers every authoritative source file without changing the CDN identity',async()=>{
- const publication=await json('source-public.json'),index=await json('index.json'),sourceIndex=await json('source-index.json');assert.equal(publication.publicCommit,index.source.publicCommit);assert.equal(publication.sourceCommit,index.source.sourceCommit);assert.equal(publication.publicCommit,'a98c7700dddb31c2d4659a0bb716dce804b078a4');assert.equal(publication.cdnIncludesQuestionnaire,false);
+ const publication=await json('source-public.json'),index=await json('index.json'),sourceIndex=await json('source-index.json');assert.equal(publication.publicCommit,index.source.publicCommit);assert.equal(publication.sourceCommit,index.source.sourceCommit);assert.equal(publication.publicCommit,'5f29ad0fdbc54bb2e0ac22eb28b0093bb5046213');assert.equal(publication.cdnIncludesQuestionnaire,false);
  for(const [p,digest]of Object.entries(sourceIndex.sourceFiles)){const f=publication.verifiedFiles.find(x=>x.path===p);assert.ok(f,p);assert.equal(f.sha256,digest,p);}
  assert.ok(publication.verifiedFiles.some(f=>f.path==='src/schema/iui.schema.json'));assert.equal(publication.cdnCommit,'fed5f86f49e73f908ac9ea98966b1515a3aaa597');
 });
@@ -63,4 +63,22 @@ test('whole-task byte measurements follow the declared category and explicit sem
   assert.ok(!task.contracts.some(c=>/^(README\.md|docs\/(cdn|verification[^/]*|schema-subsets)\.md)$/.test(c.path)));
  }
  assert.ok(differentPrefix,'fixture covers a category unlike its module prefix');
+});
+
+
+test('media module packs preserve actual reader and Lottie dependencies',async()=>{
+ const viz=await json('modules/learning/visualization.json'),inline=await json('modules/media/inline-host.json');
+ assert.deepEqual(viz.selection.resolvedModules,['shared/value','media/lottie','learning/visualization']);
+ assert.deepEqual(viz.selection.includedComponents,['lottie','learning-viz-dil']);
+ assert.deepEqual(inline.selection.resolvedModules,['shared/value','media/readers','media/inline-host']);
+ for(const type of ['search-image','youtube','entity','gen-image','speech-synthesizer'])assert.ok(inline.selection.includedComponents.includes(type));
+ for(const task of [viz,inline]){assert.ok(task.selection.contractSelections.every(c=>c.followLinks===false));assert.ok(task.examples.length>=2);}
+ const ledger=await json('modules/finance/category-views.json');assert.equal(ledger.selection.includedComponents.length,3);assert.ok(ledger.contracts.some(c=>c.path==='docs/ledger-category-contract.md'));
+});
+
+test('published Lottie guard evidence remains distinct from unchanged CDN assets',async()=>{
+ const publication=await json('source-public.json');assert.equal(publication.cdnIncludesLottieLayerTypeFix,false);
+ assert.ok(publication.verifiedFiles.some(f=>f.path==='src/core/lottie.ts'&&/^[a-f0-9]{40}$/.test(f.gitBlob)));
+ const task=await json('modules/media/lottie.json'),text=task.contracts.map(c=>c.text).join('\n');
+ assert.ok(text.includes('ty'));assert.ok(task.contracts.some(c=>c.path==='docs/lottie-recovery.md'));
 });

@@ -1,0 +1,1125 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "ce24065f5e8f1e521115dd5b7473ef4810555017",
+    "publicCommit": "5f29ad0fdbc54bb2e0ac22eb28b0093bb5046213"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "f4dacfa0ca201adec733c2750c276e83e9f6ad4d1a2a7b812e3c7cefdc13f6fc"
+    },
+    "requestedComponents": [
+      "ledger-spend-by-category"
+    ],
+    "requestedModules": [
+      "finance/category-views"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "finance/category-views"
+    ],
+    "includedComponents": [
+      "ledger-spend-by-category",
+      "ledger-spend-by-category-detail",
+      "ledger-spend-by-category-recent-transactions"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/ledger-category-contract.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/ledger-category-contract.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/ledger-category.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 120,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:c4e138bf68d777faaec611b5840293de6b413af8271df8ad606a8a73e75b4207",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "LedgerCategoryItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$(?![\\s\\S])"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amountLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "percentLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "filledPct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^(green|blue|orange|purple|pink|gray|#[0-9A-Fa-f]{6})$(?![\\s\\S])"
+          },
+          "icon": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20
+          },
+          "detailEnabled": {
+            "type": "boolean"
+          },
+          "detailLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "topDetailLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "topDetailAmountLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "topDetailShareLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "amountLabel",
+          "percentLabel",
+          "filledPct",
+          "color"
+        ],
+        "additionalProperties": false
+      },
+      "LedgerCategoryMonth": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$(?![\\s\\S])"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "optionLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "optionGroup": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "monthStart": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "totalLabel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$(?![\\s\\S])"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "color": {
+                  "type": "string",
+                  "pattern": "^(green|blue|orange|purple|pink|gray|#[0-9A-Fa-f]{6})$(?![\\s\\S])"
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "weight",
+                "color"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100
+          },
+          "topCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LedgerCategoryItem"
+            },
+            "maxItems": 100
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LedgerCategoryItem"
+            },
+            "maxItems": 100
+          },
+          "hasMoreCategories": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "totalLabel",
+          "segments",
+          "topCategories",
+          "categories"
+        ],
+        "additionalProperties": false
+      },
+      "LedgerSpendByCategoryDetailNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ledger-spend-by-category-detail"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "isLoading": {
+            "type": "boolean"
+          },
+          "hasConnectedAccounts": {
+            "type": "boolean"
+          },
+          "noAccountsLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "sensitiveValuesHidden": {
+            "type": "boolean"
+          },
+          "maskedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "unknownLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$(?![\\s\\S])"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "subtotalLabel": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "filledPct": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "subtotalLabel",
+                "filledPct"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100
+          },
+          "noDetailedBreakdownLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "anyOf": [
+            {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "pending",
+                    "failed"
+                  ]
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            {
+              "properties": {
+                "isLoading": {
+                  "const": true
+                }
+              },
+              "required": [
+                "isLoading"
+              ]
+            },
+            {
+              "properties": {
+                "hasConnectedAccounts": {
+                  "const": false
+                }
+              },
+              "required": [
+                "hasConnectedAccounts"
+              ]
+            }
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "groups": {}
+          },
+          "required": [
+            "groups"
+          ]
+        }
+      },
+      "LedgerSpendByCategoryNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ledger-spend-by-category"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "isLoading": {
+            "type": "boolean"
+          },
+          "hasConnectedAccounts": {
+            "type": "boolean"
+          },
+          "noAccountsLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "sensitiveValuesHidden": {
+            "type": "boolean"
+          },
+          "maskedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "unknownLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "months": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LedgerCategoryMonth"
+            },
+            "maxItems": 60
+          },
+          "selectedMonthId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$(?![\\s\\S])"
+          },
+          "compactTitle": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "conversionNote": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "moreLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "lessLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "noSpendingTitle": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "noSpendingDescription": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "monetaryValueReferencesEnabled": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "anyOf": [
+            {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "pending",
+                    "failed"
+                  ]
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            {
+              "properties": {
+                "isLoading": {
+                  "const": true
+                }
+              },
+              "required": [
+                "isLoading"
+              ]
+            },
+            {
+              "properties": {
+                "hasConnectedAccounts": {
+                  "const": false
+                }
+              },
+              "required": [
+                "hasConnectedAccounts"
+              ]
+            }
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "months": {}
+          },
+          "required": [
+            "months"
+          ]
+        }
+      },
+      "LedgerSpendByCategoryRecentTransactionsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ledger-spend-by-category-recent-transactions"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "isLoading": {
+            "type": "boolean"
+          },
+          "hasConnectedAccounts": {
+            "type": "boolean"
+          },
+          "noAccountsLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "sensitiveValuesHidden": {
+            "type": "boolean"
+          },
+          "maskedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "unknownLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$(?![\\s\\S])"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "dateLabel": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "amountLabel": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "logoSrc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000000
+                },
+                "icon": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 20
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "dateLabel",
+                "amountLabel"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 100
+          },
+          "noRecentTransactionsLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "anyOf": [
+            {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "pending",
+                    "failed"
+                  ]
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            {
+              "properties": {
+                "isLoading": {
+                  "const": true
+                }
+              },
+              "required": [
+                "isLoading"
+              ]
+            },
+            {
+              "properties": {
+                "hasConnectedAccounts": {
+                  "const": false
+                }
+              },
+              "required": [
+                "hasConnectedAccounts"
+              ]
+            }
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "transactions": {}
+          },
+          "required": [
+            "transactions"
+          ]
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LedgerSpendByCategoryNode"
+          },
+          {
+            "$ref": "#/$defs/LedgerSpendByCategoryDetailNode"
+          },
+          {
+            "$ref": "#/$defs/LedgerSpendByCategoryRecentTransactionsNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/ledger-category-contract.md",
+      "sourceBytes": 4830,
+      "sourceSha256": "844d54b75f67af2ba32f1ab1743e9d62a0e8fe4f3d20ddf0a83c09cf7c3164e6",
+      "bytes": 4830,
+      "sha256": "844d54b75f67af2ba32f1ab1743e9d62a0e8fe4f3d20ddf0a83c09cf7c3164e6",
+      "text": "# Supplied category views\n\nThree original finite views consume already-supplied records: `ledger-spend-by-category`, `ledger-spend-by-category-detail`, and `ledger-spend-by-category-recent-transactions`. They never contact an account, calculate financial totals, categorize a purchase, or fetch transactions.\n\n## Overview\n\nSupply up to60 months, each with an ID, display label, nullable total label, independent stack segments, topCategories and complete categories. Each category includes a display amount, percent label, finite0–100 bar value, safe color, and optional detail capability. Months can have an option label and option group. The selected month defaults to the first; its supplied ID must exist. More replaces the top list with the complete list, Less restores it, and changing months collapses expansion. A native parent form reset restores the initial month and collapsed list; cancelled resets and newer input win.\n\nSegments use independently supplied nonnegative weights. Neither weights, bars nor category amounts determine the displayed total. Unknown labels are explicit null and remain distinct from supplied zero. With sensitiveValuesHidden, the total uses the masked label while category amounts are replaced by their supplied percentage labels; bar geometry remains visible.\n\nA category with detailEnabled emits a frozen, bubbling, cancelable, non-composed `iui:category-detail` request containing id, monthId, categoryKey, label, totalLabel, optional top-detail labels and explicit masking/reference flags. Acceptance performs no external action. Repeating a cancelled request remains possible. No implicit navigation, account operation or network action follows the event.\n\nThe576px inclusive breakpoint is measured from the renderer wrapper, not the viewport. It changes the heading presentation without replacing category rows. Select is shown only when there are multiple months. Empty supplied lists have an explicit no-spending state.\n\n## Detail and recent transactions\n\nDetail renders supplied group labels, nullable subtotal labels and percentage bars. Recent transactions render supplied title/date/amount labels, optional safe logo and fallback glyph. They are passive views; no transaction action is inferred. Images reuse the library's owned image reader and release their sources when replaced or retired.\n\nAll three views support pending, failed fallback, resolved empty, and disconnected-account presentations. The overview pending block is380px high; detail and recent presentations have two skeleton groups. These are original CSS implementations from observable presentation facts; reference pixel equivalence has not been established.\n\n## Bounds and ownership\n\nMonths are bounded at60, category/group/transaction/segment arrays at100. IDs are unique within each list; totals and text are display strings, not numbers to parse. Colors are six fixed color roles or exact six-digit hex. Safe image URL policy and shared generation/owner, input, intent and native-reset facilities are reused. Every replaceable row generation owns its handlers. Same-turn owner removal permanently retires old controls; an explicit controller update creates the new view.\n\nThe three schemas being registered is not canonical completion. Independent functional review, native execution and reference pixel acceptance are recorded separately.\n\n## Structural and semantic validation\n\nUse full `validateDocument` after structural schema validation. `CATEGORY_LABEL` rejects whitespace-only strings (by `trim()`) for the top-level `label`; overview month `label` and `totalLabel`, segment `label`, and each top/complete category's `label`, `amountLabel`, `percentLabel`; detail group `label` and `subtotalLabel`; and recent transaction `title`, `dateLabel`, `amountLabel`. Explicit null in nullable display labels remains valid and never means zero. This is a precise field list: other structurally valid display strings do not receive an additional trim rule.\n\n`CATEGORY_ID` rejects repeated IDs within each months, segments, topCategories, categories, groups or transactions list. IDs shared between separate top/complete lists are permitted. `CATEGORY_MONTH` requires a supplied `selectedMonthId` to identify an existing month, even in pending/disconnected presentations when supplied. `CATEGORY_SOURCE` checks each supplied transaction `logoSrc` with the shared safe-image URL policy.\n\nThe structural conditional requires months/groups/transactions for a resolved ordinary view, but permits omission when status is pending/failed, `isLoading` is true or `hasConnectedAccounts` is false. Present data still undergoes semantic checks in those phases. Category/group bars are 0–100; segment weights are independently 0–1,000,000. No normalization, aggregation or parsing of display amounts is performed.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/ledger-category.json",
+      "bytes": 4887,
+      "sha256": "cb20d623da8ec0e0441ca35988fbf76940f35949df8a00a6b2685b588b0e698a",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "ledger-spend-by-category",
+            "label": "Original category summary",
+            "compactTitle": "Categories",
+            "months": [
+              {
+                "id": "first",
+                "label": "First supplied month",
+                "totalLabel": "900 units",
+                "segments": [
+                  {
+                    "id": "s1",
+                    "label": "Independent weight",
+                    "weight": 2,
+                    "color": "blue"
+                  },
+                  {
+                    "id": "s2",
+                    "label": "Other weight",
+                    "weight": 7,
+                    "color": "orange"
+                  }
+                ],
+                "topCategories": [
+                  {
+                    "id": "books",
+                    "label": "Field guides",
+                    "amountLabel": "12 units",
+                    "percentLabel": "20%",
+                    "filledPct": 20,
+                    "color": "green",
+                    "detailEnabled": true
+                  },
+                  {
+                    "id": "zero",
+                    "label": "Original zero",
+                    "amountLabel": "0 units",
+                    "percentLabel": "0%",
+                    "filledPct": 0,
+                    "color": "green",
+                    "detailEnabled": true
+                  }
+                ],
+                "categories": [
+                  {
+                    "id": "books",
+                    "label": "Field guides",
+                    "amountLabel": "12 units",
+                    "percentLabel": "20%",
+                    "filledPct": 20,
+                    "color": "green",
+                    "detailEnabled": true
+                  },
+                  {
+                    "id": "zero",
+                    "label": "Original zero",
+                    "amountLabel": "0 units",
+                    "percentLabel": "0%",
+                    "filledPct": 0,
+                    "color": "green",
+                    "detailEnabled": true
+                  },
+                  {
+                    "id": "unknown",
+                    "label": "Unknown",
+                    "amountLabel": null,
+                    "percentLabel": "10%",
+                    "filledPct": 10,
+                    "color": "green",
+                    "detailEnabled": true
+                  }
+                ]
+              },
+              {
+                "id": "second",
+                "label": "Second supplied month",
+                "totalLabel": "900 units",
+                "segments": [
+                  {
+                    "id": "s1",
+                    "label": "Independent weight",
+                    "weight": 2,
+                    "color": "blue"
+                  },
+                  {
+                    "id": "s2",
+                    "label": "Other weight",
+                    "weight": 7,
+                    "color": "orange"
+                  }
+                ],
+                "topCategories": [
+                  {
+                    "id": "books",
+                    "label": "Field guides",
+                    "amountLabel": "12 units",
+                    "percentLabel": "20%",
+                    "filledPct": 20,
+                    "color": "green",
+                    "detailEnabled": true
+                  },
+                  {
+                    "id": "zero",
+                    "label": "Original zero",
+                    "amountLabel": "0 units",
+                    "percentLabel": "0%",
+                    "filledPct": 0,
+                    "color": "green",
+                    "detailEnabled": true
+                  }
+                ],
+                "categories": [
+                  {
+                    "id": "books",
+                    "label": "Field guides",
+                    "amountLabel": "12 units",
+                    "percentLabel": "20%",
+                    "filledPct": 20,
+                    "color": "green",
+                    "detailEnabled": true
+                  },
+                  {
+                    "id": "zero",
+                    "label": "Original zero",
+                    "amountLabel": "0 units",
+                    "percentLabel": "0%",
+                    "filledPct": 0,
+                    "color": "green",
+                    "detailEnabled": true
+                  },
+                  {
+                    "id": "unknown",
+                    "label": "Unknown",
+                    "amountLabel": null,
+                    "percentLabel": "10%",
+                    "filledPct": 10,
+                    "color": "green",
+                    "detailEnabled": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ledger-spend-by-category-detail",
+            "label": "Original category breakdown",
+            "groups": [
+              {
+                "id": "one",
+                "label": "Supplied zero",
+                "subtotalLabel": "0 units",
+                "filledPct": 0
+              },
+              {
+                "id": "two",
+                "label": "Unknown",
+                "subtotalLabel": null,
+                "filledPct": 25
+              }
+            ]
+          },
+          {
+            "type": "ledger-spend-by-category-recent-transactions",
+            "label": "Original recent records",
+            "transactions": [
+              {
+                "id": "one",
+                "title": "Fictional field guide",
+                "dateLabel": "Supplied date label",
+                "amountLabel": "12 units"
+              },
+              {
+                "id": "two",
+                "title": "Fictional refund",
+                "dateLabel": null,
+                "amountLabel": "0 units"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "02e63636f1940220790784085da53477add8bd2ff6328c88032f35c1f0d8acbd",
+    "schemaSha256": "addc86f480c63a9a43f3ef19c1292d470dfeff71cbf3a36a52d76aa6c61c914f",
+    "schemaBytes": 19360
+  },
+  "manifestPath": "category-views.json.manifest.json"
+}

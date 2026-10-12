@@ -1,0 +1,961 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "ce24065f5e8f1e521115dd5b7473ef4810555017",
+    "publicCommit": "5f29ad0fdbc54bb2e0ac22eb28b0093bb5046213"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "f4dacfa0ca201adec733c2750c276e83e9f6ad4d1a2a7b812e3c7cefdc13f6fc"
+    },
+    "requestedComponents": [
+      "learning-viz-dil"
+    ],
+    "requestedModules": [
+      "learning/visualization"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "media/lottie",
+      "learning/visualization"
+    ],
+    "includedComponents": [
+      "lottie",
+      "learning-viz-dil"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/lottie-recovery.md",
+      "docs/learning-viz.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/lottie-recovery.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/learning-viz.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/lottie.json",
+      "examples/schema-modules/learning-viz.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 120,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:6822a8b8b3aeb9afc9c0c3f86539fc44fc1c7af3c3c3b86b53d37abc5125ca80",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "LearningVizDilNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "learning-viz-dil"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "sources": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "light": {
+                "$ref": "#/$defs/LottieData"
+              },
+              "dark": {
+                "$ref": "#/$defs/LottieData"
+              }
+            },
+            "required": [
+              "light",
+              "dark"
+            ]
+          },
+          "theme": {
+            "enum": [
+              "light",
+              "dark",
+              "auto"
+            ]
+          },
+          "alt": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "animated": {
+            "type": "boolean"
+          },
+          "playLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "pauseLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "sources": {},
+            "alt": {},
+            "animated": {}
+          },
+          "required": [
+            "sources",
+            "alt",
+            "animated"
+          ]
+        }
+      },
+      "LottieData": {
+        "type": "object",
+        "properties": {
+          "v": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "w": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4096
+          },
+          "h": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4096
+          },
+          "fr": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 240
+          },
+          "ip": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 864000
+          },
+          "op": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 864000
+          },
+          "layers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LottieJSON"
+            },
+            "minItems": 0,
+            "maxItems": 100
+          },
+          "assets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LottieJSON"
+            },
+            "minItems": 0,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "v",
+          "w",
+          "h",
+          "fr",
+          "ip",
+          "op",
+          "layers"
+        ],
+        "additionalProperties": {
+          "$ref": "#/$defs/LottieJSON"
+        }
+      },
+      "LottieJSON": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "string",
+            "maxLength": 200000
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LottieJSON"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/$defs/LottieJSON"
+            }
+          }
+        ]
+      },
+      "LottieNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "lottie"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "source": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/LottieData"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000000
+              }
+            ]
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4096
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4096
+          },
+          "aspectRatio": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+          },
+          "fit": {
+            "enum": [
+              "contain",
+              "cover",
+              "fill",
+              "none"
+            ]
+          },
+          "loop": {
+            "type": "boolean"
+          },
+          "currentTime": {
+            "$ref": "#/$defs/Value"
+          },
+          "advanceRate": {
+            "$ref": "#/$defs/Value"
+          },
+          "animationStartTime": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3600
+          },
+          "animationEndTime": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3600
+          }
+        },
+        "required": [
+          "type",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LottieNode"
+          },
+          {
+            "$ref": "#/$defs/LearningVizDilNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/lottie-recovery.md",
+      "sourceBytes": 4439,
+      "sourceSha256": "a327b6f94e8cb055a3d010fb026b97321bfb6ae21ba01659851abe500eae6e10",
+      "bytes": 4439,
+      "sha256": "a327b6f94e8cb055a3d010fb026b97321bfb6ae21ba01659851abe500eae6e10",
+      "text": "# Lottie SVG animation\n\nThis restoration uses the official full lottie-web5.13.0 engine, not a custom placeholder renderer. The generator verifies the exact upstream engine SHA256134b7463eec8de573fb3c6778c3c13368fb89f336b1b905e752f0be80de6a4c9, disables automatic document scanning and executable animation expressions, and binds resources to the supplied owner document. Upstream license text is included in THIRD_PARTY_NOTICES.md.\n\nRun npm ci, npm run generate, and npm run build. The build regenerates src/renderer/lottie-player.generated.js from the fixed dependency. Preserve the generator, its declaration file, the schema input and package lock; the generated engine file is reproducible and ignored by Git.\n\nThe example is an original moving square. Tests exercise actual SVG path generation and seek transforms, paused/running state, first connection and disposal. JSDOM needs a minimal canvas bootstrap adapter for the upstream engine's transparent helper canvas; this does not establish native pixel rendering, animation timing, or external fetch success.\n\nOnly explicit supplied JSON/bitmap sources are accepted. Executable expressions, unbounded compositions and unsupported external assets are rejected. The compiler adds only the exact required remote JSON origin. No provider discovery or account integration exists.\n\n## Complete bounded source contract\n\n`media/lottie` registers the original `scripts/lottie-definitions.json` directly. The JSON is the maintained definition source, not a selection extracted from the full output. Use full `validateDocument` for source validation; structural schemas alone do not establish these relational and resource limits.\n\nAn inline animation requires a nonempty version string of at most 200 characters; integer width/height 1–4096; finite frame rate 1–240; frame start at least 0 and at most 864000; end at most 864000 and strictly above start; and duration `(op-ip)/fr` at most 3600 seconds. Root layers and assets are each limited to 100. Nonempty external segments and asset slots are unsupported. Font lists must be well formed and may not contain a nonempty external fPath.\n\nAsset IDs are unique strings. A composition asset supplies layers without image path/base path or sid; an image asset supplies a string path, optional string base path and no sid. Its combined source must be an allowed absolute HTTP(S) source or inline PNG/JPEG/WebP/AVIF raster data. Unknown asset references, composition cycles, duplicate layer indices, missing parents and parent cycles are rejected. Supported layer type codes are numeric 0 through 5; strings, null, booleans and other coercible values are invalid rather than silently converted; audio/camera capabilities are rejected. Expanded nested composition cost is at most 2000 layers.\n\nThe complete data walk limits visits to 20000, nesting depth to 32, individual arrays to 500 values, string length to 200000 Unicode code points and absolute finite numeric magnitude to 1e9. It rejects cyclic data, reserved object keys, and string-valued executable expressions under `x`. Repeaters require finite copy counts 0–100, with the product of maximum copy counts across encountered repeaters at most 100. These constraints are resource limits, not a claim to support every animation feature.\n\nA source string is limited to 2000000 characters. Supported inline raster data can render directly; supported JSON data URLs must decode and parse and then pass the same data checks. HTTP(S) sources require a bounded CSP-compatible hostname with no credential-bearing or unsupported source scheme. The hostname has at most 253 characters and dot-separated labels of at most 63 ASCII alphanumeric/hyphen characters, starting and ending alphanumeric; numeric IPv4 hosts other than 127.0.0.1 are rejected by this CSP policy, as are IPv6 literals. Remote JSON is fetched and validated through the existing loader; no arbitrary code or external fonts are enabled. Errors use `LOTTIE_SOURCE`, `LOTTIE_DATA` or `UNSAFE_URL` according to the failed source stage.\n\nExpression-valued currentTime must resolve to a finite number within -3600 to 3600; advanceRate within -16 to 16 (`LOTTIE_TIME`). These signed bounds are preserved, not narrowed to positive-only playback. Theme-specific LearningViz sources reuse this contract and add their own field requirements. Resource disposal and compiler CSP policies remain required alongside schema validation.\n"
+    },
+    {
+      "path": "docs/learning-viz.md",
+      "sourceBytes": 3538,
+      "sourceSha256": "5cbfb6330c8f35e5256fc15fb4a30a16333da1e61ac5f35d339bbac67feab21f",
+      "bytes": 3538,
+      "sha256": "5cbfb6330c8f35e5256fc15fb4a30a16333da1e61ac5f35d339bbac67feab21f",
+      "text": "# Learning visualization\n\n`learning-viz-dil` renders supplied light/dark Lottie JSON through the library's pinned official SVG engine. This is an original composition implementation with original examples. It shares the existing animation source validator, engine, generation and ownership controls; no captured code or artwork is included.\n\nResolved data supplies `label`, `alt`, `animated`, and `sources.light`/`sources.dark`. Both sources follow the existing bounded `LottieData` contract; expressions, external fonts, audio layers and unsafe assets are rejected. Optional `theme` is light/dark/auto (default the mount theme and then system preference). `pending` has a 300px placeholder and `failed` uses literal fallback or hides. The view is full width up to 480px, at 8:5 aspect ratio.\n\nAn animated view starts at its first connection, advances at real time, stops at `(op-ip)/fr`, and does not loop. Play/Pause captures the current position; playing from the end restarts at zero. A static view displays the initial frame and has no visible playback controls. Changing system theme replaces the engine while preserving position (clamped to the supplied new duration) and paused state. Explicit controller update begins a new component state.\n\nA visible local Reset restores time zero and the initial autoplay policy. Accepted native form reset follows the shared cancellation/newer-input policy. This local reset control is an accessibility addition, with optional `resetLabel`. Play/pause labels are supplied through `playLabel`/`pauseLabel`. `disabled` and actual DOM/fieldset/ARIA/hidden/inert gates apply.\n\n`iui:learning-viz` is a frozen, bubbling, cancelable, non-composed local event with `{id,intent,currentTime,duration}` and intent play/pause/restart/reset. Cancelling preserves playback. No host service is called. External bitmap assets show an explicit Load control before constructing the engine; the control is optional-label `loadImageLabel`. Inline data assets need no external request. JSON is supplied inline, so the compiler needs no broader connect-src permission.\n\nThe parent completion timer uses shared generation acquisition and is released on pause, source replacement, retirement or disposal, including a timer registration that synchronously retires its owner before returning an ID. The existing engine keeps its own established resource implementation; this component does not claim to rewrite or independently certify all engine internals.\n\nAuthor DOM tests execute real SVG rendering. JSDOM uses explicit adapters only for its missing structuredClone and the engine's canvas bootstrap; this is not a native-browser result or an animation-engine mock. Native cases are discovered separately until a batched real-browser run occurs.\n\n## Validation and shared source dependency\n\nThe source module explicitly depends on `media/lottie`; read [the complete bounded animation contract](lottie-recovery.md) as well as this component contract. Both supplied light/dark sources are checked by `lottieDataIssue`, even when a pending or failed presentation permits sources to be omitted. `LEARNING_VIZ_SOURCE` reports invalid supplied animation data. `LEARNING_VIZ_TEXT` rejects whitespace-only `label`, `playLabel`, `pauseLabel`, `resetLabel` and `loadImageLabel`. The optional `alt` and `fallback` strings retain their structural empty-string allowance; this is not a blanket trim rule. Resolved data requires both sources, alt and animated fields; no source or playback state is fabricated for missing data.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/lottie.json",
+      "bytes": 3020,
+      "sha256": "cb1deac316631de3b44fe639a61680a57d9717f8947437702adaa604d3636385",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "lottie",
+            "alt": "Original moving square",
+            "source": {
+              "v": "5.13.0",
+              "fr": 30,
+              "ip": 0,
+              "op": 60,
+              "w": 64,
+              "h": 64,
+              "nm": "Original moving square",
+              "ddd": 0,
+              "assets": [],
+              "layers": [
+                {
+                  "ddd": 0,
+                  "ind": 1,
+                  "ty": 4,
+                  "nm": "Synthetic blue square",
+                  "sr": 1,
+                  "ks": {
+                    "o": {
+                      "a": 0,
+                      "k": 100
+                    },
+                    "r": {
+                      "a": 0,
+                      "k": 0
+                    },
+                    "p": {
+                      "a": 1,
+                      "k": [
+                        {
+                          "t": 0,
+                          "s": [
+                            16,
+                            32,
+                            0
+                          ],
+                          "e": [
+                            48,
+                            32,
+                            0
+                          ],
+                          "i": {
+                            "x": 0.67,
+                            "y": 1
+                          },
+                          "o": {
+                            "x": 0.33,
+                            "y": 0
+                          }
+                        },
+                        {
+                          "t": 60,
+                          "s": [
+                            48,
+                            32,
+                            0
+                          ]
+                        }
+                      ]
+                    },
+                    "a": {
+                      "a": 0,
+                      "k": [
+                        0,
+                        0,
+                        0
+                      ]
+                    },
+                    "s": {
+                      "a": 0,
+                      "k": [
+                        100,
+                        100,
+                        100
+                      ]
+                    }
+                  },
+                  "shapes": [
+                    {
+                      "ty": "rc",
+                      "d": 1,
+                      "s": {
+                        "a": 0,
+                        "k": [
+                          20,
+                          20
+                        ]
+                      },
+                      "p": {
+                        "a": 0,
+                        "k": [
+                          0,
+                          0
+                        ]
+                      },
+                      "r": {
+                        "a": 0,
+                        "k": 2
+                      },
+                      "nm": "Square"
+                    },
+                    {
+                      "ty": "fl",
+                      "c": {
+                        "a": 0,
+                        "k": [
+                          0.2,
+                          0.5,
+                          0.8,
+                          1
+                        ]
+                      },
+                      "o": {
+                        "a": 0,
+                        "k": 100
+                      },
+                      "r": 1,
+                      "nm": "Blue fill"
+                    }
+                  ],
+                  "ip": 0,
+                  "op": 60,
+                  "st": 0,
+                  "bm": 0
+                }
+              ]
+            },
+            "currentTime": 0,
+            "advanceRate": 0
+          }
+        ]
+      }
+    },
+    {
+      "path": "examples/schema-modules/learning-viz.json",
+      "bytes": 6642,
+      "sha256": "9bc04714b3796d98449c01f5ba419fcce52dedc87448730c0fa128409e60bdc2",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "learning-viz-dil",
+            "id": "original-motion",
+            "label": "Original blue square animation",
+            "sources": {
+              "light": {
+                "v": "5.13.0",
+                "fr": 30,
+                "ip": 0,
+                "op": 60,
+                "w": 64,
+                "h": 64,
+                "nm": "Original moving square",
+                "ddd": 0,
+                "assets": [],
+                "layers": [
+                  {
+                    "ddd": 0,
+                    "ind": 1,
+                    "ty": 4,
+                    "nm": "Synthetic blue square",
+                    "sr": 1,
+                    "ks": {
+                      "o": {
+                        "a": 0,
+                        "k": 100
+                      },
+                      "r": {
+                        "a": 0,
+                        "k": 0
+                      },
+                      "p": {
+                        "a": 1,
+                        "k": [
+                          {
+                            "t": 0,
+                            "s": [
+                              16,
+                              32,
+                              0
+                            ],
+                            "e": [
+                              48,
+                              32,
+                              0
+                            ],
+                            "i": {
+                              "x": 0.67,
+                              "y": 1
+                            },
+                            "o": {
+                              "x": 0.33,
+                              "y": 0
+                            }
+                          },
+                          {
+                            "t": 60,
+                            "s": [
+                              48,
+                              32,
+                              0
+                            ]
+                          }
+                        ]
+                      },
+                      "a": {
+                        "a": 0,
+                        "k": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "s": {
+                        "a": 0,
+                        "k": [
+                          100,
+                          100,
+                          100
+                        ]
+                      }
+                    },
+                    "shapes": [
+                      {
+                        "ty": "rc",
+                        "d": 1,
+                        "s": {
+                          "a": 0,
+                          "k": [
+                            20,
+                            20
+                          ]
+                        },
+                        "p": {
+                          "a": 0,
+                          "k": [
+                            0,
+                            0
+                          ]
+                        },
+                        "r": {
+                          "a": 0,
+                          "k": 2
+                        },
+                        "nm": "Square"
+                      },
+                      {
+                        "ty": "fl",
+                        "c": {
+                          "a": 0,
+                          "k": [
+                            0.2,
+                            0.5,
+                            0.8,
+                            1
+                          ]
+                        },
+                        "o": {
+                          "a": 0,
+                          "k": 100
+                        },
+                        "r": 1,
+                        "nm": "Blue fill"
+                      }
+                    ],
+                    "ip": 0,
+                    "op": 60,
+                    "st": 0,
+                    "bm": 0
+                  }
+                ]
+              },
+              "dark": {
+                "v": "5.13.0",
+                "fr": 30,
+                "ip": 0,
+                "op": 60,
+                "w": 64,
+                "h": 64,
+                "nm": "Original moving square",
+                "ddd": 0,
+                "assets": [],
+                "layers": [
+                  {
+                    "ddd": 0,
+                    "ind": 1,
+                    "ty": 4,
+                    "nm": "Synthetic blue square",
+                    "sr": 1,
+                    "ks": {
+                      "o": {
+                        "a": 0,
+                        "k": 100
+                      },
+                      "r": {
+                        "a": 0,
+                        "k": 0
+                      },
+                      "p": {
+                        "a": 1,
+                        "k": [
+                          {
+                            "t": 0,
+                            "s": [
+                              16,
+                              32,
+                              0
+                            ],
+                            "e": [
+                              48,
+                              32,
+                              0
+                            ],
+                            "i": {
+                              "x": 0.67,
+                              "y": 1
+                            },
+                            "o": {
+                              "x": 0.33,
+                              "y": 0
+                            }
+                          },
+                          {
+                            "t": 60,
+                            "s": [
+                              48,
+                              32,
+                              0
+                            ]
+                          }
+                        ]
+                      },
+                      "a": {
+                        "a": 0,
+                        "k": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      "s": {
+                        "a": 0,
+                        "k": [
+                          100,
+                          100,
+                          100
+                        ]
+                      }
+                    },
+                    "shapes": [
+                      {
+                        "ty": "rc",
+                        "d": 1,
+                        "s": {
+                          "a": 0,
+                          "k": [
+                            20,
+                            20
+                          ]
+                        },
+                        "p": {
+                          "a": 0,
+                          "k": [
+                            0,
+                            0
+                          ]
+                        },
+                        "r": {
+                          "a": 0,
+                          "k": 2
+                        },
+                        "nm": "Square"
+                      },
+                      {
+                        "ty": "fl",
+                        "c": {
+                          "a": 0,
+                          "k": [
+                            0.2,
+                            0.5,
+                            0.8,
+                            1
+                          ]
+                        },
+                        "o": {
+                          "a": 0,
+                          "k": 100
+                        },
+                        "r": 1,
+                        "nm": "Blue fill"
+                      }
+                    ],
+                    "ip": 0,
+                    "op": 60,
+                    "st": 0,
+                    "bm": 0
+                  }
+                ]
+              }
+            },
+            "alt": "A small original blue square moving horizontally",
+            "animated": true,
+            "playLabel": "Play original animation",
+            "pauseLabel": "Pause original animation",
+            "resetLabel": "Reset original animation"
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "02e63636f1940220790784085da53477add8bd2ff6328c88032f35c1f0d8acbd",
+    "schemaSha256": "d8e981a5f05ac7b730d06207f2cec6107a8bbe2f159a75180d61d3d410a81add",
+    "schemaBytes": 9115
+  },
+  "manifestPath": "visualization.json.manifest.json"
+}

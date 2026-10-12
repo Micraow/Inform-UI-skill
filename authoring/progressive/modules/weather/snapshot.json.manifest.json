@@ -5,7 +5,7 @@
   "rootKind": "document",
   "sourceIdentity": {
     "algorithm": "sha256",
-    "value": "63cf6c72810177052478f0d319dd2715118d3b120cddaf65dfef216eb23b7499"
+    "value": "f4dacfa0ca201adec733c2750c276e83e9f6ad4d1a2a7b812e3c7cefdc13f6fc"
   },
   "requestedModules": [
     "weather/snapshot"
@@ -23,7 +23,7 @@
     "WeatherNode": "b45aed44aa8990e30c57b89acf319e2ca7c8fffb9497128cfeecc528b7b8698e"
   },
   "utf8Bytes": 22021,
-  "sha256": "38f262caf659391f73bd5d5fdd2988627e3ea4f06f39c53dbab5293b39678360",
+  "sha256": "4d317eea22fb8a17f73764fffbf55ced746fb1c708f08156f8d928777e7da3f3",
   "semanticValidation": "Structural schema only. Run the unchanged full validateDocument before mounting or compiling.",
   "sourceFiles": {
     "scripts/ask-location-schema.mjs": "38c27aae2683a607f3e785240eb994e7910fdbbbe3a9455932ba9ea00624f6bf",
@@ -61,8 +61,8 @@
     "scripts/recommendation-card-schema.mjs": "70da777523f7aafea195d8238ea003c666188a23e47cff80df5532998df0dc5f",
     "scripts/reservation-pills-schema.mjs": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37",
     "scripts/rox-schema.mjs": "f927fcae82439f40d1c1ee1cd086af5c97c4507abfb1d7d0994da951d88e653b",
-    "scripts/schema-source/canonical.mjs": "2f0ff6dabd4dc33b65cde7999e92394a80e06daf817b52896e1ca11a446aa68c",
-    "scripts/schema-source/catalog.mjs": "db88fad06304f13aac68b54e436ca1f5db2f075a1755789dd05184a26bfe7b61",
+    "scripts/schema-source/canonical.mjs": "67fff06465d4c3fd9da6d2d2d0991f0bac8715a66d556cab333bc804ccc7a5ce",
+    "scripts/schema-source/catalog.mjs": "27023b9bce667a24ca0d4bc4719888e47162ce073e7ee57e4bf11c699b2cc69a",
     "scripts/schema-source/envelope.mjs": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
     "scripts/schema-source/modules/button.mjs": "1ce2931f9794a74c3408259f3c5e011085899e615e909e99d9e6936ad555dc8f",
     "scripts/schema-source/modules/charts.mjs": "45cc94b552e8e294c68642d17fa7ae8fd54615199ca73853e32f4dbae3df9372",
@@ -70,6 +70,8 @@
     "scripts/schema-source/modules/forms.mjs": "b675784efdcf1ab58d4547edd9031643b43c483f79c86a648c7cf5c2b35deffb",
     "scripts/schema-source/modules/layout.mjs": "6c01342e346cf0689f966fec107ccf1cc669eb6ecd650f78e13471a1ab9845b0",
     "scripts/schema-source/modules/learning.mjs": "6e4969527bb0121379d36229503a60c0513b4678833389307badd089890f3fbe",
+    "scripts/schema-source/modules/lottie.mjs": "0b5beb021ff1085558f308262ee1b1dc94be2635f8c628527066056afc0c9fca",
+    "scripts/schema-source/modules/media-reader.mjs": "92e3b559d36e525784c11d3a874ae69bf3b135cb8e68fa781eb2340ba9e6a195",
     "scripts/schema-source/modules/questionnaire.mjs": "20c3f21bbe56f7284b325d18717aee1d9bc0912e4304f4d82e9faae255625206",
     "scripts/schema-source/modules/text.mjs": "859ff6965506a91a66b2e26fe30f82c88991a7bdc342809cceb799fa5a1335c8",
     "scripts/schema-source/modules/time.mjs": "7a382471fb0fcb95ac7ce91b005d33f1374e33dfc8f47cb1ae5bc805ec413a73",
@@ -77,7 +79,7 @@
     "scripts/schema-source/modules/value.mjs": "cd3cff6c06049c061d5b56cfbb85e2f68ae322c7efd5bb3d0526706eede7cc5f",
     "scripts/schema-source/modules/weather.mjs": "80a2f5f734da3ba62a0a6fe9a2276918f1ef917023b2439464227e90391b21cf",
     "scripts/schema-source/primitives.mjs": "072883c087d8f7a2f0c4bfc115e02c74d9ca49207472cbe327914a916f151449",
-    "scripts/schema-source/registry.mjs": "59d806840962ec019b1cefc460b60b0dbc59834b2eccfe70af060bd2a9a410ee",
+    "scripts/schema-source/registry.mjs": "f12ab5a8d9ecb26005f931185ccff3c18dc0855b91de9e7303ab3ce2313d3310",
     "scripts/schema-subsets.mjs": "4a4711a581123727955ac5fa3e4445dbe13e9dd59c18fb08d3b2c8134365f51c",
     "scripts/search-onboarding-schema.mjs": "c15873b13fd29cb83512787de96fa7a7ab3d600a9895d28fd2beb9a02ec4d002",
     "scripts/study-onboarding-schema.mjs": "a81d0497ecd03013aec857d24d8ce146ad355ddba3c152950d39e2238cb065ab",

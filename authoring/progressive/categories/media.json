@@ -1,0 +1,86 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "ce24065f5e8f1e521115dd5b7473ef4810555017",
+    "publicCommit": "5f29ad0fdbc54bb2e0ac22eb28b0093bb5046213",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "f4dacfa0ca201adec733c2750c276e83e9f6ad4d1a2a7b812e3c7cefdc13f6fc"
+    }
+  },
+  "category": "media",
+  "modules": [
+    {
+      "id": "media/readers",
+      "title": "Supplied image and YouTube readers",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/media-readers.md"
+      ],
+      "taskPath": "../modules/media/readers.json",
+      "components": [
+        {
+          "type": "search-image",
+          "definition": "SearchImageNode",
+          "schemaPointer": "#/schema/$defs/SearchImageNode"
+        },
+        {
+          "type": "youtube",
+          "definition": "YoutubeNode",
+          "schemaPointer": "#/schema/$defs/YoutubeNode"
+        }
+      ]
+    },
+    {
+      "id": "media/lottie",
+      "title": "Bounded Lottie source and player",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/lottie-recovery.md"
+      ],
+      "taskPath": "../modules/media/lottie.json",
+      "components": [
+        {
+          "type": "lottie",
+          "definition": "LottieNode",
+          "schemaPointer": "#/schema/$defs/LottieNode"
+        }
+      ]
+    },
+    {
+      "id": "media/inline-host",
+      "title": "Inline entity image and speech intents",
+      "dependsOn": [
+        "media/readers"
+      ],
+      "semanticContractPaths": [
+        "docs/inline-host-media.md",
+        "docs/media-readers.md"
+      ],
+      "taskPath": "../modules/media/inline-host.json",
+      "components": [
+        {
+          "type": "entity",
+          "definition": "EntityNode",
+          "schemaPointer": "#/schema/$defs/EntityNode"
+        },
+        {
+          "type": "gen-image",
+          "definition": "GenImageNode",
+          "schemaPointer": "#/schema/$defs/GenImageNode"
+        },
+        {
+          "type": "speech-synthesizer",
+          "definition": "SpeechSynthesizerNode",
+          "schemaPointer": "#/schema/$defs/SpeechSynthesizerNode"
+        }
+      ]
+    }
+  ]
+}
