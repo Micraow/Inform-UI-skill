@@ -1,0 +1,44 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "f974055196d821e71a680bb1ce849d29c2d522b7",
+    "publicCommit": "c060802fe8d8f4ec2df58c9be88f2a11d409f0e9",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "588df121efd4caae6219b115514373f8c91a71f78493c827e3c26d5f3ac9db28"
+    }
+  },
+  "category": "automation",
+  "modules": [
+    {
+      "id": "automation/views",
+      "title": "Supplied automation and plan views",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/automation-contract.md"
+      ],
+      "taskPath": "../modules/automation/views.json",
+      "components": [
+        {
+          "type": "display-automation",
+          "definition": "DisplayAutomationNode",
+          "schemaPointer": "#/schema/$defs/DisplayAutomationNode"
+        },
+        {
+          "type": "list-automations",
+          "definition": "ListAutomationsNode",
+          "schemaPointer": "#/schema/$defs/ListAutomationsNode"
+        },
+        {
+          "type": "automation-plan-summary",
+          "definition": "AutomationPlanSummaryNode",
+          "schemaPointer": "#/schema/$defs/AutomationPlanSummaryNode"
+        }
+      ]
+    }
+  ]
+}

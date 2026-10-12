@@ -1,0 +1,39 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "f974055196d821e71a680bb1ce849d29c2d522b7",
+    "publicCommit": "c060802fe8d8f4ec2df58c9be88f2a11d409f0e9",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "588df121efd4caae6219b115514373f8c91a71f78493c827e3c26d5f3ac9db28"
+    }
+  },
+  "category": "entities",
+  "modules": [
+    {
+      "id": "entities/cards",
+      "title": "Supplied entity cards and collections",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/entity-contract.md"
+      ],
+      "taskPath": "../modules/entities/cards.json",
+      "components": [
+        {
+          "type": "entity-card",
+          "definition": "EntityCardNode",
+          "schemaPointer": "#/schema/$defs/EntityCardNode"
+        },
+        {
+          "type": "entity-overview",
+          "definition": "EntityOverviewNode",
+          "schemaPointer": "#/schema/$defs/EntityOverviewNode"
+        }
+      ]
+    }
+  ]
+}

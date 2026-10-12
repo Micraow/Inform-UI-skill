@@ -3,7 +3,7 @@
   "schemaVersion": "iui/1",
   "sourceIdentity": {
     "algorithm": "sha256",
-    "value": "f4dacfa0ca201adec733c2750c276e83e9f6ad4d1a2a7b812e3c7cefdc13f6fc"
+    "value": "588df121efd4caae6219b115514373f8c91a71f78493c827e3c26d5f3ac9db28"
   },
   "modules": [
     {
@@ -966,6 +966,141 @@
         "examples/schema-modules/inline-host-media.json"
       ],
       "sourcePath": "scripts/inline-host-media-schema.mjs"
+    },
+    {
+      "id": "learning/study-demo",
+      "category": "learning",
+      "title": "Interactive supplied study demonstrations",
+      "dependsOn": [
+        "learning/basic"
+      ],
+      "provides": [
+        "ConversationalOnboardingStudyNode"
+      ],
+      "nodeTypes": [
+        "conversational-onboarding-study"
+      ],
+      "contractPath": "docs/study-onboarding.md",
+      "semanticContractPaths": [
+        "docs/study-onboarding.md",
+        "docs/learning.md",
+        "docs/charts.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/study-onboarding.json"
+      ],
+      "sourcePath": "scripts/study-onboarding-schema.mjs"
+    },
+    {
+      "id": "reservations/pills",
+      "category": "reservations",
+      "title": "Supplied reservation choices and carousel",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "ReservationPillsLauncher",
+        "ReservationPillsTarget",
+        "ReservationPillsProviderOption",
+        "ReservationPillsSlot",
+        "ReservationPillsGroup",
+        "ReservationPillsVoiceCard",
+        "ReservationPillsData",
+        "ReservationPillsCarouselItem",
+        "ReservationTimePillsRefCarouselNode"
+      ],
+      "nodeTypes": [
+        "reservation-time-pills-ref-carousel"
+      ],
+      "contractPath": "docs/reservation-pills.md",
+      "semanticContractPaths": [
+        "docs/reservation-pills.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/reservation-pills.json"
+      ],
+      "sourcePath": "scripts/reservation-pills-schema.mjs"
+    },
+    {
+      "id": "onboarding/search-capability",
+      "category": "onboarding",
+      "title": "Composed search capability demonstration",
+      "dependsOn": [
+        "reservations/pills",
+        "requests/location",
+        "media/readers"
+      ],
+      "provides": [
+        "CapabilitySearchTarget",
+        "CapabilitySearchVenue",
+        "CapabilitySearchSource",
+        "CapabilitySearchExample",
+        "WhatsNewCapabilitySearchNode"
+      ],
+      "nodeTypes": [
+        "whats-new-capability-search"
+      ],
+      "contractPath": "docs/capability-search.md",
+      "semanticContractPaths": [
+        "docs/capability-search.md",
+        "docs/reservation-pills.md",
+        "docs/ask-location.md",
+        "docs/media-readers.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/capability-search.json"
+      ],
+      "sourcePath": "scripts/capability-search-schema.mjs"
+    },
+    {
+      "id": "automation/views",
+      "category": "automation",
+      "title": "Supplied automation and plan views",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "DisplayAutomationNode",
+        "ListAutomationsNode",
+        "AutomationPlanSummaryNode"
+      ],
+      "nodeTypes": [
+        "display-automation",
+        "list-automations",
+        "automation-plan-summary"
+      ],
+      "contractPath": "docs/automation-contract.md",
+      "semanticContractPaths": [
+        "docs/automation-contract.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/automation.json"
+      ],
+      "sourcePath": "scripts/automation-schema.mjs"
+    },
+    {
+      "id": "entities/cards",
+      "category": "entities",
+      "title": "Supplied entity cards and collections",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "EntityCardNode",
+        "EntityOverviewNode"
+      ],
+      "nodeTypes": [
+        "entity-card",
+        "entity-overview"
+      ],
+      "contractPath": "docs/entity-contract.md",
+      "semanticContractPaths": [
+        "docs/entity-contract.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/entity.json"
+      ],
+      "sourcePath": "scripts/entity-schema.mjs"
     }
   ],
   "components": [
@@ -2168,10 +2303,90 @@
       "examplePaths": [
         "examples/schema-modules/inline-host-media.json"
       ]
+    },
+    {
+      "type": "conversational-onboarding-study",
+      "definition": "ConversationalOnboardingStudyNode",
+      "moduleId": "learning/study-demo",
+      "category": "learning",
+      "contractPath": "docs/study-onboarding.md",
+      "examplePaths": [
+        "examples/schema-modules/study-onboarding.json"
+      ]
+    },
+    {
+      "type": "reservation-time-pills-ref-carousel",
+      "definition": "ReservationTimePillsRefCarouselNode",
+      "moduleId": "reservations/pills",
+      "category": "reservations",
+      "contractPath": "docs/reservation-pills.md",
+      "examplePaths": [
+        "examples/schema-modules/reservation-pills.json"
+      ]
+    },
+    {
+      "type": "whats-new-capability-search",
+      "definition": "WhatsNewCapabilitySearchNode",
+      "moduleId": "onboarding/search-capability",
+      "category": "onboarding",
+      "contractPath": "docs/capability-search.md",
+      "examplePaths": [
+        "examples/schema-modules/capability-search.json"
+      ]
+    },
+    {
+      "type": "display-automation",
+      "definition": "DisplayAutomationNode",
+      "moduleId": "automation/views",
+      "category": "automation",
+      "contractPath": "docs/automation-contract.md",
+      "examplePaths": [
+        "examples/schema-modules/automation.json"
+      ]
+    },
+    {
+      "type": "list-automations",
+      "definition": "ListAutomationsNode",
+      "moduleId": "automation/views",
+      "category": "automation",
+      "contractPath": "docs/automation-contract.md",
+      "examplePaths": [
+        "examples/schema-modules/automation.json"
+      ]
+    },
+    {
+      "type": "automation-plan-summary",
+      "definition": "AutomationPlanSummaryNode",
+      "moduleId": "automation/views",
+      "category": "automation",
+      "contractPath": "docs/automation-contract.md",
+      "examplePaths": [
+        "examples/schema-modules/automation.json"
+      ]
+    },
+    {
+      "type": "entity-card",
+      "definition": "EntityCardNode",
+      "moduleId": "entities/cards",
+      "category": "entities",
+      "contractPath": "docs/entity-contract.md",
+      "examplePaths": [
+        "examples/schema-modules/entity.json"
+      ]
+    },
+    {
+      "type": "entity-overview",
+      "definition": "EntityOverviewNode",
+      "moduleId": "entities/cards",
+      "category": "entities",
+      "contractPath": "docs/entity-contract.md",
+      "examplePaths": [
+        "examples/schema-modules/entity.json"
+      ]
     }
   ],
   "migrationCoverage": {
-    "migratedNodeCount": 120,
+    "migratedNodeCount": 128,
     "totalNodeCount": 218,
     "legacyNodeTypes": [
       "agenda",
@@ -2258,16 +2473,8 @@
       "follow-up-action-bar",
       "ledger-income-tracker",
       "async-video-carousel",
-      "display-automation",
-      "list-automations",
-      "automation-plan-summary",
       "scheduled-task-suggestion",
-      "entity-card",
-      "entity-overview",
-      "conversational-onboarding-study",
       "conversational-onboarding-search",
-      "reservation-time-pills-ref-carousel",
-      "whats-new-capability-search",
       "calculator-corrected-adjusted-age-of-preterm-infants",
       "calculator-glasgow-coma-scale-gcs",
       "calculator-rox-index-for-high-flow-nasal-cannula",
@@ -2310,8 +2517,8 @@
     "scripts/recommendation-card-schema.mjs": "70da777523f7aafea195d8238ea003c666188a23e47cff80df5532998df0dc5f",
     "scripts/reservation-pills-schema.mjs": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37",
     "scripts/rox-schema.mjs": "f927fcae82439f40d1c1ee1cd086af5c97c4507abfb1d7d0994da951d88e653b",
-    "scripts/schema-source/canonical.mjs": "67fff06465d4c3fd9da6d2d2d0991f0bac8715a66d556cab333bc804ccc7a5ce",
-    "scripts/schema-source/catalog.mjs": "27023b9bce667a24ca0d4bc4719888e47162ce073e7ee57e4bf11c699b2cc69a",
+    "scripts/schema-source/canonical.mjs": "cbbb2c85c8f1140158aca27908418beaf8d8f898cdcbd95a5f4ca217f0d26434",
+    "scripts/schema-source/catalog.mjs": "f483d110421664289847ff54d5be0dd1fbaeabceb5564179048fd1d79de4aecf",
     "scripts/schema-source/envelope.mjs": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
     "scripts/schema-source/modules/button.mjs": "1ce2931f9794a74c3408259f3c5e011085899e615e909e99d9e6936ad555dc8f",
     "scripts/schema-source/modules/charts.mjs": "45cc94b552e8e294c68642d17fa7ae8fd54615199ca73853e32f4dbae3df9372",

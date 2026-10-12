@@ -10,8 +10,8 @@ const root=fileURLToPath(new URL('../authoring/progressive/',import.meta.url)),r
 test('all generated artifacts have exact recorded identities and a single source version',async()=>{
  const g=await json('generation.json'),index=await json('index.json');assert.equal(index.source.sourceCommit,g.source.sourceCommit);assert.deepEqual(index.source.sourceIdentity,g.source.sourceIdentity);
  for(const entry of g.artifacts){const b=await read(entry.path);assert.equal(b.length,entry.bytes,entry.path);assert.equal(hash(b),entry.sha256,entry.path);}
- assert.equal(g.fullSchema.canonicalByteEqual,true);assert.equal(index.migrationCoverage.migratedNodeCount,120);assert.equal(index.migrationCoverage.totalNodeCount,218);
- const legacy=await json(index.migrationCoverage.legacyIndexPath);assert.equal(legacy.componentTypes.length,98);assert.deepEqual(legacy.source,g.source);
+ assert.equal(g.fullSchema.canonicalByteEqual,true);assert.equal(index.migrationCoverage.migratedNodeCount,128);assert.equal(index.migrationCoverage.totalNodeCount,218);
+ const legacy=await json(index.migrationCoverage.legacyIndexPath);assert.equal(legacy.componentTypes.length,90);assert.deepEqual(legacy.source,g.source);
 });
 
 test('category -> module -> complete schema/semantics/example paths are reachable and signatures remain exact',async()=>{
@@ -24,7 +24,7 @@ test('category -> module -> complete schema/semantics/example paths are reachabl
    for(const [name,d]of Object.entries(task.schema.$defs))if(name!=='Node')assert.deepEqual(d,full.$defs[name],m.id+' '+name);
   }
  }
- assert.equal(count,120);
+ assert.equal(count,128);
 });
 
 test('questionnaire task includes transitive semantic rules and original self-contained example',async()=>{
@@ -47,7 +47,7 @@ test('actual source inventory selects modules deterministically and rejects unkn
 });
 
 test('published source supplement covers every authoritative source file without changing the CDN identity',async()=>{
- const publication=await json('source-public.json'),index=await json('index.json'),sourceIndex=await json('source-index.json');assert.equal(publication.publicCommit,index.source.publicCommit);assert.equal(publication.sourceCommit,index.source.sourceCommit);assert.equal(publication.publicCommit,'5f29ad0fdbc54bb2e0ac22eb28b0093bb5046213');assert.equal(publication.cdnIncludesQuestionnaire,false);
+ const publication=await json('source-public.json'),index=await json('index.json'),sourceIndex=await json('source-index.json');assert.equal(publication.publicCommit,index.source.publicCommit);assert.equal(publication.sourceCommit,index.source.sourceCommit);assert.equal(publication.publicCommit,'c060802fe8d8f4ec2df58c9be88f2a11d409f0e9');assert.equal(publication.cdnIncludesQuestionnaire,false);
  for(const [p,digest]of Object.entries(sourceIndex.sourceFiles)){const f=publication.verifiedFiles.find(x=>x.path===p);assert.ok(f,p);assert.equal(f.sha256,digest,p);}
  assert.ok(publication.verifiedFiles.some(f=>f.path==='src/schema/iui.schema.json'));assert.equal(publication.cdnCommit,'fed5f86f49e73f908ac9ea98966b1515a3aaa597');
 });
@@ -81,4 +81,19 @@ test('published Lottie guard evidence remains distinct from unchanged CDN assets
  assert.ok(publication.verifiedFiles.some(f=>f.path==='src/core/lottie.ts'&&/^[a-f0-9]{40}$/.test(f.gitBlob)));
  const task=await json('modules/media/lottie.json'),text=task.contracts.map(c=>c.text).join('\n');
  assert.ok(text.includes('ty'));assert.ok(task.contracts.some(c=>c.path==='docs/lottie-recovery.md'));
+});
+
+
+test('composed study and search packs retain declared child schemas and semantic contracts',async()=>{
+ const study=await json('modules/learning/study-demo.json');assert.ok(study.selection.resolvedModules.includes('learning/basic'));assert.ok(study.selection.includedComponents.includes('quiz'));assert.ok(study.contracts.some(c=>c.path==='docs/charts.md'));
+ const search=await json('modules/onboarding/search-capability.json');for(const id of ['reservations/pills','requests/location','media/readers'])assert.ok(search.selection.resolvedModules.includes(id));
+ for(const type of ['reservation-time-pills-ref-carousel','ask-user-location','search-image','whats-new-capability-search'])assert.ok(search.selection.includedComponents.includes(type));
+ for(const p of ['docs/capability-search.md','docs/reservation-pills.md','docs/ask-location.md','docs/media-readers.md'])assert.ok(search.contracts.some(c=>c.path===p));
+ assert.ok(search.examples.length>=4);
+});
+
+test('automation and entity packs expose complete original examples and validation contracts',async()=>{
+ const automation=await json('modules/automation/views.json'),entity=await json('modules/entities/cards.json');
+ assert.equal(automation.selection.includedComponents.length,3);assert.equal(entity.selection.includedComponents.length,2);
+ for(const [task,p,phrase]of [[automation,'docs/automation-contract.md','AUTOMATION_DATA'],[entity,'docs/entity-contract.md','validateDocument']]){assert.ok(task.contracts.some(c=>c.path===p&&c.text.includes(phrase)));assert.ok(task.examples.length);assert.ok(task.selection.contractSelections.every(c=>c.followLinks===false));}
 });
