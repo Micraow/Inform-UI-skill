@@ -11,7 +11,7 @@ description: 按任务生成语义化 iui/1 JSON。先选固定运行版本，�
 
 1. 普通文字能说清就用文字。趋势、比较、精确数值或可见输入结果才需要图表、表格或控件。声明数据是实测、供数还是合成。
 2. 在 [README](README.md) 与 [版本兼容表](RECOVERY-CONSUMERS.md) 选择一个固定运行版本。JS、CSS、schema、字体与许可必须同版；source-only 不等于公开 CDN 已包含。没有准确合同，不能只凭名称猜字段。
-3. 只加载相关任务包。问卷读 [完整任务包](authoring/packs/questionnaire.json)：字段 schema 的全部依赖、约束、完整例子和边界例在一起。它对应本地测试源218，当前公开214资产不能运行它。其他任务从所选运行版本的 schema/index 定位所属组，再读闭合 documentSchema 和同版例子。生成节点闭包的方法见 [作者工具](authoring/README.md)。
+3. 只加载相关任务包。问卷读 [完整任务包](authoring/packs/questionnaire.json)：字段 schema 的全部依赖、约束、完整例子和边界例在一起。它对应已公开源码218，须先构建该固定源版本；当前公开214资产不能运行它。其他任务从所选运行版本的 schema/index 定位所属组，再读闭合 documentSchema 和同版例子。生成节点闭包的方法见 [作者工具](authoring/README.md)。
 4. nodeSchema / 节点任务包只约束一个节点，不包含整个 Document。跨组件要保留所有依赖；最终完整文档仍须调用同版 `validateDocument` 做结构和语义校验。不要自行拼接不闭合的 `$defs`，也不要把所有领域说明默认塞入上下文。
 5. 核对预期数值与必要交互：取消、重置、较新输入、隐藏字段、更新和销毁。未实际编译或预览，就说明未执行；不能把 JSON 解析通过当作功能或临床验证。
 

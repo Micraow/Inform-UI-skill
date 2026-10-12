@@ -1,0 +1,21 @@
+{
+  "format": "inform-skill-published-inventory/1",
+  "source": "9b949a490f7222b6c6d40b066bed89a1e1b27328",
+  "publicCommit": "ba96c208c3934e89d861d8e75ec02195eede7941",
+  "publicTree": "fb39183ae214cccdadecafcbfb0d58862503d14a",
+  "runtimeSourcePublic": "09733658d6fff687f4255ea6dde2901772ce33c1",
+  "inventory": {
+    "path": "docs/component-progress.json",
+    "bytes": 71635,
+    "gitBlob": "3580c71c66e8687fdf4ffc5becd11a9d94f8c70b",
+    "sha256": "41711defad7f3def159e41683d46ae23d72a6d4463fad1c1f773565ac94a5a61"
+  },
+  "canonicalImplemented": 212,
+  "partial": 0,
+  "missing": 44,
+  "protocolNodesAtInventory": 217,
+  "questionnaireLaterProtocolNodes": 218,
+  "questionnaireChangesCanonicalCount": false,
+  "publishedCDN": "fed5f86f49e73f908ac9ea98966b1515a3aaa597",
+  "publishedCDNCanonicalCount": 209
+}

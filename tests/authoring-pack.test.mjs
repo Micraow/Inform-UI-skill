@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {extractNodeSchema,buildAuthoringPack} from '../scripts/build-authoring-pack.mjs';
 const json=async p=>JSON.parse(await readFile(new URL('../'+p,import.meta.url)));
 test('questionnaire task pack is node-rooted and dependency-closed with adjacent semantic constraints',async()=>{
- const p=await json('authoring/packs/questionnaire.json');assert.equal(p.rootKind,'node');assert.equal(p.runtime.publicCommit,null);assert.equal(p.runtime.publishedPackageContainsQuestionnaire,false);
+ const p=await json('authoring/packs/questionnaire.json');assert.equal(p.rootKind,'node');assert.equal(p.runtime.publicCommit,'a97a7c13323a91662f758c5c0034e943776935a3');assert.equal(p.runtime.publishedPackageContainsQuestionnaire,false);
  assert.deepEqual(Object.keys(p.schema.$defs),['QuestionnaireChoice','QuestionnaireField','QuestionnaireNode','QuestionnaireSource','Value']);
  function visit(x){if(!x||typeof x!=='object')return;if(x.$ref)assert.ok(Object.hasOwn(p.schema.$defs,x.$ref.slice(8)));for(const v of Object.values(x))visit(v);}visit(p.schema);
  assert.equal(p.example.body[0].type,'questionnaire');assert.equal(p.contract.requiredSemantics.length,9);assert.equal(p.contract.adjacentBoundaryExamples.length,6);
@@ -23,7 +23,7 @@ test('builder preserves original example and makes same-version validation requi
 });
 test('byte audit charges all grammar instructions and does not claim measured model accuracy',async()=>{
  const a=await json('authoring/audit.json');assert.equal(a.examples.length,5);assert.equal(a.optionalSyntax.fiveOutputDocumentsSavedBytes,269);assert.equal(a.optionalSyntax.guideBytes,2575);assert.equal(a.optionalSyntax.netAdditionalBytesIncludingGuide,2306);
- assert.equal(a.evidence.modelGenerationExperimentExecuted,false);assert.equal(a.evidence.tokenizerUsed,null);assert.equal(a.completeQuestionnaireTask.packPrettyBytes,20991);
+ assert.equal(a.evidence.modelGenerationExperimentExecuted,false);assert.equal(a.evidence.tokenizerUsed,null);assert.equal(a.completeQuestionnaireTask.packPrettyBytes,21102);
  assert.equal(a.schema.selectedDefinitions.length,5);assert.match(a.optionalSyntax.decision,/Canonical JSON is the default/);
 });
 test('actual source checks verify complete canonical expansion and original questionnaire outcomes',async()=>{

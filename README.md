@@ -12,7 +12,10 @@
 | 使用 GCS 数值计分及完整本地交互 | [源代码 c138b93b](https://github.com/Micraow/Inform-UI/commit/c138b93b745990c02ec41d7b924cb615d80ed172) | 215 个协议节点；须构建该源版本，不能搭配 214 的旧 schema/脚本 |
 | 使用 ROX 显式单位算术与可选研究数值比较 | [源代码 d9b0ed41](https://github.com/Micraow/Inform-UI/commit/d9b0ed410d9aa2dd7f8fa888ff44b22595239853) | 216 个协议节点；包含 GCS 和已验证的本地表单、浮层后续修复 |
 
-当前 [软件功能表](references/recovery-scope212.json) 为 **212/256 已实现**：历史功能验收 53、待完整验收 159，部分实现 0、未实现 44；协议登记数为217。qSOFA消费者已通过49项算术和5组实际使用测试，其运行源码尚未公开。当前可下载的 [公开功能表 f5a753a4](https://github.com/Micraow/Inform-UI/commit/f5a753a488e53504a7086d51b26a75d8f94b1748) 仍为211项、216登记；CDN仍为209项、214登记。软件行为、原生浏览器、像素一致性和临床有效性是不同的验证范围。
+| 使用 qSOFA 显式模式计分 | [源码09733658](https://github.com/Micraow/Inform-UI/commit/09733658d6fff687f4255ea6dde2901772ce33c1) | 217登记；同版本源构建 |
+| 使用通用条件问卷 | [源码a97a7c13](https://github.com/Micraow/Inform-UI/commit/a97a7c13323a91662f758c5c0034e943776935a3) | 218登记；包含qSOFA，须源构建；214 CDN仍209完成 |
+
+当前 [软件功能表](references/recovery-scope212.json) 为 **212/256 已实现**：历史功能验收 53、待完整验收 159，部分实现 0、未实现 44；协议登记数为217。qSOFA消费者已通过49项算术和5组实际使用测试，运行源码已公开，见 [qSOFA 09733658](https://github.com/Micraow/Inform-UI/commit/09733658d6fff687f4255ea6dde2901772ce33c1)。[公开功能表 ba96c208](https://github.com/Micraow/Inform-UI/commit/ba96c208c3934e89d861d8e75ec02195eede7941) 已为212项、217登记；后续通用问卷源为218登记但不增加历史完成数；CDN仍为209项、214登记。软件行为、原生浏览器、像素一致性和临床有效性是不同的验证范围。
 
 浏览器资产的实际远端字节、SHA256 和 SRI 已逐项核对，参见 [214 使用说明](candidates/recovery214/README.md)。保留同版本的 JS、CSS、schema、字体与第三方许可说明；不要只替换一个文件或使用浮动分支 URL。GitHub 文件页用于获取源码和资产，不是可直接执行的脚本地址。
 
@@ -23,7 +26,7 @@
 ```sh
 git clone --branch recovery/consumers-126-20261011 https://github.com/Micraow/Inform-UI-skill.git inform-ui-author
 git clone https://github.com/Micraow/Inform-UI.git Inform-UI
-git -C Inform-UI checkout --detach d9b0ed410d9aa2dd7f8fa888ff44b22595239853
+git -C Inform-UI checkout --detach a97a7c13323a91662f758c5c0034e943776935a3
 npm --prefix Inform-UI ci
 npm --prefix Inform-UI run build
 node Inform-UI/bin/iui.mjs validate inform-ui-author/examples/minimal.json --json
@@ -32,7 +35,7 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/minimal.json --out an
 
 打开生成的 `answer.html` 查看结果。已有工作目录时，先保存自己的修改，再选择版本；验证器不会下载或悄悄替换缺失的运行库。
 
-支持技能目录的 Agent 保留整个仓库的相对路径，但默认只读精简的 [SKILL.md](SKILL.md)，再按任务取 [闭合合同与相邻示例](authoring/README.md)。旧130KB全文在 [固定快照](SKILL.7b9a332.md) 逐字保留，与 [WEB-CHAT-GUIDE.md](WEB-CHAT-GUIDE.md) 都按需读取，不能把其旧登记数或 CDN 链接当作当前版本。使用新增组件时，应读对应任务包/消费者说明、同版 schema 依赖和一个同版示例，最终用完整 `validateDocument` 校验。最新公开源 schema 位于 [固定 d9b0ed41](https://github.com/Micraow/Inform-UI/blob/d9b0ed410d9aa2dd7f8fa888ff44b22595239853/src/schema/iui.schema.json)。
+支持技能目录的 Agent 保留整个仓库的相对路径，但默认只读精简的 [SKILL.md](SKILL.md)，再按任务取 [闭合合同与相邻示例](authoring/README.md)。旧130KB全文在 [固定快照](SKILL.7b9a332.md) 逐字保留，与 [WEB-CHAT-GUIDE.md](WEB-CHAT-GUIDE.md) 都按需读取，不能把其旧登记数或 CDN 链接当作当前版本。使用新增组件时，应读对应任务包/消费者说明、同版 schema 依赖和一个同版示例，最终用完整 `validateDocument` 校验。最新公开源 schema 位于 [固定 a97a7c13](https://github.com/Micraow/Inform-UI/blob/a97a7c13323a91662f758c5c0034e943776935a3/src/schema/iui.schema.json)。
 
 没有终端时，可使用 [214 固定资产说明](candidates/recovery214/README.md) 的浏览器入口，或让宿主提供已构建的匹配运行库。不要把未执行的 HTML 说成已预览。
 
@@ -59,7 +62,7 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/minimal.json --out an
 
 Agent 可以用 JSON 声明字段、前序字段控制的条件显示、跨字段校验、有限表达式计算和版本来源，参见 [原创活动打包问卷](candidates/questionnaire/README.md)。未知或无效答案会立即移除旧结果；隐藏答案按明确的保留或清除策略处理，并排除于提交快照。提交可本地取消，宿主异步处理收到冻结快照和取消信号。
 
-此消费者对应单独的源构建候选，新增协议登记为218；公开运行源码与打包资产仍以上面的固定版本为准。历史212/256对照不变，剩余44个专用组件不再作为当前逐项实现目标。通用问卷不意味着这些组件已实现，也不能代替具体规则的独立正确性与适用性审查。
+此消费者对应 [公开源码 a97a7c13](https://github.com/Micraow/Inform-UI/commit/a97a7c13323a91662f758c5c0034e943776935a3)，协议登记为218；须构建该固定源版本，214 CDN尚不含问卷。历史212/256对照不变，剩余44个专用组件不再作为当前逐项实现目标。通用问卷不意味着这些组件已实现，也不能代替具体规则的独立正确性与适用性审查。
 
 | 示例或消费者 | 覆盖内容 |
 | --- | --- |
@@ -68,7 +71,7 @@ Agent 可以用 JSON 声明字段、前序字段控制的条件显示、跨字�
 | [通用问卷](candidates/questionnaire/README.md) | 非医疗原创分支问卷、未知与无效草稿、冻结结果快照及本地取消提交 |
 | [GCS scorecard](candidates/gcs-scorecard/README.md) | 120 个数值组合，NT/未知，信息 tabs、独立 defaults 与本地 summary |
 | [ROX 显式单位](candidates/rox-scorecard/README.md) | 百分数/分数、零/缺失、未经舍入比较与 reset |
-| [qSOFA 共识数值](candidates/qsofa-scorecard/README.md) | 两种显式意识状态输入、GCS14边界、未知/NT与Reset；运行源尚未公开 |
+| [qSOFA 共识数值](candidates/qsofa-scorecard/README.md) | 两种显式意识状态输入、GCS14边界、未知/NT与Reset；公开源09733658 |
 | [日期算术](candidates/corrected-age/README.md) | 两种日期依据、闰日周年、无效/未知与边界输出 |
 | [宿主表单字段](candidates/host-fields-reset/README.md) | 无效草稿、取消、较新输入与可见焦点 |
 | [浮层与表单披露](candidates/overlay-form-disclosure/README.md) | 本地浮层资源和关闭 Details 内的必填字段焦点 |
@@ -77,8 +80,8 @@ Agent 可以用 JSON 声明字段、前序字段控制的条件显示、跨字�
 
 ```sh
 cd inform-ui-author
-node --test tests/gcs-scorecard.test.mjs tests/rox-scorecard.test.mjs tests/recovery214.test.mjs
-node --max-old-space-size=768 candidates/rox-scorecard/verify-source.mjs --library ../Inform-UI
+node --test tests/questionnaire.test.mjs tests/source-public218.test.mjs tests/recovery214.test.mjs
+node --max-old-space-size=768 candidates/questionnaire/verify-source.mjs --library ../Inform-UI
 ```
 
 完整 `npm test` 检查本仓库的全部测试；它和针对某个精确运行库执行的消费者测试不同。测试结果中的实际执行、未执行和限制应分别说明。

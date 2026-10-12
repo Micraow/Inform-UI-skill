@@ -18,5 +18,5 @@ test('current212 accounting does not rewrite source candidate or prior packaged 
   const lock = await read('candidates/qsofa-scorecard/runtime-lock.safe.json'), result = await read('candidates/qsofa-scorecard/consumer-result.json'), old = await read('candidates/recovery214/runtime-lock.safe.json');
   assert.equal(lock.implemented, 211); assert.equal(result.canonicalScopeAtFreeze, 211); assert.equal(lock.publicCommit, null); assert.equal(result.publicCommit, null);
   assert.equal(old.protocolNodes, 214); assert.equal(old.publicCommit, 'fed5f86f49e73f908ac9ea98966b1515a3aaa597');
-  const text = await readFile(new URL('../RECOVERY-CONSUMERS.md', import.meta.url), 'utf8'); assert.match(text, /not yet publicly available/);
+  const text = await readFile(new URL('../RECOVERY-CONSUMERS.md', import.meta.url), 'utf8'); assert.match(text, /ba96c208c3934e89d861d8e75ec02195eede7941/); assert.match(text, /preserve their at-test publication state/);
 });

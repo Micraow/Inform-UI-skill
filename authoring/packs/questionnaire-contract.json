@@ -9,14 +9,32 @@
     "Expressions are bounded data: add/sub/mul/div/min/max/round/abs/clamp/gt/lt/eq/if/format and {$:name}. Named computation dependencies are allowed, cycles and nonfinite arithmetic are rejected. No JavaScript or formula URL execution.",
     "The cancelable local iui:questionnaire event has {intent:submit|reset,snapshot}. Snapshot answers, validity, computed, version and sources are deeply frozen at one revision; hidden/invalid raw drafts are not included.",
     "Optional named questionnaireActions receive {snapshot,signal}. Editing/reset/update/dispose retires stale completion. No adapter means local acceptance, not persistence or network submission. Preserve cancellation and newer input.",
-    "The current source is a local tested candidate. Do not claim it is downloadable from the published214 CDN. Generated domain rules require independent review; the historical212/256 inventory is unchanged."
+    "The tested questionnaire source is publicly available at a97a7c13323a91662f758c5c0034e943776935a3 and requires a same-version source build. It is absent from the published214 CDN. Generated domain rules require independent review; the historical212/256 inventory is unchanged."
   ],
   "adjacentBoundaryExamples": [
-    {"change":"participants remains null", "expected":"incomplete; computed is {}; do not show the previous packet count"},
-    {"change":"participants=2, packsEach=0, borrowed=false, mode=onsite", "expected":"ready; totalPackets=0; false is answered; seats excluded"},
-    {"change":"mode=travel, participants=2, seats=1", "expected":"invalid cross-field constraint; computed is {}"},
-    {"change":"mode=travel, participants unknown, seats=8", "expected":"seats validation is pending; no current computation"},
-    {"change":"seats draft 8x; switch travel to onsite and back with retain", "expected":"onsite excludes seats and may be ready; travel restores invalid 8x, never old valid8"},
-    {"change":"cancel submit or change participants during its listener", "expected":"no stale acceptance; the captured immutable snapshot retains its original revision"}
+    {
+      "change": "participants remains null",
+      "expected": "incomplete; computed is {}; do not show the previous packet count"
+    },
+    {
+      "change": "participants=2, packsEach=0, borrowed=false, mode=onsite",
+      "expected": "ready; totalPackets=0; false is answered; seats excluded"
+    },
+    {
+      "change": "mode=travel, participants=2, seats=1",
+      "expected": "invalid cross-field constraint; computed is {}"
+    },
+    {
+      "change": "mode=travel, participants unknown, seats=8",
+      "expected": "seats validation is pending; no current computation"
+    },
+    {
+      "change": "seats draft 8x; switch travel to onsite and back with retain",
+      "expected": "onsite excludes seats and may be ready; travel restores invalid 8x, never old valid8"
+    },
+    {
+      "change": "cancel submit or change participants during its listener",
+      "expected": "no stale acceptance; the captured immutable snapshot retains its original revision"
+    }
   ]
 }

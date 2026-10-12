@@ -204,8 +204,8 @@
     },
     "currentEntry": {
       "path": "SKILL.md",
-      "bytes": 3823,
-      "sha256": "2029be7bdce6e857b3291be66d3b096d4a2dacaaaf3a3ee22ff2ba7b4e1d614d"
+      "bytes": 3856,
+      "sha256": "547ebc9e3777e10af24b5056533619e08453cd3679a748853027239ab79429bb"
     },
     "webGuideBytes": 107997
   },
@@ -224,9 +224,9 @@
   },
   "completeQuestionnaireTask": {
     "legacyEntryPlusFullSchemaContractExampleBytes": 891898,
-    "currentEntryPlusAdjacentPackBytes": 24814,
-    "packPrettyBytes": 20991,
-    "packMinifiedBytes": 10797,
+    "currentEntryPlusAdjacentPackBytes": 24958,
+    "packPrettyBytes": 21102,
+    "packMinifiedBytes": 10908,
     "note": "Compared bundles include instructions, schema, semantic constraints and the original example. Full guides are not assumed to be read together."
   },
   "optionalSyntax": {

@@ -1,0 +1,717 @@
+{
+  "format": "inform-authoring-task/1",
+  "runtime": {
+    "canonicalVersion": "iui/1",
+    "source": "29c6905e19d00f60ad4d945d766a6fbf516f2f9c",
+    "publicCommit": null,
+    "protocolNodes": 218,
+    "historicalCanonicalImplemented": 212,
+    "publishedPackage": "fed5f86f49e73f908ac9ea98966b1515a3aaa597",
+    "publishedPackageContainsQuestionnaire": false
+  },
+  "rootKind": "node",
+  "definition": "QuestionnaireNode",
+  "validation": "The included schema validates one node. Place it in the canonical example document and run the same runtime validateDocument for complete structural and semantic validation.",
+  "contract": {
+    "purpose": "Author one original nonmedical questionnaire as canonical iui/1 JSON. The packing example is synthetic.",
+    "requiredSemantics": [
+      "Keep questionnaireId, explicit definition version, title and hiddenValuePolicy. Sources record provenance only; a URL is not fetched, a permission grant or correctness certification.",
+      "Use text, number, choice or boolean fields. Null and empty numeric drafts are unknown. Malformed/out-of-range/off-step input is invalid. False and zero are real answers, never missing substitutes.",
+      "visibleWhen may refer only to preceding fields. validWhen may refer to parsed fields, including itself, but not computations. An active unknown dependency makes validation pending even when the rule contains a null guard.",
+      "Retain keeps a hidden raw draft locally for revalidation; clear discards it. Both exclude hidden fields from answers, validation and calculations. Hidden expression references resolve to null.",
+      "Incomplete or invalid state exposes computed {} and removes previous results immediately. Optional unknown active answers stay null; handle them explicitly with lazy if. Never use zero to fill unknown values.",
+      "Expressions are bounded data: add/sub/mul/div/min/max/round/abs/clamp/gt/lt/eq/if/format and {$:name}. Named computation dependencies are allowed, cycles and nonfinite arithmetic are rejected. No JavaScript or formula URL execution.",
+      "The cancelable local iui:questionnaire event has {intent:submit|reset,snapshot}. Snapshot answers, validity, computed, version and sources are deeply frozen at one revision; hidden/invalid raw drafts are not included.",
+      "Optional named questionnaireActions receive {snapshot,signal}. Editing/reset/update/dispose retires stale completion. No adapter means local acceptance, not persistence or network submission. Preserve cancellation and newer input.",
+      "The current source is a local tested candidate. Do not claim it is downloadable from the published214 CDN. Generated domain rules require independent review; the historical212/256 inventory is unchanged."
+    ],
+    "adjacentBoundaryExamples": [
+      {
+        "change": "participants remains null",
+        "expected": "incomplete; computed is {}; do not show the previous packet count"
+      },
+      {
+        "change": "participants=2, packsEach=0, borrowed=false, mode=onsite",
+        "expected": "ready; totalPackets=0; false is answered; seats excluded"
+      },
+      {
+        "change": "mode=travel, participants=2, seats=1",
+        "expected": "invalid cross-field constraint; computed is {}"
+      },
+      {
+        "change": "mode=travel, participants unknown, seats=8",
+        "expected": "seats validation is pending; no current computation"
+      },
+      {
+        "change": "seats draft 8x; switch travel to onsite and back with retain",
+        "expected": "onsite excludes seats and may be ready; travel restores invalid 8x, never old valid8"
+      },
+      {
+        "change": "cancel submit or change participants during its listener",
+        "expected": "no stale acceptance; the captured immutable snapshot retains its original revision"
+      }
+    ]
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$ref": "#/$defs/QuestionnaireNode",
+    "$defs": {
+      "QuestionnaireChoice": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "value",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "QuestionnaireField": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "description": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 2000
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "visibleWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validationMessage": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              "type": {
+                "const": "text"
+              },
+              "placeholder": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 500
+              },
+              "minLength": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 12000
+              },
+              "maxLength": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 12000
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "description": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 2000
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "visibleWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validationMessage": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              "type": {
+                "const": "number"
+              },
+              "placeholder": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 500
+              },
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              },
+              "step": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "type"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "description": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 2000
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "visibleWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validationMessage": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              "type": {
+                "const": "choice"
+              },
+              "options": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 40,
+                "items": {
+                  "$ref": "#/$defs/QuestionnaireChoice"
+                }
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "type",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "description": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 2000
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "visibleWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validWhen": {
+                "$ref": "#/$defs/Value"
+              },
+              "validationMessage": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              "type": {
+                "const": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "QuestionnaireNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "questionnaire"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "questionnaireId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "description": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4000
+          },
+          "hiddenValuePolicy": {
+            "enum": [
+              "retain",
+              "clear"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 40,
+            "items": {
+              "$ref": "#/$defs/QuestionnaireField"
+            }
+          },
+          "computed": {
+            "type": "object",
+            "maxProperties": 40,
+            "propertyNames": {
+              "type": "string",
+              "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+            },
+            "additionalProperties": {
+              "$ref": "#/$defs/Value"
+            }
+          },
+          "initialAnswers": {
+            "type": "object",
+            "maxProperties": 40,
+            "propertyNames": {
+              "type": "string",
+              "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+            },
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 12000
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "defaults": {
+            "type": "object",
+            "maxProperties": 40,
+            "propertyNames": {
+              "type": "string",
+              "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+            },
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 12000
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "sources": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "$ref": "#/$defs/QuestionnaireSource"
+            }
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "action": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "submitLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "questionnaireId",
+          "version",
+          "title",
+          "hiddenValuePolicy",
+          "fields"
+        ],
+        "additionalProperties": false
+      },
+      "QuestionnaireSource": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "example": {
+    "version": "iui/1",
+    "title": "活动打包：原创通用问卷",
+    "description": "完全合成、非医疗；仅本地填写和计算，无服务。",
+    "body": [
+      {
+        "type": "questionnaire",
+        "questionnaireId": "toy_event_packing",
+        "version": "1.0.0",
+        "title": "活动打包问卷",
+        "hiddenValuePolicy": "retain",
+        "fields": [
+          {
+            "id": "mode",
+            "label": "活动方式",
+            "type": "choice",
+            "required": true,
+            "options": [
+              {
+                "value": "onsite",
+                "label": "现场活动"
+              },
+              {
+                "value": "travel",
+                "label": "携带出行"
+              }
+            ]
+          },
+          {
+            "id": "participants",
+            "label": "参与人数（人）",
+            "type": "number",
+            "required": true,
+            "min": 1,
+            "max": 20,
+            "step": 1
+          },
+          {
+            "id": "packsEach",
+            "label": "每人包数（包/人）",
+            "type": "number",
+            "required": true,
+            "min": 0,
+            "max": 5,
+            "step": 1
+          },
+          {
+            "id": "borrowed",
+            "label": "是否有借用物品？",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "id": "seats",
+            "label": "已安排座位（个）",
+            "type": "number",
+            "required": true,
+            "min": 1,
+            "max": 80,
+            "step": 1,
+            "visibleWhen": {
+              "op": "eq",
+              "args": [
+                {
+                  "$": "mode"
+                },
+                "travel"
+              ]
+            },
+            "validWhen": {
+              "op": "if",
+              "args": [
+                {
+                  "op": "eq",
+                  "args": [
+                    {
+                      "$": "seats"
+                    },
+                    null
+                  ]
+                },
+                true,
+                {
+                  "op": "if",
+                  "args": [
+                    {
+                      "op": "eq",
+                      "args": [
+                        {
+                          "$": "participants"
+                        },
+                        null
+                      ]
+                    },
+                    true,
+                    {
+                      "op": "if",
+                      "args": [
+                        {
+                          "op": "lt",
+                          "args": [
+                            {
+                              "$": "seats"
+                            },
+                            {
+                              "$": "participants"
+                            }
+                          ]
+                        },
+                        false,
+                        true
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "validationMessage": "出行座位不能少于参与人数。"
+          }
+        ],
+        "computed": {
+          "totalPackets": {
+            "op": "mul",
+            "args": [
+              {
+                "$": "participants"
+              },
+              {
+                "$": "packsEach"
+              }
+            ]
+          },
+          "spareSeats": {
+            "op": "if",
+            "args": [
+              {
+                "op": "eq",
+                "args": [
+                  {
+                    "$": "mode"
+                  },
+                  "travel"
+                ]
+              },
+              {
+                "op": "sub",
+                "args": [
+                  {
+                    "$": "seats"
+                  },
+                  {
+                    "$": "participants"
+                  }
+                ]
+              },
+              null
+            ]
+          }
+        },
+        "initialAnswers": {
+          "mode": "onsite",
+          "participants": null,
+          "packsEach": 3,
+          "borrowed": false,
+          "seats": null
+        },
+        "defaults": {
+          "mode": "onsite",
+          "participants": null,
+          "packsEach": 3,
+          "borrowed": false,
+          "seats": null
+        },
+        "sources": [
+          {
+            "title": "本示例原创活动打包规则，无外部评分标准",
+            "version": "1.0.0"
+          }
+        ]
+      }
+    ]
+  },
+  "identity": {
+    "fullSchemaSha256": "166d2162b32dde42b149fc3ac62734d4e347da115f14ab1ff9a98d7502926fe7",
+    "definitions": [
+      "QuestionnaireChoice",
+      "QuestionnaireField",
+      "QuestionnaireNode",
+      "QuestionnaireSource",
+      "Value"
+    ]
+  }
+}

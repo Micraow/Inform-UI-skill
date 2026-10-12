@@ -32,6 +32,10 @@ input during reset and hidden-input focus recovery are exercised. Copy summary
 emits a frozen local request. The consumer never writes to a clipboard or invokes
 an external service.
 
+## Published source
+
+The same43 checked source files are available at [09733658](https://github.com/Micraow/Inform-UI/commit/09733658d6fff687f4255ea6dde2901772ce33c1); [source-public.json](source-public.json) records byte/blob identity separately from the unchanged original local-only lock. Build this exact source. The published214 CDN does not include qSOFA.
+
 ## Reproduce
 
 ```sh

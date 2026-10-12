@@ -9,18 +9,15 @@ are the authority for that consumer's input and verified scope.
 - Packaged browser assets: [fed5f86f49e73f908ac9ea98966b1515a3aaa597](https://github.com/Micraow/Inform-UI/tree/fed5f86f49e73f908ac9ea98966b1515a3aaa597/cdn), protocol 214 and 209 implemented canonical components.
 - GCS source: [c138b93b745990c02ec41d7b924cb615d80ed172](https://github.com/Micraow/Inform-UI/commit/c138b93b745990c02ec41d7b924cb615d80ed172), matching verified source `901406db5d3a02c2dffa069c670e983076502096`.
 - ROX source: [d9b0ed410d9aa2dd7f8fa888ff44b22595239853](https://github.com/Micraow/Inform-UI/commit/d9b0ed410d9aa2dd7f8fa888ff44b22595239853), matching verified source `8834c693d1d54772fad62883f8781f064fa4107c`.
-- Published capability inventory: [f5a753a488e53504a7086d51b26a75d8f94b1748](https://github.com/Micraow/Inform-UI/commit/f5a753a488e53504a7086d51b26a75d8f94b1748), [211/256 implemented](references/recovery-scope211.json): 53 historical functional acceptances plus 158 pending full acceptance, zero partial and 45 missing. Protocol registration is 216.
+- qSOFA source: [09733658d6fff687f4255ea6dde2901772ce33c1](https://github.com/Micraow/Inform-UI/commit/09733658d6fff687f4255ea6dde2901772ce33c1), matching09475c7b and43 checked source files.
+- Questionnaire source: [a97a7c13323a91662f758c5c0034e943776935a3](https://github.com/Micraow/Inform-UI/commit/a97a7c13323a91662f758c5c0034e943776935a3), matching29c6905 and43 checked source files; protocol218.
+- Published capability inventory: [ba96c208c3934e89d861d8e75ec02195eede7941](https://github.com/Micraow/Inform-UI/commit/ba96c208c3934e89d861d8e75ec02195eede7941), [212/256 implemented](references/scope212-public.json):53 historical functional acceptances plus159 pending full acceptance, zero partial and44 missing. Its protocol registration is217; the later generic questionnaire adds one protocol node, not a historical canonical item.
 
-The [current software inventory](references/recovery-scope212.json) is 212/256
-(53 historical functional acceptances plus 159 pending full acceptance, zero partial
-and 44 missing; protocol 217). It adds the tested qSOFA source candidate 09475c7b.
-That runtime source is not yet publicly available; the public inventory and packaged
-assets above retain their stated versions. The original consumer is available,
-with its exact input-file hashes and independently recorded execution result.
+The [original212 snapshot](references/recovery-scope212.json) and consumer locks preserve their at-test publication state. Separate source-public receipts establish the now-available exact sources without rewriting historical results. All three new source revisions are distinct from the packaged browser assets above.
 
 The later source releases retain the earlier 214 browser package. Building source
 and downloading packaged assets are separate choices: the 214 package cannot run
-GCS or ROX merely because the repository also contains their newer source files.
+GCS, ROX, qSOFA or questionnaire merely because the repository also contains their newer source files.
 
 ## Recent executable consumers
 
@@ -35,7 +32,7 @@ by a generic form.
 | --- | --- | --- |
 | [GCS scorecard](candidates/gcs-scorecard/README.md) | `901406db5d3a02c2dffa069c670e983076502096` | 143 arithmetic checks including 120 numeric triplets; 10 accepted/14 rejected documents; seven DOM/standalone flows |
 | [ROX scorecard](candidates/rox-scorecard/README.md) | `8834c693d1d54772fad62883f8781f064fa4107c` | 40 arithmetic checks; 10 accepted/12 rejected documents; five DOM/standalone flows |
-| [qSOFA consensus scorecard](candidates/qsofa-scorecard/README.md) | `09475c7b899dc1eb2e46c8f59f8ed45d2afd99b6`, source publication pending | 49 arithmetic checks; 10 accepted/14 rejected documents; five DOM/standalone flows |
+| [qSOFA consensus scorecard](candidates/qsofa-scorecard/README.md) | `09475c7b899dc1eb2e46c8f59f8ed45d2afd99b6`, public source `09733658` | 49 arithmetic checks; 10 accepted/14 rejected documents; five DOM/standalone flows |
 | [214 package](candidates/recovery214/README.md) | `0e2ea9105fb362539d135a5344f60ec2cf3e8ec6`, public `fed5f86f` | 52 remote asset payloads and SRI; ESM/global each 12 accepted/8 rejected documents; eight representative flows and an actual standalone page |
 | [Corrected civil-date arithmetic](candidates/corrected-age/README.md) | `371074e4e5358a0c0e4020240b7c3c4a3e98b8e3` | Eight accepted/eight rejected documents; seven DOM/standalone flows |
 | [Host Reset controls](candidates/host-form-reset/README.md) | `391e3cbe7914d0f8eeaed88ba62e8eee3df29688` | Four Slider/Toggle/Select reset, cancellation and newer-input flows |

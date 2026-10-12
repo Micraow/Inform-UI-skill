@@ -12,9 +12,9 @@ Constraints that affect meaning belong beside the example: unknown versus zero, 
 
 ## What the byte audit found
 
-The previous default guide is130,534 UTF-8 bytes; its separate Web Chat guide is107,997 bytes. The new default entry is3,823 bytes, with the original full guide preserved byte-for-byte in a versioned reference. These are independently measured files, not a claim that both full guides were always loaded. The current full schema is751,247 bytes, while the questionnaire's five-definition closure is5,335 minified bytes. The full adjacent questionnaire pack is20,991 readable bytes, including its semantics, example and version metadata.
+The previous default guide is130,534 UTF-8 bytes; its separate Web Chat guide is107,997 bytes. At the first migration, the new default entry was3,823 bytes, with the original full guide preserved byte-for-byte in a versioned reference. These are independently measured files, not a claim that both full guides were always loaded. The current full schema is751,247 bytes, while the questionnaire's five-definition closure is5,335 minified bytes. That first adjacent questionnaire pack was20,991 readable bytes, including its semantics, example and version metadata.
 
-The complete questionnaire input is now24,814 bytes (thin entry plus adjacent pack), compared with891,898 bytes for the explicitly defined full-guide + full-schema + domain-contract + example bundle. This measures the loading paths and bytes of those two bundles. It does not establish equivalent model attention or model accuracy; those require the separate experiment.
+At that migration the complete questionnaire input was24,814 bytes (thin entry plus adjacent pack), compared with891,898 bytes for the explicitly defined full-guide + full-schema + domain-contract + example bundle. This measures the loading paths and bytes of those two bundles. It does not establish equivalent model attention or model accuracy; those require the separate experiment.
 
 Across five representative documents, optional expression/table syntax reduces minified output by only269 bytes. Its new syntax guide costs2,575 bytes, giving a net **increase of2,306 bytes** when charged once to that comparison. Therefore canonical JSON remains the main interface. Formatting removal alone is not counted as a semantic compression benefit.
 
@@ -26,3 +26,7 @@ The optional [compact compiler](EXPERIMENTAL-SYNTAX.md) is isolated as an experi
 2. Validate the expanded full document with its exact runtime's `validateDocument`.
 3. Check the authored task's expected results, missing/invalid behavior and local interactions. Parsing or schema validity does not establish correctness.
 4. Report source, package, native-browser and domain validation separately. No new provider or service is required by these tools.
+
+## Source publication identity update
+
+The exact questionnaire source is now public at a97a7c13323a91662f758c5c0034e943776935a3; the214 CDN still does not contain it. The current entry is3856 UTF-8 bytes and the current adjacent pack is21102 bytes, together24958. These small metadata changes are included in the refreshed audit. The original pilot inputs remain fixed at238c and in [questionnaire.238c.json](packs/questionnaire.238c.json); its results are not silently reattributed to later inputs.

@@ -3,7 +3,7 @@
   "runtime": {
     "canonicalVersion": "iui/1",
     "source": "29c6905e19d00f60ad4d945d766a6fbf516f2f9c",
-    "publicCommit": null,
+    "publicCommit": "a97a7c13323a91662f758c5c0034e943776935a3",
     "protocolNodes": 218,
     "historicalCanonicalImplemented": 212,
     "publishedPackage": "fed5f86f49e73f908ac9ea98966b1515a3aaa597",
@@ -23,7 +23,7 @@
       "Expressions are bounded data: add/sub/mul/div/min/max/round/abs/clamp/gt/lt/eq/if/format and {$:name}. Named computation dependencies are allowed, cycles and nonfinite arithmetic are rejected. No JavaScript or formula URL execution.",
       "The cancelable local iui:questionnaire event has {intent:submit|reset,snapshot}. Snapshot answers, validity, computed, version and sources are deeply frozen at one revision; hidden/invalid raw drafts are not included.",
       "Optional named questionnaireActions receive {snapshot,signal}. Editing/reset/update/dispose retires stale completion. No adapter means local acceptance, not persistence or network submission. Preserve cancellation and newer input.",
-      "The current source is a local tested candidate. Do not claim it is downloadable from the published214 CDN. Generated domain rules require independent review; the historical212/256 inventory is unchanged."
+      "The tested questionnaire source is publicly available at a97a7c13323a91662f758c5c0034e943776935a3 and requires a same-version source build. It is absent from the published214 CDN. Generated domain rules require independent review; the historical212/256 inventory is unchanged."
     ],
     "adjacentBoundaryExamples": [
       {
