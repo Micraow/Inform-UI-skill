@@ -11,8 +11,13 @@ test('reader entry provides a real skill installation and one pinned runtime qui
   assert.match(readme, /\.agents\/skills\/inform-ui-author/);
   assert.match(readme, /git clone --branch recovery\/consumers-126-20261011/);
   const revision = readme.match(/git -C Inform-UI checkout --detach ([a-f0-9]{40})/)?.[1];
-  assert.equal(revision, '17f4ca2fed7c5cee5a2165e5a0fba190263d126a');
+  assert.equal(revision, '9ee7191bfcccb04fe8d414f9bcdc08f330aa780d');
   assert.ok(readme.includes('https://github.com/Micraow/Inform-UI/tree/' + revision));
+  assert.ok(readme.includes('https://github.com/Micraow/Inform-UI/blob/' + revision + '/docs/showcase.md'));
+  assert.match(readme, /npm --prefix Inform-UI run showcase/);
+  assert.match(readme, /http:\/\/127\.0\.0\.1:4175/);
+  assert.match(readme, /217 个可渲染示例/);
+  assert.match(readme, /`native` 拒绝边界/);
   assert.match(readme, /iui\.mjs validate \.agents\/skills\/inform-ui-author\/getting-started\/capacity\.json --json/);
   assert.match(readme, /iui\.mjs build \.agents\/skills\/inform-ui-author\/getting-started\/capacity\.json --out answer\.html --lang zh-CN/);
   assert.match(readme, /不依赖 OpenAI SDK、账号或 API/);

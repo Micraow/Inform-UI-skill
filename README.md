@@ -6,7 +6,7 @@
 
 为支持 Skill 的 AI 工具提供 Inform UI 创作能力：生成可校验的 JSON，再交给独立运行库渲染。
 
-[快速开始](#快速开始) · [看看示例](#看看示例) · [Inform UI 运行库](https://github.com/Micraow/Inform-UI) · [MIT License](LICENSE)
+[快速开始](#快速开始) · [组件展示](#组件展示) · [看看示例](#看看示例) · [Inform UI 运行库](https://github.com/Micraow/Inform-UI) · [MIT License](LICENSE)
 
 </div>
 
@@ -41,7 +41,7 @@ git clone --branch recovery/consumers-126-20261011 \
 
 ```sh
 git clone https://github.com/Micraow/Inform-UI.git Inform-UI
-git -C Inform-UI checkout --detach 17f4ca2fed7c5cee5a2165e5a0fba190263d126a
+git -C Inform-UI checkout --detach 9ee7191bfcccb04fe8d414f9bcdc08f330aa780d
 npm --prefix Inform-UI ci
 npm --prefix Inform-UI run build
 node Inform-UI/bin/iui.mjs validate .agents/skills/inform-ui-author/getting-started/capacity.json --json
@@ -72,11 +72,24 @@ node Inform-UI/bin/iui.mjs build .agents/skills/inform-ui-author/getting-started
 
 更多可运行输入见 [examples](examples)。示例不会自动连接真实账户、提交预约或发送消息；这些动作需要应用自行接入。
 
+## 组件展示
+
+浏览全部 **218 个协议节点**：217 个可渲染示例，以及明确展示错误的 `native` 拒绝边界。每个示例都附带实际挂载的完整 JSON，可复制或下载。
+
+完成上面的运行库安装后，在同一项目根目录启动展示页：
+
+```sh
+npm --prefix Inform-UI run showcase
+```
+
+浏览器打开 **http://127.0.0.1:4175**，即可搜索组件、切换浅色 / 深色、试用本地交互并重置状态。静态构建与更多操作见[组件展示指南](https://github.com/Micraow/Inform-UI/blob/9ee7191bfcccb04fe8d414f9bcdc08f330aa780d/docs/showcase.md)。
+
 ## 继续探索
 
 - [组件索引](authoring/progressive/index.json)：218 个节点的分类与使用资料
 - [作者指南](authoring/README.md)：组件组合、校验和按需参考
-- [运行库与浏览器资产](https://github.com/Micraow/Inform-UI/tree/17f4ca2fed7c5cee5a2165e5a0fba190263d126a)：与快速开始相同的固定版本
+- [运行库源码](https://github.com/Micraow/Inform-UI/tree/9ee7191bfcccb04fe8d414f9bcdc08f330aa780d)：与快速开始、组件展示相同的固定版本
+- [浏览器资产](https://github.com/Micraow/Inform-UI/blob/9ee7191bfcccb04fe8d414f9bcdc08f330aa780d/docs/cdn-218.md)：无需本地构建的独立接入方式
 - [历史版本兼容表](RECOVERY-CONSUMERS.md)：旧示例、独立版本锁与验证记录
 
 JS、CSS 和 schema 应来自同一运行版本。旧示例旁的版本锁保留其原始验证范围；专业评分组件的软件测试不构成临床验证。
