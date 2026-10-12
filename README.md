@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [原创日期算术消费者](candidates/corrected-age/README.md)：准确371074e4源构建8正8负、7组实际DOM含离线standalone通过；51叶/384旧定义及样式核齐。双basis、未知/异常、闰日周年、取消/reset与新输入及焦点后继均有检查，0服务。214为登记数；软件验证不等于临床验证，旧933 CDN锁不变。
+
 新增 [文本与选择字段 Reset 消费者](candidates/host-fields-reset/README.md)：准确44c0de48本地global产物5组DOM绿，含23dc指针焦点负控原样转绿，覆盖Input/Textarea/Radio/Segmented与非法number draft；10叶SHA一致，0外部服务。同批核44c source-only公开3d99c551及391e公开cf2ed1e8的实际源码字节身份，远端CDN仍933，不混成本批新资产发布。
 
 新增 [外层表单 Reset 窄修消费者](candidates/host-form-reset/README.md)：准确391e3cbe源构建已验4组原创DOM流程和10文件SHA；Slider/Toggle/Select的取消、较新输入、原子派生值与换代退役均过。独立source-only锁，不改933公开资产；Input/Textarea/Radio不在本批范围。

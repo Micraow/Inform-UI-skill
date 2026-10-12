@@ -1,0 +1,18 @@
+{
+  "sourceBefore": "a6bf9459bbd06267198f350bb45857cf602771ae",
+  "sourceAfter": "371074e4e5358a0c0e4020240b7c3c4a3e98b8e3",
+  "predecessorOrdinaryFlowsPassed": 6,
+  "newInputNegativeBeforePassed": 0,
+  "newInputNegativeBeforeFailed": 1,
+  "successorFlowsPassed": 7,
+  "changedLockedPaths": [
+    "src/renderer/corrected-age.ts",
+    "tests/corrected-age.test.mjs",
+    "dist/index.js",
+    "cdn/iui.global.min.js",
+    "dist/standalone.js"
+  ],
+  "negativeAssertion": "New input emitted by the host Reset intent listener must supersede the pending reset",
+  "negativeLogSha256": "ceeb387014a9e96f3f49b561d0cc34a43cc6ac4d19bbe09201ad94d22ac295c4",
+  "nativeOrClinicalClaim": false
+}

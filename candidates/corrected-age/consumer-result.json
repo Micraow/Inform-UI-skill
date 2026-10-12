@@ -1,0 +1,30 @@
+{
+  "source": "371074e4e5358a0c0e4020240b7c3c4a3e98b8e3",
+  "publicCommit": null,
+  "positiveDocuments": 8,
+  "negativeDocuments": 8,
+  "passed": 7,
+  "failed": 0,
+  "flows": [
+    "Two original supplied bases produce the same exact56-day result only after accepted Calculate",
+    "Missing, invalid, unsupported, pre-due and leap-anniversary window outcomes remain distinct and omit prohibited age values",
+    "Calculate and Reset cancellation retain the draft; edits clear old results and newer input survives host reset",
+    "Accepted reset moves hidden due-field focus to visible Reset; canceled reset and still-visible focus are preserved",
+    "Disabled and retired generations cannot publish results or revive the old date view",
+    "New local input in a host Reset intent handler supersedes that pending Reset",
+    "Actual compiled offline HTML executes both original bases with the bundled standalone runtime"
+  ],
+  "lockedFiles": 51,
+  "preservedDefinitions": 384,
+  "protocolNodes": 214,
+  "resourceRequests": 0,
+  "serviceCalls": 0,
+  "standalone": {
+    "bytes": 7538072,
+    "sha256": "5d7773111cf63e0543a44d26f71f421acd9a8879c959c3d18dd76ba8b0ed78fe",
+    "executed": true
+  },
+  "nativeExecutedByConsumer": false,
+  "clinicalValidation": false,
+  "status": "software-consumer-passed; canonical promotion separately decided"
+}
