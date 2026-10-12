@@ -34,3 +34,7 @@ The optional [compact compiler](EXPERIMENTAL-SYNTAX.md) is isolated as an experi
 ## Source publication identity update
 
 The exact questionnaire source is now public at a97a7c13323a91662f758c5c0034e943776935a3; the214 CDN still does not contain it. At that publication update the entry was3856 UTF-8 bytes and the adjacent pack was21102 bytes, together24958. Current routing measurements are recorded in audit.json and the progressive generation report. These small metadata changes are included in the refreshed audit. The original pilot inputs remain fixed at238c and in [questionnaire.238c.json](packs/questionnaire.238c.json); its results are not silently reattributed to later inputs.
+
+## Choose a loading path by design
+
+The [five original design workflows](design-workflows/README.md) provide complete capacity-form, status-card, tab, conditional-questionnaire and text examples. Their deterministic comparison counts the complete reading path, including the optional node guide and all required contracts. Container-heavy cases saved about59–68KB; the already narrow questionnaire and text cases grew by about3–4KB, so module selection stays the default. See the exact byte results and reproduction command beside the examples.

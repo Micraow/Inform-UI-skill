@@ -1,0 +1,108 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "questionnaire",
+      "questionnaireId": "workshop_packing",
+      "version": "1.0.0",
+      "title": "Workshop packing",
+      "hiddenValuePolicy": "retain",
+      "fields": [
+        {
+          "id": "mode",
+          "label": "Collection mode",
+          "type": "choice",
+          "required": true,
+          "options": [
+            {
+              "value": "pickup",
+              "label": "Pickup"
+            },
+            {
+              "value": "delivery",
+              "label": "Delivery"
+            }
+          ]
+        },
+        {
+          "id": "units",
+          "label": "Units",
+          "type": "number",
+          "required": true,
+          "min": 0,
+          "max": 20,
+          "step": 1
+        },
+        {
+          "id": "borrowed",
+          "label": "Borrowed equipment",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "distance",
+          "label": "Delivery distance (km)",
+          "type": "number",
+          "min": 0,
+          "max": 50,
+          "visibleWhen": {
+            "op": "eq",
+            "args": [
+              {
+                "$": "mode"
+              },
+              "delivery"
+            ]
+          }
+        }
+      ],
+      "computed": {
+        "packages": {
+          "op": "mul",
+          "args": [
+            {
+              "$": "units"
+            },
+            2
+          ]
+        },
+        "routeDistance": {
+          "op": "if",
+          "args": [
+            {
+              "op": "eq",
+              "args": [
+                {
+                  "$": "mode"
+                },
+                "delivery"
+              ]
+            },
+            {
+              "$": "distance"
+            },
+            null
+          ]
+        }
+      },
+      "initialAnswers": {
+        "mode": "pickup",
+        "units": 0,
+        "borrowed": false,
+        "distance": 9
+      },
+      "defaults": {
+        "mode": "pickup",
+        "units": 0,
+        "borrowed": false,
+        "distance": null
+      },
+      "sources": [
+        {
+          "title": "Original workshop packing arithmetic",
+          "version": "1.0.0"
+        }
+      ]
+    }
+  ]
+}

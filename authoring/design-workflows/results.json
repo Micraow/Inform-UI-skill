@@ -1,0 +1,642 @@
+{
+  "format": "inform-ui-design-workflow-comparison/1",
+  "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
+  "sourcePublic": "549d7c044224b429e62d4774e44e4bad48bc4583",
+  "methodSha256": "2ba194ed3b3513a61cd2bdb47d9a91ed5f953b9944c30dd6ee228432c96e7ee4",
+  "casesSha256": "d08f7ea4a77c62c30404d05b21f77fa810ed0dd1c3887f9b420f726c3d4cfcee",
+  "passed": 5,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "workshop-capacity",
+      "requested": [
+        "form",
+        "input",
+        "row",
+        "metric",
+        "text"
+      ],
+      "categories": [
+        "forms",
+        "foundations"
+      ],
+      "module": {
+        "components": 50,
+        "definitions": 61,
+        "taskBytes": 179715,
+        "schemaBytes": 84117,
+        "wholeInputBytes": 210649,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/forms.json",
+            "bytes": 2084,
+            "sha256": "379e13088c9c16c9d78578c36fbb590de3cb8aab861ac40e962177947713a917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:workshop-capacity",
+            "bytes": 185,
+            "sha256": "97161597aff760eed43ddcd250dd0fdbce7b70675d9e6a05c4318b6e5d8ac5e3"
+          },
+          {
+            "path": "authoring/design-workflows/examples/workshop-capacity.json",
+            "bytes": 948,
+            "sha256": "402b0e589bff19a56cd3a4c4a3b4a57b6c4f85444e80c3542cab9059dc5d5ee0"
+          },
+          {
+            "path": "module-task.json",
+            "bytes": 179715,
+            "sha256": "58f340e8e22b8bdafdefa5660250f14f44536876bef55d380705af82ce5422f3"
+          }
+        ]
+      },
+      "node": {
+        "components": 5,
+        "definitions": 8,
+        "taskBytes": 105709,
+        "schemaBytes": 18412,
+        "wholeInputBytes": 142850,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/forms.json",
+            "bytes": 2084,
+            "sha256": "379e13088c9c16c9d78578c36fbb590de3cb8aab861ac40e962177947713a917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:workshop-capacity",
+            "bytes": 185,
+            "sha256": "97161597aff760eed43ddcd250dd0fdbce7b70675d9e6a05c4318b6e5d8ac5e3"
+          },
+          {
+            "path": "authoring/design-workflows/examples/workshop-capacity.json",
+            "bytes": 948,
+            "sha256": "402b0e589bff19a56cd3a4c4a3b4a57b6c4f85444e80c3542cab9059dc5d5ee0"
+          },
+          {
+            "path": "authoring/NODE-SELECTION.md",
+            "bytes": 6207,
+            "sha256": "413c7fbdb4743eccd4e0896d51d8a9fb01f7c22aef5c4ae83bae244a6869920d"
+          },
+          {
+            "path": "node-task.json",
+            "bytes": 105709,
+            "sha256": "c5370aefa3657d83985d6979d380934d089d41cb3451b62f2b8b47bd63b9d4eb"
+          }
+        ]
+      },
+      "savedBytes": 67799,
+      "contractCount": 24,
+      "contractBytes": 72711,
+      "contractSha256": "fdf5fbe799871f2077f74725de3982f3108df6f9cb596b35cdabbe0a6c3df2f6",
+      "contractsExactlyEqual": true,
+      "structural": {
+        "module": true,
+        "node": true,
+        "full": true
+      },
+      "runtimeSemanticValidation": true,
+      "pureStateChecks": [
+        "remaining@0=30",
+        "remaining@11=19",
+        "remaining@30=0"
+      ],
+      "deterministic": true
+    },
+    {
+      "id": "supplied-status",
+      "requested": [
+        "row",
+        "card",
+        "metric",
+        "text"
+      ],
+      "categories": [
+        "foundations"
+      ],
+      "module": {
+        "components": 44,
+        "definitions": 55,
+        "taskBytes": 151631,
+        "schemaBytes": 71406,
+        "wholeInputBytes": 180179,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:supplied-status",
+            "bytes": 190,
+            "sha256": "4f6a5c947ee013e66821a4bd91ebc89f711f7d5bd0becdf28b7d4782f587608e"
+          },
+          {
+            "path": "authoring/design-workflows/examples/supplied-status.json",
+            "bytes": 641,
+            "sha256": "e14d3fcac33b9c8080477c390f9819947b3dbd5275472c342bbd9d66f997bc91"
+          },
+          {
+            "path": "module-task.json",
+            "bytes": 151631,
+            "sha256": "e5222e07e79b4f61ad5eeafa30499530dab4838358b473767990c34e58ac40af"
+          }
+        ]
+      },
+      "node": {
+        "components": 4,
+        "definitions": 7,
+        "taskBytes": 86692,
+        "schemaBytes": 13378,
+        "wholeInputBytes": 121447,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:supplied-status",
+            "bytes": 190,
+            "sha256": "4f6a5c947ee013e66821a4bd91ebc89f711f7d5bd0becdf28b7d4782f587608e"
+          },
+          {
+            "path": "authoring/design-workflows/examples/supplied-status.json",
+            "bytes": 641,
+            "sha256": "e14d3fcac33b9c8080477c390f9819947b3dbd5275472c342bbd9d66f997bc91"
+          },
+          {
+            "path": "authoring/NODE-SELECTION.md",
+            "bytes": 6207,
+            "sha256": "413c7fbdb4743eccd4e0896d51d8a9fb01f7c22aef5c4ae83bae244a6869920d"
+          },
+          {
+            "path": "node-task.json",
+            "bytes": 86692,
+            "sha256": "f5662ee22f28de15777ac7890aa7ac367deba8eee3b165f497b93d4c711079c7"
+          }
+        ]
+      },
+      "savedBytes": 58732,
+      "contractCount": 22,
+      "contractBytes": 60460,
+      "contractSha256": "2c9b1f3d6f2b989c9d05ea0e7d9bc1f16c17c83dadab096c719ff0336961d09f",
+      "contractsExactlyEqual": true,
+      "structural": {
+        "module": true,
+        "node": true,
+        "full": true
+      },
+      "runtimeSemanticValidation": true,
+      "pureStateChecks": [
+        "zero and null retained"
+      ],
+      "deterministic": true
+    },
+    {
+      "id": "workshop-agenda",
+      "requested": [
+        "tab-group",
+        "tab-panel",
+        "text"
+      ],
+      "categories": [
+        "foundations"
+      ],
+      "module": {
+        "components": 44,
+        "definitions": 55,
+        "taskBytes": 151626,
+        "schemaBytes": 71406,
+        "wholeInputBytes": 180248,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:workshop-agenda",
+            "bytes": 192,
+            "sha256": "35fc620ed173d50640c0c8a7aef69b637ee6bb6ec63148d6395e54ce1a649ae0"
+          },
+          {
+            "path": "authoring/design-workflows/examples/workshop-agenda.json",
+            "bytes": 713,
+            "sha256": "8fe68ad5a1c751d07d5caf63a727bb4cc54a8f4af5bd4155ab6ddc38dc517ab1"
+          },
+          {
+            "path": "module-task.json",
+            "bytes": 151626,
+            "sha256": "fcc5d54c357763146854adb40312a706d83addefb5b0b9b96d29e6a2a2a750d4"
+          }
+        ]
+      },
+      "node": {
+        "components": 3,
+        "definitions": 6,
+        "taskBytes": 83009,
+        "schemaBytes": 9980,
+        "wholeInputBytes": 117838,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:workshop-agenda",
+            "bytes": 192,
+            "sha256": "35fc620ed173d50640c0c8a7aef69b637ee6bb6ec63148d6395e54ce1a649ae0"
+          },
+          {
+            "path": "authoring/design-workflows/examples/workshop-agenda.json",
+            "bytes": 713,
+            "sha256": "8fe68ad5a1c751d07d5caf63a727bb4cc54a8f4af5bd4155ab6ddc38dc517ab1"
+          },
+          {
+            "path": "authoring/NODE-SELECTION.md",
+            "bytes": 6207,
+            "sha256": "413c7fbdb4743eccd4e0896d51d8a9fb01f7c22aef5c4ae83bae244a6869920d"
+          },
+          {
+            "path": "node-task.json",
+            "bytes": 83009,
+            "sha256": "8594050aa3af77be384216ab8c413287e7fd690123685d7beff208ccc68e3f75"
+          }
+        ]
+      },
+      "savedBytes": 62410,
+      "contractCount": 22,
+      "contractBytes": 60460,
+      "contractSha256": "2c9b1f3d6f2b989c9d05ea0e7d9bc1f16c17c83dadab096c719ff0336961d09f",
+      "contractsExactlyEqual": true,
+      "structural": {
+        "module": true,
+        "node": true,
+        "full": true
+      },
+      "runtimeSemanticValidation": true,
+      "pureStateChecks": [
+        "typed panels and initial id retained"
+      ],
+      "deterministic": true
+    },
+    {
+      "id": "branching-packing",
+      "requested": [
+        "questionnaire"
+      ],
+      "categories": [
+        "forms"
+      ],
+      "module": {
+        "components": 1,
+        "definitions": 6,
+        "taskBytes": 33464,
+        "schemaBytes": 12966,
+        "wholeInputBytes": 55649,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/forms.json",
+            "bytes": 2084,
+            "sha256": "379e13088c9c16c9d78578c36fbb590de3cb8aab861ac40e962177947713a917"
+          },
+          {
+            "path": "task-brief:branching-packing",
+            "bytes": 420,
+            "sha256": "8db573162f1c02a826d257b6de12ae78dc34971f22b273f581e9118f92794776"
+          },
+          {
+            "path": "authoring/design-workflows/examples/branching-packing.json",
+            "bytes": 2239,
+            "sha256": "f492c109ae3d43b04e005296cc9e5459e8e679b771f335c521cc11805b0eb6d4"
+          },
+          {
+            "path": "module-task.json",
+            "bytes": 33464,
+            "sha256": "d2f831cefc019f8f60ed0b28c572de1724bf9732a58a830a0363ba5857161374"
+          }
+        ]
+      },
+      "node": {
+        "components": 1,
+        "definitions": 6,
+        "taskBytes": 30991,
+        "schemaBytes": 12973,
+        "wholeInputBytes": 59383,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/forms.json",
+            "bytes": 2084,
+            "sha256": "379e13088c9c16c9d78578c36fbb590de3cb8aab861ac40e962177947713a917"
+          },
+          {
+            "path": "task-brief:branching-packing",
+            "bytes": 420,
+            "sha256": "8db573162f1c02a826d257b6de12ae78dc34971f22b273f581e9118f92794776"
+          },
+          {
+            "path": "authoring/design-workflows/examples/branching-packing.json",
+            "bytes": 2239,
+            "sha256": "f492c109ae3d43b04e005296cc9e5459e8e679b771f335c521cc11805b0eb6d4"
+          },
+          {
+            "path": "authoring/NODE-SELECTION.md",
+            "bytes": 6207,
+            "sha256": "413c7fbdb4743eccd4e0896d51d8a9fb01f7c22aef5c4ae83bae244a6869920d"
+          },
+          {
+            "path": "node-task.json",
+            "bytes": 30991,
+            "sha256": "12695014eae613d734ebba357b04d888c19f3903a6033c373f5332de10a818bd"
+          }
+        ]
+      },
+      "savedBytes": -3734,
+      "contractCount": 3,
+      "contractBytes": 11155,
+      "contractSha256": "ff29166db1bd49491ea5fa30806962cc3515fd0c5622d8380557c9461316f744",
+      "contractsExactlyEqual": true,
+      "structural": {
+        "module": true,
+        "node": true,
+        "full": true
+      },
+      "runtimeSemanticValidation": true,
+      "pureStateChecks": [
+        "zero/false preserved",
+        "hidden draft retained and excluded",
+        "delivery draft restored",
+        "optional unknown stays null",
+        "required unknown suppresses result",
+        "invalid suppresses result",
+        "version and frozen result"
+      ],
+      "deterministic": true
+    },
+    {
+      "id": "short-notice",
+      "requested": [
+        "text"
+      ],
+      "categories": [
+        "foundations"
+      ],
+      "module": {
+        "components": 3,
+        "definitions": 6,
+        "taskBytes": 21555,
+        "schemaBytes": 10888,
+        "wholeInputBytes": 49547,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:short-notice",
+            "bytes": 132,
+            "sha256": "d2c91a9b3e8fd5f24a58397f45582269e33146cc5d3c3cbb1dce56a156a9c828"
+          },
+          {
+            "path": "authoring/design-workflows/examples/short-notice.json",
+            "bytes": 143,
+            "sha256": "c5884d3e31c3e76b65ec969931364f3c76ee90419b1009fafcff93648e996bbf"
+          },
+          {
+            "path": "module-task.json",
+            "bytes": 21555,
+            "sha256": "cefb960fdf630a935c6b3cb84b598b70731900741ba1b63097421a262074fd45"
+          }
+        ]
+      },
+      "node": {
+        "components": 1,
+        "definitions": 4,
+        "taskBytes": 18555,
+        "schemaBytes": 8343,
+        "wholeInputBytes": 52754,
+        "items": [
+          {
+            "path": "SKILL.md",
+            "bytes": 3945,
+            "sha256": "2edf00d91bc68b08f211cc79f8981927370d795ea622934be98ef38d36011a9e"
+          },
+          {
+            "path": "authoring/progressive/README.md",
+            "bytes": 9030,
+            "sha256": "ac8d6981880072322cec8f06aa52737211bde040c7979fdaa59a774d0119191d"
+          },
+          {
+            "path": "authoring/progressive/index.json",
+            "bytes": 4467,
+            "sha256": "2dde611299342194c1309479031d7bd1bebc3ea6796dbd63a8638e770a07b917"
+          },
+          {
+            "path": "authoring/progressive/categories/foundations.json",
+            "bytes": 10275,
+            "sha256": "98976fa08b144ac57231904fd72ddf7884f17615d784d4a2487b12c896fe2b38"
+          },
+          {
+            "path": "task-brief:short-notice",
+            "bytes": 132,
+            "sha256": "d2c91a9b3e8fd5f24a58397f45582269e33146cc5d3c3cbb1dce56a156a9c828"
+          },
+          {
+            "path": "authoring/design-workflows/examples/short-notice.json",
+            "bytes": 143,
+            "sha256": "c5884d3e31c3e76b65ec969931364f3c76ee90419b1009fafcff93648e996bbf"
+          },
+          {
+            "path": "authoring/NODE-SELECTION.md",
+            "bytes": 6207,
+            "sha256": "413c7fbdb4743eccd4e0896d51d8a9fb01f7c22aef5c4ae83bae244a6869920d"
+          },
+          {
+            "path": "node-task.json",
+            "bytes": 18555,
+            "sha256": "f3f9faec6fedb80699fdd6a4a4aee15ac41d005f05b4e1d6475b7df97d1b2e0c"
+          }
+        ]
+      },
+      "savedBytes": -3207,
+      "contractCount": 3,
+      "contractBytes": 6389,
+      "contractSha256": "5814dba488156c8db9eb80f4773cac1aee9ea59223fd5c8283e98cc9bae914c4",
+      "contractsExactlyEqual": true,
+      "structural": {
+        "module": true,
+        "node": true,
+        "full": true
+      },
+      "runtimeSemanticValidation": true,
+      "pureStateChecks": [
+        "no implicit state"
+      ],
+      "deterministic": true
+    }
+  ],
+  "fullSchema": {
+    "bytes": 751247,
+    "sha256": "c59d34b171ee7cc54e278a857688d834363bbd6ff064f9ff503abfb74bdd0c92"
+  },
+  "limits": {
+    "unit": "UTF-8 bytes",
+    "modelGenerationEvaluated": false,
+    "tokenizerUsed": false,
+    "browserExecuted": false,
+    "networkRequests": 0,
+    "defaultSelectionChanged": false
+  },
+  "notes": [
+    "Actual workflow payloads include method-specific instructions and example differences.",
+    "All required module semantic contracts are retained.",
+    "Pure core source validation and focused state checks are not renderer interaction tests."
+  ],
+  "processIsolation": "One serial process per case; assertions and input accounting are identical."
+}

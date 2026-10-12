@@ -1,0 +1,34 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "tab-group",
+      "label": "Workshop agenda",
+      "initial": "setup",
+      "children": [
+        {
+          "type": "tab-panel",
+          "id": "setup",
+          "label": "Setup",
+          "children": [
+            {
+              "type": "text",
+              "value": "Arrange reusable paper and colored markers."
+            }
+          ]
+        },
+        {
+          "type": "tab-panel",
+          "id": "practice",
+          "label": "Practice",
+          "children": [
+            {
+              "type": "text",
+              "value": "Sketch a route and exchange feedback in pairs."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
