@@ -1,0 +1,23 @@
+{
+  "source": "3bcff1a6cd31337e896cad93562be2dcb05a1869",
+  "overlaySource": "3123488036197f5910b3084706a73f53cfd448f4",
+  "publicCommit": null,
+  "entry": "test-dist/iui.global.min.js",
+  "filesChecked": 12,
+  "fixtureDocuments": 1,
+  "passed": 4,
+  "failed": 0,
+  "flows": [
+    "Both original overlay notes open, update in place, dismiss and reopen while releasing their session resources",
+    "Frames and observers returned after synchronous replacement or disposal are compensated for both overlay kinds",
+    "Required local form input reveals only its owned disclosure ancestors and receives focus; valid local submission leaves sections and host ancestor closed",
+    "Opening a disclosure cannot focus a retired field after a synchronous host update or disposal"
+  ],
+  "resourceRequests": 0,
+  "serviceCalls": 0,
+  "nativeExecuted": false,
+  "fullNewCDN": false,
+  "buildExecuted": false,
+  "fullSuiteExecuted": false,
+  "boundary": "Actual source-build public mount in JSDOM; synthetic host popover/frame/observer APIs do not constitute native positioning or screenshots. Published fed5 assets remain separate."
+}

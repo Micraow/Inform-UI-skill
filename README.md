@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [Overlay与Form披露焦点窄修消费者](candidates/overlay-form-disclosure/README.md)：准确3bcff1a源构建4组真实DOM、12叶身份通过，0服务；两overlay资源晚返回、closed Details内required还焦与换代退役均核。已实际对应source-only公开693d0ef5，7源码叶取回SHA相等、54旧CDN叶不变；fed5资产不含这两后继，未冒称新CDN/native。
+
 新增 [统一214轻量资产消费者](candidates/recovery214/README.md)：准确本地0e2ea910的52资产/SRI、58锁与384旧定义通过，ESM/global各12正8负、共8组宿主Reset及日期DOM流程，加实际standalone通过；0外部服务、11host合同绿。209完成/214登记独立计数，已实际对应公开fed5f86f，52远端载荷33,595,227字节逐项SHA/SRI核齐，Actions0；旧933锁不改。
 
 当前逐ID状态为 **209/256 已实现**（历史功能验收53＋待完整验收156）、部分0、未实现47；214仅协议登记。新增日期组件完成软件算术与本地交互验收，尚无临床验证。[精确状态与公开身份](references/recovery-scope209.json) 固定29d8813f，源码71a7cd97；既有933 CDN资产范围仍208/0/48。

@@ -1,0 +1,69 @@
+{
+  "version": "iui/1",
+  "state": {
+    "paperName": "",
+    "backupName": "",
+    "counter": 0
+  },
+  "body": [
+    {
+      "type": "tooltip",
+      "label": "Paper-folding hint",
+      "value": "Original note: keep the paper edges aligned."
+    },
+    {
+      "type": "popover",
+      "label": "Inspect original paper note",
+      "children": [
+        {
+          "type": "text",
+          "value": "A local note for a folded paper model."
+        },
+        {
+          "type": "text",
+          "value": {
+            "$": "counter"
+          }
+        }
+      ]
+    },
+    {
+      "type": "form",
+      "label": "Original paper model details",
+      "submitLabel": "Review local paper data",
+      "children": [
+        {
+          "type": "details",
+          "summary": "Paper identity",
+          "children": [
+            {
+              "type": "details",
+              "summary": "Required model name",
+              "children": [
+                {
+                  "type": "input",
+                  "kind": "text",
+                  "label": "Paper model name",
+                  "bind": "paperName",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "details",
+          "summary": "Unrelated backup note",
+          "children": [
+            {
+              "type": "input",
+              "kind": "text",
+              "label": "Optional backup name",
+              "bind": "backupName"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
