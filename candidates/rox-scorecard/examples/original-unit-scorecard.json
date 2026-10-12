@@ -1,0 +1,67 @@
+{
+  "version": "iui/1",
+  "body": [
+    {
+      "type": "calculator-rox-index-for-high-flow-nasal-cannula",
+      "id": "sample_rox_arithmetic",
+      "label": "Synthetic ratio record",
+      "subtitle": "Fictional software-test values; no patient record",
+      "initial": {
+        "version": "rox-roca-2016-arithmetic",
+        "spo2Percent": 90,
+        "fio2": 50,
+        "fio2Unit": "percent",
+        "respiratoryRate": 20,
+        "measuredHours": 6,
+        "comparisonVersion": "roca-2019-pneumonia-hfnc",
+        "studyContextConfirmed": false
+      },
+      "defaults": {
+        "version": "rox-roca-2016-arithmetic",
+        "spo2Percent": 95,
+        "fio2": 1,
+        "fio2Unit": "fraction",
+        "respiratoryRate": 40
+      },
+      "infoSections": [
+        {
+          "id": "units",
+          "label": "Units",
+          "body": "The fraction and percent selections describe the supplied input. The software does not guess the intended unit."
+        },
+        {
+          "id": "scope",
+          "label": "Scope",
+          "body": "An explicit supplied study-context flag and elapsed time control only a numerical comparison display."
+        },
+        {
+          "id": "record",
+          "label": "Record",
+          "body": "Literal <b>example</b> text remains text."
+        }
+      ],
+      "activeInfoId": "units",
+      "fields": {
+        "spo2Percent": {
+          "label": "Supplied saturation percent",
+          "help": "Synthetic numerical input only."
+        },
+        "fio2": {
+          "label": "Supplied oxygen fraction or percent",
+          "help": "Keep this value paired with the declared unit."
+        },
+        "measuredHours": {
+          "label": "Supplied hours since HFNC initiation",
+          "help": "No nearest study time is selected automatically."
+        }
+      },
+      "notes": [
+        "The initial arithmetic result is 9.0; the independent reset baseline is 2.375, displayed as 2.4.",
+        "These entries do not represent a real person."
+      ],
+      "resetLabel": "Restore independent values",
+      "copyLabel": "Request local summary",
+      "summaryPrefix": "Synthetic arithmetic"
+    }
+  ]
+}

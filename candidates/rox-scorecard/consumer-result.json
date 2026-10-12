@@ -1,0 +1,32 @@
+{
+  "source": "8834c693d1d54772fad62883f8781f064fa4107c",
+  "publicCommit": null,
+  "protocolNodes": 216,
+  "canonicalScopeAtFreeze": 210,
+  "arithmeticChecks": 40,
+  "originalJsonVectors": 30,
+  "positiveDocuments": 10,
+  "negativeDocuments": 12,
+  "passed": 5,
+  "failed": 0,
+  "flows": [
+    "Explicit percent/fraction inputs never guess units, true zero remains zero, missing/NT suppress stale numeric output and summary requests remain local/cancelable",
+    "Unrounded comparisons differ despite equal one-decimal labels and require explicit study version, context and exact elapsed hours",
+    "Literal information tabs and guarded RTL keyboard navigation retain selection across independent defaults; canceled/native/local resets respect newer input",
+    "Pending/failure/literal fallback, disabled state, callback replacement and disposal obey public generation ownership",
+    "Actual compiled offline standalone executes the same original explicit-unit input and independent defaults"
+  ],
+  "filesChecked": 45,
+  "preservedDefinitions": 388,
+  "standalone": {
+    "executed": true,
+    "bytes": 7664215,
+    "sha256": "fa1b7027fd7625476b5c8430db24798a1cb1b95aaea608e81c8482214998b92c"
+  },
+  "resourceRequests": 0,
+  "serviceCalls": 0,
+  "clinicalValidation": false,
+  "nativeExecutedByConsumer": false,
+  "fullNewCDN": false,
+  "boundary": "Software arithmetic over fictional explicitly supplied measurements and optional neutral study comparisons; no patient assessment, treatment instruction, measurement service or clinical validation."
+}
