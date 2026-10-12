@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [统一214轻量资产消费者](candidates/recovery214/README.md)：准确本地0e2ea910的52资产/SRI、58锁与384旧定义通过，ESM/global各12正8负、共8组宿主Reset及日期DOM流程，加实际standalone通过；0外部服务、11host合同绿。209完成/214登记独立计数，当前asset publicCommit仍null，待真实资产公开后核验；旧933锁不改。
+
 当前逐ID状态为 **209/256 已实现**（历史功能验收53＋待完整验收156）、部分0、未实现47；214仅协议登记。新增日期组件完成软件算术与本地交互验收，尚无临床验证。[精确状态与公开身份](references/recovery-scope209.json) 固定29d8813f，源码71a7cd97；既有933 CDN资产范围仍208/0/48。
 
 新增 [原创日期算术消费者](candidates/corrected-age/README.md)：准确371074e4源构建8正8负、7组实际DOM含离线standalone通过；51叶/384旧定义及样式核齐。双basis、未知/异常、闰日周年、取消/reset与新输入及焦点后继均有检查，0服务。214为登记数；软件验证不等于临床验证，旧933 CDN锁不变。

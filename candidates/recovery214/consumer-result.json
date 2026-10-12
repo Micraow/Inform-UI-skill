@@ -1,0 +1,68 @@
+{
+  "localAssetCommit": "0e2ea9105fb362539d135a5344f60ec2cf3e8ec6",
+  "publicCommit": null,
+  "protocolNodes": 214,
+  "scope": {
+    "implemented": 209,
+    "partial": 0,
+    "missing": 47,
+    "registered": 214
+  },
+  "assetsVerified": 52,
+  "lockedFiles": 58,
+  "preservedDefinitions": 384,
+  "positiveDocumentsPerEntry": 12,
+  "negativeDocumentsPerEntry": 8,
+  "entries": [
+    "esm",
+    "global"
+  ],
+  "exports": {
+    "esm": [
+      "InvalidDocumentError",
+      "calculateCorrectedAge",
+      "evaluateState",
+      "evaluateValue",
+      "mount",
+      "styles",
+      "validateDocument"
+    ],
+    "global": [
+      "InvalidDocumentError",
+      "calculateCorrectedAge",
+      "evaluateState",
+      "evaluateValue",
+      "mount",
+      "styles",
+      "validateDocument"
+    ]
+  },
+  "passed": 8,
+  "failed": 0,
+  "flows": [
+    "esm: Mixed controlled host reset restores siblings, honors cancellation and keeps newer text/range input",
+    "esm: Equivalent date bases, canceled calculation, newer local/native-reset input and hidden-field focus remain correct",
+    "esm: Unknown/invalid dates and pre-due/outside-window results omit age; leap anniversary is explicit software arithmetic",
+    "esm: Multi-binding reset is atomic and pending resets cannot restore replaced/disposed content",
+    "global: Mixed controlled host reset restores siblings, honors cancellation and keeps newer text/range input",
+    "global: Equivalent date bases, canceled calculation, newer local/native-reset input and hidden-field focus remain correct",
+    "global: Unknown/invalid dates and pre-due/outside-window results omit age; leap anniversary is explicit software arithmetic",
+    "global: Multi-binding reset is atomic and pending resets cannot restore replaced/disposed content"
+  ],
+  "standalone": {
+    "executed": true,
+    "bytes": 7539367,
+    "sha256": "b9b0605ad1fbb50210cfc10574adb3c6f0b473fc6231860f3b6422475ab80d0b"
+  },
+  "resourceRequests": 0,
+  "serviceCalls": 0,
+  "clinicalValidation": false,
+  "nativeExecutedByConsumer": false,
+  "fullSuiteExecuted": false,
+  "serialExecution": true,
+  "initialCombinedProcess": {
+    "exitCode": 137,
+    "returnedTestResult": false,
+    "cause": "Not established; the unchanged assertions pass in separate serial processes."
+  }
+}
