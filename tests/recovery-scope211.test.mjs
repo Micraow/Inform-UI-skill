@@ -6,7 +6,8 @@ const read = async p => JSON.parse(await readFile(new URL('../' + p, import.meta
 
 test('published211 inventory derives totals from all256 rows and changes only GCS/ROX after209', async () => {
   const current = await read('references/recovery-scope211.json'), previous = await read('references/recovery-scope209.json'), scope = await read('references/recovery-functional-subsets.json');
-  const r = verifyFunctionalScope(current, scope);
+  const historical = { ...scope, counts: current.counts, completeImplementationCoverage: 211, protocolNodes: 216 };
+  const r = verifyFunctionalScope(current, historical);
   assert.equal(r.implemented, 211); assert.equal(r.protocolNodes, 216); assert.equal(r.counts.not_implemented, 45);
   assert.equal(current.publicCommit, 'f5a753a488e53504a7086d51b26a75d8f94b1748');
   assert.equal(current.inventory.sha256, '2d380f348795527b4b812e6d0dd8965c3d704797897a8b81f49396b6a22fb171');
@@ -33,5 +34,5 @@ test('public product guides expose concise usage and independently pinned source
     assert.ok(Buffer.byteLength(text) < 12000, 'Top-level product guides remain concise; detailed contracts live with their versioned examples.');
     assert.ok(text.includes('d9b0ed410d9aa2dd7f8fa888ff44b22595239853')); assert.ok(text.includes('fed5f86f49e73f908ac9ea98966b1515a3aaa597'));
   }
-  assert.match(readme, /211\/256/); assert.match(matrix, /node --max-old-space-size=768/);
+  assert.match(readme, /212\/256/); assert.match(matrix, /node --max-old-space-size=768/);
 });

@@ -12,7 +12,7 @@
 | 使用 GCS 数值计分及完整本地交互 | [源代码 c138b93b](https://github.com/Micraow/Inform-UI/commit/c138b93b745990c02ec41d7b924cb615d80ed172) | 215 个协议节点；须构建该源版本，不能搭配 214 的旧 schema/脚本 |
 | 使用 ROX 显式单位算术与可选研究数值比较 | [源代码 d9b0ed41](https://github.com/Micraow/Inform-UI/commit/d9b0ed410d9aa2dd7f8fa888ff44b22595239853) | 216 个协议节点；包含 GCS 和已验证的本地表单、浮层后续修复 |
 
-当前公开 [逐项功能表](references/recovery-scope211.json) 对应 [f5a753a4](https://github.com/Micraow/Inform-UI/commit/f5a753a488e53504a7086d51b26a75d8f94b1748)：**211/256 已实现**，其中历史功能验收 53、待完整验收 158；部分实现 0、未实现 45。216 是协议登记数，不是完成数。软件行为、原生浏览器、像素一致性和临床有效性是不同的验证范围。
+当前 [软件功能表](references/recovery-scope212.json) 为 **212/256 已实现**：历史功能验收 53、待完整验收 159，部分实现 0、未实现 44；协议登记数为217。qSOFA消费者已通过49项算术和5组实际使用测试，其运行源码尚未公开。当前可下载的 [公开功能表 f5a753a4](https://github.com/Micraow/Inform-UI/commit/f5a753a488e53504a7086d51b26a75d8f94b1748) 仍为211项、216登记；CDN仍为209项、214登记。软件行为、原生浏览器、像素一致性和临床有效性是不同的验证范围。
 
 浏览器资产的实际远端字节、SHA256 和 SRI 已逐项核对，参见 [214 使用说明](candidates/recovery214/README.md)。保留同版本的 JS、CSS、schema、字体与第三方许可说明；不要只替换一个文件或使用浮动分支 URL。GitHub 文件页用于获取源码和资产，不是可直接执行的脚本地址。
 
@@ -43,7 +43,7 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/minimal.json --out an
 - JSON 只表达允许的字段；不要附带组件 HTML、任意脚本或事件处理函数字符串。
 - 结构校验之后仍需调用 `validateDocument` 做语义校验。单节点 schema 不能替代完整文档合同。
 - 金额、比分、目录、自动化和能力卡默认读取宿主供数；本地意图不等于银行、消息、预约、录音或外部服务已经执行。
-- GCS、ROX 和日期组件只验证相应的软件规则与界面合同。调用方仍须确认版本、单位、适用范围及其自身场景的验证要求。软件测试不构成临床验证或治疗建议。
+- GCS、ROX、qSOFA 和日期组件只验证相应的软件规则与界面合同。调用方仍须确认版本、单位、适用范围及其自身场景的验证要求。软件测试不构成临床验证或治疗建议。
 
 最小文档可以只有文字：
 
@@ -61,6 +61,7 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/minimal.json --out an
 | [瓶颈与反馈](examples/hpcc-feedback.json) | 正文、拓扑、公式与本地输入 |
 | [GCS scorecard](candidates/gcs-scorecard/README.md) | 120 个数值组合，NT/未知，信息 tabs、独立 defaults 与本地 summary |
 | [ROX 显式单位](candidates/rox-scorecard/README.md) | 百分数/分数、零/缺失、未经舍入比较与 reset |
+| [qSOFA 共识数值](candidates/qsofa-scorecard/README.md) | 两种显式意识状态输入、GCS14边界、未知/NT与Reset；运行源尚未公开 |
 | [日期算术](candidates/corrected-age/README.md) | 两种日期依据、闰日周年、无效/未知与边界输出 |
 | [宿主表单字段](candidates/host-fields-reset/README.md) | 无效草稿、取消、较新输入与可见焦点 |
 | [浮层与表单披露](candidates/overlay-form-disclosure/README.md) | 本地浮层资源和关闭 Details 内的必填字段焦点 |

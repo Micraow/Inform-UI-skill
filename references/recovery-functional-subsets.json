@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 216,
+  "protocolNodes": 217,
   "canonicalTotal": 256,
   "counts": {
+    "implemented_pending_verification": 159,
     "functionally_verified": 53,
-    "implemented_pending_verification": 158,
-    "partial": 0,
-    "not_implemented": 45
+    "not_implemented": 44,
+    "partial": 0
   },
-  "completeImplementationCoverage": 211,
+  "completeImplementationCoverage": 212,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Public source scope211/0/45 includes the GCS and ROX numerical scorecard software contracts. Clinical validation is not established. Protocol216 is separate. Source d9b0ed41 and inventory f5a753a4 are published; the public fed5 package remains protocol214 with209 implemented IDs. Browser and pixel evidence retain their exact version scopes.",
+  "acceptanceBoundary": "Software scope212/0/44 includes the explicit 2016 consensus qSOFA scorecard; clinical validation is not established. Protocol217 is separate. Its source publication remains unavailable. The latest published inventory is211 at f5a753a4 and the public fed5 package remains protocol214 with209 implemented IDs. Browser and pixel evidence retain their exact version scopes.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -499,6 +499,14 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "8834c693d1d54772fad62883f8781f064fa4107c",
       "consumer": "candidates/rox-scorecard",
+      "nativeAndPixelAcceptance": false,
+      "clinicalValidation": false
+    },
+    {
+      "id": "calculator-qsofa-score",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "09475c7b899dc1eb2e46c8f59f8ed45d2afd99b6",
+      "consumer": "candidates/qsofa-scorecard",
       "nativeAndPixelAcceptance": false,
       "clinicalValidation": false
     }
