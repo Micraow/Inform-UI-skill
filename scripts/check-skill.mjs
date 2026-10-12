@@ -1,5 +1,6 @@
 import { readFile, readdir, lstat } from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -37,7 +38,13 @@ export async function checkSkill() {
   const files = await repositoryFiles();
   for (const file of files) {
     if (forbiddenPath(file)) throw new Error(`Non-distributable or out-of-scope path: ${file}`);
-    if ((await lstat(path.join(root, file))).size > 256_000) throw new Error(`Unexpected large file: ${file}`);
+    if ((await lstat(path.join(root, file))).size > 256_000) {
+      // The requested generated WebChat single-file schema is the sole large-file exception.
+      if (file !== 'authoring/progressive/webchat/iui.schema.json') throw new Error(`Unexpected large file: ${file}`);
+      const bytes = await readFile(path.join(root, file));
+      const manifest = JSON.parse(await readFile(path.join(root, 'authoring/progressive/webchat/iui.schema.manifest.json'), 'utf8'));
+      if (bytes.length > 1_000_000 || manifest.format !== 'inform-ui-source-selection/1' || manifest.mode !== 'full' || manifest.schemaVersion !== 'iui/1' || bytes.length !== manifest.utf8Bytes || createHash('sha256').update(bytes).digest('hex') !== manifest.sha256) throw new Error('Generated WebChat schema identity mismatch.');
+    }
   }
   const skill = await readFile(path.join(root, 'SKILL.md'), 'utf8');
   parseSkillFrontmatter(skill);

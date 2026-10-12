@@ -1,0 +1,831 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
+    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+    },
+    "requestedComponents": [
+      "input"
+    ],
+    "requestedModules": [
+      "forms/fields"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "forms/fields"
+    ],
+    "includedComponents": [
+      "input",
+      "textarea",
+      "radio",
+      "segmented",
+      "field",
+      "form"
+    ],
+    "contracts": [
+      "docs/schema-source-modules.md#value",
+      "docs/schema-source-modules.md#forms"
+    ],
+    "examples": [
+      "examples/schema-modules/forms.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 52,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:a3120cda695b640f6d733fc8171f813c3f7409535184cd5c7ea63ddf8d9408fa",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "FieldNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "field"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "FormNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "form"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          "submitLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "cancelLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "action": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "successMessage": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "errorMessage": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "InputNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "input"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "error": {
+            "$ref": "#/$defs/Value"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "kind": {
+            "enum": [
+              "text",
+              "number",
+              "email",
+              "checkbox",
+              "date"
+            ]
+          },
+          "minDate": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$"
+          },
+          "maxDate": {
+            "type": "string",
+            "pattern": "^(?!0000)\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$"
+          },
+          "placeholder": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "step": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "minLength": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 12000
+          },
+          "maxLength": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind",
+          "kind"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "input"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "bind": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "hint": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "error": {
+                "$ref": "#/$defs/Value"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "disabled": {
+                "$ref": "#/$defs/Value"
+              },
+              "kind": {
+                "const": "date"
+              },
+              "minDate": {
+                "type": "string",
+                "pattern": "^(?!0000)\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$"
+              },
+              "maxDate": {
+                "type": "string",
+                "pattern": "^(?!0000)\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$"
+              },
+              "placeholder": false,
+              "min": false,
+              "max": false,
+              "step": false,
+              "minLength": false,
+              "maxLength": false
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "input"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "bind": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "hint": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "error": {
+                "$ref": "#/$defs/Value"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "disabled": {
+                "$ref": "#/$defs/Value"
+              },
+              "kind": {
+                "enum": [
+                  "text",
+                  "number",
+                  "email",
+                  "checkbox"
+                ]
+              },
+              "minDate": false,
+              "maxDate": false,
+              "placeholder": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              },
+              "step": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "minLength": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 12000
+              },
+              "maxLength": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12000
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        ],
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "checkbox"
+            }
+          },
+          "required": [
+            "kind"
+          ]
+        },
+        "then": {
+          "properties": {
+            "placeholder": false,
+            "min": false,
+            "max": false,
+            "step": false,
+            "minLength": false,
+            "maxLength": false
+          }
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/InputNode"
+          },
+          {
+            "$ref": "#/$defs/TextareaNode"
+          },
+          {
+            "$ref": "#/$defs/RadioNode"
+          },
+          {
+            "$ref": "#/$defs/SegmentedNode"
+          },
+          {
+            "$ref": "#/$defs/FieldNode"
+          },
+          {
+            "$ref": "#/$defs/FormNode"
+          }
+        ]
+      },
+      "RadioNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "radio"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "error": {
+            "$ref": "#/$defs/Value"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 12000
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind",
+          "options"
+        ],
+        "additionalProperties": false
+      },
+      "SegmentedNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "segmented"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "error": {
+            "$ref": "#/$defs/Value"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 12000
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind",
+          "options"
+        ],
+        "additionalProperties": false
+      },
+      "TextareaNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "textarea"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "error": {
+            "$ref": "#/$defs/Value"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "placeholder": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "rows": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 20
+          },
+          "minLength": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 12000
+          },
+          "maxLength": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/schema-source-modules.md#value",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 148,
+      "sha256": "110f8b18b69c573dfa20e5fc4cff400057b073348b86707f5c55663526008cf2",
+      "text": "## value\n\n`shared/value` provides the bounded scalar/reference/operator grammar shared by all trial families. It has no renderable node of its own.\n"
+    },
+    {
+      "path": "docs/schema-source-modules.md#forms",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 395,
+      "sha256": "5611d5d947531c00974e5114ff6dce6d1712e77f46157a8ea825afe111ceec0d",
+      "text": "## forms\n\n`forms/fields` provides input, textarea, radio, segmented, field and form. Required/range/date/disabled semantics and existing Form event behavior remain unchanged. A structural schema cannot replace the full validator's form ownership, binding and expression checks. Read the [form contract](forms.md) for declared bindings, invalid drafts, validation, submission and reset behavior.\n"
+    },
+    {
+      "path": "docs/forms.md",
+      "sourceBytes": 9559,
+      "sourceSha256": "2cecde5ea94b08a0208ae913342fdae34f7ceebaf701b0aff30e29df881d924b",
+      "bytes": 9559,
+      "sha256": "2cecde5ea94b08a0208ae913342fdae34f7ceebaf701b0aff30e29df881d924b",
+      "text": "# 本地表单与受控提交\n\n完整示例：[forms.json](../examples/forms.json)。它使用合成点数展示姓名类文本、邮箱、数字、长文本、单选、分段选择，以及联动计算；不包含真实个人数据或外部提交地址。\n\n| 节点 | 行为 |\n| --- | --- |\n| `input` | `kind: text / number / email / checkbox / date`；`label`、`bind` 必填 |\n| `textarea` | 长文本，`rows` 控制初始高度 |\n| `radio` / `segmented` | 原生单选行为，键盘切换；`options` 值为同一类型的字符串或数字 |\n| `field` | 带 `label`、可选 `hint` 的原生 fieldset 分组，可以整体禁用 |\n| `form` | 本地校验、提交/取消、忙碌防重、错误/重试；不能嵌套 |\n\n字段可用 `hint`、`error`、`required`、`disabled`。`error` 为解析后字符串，`disabled` 为解析后布尔值；都可引用 state/computed。文本支持 `minLength/maxLength`，按原生 HTML 的 UTF-16 单元计数；数值支持 `min/max/step`。初始为空或不符合字段约束的值可以构成有效文档，错误在失焦/提交时显示。\n\n状态仍为 `string | number | boolean`，同名类型不可改变。数值字段的用户输入先检查完整数字及 `min/max/step`：空、未完成、越界或步长不符的输入只保留为 DOM 草稿，不写入共享 state，联动指标继续显示此前接受的数值。错误提示与提交校验检查当前可见草稿，不能因为旧 state 仍有效就提交它；改正为有效数字后才更新 state，或取消恢复初值。错误仍在失焦/提交后显示，已触达字段会即时更新错误。\n\n这里区分三种状态：可见输入草稿、共享 state、通过校验后的提交快照。初始文档和宿主 `setState()` 是权威数据，仍可包含类型正确但违反字段约束的值；它们会显示在字段和指标中，但表单提交仍被约束拦截。宿主明确设置该绑定会替换旧草稿，即使传入值与已有 state 相同；无关 state 更新保留草稿。文档级 set/reset 按钮也会覆盖对应草稿，取消和原生表单 reset 会清理本表单草稿并恢复初值；任何被整体计算校验拒绝的更新都不清草稿。字段约束不是宿主业务数据的安全校验边界，调用方仍需验证外部数据。文本/邮箱按其原有即时字符串绑定和提交校验合同处理。\n\n指针按下同一 UI 根中的原生按钮（包括提交/取消、文档 set/reset 和秒表等组件按钮）时，相关失焦错误布局延后到该手势结束，避免插入错误行把正在点击的按钮推走。取消手势、拖出后释放或窗口失焦会恢复校验；键盘 Tab、Enter 和程序焦点操作不等待指针动作。\n\n`input.kind: checkbox` 是带表单 hint/error/required 生命周期的原生复选框，绑定必须为 boolean。点击标签或按 Space 即时写入 true/false；required 只约束提交时必须勾选，false 仍可作为有效共享 state。宿主覆盖、取消、原生 reset 和文档 reset 复用现有表单生命周期；被全局计算校验拒绝的修改会恢复勾选状态并保留焦点。它不接受 placeholder、min/max/step、minLength/maxLength 或 indeterminate。禁用和 fieldset 继承禁用的字段不阻止提交，也不进入提交快照。轻量开关仍可用已有 `toggle`。\n\n复选框示例：[checkbox-practice.json](../examples/checkbox-practice.json)。本轮复选框增强尚待集中浏览器/CDN 验收；此前 d370 固定版不接受 checkbox kind。\n\n## 纯 JSON 默认行为\n\n没有 `form.action` 时，提交只进行本地校验、显示完成状态，并派发 `iui:submit` 事件；事件包含 `{ id, values }`。没有持久存储或网络提交，刷新后不会保留数据。`values` 只包含当前 form 未禁用的绑定字段，含已有 slider/toggle/select；无关全局 state 不被夹带。\n\n取消会终止正在进行的操作，恢复本表单初值。若其它全局计算条件已改变，使恢复值不再有效，取消仍会终止任务，但显示恢复错误并保留当前有效状态。\n\n## 宿主显式提供的操作\n\nJSON 只能引用白名单中的标识符，不接受 URL 或函数代码：\n\n```js\nconst controller = mount(host, document, {\n  actions: {\n    'example.confirm': async ({ values, signal }) => {\n      // values 是只读快照；signal 在取消、update 或 dispose 时中止。\n      // 宿主决定如何处理数据；库不会自行调用外部服务。\n    }\n  }\n});\n```\n\n对应表单写 `\"action\":\"example.confirm\"`。如果宿主没有配置它，界面显示明确错误。返回 Promise 时进入忙碌状态，重复提交被忽略；取消后迟到的成功或失败不会覆盖新状态。外部副作用是否能够撤回，由宿主操作实现决定。\n\n可复用状态文档：[forms/states.json](../examples/forms/states.json)。[actions.mjs](../examples/forms/actions.mjs) 是原创离线演示适配器，提供显式完成的 pending 与首次失败后重试，没有计时器、fetch 或存储。loading/error 通过真实提交产生，不虚构未实现的 JSON status 字段。\n\n当前支持后续候选的原生日期字段；不支持文件上传、自绘日历弹层、富文本编辑或任意正则约束。网页聊天只生成 JSON 时应使用默认本地表单；宿主操作示例供已有网页应用选择使用。\n\n原生控件若清理初值中的换行或空白，导致显示字符串与绑定状态不同，提交会被阻止并提示编辑。修正后的用户输入再写回状态；库不会默默提交未经同一规则验证的隐藏原值，也不会静默更改调用方初值。\n\n再次编辑表单字段（包括暂未写入state的数字草稿）会清除上一次成功提示；无关全局state变化不影响结果。宿主在提交期间改了值时，迟到成功只对应原快照，不把当前新值标成已提交。\n\n原生日期输入使用明确的YYYY-MM-DD字符串和minDate/maxDate范围，复用本表单生命周期；见[日期字段合同](date-field.md)。这是后续本地候选，尚未通过真实浏览器批次。\n\n显式 `form` 节点拥有自己的提交快照、校验和 reset 生命周期，不应嵌套在另一个原生 HTML form 中。没有显式 `form` 节点的普通受控字段可以使用下述宿主表单适配。普通 disabled fieldset 继承仍受支持。\n\n## Basic controls in a host form\n\nSlider, Toggle and Select can be mounted in an existing native HTML form without an iui Form wrapper. An accepted native reset restores each eligible control's initial supplied state and its rendered value/output. Sibling bindings are applied as one state patch before derived expressions are reevaluated. Reset cancellation preserves current values. New input or a host state change before reconciliation wins for the corresponding binding, while unaffected siblings still reset.\n\nThe explicit iui Form remains responsible for its own reset transaction. Host-form adapters use the existing owned lifecycle and native-reset contract: disabled fieldset/first-legend, hidden/inert ownership, ShadowRoot-local association and generation retirement still apply. Replaced or moved owners cannot publish old resets; disposal releases listeners. No schema or protocol changes are required.\n\nHost controls opt into an owned task boundary after native default actions. Real browser-triggered Reset events may perform microtask checkpoints between listeners, so a microtask alone cannot safely decide cancellation or repaint a native control. The existing reader reset helper retains its default microtask scheduling for existing callers; only this host-control integration requests `after-default`. Its pending marker persists until that decision, and the following atomic commit rechecks newer input, native form association and owner validity. Both task registrations use the common generation acquisition and cleanup.\n\nThe same host-form integration covers Input, Textarea, Radio and Segmented fields. Radio option groups share one edit revision; a disabled option does not prevent enabled peers from resetting the binding. Cancelled or blocked resets restore the latest public draft rather than replacing an invalid numeric draft with the last accepted numeric state. Accepted resets clear draft errors and touched feedback. New invalid drafts and explicit same-value host state writes also supersede an earlier queued reset. Browser-private partial date-segment buffers are not exposed as application state; the adapter preserves the control's public value.\n\nA pointer gesture on a native host Reset button holds pending blur validation until the gesture finishes. This prevents a newly visible error line from moving the button between pointerdown and click. The association must be the field's actual native form; ordinary keyboard blur and unrelated form buttons still validate immediately. Mouse completion, touch compatibility click, pointer cancellation, page blur, and disposal release the hold through the existing owned lifecycle. This does not change reset cancellation or after-default reconciliation.\n\n## 无效字段位于折叠区时\n\n提交校验会展开首个未禁用无效字段所在的本表单 Details 祖先，再将键盘焦点移到该字段。只展开这条包含路径，其他折叠区不变；不会展开表单外的宿主区域。禁用字段继续跳过。字段仍然无效时不会派发提交成功事件，也不会调用宿主提交适配器。更新或卸载会中止旧一代的展开与聚焦。\n"
+    },
+    {
+      "path": "docs/date-field.md",
+      "sourceBytes": 2692,
+      "sourceSha256": "4641380f91c3cb566b9369f4047fed78631e31b1410bbcfae8905032e4a68b2f",
+      "bytes": 2692,
+      "sha256": "4641380f91c3cb566b9369f4047fed78631e31b1410bbcfae8905032e4a68b2f",
+      "text": "# Native date field\n\nOriginal project-owned MIT implementation, extending the existing Forms lifecycle. No additional dependencies or third-party calendar code.\n\nUse `{ \"type\": \"input\", \"kind\": \"date\", \"label\": \"Practice date\", \"bind\": \"day\", \"minDate\": \"2024-01-01\", \"maxDate\": \"2024-12-31\" }` with a string state value such as `\"2024-02-29\"` or `\"\"`. See `examples/date-practice.json`.\n\n- Values are real Gregorian `YYYY-MM-DD` strings in years 0001–9999. Year 0000, impossible dates, whitespace, timestamps and nonstrings are rejected before host-state/DOM mutation. No time zone or timestamp is stored or inferred.\n- Optional bounds are literal date strings, inclusive and ordered. The public validator also checks actual Gregorian validity; JSON Schema structure alone is not a semantic-validation substitute.\n- Date fields forbid `placeholder`, numeric `min`/`max`/`step`, and text `minLength`/`maxLength`. Other input kinds forbid `minDate`/`maxDate`. Generated TypeScript declarations preserve these date/non-date branches.\n- Initial and host-written valid date strings may be empty or outside field bounds. Submission validates the visible control. User out-of-range, required-empty or incomplete native edits remain local drafts and do not change shared state. Optional deliberate clearing accepts `\"\"`.\n- Hints, errors, first-invalid focus, fieldsets, disabled/busy controls, same-value overwrite, cancel/reset, abort, immutable submission snapshots and disposal use the existing Forms machinery. No second form registry or data store is introduced.\n- The browser owns the date control, picker, visible format and localized segment order. Inform UI keeps label associations, native keyboard behavior, and date-specific English/Chinese validation errors. Native popup layout and calendar screenshots are not portable contracts.\n- No date range picker, time-of-day, recurrence, unavailable-day provider, calendar service, reservation, reminder, network action or persistence is included.\n\n## Verification boundary\n\n`tests/date.test.mjs` executes the production mount/validation/standalone compiler in JSDOM. Native value sanitization is tested separately from mocked partial-segment validity because JSDOM cannot type real date segments. `tests/browser/date.spec.mjs` prepares actual native keyboard editing, label focus, first-click submission, range/required drafts, optional clear, snapshots, busy/cancel, RTL, forced colors, responsive light/dark UI and no network traffic.\n\nThe browser tests are prepared but unexecuted locally, by the combined-CI batching policy. They are not a browser pass, cross-browser certification, pixel-equivalence claim, or acceptance-count change.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/forms.json",
+      "bytes": 526,
+      "sha256": "70755bbd19e5495b3174ded1cc0d1942da367cd9b18d4f3875ae830b4de18bd3",
+      "document": {
+        "version": "iui/1",
+        "state": {
+          "name": "Guest",
+          "count": 2
+        },
+        "body": [
+          {
+            "type": "form",
+            "label": "Original supplies form",
+            "children": [
+              {
+                "type": "input",
+                "kind": "text",
+                "label": "Name",
+                "bind": "name",
+                "required": true
+              },
+              {
+                "type": "input",
+                "kind": "number",
+                "label": "Notebooks",
+                "bind": "count",
+                "min": 1,
+                "max": 5
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "6810fb085cd6e3e337ed8618e45516e1dee90de445ab7572d7de8be97c37a35c",
+    "schemaSha256": "3446998e76832556695a9593db8ffcf9b9260f2712a75fd7fa79190e0f61333e",
+    "schemaBytes": 15860
+  },
+  "manifestPath": "fields.json.manifest.json"
+}

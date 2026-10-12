@@ -2,6 +2,10 @@
 
 Use canonical `iui/1` JSON by default. Load the selected component's same-version schema closure together with its semantic constraints and a nearby complete example. Do not concatenate every historical guide or every schema group into the model input.
 
+## Source-backed category selection
+
+The [category index](progressive/index.json) is the progressive starting point for the new52-node source pilot. Read its category and complete module pack, not a signature alone. Packs are generated from the runtime source registry and carry local semantic links and examples; the [complete WebChat schema](progressive/webchat/iui.schema.json) is generated from those same modules plus explicit legacy source. See [generation and version rules](progressive/README.md). The remaining166 registered node types have not been migrated into these pilot modules. This is separate from the212/256 historical functionality count.
+
 ## Questionnaire task pack
 
 [questionnaire.json](packs/questionnaire.json) contains all five referenced definitions, the original activity-packing document, nine semantic rules and six adjacent boundary examples. It is a complete **node** contract, not a substitute for complete-document semantic validation. Its runtime/source metadata explicitly says the tested source is not in the published214 package.
@@ -29,4 +33,4 @@ The optional [compact compiler](EXPERIMENTAL-SYNTAX.md) is isolated as an experi
 
 ## Source publication identity update
 
-The exact questionnaire source is now public at a97a7c13323a91662f758c5c0034e943776935a3; the214 CDN still does not contain it. The current entry is3856 UTF-8 bytes and the current adjacent pack is21102 bytes, together24958. These small metadata changes are included in the refreshed audit. The original pilot inputs remain fixed at238c and in [questionnaire.238c.json](packs/questionnaire.238c.json); its results are not silently reattributed to later inputs.
+The exact questionnaire source is now public at a97a7c13323a91662f758c5c0034e943776935a3; the214 CDN still does not contain it. At that publication update the entry was3856 UTF-8 bytes and the adjacent pack was21102 bytes, together24958. Current routing measurements are recorded in audit.json and the progressive generation report. These small metadata changes are included in the refreshed audit. The original pilot inputs remain fixed at238c and in [questionnaire.238c.json](packs/questionnaire.238c.json); its results are not silently reattributed to later inputs.

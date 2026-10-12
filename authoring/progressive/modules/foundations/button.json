@@ -1,0 +1,352 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
+    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+    },
+    "requestedComponents": [
+      "button"
+    ],
+    "requestedModules": [
+      "foundations/button"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "foundations/button"
+    ],
+    "includedComponents": [
+      "button"
+    ],
+    "contracts": [
+      "docs/schema-source-modules.md#value",
+      "docs/schema-source-modules.md#button"
+    ],
+    "examples": [
+      "examples/schema-modules/button.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 52,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:9f7ca225c56e48f7ce507089234b21cc1261faedb22f103d50715397c6a75e69",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "ButtonAction": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "reset"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "set"
+              },
+              "bind": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "maxLength": 12000
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "kind",
+              "bind",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "host"
+              },
+              "name": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+              }
+            },
+            "required": [
+              "kind",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ButtonNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "button"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "action": {
+            "$ref": "#/$defs/ButtonAction"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "tone": {
+            "enum": [
+              "default",
+              "primary",
+              "danger"
+            ]
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "action"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ButtonNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/schema-source-modules.md#value",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 148,
+      "sha256": "110f8b18b69c573dfa20e5fc4cff400057b073348b86707f5c55663526008cf2",
+      "text": "## value\n\n`shared/value` provides the bounded scalar/reference/operator grammar shared by all trial families. It has no renderable node of its own.\n"
+    },
+    {
+      "path": "docs/schema-source-modules.md#button",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 141,
+      "sha256": "e76920934be2f4aec7eb7efc05a60f50589c9bc80f5814ab01c748f642794fa8",
+      "text": "## button\n\n`foundations/button` provides the existing local button action data. It does not add arbitrary code or external action execution.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/button.json",
+      "bytes": 356,
+      "sha256": "c8a3166f893d57d16cc77890a86bc399eb4196c4794fdf37aa4e05ac8b040bd4",
+      "document": {
+        "version": "iui/1",
+        "state": {
+          "count": 1
+        },
+        "body": [
+          {
+            "type": "button",
+            "label": "Set count to two",
+            "action": {
+              "kind": "set",
+              "bind": "count",
+              "value": 2
+            }
+          },
+          {
+            "type": "button",
+            "label": "Reset count",
+            "action": {
+              "kind": "reset"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "6810fb085cd6e3e337ed8618e45516e1dee90de445ab7572d7de8be97c37a35c",
+    "schemaSha256": "8afb9a6031f8f8faa018612d08ef79249a82aedd132a1ab330135b69bb57c0b0",
+    "schemaBytes": 5488
+  },
+  "manifestPath": "button.json.manifest.json"
+}

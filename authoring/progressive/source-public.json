@@ -1,0 +1,414 @@
+{
+  "format": "inform-ui-progressive-public-source/1",
+  "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
+  "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0",
+  "publicTree": "3268df927687297963d5c72c5e70c766f9d08636",
+  "url": "https://github.com/Micraow/Inform-UI/commit/d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0",
+  "verifiedFiles": [
+    {
+      "path": "docs/date-field.md",
+      "bytes": 2692,
+      "sha256": "4641380f91c3cb566b9369f4047fed78631e31b1410bbcfae8905032e4a68b2f",
+      "gitBlob": "add867e3149d889fe203715956ed9faf7cbbfcb3"
+    },
+    {
+      "path": "docs/forms.md",
+      "bytes": 9559,
+      "sha256": "2cecde5ea94b08a0208ae913342fdae34f7ceebaf701b0aff30e29df881d924b",
+      "gitBlob": "67e0ecb98d753500c3249943e3554bbd8b782f1d"
+    },
+    {
+      "path": "docs/questionnaire-contract.md",
+      "bytes": 5836,
+      "sha256": "e0a88fe48dca3edcfcd9bb9af9e5e1def470de922d8d9814953d27fe86d485b6",
+      "gitBlob": "7983e80ed208b97ab8c113e71ad8dd20b1ce5e6f"
+    },
+    {
+      "path": "docs/schema-source-modules.md",
+      "bytes": 4331,
+      "sha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "gitBlob": "660a75e7d6780fbf70e004af14d21c21b89e8957"
+    },
+    {
+      "path": "examples/questionnaire/basic.json",
+      "bytes": 4281,
+      "sha256": "d09506dce87665113ffa08c17541d1c0960fe598f499e36b22d2c6039566a64a",
+      "gitBlob": "0c469e2ddd8859589c543ca8277feb0c5313c47b"
+    },
+    {
+      "path": "examples/schema-modules/button.json",
+      "bytes": 356,
+      "sha256": "c8a3166f893d57d16cc77890a86bc399eb4196c4794fdf37aa4e05ac8b040bd4",
+      "gitBlob": "51736d0a8b5b6e2b0e29e93a61d31f1955fdf754"
+    },
+    {
+      "path": "examples/schema-modules/forms.json",
+      "bytes": 526,
+      "sha256": "70755bbd19e5495b3174ded1cc0d1942da367cd9b18d4f3875ae830b4de18bd3",
+      "gitBlob": "41807b6bcb9ec4163e9a29bf22b9ad4cf475bf74"
+    },
+    {
+      "path": "examples/schema-modules/layout.json",
+      "bytes": 275,
+      "sha256": "c18f68666fb14eca9f4ddfbec1d4faada980d59e9ee9bd574f670bba03d1e7c4",
+      "gitBlob": "8677f8998fb78ece3236e91c34ed7a5ced0da15b"
+    },
+    {
+      "path": "examples/schema-modules/text.json",
+      "bytes": 260,
+      "sha256": "96ac27f908d683e3a8acf483dfa77bcfed4143011a9cb7fc57922c1a45ff44b4",
+      "gitBlob": "5dc7d3f4a83e1f247842f092a2e882e1cf5b656d"
+    },
+    {
+      "path": "scripts/ask-location-schema.mjs",
+      "bytes": 918,
+      "sha256": "38c27aae2683a607f3e785240eb994e7910fdbbbe3a9455932ba9ea00624f6bf",
+      "gitBlob": "89ce1a93fd7994564defef5237de00a43cc1099f"
+    },
+    {
+      "path": "scripts/ask-user-schema.mjs",
+      "bytes": 1983,
+      "sha256": "d7949d409d9f1213106de90a2abfe58c5c218bbfdc394e15821c1c82d66521ee",
+      "gitBlob": "31ade16470e7b83ca6839abd010c42e891eac5ad"
+    },
+    {
+      "path": "scripts/async-image-definitions.json",
+      "bytes": 8222,
+      "sha256": "9467132f0d546a8303bc136bb9a361b6c663a5031a5dc8d0a941fb3e026a19e3",
+      "gitBlob": "80a8149d80906c854e9f82a96de9e37a493a118e"
+    },
+    {
+      "path": "scripts/async-video-definitions.json",
+      "bytes": 1452,
+      "sha256": "33d8dfd33be70f080c922e3a9d1231620610d501e8591d5eb771b91b6c271f07",
+      "gitBlob": "da1f2cbbd937df860ded55df84abc589f7313537"
+    },
+    {
+      "path": "scripts/automation-schema.mjs",
+      "bytes": 2377,
+      "sha256": "d989284f5f3485237d765c49e0b30d23eef0a8c0a3cf8761f4e762fa4c1e16da",
+      "gitBlob": "a064534e2224c155eaa44ed7969a7b3c47d65cf8"
+    },
+    {
+      "path": "scripts/build-schema-selection.mjs",
+      "bytes": 4711,
+      "sha256": "c1dc418e98f89ec67a39a3382d081993cc3b2d90160687ddceaeeff79925310a",
+      "gitBlob": "77a3b3bcf9c7d9bb7c560ba1da8efe5eb0cdfa82"
+    },
+    {
+      "path": "scripts/capability-search-schema.mjs",
+      "bytes": 2482,
+      "sha256": "fe7084803f5c439d7b67660fa6da7bb933e2a5be05d212e2f53ea50c6b2bc020",
+      "gitBlob": "a7ea2acd718f2fd8e455fd0aadc68ce78abef5cf"
+    },
+    {
+      "path": "scripts/capability-welcome-schema.mjs",
+      "bytes": 1421,
+      "sha256": "4386b549e332f0c25c23df95b25c50a1b8924ae9e05ed6885ef0a212b3d4a3c1",
+      "gitBlob": "bfa2c66b58039eb8f252659f1c81832a0fa6b483"
+    },
+    {
+      "path": "scripts/care-providers-schema.mjs",
+      "bytes": 3928,
+      "sha256": "0fa5144ed170338f795b2da97f3cb67fe009ebb849381fdb14a43854453be4d3",
+      "gitBlob": "ad08286479bf4258116a7c79c7f000f671e34c41"
+    },
+    {
+      "path": "scripts/context-actions-schema.mjs",
+      "bytes": 1829,
+      "sha256": "0416818f0e6835df51bd07e3854ceabe3e245552521e09d7f9f1bcfac4859d03",
+      "gitBlob": "c04cfbbc458b19104d8abf5d125a766746a875f1"
+    },
+    {
+      "path": "scripts/conversational-onboarding-schema.mjs",
+      "bytes": 1898,
+      "sha256": "ddfc4437ccc0706a47af29f1b8398322434238b8813d3ac94644ae7234d88132",
+      "gitBlob": "2037163eecb493779dbd91f5fe47c76a0bf97320"
+    },
+    {
+      "path": "scripts/corrected-age-schema.mjs",
+      "bytes": 838,
+      "sha256": "9073802cc8b59bbd4912e677203193d6628c7a9b2fc78d251739dcb5a55afa5e",
+      "gitBlob": "48e41b677779d725499487d8a69af9f39f5fe0f6"
+    },
+    {
+      "path": "scripts/credit-score-schema.mjs",
+      "bytes": 3128,
+      "sha256": "8f29b5dbf11c7272c79d99267b93c0d77af99ef319aa918344bb186bffa669db",
+      "gitBlob": "c4a6eb5526276856ebbfa0cf66a4195e1fb59c73"
+    },
+    {
+      "path": "scripts/entity-schema.mjs",
+      "bytes": 1836,
+      "sha256": "759d42a30086f2c91ebe758b5f7ddc24a6761983d5fabc8237e6edb53bb63753",
+      "gitBlob": "b1ac0921d90277bf2bc420dd9711f9212001689e"
+    },
+    {
+      "path": "scripts/equity-watchlist-schema.mjs",
+      "bytes": 2256,
+      "sha256": "92555dcc24c65544e723a02c9a0bed57539bcf3f16dba8ef52833a7fd18d6bcb",
+      "gitBlob": "f2b0fa71e27e436c1690fd422a348f6cef836002"
+    },
+    {
+      "path": "scripts/fee-interest-definitions.json",
+      "bytes": 4022,
+      "sha256": "fd1f73835184069b6fc810169dc7c0d07f2f59a83c74164ff181d3ffb8992121",
+      "gitBlob": "7d04140f77ddfaa16488fdd98035c5fb0313144a"
+    },
+    {
+      "path": "scripts/finance-entry-schema.mjs",
+      "bytes": 1999,
+      "sha256": "a8c8a358d67d57b691a8e67213086944f0624b95f97a5137b555fc88eb0f5c9a",
+      "gitBlob": "f8a306f9c4e052bb0a3d622bc2b782d5f0d07a21"
+    },
+    {
+      "path": "scripts/finance-status-schema.mjs",
+      "bytes": 764,
+      "sha256": "a766d496a5ea1ad32ec00c130509fbb8d4081ac8981c281f59c8fc0a138b588d",
+      "gitBlob": "65707cdc58eebf31ecc9f48d51c0f6074de028fe"
+    },
+    {
+      "path": "scripts/gcs-schema.mjs",
+      "bytes": 1601,
+      "sha256": "0a768e9697eca7547ce6e17ce9cb45ff913801ae4debdaa45cabcc8ee192d633",
+      "gitBlob": "63b84c5d423b31f186af322ccc81dbf1690ca6b1"
+    },
+    {
+      "path": "scripts/html-view-definitions.json",
+      "bytes": 875,
+      "sha256": "714a5d156cc27dd6509e7c52dba2b89c0aef73186010a5e9b930fca722648e38",
+      "gitBlob": "2172510ee15af5f3ac6e3200f79da29c0be1b436"
+    },
+    {
+      "path": "scripts/inline-host-media-schema.mjs",
+      "bytes": 2699,
+      "sha256": "24dbeae3a37247cf7dd93dc0fc265daabd1e05e59a69f3efa863d5c224a5d70e",
+      "gitBlob": "9834e905257092aacbcbab6f61f6a3df42bc84d8"
+    },
+    {
+      "path": "scripts/learning-media-definitions.json",
+      "bytes": 4370,
+      "sha256": "1b96cbc2df442445b5e9514b01ed11ab55d4292dc061b89eef840fea2ce1110b",
+      "gitBlob": "90154aa04e977f2010479e1532ae6d15c2769b85"
+    },
+    {
+      "path": "scripts/learning-viz-schema.mjs",
+      "bytes": 850,
+      "sha256": "4c8d71896957aab2a55d516d72e5ba4f8278b2460624f582d6070137a104dddb",
+      "gitBlob": "7e785ceabf44ce5c08d1a711274a33e10c73ec5f"
+    },
+    {
+      "path": "scripts/ledger-category-schema.mjs",
+      "bytes": 2989,
+      "sha256": "5febc72f47673e93bafe8fdec0f63ae49afd81982a1134638bfd0625df3b9d75",
+      "gitBlob": "411c251b2a20826d85bec68bce2a9cacff77cd59"
+    },
+    {
+      "path": "scripts/lottie-definitions.json",
+      "bytes": 3169,
+      "sha256": "0c71025230f5efc859533619ae93e532c25d466376678f13b6813d46d1132e36",
+      "gitBlob": "510746e32ac50957efa7910e3e67686b9c849071"
+    },
+    {
+      "path": "scripts/media-reader-definitions.json",
+      "bytes": 7638,
+      "sha256": "8b01303265951439f7e97c357c18e6b9ae4ce4ac8e0efd6ee2f9ecd82935a7e5",
+      "gitBlob": "f7cd23cdd9cbfc92f654cb36bc929be59d81f992"
+    },
+    {
+      "path": "scripts/net-worth-definitions.json",
+      "bytes": 3429,
+      "sha256": "af73b027eab9a574ddd5005a87fc115fcbc143f13e414eaf8a05a9a0587b9620",
+      "gitBlob": "9d365b45c190bdc4b4defeb16472ef86129f71e9"
+    },
+    {
+      "path": "scripts/onboarding-cards-schema.mjs",
+      "bytes": 2549,
+      "sha256": "e1d2e78fc30911cc2c93f98111fcff8b4994e0d8e805d497929646aa0bb11f58",
+      "gitBlob": "62fe84c0d12f9a85f3a2c4fd703baed6277e62fe"
+    },
+    {
+      "path": "scripts/pressable-definitions.json",
+      "bytes": 995,
+      "sha256": "74766fddeddb4e1ca181734bcb41ab0031213f74066d1c7a83d8f973f70fd3a3",
+      "gitBlob": "6ef0fcdbfa1c78953936077154c3573ec01e8d39"
+    },
+    {
+      "path": "scripts/prompt-checklist-schema.mjs",
+      "bytes": 1688,
+      "sha256": "15e1c9a609c3e9cc9c284a938f4823d147c8abf4dbe08a8f0bf20aa6a0143691",
+      "gitBlob": "01532afc49dcc588ab4bd7bce42c209493c7975c"
+    },
+    {
+      "path": "scripts/qsofa-schema.mjs",
+      "bytes": 1721,
+      "sha256": "747b65174e2d898870f791f33633580dc4193572bc8d447e586ae9a5c79f7f65",
+      "gitBlob": "267538b8a5bdba4d1c57ce0e4b92e265b9bab512"
+    },
+    {
+      "path": "scripts/quiz-cards-schema.mjs",
+      "bytes": 3603,
+      "sha256": "772b14869f1d9c875f4ea33f2ac31ed1209f47389159ede174e95ce22ec1e0fa",
+      "gitBlob": "b42f865ec5ab92ac09533f20755676560b82b334"
+    },
+    {
+      "path": "scripts/recommendation-card-schema.mjs",
+      "bytes": 916,
+      "sha256": "70da777523f7aafea195d8238ea003c666188a23e47cff80df5532998df0dc5f",
+      "gitBlob": "bc84cce31745bf85b8353f648365bbe43d4ffb9a"
+    },
+    {
+      "path": "scripts/reservation-pills-schema.mjs",
+      "bytes": 3625,
+      "sha256": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37",
+      "gitBlob": "e2d918a1f766992ee510f8f7884c92a10bc23f2c"
+    },
+    {
+      "path": "scripts/rox-schema.mjs",
+      "bytes": 1607,
+      "sha256": "f927fcae82439f40d1c1ee1cd086af5c97c4507abfb1d7d0994da951d88e653b",
+      "gitBlob": "57c63b906eb9eeaef1dd2a63bf3d41ad8004c75e"
+    },
+    {
+      "path": "scripts/schema-source/canonical.mjs",
+      "bytes": 62200,
+      "sha256": "b9592c5dde11cf8d83b1f4bc179f246e88cd6fcd4aa5ec962ec934fc91ff1756",
+      "gitBlob": "78b5f48fc2c58163be37182e00f2a50b1907e5f6"
+    },
+    {
+      "path": "scripts/schema-source/catalog.mjs",
+      "bytes": 3979,
+      "sha256": "98633ec27533bd54643f1d0bc9d87d8bcf75a7ea1755c6b9c80490ee15923b1d",
+      "gitBlob": "00f8f82a7da4dd6dc6e48e0154a41d878f8f6627"
+    },
+    {
+      "path": "scripts/schema-source/envelope.mjs",
+      "bytes": 927,
+      "sha256": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
+      "gitBlob": "7e7169834dc4f9314355e5d6da13ecc7155dfc53"
+    },
+    {
+      "path": "scripts/schema-source/modules/button.mjs",
+      "bytes": 587,
+      "sha256": "1ce2931f9794a74c3408259f3c5e011085899e615e909e99d9e6936ad555dc8f",
+      "gitBlob": "b543b170570d634c6f8901a9f43633517ac35b0c"
+    },
+    {
+      "path": "scripts/schema-source/modules/forms.mjs",
+      "bytes": 2249,
+      "sha256": "b675784efdcf1ab58d4547edd9031643b43c483f79c86a648c7cf5c2b35deffb",
+      "gitBlob": "79083fd720fdf078b2271ef81d378db439b30f1a"
+    },
+    {
+      "path": "scripts/schema-source/modules/layout.mjs",
+      "bytes": 7950,
+      "sha256": "6c01342e346cf0689f966fec107ccf1cc669eb6ecd650f78e13471a1ab9845b0",
+      "gitBlob": "dc4ca9fda84759d7f1ac58c7e8803303789fa7dd"
+    },
+    {
+      "path": "scripts/schema-source/modules/questionnaire.mjs",
+      "bytes": 2226,
+      "sha256": "20c3f21bbe56f7284b325d18717aee1d9bc0912e4304f4d82e9faae255625206",
+      "gitBlob": "da80425ed1500808ae6347389f6532b214e463b7"
+    },
+    {
+      "path": "scripts/schema-source/modules/text.mjs",
+      "bytes": 789,
+      "sha256": "859ff6965506a91a66b2e26fe30f82c88991a7bdc342809cceb799fa5a1335c8",
+      "gitBlob": "bc8780c975b6449fb2487ff210288fb252cb62ca"
+    },
+    {
+      "path": "scripts/schema-source/modules/value.mjs",
+      "bytes": 464,
+      "sha256": "cd3cff6c06049c061d5b56cfbb85e2f68ae322c7efd5bb3d0526706eede7cc5f",
+      "gitBlob": "eac4a17c48c3022c495e9ab3469a0d2f123fb326"
+    },
+    {
+      "path": "scripts/schema-source/primitives.mjs",
+      "bytes": 1194,
+      "sha256": "968b2fa32d1149659d9193bc8f291c553a4c3cd47d76c3b13dd9ef3d9e47c348",
+      "gitBlob": "d0d43c0e4969d987a27fdf1baaf35b9546188fe6"
+    },
+    {
+      "path": "scripts/schema-source/registry.mjs",
+      "bytes": 7626,
+      "sha256": "59d806840962ec019b1cefc460b60b0dbc59834b2eccfe70af060bd2a9a410ee",
+      "gitBlob": "a5c3ff1df360f6cc515f953d9eb86e66bfefab54"
+    },
+    {
+      "path": "scripts/schema-subsets.mjs",
+      "bytes": 11274,
+      "sha256": "4a4711a581123727955ac5fa3e4445dbe13e9dd59c18fb08d3b2c8134365f51c",
+      "gitBlob": "d2c4b847b51e8cc04305ae2dfb10d28dc272b9cb"
+    },
+    {
+      "path": "scripts/search-onboarding-schema.mjs",
+      "bytes": 1408,
+      "sha256": "c15873b13fd29cb83512787de96fa7a7ab3d600a9895d28fd2beb9a02ec4d002",
+      "gitBlob": "ac9fb2e0db7e92c7e91db955f347cc7150b5263d"
+    },
+    {
+      "path": "scripts/study-onboarding-schema.mjs",
+      "bytes": 1947,
+      "sha256": "a81d0497ecd03013aec857d24d8ce146ad355ddba3c152950d39e2238cb065ab",
+      "gitBlob": "f40dea3671f7005a8182efc25bfaeb47f6d073ad"
+    },
+    {
+      "path": "scripts/supplied-discovery-schema.mjs",
+      "bytes": 1893,
+      "sha256": "5a78205e9ad8329dc8ec6a57f0a3b8ad22d1157bec6224aeedcf6d103d123a8c",
+      "gitBlob": "efc4901a7e0026eed44c33f76758d4793f95f10e"
+    },
+    {
+      "path": "scripts/supplied-interactions-schema.mjs",
+      "bytes": 2351,
+      "sha256": "2193601af26eccd2ec75039bf605bf4ad84d2b95b4cf879edd7e6f3a83316515",
+      "gitBlob": "7ce5469b826c1f630420f5aa017b2883d492e04f"
+    },
+    {
+      "path": "scripts/supplied-launchers-schema.mjs",
+      "bytes": 1604,
+      "sha256": "9bba89646159332e024e135996e7c00864db30a81fdb833123c37180692c436c",
+      "gitBlob": "8ea6b54b98f67f8b09c3259e4ebcad358c1d4a67"
+    },
+    {
+      "path": "scripts/task-cards-schema.mjs",
+      "bytes": 2287,
+      "sha256": "5c9ae06ff368aa11059e961b521f08dceef7362de9a5e40d900f3f194ae49e67",
+      "gitBlob": "fa22681e7111647f17b5abf2960c31584ef337fb"
+    },
+    {
+      "path": "scripts/transaction-detail-schema.mjs",
+      "bytes": 2023,
+      "sha256": "cc2592ae44c2c21cf850c4095d78794416031b5bb03fb618cd03cef1d27624ca",
+      "gitBlob": "63bcf10687dd2a90d178a28829a38eada5f0525e"
+    },
+    {
+      "path": "scripts/voice-cards-schema.mjs",
+      "bytes": 2243,
+      "sha256": "7f31908fb723a7b3d84cba9f702eebce52faacb587db5a8208cd975d0b0cb4c4",
+      "gitBlob": "baa8934442ae462394627ba175a5c97e400a6dc6"
+    },
+    {
+      "path": "scripts/weather-supplied-schema.mjs",
+      "bytes": 1940,
+      "sha256": "66a3c72ccf58dca0237e751d8d6e8b0d49f69b67ed73a777154626c37cc71c95",
+      "gitBlob": "b3bd8f77e1b7e28ea79237034aac1430d4676012"
+    },
+    {
+      "path": "src/data/units.json",
+      "bytes": 8433,
+      "sha256": "6b6f3fa308df9d7570075f9f57cea4b3d1e06830a9ea391e4e19c303a89a619a",
+      "gitBlob": "30cb796470d3c25fc5d3ae8f70bada3d09fb4884"
+    },
+    {
+      "path": "src/schema/iui.schema.json",
+      "bytes": 751247,
+      "sha256": "c59d34b171ee7cc54e278a857688d834363bbd6ff064f9ff503abfb74bdd0c92",
+      "gitBlob": "b3cca9559c0c76d2e3772e0bf80f6f27b77b1555"
+    }
+  ],
+  "checked": "Exact Git blob and byte size against the actual immutable remote recursive tree for schema sources, transitive contracts, examples and canonical schema.",
+  "cdnCommit": "fed5f86f49e73f908ac9ea98966b1515a3aaa597",
+  "cdnIncludesQuestionnaire": false
+}

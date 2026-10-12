@@ -1,0 +1,370 @@
+{
+  "format": "inform-ui-progressive-generation/1",
+  "generated": true,
+  "source": {
+    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
+    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+    }
+  },
+  "coverage": {
+    "migratedNodeCount": 52,
+    "totalNodeCount": 218,
+    "legacyNodeTypes": [
+      "agenda",
+      "person-profile",
+      "news-article",
+      "entity-reviews",
+      "restaurant-availability",
+      "onboarding-selection",
+      "create-interactive-poll",
+      "location-choice-request",
+      "business-gallery",
+      "flight-option",
+      "artist-upcoming-events",
+      "package-tracker",
+      "flight-tracker",
+      "sidebar-people-also-ask",
+      "email-preview",
+      "file-nav-list",
+      "jobs",
+      "product-card",
+      "local-business",
+      "restaurant-reviews",
+      "flight-search-form",
+      "flight-results",
+      "shared-activity-planner",
+      "event-sidebar",
+      "word-card",
+      "copy-words",
+      "code-cite",
+      "file-cite",
+      "sidebar-fact-table",
+      "entity-thumbnail-list",
+      "reddit-thread-card",
+      "markdown",
+      "writing-block",
+      "email-draft",
+      "task-expansion-card",
+      "code",
+      "math",
+      "badge",
+      "divider",
+      "spacer",
+      "topology",
+      "chart",
+      "clock",
+      "stopwatch",
+      "timer",
+      "weather",
+      "f1-races",
+      "f1-standings",
+      "sports-schedule",
+      "sports-scoreboard",
+      "sports-standings",
+      "quiz",
+      "flashcards",
+      "fill-blank",
+      "sentence-builder",
+      "vocab-card",
+      "finance-quote",
+      "finance-chart",
+      "finance-comparison",
+      "finance-heatmap",
+      "asset-distribution",
+      "transaction-list",
+      "ledger-accounts",
+      "ledger-recurring-transactions",
+      "nba-scores",
+      "soccer-games",
+      "american-football-games",
+      "basketball-tournament",
+      "election-results",
+      "nba-game-boxscore",
+      "cricket-match-boxscore",
+      "nba-player-summary",
+      "tennis-player-summary",
+      "unit-converter",
+      "currency-converter",
+      "svg",
+      "native",
+      "follow-up-card-group",
+      "ledger-transaction-detail",
+      "recommendation-card",
+      "prompt-checklist",
+      "ledger-finance-status-banner",
+      "learning-audio-label-card",
+      "learning-image-choice-card",
+      "learning-image-label-card",
+      "weather-sidebar-title",
+      "ledger-low-confidence-category-correction",
+      "ledger-net-worth",
+      "pressable",
+      "ledger-fee-interest-paid",
+      "html-view",
+      "search-image",
+      "youtube",
+      "async-image",
+      "async-image-group",
+      "lottie",
+      "tabbed-section",
+      "visual-card-carousel",
+      "link-card",
+      "recommendation-link-card",
+      "ledger-spend-so-far-this-month",
+      "ledger-upcoming-activity",
+      "image-grid",
+      "conversation-suggestions",
+      "follow-up-action-bar",
+      "ledger-income-tracker",
+      "async-video-carousel",
+      "display-automation",
+      "list-automations",
+      "automation-plan-summary",
+      "scheduled-task-suggestion",
+      "entity-card",
+      "entity-overview",
+      "ask-user-details",
+      "ask-user-files",
+      "ledger-spend-by-category",
+      "ledger-spend-by-category-detail",
+      "ledger-spend-by-category-recent-transactions",
+      "learning-voice-mode-launcher-card",
+      "offer-voice-conversation",
+      "learning-speak-card",
+      "conversational-onboarding-advice",
+      "conversational-onboarding-writing",
+      "onboarding-feature-card",
+      "onboarding-plugin-suggestions",
+      "onboarding-starter-tasks",
+      "conversational-onboarding-study",
+      "conversational-onboarding-search",
+      "follow-up-quiz",
+      "multiple-choice-block-v2",
+      "personality-quiz",
+      "whats-new-capability-welcome",
+      "ask-user-location",
+      "reservation-time-pills-ref-carousel",
+      "whats-new-capability-search",
+      "push-drip-series-intro",
+      "stop-push-drip-series",
+      "task-autopause-card",
+      "ledger-finance-onboarding",
+      "ledger-repair-bank-connection",
+      "finance-onboarding-suggestions",
+      "places-metadata-bar",
+      "plugin-followup",
+      "instant-suggestions",
+      "ledger-equity-updates",
+      "ledger-watchlist",
+      "homework-helper-v2",
+      "image-gen",
+      "internal-partner-app",
+      "bento",
+      "open-detail",
+      "openai",
+      "ledger-credit-score",
+      "ledger-credit-score-detail",
+      "ledger-low-confidence-category-correction-legacy",
+      "superbowl-riddle",
+      "learning-viz-dil",
+      "care-provider-results",
+      "care-provider-sidebar",
+      "entity",
+      "gen-image",
+      "speech-synthesizer",
+      "calculator-corrected-adjusted-age-of-preterm-infants",
+      "calculator-glasgow-coma-scale-gcs",
+      "calculator-rox-index-for-high-flow-nasal-cannula",
+      "calculator-qsofa-score"
+    ]
+  },
+  "fullSchema": {
+    "bytes": 751247,
+    "sha256": "c59d34b171ee7cc54e278a857688d834363bbd6ff064f9ff503abfb74bdd0c92",
+    "canonicalByteEqual": true
+  },
+  "measurements": [
+    {
+      "moduleId": "foundations/text",
+      "components": 3,
+      "schemaBytes": 10888,
+      "taskBytes": 14782,
+      "contractBytes": 270,
+      "examples": 1
+    },
+    {
+      "moduleId": "foundations/layout",
+      "components": 41,
+      "schemaBytes": 63667,
+      "taskBytes": 73393,
+      "contractBytes": 429,
+      "examples": 1
+    },
+    {
+      "moduleId": "forms/fields",
+      "components": 6,
+      "schemaBytes": 15860,
+      "taskBytes": 33755,
+      "contractBytes": 12794,
+      "examples": 1
+    },
+    {
+      "moduleId": "foundations/button",
+      "components": 1,
+      "schemaBytes": 5488,
+      "taskBytes": 9006,
+      "contractBytes": 289,
+      "examples": 1
+    },
+    {
+      "moduleId": "forms/questionnaire",
+      "components": 1,
+      "schemaBytes": 12966,
+      "taskBytes": 28363,
+      "contractBytes": 6334,
+      "examples": 1
+    }
+  ],
+  "taskPaths": [
+    {
+      "moduleId": "foundations/text",
+      "indexBytes": 1763,
+      "categoryBytes": 7660,
+      "taskBytes": 14782,
+      "routeAndTaskBytes": 24205,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "foundations/layout",
+      "indexBytes": 1763,
+      "categoryBytes": 7660,
+      "taskBytes": 73393,
+      "routeAndTaskBytes": 82816,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "forms/fields",
+      "indexBytes": 1763,
+      "categoryBytes": 1905,
+      "taskBytes": 33755,
+      "routeAndTaskBytes": 37423,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "foundations/button",
+      "indexBytes": 1763,
+      "categoryBytes": 7660,
+      "taskBytes": 9006,
+      "routeAndTaskBytes": 18429,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "forms/questionnaire",
+      "indexBytes": 1763,
+      "categoryBytes": 1905,
+      "taskBytes": 28363,
+      "routeAndTaskBytes": 32031,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "modules/foundations/text.json",
+      "bytes": 14782,
+      "sha256": "0d49927a511b7eaea98f777a8d126cbf1b3d5df891e00f3e91b581f02b408600"
+    },
+    {
+      "path": "modules/foundations/text.json.manifest.json",
+      "bytes": 7478,
+      "sha256": "2552f72e6236ab5578d2f6f177afff869022c243339b561fb3721dbe4803a761"
+    },
+    {
+      "path": "modules/foundations/layout.json",
+      "bytes": 73393,
+      "sha256": "458a143ff5ec219ae6627671bfe7e35460d4a8dba640c895d91dae2ba55f52a6"
+    },
+    {
+      "path": "modules/foundations/layout.json.manifest.json",
+      "bytes": 12013,
+      "sha256": "bb37cf03e54bff5aa165f0100b71b545b45ab935e8c6c15b78f1f3eba06a0c6b"
+    },
+    {
+      "path": "modules/forms/fields.json",
+      "bytes": 33755,
+      "sha256": "4fdec8dada93888410ec8911a1b3bc4afb9ddd2c6e1902db15593227d7e1267c"
+    },
+    {
+      "path": "modules/forms/fields.json.manifest.json",
+      "bytes": 7691,
+      "sha256": "bf561f7e3e3123d2fea78d4814ba88a53b896c31d32fee15651dd0076b466ea6"
+    },
+    {
+      "path": "modules/foundations/button.json",
+      "bytes": 9006,
+      "sha256": "c29236bad45eb496b0b5061aa8ae5fe8feb0d32e215597a36ab19d3644bc15e6"
+    },
+    {
+      "path": "modules/foundations/button.json.manifest.json",
+      "bytes": 7290,
+      "sha256": "f56664e7296e4ac743a860848a8a6d32b7fc3dace3e0a3629b29f0d8c6c9b892"
+    },
+    {
+      "path": "modules/forms/questionnaire.json",
+      "bytes": 28363,
+      "sha256": "5adeb7cc818b9abaf4d70af294ab0ac558b29f0f13fae1da09f91e13e1710217"
+    },
+    {
+      "path": "modules/forms/questionnaire.json.manifest.json",
+      "bytes": 7503,
+      "sha256": "555d463eb05083c366331f4ea016e200af1113e982e42d84b309e4a6cab29ed4"
+    },
+    {
+      "path": "categories/shared.json",
+      "bytes": 1101,
+      "sha256": "7292d27efbb2a3455c60dbcf2bebabc32a99794a4f33392be075668958231402"
+    },
+    {
+      "path": "categories/foundations.json",
+      "bytes": 7660,
+      "sha256": "f459856ea48549ef52e041729f4e402dab34355d4bc20211fe0d0871a3fa1c87"
+    },
+    {
+      "path": "categories/forms.json",
+      "bytes": 1905,
+      "sha256": "700a9262dd760a6b845730756dc285450e99a583f98e640b0a51dddb3f4b5e77"
+    },
+    {
+      "path": "index.json",
+      "bytes": 1763,
+      "sha256": "ecc8477c94c62e1c0eecd82b2377949068db20ae4462eada28353315324f0b6e"
+    },
+    {
+      "path": "legacy-components.json",
+      "bytes": 4843,
+      "sha256": "68964de333673aec576796c0d36c9fe0eebf31f809ed797d6f61d563eefe7530"
+    },
+    {
+      "path": "webchat/iui.schema.json",
+      "bytes": 751247,
+      "sha256": "c59d34b171ee7cc54e278a857688d834363bbd6ff064f9ff503abfb74bdd0c92"
+    },
+    {
+      "path": "webchat/iui.schema.manifest.json",
+      "bytes": 48774,
+      "sha256": "b6d65fcab916fd9fb1019752ee858497828c8a9f6a730bfae067678614f51fdd"
+    },
+    {
+      "path": "source-index.json",
+      "bytes": 31260,
+      "sha256": "6810fb085cd6e3e337ed8618e45516e1dee90de445ab7572d7de8be97c37a35c"
+    }
+  ],
+  "limitations": [
+    "52-node pilot only; unmigrated source remains explicit.",
+    "Selected structural schemas need full semantic validation.",
+    "No model-quality, runtime, native-browser, or clinical evaluation was performed by this generator."
+  ]
+}

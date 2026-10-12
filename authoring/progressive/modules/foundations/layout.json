@@ -1,0 +1,3126 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
+    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+    },
+    "requestedComponents": [
+      "link"
+    ],
+    "requestedModules": [
+      "foundations/layout"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "foundations/layout"
+    ],
+    "includedComponents": [
+      "link",
+      "favicon",
+      "image",
+      "box",
+      "card",
+      "row",
+      "col",
+      "grid",
+      "grid-item",
+      "blockquote",
+      "section",
+      "figure",
+      "details",
+      "tooltip",
+      "popover",
+      "flow",
+      "icon",
+      "pulse-indicator",
+      "loading",
+      "loading-block",
+      "citation",
+      "web-link-cards",
+      "prompt-suggestions",
+      "animate",
+      "celebration",
+      "carousel",
+      "tab-panel",
+      "tab-group",
+      "list",
+      "restaurant-menu",
+      "table",
+      "metric",
+      "metric-grid",
+      "steps",
+      "callout",
+      "label",
+      "slider",
+      "checklist",
+      "rating",
+      "toggle",
+      "select"
+    ],
+    "contracts": [
+      "docs/schema-source-modules.md#value",
+      "docs/schema-source-modules.md#layout"
+    ],
+    "examples": [
+      "examples/schema-modules/layout.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 52,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:9d8641a15855983abd4c5dc94e67a864453aed931d782b5f5c9f839e7c2f0aea",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "AnimateNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "animate"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 50
+          },
+          "effect": {
+            "enum": [
+              "fade",
+              "rise"
+            ]
+          },
+          "duration": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 1000
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "BlockquoteNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "blockquote"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 30
+          },
+          "attribution": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "cite": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "BoxNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "box"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "CalloutNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "callout"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "tone": {
+            "enum": [
+              "neutral",
+              "info",
+              "caution"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "CardNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "card"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "CarouselNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "carousel"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "controls": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "CelebrationNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "celebration"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "duration": {
+            "type": "integer",
+            "minimum": 300,
+            "maximum": 1800
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "message"
+        ],
+        "additionalProperties": false
+      },
+      "ChecklistItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "bind"
+        ],
+        "additionalProperties": false
+      },
+      "ChecklistNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "checklist"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ChecklistItem"
+            },
+            "minItems": 0,
+            "maxItems": 50
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "filter": {
+            "type": "boolean"
+          },
+          "bulk": {
+            "type": "boolean"
+          },
+          "emptyText": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "CitationNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "citation"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          }
+        },
+        "required": [
+          "type",
+          "title",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "ColNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "col"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "DetailsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "details"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "summary",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "FaviconNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "favicon"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12000
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2
+          },
+          "size": {
+            "enum": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "FigureNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "figure"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          "caption": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "FlowNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "flow"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 50
+          },
+          "gap": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "GridItemNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "grid-item"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "colSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "rowSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "mobileColSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "GridNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "grid"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          "columns": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "mobileColumns": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "IconNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "icon"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "name": {
+            "enum": [
+              "info",
+              "check",
+              "warning",
+              "error",
+              "plus",
+              "minus",
+              "arrow-left",
+              "arrow-right",
+              "external-link",
+              "clock"
+            ]
+          },
+          "size": {
+            "enum": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          },
+          "tone": {
+            "enum": [
+              "default",
+              "muted",
+              "info",
+              "success",
+              "warning",
+              "danger"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "ImageNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "image"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500000
+          },
+          "alt": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "aspectRatio": {
+            "enum": [
+              "1:1",
+              "4:3",
+              "16:9",
+              "3:4"
+            ]
+          },
+          "fit": {
+            "enum": [
+              "cover",
+              "contain"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "src",
+          "alt"
+        ],
+        "additionalProperties": false
+      },
+      "LabelNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "label"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "text",
+          "target"
+        ],
+        "additionalProperties": false
+      },
+      "LinkNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "link"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "href": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "resolved",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "snippet": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "faviconSrc": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200000
+          },
+          "imageSrc": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200000
+          },
+          "mobile": {
+            "type": "boolean"
+          },
+          "hostLink": {
+            "type": "boolean"
+          },
+          "copyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false,
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "link"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "resolved",
+                  "failed"
+                ]
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "snippet": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "faviconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "imageSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "mobile": {
+                "type": "boolean"
+              },
+              "hostLink": {
+                "type": "boolean"
+              },
+              "copyLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "loadImageLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Node"
+                },
+                "minItems": 0,
+                "maxItems": 32
+              }
+            },
+            "required": [
+              "value",
+              "href"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "link"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "resolved",
+                  "failed"
+                ]
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "snippet": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "faviconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "imageSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "mobile": {
+                "type": "boolean"
+              },
+              "hostLink": {
+                "type": "boolean"
+              },
+              "copyLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "loadImageLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Node"
+                },
+                "minItems": 0,
+                "maxItems": 32
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "link"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "failed"
+                ]
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "snippet": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "faviconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "imageSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "mobile": {
+                "type": "boolean"
+              },
+              "hostLink": {
+                "type": "boolean"
+              },
+              "copyLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "loadImageLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Node"
+                },
+                "minItems": 0,
+                "maxItems": 32
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ListNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "list"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Value"
+                },
+                {
+                  "$ref": "#/$defs/Node"
+                }
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "type",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "LoadingBlockNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "loading-block"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "shape": {
+            "enum": [
+              "text",
+              "card",
+              "circle"
+            ]
+          },
+          "lines": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "animate": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "loading-block"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "shape": {
+                "const": "text"
+              },
+              "lines": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10
+              },
+              "animate": {
+                "type": "boolean"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "loading-block"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "shape": {
+                "enum": [
+                  "card",
+                  "circle"
+                ]
+              },
+              "animate": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "shape"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "LoadingNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "loading"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "progress": {
+            "$ref": "#/$defs/Value"
+          },
+          "size": {
+            "enum": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          },
+          "showValue": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "MenuItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "price": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            "minItems": 0,
+            "maxItems": 8
+          },
+          "status": {
+            "enum": [
+              "available",
+              "unavailable"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "price"
+        ],
+        "additionalProperties": false
+      },
+      "MenuSection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/MenuItem"
+            },
+            "minItems": 0,
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "MetricGridNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "metric-grid"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "columns": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "MetricNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "metric"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "variant": {
+            "enum": [
+              "plain",
+              "card"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "precision": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6
+          },
+          "color": {
+            "enum": [
+              "default",
+              "secondary",
+              "tertiary",
+              "success",
+              "warning",
+              "danger",
+              "info",
+              "accent"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LinkNode"
+          },
+          {
+            "$ref": "#/$defs/FaviconNode"
+          },
+          {
+            "$ref": "#/$defs/ImageNode"
+          },
+          {
+            "$ref": "#/$defs/BoxNode"
+          },
+          {
+            "$ref": "#/$defs/CardNode"
+          },
+          {
+            "$ref": "#/$defs/RowNode"
+          },
+          {
+            "$ref": "#/$defs/ColNode"
+          },
+          {
+            "$ref": "#/$defs/GridNode"
+          },
+          {
+            "$ref": "#/$defs/GridItemNode"
+          },
+          {
+            "$ref": "#/$defs/BlockquoteNode"
+          },
+          {
+            "$ref": "#/$defs/SectionNode"
+          },
+          {
+            "$ref": "#/$defs/FigureNode"
+          },
+          {
+            "$ref": "#/$defs/DetailsNode"
+          },
+          {
+            "$ref": "#/$defs/TooltipNode"
+          },
+          {
+            "$ref": "#/$defs/PopoverNode"
+          },
+          {
+            "$ref": "#/$defs/FlowNode"
+          },
+          {
+            "$ref": "#/$defs/IconNode"
+          },
+          {
+            "$ref": "#/$defs/PulseIndicatorNode"
+          },
+          {
+            "$ref": "#/$defs/LoadingNode"
+          },
+          {
+            "$ref": "#/$defs/LoadingBlockNode"
+          },
+          {
+            "$ref": "#/$defs/CitationNode"
+          },
+          {
+            "$ref": "#/$defs/WebLinkCardsNode"
+          },
+          {
+            "$ref": "#/$defs/PromptSuggestionsNode"
+          },
+          {
+            "$ref": "#/$defs/AnimateNode"
+          },
+          {
+            "$ref": "#/$defs/CelebrationNode"
+          },
+          {
+            "$ref": "#/$defs/CarouselNode"
+          },
+          {
+            "$ref": "#/$defs/TabPanelNode"
+          },
+          {
+            "$ref": "#/$defs/TabGroupNode"
+          },
+          {
+            "$ref": "#/$defs/ListNode"
+          },
+          {
+            "$ref": "#/$defs/RestaurantMenuNode"
+          },
+          {
+            "$ref": "#/$defs/TableNode"
+          },
+          {
+            "$ref": "#/$defs/MetricNode"
+          },
+          {
+            "$ref": "#/$defs/MetricGridNode"
+          },
+          {
+            "$ref": "#/$defs/StepsNode"
+          },
+          {
+            "$ref": "#/$defs/CalloutNode"
+          },
+          {
+            "$ref": "#/$defs/LabelNode"
+          },
+          {
+            "$ref": "#/$defs/SliderNode"
+          },
+          {
+            "$ref": "#/$defs/ChecklistNode"
+          },
+          {
+            "$ref": "#/$defs/RatingNode"
+          },
+          {
+            "$ref": "#/$defs/ToggleNode"
+          },
+          {
+            "$ref": "#/$defs/SelectNode"
+          }
+        ]
+      },
+      "PopoverNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "popover"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "placement": {
+            "enum": [
+              "top",
+              "bottom"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "PromptSuggestion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "PromptSuggestionsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "prompt-suggestions"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/PromptSuggestion"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "initialVisible": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "PulseIndicatorNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "pulse-indicator"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "idle",
+              "busy",
+              "success",
+              "warning",
+              "error"
+            ]
+          },
+          "animate": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "RatingNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "rating"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "max": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 10
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "clearable": {
+            "type": "boolean"
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind"
+        ],
+        "additionalProperties": false
+      },
+      "RestaurantMenuNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "restaurant-menu"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/MenuSection"
+            },
+            "minItems": 0,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "title",
+          "currency",
+          "sections"
+        ],
+        "additionalProperties": false
+      },
+      "RowNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "row"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "SectionNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "section"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "heading": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "SelectNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "select"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 12000
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind",
+          "options"
+        ],
+        "additionalProperties": false
+      },
+      "SliderNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "slider"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "step": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "marks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "label": {
+                  "type": "string",
+                  "maxLength": 12000
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind",
+          "min",
+          "max",
+          "step"
+        ],
+        "additionalProperties": false
+      },
+      "SourceRecord": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "title",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "StepsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "steps"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "maxLength": 12000
+                },
+                "latex": {
+                  "type": "string",
+                  "maxLength": 12000
+                }
+              },
+              "required": [
+                "title"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "TabGroupNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "tab-group"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "initial": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/TabPanelNode"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "TabPanelNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "tab-panel"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "TableCell": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Value"
+          },
+          {
+            "$ref": "#/$defs/TableCellObject"
+          }
+        ]
+      },
+      "TableCellObject": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "rowSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "colSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "header": {
+            "type": "boolean"
+          },
+          "scope": {
+            "enum": [
+              "row",
+              "col",
+              "rowgroup"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end"
+            ]
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "TableNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "table"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/TableCell"
+              },
+              "minItems": 0,
+              "maxItems": 20
+            },
+            "minItems": 0,
+            "maxItems": 200
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/TableSection"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "caption": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "loading",
+              "error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "columns"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "table"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "columns": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "minItems": 1,
+                "maxItems": 20
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/TableCell"
+                  },
+                  "minItems": 0,
+                  "maxItems": 20
+                },
+                "minItems": 0,
+                "maxItems": 200
+              },
+              "sections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/TableSection"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              },
+              "caption": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "loading",
+                  "error"
+                ]
+              },
+              "message": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "rows"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "table"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "columns": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "minItems": 1,
+                "maxItems": 20
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/TableCell"
+                  },
+                  "minItems": 0,
+                  "maxItems": 20
+                },
+                "minItems": 0,
+                "maxItems": 200
+              },
+              "sections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/TableSection"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              },
+              "caption": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "loading",
+                  "error"
+                ]
+              },
+              "message": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "sections"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TableSection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "head",
+              "body",
+              "foot"
+            ]
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/TableCell"
+              },
+              "minItems": 0,
+              "maxItems": 20
+            },
+            "minItems": 0,
+            "maxItems": 200
+          }
+        },
+        "required": [
+          "kind",
+          "rows"
+        ],
+        "additionalProperties": false
+      },
+      "ToggleNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "toggle"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind"
+        ],
+        "additionalProperties": false
+      },
+      "TooltipNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "tooltip"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "placement": {
+            "enum": [
+              "top",
+              "bottom"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "WebLinkCardsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "web-link-cards"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SourceRecord"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "items"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/schema-source-modules.md#value",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 148,
+      "sha256": "110f8b18b69c573dfa20e5fc4cff400057b073348b86707f5c55663526008cf2",
+      "text": "## value\n\n`shared/value` provides the bounded scalar/reference/operator grammar shared by all trial families. It has no renderable node of its own.\n"
+    },
+    {
+      "path": "docs/schema-source-modules.md#layout",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 281,
+      "sha256": "21391815762e0217ad8da1d41f39ca5c0db7953ec07dddad130b165c1cb68ff2",
+      "text": "## layout\n\n`foundations/layout` provides the existing foundational layout, disclosure, table, link and local control block. This first migration keeps its historical definition order. Its family is intentionally reported as a family; asking for it includes all its reported nodes.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/layout.json",
+      "bytes": 275,
+      "sha256": "c18f68666fb14eca9f4ddfbec1d4faada980d59e9ee9bd574f670bba03d1e7c4",
+      "document": {
+        "version": "iui/1",
+        "state": {
+          "count": 2
+        },
+        "body": [
+          {
+            "type": "card",
+            "children": [
+              {
+                "type": "metric",
+                "label": "Notebooks",
+                "value": {
+                  "$": "count"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "6810fb085cd6e3e337ed8618e45516e1dee90de445ab7572d7de8be97c37a35c",
+    "schemaSha256": "e15ee753cd36d7b3f75485ce8a2dde3be81805c96516eae2436836204e8b418d",
+    "schemaBytes": 63667
+  },
+  "manifestPath": "layout.json.manifest.json"
+}

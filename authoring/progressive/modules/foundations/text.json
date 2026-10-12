@@ -1,0 +1,606 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
+    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+    },
+    "requestedComponents": [
+      "text"
+    ],
+    "requestedModules": [
+      "foundations/text"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "foundations/text"
+    ],
+    "includedComponents": [
+      "text",
+      "title",
+      "caption"
+    ],
+    "contracts": [
+      "docs/schema-source-modules.md#value",
+      "docs/schema-source-modules.md#text"
+    ],
+    "examples": [
+      "examples/schema-modules/text.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 52,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:ff25a4b247cf49d074d22b80cf89c93622ebc03a99e769f4af9537ea488fd05b",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "CaptionNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "caption"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "color": {
+            "enum": [
+              "default",
+              "secondary",
+              "tertiary",
+              "success",
+              "warning",
+              "danger",
+              "info",
+              "accent"
+            ]
+          },
+          "weight": {
+            "enum": [
+              "normal",
+              "medium",
+              "semibold",
+              "bold"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end"
+            ]
+          },
+          "italic": {
+            "type": "boolean"
+          },
+          "underline": {
+            "type": "boolean"
+          },
+          "strike": {
+            "type": "boolean"
+          },
+          "shimmer": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/TextNode"
+          },
+          {
+            "$ref": "#/$defs/TitleNode"
+          },
+          {
+            "$ref": "#/$defs/CaptionNode"
+          }
+        ]
+      },
+      "TextNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "text"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "runs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/TextRun"
+            },
+            "minItems": 1,
+            "maxItems": 100
+          },
+          "color": {
+            "enum": [
+              "default",
+              "secondary",
+              "tertiary",
+              "success",
+              "warning",
+              "danger",
+              "info",
+              "accent"
+            ]
+          },
+          "weight": {
+            "enum": [
+              "normal",
+              "medium",
+              "semibold",
+              "bold"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end"
+            ]
+          },
+          "italic": {
+            "type": "boolean"
+          },
+          "underline": {
+            "type": "boolean"
+          },
+          "strike": {
+            "type": "boolean"
+          },
+          "shimmer": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "text"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "runs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/TextRun"
+                },
+                "minItems": 1,
+                "maxItems": 100
+              },
+              "color": {
+                "enum": [
+                  "default",
+                  "secondary",
+                  "tertiary",
+                  "success",
+                  "warning",
+                  "danger",
+                  "info",
+                  "accent"
+                ]
+              },
+              "weight": {
+                "enum": [
+                  "normal",
+                  "medium",
+                  "semibold",
+                  "bold"
+                ]
+              },
+              "align": {
+                "enum": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              "italic": {
+                "type": "boolean"
+              },
+              "underline": {
+                "type": "boolean"
+              },
+              "strike": {
+                "type": "boolean"
+              },
+              "shimmer": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "text"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "runs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/TextRun"
+                },
+                "minItems": 1,
+                "maxItems": 100
+              },
+              "color": {
+                "enum": [
+                  "default",
+                  "secondary",
+                  "tertiary",
+                  "success",
+                  "warning",
+                  "danger",
+                  "info",
+                  "accent"
+                ]
+              },
+              "weight": {
+                "enum": [
+                  "normal",
+                  "medium",
+                  "semibold",
+                  "bold"
+                ]
+              },
+              "align": {
+                "enum": [
+                  "start",
+                  "center",
+                  "end"
+                ]
+              },
+              "italic": {
+                "type": "boolean"
+              },
+              "underline": {
+                "type": "boolean"
+              },
+              "strike": {
+                "type": "boolean"
+              },
+              "shimmer": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "runs"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TextRun": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "bold": {
+            "type": "boolean"
+          },
+          "italic": {
+            "type": "boolean"
+          },
+          "underline": {
+            "type": "boolean"
+          },
+          "strike": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "boolean"
+          },
+          "href": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "TitleNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "title"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "color": {
+            "enum": [
+              "default",
+              "secondary",
+              "tertiary",
+              "success",
+              "warning",
+              "danger",
+              "info",
+              "accent"
+            ]
+          },
+          "weight": {
+            "enum": [
+              "normal",
+              "medium",
+              "semibold",
+              "bold"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end"
+            ]
+          },
+          "italic": {
+            "type": "boolean"
+          },
+          "underline": {
+            "type": "boolean"
+          },
+          "strike": {
+            "type": "boolean"
+          },
+          "shimmer": {
+            "type": "boolean"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "type",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/schema-source-modules.md#value",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 148,
+      "sha256": "110f8b18b69c573dfa20e5fc4cff400057b073348b86707f5c55663526008cf2",
+      "text": "## value\n\n`shared/value` provides the bounded scalar/reference/operator grammar shared by all trial families. It has no renderable node of its own.\n"
+    },
+    {
+      "path": "docs/schema-source-modules.md#text",
+      "sourceBytes": 4331,
+      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
+      "bytes": 122,
+      "sha256": "7715655ae11e6b48816e914fa06df8c25574fe0741a1f3d889bb65ed0c849ba3",
+      "text": "## text\n\n`foundations/text` provides text, title and caption plus text runs. It depends on the shared expression grammar.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/text.json",
+      "bytes": 260,
+      "sha256": "96ac27f908d683e3a8acf483dfa77bcfed4143011a9cb7fc57922c1a45ff44b4",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "title",
+            "value": "Original packing note"
+          },
+          {
+            "type": "text",
+            "value": "Bring a notebook."
+          },
+          {
+            "type": "caption",
+            "value": "Local display only"
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "6810fb085cd6e3e337ed8618e45516e1dee90de445ab7572d7de8be97c37a35c",
+    "schemaSha256": "b1720b3e488dd337646f3182391e2afb398f0686f6adaf4c1e5704209713542b",
+    "schemaBytes": 10888
+  },
+  "manifestPath": "text.json.manifest.json"
+}
