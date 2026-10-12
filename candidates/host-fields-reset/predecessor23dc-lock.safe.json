@@ -1,0 +1,76 @@
+{
+  "source": "23dc14fea41f25616130148c8fd7937e14b4bd49",
+  "baseSource": "391e3cbe7914d0f8eeaed88ba62e8eee3df29688",
+  "basePublic": "d1196a06e0561bc384d94eb6ff625ea61309969d",
+  "format": "inform-skill-source-build-lock/1",
+  "publicCommit": null,
+  "kind": "partial-source-build-read-point",
+  "coveredControls": [
+    "input",
+    "textarea",
+    "radio",
+    "segmented"
+  ],
+  "files": [
+    {
+      "path": "src/renderer/forms.ts",
+      "bytes": 25463,
+      "sha256": "eb001e78a9d157dcc3bf2ef6eba98a51dea68affb3f1cb430facb860f8786859",
+      "gitBlob": "1aa2dde9b9d4efb1a571fbdcf167af7c96d98ddd"
+    },
+    {
+      "path": "src/renderer/index.ts",
+      "bytes": 47994,
+      "sha256": "30d119df9a159483ebb6e3e4721d1ba9931a6ebecdea585083f6ff5d04cc1c8d",
+      "gitBlob": "ab12f15b7667d5183b8760856735318b57a8ff09"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3817,
+      "sha256": "450757a8621e90ec4ab9afc59c5e3cf5d21d5366a8bba1179172c733d94f1549",
+      "gitBlob": "210fd6b817181c9f3f2ec0b7fd2448a2fbea5ebe"
+    },
+    {
+      "path": "tests/host-controls-reset.test.mjs",
+      "bytes": 6331,
+      "sha256": "7798c4ea43b37b0b1b933732b60381e20c384a09564ec0c948a0361cffed39b3",
+      "gitBlob": "cfff8e21e6ec9ffee39746223d1a0d67ca77540d"
+    },
+    {
+      "path": "tests/host-fields-reset.test.mjs",
+      "bytes": 3939,
+      "sha256": "d3d8e706ff7fa0af26adf12bf1f031e3ec4095f17307eeea0b59d7cad9884705",
+      "gitBlob": "30600527132f7b4a5737565177584995ead6b134"
+    },
+    {
+      "path": "tests/reader-reset-task.test.mjs",
+      "bytes": 2312,
+      "sha256": "8c4754e869bd12e6c5eb4e0c2dd74cfc2ca7d5b58a62d28635d80fd394fa4fb4",
+      "gitBlob": "ad9764c847c1c361f6d5139ca4da38109623e413"
+    },
+    {
+      "path": "docs/forms.md",
+      "bytes": 8591,
+      "sha256": "b0ab10dc2d8c697b3518d484afc24650ebe54a109662c8a4706f025a0779ddf4",
+      "gitBlob": "37b75d36cdeda3760af0d7a6ef1522c12fc033fe"
+    },
+    {
+      "path": "dist/index.js",
+      "bytes": 12787282,
+      "sha256": "bc287ecc850cc703bc8d3ca296cb6800ab04398461c452c5165420404b3ae012",
+      "gitBlob": "b7f07dffcd652abe302b6f447a08f6ebe559fc32"
+    },
+    {
+      "path": "dist/style.css",
+      "bytes": 700090,
+      "sha256": "f5f399ddfea213c7a36f58c3a0d3f54fc809d7c314033158dd134ebdb52e44f9",
+      "gitBlob": "c807393c16bc2051a4bfad75385cddef9898bb98"
+    },
+    {
+      "path": "cdn/iui.global.min.js",
+      "bytes": 6808889,
+      "sha256": "bdbd213d4f5c8bba2b3a09c54b3d61166ed8b5732aa248eb0cf7b398277fc40d",
+      "gitBlob": "93674e4675d5f3382180884b126c546091e88e01"
+    }
+  ]
+}

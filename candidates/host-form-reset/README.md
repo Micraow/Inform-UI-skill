@@ -50,7 +50,11 @@ Ordinary reader reset scheduling keeps its existing default behavior.
 - The failed `1b31634dba3ced3c4f8d5eba287451749c544866` predecessor remains a failed
   historical version. This lock never promotes its results.
 - The public933 asset commit `d1196a06e0561bc384d94eb6ff625ea61309969d` remains the
-  separately verified release. This source-build lock has `publicCommit: null`.
+  separately verified release. The matching source-only commit is
+  `cf2ed1e8d5df2fb5d0d44872ce0d9ca62434ac84`, verified through actual remote source bytes
+  and its unchanged asset leaves in [source-public.json](source-public.json).
+  Remote CDN/dist still contain933; the local391e build must be used for the reset fix.
+  The execution receipt retains its publication-time null field.
   The older5081 and183 locks are unchanged; implementation counts stay208/0/48,
   with213 registered protocol nodes.
 - The paper settings and numeric fixture are synthetic. No bank, health, account,

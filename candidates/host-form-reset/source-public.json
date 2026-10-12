@@ -1,0 +1,65 @@
+{
+  "kind": "source-only-publication-verification",
+  "checkedAt": "2026-10-11T23:44:05.651Z",
+  "source": "391e3cbe7914d0f8eeaed88ba62e8eee3df29688",
+  "publicCommit": "cf2ed1e8d5df2fb5d0d44872ce0d9ca62434ac84",
+  "publicTree": "14f8e822d4ffc0cfac2068a8414ef7f235350789",
+  "parentPublicCommit": "d1196a06e0561bc384d94eb6ff625ea61309969d",
+  "changedPaths": [
+    "README.md",
+    "docs/forms.md",
+    "src/renderer/forms.ts",
+    "src/renderer/index.ts",
+    "src/renderer/reader-controls.ts",
+    "tests/host-controls-reset.test.mjs",
+    "tests/reader-reset-task.test.mjs"
+  ],
+  "sourceFilesFetchedAndHashed": [
+    {
+      "path": "src/renderer/forms.ts",
+      "bytes": 24317,
+      "sha256": "2edd032f7a3c1bdaf0f4eafc5e91ab9b0be9cc79ea571482f0312715668a222b",
+      "gitBlob": "8c37e75f5a0bb0098dbdf7d32f58b8e50ff9d897"
+    },
+    {
+      "path": "src/renderer/index.ts",
+      "bytes": 47988,
+      "sha256": "325e8e6b77a6a477a41f08619b90701dd151d94a3198f43e311f710b2371062c",
+      "gitBlob": "6c1e87955bbb75a5b4cac8b1fafc6bb9ad74d55e"
+    },
+    {
+      "path": "src/renderer/reader-controls.ts",
+      "bytes": 3817,
+      "sha256": "450757a8621e90ec4ab9afc59c5e3cf5d21d5366a8bba1179172c733d94f1549",
+      "gitBlob": "210fd6b817181c9f3f2ec0b7fd2448a2fbea5ebe"
+    },
+    {
+      "path": "tests/host-controls-reset.test.mjs",
+      "bytes": 6044,
+      "sha256": "96f3a14c6f8da614a384f7be27e7f56a6c1e923acfb23a3377febfda640c177b",
+      "gitBlob": "b9747f1fdbb7694d9aec2d28ffc32a9a917cfcd3"
+    },
+    {
+      "path": "tests/reader-reset-task.test.mjs",
+      "bytes": 2312,
+      "sha256": "8c4754e869bd12e6c5eb4e0c2dd74cfc2ca7d5b58a62d28635d80fd394fa4fb4",
+      "gitBlob": "ad9764c847c1c361f6d5139ca4da38109623e413"
+    },
+    {
+      "path": "docs/forms.md",
+      "bytes": 7949,
+      "sha256": "329befbf754efbe063fe5d1049eb15af7c992251c1a6ce76925a50849b30b3a1",
+      "gitBlob": "1049ee089a80f927569a31dd521b1d3b3d1319a6"
+    }
+  ],
+  "sourceFilesCount": 6,
+  "remoteLeaves": 1358,
+  "treeTruncated": false,
+  "actionsCount": 0,
+  "cdnChanged": false,
+  "distChanged": false,
+  "publishedAssetsRemain": "d1196a06e0561bc384d94eb6ff625ea61309969d",
+  "boundary": "Remote source bytes match local391e. Generated builds in the consumer lock remain local read-point files; remote CDN and dist retain933 bytes.",
+  "unchangedAssetLeaves": 54,
+  "assetLeafIdentityVerified": true
+}

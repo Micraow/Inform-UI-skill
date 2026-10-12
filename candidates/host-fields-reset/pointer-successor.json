@@ -1,0 +1,20 @@
+{
+  "predecessorSource": "23dc14fea41f25616130148c8fd7937e14b4bd49",
+  "successorSource": "44c0de48bd76932a0111a3be195d90411b1c7195",
+  "originalConsumerFlowsPassed": 4,
+  "addedPointerSequenceBeforePassed": 0,
+  "addedPointerSequenceBeforeFailed": 1,
+  "successorConsumerFlowsPassed": 5,
+  "successorConsumerFlowsFailed": 0,
+  "changedLockedPaths": [
+    "src/renderer/forms.ts",
+    "tests/host-fields-reset.test.mjs",
+    "docs/forms.md",
+    "dist/index.js",
+    "cdn/iui.global.min.js"
+  ],
+  "nativeExecutedByConsumer": false,
+  "assertion": "Host Reset pointer focus must not expose a layout-changing error before click",
+  "negativeLogSha256": "8d8961f2d9df19dc0cc8f377d67bb5fa6e3c000aaf0a8a55861a24a8e5edb847",
+  "boundary": "JSDOM checks error visibility and reset event count. Actual pointer geometry belongs to separate native QA."
+}

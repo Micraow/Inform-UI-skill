@@ -2,6 +2,8 @@
 
 # Inform UI Skill
 
+新增 [文本与选择字段 Reset 消费者](candidates/host-fields-reset/README.md)：准确44c0de48本地global产物5组DOM绿，含23dc指针焦点负控原样转绿，覆盖Input/Textarea/Radio/Segmented与非法number draft；10叶SHA一致，0外部服务。同批核44c source-only公开3d99c551及391e公开cf2ed1e8的实际源码字节身份，远端CDN仍933，不混成本批新资产发布。
+
 新增 [外层表单 Reset 窄修消费者](candidates/host-form-reset/README.md)：准确391e3cbe源构建已验4组原创DOM流程和10文件SHA；Slider/Toggle/Select的取消、较新输入、原子派生值与换代退役均过。独立source-only锁，不改933公开资产；Input/Textarea/Radio不在本批范围。
 
 新增 [统一213标题窄修消费者](candidates/recovery213-readable-headers/README.md)：准确本地933dc后继已对应公开d1196a06，52远端资产实际取回33,438,701字节并逐项核SHA256/SRI/路径，使用说明含固定目录及完整性值。既有Credit/Care32正44负、双CDN8次流程与standalone结果保持，完整schema等于5081；该公开提交Actions0，不冒称新远端CI。旧5081/183锁保留，后续formReset不混入。

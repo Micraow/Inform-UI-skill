@@ -5,7 +5,7 @@
   "failedPredecessor": "1b31634dba3ced3c4f8d5eba287451749c544866",
   "basePublic": "d1196a06e0561bc384d94eb6ff625ea61309969d",
   "format": "inform-skill-source-build-lock/1",
-  "publicCommit": null,
+  "publicCommit": "cf2ed1e8d5df2fb5d0d44872ce0d9ca62434ac84",
   "kind": "partial-source-build-read-point",
   "coveredControls": [
     "slider",
@@ -78,5 +78,8 @@
     "This is not a complete CDN package or 52-asset release.",
     "Input, Textarea and Radio host resets are outside this consumer.",
     "No new schema or canonical count. Existing 933 and 183 asset locks remain separate."
-  ]
+  ],
+  "publicTree": "14f8e822d4ffc0cfac2068a8414ef7f235350789",
+  "publicSourceReceipt": "source-public.json",
+  "publicAssetsRemain": "d1196a06e0561bc384d94eb6ff625ea61309969d"
 }

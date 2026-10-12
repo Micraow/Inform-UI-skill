@@ -1,0 +1,81 @@
+{
+  "version": "iui/1",
+  "state": {
+    "title": "Paper crane",
+    "notes": "Fold\ngently",
+    "width": 4,
+    "enabled": false,
+    "edge": "round",
+    "layout": "two"
+  },
+  "body": [
+    {
+      "type": "input",
+      "kind": "text",
+      "label": "Original paper model",
+      "bind": "title",
+      "required": true
+    },
+    {
+      "type": "textarea",
+      "label": "Original folding note",
+      "bind": "notes",
+      "required": true
+    },
+    {
+      "type": "input",
+      "kind": "number",
+      "label": "Original marker width",
+      "bind": "width",
+      "min": 0,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "type": "input",
+      "kind": "checkbox",
+      "label": "Original paper guide visible",
+      "bind": "enabled"
+    },
+    {
+      "type": "radio",
+      "label": "Original paper edge",
+      "bind": "edge",
+      "options": [
+        {
+          "label": "Unavailable edge",
+          "value": "off",
+          "disabled": true
+        },
+        {
+          "label": "Rounded edge",
+          "value": "round"
+        },
+        {
+          "label": "Square edge",
+          "value": "square"
+        }
+      ]
+    },
+    {
+      "type": "segmented",
+      "label": "Original paper layout",
+      "bind": "layout",
+      "options": [
+        {
+          "label": "Unavailable layout",
+          "value": "off",
+          "disabled": true
+        },
+        {
+          "label": "Two panels",
+          "value": "two"
+        },
+        {
+          "label": "Three panels",
+          "value": "three"
+        }
+      ]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ const lock = await read('runtime-lock.safe.json');
 test('host reset locks the corrected sparse source without presenting a new CDN release', () => {
   assert.equal(lock.source, '391e3cbe7914d0f8eeaed88ba62e8eee3df29688');
   assert.equal(lock.failedPredecessor, '1b31634dba3ced3c4f8d5eba287451749c544866');
-  assert.equal(lock.publicCommit, null);
+  assert.equal(lock.publicCommit, 'cf2ed1e8d5df2fb5d0d44872ce0d9ca62434ac84');
   assert.equal(lock.basePublic, 'd1196a06e0561bc384d94eb6ff625ea61309969d');
   assert.deepEqual(lock.coveredControls, ['slider', 'toggle', 'select']);
   assert.equal(lock.files.length, 10);
@@ -35,6 +35,17 @@ test('bounded actual consumer receipt retains four successful groups and zero se
   assert.equal(r.fixtureDocumentsValidated, 2);
   assert.equal(r.resourceRequests, 0); assert.equal(r.serviceCalls, 0);
   assert.equal(r.nativeExecuted, false); assert.equal(r.fullSuiteExecuted, false);
+});
+
+test('the391e public receipt identifies source-only bytes and keeps the933 assets separate', async () => {
+  const r = await read('source-public.json');
+  assert.equal(r.source, lock.source); assert.equal(r.publicCommit, lock.publicCommit);
+  assert.equal(r.sourceFilesCount, 6); assert.equal(r.remoteLeaves, 1358);
+  assert.equal(r.unchangedAssetLeaves, 54); assert.equal(r.assetLeafIdentityVerified, true);
+  assert.equal(r.treeTruncated, false); assert.equal(r.actionsCount, 0);
+  assert.equal(r.cdnChanged, false); assert.equal(r.distChanged, false);
+  assert.equal(r.publishedAssetsRemain, lock.basePublic);
+  for (const f of r.sourceFilesFetchedAndHashed) assert.deepEqual(f, lock.files.find(x => x.path === f.path));
 });
 
 test('the published933 asset lock remains an independent verified52 package', async () => {

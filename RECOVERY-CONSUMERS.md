@@ -1,5 +1,7 @@
 # Current recovered consumers
 
+The [text/choice host-reset consumer](candidates/host-fields-reset/README.md) verifies five local-global DOM groups on exact `44c0de48bd76932a0111a3be195d90411b1c7195`, including invalid numeric drafts. The separately verified391e source is public at `cf2ed1e8d5df2fb5d0d44872ce0d9ca62434ac84`; its remote CDN/dist remain933.
+
 Latest narrow [host-form reset consumer](candidates/host-form-reset/README.md) verifies four actual DOM flows against source `391e3cbe7914d0f8eeaed88ba62e8eee3df29688`, with ten byte-locked files. Only Slider, Toggle and Select are covered. The published933 asset and earlier locks remain unchanged.
 
 The current exact local CDN consumer is [Recovery154](candidates/recovery154/README.md), with 21 original examples, 144 positive/359 negative documents through ESM/global exports and 7 mixed DOM contracts per export. It locks local assets `8e21f4fd06826a42301719ae0c90b007d46589c7`; public-source completeness and remote CI are not claimed. Counts remain 142 implemented, 6 partial, 108 missing.
