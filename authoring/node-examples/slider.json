@@ -1,0 +1,1 @@
+{"version":"iui/1","state":{"count":0},"body":[{"type":"slider","label":"Count","bind":"count","min":0,"max":10,"step":1}]}

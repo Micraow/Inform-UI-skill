@@ -1,0 +1,90 @@
+{
+  "format": "inform-ui-explicit-node-consumer-result/1",
+  "sourceCommit": "f974055196d821e71a680bb1ce849d29c2d522b7",
+  "passed": 16,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "row-text",
+      "components": [
+        "row",
+        "text"
+      ],
+      "sourceComponents": 44,
+      "definitions": 5,
+      "taskBytes": 82589,
+      "schemaBytes": 10235,
+      "contractBytes": 60460
+    },
+    {
+      "name": "slider-zero",
+      "components": [
+        "slider"
+      ],
+      "sourceComponents": 41,
+      "definitions": 3,
+      "taskBytes": 74970,
+      "schemaBytes": 4678,
+      "contractBytes": 59390
+    },
+    {
+      "name": "false-zero-null",
+      "components": [
+        "row",
+        "select",
+        "text",
+        "toggle"
+      ],
+      "sourceComponents": 44,
+      "definitions": 7,
+      "taskBytes": 85506,
+      "schemaBytes": 12300,
+      "contractBytes": 60460
+    },
+    {
+      "name": "typed-tabs",
+      "components": [
+        "tab-group",
+        "tab-panel",
+        "text"
+      ],
+      "sourceComponents": 44,
+      "definitions": 6,
+      "taskBytes": 82609,
+      "schemaBytes": 9980,
+      "contractBytes": 60460
+    }
+  ],
+  "defaultModuleInterfaceChanged": false,
+  "allSemanticContractsRetained": true,
+  "newRuntimeOrBrowserTests": false,
+  "networkRequests": 0,
+  "sourcePublic": "c060802fe8d8f4ec2df58c9be88f2a11d409f0e9",
+  "adapterUnitTests": {
+    "passed": 14,
+    "failed": 0
+  },
+  "existingFocusedTests": {
+    "passed": 25,
+    "failed": 0
+  },
+  "semanticContractsExactCopy": true,
+  "wholeWorkflowBytesMeasured": false,
+  "regressions": [
+    "Opaque metadata cannot satisfy requested node coverage.",
+    "A node-root output still validates each complete Document example.",
+    "Handled two-output publish failures restore prior files."
+  ],
+  "limits": [
+    "Structural examples and dependency/identity checks only. Same-version runtime semantic validation is still required.",
+    "All source-module semantic contracts are retained; no per-node semantic splitting is claimed.",
+    "Null is preserved where valid, not accepted in fields whose canonical schema forbids null.",
+    "Output rollback covers handled I/O failures, not process termination or concurrent readers.",
+    "No model-quality, token, renderer or native-browser measurement."
+  ],
+  "fullSkillRegression": {
+    "passed": 519,
+    "failed": 0,
+    "nativeBrowserRun": false
+  }
+}

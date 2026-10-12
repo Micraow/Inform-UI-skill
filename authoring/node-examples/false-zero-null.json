@@ -1,0 +1,38 @@
+{
+  "version": "iui/1",
+  "state": {
+    "enabled": false,
+    "mode": 0
+  },
+  "body": [
+    {
+      "type": "row",
+      "children": [
+        {
+          "type": "toggle",
+          "label": "Enabled",
+          "bind": "enabled"
+        },
+        {
+          "type": "select",
+          "label": "Mode",
+          "bind": "mode",
+          "options": [
+            {
+              "value": 0,
+              "label": "Zero"
+            },
+            {
+              "value": 1,
+              "label": "One"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": null
+        }
+      ]
+    }
+  ]
+}

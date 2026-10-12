@@ -11,6 +11,10 @@ The catalog migrates 128 of 218 registered node types into thirty-eight source m
 
 The full Web Chat schema is an output, never an additional manual maintenance source. The old [Web Chat guide](../../WEB-CHAT-GUIDE.md) remains a versioned compatibility reference. Generated files must not be edited by hand.
 
+## Optional precise node roots
+
+When the complete child-type set and matching examples are known, the [explicit node adapter](../NODE-SELECTION.md) can restrict a source-module selection further. It requires every child type and validates the supplied examples while retaining all existing required contracts. Module selection remains the default; uncertain node or example sets fail rather than silently changing scope.
+
 ## Generate from a fixed source checkout
 
 The verified public source is [c060802](https://github.com/Micraow/Inform-UI/commit/c060802fe8d8f4ec2df58c9be88f2a11d409f0e9). [The publication receipt](source-public.json) compares 193 relevant local files to that immutable remote tree. Check out that public commit and install its declared dependencies. For a fresh generation, use its full public SHA as the revision:
