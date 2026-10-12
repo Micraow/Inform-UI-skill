@@ -73,3 +73,7 @@ the preterm applicability definition is described by [WHO](https://www.who.int/n
 Only bibliographic links and original explanatory wording are supplied here.
 Source article text, figures, questionnaires and captured implementations are not included.
 These references do not constitute clinical validation or an endorsement of this library.
+
+## Subsequent source publication
+
+[Source identity](source-public.json) separately verifies public71a7cd979cfae84dbfa3eb317b438cc7a06c3bee:47 source leaves match and four actual source/document payloads pass SHA checks. The original local execution lock is unchanged. Remote CDN remains933 and does not yet include this date node; use a source build, not that older bundle. The [current209 inventory](../../references/recovery-scope209.json) records software functional completion only. Both publication commits used `[skip ci]` and have0 Actions runs.

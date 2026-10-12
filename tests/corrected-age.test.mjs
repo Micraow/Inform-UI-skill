@@ -56,3 +56,16 @@ test('thea6 ordinary success and new-input failure remain bounded historical evi
   for (const name of ['src/schema/iui.schema.json', 'dist/style.css'])
     assert.equal(lock.files.find(f => f.path === name).sha256, before.files.find(f => f.path === name).sha256);
 });
+
+test('source publication is separate from the candidate execution lock and933 assets', async () => {
+  const p = await read('source-public.json');
+  assert.equal(p.source, lock.source); assert.equal(lock.publicCommit, null);
+  assert.equal(lock.implemented, 208);
+  assert.equal(p.publicCommit, '71a7cd979cfae84dbfa3eb317b438cc7a06c3bee');
+  assert.equal(p.sourceFilesMatchedByGitBlob.length, 47);
+  assert.equal(p.sourceFilesFetchedAndHashed.length, 4);
+  for (const f of p.sourceFilesFetchedAndHashed) assert.deepEqual(f, lock.files.find(x => x.path === f.path));
+  assert.equal(p.unchangedPublishedAssetLeaves, 54); assert.equal(p.actionsRuns, 0);
+  assert.equal(p.clinicalValidation, false); assert.equal(p.runtimeExecutionRepeated, false);
+  assert.equal(p.publicBuildAssetsRemain, 'd1196a06e0561bc384d94eb6ff625ea61309969d');
+});
