@@ -27,7 +27,7 @@ export async function auditAuthoring(library) {
   const contract=await readFile(path.join(library,'docs/questionnaire-contract.md')),fixture=await readFile(path.join(root,representativeExamples.at(-1)));
   const savings=examples.reduce((n,x)=>n+x.savedBytes,0);
   return {
-    format:'inform-authoring-byte-audit/1',runtimeSource:pack.runtime.source,measurement:'UTF-8 bytes; no tokenizer available or invoked; token counts and model accuracy are unmeasured',
+    format:'inform-authoring-byte-audit/1',runtimeSource:pack.runtime.source,measurement:'UTF-8 bytes; no tokenizer invoked; token counts and model accuracy are unmeasured',
     examples,
     guides:{legacyEntry:{path:legacyFile,bytes:legacy.length,sha256:sha(legacy)},currentEntry:{path:'SKILL.md',bytes:entry.length,sha256:sha(entry)},webGuideBytes:web.length},
     schema:{fileBytes:schemaRaw.length,minifiedBytes:bytes(schema),definitions:Object.keys(schema.$defs).length,selectedDefinitions:pack.identity.definitions,selectedSchemaMinifiedBytes:bytes(pack.schema)},

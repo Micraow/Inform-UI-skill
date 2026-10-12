@@ -80,7 +80,7 @@ alone is not sufficient to infer its fields or side effects.
 The [183 package](candidates/recovery183/README.md),
 [164 package](candidates/recovery164/README.md),
 [154 package](candidates/recovery154/README.md) and
-[older foundational guide](SKILL.md) remain available for reproducibility.
+[older foundational guide](SKILL.7b9a332.md) remain available for reproducibility.
 Their schema, runtime URLs and test results belong to their own fixed versions.
 Do not run a newer example against an older package or label an earlier browser
 result as coverage of a later source release.

@@ -9,6 +9,14 @@ export const candidateDirectory = 'candidates/pending-batch';
 export const acceptedRevision = 'd370ffb2df310fce0da9299e6e254a58509ba544';
 export const candidateRevision = '26ec211fa529516af3b1523248f5912c45ec64c6';
 export const candidateTree = '24dbdb12e9e1b557025cea4ad03f8aa5cebd5322';
+/** Resolve explicitly preserved old artifacts; their original lock digests remain mandatory. */
+export function historical37InputPath(relative) {
+  if (relative === 'SKILL.md') return 'candidates/upcoming-three/baseline37/SKILL.md.source.txt';
+  if (relative === 'tests/pending-batch.test.mjs') return 'candidates/upcoming-three/baseline37/tests/pending-batch.test.mjs';
+  if (['README.md','scripts/verify-consumer-reuse.mjs'].includes(relative)) return 'candidates/upcoming-eighteen/baseline107/'+relative+'.source.txt';
+  if (['scripts/validate-examples.mjs','scripts/verify-browser.mjs','scripts/verify-pending-batch.mjs','scripts/pending-inputs.mjs','tests/skill.test.mjs'].includes(relative)) return 'authoring/legacy-checks/'+relative+'.source.txt';
+  return relative;
+}
 export async function safeFile(root, relative) {
   assert.equal(typeof relative, 'string');
   assert.ok(/^[A-Za-z0-9._/-]+$/.test(relative) && !path.posix.isAbsolute(relative));
@@ -31,7 +39,7 @@ export async function verifyPinnedInputs(root, library, lock) {
   assert.equal(sha256(await readFile(path.join(root,'library-contract.json'))),lock.pendingContractSha256,'Pending contract changed');
   assert.equal((await readJSON(path.join(root,'library-contract.json'))).revision,candidateRevision);
   assert.equal(sha256(await readFile(path.join(root,candidateDirectory,'manifest37.source.json'))),lock.manifestSha256);
-  for (const [relative, expected] of Object.entries(lock.candidateFiles)) assert.equal(sha256(await readFile(await safeFile(root,relative))),expected,'Candidate artifact changed: '+relative);
+  for (const [relative, expected] of Object.entries(lock.candidateFiles)) assert.equal(sha256(await readFile(await safeFile(root,historical37InputPath(relative)))),expected,'Candidate artifact changed: '+relative);
   for (const [relative, expected] of Object.entries({...lock.sourceFiles,...lock.runtimeFiles})) {
     assert.match(expected,/^[a-f0-9]{64}$/);
     assert.equal(sha256(await readFile(await safeFile(library,relative))),expected,`Frozen source/build changed: ${relative}`);

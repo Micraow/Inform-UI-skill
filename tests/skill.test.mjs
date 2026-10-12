@@ -71,8 +71,8 @@ test('metadata parsing accepts Windows line endings and a UTF-8 BOM', async () =
   assert.throws(() => parseSkillFrontmatter('No frontmatter'), /frontmatter/);
 });
 
-test('the copyable entrypoint contains a complete JSON-backed shell and pinned CDN integrity', async () => {
-  const source = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+test('the preserved versioned guide retains its complete JSON-backed shell and pinned CDN integrity', async () => {
+  const source = await readFile(path.join(root, 'SKILL.7b9a332.md'), 'utf8');
   const { html, document } = readSkillShell(source);
   const contract = await json('library-contract.json');
   assert.equal(document.version, contract.schemaVersion);
@@ -116,14 +116,14 @@ test('current branding uses Inform UI while the reference and immutable historic
     assert.equal(source.includes('https://github.com/Micraow/Intelligent-UI'), false, `${file}: old current repository URL`);
     assert.equal(source.includes('https://cdn.jsdelivr.net/gh/Micraow/Intelligent-UI@'), false, `${file}: old current CDN URL`);
   }
-  const { html, document } = readSkillShell(skill);
+  const { html, document } = readSkillShell(await readFile(path.join(root, 'SKILL.7b9a332.md'), 'utf8'));
   assert.equal(document.version, 'iui/1');
   assert.ok(html.includes('window.IUI'));
   for (const directory of ['tests/blind', 'tests/blind46']) assert.equal((await json(`${directory}/library-contract.json`)).repository, 'Micraow/Intelligent-UI');
 });
 
-test('root discovers every registered node while complete guide retains deep contracts without an artificial size ceiling', async () => {
-  const source = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+test('preserved versioned guide still discovers every original node and retains complete deep contracts', async () => {
+  const source = await readFile(path.join(root, 'SKILL.7b9a332.md'), 'utf8');
   const guide = await readFile(path.join(root, 'WEB-CHAT-GUIDE.md'), 'utf8');
   const contract = await json('library-contract.json');
   for (const { type } of await json('references/node-support.json')) assert.ok(source.includes(type), `Root guide omits ${type}`);

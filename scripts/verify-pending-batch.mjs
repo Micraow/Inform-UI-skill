@@ -72,14 +72,14 @@ for(const item of inputPaths){
 console.log('PASS '+records.length+' frozen candidate examples: public API, canonical/subset schemas, CLI, compile and JSDOM');
 let priorExamples=0;for(const file of (await readdir(path.join(root,'examples'))).filter(x=>x.endsWith('.json'))){const d=await readJSON(path.join(root,'examples',file));assert.equal(api.validateDocument(d).ok,true,file);assert.equal(full(d),true,file);priorExamples++;}
 const literalResults=[];
-for(const file of ['SKILL.md','WEB-CHAT-GUIDE.md','references/pending-learning.md','references/pending-finance-lists.md']){
+for(const file of ['SKILL.7b9a332.md','WEB-CHAT-GUIDE.md','references/pending-learning.md','references/pending-finance-lists.md']){
  const text=await readFile(path.join(root,file),'utf8');
  for(const match of text.matchAll(/^```json( candidate-only)?\r?\n([\s\S]*?)^```/gm)){
   const input=JSON.parse(match[2]),d=input.version?input:{version:'iui/1',body:[input]},r=api.validateDocument(d);
   assert.equal(r.ok,true,file+': '+JSON.stringify(r.issues));assert.equal(full(d),true,file+' literal');
   const sub=subsetFor(groupsFor(d));assert.equal(sub(d),true,file+' literal domain');literalResults.push({file,candidateOnly:!!match[1],sha256:sha256(match[2])});
  }
- if(file==='SKILL.md'||file==='WEB-CHAT-GUIDE.md')assert.equal(api.validateDocument(readSkillShell(text).document).ok,true,'Shell JSON');
+ if(file==='SKILL.7b9a332.md'||file==='WEB-CHAT-GUIDE.md')assert.equal(api.validateDocument(readSkillShell(text).document).ok,true,'Shell JSON');
 }
 const doc=(node,state)=>({version:'iui/1',...(state?{state}:{}),body:[node]});
 const positives=[

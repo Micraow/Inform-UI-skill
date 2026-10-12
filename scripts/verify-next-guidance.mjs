@@ -17,7 +17,7 @@ const history = await readJson(path.join(root, 'tests/frozen-history-sha256.json
 assert.ok(Object.keys(history).length > 0, 'History manifest must not be vacuously empty');
 for (const [name, expected] of Object.entries(history)) assert.equal(hash(await readFile(path.join(root, name))), expected, `Frozen history changed: ${name}`);
 const literalDocs = [];
-for (const name of ['SKILL.md', 'WEB-CHAT-GUIDE.md']) {
+for (const name of ['SKILL.7b9a332.md', 'WEB-CHAT-GUIDE.md']) {
   const content = await readFile(path.join(root, name), 'utf8');
   for (const match of content.matchAll(/^```json\r?\n([\s\S]*?)^```/gm)) {
     const parsed = JSON.parse(match[1]); literalDocs.push({ name, document: parsed.version ? parsed : { version: 'iui/1', body: [parsed] } });

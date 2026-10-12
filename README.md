@@ -32,7 +32,7 @@ node Inform-UI/bin/iui.mjs build inform-ui-author/examples/minimal.json --out an
 
 打开生成的 `answer.html` 查看结果。已有工作目录时，先保存自己的修改，再选择版本；验证器不会下载或悄悄替换缺失的运行库。
 
-支持技能目录的 Agent 可以加载整个仓库，并保留相对路径。基础表达原则见 [SKILL.md](SKILL.md)；该文件与 [WEB-CHAT-GUIDE.md](WEB-CHAT-GUIDE.md) 保留了自身的旧版固定运行合同，不能把其登记数或 CDN 链接当作当前版本。使用新增组件时，应读对应消费者说明、同版完整 schema 和一个同版示例。最新源 schema 位于 [固定 d9b0ed41](https://github.com/Micraow/Inform-UI/blob/d9b0ed410d9aa2dd7f8fa888ff44b22595239853/src/schema/iui.schema.json)。
+支持技能目录的 Agent 保留整个仓库的相对路径，但默认只读精简的 [SKILL.md](SKILL.md)，再按任务取 [闭合合同与相邻示例](authoring/README.md)。旧130KB全文在 [固定快照](SKILL.7b9a332.md) 逐字保留，与 [WEB-CHAT-GUIDE.md](WEB-CHAT-GUIDE.md) 都按需读取，不能把其旧登记数或 CDN 链接当作当前版本。使用新增组件时，应读对应任务包/消费者说明、同版 schema 依赖和一个同版示例，最终用完整 `validateDocument` 校验。最新公开源 schema 位于 [固定 d9b0ed41](https://github.com/Micraow/Inform-UI/blob/d9b0ed410d9aa2dd7f8fa888ff44b22595239853/src/schema/iui.schema.json)。
 
 没有终端时，可使用 [214 固定资产说明](candidates/recovery214/README.md) 的浏览器入口，或让宿主提供已构建的匹配运行库。不要把未执行的 HTML 说成已预览。
 

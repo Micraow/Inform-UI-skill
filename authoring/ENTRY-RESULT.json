@@ -1,0 +1,66 @@
+{
+  "format": "inform-thin-entry-verification/1",
+  "baseSkillCommit": "971523f9347cb76a30877fe0aee95e4ff9d7c87a",
+  "entry": {
+    "path": "SKILL.md",
+    "bytes": 3823,
+    "sha256": "2029be7bdce6e857b3291be66d3b096d4a2dacaaaf3a3ee22ff2ba7b4e1d614d"
+  },
+  "preservedGuide": {
+    "format": "inform-skill-entry-migration/1",
+    "originalCommit": "7b9a33252364cded5177ae6f28f5104a449c26a5",
+    "originalPath": "SKILL.md",
+    "preservedPath": "SKILL.7b9a332.md",
+    "bytes": 130534,
+    "sha256": "813d9798effe53e330cf2e58b6fe06a886a2a3778980f864434ce2c1865afd28",
+    "compatibility": "The prior guide is preserved byte-for-byte at repository root, so its existing relative links retain their meaning. It is an optional fixed-version reference, not default model context.",
+    "preservedHistoricalCheckInputs": [
+      {
+        "originalPath": "scripts/validate-examples.mjs",
+        "preservedPath": "authoring/legacy-checks/scripts/validate-examples.mjs.source.txt",
+        "bytes": 18352,
+        "sha256": "0343cfddb8da4efdc7d6d497db4c742afeb2fa4e1f82e8ca043c08a0f1efd765"
+      },
+      {
+        "originalPath": "scripts/verify-browser.mjs",
+        "preservedPath": "authoring/legacy-checks/scripts/verify-browser.mjs.source.txt",
+        "bytes": 34554,
+        "sha256": "6936838bd18adebf1a5ca9f695a1b850d1458e71eea8d3a46daef5e584a533bb"
+      },
+      {
+        "originalPath": "scripts/verify-pending-batch.mjs",
+        "preservedPath": "authoring/legacy-checks/scripts/verify-pending-batch.mjs.source.txt",
+        "bytes": 14585,
+        "sha256": "a5a4c17ec579808fb3e49cdbaeb8ed710341b55d4a4483a079e70f27efd62bd2"
+      },
+      {
+        "originalPath": "scripts/pending-inputs.mjs",
+        "preservedPath": "authoring/legacy-checks/scripts/pending-inputs.mjs.source.txt",
+        "bytes": 3575,
+        "sha256": "152a22938e35989d939ce5f160b8d6772cc23c2a2c063f26a4abf12d539b2b02"
+      },
+      {
+        "originalPath": "tests/skill.test.mjs",
+        "preservedPath": "authoring/legacy-checks/tests/skill.test.mjs.source.txt",
+        "bytes": 8951,
+        "sha256": "356b139aab3dbf18e245834598a44944a86e5d43293951bec83871dd7428a861"
+      }
+    ]
+  },
+  "checks": {
+    "fullSkillTests": 479,
+    "passed": 479,
+    "failed": 0,
+    "execution": "serial Node test runner",
+    "legacyGuidanceAssertionsRetained": true,
+    "allRelativeLinksChecked": true,
+    "runtimeRebuilt": false,
+    "newNativeTests": false
+  },
+  "questionnaireTaskBytes": 24814,
+  "comparisonBundleBytes": 891898,
+  "byteSavingsAreNotTokenOrAccuracyResults": true,
+  "modelGenerationExperimentExecuted": false,
+  "historicalCanonicalImplemented": 212,
+  "publishedRuntimePackage": "fed5f86f49e73f908ac9ea98966b1515a3aaa597"
+}

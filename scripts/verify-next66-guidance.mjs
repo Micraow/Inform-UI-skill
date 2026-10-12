@@ -13,7 +13,7 @@ const names=['loading-numeric-progress','loading-placeholder-shapes','supplied-s
 const docs=await Promise.all(names.map(n=>json(path.join(root,'examples',n+'.json'))));
 const negatives=await json(path.join(root,'tests/next66-invalid.json'));
 const literals=[];
-for(const name of ['SKILL.md','WEB-CHAT-GUIDE.md'])for(const m of (await readFile(path.join(root,name),'utf8')).matchAll(/^```json\r?\n([\s\S]*?)^```/gm)){const d=JSON.parse(m[1]);literals.push({file:name,document:d.version?d:{version:'iui/1',body:[d]}});}
+for(const name of ['SKILL.7b9a332.md','WEB-CHAT-GUIDE.md'])for(const m of (await readFile(path.join(root,name),'utf8')).matchAll(/^```json\r?\n([\s\S]*?)^```/gm)){const d=JSON.parse(m[1]);literals.push({file:name,document:d.version?d:{version:'iui/1',body:[d]}});}
 const history=await json(path.join(root,'tests/frozen-history-sha256.json'));
 for(const [p,sha]of Object.entries(history))assert.equal(hash(await readFile(path.join(root,p))),sha,p);
 console.log(`PASS syntax: ${names.length} new examples, ${negatives.length} negative fixtures, ${literals.length} root/guide literals, ${Object.keys(history).length} immutable history files`);

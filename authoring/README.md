@@ -12,7 +12,9 @@ Constraints that affect meaning belong beside the example: unknown versus zero, 
 
 ## What the byte audit found
 
-The previous default guide is130,534 UTF-8 bytes; its separate Web Chat guide is107,997 bytes. These are independently measured files, not a claim that both were always loaded. The current full schema is751,247 bytes, while the questionnaire's five-definition closure is5,335 minified bytes. The full adjacent questionnaire pack is20,991 readable bytes, including its semantics, example and version metadata.
+The previous default guide is130,534 UTF-8 bytes; its separate Web Chat guide is107,997 bytes. The new default entry is3,823 bytes, with the original full guide preserved byte-for-byte in a versioned reference. These are independently measured files, not a claim that both full guides were always loaded. The current full schema is751,247 bytes, while the questionnaire's five-definition closure is5,335 minified bytes. The full adjacent questionnaire pack is20,991 readable bytes, including its semantics, example and version metadata.
+
+The complete questionnaire input is now24,814 bytes (thin entry plus adjacent pack), compared with891,898 bytes for the explicitly defined full-guide + full-schema + domain-contract + example bundle. This measures the loading paths and bytes of those two bundles. It does not establish equivalent model attention or model accuracy; those require the separate experiment.
 
 Across five representative documents, optional expression/table syntax reduces minified output by only269 bytes. Its new syntax guide costs2,575 bytes, giving a net **increase of2,306 bytes** when charged once to that comparison. Therefore canonical JSON remains the main interface. Formatting removal alone is not counted as a semantic compression benefit.
 

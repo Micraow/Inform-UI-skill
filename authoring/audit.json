@@ -1,7 +1,7 @@
 {
   "format": "inform-authoring-byte-audit/1",
   "runtimeSource": "29c6905e19d00f60ad4d945d766a6fbf516f2f9c",
-  "measurement": "UTF-8 bytes; no tokenizer available or invoked; token counts and model accuracy are unmeasured",
+  "measurement": "UTF-8 bytes; no tokenizer invoked; token counts and model accuracy are unmeasured",
   "examples": [
     {
       "path": "examples/minimal.json",
@@ -198,14 +198,14 @@
   ],
   "guides": {
     "legacyEntry": {
-      "path": "SKILL.md",
+      "path": "SKILL.7b9a332.md",
       "bytes": 130534,
       "sha256": "813d9798effe53e330cf2e58b6fe06a886a2a3778980f864434ce2c1865afd28"
     },
     "currentEntry": {
       "path": "SKILL.md",
-      "bytes": 130534,
-      "sha256": "813d9798effe53e330cf2e58b6fe06a886a2a3778980f864434ce2c1865afd28"
+      "bytes": 3823,
+      "sha256": "2029be7bdce6e857b3291be66d3b096d4a2dacaaaf3a3ee22ff2ba7b4e1d614d"
     },
     "webGuideBytes": 107997
   },
@@ -224,7 +224,7 @@
   },
   "completeQuestionnaireTask": {
     "legacyEntryPlusFullSchemaContractExampleBytes": 891898,
-    "currentEntryPlusAdjacentPackBytes": 151525,
+    "currentEntryPlusAdjacentPackBytes": 24814,
     "packPrettyBytes": 20991,
     "packMinifiedBytes": 10797,
     "note": "Compared bundles include instructions, schema, semantic constraints and the original example. Full guides are not assumed to be read together."

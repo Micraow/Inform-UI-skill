@@ -37,7 +37,7 @@ assert.equal(schema.properties.version.const, contract.schemaVersion);
 const inventory = await readJson(path.join(root, 'references/node-support.json'));
 assert.deepEqual(schema.$defs.Node.oneOf.map(node => { const definition = node.$ref ? schema.$defs[node.$ref.split('/').at(-1)] : node; return definition.properties.type.const; }).sort(), inventory.map(item => item.type).sort(), 'Node inventory drifted from the real library schema');
 await checkSkill();
-const skillSource = await readFile(path.join(root, 'SKILL.md'), 'utf8');
+const skillSource = await readFile(path.join(root, 'SKILL.7b9a332.md'), 'utf8');
 const shell = readSkillShell(skillSource);
 const guideSource = await readFile(path.join(root, 'WEB-CHAT-GUIDE.md'), 'utf8');
 const extractExamples = source => [...source.matchAll(/^```json\r?\n([\s\S]*?)^```/gm)].map(match => JSON.parse(match[1]));

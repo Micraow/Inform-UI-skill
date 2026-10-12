@@ -30,7 +30,7 @@ const reuseFlags=['--reuse-consumer-receipt','--reuse-lock','--consumer-core','-
 const reuseValues=reuseFlags.map(argument);assert.ok(reuseValues.every(Boolean)||reuseValues.every(v=>v===undefined),'Supply all four explicit reuse anchors or none');
 const reuse=reuseValues.every(Boolean)?await verifyConsumerReuse({receiptPath:path.resolve(reuseValues[0]),lockPath:path.resolve(reuseValues[1]),coreRoot:path.resolve(reuseValues[2]),coreRevision:reuseValues[3],libraryRoot:library,skillRoot:root}):null;
 
-const shell = readSkillShell(await readFile(path.join(root, 'SKILL.md'), 'utf8'));
+const shell = readSkillShell(await readFile(path.join(root, 'SKILL.7b9a332.md'), 'utf8'));
 const exampleLanguages=JSON.parse(await readFile(path.join(root,'references/example-languages.json'),'utf8'));
 assert.ok(exampleLanguages&&typeof exampleLanguages==='object'&&!Array.isArray(exampleLanguages),'Explicit example language map required');
 const shellLanguage=shell.html.match(/<html\b[^>]*\blang="([^"]+)"/)?.[1];
