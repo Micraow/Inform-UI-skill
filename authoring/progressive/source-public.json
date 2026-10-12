@@ -1,15 +1,75 @@
 {
   "format": "inform-ui-progressive-public-source/1",
-  "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
-  "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0",
-  "publicTree": "3268df927687297963d5c72c5e70c766f9d08636",
-  "url": "https://github.com/Micraow/Inform-UI/commit/d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0",
+  "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
+  "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675",
+  "publicTree": "2fe7ec86eae0a24552a3bb5a3a62d9d369a66dfe",
+  "url": "https://github.com/Micraow/Inform-UI/commit/e6d93b0b1640fe6955f33acdb23f565d6d406675",
   "verifiedFiles": [
+    {
+      "path": "docs/api.md",
+      "bytes": 4773,
+      "sha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "gitBlob": "d0ce4c96720b67e5eeb24cd7dabc453df9810c1e"
+    },
+    {
+      "path": "docs/button-actions.md",
+      "bytes": 6740,
+      "sha256": "005f47f094074e3220444281c4093b879e40b38c13aa6eda9521905922180d4a",
+      "gitBlob": "b7514a92e2275b4deb3f5ae8b724c55bd63466da"
+    },
+    {
+      "path": "docs/carousel.md",
+      "bytes": 1990,
+      "sha256": "8b46f1e1014a271530dda0c1d22028ec90cb492a31db4e55a60e20dd58ec33d7",
+      "gitBlob": "b97e14779257b31e1385beeaa0f984383779a506"
+    },
+    {
+      "path": "docs/charts.md",
+      "bytes": 2663,
+      "sha256": "0584f65692e9d31d7b90889996c9cbc56fc7bf3173cbfbd1ccf1391d019db693",
+      "gitBlob": "ef194ae43a9896b60b88d1ac66385c73d6612f06"
+    },
+    {
+      "path": "docs/checklist.md",
+      "bytes": 2442,
+      "sha256": "8a700e473d2d91e3e9d91b2deea1e357a1258cfdde3e8002383eead5d1ea1c6a",
+      "gitBlob": "691925e813351ab2c72dafd7232be243fbc74eea"
+    },
+    {
+      "path": "docs/code.md",
+      "bytes": 1948,
+      "sha256": "64872f2cf0bf09ca3a1ba89bd41113c899b73423122298ea48471e520e3478a3",
+      "gitBlob": "0026a609dae2d0f3b1fc9f34fe06d93d6542fa8d"
+    },
+    {
+      "path": "docs/conversational-onboarding.md",
+      "bytes": 3628,
+      "sha256": "64a5144027d0ce39ff2b56fcd326218c717d96e720e4cdc0ae239394a456125b",
+      "gitBlob": "9462262df55c172952efcc93d6849aca949a4dab"
+    },
     {
       "path": "docs/date-field.md",
       "bytes": 2692,
       "sha256": "4641380f91c3cb566b9369f4047fed78631e31b1410bbcfae8905032e4a68b2f",
       "gitBlob": "add867e3149d889fe203715956ed9faf7cbbfcb3"
+    },
+    {
+      "path": "docs/draft-review.md",
+      "bytes": 3753,
+      "sha256": "cb06ac588ae4b9ce839640d927c60a641463613663a4b6b76ac80e4f6b06171a",
+      "gitBlob": "4798e586b7a81505e7a288eadf76acfb45164699"
+    },
+    {
+      "path": "docs/favicon.md",
+      "bytes": 1796,
+      "sha256": "9bcdfffc139a831671d21afd271fb1218aeea061eee93f1713c8758064c16f99",
+      "gitBlob": "6821b162e39dc58fed92c9ec19dc65f83d2d85c6"
+    },
+    {
+      "path": "docs/fill-blank.md",
+      "bytes": 4371,
+      "sha256": "04c562f4040a8a462d0416163951662dfa5c3a61063c6f3333181ba6cfb94cff",
+      "gitBlob": "6f73f77f592bd595e572f72bd640d4c7200fa9e7"
     },
     {
       "path": "docs/forms.md",
@@ -18,16 +78,172 @@
       "gitBlob": "67e0ecb98d753500c3249943e3554bbd8b782f1d"
     },
     {
+      "path": "docs/foundations.md",
+      "bytes": 4856,
+      "sha256": "16fa73b1a2685b914a7106cf5321226d0ac9039982484f6bf719036da5993ba6",
+      "gitBlob": "762a786ced23a2039cf8a2e0b46b8845bac7f1f0"
+    },
+    {
+      "path": "docs/label.md",
+      "bytes": 3710,
+      "sha256": "f516a5f47fabf0077e371f0f881caf6b139c372133d6f8e716a4ecd30e461a0c",
+      "gitBlob": "96fce5c69db795c3a827e0e5873ed0802b3282e7"
+    },
+    {
+      "path": "docs/learning.md",
+      "bytes": 3017,
+      "sha256": "9aee3f9eb1b550f51e559de8648ad72e18faa8c2f76bec488aa8b8eed6aec9b1",
+      "gitBlob": "7d5382f6753d964f5c3b957bb6ee0699929e1711"
+    },
+    {
+      "path": "docs/loading.md",
+      "bytes": 2865,
+      "sha256": "ae80d7d618ba5da85cb8e1c91a07248637de53b4fb1d4b89128b57fd220e1363",
+      "gitBlob": "abedadd8a71665669f4daa5dba131dcde818b20f"
+    },
+    {
+      "path": "docs/markdown.md",
+      "bytes": 4713,
+      "sha256": "3c7a246087d2a9a644cf45a6e9932d7069be2c7b8fc31ff018f9a29c4ac9ac03",
+      "gitBlob": "96854da0ccb756041f6e715cb5ef3f6c03a41303"
+    },
+    {
+      "path": "docs/motion.md",
+      "bytes": 2353,
+      "sha256": "438d0073d5566ebc355960b48edfeca85c1b582597833e5b4a23eea55d07a3bc",
+      "gitBlob": "b1c5e72058855796bd3399128a70bf13f90fdf18"
+    },
+    {
+      "path": "docs/onboarding-cards.md",
+      "bytes": 6651,
+      "sha256": "4041d0938b452a0f30efd15ef0d031da4cd8abf9ea6636267fac66f9e2ff610e",
+      "gitBlob": "961969a4c75ce0812134a51b882c076e5269a70e"
+    },
+    {
+      "path": "docs/overlay-resource-lifecycle.md",
+      "bytes": 1525,
+      "sha256": "e87b00a682356db1bd48f6cfd808e1a83b2255d517b762e707ad018c8bf23f75",
+      "gitBlob": "bd18eeb4752e1509f34454d9dbcb6cca210a397d"
+    },
+    {
+      "path": "docs/overlays.md",
+      "bytes": 3193,
+      "sha256": "073f52da6709e11c673714d76e32f84a513930f69f61b42f25b44f05e1c43a99",
+      "gitBlob": "7daddf5e4461617630cc5f1a53b85731aa4b87f3"
+    },
+    {
+      "path": "docs/pie.md",
+      "bytes": 1610,
+      "sha256": "2ddfd4d80c01ae7cf0a36d0fa48096aed2dfb9a4157f7e971e4ba199a9fe3b2d",
+      "gitBlob": "1b8e03cc83354592692b2d30025d859a5db764b1"
+    },
+    {
+      "path": "docs/primitives.md",
+      "bytes": 2653,
+      "sha256": "42d3f49ec6a88a2d0dddf61ae1eac12f64f1a6e267b395467aafc5044c321482",
+      "gitBlob": "3a9f3e5b51d9755fb783e3f9d1db51b018f30264"
+    },
+    {
+      "path": "docs/prompt-suggestions.md",
+      "bytes": 5746,
+      "sha256": "cb8cced61aa8612ea60c3beb64519cc7e6dae8286575cfb533af81b98efb203f",
+      "gitBlob": "33f149a1e45fd3cbe328bf62b48fad63458bd188"
+    },
+    {
       "path": "docs/questionnaire-contract.md",
       "bytes": 5836,
       "sha256": "e0a88fe48dca3edcfcd9bb9af9e5e1def470de922d8d9814953d27fe86d485b6",
       "gitBlob": "7983e80ed208b97ab8c113e71ad8dd20b1ce5e6f"
     },
     {
+      "path": "docs/rating.md",
+      "bytes": 3573,
+      "sha256": "09befbe10bf1eacac477890768152dc060590c57304833fe0c770eebb700cdde",
+      "gitBlob": "382cfe78a1351cc5fc5aaf075f588eca755aacc2"
+    },
+    {
+      "path": "docs/restaurant-menu.md",
+      "bytes": 5304,
+      "sha256": "cbad3c91f0a2158c3210cf69323832d8e8e9ad051be5111b22e3a9c0f4337f92",
+      "gitBlob": "68c2f41dc124b93f64a382a62f7ef9ef3c5c7a1a"
+    },
+    {
       "path": "docs/schema-source-modules.md",
-      "bytes": 4331,
-      "sha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
-      "gitBlob": "660a75e7d6780fbf70e004af14d21c21b89e8957"
+      "bytes": 8598,
+      "sha256": "0b758edbc4ca293c56804511792d41075e0a29ed6dbedd297ca194a66777d703",
+      "gitBlob": "cce6204fc3bc806f0fdc9b5aee1d04df519b7dab"
+    },
+    {
+      "path": "docs/security.md",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "gitBlob": "6c97691cfdfffa1b20098c6d950325f150edc9a1"
+    },
+    {
+      "path": "docs/sentence-builder.md",
+      "bytes": 4678,
+      "sha256": "e18e9c30f8c2ef528c294da121e9d7c149f54bd1fc0e8eb06ef35d6d5573241d",
+      "gitBlob": "cf0a9a0b7f2150cf6eb7f7250c6956670d8d965c"
+    },
+    {
+      "path": "docs/source-cards.md",
+      "bytes": 3057,
+      "sha256": "5712e7460ac521be1322507fd92a433079a6969c2c9d78be79ca2d94b051a92e",
+      "gitBlob": "b9a190f729d1c195e713c35d8ca2e23e037d5a9c"
+    },
+    {
+      "path": "docs/source-citations.md",
+      "bytes": 4902,
+      "sha256": "627b594ce07a3d4725757003e942da45d79a0841e2449a1365baaae1bc5549fc",
+      "gitBlob": "850ecec1416a53d1b80ee2c43fcbd68b424861a9"
+    },
+    {
+      "path": "docs/supplied-links.md",
+      "bytes": 3549,
+      "sha256": "ecd87e7ff65a94b7a837c56867735e9e8afc1715c76dac7ec30a28ea3a95dc7e",
+      "gitBlob": "9426c6f1a260b6984de030eca93e59f26a7fa01a"
+    },
+    {
+      "path": "docs/tabs.md",
+      "bytes": 2135,
+      "sha256": "ef8337548985b10701ecfcc58ccf8be378c04aecf8c0d695026a88ff52ad6dd3",
+      "gitBlob": "b762c7fa12c863b2da3d96c35f52ea7c514b643d"
+    },
+    {
+      "path": "docs/task-cards.md",
+      "bytes": 5342,
+      "sha256": "252fe717cd8139d38dd55d60bc482e71c75166989f4e2a809a5eea8b719e5958",
+      "gitBlob": "cc738619496523878b90e5b3a4bcb1099f4d1324"
+    },
+    {
+      "path": "docs/time.md",
+      "bytes": 3159,
+      "sha256": "10233d420ded9c8dc7ecd76853be323de817a6cc202242107e073ff49decbab7",
+      "gitBlob": "cad1cb8ce05f9bde2194a28d2f5e53157926dd59"
+    },
+    {
+      "path": "docs/vocab-card.md",
+      "bytes": 4581,
+      "sha256": "9567c55b9fb9d3bf0cee608810c1a33645b2b7845e19b77c30cbe0d5d9b4fc8e",
+      "gitBlob": "ee6545d693d3abe91fbfab793064ebad04925bcb"
+    },
+    {
+      "path": "docs/voice-cards.md",
+      "bytes": 5816,
+      "sha256": "ca2595cfc3e37a8c5e3da03bc64f80982d03b08fe07e6c0be0176a2fcdf91d13",
+      "gitBlob": "4ae5c885bcb0a699b4c3ec59d1dbbac3fdf445ce"
+    },
+    {
+      "path": "docs/weather.md",
+      "bytes": 8191,
+      "sha256": "61e4f32c79f98d4dfd93014e9625585cc45e20826686d2a04c4f868dbfa3c791",
+      "gitBlob": "5e3df2fc98196471369533f2c2d6f9efe830bd9e"
+    },
+    {
+      "path": "docs/writing-block.md",
+      "bytes": 4611,
+      "sha256": "7e5df3307dbd8dc5152bd0de7052b90b3a61b3134fab0cccb936f55eab490aac",
+      "gitBlob": "e09616421e6f4e5b13fb3ac5388a284ded668a04"
     },
     {
       "path": "examples/questionnaire/basic.json",
@@ -42,6 +258,24 @@
       "gitBlob": "51736d0a8b5b6e2b0e29e93a61d31f1955fdf754"
     },
     {
+      "path": "examples/schema-modules/charts.json",
+      "bytes": 385,
+      "sha256": "9be95506227c9ac30ca8b8ed88fc528d6e1fcca1717ea30f344d512f63160008",
+      "gitBlob": "a5a107c00ca392e32142271a3f9d4055fc23c1d0"
+    },
+    {
+      "path": "examples/schema-modules/content.json",
+      "bytes": 931,
+      "sha256": "a4b9028483cfbcbc0836b910840b30a5b9db39e797f714a6469aa8dadf80b3e3",
+      "gitBlob": "24ee1359d30a00e2af9401943742846720bae2a0"
+    },
+    {
+      "path": "examples/schema-modules/conversational-onboarding.json",
+      "bytes": 1760,
+      "sha256": "276f1b8dc78b22d91056a723400033a5222bd4af09d06354d6555eebc6dab958",
+      "gitBlob": "6a4264881e54404951cdd7942667ebb0da2c5604"
+    },
+    {
       "path": "examples/schema-modules/forms.json",
       "bytes": 526,
       "sha256": "70755bbd19e5495b3174ded1cc0d1942da367cd9b18d4f3875ae830b4de18bd3",
@@ -54,10 +288,52 @@
       "gitBlob": "8677f8998fb78ece3236e91c34ed7a5ced0da15b"
     },
     {
+      "path": "examples/schema-modules/learning.json",
+      "bytes": 1629,
+      "sha256": "faf31dd21545160cd2de63e2cbdfd69ccb10f195e97f9b8adb99b8e5416b96a3",
+      "gitBlob": "5a92fe3cca48bf2dd0665dbae9a40feb0dcfd4b9"
+    },
+    {
+      "path": "examples/schema-modules/onboarding-cards.json",
+      "bytes": 2371,
+      "sha256": "78e46cbfac7b817e9707b7a75421d9c3d582abc604d07d39319307a68f46bfc2",
+      "gitBlob": "0de7165d5fd163b9b511ccd9a1f09cbceb9cb99b"
+    },
+    {
+      "path": "examples/schema-modules/task-cards.json",
+      "bytes": 1497,
+      "sha256": "9d7933f3e628326658ef6d16c9e05b72b0fc600741c5655143dda9edb6663c84",
+      "gitBlob": "54dbb491eb7a4d06af53ac3a0ccbb790ee6658eb"
+    },
+    {
       "path": "examples/schema-modules/text.json",
       "bytes": 260,
       "sha256": "96ac27f908d683e3a8acf483dfa77bcfed4143011a9cb7fc57922c1a45ff44b4",
       "gitBlob": "5dc7d3f4a83e1f247842f092a2e882e1cf5b656d"
+    },
+    {
+      "path": "examples/schema-modules/time.json",
+      "bytes": 289,
+      "sha256": "2467d493de70db261d79c1593ad73810d17a332f498924cf544910724f32c954",
+      "gitBlob": "bc4ef3ea3d987c060a7fcbfab6da3b25c032b430"
+    },
+    {
+      "path": "examples/schema-modules/topology.json",
+      "bytes": 545,
+      "sha256": "c4a5fb6403f6dec2d7359882faa3df7e16fced6c497facc5588d409e78647d90",
+      "gitBlob": "2891510f35865996cdd25cd622ca621ccebe3cda"
+    },
+    {
+      "path": "examples/schema-modules/voice-cards.json",
+      "bytes": 1122,
+      "sha256": "6018cdb030ce2d4c06b41637c091562d7110e669a3bcf0e382c3dbb8d4b2ccd5",
+      "gitBlob": "ca924d5e2944fbef072f9e5f7c8e20a7f0519cf0"
+    },
+    {
+      "path": "examples/schema-modules/weather.json",
+      "bytes": 737,
+      "sha256": "672c46ec17f3117053215099552845d9c744bb3bacc3f3732a8d1a2029c3ecd5",
+      "gitBlob": "0b6a6e6a23b4934448f0394603695bc575d54307"
     },
     {
       "path": "scripts/ask-location-schema.mjs",
@@ -271,15 +547,15 @@
     },
     {
       "path": "scripts/schema-source/canonical.mjs",
-      "bytes": 62200,
-      "sha256": "b9592c5dde11cf8d83b1f4bc179f246e88cd6fcd4aa5ec962ec934fc91ff1756",
-      "gitBlob": "78b5f48fc2c58163be37182e00f2a50b1907e5f6"
+      "bytes": 55321,
+      "sha256": "e1d5ac41e888ce2574292240bc85cfca6a1885a2ca9c6f6fdb656df3506aec98",
+      "gitBlob": "b7ec72c8ef73975c1c5d8064467b4fb80cd41470"
     },
     {
       "path": "scripts/schema-source/catalog.mjs",
-      "bytes": 3979,
-      "sha256": "98633ec27533bd54643f1d0bc9d87d8bcf75a7ea1755c6b9c80490ee15923b1d",
-      "gitBlob": "00f8f82a7da4dd6dc6e48e0154a41d878f8f6627"
+      "bytes": 10771,
+      "sha256": "0666f3bd5378e924bfd9df385525bb99d395bc7709c4e3d2dd201b867c40fd35",
+      "gitBlob": "1ea10374f1576b81d799efef5b869815034599c3"
     },
     {
       "path": "scripts/schema-source/envelope.mjs",
@@ -294,6 +570,18 @@
       "gitBlob": "b543b170570d634c6f8901a9f43633517ac35b0c"
     },
     {
+      "path": "scripts/schema-source/modules/charts.mjs",
+      "bytes": 782,
+      "sha256": "45cc94b552e8e294c68642d17fa7ae8fd54615199ca73853e32f4dbae3df9372",
+      "gitBlob": "72e240b5d19f3043b82719381967af70ab742009"
+    },
+    {
+      "path": "scripts/schema-source/modules/content.mjs",
+      "bytes": 1567,
+      "sha256": "031c3ee2525e92fc73cbe95fc58799d34da866b6222807a94b43a8f93bf8569b",
+      "gitBlob": "50f1812369778967735e11dfa99f88a0122e63f8"
+    },
+    {
       "path": "scripts/schema-source/modules/forms.mjs",
       "bytes": 2249,
       "sha256": "b675784efdcf1ab58d4547edd9031643b43c483f79c86a648c7cf5c2b35deffb",
@@ -304,6 +592,12 @@
       "bytes": 7950,
       "sha256": "6c01342e346cf0689f966fec107ccf1cc669eb6ecd650f78e13471a1ab9845b0",
       "gitBlob": "dc4ca9fda84759d7f1ac58c7e8803303789fa7dd"
+    },
+    {
+      "path": "scripts/schema-source/modules/learning.mjs",
+      "bytes": 2373,
+      "sha256": "6e4969527bb0121379d36229503a60c0513b4678833389307badd089890f3fbe",
+      "gitBlob": "e97abeac36ae85dac5a548b4fc4158a8f450a3c8"
     },
     {
       "path": "scripts/schema-source/modules/questionnaire.mjs",
@@ -318,16 +612,34 @@
       "gitBlob": "bc8780c975b6449fb2487ff210288fb252cb62ca"
     },
     {
+      "path": "scripts/schema-source/modules/time.mjs",
+      "bytes": 920,
+      "sha256": "7a382471fb0fcb95ac7ce91b005d33f1374e33dfc8f47cb1ae5bc805ec413a73",
+      "gitBlob": "ffa12781c8bc917ac6d4b32b344aeb42d98df61f"
+    },
+    {
+      "path": "scripts/schema-source/modules/topology.mjs",
+      "bytes": 489,
+      "sha256": "226e24d96fa258474bd37d5d93513c65cd96b04a8736145dc5828dd998fdc150",
+      "gitBlob": "2b1c5838149791e0ca6b7200a0758f0c2eb1dc13"
+    },
+    {
       "path": "scripts/schema-source/modules/value.mjs",
       "bytes": 464,
       "sha256": "cd3cff6c06049c061d5b56cfbb85e2f68ae322c7efd5bb3d0526706eede7cc5f",
       "gitBlob": "eac4a17c48c3022c495e9ab3469a0d2f123fb326"
     },
     {
+      "path": "scripts/schema-source/modules/weather.mjs",
+      "bytes": 1377,
+      "sha256": "80a2f5f734da3ba62a0a6fe9a2276918f1ef917023b2439464227e90391b21cf",
+      "gitBlob": "06be00818e06903a0bf2f10e7dbe876aac9c3979"
+    },
+    {
       "path": "scripts/schema-source/primitives.mjs",
-      "bytes": 1194,
-      "sha256": "968b2fa32d1149659d9193bc8f291c553a4c3cd47d76c3b13dd9ef3d9e47c348",
-      "gitBlob": "d0d43c0e4969d987a27fdf1baaf35b9546188fe6"
+      "bytes": 1715,
+      "sha256": "072883c087d8f7a2f0c4bfc115e02c74d9ca49207472cbe327914a916f151449",
+      "gitBlob": "00a07af024b53a6f20da2509be37fd47002cc9ec"
     },
     {
       "path": "scripts/schema-source/registry.mjs",
@@ -408,7 +720,7 @@
       "gitBlob": "b3cca9559c0c76d2e3772e0bf80f6f27b77b1555"
     }
   ],
-  "checked": "Exact Git blob and byte size against the actual immutable remote recursive tree for schema sources, transitive contracts, examples and canonical schema.",
+  "checked": "Exact Git blob and byte size against the immutable remote tree for source modules, all declared required semantic contracts, examples and canonical schema.",
   "cdnCommit": "fed5f86f49e73f908ac9ea98966b1515a3aaa597",
   "cdnIncludesQuestionnaire": false
 }

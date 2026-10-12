@@ -2,8 +2,8 @@
   "format": "inform-ui-progressive-task/1",
   "schemaVersion": "iui/1",
   "runtime": {
-    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
-    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0"
+    "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
+    "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675"
   },
   "rootKind": "document",
   "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
@@ -11,7 +11,7 @@
     "schemaVersion": "iui/1",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+      "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
     },
     "requestedComponents": [
       "button"
@@ -27,20 +27,35 @@
       "button"
     ],
     "contracts": [
-      "docs/schema-source-modules.md#value",
-      "docs/schema-source-modules.md#button"
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/button-actions.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/button-actions.md",
+        "followLinks": false
+      }
     ],
     "examples": [
       "examples/schema-modules/button.json"
     ],
     "migrationCoverage": {
-      "migratedNodeCount": 52,
+      "migratedNodeCount": 83,
       "totalNodeCount": 218
     }
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "urn:micraow:inform-ui:source-selection:9f7ca225c56e48f7ce507089234b21cc1261faedb22f103d50715397c6a75e69",
+    "$id": "urn:micraow:inform-ui:source-selection:8df2c707604e12cf2eac430293114f65b0ced573e6deb4637ad4e61d091fcec6",
     "title": "IUIDocument",
     "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
     "type": "object",
@@ -296,20 +311,28 @@
   },
   "contracts": [
     {
-      "path": "docs/schema-source-modules.md#value",
-      "sourceBytes": 4331,
-      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
-      "bytes": 148,
-      "sha256": "110f8b18b69c573dfa20e5fc4cff400057b073348b86707f5c55663526008cf2",
-      "text": "## value\n\n`shared/value` provides the bounded scalar/reference/operator grammar shared by all trial families. It has no renderable node of its own.\n"
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
     },
     {
-      "path": "docs/schema-source-modules.md#button",
-      "sourceBytes": 4331,
-      "sourceSha256": "9502ab55adb2c966cc91095ae09d217fdab668089ba539e479b7fa104060b8d2",
-      "bytes": 141,
-      "sha256": "e76920934be2f4aec7eb7efc05a60f50589c9bc80f5814ab01c748f642794fa8",
-      "text": "## button\n\n`foundations/button` provides the existing local button action data. It does not add arbitrary code or external action execution.\n"
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/button-actions.md",
+      "sourceBytes": 6740,
+      "sourceSha256": "005f47f094074e3220444281c4093b879e40b38c13aa6eda9521905922180d4a",
+      "bytes": 6740,
+      "sha256": "005f47f094074e3220444281c4093b879e40b38c13aa6eda9521905922180d4a",
+      "text": "# Native button actions (local candidate, not browser-accepted)\n\n`button` remains the single canonical base node. This enhancement adds no button aliases or new canonical components. Its existing `label` and `action` are required. Optional fields are `disabled: Value` (must evaluate to a boolean), `tone: \"default\" | \"primary\" | \"danger\"` (default `default`), and literal `hint` (at most 1,000 Unicode code points). Labels remain bounded to 200 code points. Unknown fields are rejected.\n\n## Exact action branches\n\n- `{ \"kind\": \"set\", \"bind\": \"count\", \"value\": 2 }`: `bind` and scalar `value` are required; the binding must be declared and preserve its initial scalar type. Uses the existing Forms `replace` draft policy, including same-value overwrites.\n- `{ \"kind\": \"reset\" }`: no other fields. Restores initial declared document state through the existing Forms `reset` policy, including field drafts.\n- `{ \"kind\": \"host\", \"name\": \"run\" }`: `name` is required and matches `[A-Za-z_][A-Za-z0-9_.-]{0,79}`. `bind`, `value`, callbacks, code and URLs are forbidden in this branch.\n\nMalformed actions are structurally rejected by the generated full schema, subset schemas and generated public types. A valid host name does not establish runtime handler availability or successful external behavior.\n\n## Explicit host configuration\n\n```js\nconst controller = mount(container, document, {\n  actions: {\n    run: async ({ values, signal }) => {\n      // Your explicitly configured application operation.\n      // Decide what information may leave your application here.\n      await applicationAction(values, { signal });\n    }\n  }\n});\n```\n\nThe handler has the existing exported `FormAction` signature: `(context: FormActionContext) => void | Promise<void>`. Only an own, function-valued property of `options.actions` can be selected. A missing adapter reports unavailable after activation; there is no simulated success. A synchronous exception or rejected promise reports failure and permits retry. Resolved/rejected thenables are safely assimilated, including throwing `then` getters. A synchronous void return completes immediately.\n\n`values` is a frozen, fresh snapshot of **all declared current state**, including keys that are unrelated to the button, disabled controls or an enclosing form. It excludes computed values and uncommitted field drafts. This differs from form submission's subset of enabled valid controls. Later state changes do not mutate the snapshot. The context wrapper is also frozen. The signal is created in the mounted element's actual owner window. The library does not make network, storage, clipboard or navigation calls for the action. The host owns any such behavior, consent, validation, privacy decisions and result integrity.\n\nThe button uses native `type=\"button\"` activation: pointer, touch and the browser's Enter/Space click synthesis. Standard host-driven `.click()` and synthetic click events are supported, as with existing Forms; this is **not** an `event.isTrusted` permission boundary. A host should expose only appropriately authorized handlers. There is no mount-time, refresh-time, keydown-only or automatic retry invocation.\n\n## Pending, cancellation and state changes\n\nOnly the activated button blocks duplicate invocation while its own action is pending. Other buttons and state controls remain available. Pending uses `aria-disabled` plus an event guard while retaining the native main button's focus; ordinary document `disabled` uses native `disabled` and a guard. A disabled ancestor fieldset is respected too.\n\nA separate native Cancel action button appears while pending. Cancellation invalidates the request before aborting its signal, then makes a new explicit request possible. It does not reset shared state or drafts. Cancellation is cooperative: work already performed by the host may not be undone, and the UI never promises remote rollback. The host must honor `signal` if it needs to stop its own work. Stale resolution/rejection after cancel, restart, update or dispose cannot paint a replacement UI or launch another request.\n\nA successful callback reports completion only when current declared state still equals that request's snapshot. If it changed, the button returns to idle without a completion claim. Later state changes clear an existing success message. An invalid document update is atomic and leaves the pending request intact; a valid update or dispose aborts it and removes old listeners.\n\nAn enclosing form is independent: host activation does not submit it, does not perform its field validation, and Cancel does not cancel/reset the form. Form-level disabling can disable descendant native buttons. A pending button does not disable the entire document or enclosing form.\n\nStarting an action never moves focus. If Cancel held focus when it disappears on cancellation/completion, focus returns to the enabled main button, or to the stable status region if the main button is actually disabled (including a disabled fieldset). Outside focus is never reclaimed. Update/dispose does not attempt to focus detached or replacement controls.\n\n## DOM compatibility and accessibility\n\nExisting set/reset variants still return the native button itself, keeping authored `id`, `data-iui=\"button\"` and `.click()` consumers compatible. An optional hint is a plain internal span, with an explicit authored-label accessible name and an `aria-describedby` reference.\n\nOnly the new host branch returns a wrapper carrying authored `id` and `data-iui=\"button\"`; its main control is `.iui-button`. Cancel and status are siblings, never descendants of that button. Internal main/Cancel/hint/status IDs live in a namespace distinct from authored IDs. Status is a polite, atomic live region. All controls are scoped by `.iui-root`, with light/dark tokens, wrapping, logical layout and forced-colors rules. English and Chinese labels are selected through `buttonUI`.\n\n`examples/button-actions.json` is a synthetic, self-contained example. Its host action honestly reports unavailable in compiler-generated standalone HTML, which cannot serialize a handler. Applications may supply one through `mount`.\n\n## Verification scope\n\nPublic API/schema/compiler/JSDOM lifecycle and impacted Forms/core/renderer regressions are local checks, not real-browser acceptance. `tests/browser/button.spec.mjs` is prepared but **not executed**. It covers real pointer/touch/keyboard activation, repeated busy activation, cancellation, focus, narrow layouts, themes, RTL and forced colors using explicit local adapter stubs. No external action is exercised, no publication or component-count promotion is implied, and aggregate full-suite validation is owned by the integrator once per integration group.\n"
     }
   ],
   "examples": [
@@ -344,8 +367,8 @@
     }
   ],
   "identity": {
-    "indexSha256": "6810fb085cd6e3e337ed8618e45516e1dee90de445ab7572d7de8be97c37a35c",
-    "schemaSha256": "8afb9a6031f8f8faa018612d08ef79249a82aedd132a1ab330135b69bb57c0b0",
+    "indexSha256": "3a16d10bee21563bf9b874b07ff8a937388545590803e499fce2cca627248f50",
+    "schemaSha256": "2e6cb4b09cdc859ddc7a650ffbbaac64d384b489ac24ad2ef22cbc322dddf7d1",
     "schemaBytes": 5488
   },
   "manifestPath": "button.json.manifest.json"

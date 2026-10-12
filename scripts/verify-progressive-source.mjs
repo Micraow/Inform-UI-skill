@@ -15,7 +15,7 @@ try{
  assert.deepEqual(document.selection.resolvedModules,['shared/value','foundations/text','forms/fields','forms/questionnaire']);assert.equal(document.selection.includedComponents.length,10);assert.equal(document.examples.length,3);assert.ok(document.contracts.some(c=>c.path==='docs/forms.md'));assert.ok(document.contracts.some(c=>c.path==='docs/date-field.md'));assert.ok(document.contracts.some(c=>c.path==='docs/questionnaire-contract.md'));checks++;
  const node=await createProgressiveTask({...options,components:['text','input','questionnaire'],rootKind:'node'});assert.equal(node.schema.$ref,'#/$defs/Node');assert.equal(node.schema.properties,undefined);assert.deepEqual(node.schema.$defs,document.schema.$defs);assert.notEqual(node.schema.$id,document.schema.$id);checks++;
  await assert.rejects(()=>createProgressiveTask({...options,components:['invented-component']}),/unknown component/);checks++;
- await assert.rejects(()=>createProgressiveTask({...options,components:['chart']}),/not migrated/);checks++;
+ await assert.rejects(()=>createProgressiveTask({...options,components:[rebuilt.coverage.legacyNodeTypes[0]]}),/not migrated/);checks++;
  await assert.rejects(()=>createProgressiveTask({...options,components:['text'],revision:'0'.repeat(40)}),/revision mismatch/);checks++;
  console.log(JSON.stringify({format:'inform-ui-progressive-consumer-result/1',sourceCommit:options.revision,passed:checks,failed:0,deterministicArtifacts:rebuilt.artifacts.length,combinedComponents:10,combinedExamples:3,rootKinds:['document','node'],networkRequests:0,runtimeBundleImported:false,fullSchema:rebuilt.fullSchema}));
 }finally{await rm(temporary,{recursive:true,force:true});}

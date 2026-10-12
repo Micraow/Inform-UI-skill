@@ -1,0 +1,35 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
+    "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
+    }
+  },
+  "category": "charts",
+  "modules": [
+    {
+      "id": "charts/basic",
+      "title": "Basic charts",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/charts.md",
+        "docs/pie.md"
+      ],
+      "taskPath": "../modules/charts/basic.json",
+      "components": [
+        {
+          "type": "chart",
+          "definition": "ChartNode",
+          "schemaPointer": "#/schema/$defs/ChartNode"
+        }
+      ]
+    }
+  ]
+}

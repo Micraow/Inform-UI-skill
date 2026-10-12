@@ -3,11 +3,11 @@
   "generated": true,
   "schemaVersion": "iui/1",
   "source": {
-    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
-    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0",
+    "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
+    "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+      "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
     }
   },
   "categories": [
@@ -20,18 +20,60 @@
     {
       "id": "foundations",
       "path": "categories/foundations.json",
-      "moduleCount": 3,
-      "componentCount": 45
+      "moduleCount": 4,
+      "componentCount": 54
     },
     {
       "id": "forms",
       "path": "categories/forms.json",
       "moduleCount": 2,
       "componentCount": 7
+    },
+    {
+      "id": "charts",
+      "path": "categories/charts.json",
+      "moduleCount": 1,
+      "componentCount": 1
+    },
+    {
+      "id": "learning",
+      "path": "categories/learning.json",
+      "moduleCount": 2,
+      "componentCount": 8
+    },
+    {
+      "id": "graphics",
+      "path": "categories/graphics.json",
+      "moduleCount": 1,
+      "componentCount": 1
+    },
+    {
+      "id": "time",
+      "path": "categories/time.json",
+      "moduleCount": 1,
+      "componentCount": 3
+    },
+    {
+      "id": "weather",
+      "path": "categories/weather.json",
+      "moduleCount": 1,
+      "componentCount": 1
+    },
+    {
+      "id": "onboarding",
+      "path": "categories/onboarding.json",
+      "moduleCount": 2,
+      "componentCount": 5
+    },
+    {
+      "id": "tasks",
+      "path": "categories/tasks.json",
+      "moduleCount": 1,
+      "componentCount": 3
     }
   ],
   "migrationCoverage": {
-    "migratedNodeCount": 52,
+    "migratedNodeCount": 83,
     "totalNodeCount": 218,
     "legacyIndexPath": "legacy-components.json"
   },

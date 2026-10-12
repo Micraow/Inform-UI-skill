@@ -3,11 +3,11 @@
   "generated": true,
   "schemaVersion": "iui/1",
   "source": {
-    "sourceCommit": "379bd7e0592ea1fe3fd974cfa00e200765225dd4",
-    "publicCommit": "d2d82f3f4dfbc49b10cc9fb9d42892514df8c3a0",
+    "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
+    "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+      "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
     }
   },
   "category": "foundations",
@@ -17,6 +17,9 @@
       "title": "Text and typography",
       "dependsOn": [
         "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/foundations.md#富文本"
       ],
       "taskPath": "../modules/foundations/text.json",
       "components": [
@@ -42,6 +45,27 @@
       "title": "Foundational layouts and local controls",
       "dependsOn": [
         "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/schema-source-modules.md#layout",
+        "docs/foundations.md#引用与网格",
+        "docs/foundations.md#结构化表格",
+        "docs/supplied-links.md",
+        "docs/favicon.md",
+        "docs/overlays.md",
+        "docs/overlay-resource-lifecycle.md",
+        "docs/motion.md",
+        "docs/loading.md",
+        "docs/source-citations.md",
+        "docs/source-cards.md",
+        "docs/prompt-suggestions.md",
+        "docs/carousel.md",
+        "docs/tabs.md",
+        "docs/restaurant-menu.md",
+        "docs/label.md",
+        "docs/checklist.md",
+        "docs/rating.md",
+        "docs/primitives.md"
       ],
       "taskPath": "../modules/foundations/layout.json",
       "components": [
@@ -258,12 +282,77 @@
       "dependsOn": [
         "shared/value"
       ],
+      "semanticContractPaths": [
+        "docs/button-actions.md"
+      ],
       "taskPath": "../modules/foundations/button.json",
       "components": [
         {
           "type": "button",
           "definition": "ButtonNode",
           "schemaPointer": "#/schema/$defs/ButtonNode"
+        }
+      ]
+    },
+    {
+      "id": "foundations/content",
+      "title": "Literal content and local review",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/schema-source-modules.md#content",
+        "docs/markdown.md",
+        "docs/writing-block.md",
+        "docs/draft-review.md",
+        "docs/code.md"
+      ],
+      "taskPath": "../modules/foundations/content.json",
+      "components": [
+        {
+          "type": "markdown",
+          "definition": "MarkdownNode",
+          "schemaPointer": "#/schema/$defs/MarkdownNode"
+        },
+        {
+          "type": "writing-block",
+          "definition": "WritingBlockNode",
+          "schemaPointer": "#/schema/$defs/WritingBlockNode"
+        },
+        {
+          "type": "email-draft",
+          "definition": "EmailDraftNode",
+          "schemaPointer": "#/schema/$defs/EmailDraftNode"
+        },
+        {
+          "type": "task-expansion-card",
+          "definition": "TaskExpansionCardNode",
+          "schemaPointer": "#/schema/$defs/TaskExpansionCardNode"
+        },
+        {
+          "type": "code",
+          "definition": "CodeNode",
+          "schemaPointer": "#/schema/$defs/CodeNode"
+        },
+        {
+          "type": "math",
+          "definition": "MathNode",
+          "schemaPointer": "#/schema/$defs/MathNode"
+        },
+        {
+          "type": "badge",
+          "definition": "BadgeNode",
+          "schemaPointer": "#/schema/$defs/BadgeNode"
+        },
+        {
+          "type": "divider",
+          "definition": "DividerNode",
+          "schemaPointer": "#/schema/$defs/DividerNode"
+        },
+        {
+          "type": "spacer",
+          "definition": "SpacerNode",
+          "schemaPointer": "#/schema/$defs/SpacerNode"
         }
       ]
     }

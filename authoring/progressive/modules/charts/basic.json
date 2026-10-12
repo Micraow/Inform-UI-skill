@@ -1,0 +1,417 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
+    "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
+    },
+    "requestedComponents": [
+      "chart"
+    ],
+    "requestedModules": [
+      "charts/basic"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "charts/basic"
+    ],
+    "includedComponents": [
+      "chart"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/charts.md",
+      "docs/pie.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/charts.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/pie.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/charts.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 83,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:54343c8bdc831dcbcd731b72d1f6bd6ef857dd8c86335b88295d863b392556d1",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "ChartNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "chart"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "kind": {
+            "enum": [
+              "line",
+              "bar",
+              "scatter",
+              "area",
+              "donut",
+              "pie"
+            ]
+          },
+          "xKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "xScale": {
+            "enum": [
+              "category",
+              "linear",
+              "time"
+            ]
+          },
+          "xLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "xMin": {
+            "type": "number"
+          },
+          "xMax": {
+            "type": "number"
+          },
+          "timezone": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Value"
+              }
+            },
+            "minItems": 0,
+            "maxItems": 300
+          },
+          "series": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "color": {
+                  "enum": [
+                    "blue",
+                    "green",
+                    "orange",
+                    "red",
+                    "purple",
+                    "gray"
+                  ]
+                }
+              },
+              "required": [
+                "key",
+                "label"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 6
+          },
+          "yMin": {
+            "type": "number"
+          },
+          "yMax": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "loading",
+              "error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "kind",
+          "xKey",
+          "data",
+          "series"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ChartNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/charts.md",
+      "sourceBytes": 2663,
+      "sourceSha256": "0584f65692e9d31d7b90889996c9cbc56fc7bf3173cbfbd1ccf1391d019db693",
+      "bytes": 2663,
+      "sha256": "0584f65692e9d31d7b90889996c9cbc56fc7bf3173cbfbd1ccf1391d019db693",
+      "text": "# 图表与真实坐标\n\n此页对应开发分支的数值图表增量。当前CDN锁定提交包含本页合同；仍须成套使用相同提交的Schema、JS和CSS。未完成的表单、天气等领域组件不因这次图表提交而成为已支持能力。\n\n```json\n{\n  \"version\": \"iui/1\",\n  \"body\": [{\n    \"type\": \"chart\",\n    \"kind\": \"line\",\n    \"xScale\": \"linear\",\n    \"xKey\": \"distance\",\n    \"xLabel\": \"距离 (m)\",\n    \"unit\": \"V\",\n    \"data\": [\n      { \"distance\": 0, \"voltage\": 1 },\n      { \"distance\": 1, \"voltage\": 2 },\n      { \"distance\": 100, \"voltage\": 3 }\n    ],\n    \"series\": [{ \"key\": \"voltage\", \"label\": \"合成电压\" }]\n  }]\n}\n```\n\n第二个点位于全程的 1%，不是横轴的中间。省略 `xScale` 时保留原有 `category` 等距分类行为，因此已有文档仍可渲染。\n\n| 属性 | 含义 |\n| --- | --- |\n| `kind` | `line`、`bar`、`scatter`、`area`、`donut` |\n| `xScale` | `category` 默认等距分类；`linear` 使用有限数值；`time` 使用带时区偏移的 ISO 时间或 Unix 毫秒 |\n| `xMin` / `xMax` | 可选数值域；不能裁掉已提供的观察值。时间轴也使用 Unix 毫秒边界 |\n| `timezone` | 时间标签使用的 IANA 时区，默认 UTC |\n| `xLabel` | 数据表的横轴列标题，适合携带单位 |\n| `yMin` / `yMax` | 显式纵轴域；库拒绝域外观察值 |\n| `status` | `ready` 默认、`loading` 或 `error`；只描述调用方提供的状态，不触发联网 |\n| `message` | 可选状态说明；没有有效观察值时显示空状态 |\n\n`line`、`area` 与 `bar` 的数值/时间 X 必须严格递增；`scatter` 允许无序或重复 X，但必须指定 `linear` 或 `time`。缺测 Y 需写 `null`，线和面积在这里断开。空数组、全缺测与单点都有明确显示。\n\n`donut` 使用一列非负数据与分类标签，不接受坐标范围。比例直接来自原数值；零总量显示空状态，缺测保留在数据表中。当前没有堆叠、缩放、框选、数据导出或运行时切换图种。\n\n系列开关、可展开数据表均支持键盘。图形获得焦点后，左右键逐点查看，Home/End 到首尾。数值显示仅消除机器浮点尾数，计算与 SVG 坐标保持原精度。\n\n完整可复用例子：[numeric-charts.json](../examples/numeric-charts.json)。它包含五种图形、不等距/负值/缺测、单点、空/加载/错误状态，可直接纳入后续统一组件 Demo。\n\n自动Y轴默认包含零，并采用实际数据最大/最小值，不强制至少1单位跨度；微小值可直接读出变化。全零数据使用可读的备用域；调用方仍可显式指定yMin/yMax以固定比较尺度。\n"
+    },
+    {
+      "path": "docs/pie.md",
+      "sourceBytes": 1610,
+      "sourceSha256": "2ddfd4d80c01ae7cf0a36d0fa48096aed2dfb9a4157f7e971e4ba199a9fe3b2d",
+      "bytes": 1610,
+      "sha256": "2ddfd4d80c01ae7cf0a36d0fa48096aed2dfb9a4157f7e971e4ba199a9fe3b2d",
+      "text": "# Single-series supplied-value pie\n\nThe existing chart node accepts kind: pie in the next candidate. Example: [pie.json](../examples/pie.json). It uses one category X field and one series, with the existing title/status/error/height/label/unit contracts. Cartesian bounds and multiple series are rejected. This does not add a protocol node. The accepted d370 CDN does not contain this enhancement.\n\nValues are finite nonnegative numbers or explicit null. Supplied zero and missing rows remain in the exact data table, but receive no sector. Shares use the sum of known values, with an explicit known-values denominator label; missing values are never invented as zero. A zero/all-missing dataset has an honest no-positive-values view. Positive underflow shares show <0.1%, not 0%. A single positive value fills a real full circle. An overflowing total is rejected before DOM mutation.\n\nPointer or touch selects sectors using the SVG's actual screen transform. Keyboard Home/End and arrows inspect all authored rows in their original order, including zero and missing rows. Selection, focused graphic and open details survive accepted state updates; invalid updates preserve state and DOM atomically. All rows remain available in the table.\n\nThe finite view reuses supplied colors, tokens and localized labels, with forced-colors outlines and responsive sizing. No remote data retrieval, sorting, exploding slices, 3-D, drilldown, animation, chart editor or inferred provenance. Local public validation/geometry tests run before the combined real-browser batch; prepared browser tests alone are not acceptance.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/charts.json",
+      "bytes": 385,
+      "sha256": "9be95506227c9ac30ca8b8ed88fc528d6e1fcca1717ea30f344d512f63160008",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "chart",
+            "kind": "bar",
+            "xKey": "day",
+            "data": [
+              {
+                "day": "Monday",
+                "count": 2
+              },
+              {
+                "day": "Tuesday",
+                "count": 3
+              }
+            ],
+            "series": [
+              {
+                "key": "count",
+                "label": "Notebooks"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a16d10bee21563bf9b874b07ff8a937388545590803e499fce2cca627248f50",
+    "schemaSha256": "a343a6ab26cf42f772c9c63cfd983a78cbcfb49061fdd72d674ea377c53fc3ad",
+    "schemaBytes": 6068
+  },
+  "manifestPath": "basic.json.manifest.json"
+}

@@ -3,7 +3,7 @@
   "schemaVersion": "iui/1",
   "sourceIdentity": {
     "algorithm": "sha256",
-    "value": "fc958f4bb60179ba7a5e2b7ce29bd3f7f8eb39296ed1fe88a5b3ba8f2f8bbb55"
+    "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
   },
   "modules": [
     {
@@ -17,7 +17,11 @@
       "nodeTypes": [],
       "contractPath": "docs/schema-source-modules.md#value",
       "examplePaths": [],
-      "sourcePath": "scripts/schema-source/modules/value.mjs"
+      "sourcePath": "scripts/schema-source/modules/value.mjs",
+      "semanticContractPaths": [
+        "docs/api.md#状态与表达式",
+        "docs/security.md"
+      ]
     },
     {
       "id": "foundations/text",
@@ -41,7 +45,10 @@
       "examplePaths": [
         "examples/schema-modules/text.json"
       ],
-      "sourcePath": "scripts/schema-source/modules/text.mjs"
+      "sourcePath": "scripts/schema-source/modules/text.mjs",
+      "semanticContractPaths": [
+        "docs/foundations.md#富文本"
+      ]
     },
     {
       "id": "foundations/layout",
@@ -148,7 +155,28 @@
       "examplePaths": [
         "examples/schema-modules/layout.json"
       ],
-      "sourcePath": "scripts/schema-source/modules/layout.mjs"
+      "sourcePath": "scripts/schema-source/modules/layout.mjs",
+      "semanticContractPaths": [
+        "docs/schema-source-modules.md#layout",
+        "docs/foundations.md#引用与网格",
+        "docs/foundations.md#结构化表格",
+        "docs/supplied-links.md",
+        "docs/favicon.md",
+        "docs/overlays.md",
+        "docs/overlay-resource-lifecycle.md",
+        "docs/motion.md",
+        "docs/loading.md",
+        "docs/source-citations.md",
+        "docs/source-cards.md",
+        "docs/prompt-suggestions.md",
+        "docs/carousel.md",
+        "docs/tabs.md",
+        "docs/restaurant-menu.md",
+        "docs/label.md",
+        "docs/checklist.md",
+        "docs/rating.md",
+        "docs/primitives.md"
+      ]
     },
     {
       "id": "forms/fields",
@@ -177,7 +205,11 @@
       "examplePaths": [
         "examples/schema-modules/forms.json"
       ],
-      "sourcePath": "scripts/schema-source/modules/forms.mjs"
+      "sourcePath": "scripts/schema-source/modules/forms.mjs",
+      "semanticContractPaths": [
+        "docs/forms.md",
+        "docs/date-field.md"
+      ]
     },
     {
       "id": "foundations/button",
@@ -197,7 +229,10 @@
       "examplePaths": [
         "examples/schema-modules/button.json"
       ],
-      "sourcePath": "scripts/schema-source/modules/button.mjs"
+      "sourcePath": "scripts/schema-source/modules/button.mjs",
+      "semanticContractPaths": [
+        "docs/button-actions.md"
+      ]
     },
     {
       "id": "forms/questionnaire",
@@ -219,7 +254,287 @@
       "examplePaths": [
         "examples/questionnaire/basic.json"
       ],
-      "sourcePath": "scripts/schema-source/modules/questionnaire.mjs"
+      "sourcePath": "scripts/schema-source/modules/questionnaire.mjs",
+      "semanticContractPaths": [
+        "docs/questionnaire-contract.md"
+      ]
+    },
+    {
+      "id": "charts/basic",
+      "category": "charts",
+      "title": "Basic charts",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "ChartNode"
+      ],
+      "nodeTypes": [
+        "chart"
+      ],
+      "contractPath": "docs/charts.md",
+      "examplePaths": [
+        "examples/schema-modules/charts.json"
+      ],
+      "sourcePath": "scripts/schema-source/modules/charts.mjs",
+      "semanticContractPaths": [
+        "docs/charts.md",
+        "docs/pie.md"
+      ]
+    },
+    {
+      "id": "learning/basic",
+      "category": "learning",
+      "title": "Finite learning activities",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "QuizQuestion",
+        "QuizNode",
+        "Flashcard",
+        "FlashcardsNode",
+        "FillBlankPart",
+        "FillBlankEntry",
+        "FillBlankNode",
+        "SentenceToken",
+        "SentenceBuilderNode",
+        "VocabSense",
+        "VocabCardNode"
+      ],
+      "nodeTypes": [
+        "quiz",
+        "flashcards",
+        "fill-blank",
+        "sentence-builder",
+        "vocab-card"
+      ],
+      "contractPath": "docs/learning.md",
+      "examplePaths": [
+        "examples/schema-modules/learning.json"
+      ],
+      "sourcePath": "scripts/schema-source/modules/learning.mjs",
+      "semanticContractPaths": [
+        "docs/learning.md",
+        "docs/fill-blank.md",
+        "docs/sentence-builder.md",
+        "docs/vocab-card.md"
+      ]
+    },
+    {
+      "id": "foundations/content",
+      "category": "foundations",
+      "title": "Literal content and local review",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "MarkdownNode",
+        "WritingBlockNode",
+        "EmailDraftNode",
+        "TaskReviewStep",
+        "TaskExpansionCardNode",
+        "CodeNode",
+        "MathNode",
+        "BadgeNode",
+        "DividerNode",
+        "SpacerNode"
+      ],
+      "nodeTypes": [
+        "markdown",
+        "writing-block",
+        "email-draft",
+        "task-expansion-card",
+        "code",
+        "math",
+        "badge",
+        "divider",
+        "spacer"
+      ],
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ],
+      "sourcePath": "scripts/schema-source/modules/content.mjs",
+      "semanticContractPaths": [
+        "docs/schema-source-modules.md#content",
+        "docs/markdown.md",
+        "docs/writing-block.md",
+        "docs/draft-review.md",
+        "docs/code.md"
+      ]
+    },
+    {
+      "id": "graphics/topology",
+      "category": "graphics",
+      "title": "Supplied topology diagram",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "TopologyNode"
+      ],
+      "nodeTypes": [
+        "topology"
+      ],
+      "contractPath": "docs/schema-source-modules.md#topology",
+      "examplePaths": [
+        "examples/schema-modules/topology.json"
+      ],
+      "sourcePath": "scripts/schema-source/modules/topology.mjs",
+      "semanticContractPaths": [
+        "docs/schema-source-modules.md#topology"
+      ]
+    },
+    {
+      "id": "time/controls",
+      "category": "time",
+      "title": "Local time controls",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "ClockNode",
+        "StopwatchNode",
+        "TimerNode"
+      ],
+      "nodeTypes": [
+        "clock",
+        "stopwatch",
+        "timer"
+      ],
+      "contractPath": "docs/time.md",
+      "semanticContractPaths": [
+        "docs/time.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/time.json"
+      ],
+      "sourcePath": "scripts/schema-source/modules/time.mjs"
+    },
+    {
+      "id": "weather/snapshot",
+      "category": "weather",
+      "title": "Supplied weather snapshot",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "WeatherNode"
+      ],
+      "nodeTypes": [
+        "weather"
+      ],
+      "contractPath": "docs/weather.md",
+      "semanticContractPaths": [
+        "docs/weather.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/weather.json"
+      ],
+      "sourcePath": "scripts/schema-source/modules/weather.mjs"
+    },
+    {
+      "id": "voice/cards",
+      "category": "learning",
+      "title": "Supplied voice practice cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "LearningVoiceModeLauncherCardNode",
+        "OfferVoiceConversationNode",
+        "LearningSpeakCardNode"
+      ],
+      "nodeTypes": [
+        "learning-voice-mode-launcher-card",
+        "offer-voice-conversation",
+        "learning-speak-card"
+      ],
+      "contractPath": "docs/voice-cards.md",
+      "semanticContractPaths": [
+        "docs/voice-cards.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/voice-cards.json"
+      ],
+      "sourcePath": "scripts/voice-cards-schema.mjs"
+    },
+    {
+      "id": "onboarding/conversation",
+      "category": "onboarding",
+      "title": "Supplied conversational examples",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "ConversationalOnboardingAdviceNode",
+        "ConversationalOnboardingWritingNode"
+      ],
+      "nodeTypes": [
+        "conversational-onboarding-advice",
+        "conversational-onboarding-writing"
+      ],
+      "contractPath": "docs/conversational-onboarding.md",
+      "semanticContractPaths": [
+        "docs/conversational-onboarding.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/conversational-onboarding.json"
+      ],
+      "sourcePath": "scripts/conversational-onboarding-schema.mjs"
+    },
+    {
+      "id": "onboarding/cards",
+      "category": "onboarding",
+      "title": "Local onboarding cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "OnboardingFeatureCardNode",
+        "OnboardingPluginSuggestionsNode",
+        "OnboardingStarterTasksNode"
+      ],
+      "nodeTypes": [
+        "onboarding-feature-card",
+        "onboarding-plugin-suggestions",
+        "onboarding-starter-tasks"
+      ],
+      "contractPath": "docs/onboarding-cards.md",
+      "semanticContractPaths": [
+        "docs/onboarding-cards.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/onboarding-cards.json"
+      ],
+      "sourcePath": "scripts/onboarding-cards-schema.mjs"
+    },
+    {
+      "id": "tasks/cards",
+      "category": "tasks",
+      "title": "Local task intent cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "PushDripSeriesIntroNode",
+        "StopPushDripSeriesNode",
+        "TaskAutopauseCardNode"
+      ],
+      "nodeTypes": [
+        "push-drip-series-intro",
+        "stop-push-drip-series",
+        "task-autopause-card"
+      ],
+      "contractPath": "docs/task-cards.md",
+      "semanticContractPaths": [
+        "docs/task-cards.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/task-cards.json"
+      ],
+      "sourcePath": "scripts/task-cards-schema.mjs"
     }
   ],
   "components": [
@@ -742,10 +1057,320 @@
       "examplePaths": [
         "examples/questionnaire/basic.json"
       ]
+    },
+    {
+      "type": "chart",
+      "definition": "ChartNode",
+      "moduleId": "charts/basic",
+      "category": "charts",
+      "contractPath": "docs/charts.md",
+      "examplePaths": [
+        "examples/schema-modules/charts.json"
+      ]
+    },
+    {
+      "type": "quiz",
+      "definition": "QuizNode",
+      "moduleId": "learning/basic",
+      "category": "learning",
+      "contractPath": "docs/learning.md",
+      "examplePaths": [
+        "examples/schema-modules/learning.json"
+      ]
+    },
+    {
+      "type": "flashcards",
+      "definition": "FlashcardsNode",
+      "moduleId": "learning/basic",
+      "category": "learning",
+      "contractPath": "docs/learning.md",
+      "examplePaths": [
+        "examples/schema-modules/learning.json"
+      ]
+    },
+    {
+      "type": "fill-blank",
+      "definition": "FillBlankNode",
+      "moduleId": "learning/basic",
+      "category": "learning",
+      "contractPath": "docs/learning.md",
+      "examplePaths": [
+        "examples/schema-modules/learning.json"
+      ]
+    },
+    {
+      "type": "sentence-builder",
+      "definition": "SentenceBuilderNode",
+      "moduleId": "learning/basic",
+      "category": "learning",
+      "contractPath": "docs/learning.md",
+      "examplePaths": [
+        "examples/schema-modules/learning.json"
+      ]
+    },
+    {
+      "type": "vocab-card",
+      "definition": "VocabCardNode",
+      "moduleId": "learning/basic",
+      "category": "learning",
+      "contractPath": "docs/learning.md",
+      "examplePaths": [
+        "examples/schema-modules/learning.json"
+      ]
+    },
+    {
+      "type": "markdown",
+      "definition": "MarkdownNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "writing-block",
+      "definition": "WritingBlockNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "email-draft",
+      "definition": "EmailDraftNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "task-expansion-card",
+      "definition": "TaskExpansionCardNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "code",
+      "definition": "CodeNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "math",
+      "definition": "MathNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "badge",
+      "definition": "BadgeNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "divider",
+      "definition": "DividerNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "spacer",
+      "definition": "SpacerNode",
+      "moduleId": "foundations/content",
+      "category": "foundations",
+      "contractPath": "docs/schema-source-modules.md#content",
+      "examplePaths": [
+        "examples/schema-modules/content.json"
+      ]
+    },
+    {
+      "type": "topology",
+      "definition": "TopologyNode",
+      "moduleId": "graphics/topology",
+      "category": "graphics",
+      "contractPath": "docs/schema-source-modules.md#topology",
+      "examplePaths": [
+        "examples/schema-modules/topology.json"
+      ]
+    },
+    {
+      "type": "clock",
+      "definition": "ClockNode",
+      "moduleId": "time/controls",
+      "category": "time",
+      "contractPath": "docs/time.md",
+      "examplePaths": [
+        "examples/schema-modules/time.json"
+      ]
+    },
+    {
+      "type": "stopwatch",
+      "definition": "StopwatchNode",
+      "moduleId": "time/controls",
+      "category": "time",
+      "contractPath": "docs/time.md",
+      "examplePaths": [
+        "examples/schema-modules/time.json"
+      ]
+    },
+    {
+      "type": "timer",
+      "definition": "TimerNode",
+      "moduleId": "time/controls",
+      "category": "time",
+      "contractPath": "docs/time.md",
+      "examplePaths": [
+        "examples/schema-modules/time.json"
+      ]
+    },
+    {
+      "type": "weather",
+      "definition": "WeatherNode",
+      "moduleId": "weather/snapshot",
+      "category": "weather",
+      "contractPath": "docs/weather.md",
+      "examplePaths": [
+        "examples/schema-modules/weather.json"
+      ]
+    },
+    {
+      "type": "learning-voice-mode-launcher-card",
+      "definition": "LearningVoiceModeLauncherCardNode",
+      "moduleId": "voice/cards",
+      "category": "learning",
+      "contractPath": "docs/voice-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/voice-cards.json"
+      ]
+    },
+    {
+      "type": "offer-voice-conversation",
+      "definition": "OfferVoiceConversationNode",
+      "moduleId": "voice/cards",
+      "category": "learning",
+      "contractPath": "docs/voice-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/voice-cards.json"
+      ]
+    },
+    {
+      "type": "learning-speak-card",
+      "definition": "LearningSpeakCardNode",
+      "moduleId": "voice/cards",
+      "category": "learning",
+      "contractPath": "docs/voice-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/voice-cards.json"
+      ]
+    },
+    {
+      "type": "conversational-onboarding-advice",
+      "definition": "ConversationalOnboardingAdviceNode",
+      "moduleId": "onboarding/conversation",
+      "category": "onboarding",
+      "contractPath": "docs/conversational-onboarding.md",
+      "examplePaths": [
+        "examples/schema-modules/conversational-onboarding.json"
+      ]
+    },
+    {
+      "type": "conversational-onboarding-writing",
+      "definition": "ConversationalOnboardingWritingNode",
+      "moduleId": "onboarding/conversation",
+      "category": "onboarding",
+      "contractPath": "docs/conversational-onboarding.md",
+      "examplePaths": [
+        "examples/schema-modules/conversational-onboarding.json"
+      ]
+    },
+    {
+      "type": "onboarding-feature-card",
+      "definition": "OnboardingFeatureCardNode",
+      "moduleId": "onboarding/cards",
+      "category": "onboarding",
+      "contractPath": "docs/onboarding-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/onboarding-cards.json"
+      ]
+    },
+    {
+      "type": "onboarding-plugin-suggestions",
+      "definition": "OnboardingPluginSuggestionsNode",
+      "moduleId": "onboarding/cards",
+      "category": "onboarding",
+      "contractPath": "docs/onboarding-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/onboarding-cards.json"
+      ]
+    },
+    {
+      "type": "onboarding-starter-tasks",
+      "definition": "OnboardingStarterTasksNode",
+      "moduleId": "onboarding/cards",
+      "category": "onboarding",
+      "contractPath": "docs/onboarding-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/onboarding-cards.json"
+      ]
+    },
+    {
+      "type": "push-drip-series-intro",
+      "definition": "PushDripSeriesIntroNode",
+      "moduleId": "tasks/cards",
+      "category": "tasks",
+      "contractPath": "docs/task-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/task-cards.json"
+      ]
+    },
+    {
+      "type": "stop-push-drip-series",
+      "definition": "StopPushDripSeriesNode",
+      "moduleId": "tasks/cards",
+      "category": "tasks",
+      "contractPath": "docs/task-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/task-cards.json"
+      ]
+    },
+    {
+      "type": "task-autopause-card",
+      "definition": "TaskAutopauseCardNode",
+      "moduleId": "tasks/cards",
+      "category": "tasks",
+      "contractPath": "docs/task-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/task-cards.json"
+      ]
     }
   ],
   "migrationCoverage": {
-    "migratedNodeCount": 52,
+    "migratedNodeCount": 83,
     "totalNodeCount": 218,
     "legacyNodeTypes": [
       "agenda",
@@ -779,31 +1404,11 @@
       "sidebar-fact-table",
       "entity-thumbnail-list",
       "reddit-thread-card",
-      "markdown",
-      "writing-block",
-      "email-draft",
-      "task-expansion-card",
-      "code",
-      "math",
-      "badge",
-      "divider",
-      "spacer",
-      "topology",
-      "chart",
-      "clock",
-      "stopwatch",
-      "timer",
-      "weather",
       "f1-races",
       "f1-standings",
       "sports-schedule",
       "sports-scoreboard",
       "sports-standings",
-      "quiz",
-      "flashcards",
-      "fill-blank",
-      "sentence-builder",
-      "vocab-card",
       "finance-quote",
       "finance-chart",
       "finance-comparison",
@@ -866,14 +1471,6 @@
       "ledger-spend-by-category",
       "ledger-spend-by-category-detail",
       "ledger-spend-by-category-recent-transactions",
-      "learning-voice-mode-launcher-card",
-      "offer-voice-conversation",
-      "learning-speak-card",
-      "conversational-onboarding-advice",
-      "conversational-onboarding-writing",
-      "onboarding-feature-card",
-      "onboarding-plugin-suggestions",
-      "onboarding-starter-tasks",
       "conversational-onboarding-study",
       "conversational-onboarding-search",
       "follow-up-quiz",
@@ -883,9 +1480,6 @@
       "ask-user-location",
       "reservation-time-pills-ref-carousel",
       "whats-new-capability-search",
-      "push-drip-series-intro",
-      "stop-push-drip-series",
-      "task-autopause-card",
       "ledger-finance-onboarding",
       "ledger-repair-bank-connection",
       "finance-onboarding-suggestions",
@@ -952,16 +1546,22 @@
     "scripts/recommendation-card-schema.mjs": "70da777523f7aafea195d8238ea003c666188a23e47cff80df5532998df0dc5f",
     "scripts/reservation-pills-schema.mjs": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37",
     "scripts/rox-schema.mjs": "f927fcae82439f40d1c1ee1cd086af5c97c4507abfb1d7d0994da951d88e653b",
-    "scripts/schema-source/canonical.mjs": "b9592c5dde11cf8d83b1f4bc179f246e88cd6fcd4aa5ec962ec934fc91ff1756",
-    "scripts/schema-source/catalog.mjs": "98633ec27533bd54643f1d0bc9d87d8bcf75a7ea1755c6b9c80490ee15923b1d",
+    "scripts/schema-source/canonical.mjs": "e1d5ac41e888ce2574292240bc85cfca6a1885a2ca9c6f6fdb656df3506aec98",
+    "scripts/schema-source/catalog.mjs": "0666f3bd5378e924bfd9df385525bb99d395bc7709c4e3d2dd201b867c40fd35",
     "scripts/schema-source/envelope.mjs": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
     "scripts/schema-source/modules/button.mjs": "1ce2931f9794a74c3408259f3c5e011085899e615e909e99d9e6936ad555dc8f",
+    "scripts/schema-source/modules/charts.mjs": "45cc94b552e8e294c68642d17fa7ae8fd54615199ca73853e32f4dbae3df9372",
+    "scripts/schema-source/modules/content.mjs": "031c3ee2525e92fc73cbe95fc58799d34da866b6222807a94b43a8f93bf8569b",
     "scripts/schema-source/modules/forms.mjs": "b675784efdcf1ab58d4547edd9031643b43c483f79c86a648c7cf5c2b35deffb",
     "scripts/schema-source/modules/layout.mjs": "6c01342e346cf0689f966fec107ccf1cc669eb6ecd650f78e13471a1ab9845b0",
+    "scripts/schema-source/modules/learning.mjs": "6e4969527bb0121379d36229503a60c0513b4678833389307badd089890f3fbe",
     "scripts/schema-source/modules/questionnaire.mjs": "20c3f21bbe56f7284b325d18717aee1d9bc0912e4304f4d82e9faae255625206",
     "scripts/schema-source/modules/text.mjs": "859ff6965506a91a66b2e26fe30f82c88991a7bdc342809cceb799fa5a1335c8",
+    "scripts/schema-source/modules/time.mjs": "7a382471fb0fcb95ac7ce91b005d33f1374e33dfc8f47cb1ae5bc805ec413a73",
+    "scripts/schema-source/modules/topology.mjs": "226e24d96fa258474bd37d5d93513c65cd96b04a8736145dc5828dd998fdc150",
     "scripts/schema-source/modules/value.mjs": "cd3cff6c06049c061d5b56cfbb85e2f68ae322c7efd5bb3d0526706eede7cc5f",
-    "scripts/schema-source/primitives.mjs": "968b2fa32d1149659d9193bc8f291c553a4c3cd47d76c3b13dd9ef3d9e47c348",
+    "scripts/schema-source/modules/weather.mjs": "80a2f5f734da3ba62a0a6fe9a2276918f1ef917023b2439464227e90391b21cf",
+    "scripts/schema-source/primitives.mjs": "072883c087d8f7a2f0c4bfc115e02c74d9ca49207472cbe327914a916f151449",
     "scripts/schema-source/registry.mjs": "59d806840962ec019b1cefc460b60b0dbc59834b2eccfe70af060bd2a9a410ee",
     "scripts/schema-subsets.mjs": "4a4711a581123727955ac5fa3e4445dbe13e9dd59c18fb08d3b2c8134365f51c",
     "scripts/search-onboarding-schema.mjs": "c15873b13fd29cb83512787de96fa7a7ab3d600a9895d28fd2beb9a02ec4d002",
