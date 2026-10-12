@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="300" viewBox="0 0 1040 300" role="img" aria-labelledby="title desc">
+  <title id="title">Inform UI Skill</title>
+  <desc id="desc">Original conceptual illustration: ideas become structured JSON, then readable interactive content. Not a screenshot.</desc>
+  <rect width="1040" height="300" rx="24" fill="#f5f7f6"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="42" y="38" width="108" height="28" rx="14" fill="#dceee7"/>
+    <text x="96" y="57" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.4" fill="#16634f">INFORM UI</text>
+    <text x="42" y="122" font-size="35" font-weight="700" letter-spacing="-1.2" fill="#173c32">Ideas, made</text>
+    <text x="42" y="166" font-size="35" font-weight="700" letter-spacing="-1.2" fill="#173c32">interactive.</text>
+    <text x="43" y="207" font-size="15" fill="#55716a">Your content. Clear structure.</text>
+    <text x="43" y="230" font-size="15" fill="#55716a">A page people can use.</text>
+    <rect x="404" y="70" width="214" height="160" rx="16" fill="#fff" stroke="#dae5df"/>
+    <circle cx="427" cy="91" r="3" fill="#b8cdc3"/>
+    <circle cx="439" cy="91" r="3" fill="#b8cdc3"/>
+    <circle cx="451" cy="91" r="3" fill="#b8cdc3"/>
+    <text x="426" y="132" font-family="monospace" font-size="15" fill="#16634f">{ "version": "iui/1",</text>
+    <text x="442" y="158" font-family="monospace" font-size="15" fill="#55716a">"body": [ … ]</text>
+    <text x="426" y="184" font-family="monospace" font-size="15" fill="#16634f">}</text>
+    <path d="M633 150h43m-9-9 9 9-9 9" fill="none" stroke="#8fac9f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="692" y="38" width="302" height="224" rx="16" fill="#fff" stroke="#dae5df"/>
+    <text x="716" y="72" font-size="13" font-weight="700" fill="#173c32">Room for more</text>
+    <text x="716" y="95" font-size="11" fill="#6c8078">An example, ready to explore</text>
+    <rect x="716" y="116" width="254" height="48" rx="8" fill="#f5f7f6"/>
+    <text x="731" y="136" font-size="10" fill="#55716a">ATTENDEES</text>
+    <text x="731" y="153" font-size="13" font-weight="700" fill="#173c32">12</text>
+    <path d="M944 133l4-4 4 4m-8 12 4 4 4-4" fill="none" stroke="#6c8078" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="716" y="211" font-size="31" font-weight="700" fill="#16634f">18</text>
+    <text x="758" y="210" font-size="12" fill="#55716a">spaces remaining</text>
+    <rect x="716" y="227" width="254" height="5" rx="2.5" fill="#e4ece7"/>
+    <rect x="716" y="227" width="102" height="5" rx="2.5" fill="#448c72"/>
+  </g>
+</svg>

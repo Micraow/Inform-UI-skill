@@ -32,7 +32,10 @@ test('public product guides expose concise usage and independently pinned source
   const readme = await readFile(new URL('../README.md', import.meta.url), 'utf8'), matrix = await readFile(new URL('../RECOVERY-CONSUMERS.md', import.meta.url), 'utf8');
   for (const text of [readme, matrix]) {
     assert.ok(Buffer.byteLength(text) < 12000, 'Top-level product guides remain concise; detailed contracts live with their versioned examples.');
-    assert.ok(text.includes('d9b0ed410d9aa2dd7f8fa888ff44b22595239853')); assert.ok(text.includes('fed5f86f49e73f908ac9ea98966b1515a3aaa597'));
+
   }
-  assert.match(readme, /212\/256/); assert.match(matrix, /node --max-old-space-size=768/);
+  assert.match(readme, /\[历史版本兼容表\]\(RECOVERY-CONSUMERS\.md\)/);
+  assert.ok(matrix.includes('d9b0ed410d9aa2dd7f8fa888ff44b22595239853'));
+  assert.ok(matrix.includes('fed5f86f49e73f908ac9ea98966b1515a3aaa597'));
+  assert.match(matrix, /node --max-old-space-size=768/);
 });
