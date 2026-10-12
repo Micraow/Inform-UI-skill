@@ -27,7 +27,7 @@ test('synthetic fixture retains independent defaults and ten accepted/twelve rej
 test('source candidate does not alter the fixed public214 asset lock', async () => {
   const l = await read('candidates/rox-scorecard/runtime-lock.safe.json');
   assert.equal(l.source, '8834c693d1d54772fad62883f8781f064fa4107c'); assert.equal(l.files.length, 45);
-  assert.equal(l.protocolNodes, 216); assert.equal(l.implemented, 210); assert.equal(l.publicCommit, null);
+  assert.equal(l.protocolNodes, 216); assert.equal(l.implemented, 210); assert.equal(l.publicCommit, 'd9b0ed410d9aa2dd7f8fa888ff44b22595239853');
   assert.equal(l.fullNewCDN, false); assert.equal(l.clinicalValidation, false);
   for (const f of l.files) { assert.match(f.sha256, /^[a-f0-9]{64}$/); assert.ok(!/AGENTS|private|\.env|^\/|\.\./i.test(f.path)); }
   const prior = await read('candidates/recovery214/runtime-lock.safe.json');

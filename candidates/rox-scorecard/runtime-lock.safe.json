@@ -1,7 +1,7 @@
 {
   "format": "inform-skill-source-build-lock/1",
   "source": "8834c693d1d54772fad62883f8781f064fa4107c",
-  "publicCommit": null,
+  "publicCommit": "d9b0ed410d9aa2dd7f8fa888ff44b22595239853",
   "protocolNodes": 216,
   "implemented": 210,
   "fullNewCDN": false,

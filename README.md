@@ -1,262 +1,84 @@
-<div align="center">
-
 # Inform UI Skill
 
-新增 [原创 GCS 数值计分消费者](candidates/gcs-scorecard/README.md)：准确 901406db 源构建通过 143 算术检查（含全部 120 数值组合）、10 正 14 负和 7 组真实 DOM/standalone；45 叶与 386 旧定义核齐。六级 motor 的 adult 显式版本、NT/未知分量、live/on-demand、独立 defaults、信息 tabs 与本地 summary 请求均验；0 服务。215 仅登记，完成数仍 209 候选快照，软件通过不代表临床验证。
+用语义化 `iui/1` JSON 组织正文、图表、公式与本地交互，再由 [Inform UI](https://github.com/Micraow/Inform-UI) 校验和渲染。内容足够简单时，保留普通文字；需要图表时，说明数据、单位、来源和假设。
 
-新增 [Overlay与Form披露焦点窄修消费者](candidates/overlay-form-disclosure/README.md)：准确3bcff1a源构建4组真实DOM、12叶身份通过，0服务；两overlay资源晚返回、closed Details内required还焦与换代退役均核。已实际对应source-only公开693d0ef5，7源码叶取回SHA相等、54旧CDN叶不变；fed5资产不含这两后继，未冒称新CDN/native。
+本仓库提供作者指南、原创合成示例、可执行消费者测试及版本锁。它不调用模型服务，不需要 OpenAI 账号或 API，也不捆绑运行库。
 
-新增 [统一214轻量资产消费者](candidates/recovery214/README.md)：准确本地0e2ea910的52资产/SRI、58锁与384旧定义通过，ESM/global各12正8负、共8组宿主Reset及日期DOM流程，加实际standalone通过；0外部服务、11host合同绿。209完成/214登记独立计数，已实际对应公开fed5f86f，52远端载荷33,595,227字节逐项SHA/SRI核齐，Actions0；旧933锁不改。
+## 选择可复现的版本
 
-当前逐ID状态为 **209/256 已实现**（历史功能验收53＋待完整验收156）、部分0、未实现47；214仅协议登记。新增日期组件完成软件算术与本地交互验收，尚无临床验证。[精确状态与公开身份](references/recovery-scope209.json) 固定29d8813f，源码71a7cd97；既有933 CDN资产范围仍208/0/48。
+| 用途 | 固定公开版本 | 使用边界 |
+| --- | --- | --- |
+| 直接使用已打包浏览器资产 | [Inform UI 214 / fed5f86f](https://github.com/Micraow/Inform-UI/tree/fed5f86f49e73f908ac9ea98966b1515a3aaa597/cdn) | 214 个协议节点，209 项完整功能实现；含宿主 Reset 和日期算术，未含后续 GCS、ROX |
+| 使用 GCS 数值计分及完整本地交互 | [源代码 c138b93b](https://github.com/Micraow/Inform-UI/commit/c138b93b745990c02ec41d7b924cb615d80ed172) | 215 个协议节点；须构建该源版本，不能搭配 214 的旧 schema/脚本 |
+| 使用 ROX 显式单位算术与可选研究数值比较 | [源代码 d9b0ed41](https://github.com/Micraow/Inform-UI/commit/d9b0ed410d9aa2dd7f8fa888ff44b22595239853) | 216 个协议节点；包含 GCS 和已验证的本地表单、浮层后续修复 |
 
-新增 [原创日期算术消费者](candidates/corrected-age/README.md)：准确371074e4源构建8正8负、7组实际DOM含离线standalone通过；51叶/384旧定义及样式核齐。双basis、未知/异常、闰日周年、取消/reset与新输入及焦点后继均有检查，0服务。214为登记数；软件验证不等于临床验证，旧933 CDN锁不变。
+当前公开 [逐项功能表](references/recovery-scope211.json) 对应 [f5a753a4](https://github.com/Micraow/Inform-UI/commit/f5a753a488e53504a7086d51b26a75d8f94b1748)：**211/256 已实现**，其中历史功能验收 53、待完整验收 158；部分实现 0、未实现 45。216 是协议登记数，不是完成数。软件行为、原生浏览器、像素一致性和临床有效性是不同的验证范围。
 
-新增 [文本与选择字段 Reset 消费者](candidates/host-fields-reset/README.md)：准确44c0de48本地global产物5组DOM绿，含23dc指针焦点负控原样转绿，覆盖Input/Textarea/Radio/Segmented与非法number draft；10叶SHA一致，0外部服务。同批核44c source-only公开3d99c551及391e公开cf2ed1e8的实际源码字节身份，远端CDN仍933，不混成本批新资产发布。
+浏览器资产的实际远端字节、SHA256 和 SRI 已逐项核对，参见 [214 使用说明](candidates/recovery214/README.md)。保留同版本的 JS、CSS、schema、字体与第三方许可说明；不要只替换一个文件或使用浮动分支 URL。GitHub 文件页用于获取源码和资产，不是可直接执行的脚本地址。
 
-新增 [外层表单 Reset 窄修消费者](candidates/host-form-reset/README.md)：准确391e3cbe源构建已验4组原创DOM流程和10文件SHA；Slider/Toggle/Select的取消、较新输入、原子派生值与换代退役均过。独立source-only锁，不改933公开资产；Input/Textarea/Radio不在本批范围。
+## 安装与开始使用
 
-新增 [统一213标题窄修消费者](candidates/recovery213-readable-headers/README.md)：准确本地933dc后继已对应公开d1196a06，52远端资产实际取回33,438,701字节并逐项核SHA256/SRI/路径，使用说明含固定目录及完整性值。既有Credit/Care32正44负、双CDN8次流程与standalone结果保持，完整schema等于5081；该公开提交Actions0，不冒称新远端CI。旧5081/183锁保留，后续formReset不混入。
-
-新增 [统一213实际CDN组合](candidates/recovery213/README.md)：精确本地资产5081b29b，52资产bytes/SHA/SRI、57锁/3dist及335旧定义全核；14原创家族196正260负同时过ESM/global，8次混合流程＋1实际standalone，0外网服务。固定208/0/48、213登记；此5081历史锁publicCommit保持null，已公开的933dc后继使用独立锁，旧183锁不变。
-
-新增 [Entity/GenImage/Speech三类消费者](candidates/inline-host-media/README.md)：准确3b0614源20正24负、8组DOM/standalone、380旧定义/21锁。150ms预览、图像尺寸null cap/动作优先/localviewer、供数Speech与单次disabled stop均核；0外网/生成/TTS服务，213仅登记，原生与像素另验。
-
-新增 [Care供数目录与日历消费者](candidates/care-providers/README.md)：准确d1e555源16正22负、7组DOM/standalone、372旧定义/20锁。原创虚构目录、两层slot、空cursor、日历/菜单焦点和取消reset均核；0外网/预约服务，210仅登记，无患者数据或医疗判断。
-
-新增 [LearningViz真实引擎消费者](candidates/learning-viz/README.md)：准确e6bb源12正16负、8组DOM/standalone、371旧定义/20锁。原创明暗矢量、首连有限播放/重播、主题保暂停、取消/reset新输入和late timer均核；0外网服务，208仅登记，原生与像素另验。
-
-新增 [Legacy/Riddle两类消费者](candidates/supplied-interactions/README.md)：准确848后继15正18负、7组实际DOM/standalone、369旧定义/20锁，独立QA12/12。原cargo/terminal reset焦点双负控6ad 0/2→848 2/2；三/all与七次过河胜/失败/取消均核，0金融/对话服务。207仅登记，当前209完成。
-
-新增 [两类供数Credit消费者](candidates/credit-score/README.md)：准确4c059源16正22负、8组实际DOM/standalone、367旧定义/20锁，独立QA13/13。score/position/history独立、mask含aria、80ms与Escape还焦、RTL/IME/reset新输入均核；0报告/账户/信用决策服务。205仅登记，当前209完成。
-
-新增 [Bento/Detail/组织三类消费者](candidates/supplied-discovery/README.md)：准确d1b8源14正20负、6组实际DOM/standalone、364旧定义/19锁，独立QA10/10。四卡URL优先、payload null/空串区别、四/all与取消/reset均核；0导航/composer/analytics服务。203仅登记，当前209完成。
-
-新增 [三类供数launcher消费者](candidates/supplied-launchers/README.md)：准确70ec源16正20负、6组实际DOM/standalone、361旧定义/21锁，独立QA10/10。学习模式/voice单次锁、图像三态与finite partner请求均核；0录音/生成/partner服务。200仅登记，当前209完成。
-
-新增 [Equity/Watchlist供数消费者](candidates/equity-watchlist/README.md)：准确35d8源14正18负、6组实际DOM/standalone、359旧定义/21锁；0报价/账户/交易服务。独立label、零/null、遮罩和展开/reset已核；576仅实际CSS合同，另精确保留两个旧CSS token修复。独立QA新域10＋旧族20全过，197仅登记，当前209完成。
-
-新增 [Context三族消费者](candidates/context-actions/README.md)：准确9344源已验18正20负、6组实际DOM/standalone、356旧定义/19锁，独立QA10/10。供数rating/null、主题图、plugin能力与成对hint均核；0真实导航/插件/遥测。195仅登记，当前209完成。
-
-新增 [FinanceEntry三族消费者](candidates/finance-entry/README.md)：准确cbaf源已验14正18负、6组实际DOM/standalone、353旧定义/19源构建锁，独立QA10/10。Repair/init、action优先prompt、prefill与followup独立且0银行/账户调用；192为该源注册计数，当前209完成，576容器断点仅CSS合同证据。
-
-新增 [Task三卡消费者](candidates/task-cards/README.md)：准确ce64后继已验12正18负、6组实际DOM/standalone，350旧定义/18源构建锁。Intro/Stop确认不可用且不自产stopped，Task仅本地可取消请求；独立10/10与两focus负控已闭合，当前209完成，189为该源注册计数。
-
-新增 [Capability Search组合消费者](candidates/capability-search/README.md)：准确9793源已验11正16负、6组真实DOM/standalone、345旧定义及21源构建锁，0外网/0服务。独立QA10/10已闭合，当前209完成；186为该源注册计数；它与原conversational Search是不同合同。
-
-最新[统一183固定CDN组合](candidates/recovery183/README.md) 对准确公开f7c49af9与本地cf3b相同资产完成52manifest字节/SHA/SRI、3dist与双CDN代表流，10原创家族106正158负、8次混合流程通过。该资产固定178/0/78、183登记；后续源当前209/0/47、214登记另计。原164锁保持158/1/97。准确183的[原生CI](https://github.com/Micraow/Inform-UI/actions/runs/38151422002) 已实际通过3428项Node及742项Chromium，52资产与固定版本相同；184之后源码与参考像素不借此结论。
-
-当前恢复分支入口：[已验证的恢复消费者与运行命令](RECOVERY-CONSUMERS.md)。此前[统一164固定资产消费者](candidates/recovery164/README.md) 对公开74d463与本地2dc相同字节完成52资产SHA/SRI、3dist和双CDN代表流核对，20正33负、8次混合流程通过。历史[精确本地 CDN 组合消费者为协议154](candidates/recovery154/README.md)：21份原创示例、144正例/359负例、双入口7组DOM合同通过；该固定资产canonical为142已实现、6部分、108未实现，历史功能验收53不变。公开源码闭包及远端CI另验。Skill 包含原创供数示例、独立 JavaScript 校验和安全文件锁，不捆绑运行库或私有参考。DOM/合同检查不代表原生或像素验收。以下旧合同与推荐保留为历史版本，不能混用资产。
-
-最新 [Reservation carousel消费者](candidates/reservation-carousel/README.md) 已验10正16负、6组实际DOM/standalone，普通reader不另计canonical；此前 [AskUserLocation消费者](candidates/ask-location/README.md) 已验8正12负/5组DOM与实际standalone，独立功能确认后计入当前209。此前 [Quiz三合同](candidates/quiz-cards/README.md) 与 [Welcome消费者](candidates/capability-welcome/README.md) 分别验12正20负/7组与10正16负/5组实际DOM/standalone，已获独立功能确认；214为当前注册数。此前 [Search原创消费者](candidates/search-onboarding/README.md) 已验10正16负、7组DOM/实际standalone及reset/resize后继，179登记且已获独立功能确认。此前 [Weather供数补全消费者](candidates/weather-supplied/README.md) 已验11正16负、8组DOM/实际standalone，包含旧快照兼容、DST/跨日图表、当地日表格、紧凑视图、本地意图与导航后继；仍178登记，Weather功能补全已获独立确认。此前 [Study实际供数消费者](candidates/study-onboarding/README.md) 已验10正16负、8组DOM/实际standalone，包含真实quiz/chart、toy slider与chart-reset后继；178为该源注册计数，Study后继已获独立功能确认。此前 [OnboardingCards三族消费者](candidates/onboarding-cards/README.md) 已验10正16负、8组DOM/实际standalone、首4应用状态/能力与三类starter合同。此前 [Voice三族源消费者](candidates/voice-cards/README.md) 已验15正17负、8组DOM/compiler与两项Speak reset后继，172为该源注册计数。最新 [Advice/Writing原创供数消费者](candidates/onboarding-advice-writing/README.md) 已验8正12负、6组DOM/compiler与六个presentation/被动Markdown/键盘/reset合同，174为该源注册计数，两族与Voice后继均获独立功能确认；活页177登记中的三项OnboardingCards也获独立功能确认。此前 [Ledger分类三族源消费者](candidates/ledger-categories/README.md) 已验10正15负、8组DOM/compiler与独立供数/遮罩/reset合同，三项获独立功能确认。此前 [AskUser两族源消费者](candidates/ask-user/README.md) 已验10正14负、7组DOM/compiler与合成文件metadata边界，两项获独立功能确认。此前 [Automation三族源消费者](candidates/supplied-automation/README.md) 已验12正22负、8组DOM/compiler与折叠reset修复，独立功能确认已计入当前209范围；准确后继与原负控见其记录。此前 [Tab/Visual两族源消费者](candidates/tabbed-visual/README.md) 已验158注册、query回退小后继及9组DOM/compiler，两项canonical已获独立功能确认。此前 [Link三族源构建消费者](candidates/supplied-links/README.md) 已验156注册，三项canonical已通过独立功能确认，纳入当前209计数。此前源构建消费者新增 [Upcoming双流](candidates/upcoming-flows/README.md) 与 [Spend月序列](candidates/spend-trends/README.md)，并包含 [FollowUp](candidates/follow-up-presentations/README.md)、[Conversation](candidates/conversation-presentations/README.md) 与 [ImageGrid 补全候选](candidates/image-grid-presentations/README.md)，同时保留 [Finance154](candidates/local-finance-readers/README.md)、 MatchScores、LearningMedia、Weather/Category、NetWorth、Pressable 与 Fee/Interest 的精确检查点。当前源清单为 209/256 已实现（历史功能验收53＋待验156），部分0、未实现47；FollowUp、Conversation、ImageGrid、Upcoming与Spend五项功能补全已通过独立确认，Weather现已通过独立功能确认并消除当前partial，详见[功能子集边界](references/recovery-functional-subsets.md)。164代表CDN组合检查不提升原生或像素验收，130与154固定组合资产保持原样。
-
-> Pending acceptance：本分支合同与壳固定 26ec211fa529516af3b1523248f5912c45ec64c6，37 项候选等待同版集中 CI 与原图验收。已验53计数、旧版推荐及用户演示不升级。
-
-### 让 AI 把解释写清楚，也把关系画明白。
-
-[![CI](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml/badge.svg?branch=feat%2Fsemantic-authoring-skill&event=pull_request)](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)
-![协议 iui/1](https://img.shields.io/badge/schema-iui%2F1-2563eb)
-![开发版 0.1.0，尚未发布](https://img.shields.io/badge/status-0.1.0%20preview%20%7C%20unpublished-f59e0b)
-[![MIT License](https://img.shields.io/badge/license-MIT-16a34a)](LICENSE)
-
-**清晰的正文 · 自然混排的图表与公式 · 恰到好处的交互**
-
-[快速上手](#快速上手) · [安装技能](#安装技能) · [示例](#从这些例子开始) · [支持范围](references/support.md)
-
-</div>
-
-Inform UI Skill 帮助 AI 判断什么时候值得用图、选什么组件，以及怎样把正文、公式、数据和交互组织成一段好读的解释。网页聊天可以直接交付可打开的 HTML；其中的组件由精简的 `iui/1` JSON 描述，再由 [Inform UI](https://github.com/Micraow/Inform-UI) 校验并生成界面。
-
-整个方案独立于模型厂商：不需要 OpenAI 账号、API 或私有运行时。能读取技能说明的 Agent 都可以使用它。库的 API 中 `portable` 是渲染后端的技术名称；单文件 HTML 和嵌入网页是同一套库的交付方式，无需等待另一种“原生版”。
-
-## 项目身份与第三方权利 / Project identity and third-party rights
-
-1. Inform UI 及本 Skill 是独立、非官方的社区实现。
-2. 项目目标是高保真复刻 OpenAI Intelligent UI 的视觉与交互；这是实现目标，不代表所有功能或视觉细节已经完成。
-3. 本项目并非由 OpenAI 开发、维护、赞助或认可。
-4. 文中 OpenAI、ChatGPT 和 Intelligent UI 等名称仅用于说明参考对象，不暗示官方关联、合作或授权关系。
-5. 第三方素材与代码仍受各自的许可证和知识产权约束；本项目许可证不改变这些权利。
-6. 以上声明不能替代使用第三方内容时所需的授权。
-
-1. Inform UI and this Skill are independent, unofficial community implementations.
-2. The project aims to reproduce the visual design and interactions of OpenAI Intelligent UI with high fidelity. This is a development goal, not a claim that every feature or visual detail is complete.
-3. This project is not developed, maintained, sponsored, or endorsed by OpenAI.
-4. Names such as OpenAI, ChatGPT, and Intelligent UI are used only to identify the reference, and do not imply an official affiliation, partnership, or authorization.
-5. Third-party assets and code remain subject to their respective licenses and intellectual-property rights. This project's license does not alter those rights.
-6. These statements do not replace any permission required to use third-party content.
-
-为保持已有文档可运行，技术标识 iui/1、window.IUI、CLI iui 与 CSS .iui-* 不随品牌改名。
-
-旧名称下的 41/46 节点盲测是历史版本记录。其输入、HTML/JSON 首稿、库合同和原始说明保留原字节与旧 CDN 地址，不用品牌迁移改写实验；新入口与示例使用 Inform UI。历史版权署名也予以保留。
-
-Technical identifiers iui/1, window.IUI, the iui CLI, and .iui-* CSS classes remain unchanged so existing documents keep working.
-
-The 41-node and 46-node blind tests are historical records from the project's former name. Their inputs, first HTML/JSON outputs, library contracts, and original notes retain their original bytes and CDN URLs. The rebrand does not rewrite those experiments; current entry points and examples use Inform UI. Historical copyright attribution is retained as well.
-
-## 适合什么时候用？
-
-- **解释技术原理**：让正文、公式、步骤与拓扑图按阅读顺序自然衔接
-- **看懂数据变化**：用折线、柱状、散点、面积或环图表达关系，按真实数值/时间摆放坐标，保留单位、来源和缺测值
-- **组织本地输入**：用表单、文本/数字/邮箱、多行文本、单选和分段选择完成校验、确认与取消，默认不发送或保存数据
-- **说明天气数据**：展示调用方提供的观测/预报，切换日期、单位和图表；没有天气服务也不会冒充实时预报
-- **读懂比赛快照**：用已有数据展示赛程、记分牌和积分榜，保留未知比分、并列名次与来源；不冒充直播
-- **练习与回忆**：本地单选/多选自测、解释反馈、翻面自评与重来，答案公开且不保存成绩
-- **单位与金额试算**：九类单位、绝对温度/温差、调用方提供的汇率快照；明确基准、缺测与费用边界，不执行换汇交易
-- **本地时间与按需说明**：固定瞬间/设备时钟、暂停起始的秒表/倒计时，以及纯文本tooltip/非模态popover；不冒充系统闹钟或网络校时
-- **呈现进度与来源**：显示调用方提供的精确比例、未知进度和有限占位，以及字面引用/资料卡；不推断任务进展、不搜索或核实来源
-- **清楚表达状态**：保序换行flow、10种原创有限icon和显式pulse-indicator；不加载任意图标或自动推断服务状态
-- **探索“如果改变……”**：用滑块或选择器改变输入，让相关数值同步更新
-- **整理指标和资源**：把关键指标、简短说明与链接放在读者需要的位置
-
-如果一句话就能说清，技能会保留普通文字。模拟数据必须明确标注，真实数据不能凭空补齐。
-
-## 两条入口：常用基础与按需领域
-
-把 [`SKILL.md`](SKILL.md) **全文**交给 Agent 或 Web Chat。根文件保留常用富文本、引用、跨格/流式布局、结构化表格、有限图标/状态、时间与浮层、图表、控件、表单、自测/闪卡、单位换算、受控 SVG、公开 API 与完整 CDN HTML 壳；只使用已内嵌字段即可生成基础页面，无需终端或读取实现。
-
-天气、体育、金融与货币快照等深入领域，先按根文件的用途索引选择组，再读[同版机器索引](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/schema/index.json)指向的 Document Schema 和一个同版示例。每个领域文档包默认包含 base；Node 查询片仅供查字段，不能当完整 Document 校验器。跨领域按完整 Schema 或同版 CLI 生成的并集校验，仍需真实 validateDocument 做语义检查。
-
-不能读取外部资料的普通 Web Chat，可额外接收[完整 Web Chat 指南](WEB-CHAT-GUIDE.md)或同版[完整 JSON Schema](https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@26ec211fa529516af3b1523248f5912c45ec64c6/cdn/iui.schema.json)。完整版指南保留同版 97 个注册项的用途及保守生成合同；根文件中的领域名字只是发现入口，不能替代尚未读取的字段合同。完整 Schema 是唯一规范来源，分片由它自动生成，不手工维护第二份 Schema。
-
-让模型返回完整 HTML，保存成 `.html` 后用联网浏览器打开。组件、布局和交互由库完成，不必重写 CSS 或控件；聊天气泡能否直接运行脚本取决于宿主。没有取得所需领域资料时，应请求补充资料或留在根文件明确支持的范围，不猜字段。
-
-数学使用库自带的 KaTeX 排版：联网壳通过固定 CDN 的 CSS 按需加载官方 MIT 数学字体，请保留 `styles:false` 和匹配的 CSS。需要完全离线时使用下方本地 inline 构建，它会把数学字体一同内嵌。
-
-## 安装技能（Agent 可选）
-
-当前为 **0.1.0 开发版**，尚未发布 npm 包。先获取已可使用的开发分支：
+需要 Git 和 Node.js 22 或更高版本。本项目不假设已有 npm 发布包。
 
 ```sh
-git clone --branch feat/semantic-authoring-skill https://github.com/Micraow/Inform-UI-skill.git inform-ui-author
-```
-
-将整个 `inform-ui-author/` 文件夹放进你的 Agent 宿主支持的技能目录。具体路径由宿主决定；请保留 `SKILL.md`、`references/`、`examples/` 和其余相对路径。这里只提供技能文件，不会替你更改宿主配置。
-
-没有技能安装能力时，直接使用上面的网页聊天路径即可。需要本地校验或离线构建的 Agent，再使用下面的命令行路径。
-
-## 快速上手
-
-先试着对 Agent 说：
-
-> 使用 inform-ui-author，解释一条网络路径为什么会受最忙的链路限制。给我一个能调整负载的小演示，明确标注教学假设。只使用说明中的 JSON 协议和固定 CDN 壳，返回完整 HTML；不要手写组件 HTML/CSS，也不要假装运行过本地校验。
-
-网页聊天到这里即可生成文档。下面是有终端的 Agent 可选用的本地路径。
-
-第一次在本地构建时，需要 **Git 和 Node.js 22 或 24**。在 `inform-ui-author/` 的上一级目录运行：
-
-```sh
+git clone --branch recovery/consumers-126-20261011 https://github.com/Micraow/Inform-UI-skill.git inform-ui-author
 git clone https://github.com/Micraow/Inform-UI.git Inform-UI
-git -C Inform-UI checkout --detach 26ec211fa529516af3b1523248f5912c45ec64c6
+git -C Inform-UI checkout --detach d9b0ed410d9aa2dd7f8fa888ff44b22595239853
 npm --prefix Inform-UI ci
 npm --prefix Inform-UI run build
-node Inform-UI/bin/iui.mjs validate inform-ui-author/examples/hpcc-feedback.json --json
-node Inform-UI/bin/iui.mjs build inform-ui-author/examples/hpcc-feedback.json --out answer.html --lang zh-CN
+node Inform-UI/bin/iui.mjs validate inform-ui-author/examples/minimal.json --json
+node Inform-UI/bin/iui.mjs build inform-ui-author/examples/minimal.json --out answer.html --lang zh-CN
 ```
 
-用浏览器打开 `answer.html`，调整滑块查看反馈。示例展示的是简化的教学模型，所有数值均为合成数据。
+打开生成的 `answer.html` 查看结果。已有工作目录时，先保存自己的修改，再选择版本；验证器不会下载或悄悄替换缺失的运行库。
 
-以上命令使用固定的核心库提交和真实 CLI。完整版本对应保存在 [`library-contract.json`](library-contract.json)；如果已有本地 checkout，请先确认版本，不要覆盖尚未保存的修改。更多 API、状态计算和排错方法见[使用指南](references/library-workflow.md)。
+支持技能目录的 Agent 可以加载整个仓库，并保留相对路径。基础表达原则见 [SKILL.md](SKILL.md)；该文件与 [WEB-CHAT-GUIDE.md](WEB-CHAT-GUIDE.md) 保留了自身的旧版固定运行合同，不能把其登记数或 CDN 链接当作当前版本。使用新增组件时，应读对应消费者说明、同版完整 schema 和一个同版示例。最新源 schema 位于 [固定 d9b0ed41](https://github.com/Micraow/Inform-UI/blob/d9b0ed410d9aa2dd7f8fa888ff44b22595239853/src/schema/iui.schema.json)。
 
-## 从这些例子开始
+没有终端时，可使用 [214 固定资产说明](candidates/recovery214/README.md) 的浏览器入口，或让宿主提供已构建的匹配运行库。不要把未执行的 HTML 说成已预览。
 
-| 例子 | 可以学到什么 |
+## 作者应遵守的合同
+
+- 先确定读者要理解的关系，再选择正文、图表、表格或控件；不要把每一段话塞进卡片。
+- 所有示例数据明确标注为实测、供数或合成。缺失值保留 `null`，真实零值不能丢失。
+- JSON 只表达允许的字段；不要附带组件 HTML、任意脚本或事件处理函数字符串。
+- 结构校验之后仍需调用 `validateDocument` 做语义校验。单节点 schema 不能替代完整文档合同。
+- 金额、比分、目录、自动化和能力卡默认读取宿主供数；本地意图不等于银行、消息、预约、录音或外部服务已经执行。
+- GCS、ROX 和日期组件只验证相应的软件规则与界面合同。调用方仍须确认版本、单位、适用范围及其自身场景的验证要求。软件测试不构成临床验证或治疗建议。
+
+最小文档可以只有文字：
+
+```json
+{"version":"iui/1","body":[{"type":"text","value":"一个简短解释可以已经足够。"}]}
+```
+
+浏览器入口提供 `validateDocument`、`mount` 与更新/清理控制器；Node 入口另提供 `compileHtml`。请使用固定版本公开的实际类型和返回值，不猜组件字段。
+
+## 原创示例与必要验证
+
+| 示例或消费者 | 覆盖内容 |
 | --- | --- |
-| [最小文字回答](examples/minimal.json) | 内容足够简单时，不必添加组件 |
-| [瓶颈负载与反馈](examples/hpcc-feedback.json) | 正文、拓扑、滑块、公式与计算结果的混排 |
-| [RTT 趋势](examples/rtt-trend.json) | 比较两条曲线，保留缺测数据，并展开查看数值 |
-| [Wi-Fi 指标](examples/wifi-status.json) | 用紧凑指标解释含义，区分链路速率与实际吞吐 |
-| [本地练习计划](examples/local-practice.json) | 字段校验、禁用、提交/取消与指标、柱图的同一state联动 |
-| [已提供的天气数据](examples/supplied-weather.json) | 有来源的数据、日期/单位切换与缺测、空/加载/错误状态 |
-| [真实坐标与五图种](examples/coordinate-scenarios.json) | 不等距X、跨年毫秒时间、微量数据与图种边界 |
-| [合成比赛快照](examples/supplied-sports.json) | 赛程筛选、记分牌、并列排名、扣分和空/加载/错误状态 |
-| [本地自测与闪卡](examples/local-learning.json) | 加权计分、严格多选、翻面自评、回看与重来 |
-| [供数行情与相对表现](examples/supplied-finance.json) | 来源/延迟、范围、缺测、同一瞬间的共同基准与不可比状态 |
-| [权重与涨跌热图](examples/supplied-heatmap.json) | 正权重面积、色阶饱和、无面积项的键盘/全表与行业筛选 |
-| [单位与货币快照](examples/local-converters.json) | 类别与温差、互换/重置、缺汇率/零金额/同币种及完整表 |
-| [辅助内容与矢量](examples/auxiliary-surfaces.json) | code/badge/box/轮播、静态SVG、有限 Markdown 子集 |
-| [资源短名单](examples/resource-shortlist.json) | 把有用的链接和介绍融入正文 |
-| [基础表达增强](examples/foundation-explainer.json) | 富文本、行内代码、引用、跨格网格与结构化表格 |
-| [页内时间](examples/local-time.json) | 固定时刻、设备时间、暂停起始的秒表与倒计时 |
-| [按需说明](examples/local-overlays.json) | 纯文本tooltip、非模态与嵌套popover、关闭和归焦 |
-| [数值草稿](examples/local-number-draft.json) | 用户无效数字草稿、权威宿主覆盖、提交和取消 |
-| [限时本地练习](examples/timed-local-practice.json) | base/forms/charts/time跨域组合与独立计时生命周期 |
-| [本地状态基元](examples/local-status-primitives.json) | 保序换行、有限图标和显式状态的语义边界 |
-| [基础布局组合](examples/primitives-with-form-and-time.json) | flow中的表单、倒计时和浮层仍保留各自领域与状态 |
-| [手动比例与未知进度](examples/loading-numeric-progress.json) | 合成比例的精确数值、0与未知的区别 |
-| [有限占位形状](examples/loading-placeholder-shapes.json) | 可读标签、三种有界结构和减少动态效果 |
-| [手动进度与来源](examples/supplied-source-reading.json) | form驱动loading，来源卡不自动标记已读或核实证据 |
+| [最小文字](examples/minimal.json) | 不添加无必要装饰 |
+| [瓶颈与反馈](examples/hpcc-feedback.json) | 正文、拓扑、公式与本地输入 |
+| [GCS scorecard](candidates/gcs-scorecard/README.md) | 120 个数值组合，NT/未知，信息 tabs、独立 defaults 与本地 summary |
+| [ROX 显式单位](candidates/rox-scorecard/README.md) | 百分数/分数、零/缺失、未经舍入比较与 reset |
+| [日期算术](candidates/corrected-age/README.md) | 两种日期依据、闰日周年、无效/未知与边界输出 |
+| [宿主表单字段](candidates/host-fields-reset/README.md) | 无效草稿、取消、较新输入与可见焦点 |
+| [浮层与表单披露](candidates/overlay-form-disclosure/README.md) | 本地浮层资源和关闭 Details 内的必填字段焦点 |
 
-这些示例全部为原创。请一起修改数据与解释；示例数字不是用户的真实测量结果。
-
-## 两个仓库怎样配合？
-
-| 仓库 | 负责什么 |
-| --- | --- |
-| **[Inform UI Skill](https://github.com/Micraow/Inform-UI-skill)** | 教 Agent 选择内容、组织阅读顺序、输出 JSON，并检查质量 |
-| **[Inform-UI](https://github.com/Micraow/Inform-UI)** | 定义协议、验证输入，确定性生成 HTML，处理样式、响应式和交互 |
-
-技能不要求 AI 为每次回答重新写 HTML、CSS 或 JavaScript。字体、间距、主题与移动端布局交给库处理。
-
-本待验分支固定协议有97项注册：96个portable节点和native拒绝说明。根技能保留常用合同及全领域选型/发现路径；完整指南可一次提供全部保守合同，按需Schema由核心单一规范自动生成。天气与体育视图使用调用方提供的数据；测验与闪卡使用作者提供的答案，仅处理本轮学习流程。金融支持供数行情、历史、同基准比较与权重热图；不抓取行情、不自动换汇、不交易，详见[供数合同与验证记录](references/finance.md)。实时地图或外部提交服务需要自己的数据与授权；任意脚本应用不在本技能的输入范围内。详见[组件与能力说明](references/support.md)。
-
-## 运行检查
-
-在技能目录中执行：
+更多固定版本与命令见 [消费者兼容表](RECOVERY-CONSUMERS.md)。每个消费者保留自己的运行源、资产与结果；旧版本通过记录不自动适用于新版本。
 
 ```sh
-npm test
-npm run check:library -- --library ../Inform-UI
-npm run check:schema -- --library ../Inform-UI
-npm run check:inventory -- --library ../Inform-UI
-npm run check:components -- --library ../Inform-UI
-npm run check:primitives -- --library ../Inform-UI
-npm run check:next66 -- --library ../Inform-UI --revision 26ec211fa529516af3b1523248f5912c45ec64c6
+cd inform-ui-author
+node --test tests/gcs-scorecard.test.mjs tests/rox-scorecard.test.mjs tests/recovery214.test.mjs
+node --max-old-space-size=768 candidates/rox-scorecard/verify-source.mjs --library ../Inform-UI
 ```
 
-这些命令检查技能结构与文件边界、真实库API/CLI与全部示例、自动分片的引用闭包/哈希/完整归属/同版示例、派生库存、根文档JSON字面例及新增组件正反例。可选的[浏览器检查](references/library-workflow.md#browser-regression)还会操作滑块，并检查桌面与 390 px 布局。
+完整 `npm test` 检查本仓库的全部测试；它和针对某个精确运行库执行的消费者测试不同。测试结果中的实际执行、未执行和限制应分别说明。
 
-以下是 d370 的既有验收历史，不属于本待验 5c7f 分支的新结果。
+## 项目身份与许可
 
-[持续验证](https://github.com/Micraow/Inform-UI-skill/actions/workflows/verify.yml)保留Linux Node22/24、Windows/macOS Node22的实际API/CLI与Schema检查。66节点指导已在本地通过24全例、29根/完整指南字面JSON、53个后批新增反例及派生闭合检查；本轮核心338项Node、241项Chromium与42旧＋18新消费者已通过[集中CI](https://github.com/Micraow/Inform-UI/actions/runs/37898154911)。本次[Skill独立入口CI](https://github.com/Micraow/Inform-UI-skill/actions/runs/37899000574)四平台全部通过，当前100视图中68次加载真实固定CDN、32次内嵌构建；实际复看3新例的窄暗/宽亮及2张入口壳共8图，没有观察到阻塞性溢出或裁切。历史盲测、[已验62阶段](references/schema-discovery-62-history.md)和[6797阶段](references/schema-discovery-6797-history.md)保留原pin、输入与范围，当前结论见[验收记录](references/schema-discovery.md)。
+Inform UI 和本 Skill 是**独立、非官方**社区实现，参考 OpenAI Intelligent UI 的视觉与交互表达。项目并非由 OpenAI 开发、维护、赞助或认可；相关名称仅用于说明参考对象，不暗示官方关联。
 
-按需入口、单根范围、Schema 边界与本轮完整验证见[发现与验收记录](references/schema-discovery.md)。纯文档检查点可只跑轻检查，完整功能结果明确绑定到已验提交，不把跳过当通过。
+Inform UI and this Skill are independent, unofficial community implementations. They are not developed, maintained, sponsored, or endorsed by OpenAI. The reference names do not imply an official association; these statements do not replace any permission required for third-party content.
 
-## 许可证
-
-采用 [MIT License](LICENSE)。欢迎提交原创示例与改进；引用第三方内容时，请保留清楚的来源和兼容许可。
-
-## Current pending 37 preparation
-
-The 26ec211 asset adds supplied flight options, artist events, asset distributions, transaction lists, local onboarding selection, shipment snapshots and flight snapshots. These are seven original candidate contracts using five unique synthetic examples; no live services, provider accounts or persistence are implied. The separate [37-input lock](candidates/pending-batch/library-candidate-lock37.json) binds the current immutable source. [Prior 30 preparation](candidates/pending-batch/library-candidate-lock.json) remains historical and is reproducible only with its exact earlier Skill checkout. Full schema is the sole specification; base/domain bundles and inventory are generated from it. Accepted canonical count stays 53 until real combined acceptance.
-
-## Independent 115 candidate
-
-For all eighteen later Base contracts, use the single [115 authoring entry](candidates/upcoming-eighteen/AUTHORING.md), its generated full/Base/domain schemas and exact candidate runtime. This source-checked package has not promoted the top-level CDN contract or the accepted component count. See its [verification boundaries](candidates/upcoming-eighteen/README.md).
-
-## Local recovery increment
-
-The independently verified [recovered CardGroup authoring candidate](candidates/recovered-card-group/README.md) is pinned to a local 116-node reconstruction with one new canonical target. It keeps the historical 115 guide and its source pin unchanged. Public CDN and native visual acceptance are pending; the later lost 148/151 work is not represented by this snapshot.
-
-The separate [recovered TransactionDetail candidate](candidates/recovered-transaction-detail/README.md) binds local protocol 117 and adds one Finance-owned supplied receipt surface. Its executable examples retain true zero/refund/unknown labels, literal IDs and cancelable local intents. The authoring check verifies Finance closure, prior CardGroup inputs, three historical scientific scenes and actual standalone/CDN family CSS. Source and asset identities remain separate from any public release or native visual claim.
-
-For the latest recovered branch, use the [unified 118 Recommendation consumer](candidates/recovered-recommendation/README.md). It combines three supplied reading families, verifies the concrete CopyWords busy-state repair and retains both earlier 116/117 pins. The final runtime aggregate is 1769/1771 with two historical missing-font failures, then the exact font-only successor passes both gates (14 targeted checks). All native/pixel acceptance remains pending.
-
-The recovered consumers default to safe file-closure locks. Original Git identities are preserved as provenance; excluded agent-guidance metadata and Git history are not required. Historical complete locks remain unchanged locally and are not part of the safe restore increment. The current 118 consumer has also passed against a real clean source extraction without Git metadata.
-
-### Restored learning-media source consumer
-
-`candidates/restored-learning-media` now verifies all three finite media practice nodes against exact source/build `f6d4893`, including six actual compiler HTML policies. It adds no CDN or native-playback acceptance. `candidates/restored-net-worth` now checks seven ordinary DOM workflows against source/build `b7adf946`; its separate modifier-key limitation is recorded in that guide.
-
-`candidates/restored-weather-category` locks exact source/build `6b49ceb` for two more supplied-data readers. It checks local temperature conversion and category-review receipts with eight DOM workflows; existing CDN locks stay unchanged.
-
-`candidates/restored-pressable` now verifies exact source/build `ae77d323`, including seven passive-action DOM workflows and the narrow NetWorth modifier/IME successor. `candidates/restored-fee-interest` now verifies exact source/build `aed78e46` through seven supplied-reader DOM workflows and one compiled HTML artifact. The original `candidates/restored-html-view` fixture is now part of the exact144 combined media consumer; `candidates/restored-async-images` prepares the next finite-image family without runtime acceptance.
-
-The [original Search onboarding consumer](candidates/search-onboarding/README.md) uses exactsourcec900bd35 for three supplied Weather/Finance/News views. Its10 positive/16 negative contracts and7 DOM/actual-standalone workflows preserve330 prior definitions and the frozen164 asset lock. No live lookup provider is called.
-
-The [original three-contract Quiz consumers](candidates/quiz-cards/README.md) verify exactsource21a85df with12 positive/20 negative documents and7 DOM/actual-standalone workflows. Follow-up, local exact-match/query-only and supplied-result questionnaire contracts stay distinct;331 prior definitions and the fixed164 asset are preserved. No personality inference or external grading is performed.
-
-The [original capability-welcome consumer](candidates/capability-welcome/README.md) verifies exactsourcef72f89ba with10 positive/16 negative documents and5 DOM/actual-standalone workflows. Supplied action IDs, local receipts, unsupported voice/missing mappings and icon/reset ownership are explicit.334 prior definitions and the fixed164 CDN are unchanged.
-
-The [original AskUserLocation consumer](candidates/ask-location/README.md) verifies exactsource60154c7 with8 positive/12 negative documents and5 DOM/actual-standalone workflows. Three cancelable local intents and reset/dismissal ownership are tested with0 location/permission access. Source184 is separate from unified183 and the unchanged164 CDN.
-
-The [original reservation-card consumer](candidates/reservation-carousel/README.md) verifies exactsource37e4ba7 with10 positive/16 negative documents and6 DOM/actual-standalone workflows. Its canonical mobile-five/first-group contract stays distinct from the reusable ordinary reader; all booking-like actions are canceled or recorded locally with0 provider calls. Source185 is separate from frozen183/164 assets.
+原创代码采用 [MIT License](LICENSE)。第三方素材与代码仍受各自的许可证和知识产权约束；本项目许可不能替代所需授权。公开论文、图表或评分资料的可读性也不自动赋予复制、翻译或重新许可的权利。

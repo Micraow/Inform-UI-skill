@@ -1,17 +1,17 @@
 {
   "format": "inform-canonical-function-scope/1",
-  "protocolNodes": 214,
+  "protocolNodes": 216,
   "canonicalTotal": 256,
   "counts": {
     "functionally_verified": 53,
-    "implemented_pending_verification": 156,
+    "implemented_pending_verification": 158,
     "partial": 0,
-    "not_implemented": 47
+    "not_implemented": 45
   },
-  "completeImplementationCoverage": 209,
+  "completeImplementationCoverage": 211,
   "existingPartialId": null,
   "subsets": [],
-  "acceptanceBoundary": "Current source scope209/0/47 adds bounded corrected-date arithmetic and local UI software contracts; clinical validation is not established. Protocol214 is separate. The remaining47 clinical components are not implemented. Exact183 remote native CI and local213 browser evidence retain their own fixed version scopes. Frozen933 remains208/0/48 with213 registrations.",
+  "acceptanceBoundary": "Public source scope211/0/45 includes the GCS and ROX numerical scorecard software contracts. Clinical validation is not established. Protocol216 is separate. Source d9b0ed41 and inventory f5a753a4 are published; the public fed5 package remains protocol214 with209 implemented IDs. Browser and pixel evidence retain their exact version scopes.",
   "implementedFunctionalCompletions": [
     {
       "id": "follow-up-action-bar",
@@ -483,6 +483,22 @@
       "status": "implemented_pending_verification",
       "sourceCommit": "371074e4e5358a0c0e4020240b7c3c4a3e98b8e3",
       "consumer": "candidates/corrected-age",
+      "nativeAndPixelAcceptance": false,
+      "clinicalValidation": false
+    },
+    {
+      "id": "calculator-glasgow-coma-scale-gcs",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "901406db5d3a02c2dffa069c670e983076502096",
+      "consumer": "candidates/gcs-scorecard",
+      "nativeAndPixelAcceptance": false,
+      "clinicalValidation": false
+    },
+    {
+      "id": "calculator-rox-index-for-high-flow-nasal-cannula",
+      "status": "implemented_pending_verification",
+      "sourceCommit": "8834c693d1d54772fad62883f8781f064fa4107c",
+      "consumer": "candidates/rox-scorecard",
       "nativeAndPixelAcceptance": false,
       "clinicalValidation": false
     }

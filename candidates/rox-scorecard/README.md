@@ -61,3 +61,12 @@ is copied. Open access is not represented as a grant to redistribute an article
 under this repository's MIT license. Calling software remains responsible for its
 own suitability and validation; that responsibility does not itself establish
 clinical safety or third-party content rights.
+
+## Verified source publication
+
+The matching original source is public at [d9b0ed41](https://github.com/Micraow/Inform-UI/commit/d9b0ed410d9aa2dd7f8fa888ff44b22595239853).
+[Source identity](source-public.json) verifies 41 source leaves, five actual remote
+text payloads and unchanged 54 prior CDN leaves. The current source lock records
+this public commit. The execution receipt retains its original pre-publication
+metadata; its source and asset hashes have not changed. This is a source release;
+public 214/fed5 assets do not contain this component.

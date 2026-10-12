@@ -50,3 +50,12 @@ illustration, examination instructions or response-description table is copied.
 There is no pediatric score conversion, GCS-P extension, severity classification,
 prognosis, airway/treatment rule, or inference from symptoms, voice or images.
 Software tests do not validate a clinical use or supply rights to third-party material.
+
+## Verified source publication
+
+The matching original source is public at [c138b93b](https://github.com/Micraow/Inform-UI/commit/c138b93b745990c02ec41d7b924cb615d80ed172).
+[Source identity](source-public.json) verifies 41 source leaves, five actual remote
+text payloads and unchanged 54 prior CDN leaves. The current source lock records
+this public commit. The execution receipt retains its original pre-publication
+metadata; its source and asset hashes have not changed. This is a source release;
+public 214/fed5 assets do not contain this component.
