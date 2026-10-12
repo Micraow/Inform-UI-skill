@@ -1,0 +1,597 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
+    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
+    },
+    "requestedComponents": [
+      "calculator-qsofa-score"
+    ],
+    "requestedModules": [
+      "calculators/qsofa"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "calculators/qsofa"
+    ],
+    "includedComponents": [
+      "calculator-qsofa-score"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/qsofa.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/qsofa.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/qsofa.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 141,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:67af337a77a444a39608038fc635c362325b6babadfc84c3d1dd4e39350a2650",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "CalculatorQsofaScoreNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "calculator-qsofa-score"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "initial": {
+            "$ref": "#/$defs/QsofaInput"
+          },
+          "defaults": {
+            "$ref": "#/$defs/QsofaInput"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "resolved",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "subtitle": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "notes": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "string",
+              "maxLength": 8000
+            }
+          },
+          "infoSections": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "body": {
+                  "type": "string",
+                  "maxLength": 8000
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "body"
+              ]
+            }
+          },
+          "activeInfoId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "copyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summaryPrefix": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "version": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "population": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "respiratoryRate": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "systolicMmHg": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "mentationMode": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "altered": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "gcs": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/CalculatorQsofaScoreNode"
+          }
+        ]
+      },
+      "QsofaInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "population": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "respiratoryRate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "systolicMmHg": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mentation": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "mode": {
+                    "const": "assessment"
+                  },
+                  "altered": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "mode"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "mode": {
+                    "const": "gcs"
+                  },
+                  "score": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "const": "NT"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "mode"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/qsofa.md",
+      "sourceBytes": 5555,
+      "sourceSha256": "0a3b626396c2c59a78356b8c4ca163ca7a1fcd00e0b531583ed95e73f33d3543",
+      "bytes": 5555,
+      "sha256": "0a3b626396c2c59a78356b8c4ca163ca7a1fcd00e0b531583ed95e73f33d3543",
+      "text": "# Original qSOFA consensus arithmetic and local scorecard\n\nUse `calculator-qsofa-score` with a visible `label`. This independently implemented software reports three supplied component contributions and their sum. It does not diagnose or exclude sepsis, estimate an individual outcome, infer an infection, or issue treatment instructions. The integrating application remains responsible for measurement quality, applicability and safe presentation.\n\n## Version and numerical rules\n\nThe explicit version is `qsofa-sepsis3-2016-consensus`, with explicit `population: adult`. The 2016 context is adults with suspected infection, particularly outside intensive care. Specifying adult does not establish that an individual meets the study context. The software never infers infection from measurements or score.\n\n`respiratoryRate` is breaths/minute; `systolicMmHg` is mmHg. No unit inference or conversion is performed. One contribution is recorded for respiratory rate at least22 and one for systolic pressure at most100. The third contribution uses one of two explicitly selected mentation inputs:\n\n- `mentation: {mode: 'assessment', altered: true|false|null}` uses the caller's assessment; unknown is not false.\n- `mentation: {mode: 'gcs', score: 3..15|'NT'|null}` requires an integer supplied GCS total. The final consensus uses GCS less than15, so14 contributes1. The derivation study's narrower GCS threshold is not substituted. NT and unknown do not supply a component value.\n\nThe input modes are mutually exclusive, including their fields. The library does not decide whether sedation, intubation, a chronic baseline or another cause makes a mental-status observation interpretable.\n\nAll three determinate components are required for a total0..3. Missing/unknown inputs return incomplete with no total. Invalid input takes precedence over missing fields. Unsupported version/population returns no score. A complete result exposes the three contributions, total, version and mentation mode, with no positive/negative diagnostic badge or treatment action.\n\nNonnegative finite measurements, including explicitly supplied zero, are accepted as mathematical inputs. These are software constraints and not physiological plausibility guarantees. Ordinary decimal strings are accepted for measurements, but booleans, whitespace-only, hexadecimal, exponent strings, negative and nonfinite values are rejected. GCS is an integer number, not a coerced string. Changing any input to unknown or invalid clears the previous total.\n\n## Supplied UI and lifecycle\n\nThe original view supports live totals, title/subtitle, field label/help overrides, information tabs, notes, numeric measurements, explicit mentation mode and local summary requests. Switching mode clears the other mode's value instead of reinterpreting it. Only the active mentation field is shown. Reset restores independent `defaults` when supplied, otherwise `initial`, without changing the information tab. When a successful reset hides the focused field, focus returns to the visible Reset button. Canceled reset preserves draft and focus; a newer edit wins over pending reset.\n\n`iui:qsofa` is a local, bubbling, cancelable, non-composed event for `reset`, `copy-summary` or `select-info`. Details and nested result contributions are frozen. Copy provides text to the caller; it does not use the clipboard. Native reset waits until the default action has completed. The view observes supplied disabled, native fieldset/first-legend, lifecycle retirement and keyboard modifier/IME rules. Pending uses a320px placeholder; failed renders supplied fallback or nothing. No service is contacted.\n\n## Source and current limitation context\n\n- Singer et al. [Sepsis-3 consensus, JAMA2016;315:801–810](https://jamanetwork.com/journals/jama/fullarticle/2492881), DOI10.1001/jama.2016.0287. Official publisher text checked2026-10-12 for the numerical thresholds and explicit derivation-versus-consensus mentation distinction.\n- [SCCM adult sepsis guidelines2021](https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-guidelines-2021) caution against using qSOFA alone for screening.\n- [SCCM adult sepsis guidelines2026](https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026), official page checked2026-10-12, continues to favor other specified scores over qSOFA as a single hospital sepsis-screening tool. This contextual limitation does not silently replace the explicitly versioned2016 arithmetic.\n\nAll descriptions and code here are original. No publication, figure, protected assessment table or captured implementation is redistributed. Public accessibility is not a redistribution license. Software test results do not establish clinical validity or safety for individual decisions.\n\n## Source module and document validation\n\n`calculators/qsofa` uses the unchanged original installer. Full document validation rejects whitespace-only label/resetLabel/copyLabel and supplied field labels (`QSOFA_TEXT`). Information IDs and labels must be nonblank, IDs unique, and activeInfoId must reference a supplied section (`QSOFA_INFO`). Help/body/notes and other structurally allowed content retain their empty-string allowance. Initial/default raw values may represent invalid or incomplete drafts; structural acceptance never establishes a total or a diagnosis. The unchanged pure function retains the exact 2016 version, adult population and active-mentation gates described above.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/qsofa.json",
+      "bytes": 1152,
+      "sha256": "0744f83b20ab71018c98a49acfb87b3083d4eaa059813261f90559c319c95c5b",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "calculator-qsofa-score",
+            "id": "original-qsofa-example",
+            "label": "Supplied three-criterion arithmetic",
+            "subtitle": "Fictional software example; no diagnosis inferred",
+            "initial": {
+              "version": "qsofa-sepsis3-2016-consensus",
+              "population": "adult",
+              "respiratoryRate": 22,
+              "systolicMmHg": 100,
+              "mentation": {
+                "mode": "assessment",
+                "altered": false
+              }
+            },
+            "defaults": {
+              "version": "qsofa-sepsis3-2016-consensus",
+              "population": "adult"
+            },
+            "infoSections": [
+              {
+                "id": "units",
+                "label": "Units",
+                "body": "Respiratory rate is per minute. Systolic pressure is supplied in mmHg."
+              },
+              {
+                "id": "scope",
+                "label": "Scope",
+                "body": "These are three supplied numeric contributions. A score alone neither confirms nor excludes sepsis."
+              }
+            ],
+            "notes": [
+              "All example measurements are fictional.",
+              "Unknown mentation is not a normal assessment."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
+    "schemaSha256": "24ce3079531989c7ac5ed323d895f85e9d1f07a751ddceace2a0b5d019266877",
+    "schemaBytes": 10895
+  },
+  "manifestPath": "qsofa.json.manifest.json"
+}

@@ -2,8 +2,8 @@
   "format": "inform-ui-progressive-task/1",
   "schemaVersion": "iui/1",
   "runtime": {
-    "sourceCommit": "f974055196d821e71a680bb1ce849d29c2d522b7",
-    "publicCommit": "c060802fe8d8f4ec2df58c9be88f2a11d409f0e9"
+    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
+    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
   },
   "rootKind": "document",
   "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
@@ -11,7 +11,7 @@
     "schemaVersion": "iui/1",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "588df121efd4caae6219b115514373f8c91a71f78493c827e3c26d5f3ac9db28"
+      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
     },
     "requestedComponents": [
       "topology"
@@ -49,13 +49,13 @@
       "examples/schema-modules/topology.json"
     ],
     "migrationCoverage": {
-      "migratedNodeCount": 128,
+      "migratedNodeCount": 141,
       "totalNodeCount": 218
     }
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "urn:micraow:inform-ui:source-selection:92ad46cf5196f50920e99a31ed4b2eb5eab308c759041f77606192f403e16b38",
+    "$id": "urn:micraow:inform-ui:source-selection:3340a7a86e8501c16ca19f5cc179538fcf85e096a3737edfbe597724e052f376",
     "title": "IUIDocument",
     "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
     "type": "object",
@@ -311,8 +311,8 @@
     },
     {
       "path": "docs/schema-source-modules.md#topology",
-      "sourceBytes": 11853,
-      "sourceSha256": "6c7d7d4ec4c3d14cc939e9b5b2ee19505b6a7c8ef41166547fd5b35f51e7e186",
+      "sourceBytes": 13078,
+      "sourceSha256": "a4a74e49b7ca7cdffbd6680593b98a6713cb9236c70ca7c89fc53b0186be2c60",
       "bytes": 622,
       "sha256": "16ca8b64f89e81cdfe0821a272996834ddfa4ead8bb9d9a3069c12383a5c5744",
       "text": "## topology\n\n`graphics/topology` owns the existing supplied topology diagram: 2–24 named nodes and 1–40 directed links. A link's `from` and `to` refer to supplied node IDs; the full validator checks IDs and endpoints. Optional load values use the shared expression grammar and must resolve to nonnegative finite numbers under semantic validation; max-load highlighting only describes the supplied data. No network graph discovery, routing, remote loading or task execution is performed. Captions and labels are supplied by the author. The selected structural schema is used with the unchanged full semantic validator.\n"
@@ -359,8 +359,8 @@
     }
   ],
   "identity": {
-    "indexSha256": "af05e489d3210959b8a2fb7cd5ef3ad003d72a3068db12a4bc27b6b29bde9d8a",
-    "schemaSha256": "e117ab1248318cd92ce8985bde463f793bcd73e9b66f8106573f1637e170c53c",
+    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
+    "schemaSha256": "6061bcac9222740a3ac2deb2846a0c838b18774a1d25ed36296b7b4008cfde37",
     "schemaBytes": 5311
   },
   "manifestPath": "topology.json.manifest.json"

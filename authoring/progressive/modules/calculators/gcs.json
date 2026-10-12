@@ -1,0 +1,574 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
+    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
+    },
+    "requestedComponents": [
+      "calculator-glasgow-coma-scale-gcs"
+    ],
+    "requestedModules": [
+      "calculators/gcs"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "calculators/gcs"
+    ],
+    "includedComponents": [
+      "calculator-glasgow-coma-scale-gcs"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/gcs.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/gcs.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/gcs.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 141,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:4eba3148abb74db19cc2d216a5a7089f2ded240bca16cce21a1b3c8c67e72567",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "CalculatorGlasgowComaScaleGcsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "calculator-glasgow-coma-scale-gcs"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "initial": {
+            "$ref": "#/$defs/GcsInput"
+          },
+          "defaults": {
+            "$ref": "#/$defs/GcsInput"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "resolved",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "subtitle": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "resultMode": {
+            "enum": [
+              "live",
+              "on-demand"
+            ]
+          },
+          "scoreLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summaryPrefix": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "copyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "infoSections": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "body": {
+                  "type": "string",
+                  "maxLength": 8000
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "body"
+              ]
+            }
+          },
+          "activeInfoId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "notes": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "string",
+              "maxLength": 8000
+            }
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "eye": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  },
+                  "optionHelp": {
+                    "type": "object",
+                    "maxProperties": 7,
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 8000
+                    }
+                  },
+                  "variant": {
+                    "enum": [
+                      "select",
+                      "segmented"
+                    ]
+                  }
+                }
+              },
+              "verbal": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  },
+                  "optionHelp": {
+                    "type": "object",
+                    "maxProperties": 7,
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 8000
+                    }
+                  },
+                  "variant": {
+                    "enum": [
+                      "select",
+                      "segmented"
+                    ]
+                  }
+                }
+              },
+              "motor": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  },
+                  "optionHelp": {
+                    "type": "object",
+                    "maxProperties": 7,
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 8000
+                    }
+                  },
+                  "variant": {
+                    "enum": [
+                      "select",
+                      "segmented"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "calculateLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "GcsInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "population": {
+            "anyOf": [
+              {
+                "enum": [
+                  "adult",
+                  "other"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "eye": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 32
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "verbal": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 32
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "motor": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 32
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/CalculatorGlasgowComaScaleGcsNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/gcs.md",
+      "sourceBytes": 6474,
+      "sourceSha256": "fd39c24ab1f7f5b5705ca1ba75938e75bb04a10dffa630e166167dd355b2a977",
+      "bytes": 6474,
+      "sha256": "fd39c24ab1f7f5b5705ca1ba75938e75bb04a10dffa630e166167dd355b2a977",
+      "text": "# Supplied GCS component arithmetic\n\nThis original software module accepts already-assessed component ratings. It does not assign a rating from symptoms, provide examination instructions, determine severity, or recommend treatment. The host application is responsible for suitability, assessment context and lawful use. No clinical validation is claimed. Passing software tests does not establish clinical competence.\n\n## Version and data contract\n\n`calculator-glasgow-coma-scale-gcs` uses explicit `initial.version: \"gcs-six-motor-levels\"` and `initial.population: \"adult\"`. It implements conventional E 1–4, V 1–5 and M 1–6 arithmetic. The sixth motor level was introduced in 1976; this is not the five-level motor version originally described in 1974. No pediatric modification, pupil response, risk band or treatment rule is included.\n\nInputs are numbers, `\"NT\"`, null or absent. Empty string is missing. Numeric strings, decimals, zero, out-of-range values and other strings are invalid, rather than coerced or clamped. JSON accepts bounded raw strings so caller errors can be displayed explicitly. No rating is preselected unless the caller supplies it. An unsupported version or `population: \"other\"` suppresses the total.\n\n`calculateGcs(input)` returns the supplied component states and one status:\n- `invalid`: malformed supplied fields, no total; takes priority over missing values.\n- `unsupported`: another version/population, no total.\n- `not-testable`: at least one NT component, no total, with all other component states still explicit.\n- `incomplete`: missing required values, no total.\n- `calculated`: all three integer ratings, explicit version and adult scope are valid; total is the sum, from 3 to 15.\n\nNT is never zero or one and is never imputed. On every edit the previous total disappears immediately. A total alone must not replace the three component ratings.\n\n## Local UI\n\nLabeled native selects support keyboard input. The view preserves invalid initial values as visibly invalid options rather than quietly selecting a valid score. Calculate and Reset dispatch frozen, bubbling, cancelable, non-composed `iui:gcs` details `{id, intent, result?}`. Cancellation preserves local values; newer user input in a host callback wins over an older operation. Form Reset is reconciled after the actual browser default action; cancellation and subsequent input are preserved. Supplied disabled, native fieldset and first-legend boundaries remain effective. Updates/unmounts retire the old view.\n\nThe official-source link navigates only on explicit user activation. No service, analytics, microphone or image request is made by this module. The caller may override labels for the two actions; this does not change the arithmetic contract.\n\n## Sources and originality\n\n- [Official GCS version history](https://www.glasgowcomascale.org/gcs-aid/), checked 2026-10-12: the motor scale gained a sixth level in 1976; the structured assessment was described in 2014.\n- [Official GCS FAQ](https://www.glasgowcomascale.org/faq/), checked 2026-10-12: report component states, do not replace NT with a lowest rating and do not total an assessment containing NT.\n- [Official 2015 assessment aid](https://www.glasgowcomascale.org/downloads/GCS-Assessment-Aid-English.pdf?v=3), read to verify numeric ranges and NT; no diagram or response-description table is redistributed.\n- [Official permissions](https://www.glasgowcomascale.org/permissions/): states clinical/research use permissions and copyright acknowledgements. It is not represented here as an MIT redistribution grant for the assessment aid.\n\nThis repository contains independently written arithmetic, validation, controls and explanatory text. It does not reproduce the protected assessment aid, its diagrams, examination instructions or response-description table. Link to the official assessment material when that material is needed. Integration of third-party assessment content requires the appropriate rights; the caller-responsibility notice does not itself supply those rights.\n\n## Scorecard presentation\n\nDefault presentation is live: every supplied rating edit recomputes the safe arithmetic result and immediately removes a total for NT, unknown, invalid or unsupported data. `resultMode: \"on-demand\"` instead uses the Calculate action. Optional caller-authored `subtitle`, `notes`, `infoSections` and `activeInfoId` support the full information layout. Information tabs include keyboard navigation with modifier/IME protection. Text is literal, never executable markup.\n\n`fields.eye/verbal/motor` can supply a label, help, selected-rating `optionHelp`, and native `select` or `segmented` radio presentation. The module's bundled choices are numeric scores, unknown and NT; no protected response-description table is included. Hosts may supply independently authored or appropriately licensed explanations.\n\n`defaults` is an independent Reset baseline; when absent, Reset returns to `initial`. Reset leaves the current information section selected. `status: \"pending\"` renders a 320px placeholder; `failed` displays a supplied fallback or remains hidden. Supplied phase changes use normal atomic document updates.\n\nA visible summary always preserves component states. Copy summary dispatches `iui:gcs` with `intent: \"copy-summary\"`, frozen `text` and the current result; it never writes the clipboard. Tab requests use `intent: \"select-info\"` and `infoId`. The host can cancel either. Protected assessment wording, risk bands and treatment suggestions from other implementations are not imported: the original output here describes input validity and arithmetic only.\n\n## Source module and document validation\n\n`calculators/gcs` uses the unchanged original installer. Full document validation rejects whitespace-only label, calculateLabel, resetLabel, copyLabel and scoreLabel (`GCS_TEXT`), and supplied field labels use the same code. Information section IDs and labels must be nonblank, IDs unique, and activeInfoId must name a supplied section (`GCS_INFO`). Each optionHelp key must be NT or an exact integer rating string for its component: eye 1–4, verbal 1–5, motor 1–6 (`GCS_OPTION`). Help/body/notes and other structurally allowed content retain their empty-string allowance. Raw initial/default values may represent invalid, unknown or NT input; structural acceptance never supplies a total. The unchanged pure function enforces version/population/rating gates described above.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/gcs.json",
+      "bytes": 1428,
+      "sha256": "253dd90322b1d33d03c776dfa3b53c02b78d3e90d3b68397f64900bab27e4eb0",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "calculator-glasgow-coma-scale-gcs",
+            "id": "original-gcs-arithmetic",
+            "label": "Supplied GCS component arithmetic",
+            "initial": {
+              "version": "gcs-six-motor-levels",
+              "population": "adult",
+              "eye": 4,
+              "verbal": "NT",
+              "motor": 6
+            },
+            "subtitle": "Original software example. Ratings are supplied explicitly.",
+            "defaults": {
+              "version": "gcs-six-motor-levels",
+              "population": "adult",
+              "eye": null,
+              "verbal": null,
+              "motor": null
+            },
+            "infoSections": [
+              {
+                "id": "inputs",
+                "label": "Input record",
+                "body": "Use recorded component ratings; unknown and NT have different meanings."
+              },
+              {
+                "id": "method",
+                "label": "Arithmetic method",
+                "body": "Only three valid numeric ratings produce a sum. This view makes no severity classification."
+              }
+            ],
+            "notes": [
+              "Keep the three ratings beside any total.",
+              "This is an original synthetic example, not a patient assessment."
+            ],
+            "fields": {
+              "eye": {
+                "variant": "segmented",
+                "help": "Choose the score recorded for E.",
+                "optionHelp": {
+                  "NT": "The supplied record says this component could not be tested."
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
+    "schemaSha256": "7cd05e45a1725e228a6361db24382d0f97666ed8282af9fa0ef9ce006b1319d3",
+    "schemaBytes": 9930
+  },
+  "manifestPath": "gcs.json.manifest.json"
+}

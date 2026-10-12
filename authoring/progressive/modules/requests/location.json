@@ -2,8 +2,8 @@
   "format": "inform-ui-progressive-task/1",
   "schemaVersion": "iui/1",
   "runtime": {
-    "sourceCommit": "f974055196d821e71a680bb1ce849d29c2d522b7",
-    "publicCommit": "c060802fe8d8f4ec2df58c9be88f2a11d409f0e9"
+    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
+    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
   },
   "rootKind": "document",
   "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
@@ -11,7 +11,7 @@
     "schemaVersion": "iui/1",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "588df121efd4caae6219b115514373f8c91a71f78493c827e3c26d5f3ac9db28"
+      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
     },
     "requestedComponents": [
       "ask-user-location"
@@ -49,13 +49,13 @@
       "examples/schema-modules/ask-location.json"
     ],
     "migrationCoverage": {
-      "migratedNodeCount": 128,
+      "migratedNodeCount": 141,
       "totalNodeCount": 218
     }
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "urn:micraow:inform-ui:source-selection:6b1468e8d69dfb5731654ece52bd9932f3d3508c2fbbf06fa74df77d07e794ca",
+    "$id": "urn:micraow:inform-ui:source-selection:867c595e82af135870cf6b9ac0618b70b24d5df571f7668505f2644994546775",
     "title": "IUIDocument",
     "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
     "type": "object",
@@ -371,8 +371,8 @@
     }
   ],
   "identity": {
-    "indexSha256": "af05e489d3210959b8a2fb7cd5ef3ad003d72a3068db12a4bc27b6b29bde9d8a",
-    "schemaSha256": "1453f601402466e1d5d5f7a6d641c2990cd024ab7c625c8f17f15ad2af2dbe02",
+    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
+    "schemaSha256": "53cccf672556df969c78317312106704f072f49f2b73fa7d8c1ac5ae9ab1fa08",
     "schemaBytes": 5776
   },
   "manifestPath": "location.json.manifest.json"

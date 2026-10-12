@@ -1,0 +1,608 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5e965ee98bee2b26c351b5ecc80f3e453557be33",
+    "publicCommit": "549d7c044224b429e62d4774e44e4bad48bc4583"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
+    },
+    "requestedComponents": [
+      "calculator-rox-index-for-high-flow-nasal-cannula"
+    ],
+    "requestedModules": [
+      "calculators/rox"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "calculators/rox"
+    ],
+    "includedComponents": [
+      "calculator-rox-index-for-high-flow-nasal-cannula"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/rox.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/rox.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/rox.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 141,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:fc03580c54c21a56b1c5e5cd67620089f087373dbcaa8d9c2ad5936a529d8f3f",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "CalculatorRoxIndexForHighFlowNasalCannulaNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "calculator-rox-index-for-high-flow-nasal-cannula"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "initial": {
+            "$ref": "#/$defs/RoxInput"
+          },
+          "defaults": {
+            "$ref": "#/$defs/RoxInput"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "resolved",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "subtitle": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "notes": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "string",
+              "maxLength": 8000
+            }
+          },
+          "infoSections": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "body": {
+                  "type": "string",
+                  "maxLength": 8000
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "body"
+              ]
+            }
+          },
+          "activeInfoId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "copyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summaryPrefix": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "version": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "spo2Percent": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "fio2": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "fio2Unit": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "respiratoryRate": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "measuredHours": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "comparisonVersion": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              },
+              "studyContextConfirmed": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "help": {
+                    "type": "string",
+                    "maxLength": 8000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/CalculatorRoxIndexForHighFlowNasalCannulaNode"
+          }
+        ]
+      },
+      "RoxInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "spo2Percent": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fio2": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fio2Unit": {
+            "anyOf": [
+              {
+                "enum": [
+                  "fraction",
+                  "percent"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "respiratoryRate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "measuredHours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 64
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "comparisonVersion": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "studyContextConfirmed": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/rox.md",
+      "sourceBytes": 6184,
+      "sourceSha256": "a510c9ce2470d10256822d6d3e6b2f3589bbca3244fa005894c56091b7d81e5f",
+      "bytes": 6184,
+      "sha256": "a510c9ce2470d10256822d6d3e6b2f3589bbca3244fa005894c56091b7d81e5f",
+      "text": "# ROX: explicit-unit arithmetic and optional 2019 numerical comparison\n\nThis independently written module computes `(SpO2 percent / FiO2 fraction) / breaths per minute`. It accepts supplied measurements, not patient descriptions. It does not estimate FiO2 from oxygen flow, substitute PaO2, recommend oxygen changes or intubation, or establish clinical validity. The integrating application must verify suitability, measurement context and source version.\n\n## Exact input and result contract\n\nUse `calculator-rox-index-for-high-flow-nasal-cannula`, an accessible `label`, and optional `initial` values. Formula version is explicit: `rox-roca-2016-arithmetic`.\n\n- `spo2Percent`: finite0..100, always percent. Zero is a number, not missing.\n- `fio2` and `fio2Unit`: explicit `fraction` in(0,1], or `percent` in(0,100]. Percent is divided by100 exactly once. No magnitude-based unit guessing. For example,0.5 declared percent means0.005, not0.5.\n- `respiratoryRate`: finite positive breaths/minute.\n- `measuredHours`: optional finite nonnegative hours since HFNC initiation. No clock or default observation time is inferred.\n\nThe numeric input ranges above are software validity constraints, not proof that any measurement is physiologically plausible or clinically usable. Ordinary decimal strings, including`.5`, `1.` and`+1`, are accepted. Blank/null/absent is unknown; whitespace, hex, exponent strings, malformed values, nonfinite numbers and out-of-range values are rejected rather than coerced. Explicit invalid values take priority over other missing fields. Malformed top-level pure-function arguments return invalid(input). Zero/underflow denominators and nonfinite results never produce a displayed result.\n\n`calculateRox` returns `invalid`, `incomplete`, `unsupported`, `uncomputable`, or `calculated`. A calculated result includes the full finite value, separate one-decimal display, normalized units, optional measured hours and comparison state. Very large values use scientific display. Comparisons use the unrounded value:4.879 and4.881 both display4.9 but lie on different sides of4.88. No output is a treatment instruction.\n\n## Optional research-boundary comparison\n\nThe caller must explicitly provide all of:\n- `comparisonVersion: \"roca-2019-pneumonia-hfnc\"`;\n- `studyContextConfirmed: true`, a caller declaration, not software verification of eligibility;\n- an exact measurement time of2,6or12 hours after HFNC initiation.\n\nOnly then does the module report a neutral numerical comparison. Lower boundaries are2.85,3.47and3.85 at the respective times; upper boundary is4.88. Lower equality belongs to the middle interval, upper equality to the upper interval. Other times, missing context or unknown comparison version return an unavailable comparison reason while retaining valid arithmetic. No nearest-time selection or default lower boundary is used.\n\nThe research context is pneumonia with acute hypoxemic respiratory failure treated with HFNC. The UI's adult-context declaration is a conservative product scope, not a claim to have revalidated all study inclusion/exclusion criteria. These observations do not establish the correctness of automatically acting on a score for a particular patient or population.\n\n## Supplied scorecard interactions\n\nLive output is updated on every edit; bad or unknown inputs remove any previous numeric result. The view supports supplied title/subtitle, help text, information tabs with RTL and IME-aware keyboard navigation, notes, independent `defaults` for Reset,320px pending display, failed fallback and a visible summary.\n\n`iui:rox` requests are local, frozen, bubbling, cancelable and non-composed. They carry `reset`, `select-info` with `infoId`, or `copy-summary` with text/result. Copy never accesses the clipboard. Native Reset uses an after-default task: canceled reset preserves drafts; newer input wins; update/dispose retire the old view. Supplied disabled and native fieldset/first-legend rules apply. No network or medical service runs automatically.\n\n## Sources, version and content rights\n\n- Roca et al., original ROX derivation, Journal of Critical Care35(2016)200–205, DOI[10.1016/j.jcrc.2016.05.022](https://doi.org/10.1016/j.jcrc.2016.05.022). The original full methods were not obtained in this implementation pass.\n- Roca et al., [2019 validation abstract](https://academic.oup.com/ajrccm/article-abstract/199/11/1368/8497973), DOI10.1164/rccm.201803-0589OC. Official abstract read2026-10-12; it fixes the formula, pneumonia/HFNC cohort context and exact time-specific numerical boundaries. This is a study-specific version, not a claim of a universal current guideline.\n- Tatkov, [2019 unit analysis](https://academic.oup.com/ajrccm/article/200/1/115/8496774), DOI10.1164/rccm.201902-0376LE. Official text explicitly uses SpO2=95%, fractional FiO2 and breaths/minute.\n- Roca et al., [2019 authors' reply](https://academic.oup.com/ajrccm/article/200/1/117/8496761), DOI10.1164/rccm.201903-0571LE, read for the limits of interpreting combinations and study observations.\n\nOnly independently expressed facts, original code and bibliographic links are included. No article, figure, captured code, assessment chart or protected treatment narrative is republished. Open access, including a noncommercial/no-derivatives article license, is not represented as an MIT redistribution grant. Caller responsibility does not supply missing content rights or establish clinical safety.\n\n## Source module and document validation\n\n`calculators/rox` uses the unchanged original installer. Full document validation rejects whitespace-only label/resetLabel/copyLabel and supplied field labels (`ROX_TEXT`). Information IDs and labels must be nonblank, IDs unique, and activeInfoId must reference a supplied section (`ROX_INFO`). Help/body/notes and other structurally allowed content retain their empty-string allowance. Initial/default raw values deliberately include invalid or incomplete drafts. Structural acceptance does not establish a calculated ratio, eligible historical comparison or clinical validity; the unchanged pure function applies the explicit units, version, measurement-time and context gates above.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/rox.json",
+      "bytes": 1160,
+      "sha256": "5fa22537f5f159fa669daf1378f4156eb963c2bba8a062d9d64dde1ed7be6134",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "calculator-rox-index-for-high-flow-nasal-cannula",
+            "id": "original-rox-example",
+            "label": "Supplied ROX arithmetic",
+            "subtitle": "Original synthetic measurements; not a patient assessment.",
+            "initial": {
+              "version": "rox-roca-2016-arithmetic",
+              "spo2Percent": 95,
+              "fio2": 50,
+              "fio2Unit": "percent",
+              "respiratoryRate": 20,
+              "measuredHours": 2,
+              "comparisonVersion": "roca-2019-pneumonia-hfnc",
+              "studyContextConfirmed": true
+            },
+            "defaults": {
+              "version": "rox-roca-2016-arithmetic",
+              "fio2Unit": "percent"
+            },
+            "infoSections": [
+              {
+                "id": "units",
+                "label": "Explicit units",
+                "body": "SpO2 uses percent; FiO2 has its own explicit unit."
+              },
+              {
+                "id": "time",
+                "label": "Measurement time",
+                "body": "Hours are counted from HFNC initiation. Unknown time does not select a study threshold."
+              }
+            ],
+            "notes": [
+              "Confirm all inputs and the intended version before use."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "cadd56c5fe87549d10211f53c2bb183faf38edfef625b15267793fc61f7f39b1",
+    "schemaSha256": "25116d680783ec48794cd43a7203fe725a1651b0ae8c3a42c8b15895421c1ab3",
+    "schemaBytes": 11110
+  },
+  "manifestPath": "rox.json.manifest.json"
+}

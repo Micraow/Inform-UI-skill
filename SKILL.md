@@ -11,7 +11,7 @@ description: 按任务生成语义化 iui/1 JSON。先选固定运行版本，�
 
 1. 普通文字能说清就用文字。趋势、比较、精确数值或可见输入结果才需要图表、表格或控件。声明数据是实测、供数还是合成。
 2. 在 [README](README.md) 与 [版本兼容表](RECOVERY-CONSUMERS.md) 选择一个固定运行版本。JS、CSS、schema、字体与许可必须同版；source-only 不等于公开 CDN 已包含。没有准确合同，不能只凭名称猜字段。
-3. 从 [分类索引](authoring/progressive/index.json) 选模块，再读完整任务包里的 schema 闭包、语义和例子。当前128/218节点已模块化，布局族会带入41节点；未迁移类型明确列出。跨模块和 WebChat 单文件由同源脚本生成，见 [按需规则](authoring/progressive/README.md)。先核包内实际公开身份；本地候选不能当可安装版本。问卷也有已公开源码218的 [固定任务包](authoring/packs/questionnaire.json)，需构建该固定源；公开214资产不含问卷。
+3. 从 [分类索引](authoring/progressive/index.json) 选模块，再读完整任务包里的 schema 闭包、语义和例子。当前141/218节点已模块化，布局族会带入41节点；未迁移类型明确列出。跨模块和 WebChat 单文件由同源脚本生成，见 [按需规则](authoring/progressive/README.md)。先核包内实际公开身份；本地候选不能当可安装版本。问卷也有已公开源码218的 [固定任务包](authoring/packs/questionnaire.json)，需构建该固定源；公开214资产不含问卷。
 4. nodeSchema / 节点任务包只约束一个节点，不包含整个 Document。跨组件要保留所有依赖；最终完整文档仍须调用同版 `validateDocument` 做结构和语义校验。不要自行拼接不闭合的 `$defs`，也不要把所有领域说明默认塞入上下文。
 5. 核对预期数值与必要交互：取消、重置、较新输入、隐藏字段、更新和销毁。未实际编译或预览，就说明未执行；不能把 JSON 解析通过当作功能或临床验证。
 

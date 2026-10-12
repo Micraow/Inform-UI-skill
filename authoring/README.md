@@ -4,7 +4,7 @@ Use canonical `iui/1` JSON by default. Load the selected component's same-versio
 
 ## Source-backed category selection
 
-The [category index](progressive/index.json) is the progressive starting point for the 128-node source catalog. Read its category and complete module pack, not a signature alone. Packs are generated from the runtime source registry and carry local semantic links and examples; the [complete WebChat schema](progressive/webchat/iui.schema.json) is generated from those same modules plus explicit legacy source. See [generation and version rules](progressive/README.md). The remaining90 registered node types have not been migrated into these pilot modules. This is separate from the212/256 historical functionality count.
+The [category index](progressive/index.json) is the progressive starting point for the 141-node source catalog. Read its category and complete module pack, not a signature alone. Packs are generated from the runtime source registry and carry local semantic links and examples; the [complete WebChat schema](progressive/webchat/iui.schema.json) is generated from those same modules plus explicit legacy source. See [generation and version rules](progressive/README.md). The remaining77 registered node types have not been migrated into these pilot modules. This is separate from the212/256 historical functionality count.
 
 ## Questionnaire task pack
 

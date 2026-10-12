@@ -5,7 +5,7 @@
   "rootKind": "document",
   "sourceIdentity": {
     "algorithm": "sha256",
-    "value": "588df121efd4caae6219b115514373f8c91a71f78493c827e3c26d5f3ac9db28"
+    "value": "71c22e1dccd4f316082ea9994262adb10dfc9782f55d3bbe7d03e6016504812e"
   },
   "requestedModules": [
     "forms/fields"
@@ -33,7 +33,7 @@
     "Value": "244401b7a281945340ea39cf686aeeebaaae86292dc970640ef1e539e1b2499c"
   },
   "utf8Bytes": 15860,
-  "sha256": "91c697551f2784e1aa7e3e8cb5e876f2e8ecc7bda05e2e74c9ae9964250f6e16",
+  "sha256": "7cddd292308495f77b362fb2067bf39c7bc8302ec056723b500b6592869279da",
   "semanticValidation": "Structural schema only. Run the unchanged full validateDocument before mounting or compiling.",
   "sourceFiles": {
     "scripts/ask-location-schema.mjs": "38c27aae2683a607f3e785240eb994e7910fdbbbe3a9455932ba9ea00624f6bf",
@@ -71,8 +71,8 @@
     "scripts/recommendation-card-schema.mjs": "70da777523f7aafea195d8238ea003c666188a23e47cff80df5532998df0dc5f",
     "scripts/reservation-pills-schema.mjs": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37",
     "scripts/rox-schema.mjs": "f927fcae82439f40d1c1ee1cd086af5c97c4507abfb1d7d0994da951d88e653b",
-    "scripts/schema-source/canonical.mjs": "cbbb2c85c8f1140158aca27908418beaf8d8f898cdcbd95a5f4ca217f0d26434",
-    "scripts/schema-source/catalog.mjs": "f483d110421664289847ff54d5be0dd1fbaeabceb5564179048fd1d79de4aecf",
+    "scripts/schema-source/canonical.mjs": "b7f24f3fed3589a787e14e241c7c496a9657d3bfc05dd5f8e204c45c153a25e1",
+    "scripts/schema-source/catalog.mjs": "ffb354e523bea41a6162432fe22a79c7dbaa0c7e07cc318b79ec17566cba70ba",
     "scripts/schema-source/envelope.mjs": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
     "scripts/schema-source/modules/button.mjs": "1ce2931f9794a74c3408259f3c5e011085899e615e909e99d9e6936ad555dc8f",
     "scripts/schema-source/modules/charts.mjs": "45cc94b552e8e294c68642d17fa7ae8fd54615199ca73853e32f4dbae3df9372",
@@ -80,15 +80,17 @@
     "scripts/schema-source/modules/forms.mjs": "b675784efdcf1ab58d4547edd9031643b43c483f79c86a648c7cf5c2b35deffb",
     "scripts/schema-source/modules/layout.mjs": "6c01342e346cf0689f966fec107ccf1cc669eb6ecd650f78e13471a1ab9845b0",
     "scripts/schema-source/modules/learning.mjs": "6e4969527bb0121379d36229503a60c0513b4678833389307badd089890f3fbe",
+    "scripts/schema-source/modules/local-choices.mjs": "497bbfdb2b9924c2ef715a4fed87152d70c0c2f0fda755ae87c19071dda723de",
     "scripts/schema-source/modules/lottie.mjs": "0b5beb021ff1085558f308262ee1b1dc94be2635f8c628527066056afc0c9fca",
     "scripts/schema-source/modules/media-reader.mjs": "92e3b559d36e525784c11d3a874ae69bf3b135cb8e68fa781eb2340ba9e6a195",
     "scripts/schema-source/modules/questionnaire.mjs": "20c3f21bbe56f7284b325d18717aee1d9bc0912e4304f4d82e9faae255625206",
+    "scripts/schema-source/modules/supplied-records.mjs": "07f5668349d7659556020b04297feb5826e6931175816a0fd33158384cae772c",
     "scripts/schema-source/modules/text.mjs": "859ff6965506a91a66b2e26fe30f82c88991a7bdc342809cceb799fa5a1335c8",
     "scripts/schema-source/modules/time.mjs": "7a382471fb0fcb95ac7ce91b005d33f1374e33dfc8f47cb1ae5bc805ec413a73",
     "scripts/schema-source/modules/topology.mjs": "226e24d96fa258474bd37d5d93513c65cd96b04a8736145dc5828dd998fdc150",
     "scripts/schema-source/modules/value.mjs": "cd3cff6c06049c061d5b56cfbb85e2f68ae322c7efd5bb3d0526706eede7cc5f",
     "scripts/schema-source/modules/weather.mjs": "80a2f5f734da3ba62a0a6fe9a2276918f1ef917023b2439464227e90391b21cf",
-    "scripts/schema-source/primitives.mjs": "072883c087d8f7a2f0c4bfc115e02c74d9ca49207472cbe327914a916f151449",
+    "scripts/schema-source/primitives.mjs": "359ae2c962bf7264e214d01ceed475437f8409c255021d4a12a7db652f735346",
     "scripts/schema-source/registry.mjs": "f12ab5a8d9ecb26005f931185ccff3c18dc0855b91de9e7303ab3ce2313d3310",
     "scripts/schema-subsets.mjs": "4a4711a581123727955ac5fa3e4445dbe13e9dd59c18fb08d3b2c8134365f51c",
     "scripts/search-onboarding-schema.mjs": "c15873b13fd29cb83512787de96fa7a7ab3d600a9895d28fd2beb9a02ec4d002",
