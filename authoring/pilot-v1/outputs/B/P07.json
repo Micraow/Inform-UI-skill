@@ -1,0 +1,23 @@
+{
+  "version": "iui/1",
+  "title": "展示标签",
+  "body": [
+    {
+      "type": "questionnaire",
+      "questionnaireId": "display_labels",
+      "version": "2.3.0",
+      "title": "展签设置",
+      "hiddenValuePolicy": "retain",
+      "fields": [
+        {"id": "labelText", "label": "展签文字", "type": "text", "required": true, "minLength": 2, "maxLength": 16},
+        {"id": "copies", "label": "份数", "type": "number", "required": true, "min": 0, "max": 10, "step": 1}
+      ],
+      "initialAnswers": {"labelText": "初稿牌", "copies": 5},
+      "defaults": {"labelText": "重置牌", "copies": 1},
+      "computed": {"doubledCopies": {"op": "mul", "args": [{"$": "copies"}, 2]}},
+      "sources": [
+        {"title": "原创展签规则", "version": "2026.1", "url": "https://example.test/labels/rules"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "version": "iui/1",
+  "title": "房间座位",
+  "body": [
+    {
+      "type": "questionnaire",
+      "questionnaireId": "room_seating",
+      "version": "1.0.0",
+      "title": "房间座位",
+      "hiddenValuePolicy": "retain",
+      "fields": [
+        {
+          "id": "nickname",
+          "label": "昵称",
+          "type": "text",
+          "required": false,
+          "maxLength": 20
+        },
+        {
+          "id": "people",
+          "label": "人数",
+          "type": "number",
+          "required": true,
+          "min": 0,
+          "max": 50,
+          "step": 1
+        },
+        {
+          "id": "chairs",
+          "label": "椅子数量",
+          "type": "number",
+          "required": true,
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "validWhen": {
+            "op": "if",
+            "args": [
+              {
+                "op": "lt",
+                "args": [
+                  {
+                    "$": "chairs"
+                  },
+                  {
+                    "$": "people"
+                  }
+                ]
+              },
+              false,
+              true
+            ]
+          },
+          "validationMessage": "椅子数量不能少于人数。"
+        }
+      ],
+      "computed": {
+        "freeChairs": {
+          "op": "sub",
+          "args": [
+            {
+              "$": "chairs"
+            },
+            {
+              "$": "people"
+            }
+          ]
+        }
+      },
+      "initialAnswers": {
+        "nickname": null,
+        "people": null,
+        "chairs": 4
+      },
+      "defaults": {
+        "nickname": null,
+        "people": null,
+        "chairs": 4
+      },
+      "sources": [
+        {
+          "title": "原创非医疗软件验收规则",
+          "version": "1.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -18,7 +18,7 @@ The complete questionnaire input is now24,814 bytes (thin entry plus adjacent pa
 
 Across five representative documents, optional expression/table syntax reduces minified output by only269 bytes. Its new syntax guide costs2,575 bytes, giving a net **increase of2,306 bytes** when charged once to that comparison. Therefore canonical JSON remains the main interface. Formatting removal alone is not counted as a semantic compression benefit.
 
-The optional [compact compiler](EXPERIMENTAL-SYNTAX.md) is isolated as an experiment. It expands to the existing JSON format, never evaluates code, rejects errors explicitly and passes exact roundtrip checks. Its existence does not prove it helps language models. There are no measured model-accuracy or tokenizer results; [audit.json](audit.json) reports actual UTF-8 bytes, and [EVALUATION.md](EVALUATION.md) defines the controlled comparison.
+The optional [compact compiler](EXPERIMENTAL-SYNTAX.md) is isolated as an experiment. It expands to the existing JSON format, never evaluates code, rejects errors explicitly and passes exact roundtrip checks. Its existence does not prove it helps language models. The original [audit.json](audit.json) reports deterministic UTF-8 measurements; its historical experiment-not-run field is unchanged. A later [eight-task paired pilot](pilot-v1/METHOD.md) now records first-pass model generation: both full and thin entries passed8/8 tasks, while input material fell from157,726 to31,015 bytes. That small, single-family result does not establish better accuracy or token savings. [EVALUATION.md](EVALUATION.md) defines the broader controlled comparison.
 
 ## Validation order
 

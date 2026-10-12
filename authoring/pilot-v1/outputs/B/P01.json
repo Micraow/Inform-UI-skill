@@ -1,0 +1,22 @@
+{
+  "version": "iui/1",
+  "title": "文具批次数量",
+  "body": [
+    {
+      "type": "questionnaire",
+      "questionnaireId": "stationery_batches",
+      "version": "1.0.0",
+      "title": "文具批次",
+      "hiddenValuePolicy": "retain",
+      "fields": [
+        {"id": "batches", "label": "批次数", "type": "number", "required": true, "min": 0, "max": 12, "step": 1},
+        {"id": "units", "label": "每批件数", "type": "number", "required": true, "min": 0, "max": 8, "step": 1},
+        {"id": "reused", "label": "是否重复使用", "type": "boolean", "required": true}
+      ],
+      "initialAnswers": {"batches": 3, "units": 0, "reused": false},
+      "defaults": {"batches": 3, "units": 0, "reused": false},
+      "computed": {"itemCount": {"op": "mul", "args": [{"$": "batches"}, {"$": "units"}]}},
+      "sources": [{"title": "原创非医疗软件验收规则", "version": "1.0.0"}]
+    }
+  ]
+}
