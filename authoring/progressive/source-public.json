@@ -1,9 +1,9 @@
 {
   "format": "inform-ui-progressive-public-source/1",
-  "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
-  "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675",
-  "publicTree": "2fe7ec86eae0a24552a3bb5a3a62d9d369a66dfe",
-  "url": "https://github.com/Micraow/Inform-UI/commit/e6d93b0b1640fe6955f33acdb23f565d6d406675",
+  "sourceCommit": "8067f9a6690bc7232bb349c3abbfc822c6fdcf85",
+  "publicCommit": "a98c7700dddb31c2d4659a0bb716dce804b078a4",
+  "publicTree": "7c83eecac791a0003785c0da4971610f84ec817d",
+  "url": "https://github.com/Micraow/Inform-UI/commit/a98c7700dddb31c2d4659a0bb716dce804b078a4",
   "verifiedFiles": [
     {
       "path": "docs/api.md",
@@ -12,10 +12,34 @@
       "gitBlob": "d0ce4c96720b67e5eeb24cd7dabc453df9810c1e"
     },
     {
+      "path": "docs/ask-location.md",
+      "bytes": 4177,
+      "sha256": "e73510140d00d4d0fdf57c54c9495bbf58ca93398333b1aafc7db80e901a405b",
+      "gitBlob": "282537a79bb886105b77c32ab75bb2b0e29e17d8"
+    },
+    {
+      "path": "docs/ask-user-contract.md",
+      "bytes": 7192,
+      "sha256": "1c3b368b9618bd5cac9ae85f33c6299b70ea27d95ccdd48b91b97c1a89c1503d",
+      "gitBlob": "2f0217b394cbeacd7684abe7d636c9581f8b13e6"
+    },
+    {
       "path": "docs/button-actions.md",
       "bytes": 6740,
       "sha256": "005f47f094074e3220444281c4093b879e40b38c13aa6eda9521905922180d4a",
       "gitBlob": "b7514a92e2275b4deb3f5ae8b724c55bd63466da"
+    },
+    {
+      "path": "docs/capability-welcome.md",
+      "bytes": 5496,
+      "sha256": "5e00ebcb0cbbe476d386fd299eced2160d15b8f247938f2b8bc8e313b7b053b8",
+      "gitBlob": "2bb463b95c0005dce77e2d0c6b98c092e7d425f2"
+    },
+    {
+      "path": "docs/care-providers.md",
+      "bytes": 7104,
+      "sha256": "cde1e0075249106a9d5f031705dd74ad6bd31ede8c3ab25d64aec1874556a435",
+      "gitBlob": "ecf346f74001d0a2841987c9155466f8f0b80151"
     },
     {
       "path": "docs/carousel.md",
@@ -42,10 +66,22 @@
       "gitBlob": "0026a609dae2d0f3b1fc9f34fe06d93d6542fa8d"
     },
     {
+      "path": "docs/context-actions.md",
+      "bytes": 4703,
+      "sha256": "8253cb9b1feb069f1724c5d7186a3770881287b979842fa25fef746b078d8492",
+      "gitBlob": "4e818fd2b0f1771ff98ce8164084ffc5d410f7c2"
+    },
+    {
       "path": "docs/conversational-onboarding.md",
       "bytes": 3628,
       "sha256": "64a5144027d0ce39ff2b56fcd326218c717d96e720e4cdc0ae239394a456125b",
       "gitBlob": "9462262df55c172952efcc93d6849aca949a4dab"
+    },
+    {
+      "path": "docs/credit-score.md",
+      "bytes": 7072,
+      "sha256": "8018b736ed9286ce91cb2cc2ee2f8aa3e3b055800f33eb49ce9c2015645fc945",
+      "gitBlob": "002feb1918327021127ddc5e2025c364d8e9c7bb"
     },
     {
       "path": "docs/date-field.md",
@@ -60,6 +96,12 @@
       "gitBlob": "4798e586b7a81505e7a288eadf76acfb45164699"
     },
     {
+      "path": "docs/equity-watchlist.md",
+      "bytes": 4333,
+      "sha256": "1c0070ab2fc6525225dda3b39886971d0dded6c28359b38941bdda3a3145b106",
+      "gitBlob": "ca1fe991ddd117ad5b3600cf53d6aa2636ba3f8d"
+    },
+    {
       "path": "docs/favicon.md",
       "bytes": 1796,
       "sha256": "9bcdfffc139a831671d21afd271fb1218aeea061eee93f1713c8758064c16f99",
@@ -70,6 +112,12 @@
       "bytes": 4371,
       "sha256": "04c562f4040a8a462d0416163951662dfa5c3a61063c6f3333181ba6cfb94cff",
       "gitBlob": "6f73f77f592bd595e572f72bd640d4c7200fa9e7"
+    },
+    {
+      "path": "docs/finance-entry.md",
+      "bytes": 4310,
+      "sha256": "dff63f41b5093a86f65e2036121f7351a4d30c8a837010c4688a99b6e5b1aa12",
+      "gitBlob": "fb85ebfb4ada065c75976e9274765db87ee45dd7"
     },
     {
       "path": "docs/forms.md",
@@ -156,6 +204,12 @@
       "gitBlob": "7983e80ed208b97ab8c113e71ad8dd20b1ce5e6f"
     },
     {
+      "path": "docs/quiz-cards.md",
+      "bytes": 11859,
+      "sha256": "765a5471e4870fd71943790d1ba1df38f2a69a3edf1cea8f3e886812b80c2e25",
+      "gitBlob": "6237c98c315a8026d62a86ba2d3fa8f2bab6bc37"
+    },
+    {
       "path": "docs/rating.md",
       "bytes": 3573,
       "sha256": "09befbe10bf1eacac477890768152dc060590c57304833fe0c770eebb700cdde",
@@ -169,9 +223,9 @@
     },
     {
       "path": "docs/schema-source-modules.md",
-      "bytes": 8598,
-      "sha256": "0b758edbc4ca293c56804511792d41075e0a29ed6dbedd297ca194a66777d703",
-      "gitBlob": "cce6204fc3bc806f0fdc9b5aee1d04df519b7dab"
+      "bytes": 10104,
+      "sha256": "7110974a0ba88cb27b6389ee56c427c5c4291d693c998b5c3b385a30722a2666",
+      "gitBlob": "e258764791ce3dd753998fb0242a01cf11e0aff1"
     },
     {
       "path": "docs/security.md",
@@ -196,6 +250,24 @@
       "bytes": 4902,
       "sha256": "627b594ce07a3d4725757003e942da45d79a0841e2449a1365baaae1bc5549fc",
       "gitBlob": "850ecec1416a53d1b80ee2c43fcbd68b424861a9"
+    },
+    {
+      "path": "docs/supplied-discovery.md",
+      "bytes": 4554,
+      "sha256": "1e78763bf59bef4ea21d6cf95cff215f72341eb89f593c8a9d78d01c4980ed32",
+      "gitBlob": "06456affa9281e29749dd1a2d2440f338b84a955"
+    },
+    {
+      "path": "docs/supplied-interactions.md",
+      "bytes": 5613,
+      "sha256": "c6f9ad7dd86a8e5c1c6d1883e526387216caabdf89ee688d52a007145c6449e0",
+      "gitBlob": "97a502487470ada66fc47bcf4c1d608bc77cd811"
+    },
+    {
+      "path": "docs/supplied-launchers.md",
+      "bytes": 4464,
+      "sha256": "590821908eeaa1eb9193e40b714d034e65b8459fccf6a9e9f58f19a0587a972b",
+      "gitBlob": "c0c4f106e7f199c88785c1c56788b1590a5af333"
     },
     {
       "path": "docs/supplied-links.md",
@@ -252,10 +324,34 @@
       "gitBlob": "0c469e2ddd8859589c543ca8277feb0c5313c47b"
     },
     {
+      "path": "examples/schema-modules/ask-location.json",
+      "bytes": 571,
+      "sha256": "f99b6c65d7d3bee28147ebfa9b07f4796d3052154ec090317f91fe20d24a0ae6",
+      "gitBlob": "130680d9ebc3b1c56d0f091de372472b07bb3917"
+    },
+    {
+      "path": "examples/schema-modules/ask-user.json",
+      "bytes": 1067,
+      "sha256": "567e4b09fa0663ba413cb0d24b2b2d171a235edf69458b23c7d28bf52f28ba98",
+      "gitBlob": "12c1fa011892dab1e9a6634d7f9d354042b87667"
+    },
+    {
       "path": "examples/schema-modules/button.json",
       "bytes": 356,
       "sha256": "c8a3166f893d57d16cc77890a86bc399eb4196c4794fdf37aa4e05ac8b040bd4",
       "gitBlob": "51736d0a8b5b6e2b0e29e93a61d31f1955fdf754"
+    },
+    {
+      "path": "examples/schema-modules/capability-welcome.json",
+      "bytes": 2005,
+      "sha256": "0096f6fe32aeb1f48b71827327abbe06d67c0092673aea41236451a7726dca1b",
+      "gitBlob": "2807c2098d8646360f060a8914c915afd82ec680"
+    },
+    {
+      "path": "examples/schema-modules/care-providers.json",
+      "bytes": 50403,
+      "sha256": "3eaafb4eb7a44bef1b57bea38510357c098016e7b61a69f63c8998c10b0ff6e8",
+      "gitBlob": "a214cb9dcebb13d7782dd3bbd7bb04a3131c22a5"
     },
     {
       "path": "examples/schema-modules/charts.json",
@@ -270,10 +366,34 @@
       "gitBlob": "24ee1359d30a00e2af9401943742846720bae2a0"
     },
     {
+      "path": "examples/schema-modules/context-actions.json",
+      "bytes": 2149,
+      "sha256": "2fb9cc4607565bff41f37802f7a19c5300ef0d36cdb076d956fd1b30af46e57c",
+      "gitBlob": "ec4686565b3522ead9e2e10f95ce2d68024aa6d7"
+    },
+    {
       "path": "examples/schema-modules/conversational-onboarding.json",
       "bytes": 1760,
       "sha256": "276f1b8dc78b22d91056a723400033a5222bd4af09d06354d6555eebc6dab958",
       "gitBlob": "6a4264881e54404951cdd7942667ebb0da2c5604"
+    },
+    {
+      "path": "examples/schema-modules/credit-score.json",
+      "bytes": 5828,
+      "sha256": "b416068dc767247b4d8fd0084d7202d1b7a2183780285e08e63654c419846889",
+      "gitBlob": "9a49f29659cf1626428879c315e06776df177fbc"
+    },
+    {
+      "path": "examples/schema-modules/equity-watchlist.json",
+      "bytes": 7001,
+      "sha256": "9b6eb04fa6e29341646f36fed2f23e613bca0a5b2e40a1361e584341213ae689",
+      "gitBlob": "d226ccd2aa74f084d81359b6b25d59df4bb1b9f3"
+    },
+    {
+      "path": "examples/schema-modules/finance-entry.json",
+      "bytes": 1826,
+      "sha256": "f576393bec7cc0ce0ae1ee6786870caa63ab616ba33ebc6131713f35663c80a8",
+      "gitBlob": "98217a500361551e1dfef2bd9787b2b6c6e3b136"
     },
     {
       "path": "examples/schema-modules/forms.json",
@@ -298,6 +418,30 @@
       "bytes": 2371,
       "sha256": "78e46cbfac7b817e9707b7a75421d9c3d582abc604d07d39319307a68f46bfc2",
       "gitBlob": "0de7165d5fd163b9b511ccd9a1f09cbceb9cb99b"
+    },
+    {
+      "path": "examples/schema-modules/quiz-cards.json",
+      "bytes": 5027,
+      "sha256": "91f601f2adced585041b651899d44457a1aae534b5f85aee636a71d6f46a9735",
+      "gitBlob": "69237e9198d74c89112b321785595a59d7e8f649"
+    },
+    {
+      "path": "examples/schema-modules/supplied-discovery.json",
+      "bytes": 2959,
+      "sha256": "12ddc1a2bd0ce51263ff5ad29c0d609125ede59dd27ed260740f676fa63e3f39",
+      "gitBlob": "6b4346aa65a30a87c5651d51b53f6aed6f69ed6d"
+    },
+    {
+      "path": "examples/schema-modules/supplied-interactions.json",
+      "bytes": 4411,
+      "sha256": "b71c56223e1594e5784fc3bb38e9fa685f1d60cfc3728cac177fa44ff640e40b",
+      "gitBlob": "0df9db72b9ae4425dc4f7f564ad2560134f75561"
+    },
+    {
+      "path": "examples/schema-modules/supplied-launchers.json",
+      "bytes": 1802,
+      "sha256": "458e357166ad489b9dc8d20db77e99c660e52e232f8f9f39449ab1125ba8a45c",
+      "gitBlob": "d879cd08584b29b6415680eb463622dad16e24e3"
     },
     {
       "path": "examples/schema-modules/task-cards.json",
@@ -547,15 +691,15 @@
     },
     {
       "path": "scripts/schema-source/canonical.mjs",
-      "bytes": 55321,
-      "sha256": "e1d5ac41e888ce2574292240bc85cfca6a1885a2ca9c6f6fdb656df3506aec98",
-      "gitBlob": "b7ec72c8ef73975c1c5d8064467b4fb80cd41470"
+      "bytes": 54355,
+      "sha256": "2f0ff6dabd4dc33b65cde7999e92394a80e06daf817b52896e1ca11a446aa68c",
+      "gitBlob": "634f33db46ab90a7fffd3fbb8879c093de183c49"
     },
     {
       "path": "scripts/schema-source/catalog.mjs",
-      "bytes": 10771,
-      "sha256": "0666f3bd5378e924bfd9df385525bb99d395bc7709c4e3d2dd201b867c40fd35",
-      "gitBlob": "1ea10374f1576b81d799efef5b869815034599c3"
+      "bytes": 17925,
+      "sha256": "db88fad06304f13aac68b54e436ca1f5db2f075a1755789dd05184a26bfe7b61",
+      "gitBlob": "fe05bf9fc5033ba210c95072b1760e44e1d23305"
     },
     {
       "path": "scripts/schema-source/envelope.mjs",

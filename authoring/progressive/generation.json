@@ -2,15 +2,15 @@
   "format": "inform-ui-progressive-generation/1",
   "generated": true,
   "source": {
-    "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
-    "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675",
+    "sourceCommit": "8067f9a6690bc7232bb349c3abbfc822c6fdcf85",
+    "publicCommit": "a98c7700dddb31c2d4659a0bb716dce804b078a4",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
+      "value": "63cf6c72810177052478f0d319dd2715118d3b120cddaf65dfef216eb23b7499"
     }
   },
   "coverage": {
-    "migratedNodeCount": 83,
+    "migratedNodeCount": 110,
     "totalNodeCount": 218,
     "legacyNodeTypes": [
       "agenda",
@@ -106,41 +106,14 @@
       "scheduled-task-suggestion",
       "entity-card",
       "entity-overview",
-      "ask-user-details",
-      "ask-user-files",
       "ledger-spend-by-category",
       "ledger-spend-by-category-detail",
       "ledger-spend-by-category-recent-transactions",
       "conversational-onboarding-study",
       "conversational-onboarding-search",
-      "follow-up-quiz",
-      "multiple-choice-block-v2",
-      "personality-quiz",
-      "whats-new-capability-welcome",
-      "ask-user-location",
       "reservation-time-pills-ref-carousel",
       "whats-new-capability-search",
-      "ledger-finance-onboarding",
-      "ledger-repair-bank-connection",
-      "finance-onboarding-suggestions",
-      "places-metadata-bar",
-      "plugin-followup",
-      "instant-suggestions",
-      "ledger-equity-updates",
-      "ledger-watchlist",
-      "homework-helper-v2",
-      "image-gen",
-      "internal-partner-app",
-      "bento",
-      "open-detail",
-      "openai",
-      "ledger-credit-score",
-      "ledger-credit-score-detail",
-      "ledger-low-confidence-category-correction-legacy",
-      "superbowl-riddle",
       "learning-viz-dil",
-      "care-provider-results",
-      "care-provider-sidebar",
       "entity",
       "gen-image",
       "speech-synthesizer",
@@ -160,7 +133,7 @@
       "moduleId": "foundations/text",
       "components": 3,
       "schemaBytes": 10888,
-      "taskBytes": 21597,
+      "taskBytes": 21598,
       "contractBytes": 6389,
       "examples": 1
     },
@@ -168,7 +141,7 @@
       "moduleId": "foundations/layout",
       "components": 41,
       "schemaBytes": 63667,
-      "taskBytes": 140918,
+      "taskBytes": 140920,
       "contractBytes": 59390,
       "examples": 1
     },
@@ -176,7 +149,7 @@
       "moduleId": "forms/fields",
       "components": 6,
       "schemaBytes": 15860,
-      "taskBytes": 38956,
+      "taskBytes": 38957,
       "contractBytes": 17570,
       "examples": 1
     },
@@ -184,7 +157,7 @@
       "moduleId": "foundations/button",
       "components": 1,
       "schemaBytes": 5488,
-      "taskBytes": 21486,
+      "taskBytes": 21487,
       "contractBytes": 12059,
       "examples": 1
     },
@@ -192,7 +165,7 @@
       "moduleId": "forms/questionnaire",
       "components": 1,
       "schemaBytes": 12966,
-      "taskBytes": 33515,
+      "taskBytes": 33516,
       "contractBytes": 11155,
       "examples": 1
     },
@@ -200,7 +173,7 @@
       "moduleId": "charts/basic",
       "components": 1,
       "schemaBytes": 6068,
-      "taskBytes": 20054,
+      "taskBytes": 20055,
       "contractBytes": 9592,
       "examples": 1
     },
@@ -208,7 +181,7 @@
       "moduleId": "learning/basic",
       "components": 5,
       "schemaBytes": 13681,
-      "taskBytes": 43403,
+      "taskBytes": 43404,
       "contractBytes": 21966,
       "examples": 1
     },
@@ -216,7 +189,7 @@
       "moduleId": "foundations/content",
       "components": 9,
       "schemaBytes": 11898,
-      "taskBytes": 40598,
+      "taskBytes": 40600,
       "contractBytes": 21556,
       "examples": 1
     },
@@ -224,7 +197,7 @@
       "moduleId": "graphics/topology",
       "components": 1,
       "schemaBytes": 5311,
-      "taskBytes": 15369,
+      "taskBytes": 15371,
       "contractBytes": 5941,
       "examples": 1
     },
@@ -232,7 +205,7 @@
       "moduleId": "time/controls",
       "components": 3,
       "schemaBytes": 7649,
-      "taskBytes": 20123,
+      "taskBytes": 20124,
       "contractBytes": 8478,
       "examples": 1
     },
@@ -240,7 +213,7 @@
       "moduleId": "weather/snapshot",
       "components": 1,
       "schemaBytes": 22021,
-      "taskBytes": 41075,
+      "taskBytes": 41076,
       "contractBytes": 13510,
       "examples": 1
     },
@@ -248,7 +221,7 @@
       "moduleId": "voice/cards",
       "components": 3,
       "schemaBytes": 15001,
-      "taskBytes": 31796,
+      "taskBytes": 31797,
       "contractBytes": 11135,
       "examples": 1
     },
@@ -256,7 +229,7 @@
       "moduleId": "onboarding/conversation",
       "components": 2,
       "schemaBytes": 11789,
-      "taskBytes": 26895,
+      "taskBytes": 26896,
       "contractBytes": 8947,
       "examples": 1
     },
@@ -264,7 +237,7 @@
       "moduleId": "onboarding/cards",
       "components": 3,
       "schemaBytes": 15984,
-      "taskBytes": 35342,
+      "taskBytes": 35343,
       "contractBytes": 11970,
       "examples": 1
     },
@@ -272,343 +245,690 @@
       "moduleId": "tasks/cards",
       "components": 3,
       "schemaBytes": 13041,
-      "taskBytes": 29617,
+      "taskBytes": 29618,
       "contractBytes": 10661,
+      "examples": 1
+    },
+    {
+      "moduleId": "requests/user",
+      "components": 2,
+      "schemaBytes": 10898,
+      "taskBytes": 28666,
+      "contractBytes": 12511,
+      "examples": 1
+    },
+    {
+      "moduleId": "requests/location",
+      "components": 1,
+      "schemaBytes": 5776,
+      "taskBytes": 19377,
+      "contractBytes": 9496,
+      "examples": 1
+    },
+    {
+      "moduleId": "onboarding/welcome",
+      "components": 1,
+      "schemaBytes": 9469,
+      "taskBytes": 26536,
+      "contractBytes": 10815,
+      "examples": 1
+    },
+    {
+      "moduleId": "learning/quiz-cards",
+      "components": 3,
+      "schemaBytes": 27012,
+      "taskBytes": 55577,
+      "contractBytes": 17178,
+      "examples": 1
+    },
+    {
+      "moduleId": "finance/entry",
+      "components": 3,
+      "schemaBytes": 13813,
+      "taskBytes": 29900,
+      "contractBytes": 9629,
+      "examples": 1
+    },
+    {
+      "moduleId": "context/actions",
+      "components": 3,
+      "schemaBytes": 12907,
+      "taskBytes": 29608,
+      "contractBytes": 10022,
+      "examples": 1
+    },
+    {
+      "moduleId": "finance/equity-watch",
+      "components": 2,
+      "schemaBytes": 17486,
+      "taskBytes": 39969,
+      "contractBytes": 9652,
+      "examples": 1
+    },
+    {
+      "moduleId": "finance/credit-display",
+      "components": 2,
+      "schemaBytes": 22112,
+      "taskBytes": 46341,
+      "contractBytes": 12391,
+      "examples": 1
+    },
+    {
+      "moduleId": "discovery/cards",
+      "components": 3,
+      "schemaBytes": 15483,
+      "taskBytes": 33171,
+      "contractBytes": 9873,
+      "examples": 1
+    },
+    {
+      "moduleId": "launchers/cards",
+      "components": 3,
+      "schemaBytes": 11011,
+      "taskBytes": 26938,
+      "contractBytes": 9783,
+      "examples": 1
+    },
+    {
+      "moduleId": "care/providers",
+      "components": 2,
+      "schemaBytes": 22792,
+      "taskBytes": 97947,
+      "contractBytes": 12423,
+      "examples": 1
+    },
+    {
+      "moduleId": "interactions/local",
+      "components": 2,
+      "schemaBytes": 15364,
+      "taskBytes": 35729,
+      "contractBytes": 10932,
       "examples": 1
     }
   ],
   "taskPaths": [
     {
       "moduleId": "foundations/text",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 10275,
-      "taskBytes": 21597,
-      "routeAndTaskBytes": 34522,
+      "taskBytes": 21598,
+      "routeAndTaskBytes": 35428,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "foundations/layout",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 10275,
-      "taskBytes": 140918,
-      "routeAndTaskBytes": 153843,
+      "taskBytes": 140920,
+      "routeAndTaskBytes": 154750,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "forms/fields",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 2084,
-      "taskBytes": 38956,
-      "routeAndTaskBytes": 43690,
+      "taskBytes": 38957,
+      "routeAndTaskBytes": 44596,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "foundations/button",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 10275,
-      "taskBytes": 21486,
-      "routeAndTaskBytes": 34411,
+      "taskBytes": 21487,
+      "routeAndTaskBytes": 35317,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "forms/questionnaire",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 2084,
-      "taskBytes": 33515,
-      "routeAndTaskBytes": 38249,
+      "taskBytes": 33516,
+      "routeAndTaskBytes": 39155,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "charts/basic",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 864,
-      "taskBytes": 20054,
-      "routeAndTaskBytes": 23568,
+      "taskBytes": 20055,
+      "routeAndTaskBytes": 24474,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "learning/basic",
-      "indexBytes": 2650,
-      "categoryBytes": 2459,
-      "taskBytes": 43403,
-      "routeAndTaskBytes": 48512,
+      "indexBytes": 3555,
+      "categoryBytes": 3277,
+      "taskBytes": 43404,
+      "routeAndTaskBytes": 50236,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "foundations/content",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 10275,
-      "taskBytes": 40598,
-      "routeAndTaskBytes": 53523,
+      "taskBytes": 40600,
+      "routeAndTaskBytes": 54430,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "graphics/topology",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 899,
-      "taskBytes": 15369,
-      "routeAndTaskBytes": 18918,
+      "taskBytes": 15371,
+      "routeAndTaskBytes": 19825,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "time/controls",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 1136,
-      "taskBytes": 20123,
-      "routeAndTaskBytes": 23909,
+      "taskBytes": 20124,
+      "routeAndTaskBytes": 24815,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "weather/snapshot",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 870,
-      "taskBytes": 41075,
-      "routeAndTaskBytes": 44595,
+      "taskBytes": 41076,
+      "routeAndTaskBytes": 45501,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "voice/cards",
-      "indexBytes": 2650,
-      "categoryBytes": 2459,
-      "taskBytes": 31796,
-      "routeAndTaskBytes": 36905,
+      "indexBytes": 3555,
+      "categoryBytes": 3277,
+      "taskBytes": 31797,
+      "routeAndTaskBytes": 38629,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "onboarding/conversation",
-      "indexBytes": 2650,
-      "categoryBytes": 2089,
-      "taskBytes": 26895,
-      "routeAndTaskBytes": 31634,
+      "indexBytes": 3555,
+      "categoryBytes": 2601,
+      "taskBytes": 26896,
+      "routeAndTaskBytes": 33052,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "onboarding/cards",
-      "indexBytes": 2650,
-      "categoryBytes": 2089,
-      "taskBytes": 35342,
-      "routeAndTaskBytes": 40081,
+      "indexBytes": 3555,
+      "categoryBytes": 2601,
+      "taskBytes": 35343,
+      "routeAndTaskBytes": 41499,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     },
     {
       "moduleId": "tasks/cards",
-      "indexBytes": 2650,
+      "indexBytes": 3555,
       "categoryBytes": 1256,
-      "taskBytes": 29617,
-      "routeAndTaskBytes": 33523,
+      "taskBytes": 29618,
+      "routeAndTaskBytes": 34429,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "requests/user",
+      "indexBytes": 3555,
+      "categoryBytes": 1539,
+      "taskBytes": 28666,
+      "routeAndTaskBytes": 33760,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "requests/location",
+      "indexBytes": 3555,
+      "categoryBytes": 1539,
+      "taskBytes": 19377,
+      "routeAndTaskBytes": 24471,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "onboarding/welcome",
+      "indexBytes": 3555,
+      "categoryBytes": 2601,
+      "taskBytes": 26536,
+      "routeAndTaskBytes": 32692,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "learning/quiz-cards",
+      "indexBytes": 3555,
+      "categoryBytes": 3277,
+      "taskBytes": 55577,
+      "routeAndTaskBytes": 62409,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "finance/entry",
+      "indexBytes": 3555,
+      "categoryBytes": 2693,
+      "taskBytes": 29900,
+      "routeAndTaskBytes": 36148,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "context/actions",
+      "indexBytes": 3555,
+      "categoryBytes": 1266,
+      "taskBytes": 29608,
+      "routeAndTaskBytes": 34429,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "finance/equity-watch",
+      "indexBytes": 3555,
+      "categoryBytes": 2693,
+      "taskBytes": 39969,
+      "routeAndTaskBytes": 46217,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "finance/credit-display",
+      "indexBytes": 3555,
+      "categoryBytes": 2693,
+      "taskBytes": 46341,
+      "routeAndTaskBytes": 52589,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "discovery/cards",
+      "indexBytes": 3555,
+      "categoryBytes": 1171,
+      "taskBytes": 33171,
+      "routeAndTaskBytes": 37897,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "launchers/cards",
+      "indexBytes": 3555,
+      "categoryBytes": 1251,
+      "taskBytes": 26938,
+      "routeAndTaskBytes": 31744,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "care/providers",
+      "indexBytes": 3555,
+      "categoryBytes": 1096,
+      "taskBytes": 97947,
+      "routeAndTaskBytes": 102598,
+      "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
+    },
+    {
+      "moduleId": "interactions/local",
+      "indexBytes": 3555,
+      "categoryBytes": 1181,
+      "taskBytes": 35729,
+      "routeAndTaskBytes": 40465,
       "note": "Add the current SKILL.md bytes to obtain the complete default-entry loading path."
     }
   ],
   "artifacts": [
     {
       "path": "modules/foundations/text.json",
-      "bytes": 21597,
-      "sha256": "cf38f1d0e42a77a5a4f07bfe1ea7bb7f27038f636f0c79a5c24c5df60d670f9f"
+      "bytes": 21598,
+      "sha256": "07cb02dc732aafe3c03e7cc80ada45bab75316a2951bd7411dd141d4d3a691ab"
     },
     {
       "path": "modules/foundations/text.json.manifest.json",
       "bytes": 8178,
-      "sha256": "bce88ec3c87764765a91e3d8e301cc1e6738c45aa2529882037147e5cbfcfb8e"
+      "sha256": "13ec61974933c46d02efd7d612898e5f8b83d717e01ec7484ca429a2cf56c12a"
     },
     {
       "path": "modules/foundations/layout.json",
-      "bytes": 140918,
-      "sha256": "c2196ef97d07dd78cfa47532945434981b61f31513f89609a11210458c6f3181"
+      "bytes": 140920,
+      "sha256": "b4b3a93c8820cfa3b371c2995a060dc10c5fe35c4b59637cafdf11cabe479713"
     },
     {
       "path": "modules/foundations/layout.json.manifest.json",
       "bytes": 12713,
-      "sha256": "13031b9e5faa1cf69c25705b6b6ad6fc80bdc64872b0b3666aa3d09c5e8775c5"
+      "sha256": "d52c3ba60384e47901435d7344a232482fbbfd200ac1635e2784e42e72f95626"
     },
     {
       "path": "modules/forms/fields.json",
-      "bytes": 38956,
-      "sha256": "a4bd8490b1d203dd949ccd69169c71a002844e88fd0cba89c912ee5eb5fafe24"
+      "bytes": 38957,
+      "sha256": "2dfc3dbaf518caf9ddedaa522985fbf5f1b656231d23d3279e9d0096bc589b8c"
     },
     {
       "path": "modules/forms/fields.json.manifest.json",
       "bytes": 8391,
-      "sha256": "87ab81ea8f179f9a10e5b4a726e8edb4c762800e805c0ed4abe2ebd00ea538f9"
+      "sha256": "bb6fb7c69dde4fd99faa22b3f7d4bf2550cb188fd77b619587936085c966e77f"
     },
     {
       "path": "modules/foundations/button.json",
-      "bytes": 21486,
-      "sha256": "eb1b580446fb30e0e34a4e9e9ce169ab42c67440a562da1b2f9ff81a7e5e8046"
+      "bytes": 21487,
+      "sha256": "dae174b378173532fe43e953aa920e843cff8e8ad2b0d2b9c468d1a4ab560da7"
     },
     {
       "path": "modules/foundations/button.json.manifest.json",
       "bytes": 7990,
-      "sha256": "ae4b8f4a8cbbd54652d0a179499b804c0af46a88d4c6b941cc2436028b11a080"
+      "sha256": "ae1e40de40910aefd1043e810e045ec244ae7a699fb836ac2ff29b52143e9688"
     },
     {
       "path": "modules/forms/questionnaire.json",
-      "bytes": 33515,
-      "sha256": "f3869a20b0ce2ae7f2c767b7bcf7aa785f6605471c5e1938fc6533140f379ce7"
+      "bytes": 33516,
+      "sha256": "4d2795aeec6a147aafde56b9b90e51e49978619e874dcf1c89e67da42cfba59d"
     },
     {
       "path": "modules/forms/questionnaire.json.manifest.json",
       "bytes": 8203,
-      "sha256": "78a2218971af8beaa994abd74d544de093db3bc437d33ecf31cf763418807c6e"
+      "sha256": "131debbcbd44e20e44419d1b13336006291660e9a35aa10f46b4cf815c37cd8f"
     },
     {
       "path": "modules/charts/basic.json",
-      "bytes": 20054,
-      "sha256": "a12c96729bfa51f3a6f7c0b3d3666dedd4cdd3721cb375b18ccbe5f6d3f65d4d"
+      "bytes": 20055,
+      "sha256": "70b702df10ef62e3369daa9ed67bd4830979c8bb3e314903e8f2b4632b7e87b3"
     },
     {
       "path": "modules/charts/basic.json.manifest.json",
       "bytes": 7888,
-      "sha256": "bd8bc73f152714b48e97b259a60a7fb34ff2b5d8fd2a2363e478e32fa5568faf"
+      "sha256": "cfecdacdf9b007274e27e5f335b6bbbace29acaa933aa80061c8738367d3cd4a"
     },
     {
       "path": "modules/learning/basic.json",
-      "bytes": 43403,
-      "sha256": "19b1b2b9987f196f3df1dcdf7f391f65ba4654e5fdaa623a3126e2f95e153741"
+      "bytes": 43404,
+      "sha256": "8b5f3af939d28c7ae8f03a21db9b3c26131d88ef7d71f9f69126b1bb78f7f581"
     },
     {
       "path": "modules/learning/basic.json.manifest.json",
       "bytes": 8859,
-      "sha256": "fa9cb4a02023c4d37b6ac0e980bc8d09227b37109b7500f5baed32752141008c"
+      "sha256": "1f3478ed5a8474194c27f869d3d51b751839b0ef74e626b84f990c4aac1890a0"
     },
     {
       "path": "modules/foundations/content.json",
-      "bytes": 40598,
-      "sha256": "0ef9345ee0f8d0c77f82f3d00171f553bd5dea484a75cfe27aec6efa0e2c640c"
+      "bytes": 40600,
+      "sha256": "1d30aea0ac0fc8c5e5f859a5dd2982ba37c784c2999c8eb89a64f1c6124e412f"
     },
     {
       "path": "modules/foundations/content.json.manifest.json",
       "bytes": 8837,
-      "sha256": "5572c9102221e4fb867b66bd5a29afcdb36e1afc8c5855df2c321930004ca30c"
+      "sha256": "69e1af4e8184b19372993d77b15b29090e616a0d7f08a89e86e2363c98305df1"
     },
     {
       "path": "modules/graphics/topology.json",
-      "bytes": 15369,
-      "sha256": "23e0a2114e2c18305a226a30def2f8efec37daac0734af4a2571a2873b6d1e65"
+      "bytes": 15371,
+      "sha256": "0ebdb48d05d2f94aff587e4a36a50ff0b0ec14422a3220f7d915b8a7704da902"
     },
     {
       "path": "modules/graphics/topology.json.manifest.json",
       "bytes": 7904,
-      "sha256": "28b1a482d1191aadd5ae92e52f355ea84274c3933b1b48d5dcf08613e8a32a29"
+      "sha256": "6e5dd2e73dc9db914b14fbc16728819a9ca6f8ca37707950a925dffb0315c8d9"
     },
     {
       "path": "modules/time/controls.json",
-      "bytes": 20123,
-      "sha256": "0589aabaae1dd4f5b7ad1010511b513be6d11bf168e1a5daad89a67ff66596ef"
+      "bytes": 20124,
+      "sha256": "89ede9c60e2b427896b266e87e7f17760cfc0ed17298b4e8ad1e77415f8ac944"
     },
     {
       "path": "modules/time/controls.json.manifest.json",
       "bytes": 8094,
-      "sha256": "9390d07972e81a22a2b8abe3be987216cef62effb53c9b98eee7e3594f56c775"
+      "sha256": "bb49170fe90e7ed780fe5b00a7a662cafbd6b9a1456dc8a6a5c60f961917748f"
     },
     {
       "path": "modules/weather/snapshot.json",
-      "bytes": 41075,
-      "sha256": "e117494650de9f09626c23127d17c65de979542ae8762e1cfac7a27e90ca0648"
+      "bytes": 41076,
+      "sha256": "cf7b0280d4ec56bb1a6e9f7f15b76fd11868ade1917210b4417864ea7c309022"
     },
     {
       "path": "modules/weather/snapshot.json.manifest.json",
       "bytes": 7901,
-      "sha256": "70e2b11582c7f37e56d1d8425b290ce51c803812bf3810d53603783f5c2dcbef"
+      "sha256": "5e3a68c999c3705d3a27f2d5dbf87a51cba55c73dec82892fb198fb0c6a15616"
     },
     {
       "path": "modules/voice/cards.json",
-      "bytes": 31796,
-      "sha256": "e7d84884fd5c5e8c09b3624adab17f49ed31cdd92ee2961f68ee639eb97debda"
+      "bytes": 31797,
+      "sha256": "b2c5094ba1f92b93b36afc76cb189eaededd4d2b59b71e8364b5c52954fa0472"
     },
     {
       "path": "modules/voice/cards.json.manifest.json",
       "bytes": 8197,
-      "sha256": "48db9c4ffcc1bf76cadc40ad096d74e5db44fe24c10382dcf8628e0b6e4bbffb"
+      "sha256": "9ed6de16304bef0144b538b2a566e4c0a0b6e652cdfcf4d976c408b95ff1c717"
     },
     {
       "path": "modules/onboarding/conversation.json",
-      "bytes": 26895,
-      "sha256": "a6a34b07e472bb5501591d4fb5f391b43b729a419e90383de263507492a66c2b"
+      "bytes": 26896,
+      "sha256": "d0d3b0b5180ca7e21a08bd1bff2a2516a21e552a3d083bb2ae4ef9abd4c4501e"
     },
     {
       "path": "modules/onboarding/conversation.json.manifest.json",
       "bytes": 8115,
-      "sha256": "0eed3ef8ab80042d8616d9412f2349240482ba186852e3a01158b7dbac1d5c67"
+      "sha256": "8c6e518034a6f84df556bc7133ac9b030a821f6922ebb9b7c8d4f7b1cc0fc995"
     },
     {
       "path": "modules/onboarding/cards.json",
-      "bytes": 35342,
-      "sha256": "baca8bbc231f1ea0c6e2ebdd68fbaf33ecf5d3bf3d95e16025e06d372c58e4d0"
+      "bytes": 35343,
+      "sha256": "beb01d1b34c36c045d9e8303148e47858a1987bbfad113daf7c5c73e2fba3107"
     },
     {
       "path": "modules/onboarding/cards.json.manifest.json",
       "bytes": 8209,
-      "sha256": "6dfe03f14ce7a07401042c94e1e0dc24c5af21a435d82f61139a4704dc0f40d6"
+      "sha256": "1294e4ad661981a1878a1814e46d30f92bcab827d6d12b009e92cfb97e70b19e"
     },
     {
       "path": "modules/tasks/cards.json",
-      "bytes": 29617,
-      "sha256": "64ff4bcbaf837114c73070461141a9b02107474da7f74ab56875352aeb3e0f78"
+      "bytes": 29618,
+      "sha256": "ffa4e4ceb46933f897ede738fcfe185cff10c94d2f7a4b5795e561b051b45f23"
     },
     {
       "path": "modules/tasks/cards.json.manifest.json",
       "bytes": 8169,
-      "sha256": "77e4fc6c965cc087ddcfac3bb31787c686a460e70884895e3de6949a3727b61a"
+      "sha256": "21fbe30aa00944d096e7f8735250fac633483c19006555dab9fb47c4e3fd40b5"
+    },
+    {
+      "path": "modules/requests/user.json",
+      "bytes": 28666,
+      "sha256": "4d47330cbd2f107cea8b4b75a08c65839a6502658dded98823ee9f45bfb5bab8"
+    },
+    {
+      "path": "modules/requests/user.json.manifest.json",
+      "bytes": 8025,
+      "sha256": "15a59e3f1d12d6b1a311bf873e63f9a26ced1e4101cdba81166bfbb7fde103c0"
+    },
+    {
+      "path": "modules/requests/location.json",
+      "bytes": 19377,
+      "sha256": "1714f80a9c6011cb2553c8a5b09dde08e962189d6e4103d78ac5e700f80b4807"
+    },
+    {
+      "path": "modules/requests/location.json.manifest.json",
+      "bytes": 7920,
+      "sha256": "d731dd8679331b1c8212aa3abc92494a82471d41d8f8ae0c9e28543d81ac1faa"
+    },
+    {
+      "path": "modules/onboarding/welcome.json",
+      "bytes": 26536,
+      "sha256": "d8c511a42767c0b9ed620f8a7b0549fff08b9143860648a37590f4a66b9ce474"
+    },
+    {
+      "path": "modules/onboarding/welcome.json.manifest.json",
+      "bytes": 7943,
+      "sha256": "d4e8aaa4aae2b18b668dcb839d8c9c4d36463f8c58c754bb62710b0157835d26"
+    },
+    {
+      "path": "modules/learning/quiz-cards.json",
+      "bytes": 55577,
+      "sha256": "2fc9b08df948bc6d1cd94f91408a5fd6c9dfe6f2fc5a7debacfda763fbd7a968"
+    },
+    {
+      "path": "modules/learning/quiz-cards.json.manifest.json",
+      "bytes": 8171,
+      "sha256": "43eda81702cce6c2283f97179472b7a88fe0e7eecc158e27729afbe77f571cd5"
+    },
+    {
+      "path": "modules/finance/entry.json",
+      "bytes": 29900,
+      "sha256": "43f612f359dc062491f15b19e5e02753179e971ffd48a778be91bb4ce286707a"
+    },
+    {
+      "path": "modules/finance/entry.json.manifest.json",
+      "bytes": 8218,
+      "sha256": "263272ce0065440e2e1cdaae1a0e2c8a5aef48bd9ae3328af64dff98b42b23b2"
+    },
+    {
+      "path": "modules/context/actions.json",
+      "bytes": 29608,
+      "sha256": "4d71352a0a4c66b1cde4d3c283994f72e5f0defaf67c4220fee4ff95da88413c"
+    },
+    {
+      "path": "modules/context/actions.json.manifest.json",
+      "bytes": 8163,
+      "sha256": "cc1f9f4a317f0133e953d6614f74613a4cd902af255870c8fa80f3b4270194e3"
+    },
+    {
+      "path": "modules/finance/equity-watch.json",
+      "bytes": 39969,
+      "sha256": "2bb740fc71402ea3042577c7301aa5f2c51909fbbfecd4a0c2eb1f85d1fc9004"
+    },
+    {
+      "path": "modules/finance/equity-watch.json.manifest.json",
+      "bytes": 8054,
+      "sha256": "fd5f18737cdf46a9f56845dac32a39ab5bd939d0dd7eb5d9fd22e032b02966ec"
+    },
+    {
+      "path": "modules/finance/credit-display.json",
+      "bytes": 46341,
+      "sha256": "2883d4be9635257a2f3c9d9b3a7a2954c19038fb1ef5aae08aacdee0cd12cfb3"
+    },
+    {
+      "path": "modules/finance/credit-display.json.manifest.json",
+      "bytes": 8072,
+      "sha256": "bb32561cea2430548bf6b88866403cde84ad88987983011551c48feeac8e8ef6"
+    },
+    {
+      "path": "modules/discovery/cards.json",
+      "bytes": 33171,
+      "sha256": "c22fb88a49936e07c93844081ff80befcb5f1e68526afc5056f5056abafbc339"
+    },
+    {
+      "path": "modules/discovery/cards.json.manifest.json",
+      "bytes": 8104,
+      "sha256": "1f060e6e658d80cf60921b96ee3bc3de0aca18974eb4a452d1cc5fb44844723d"
+    },
+    {
+      "path": "modules/launchers/cards.json",
+      "bytes": 26938,
+      "sha256": "9a9dcb252d751144ac661dadae7ce8d0cb31d80fe9359380267c4a0f2d53e83f"
+    },
+    {
+      "path": "modules/launchers/cards.json.manifest.json",
+      "bytes": 8150,
+      "sha256": "bcfb08b055e6d62a98104d6174b8deed7c8b7236332e8a917e196d52fc2c3ab1"
+    },
+    {
+      "path": "modules/care/providers.json",
+      "bytes": 97947,
+      "sha256": "58bda8dadba28e677ea08f9d331c496ca6964836e6cd787124af9b0c5b699fb8"
+    },
+    {
+      "path": "modules/care/providers.json.manifest.json",
+      "bytes": 8574,
+      "sha256": "082c90a0c0d9ed417d14e839c13d7af4d8d4a1fbe5f3e3bca59b9f2a2220d0d4"
+    },
+    {
+      "path": "modules/interactions/local.json",
+      "bytes": 35729,
+      "sha256": "5847554728c2019ecb74eb3b0ba3117fb6e3778986c16c510dfe34e2e529cbcc"
+    },
+    {
+      "path": "modules/interactions/local.json.manifest.json",
+      "bytes": 8101,
+      "sha256": "07135959233d15b53380ab320ec7d205a781e12ac05677c8627028aff41a5caa"
     },
     {
       "path": "categories/shared.json",
       "bytes": 6745,
-      "sha256": "5b209a5c9299502f6a26e333c138736c7be059f8e19b04b2176e1071e9e3746e"
+      "sha256": "d383fcec3bc00298ac46271cbbfbad27ad34022d7a526db3a497b5db449205dc"
     },
     {
       "path": "categories/foundations.json",
       "bytes": 10275,
-      "sha256": "ff828faf21fe2684ebe38995a3ce942adea061286f40380fb3b3802396099e85"
+      "sha256": "73dde6f5536984174a5d7b3f5a02c85f0a7481fa557b233799b71aa74dfb5515"
     },
     {
       "path": "categories/forms.json",
       "bytes": 2084,
-      "sha256": "7f87fec9ccd5cbc767d0188516e2ffdaacee6dbb352e5b874ec8dc647ff44a5b"
+      "sha256": "9d4398b3217b012a531bc99c5fa9dcc2234e7c095fd38ce8128dc10dd300a467"
     },
     {
       "path": "categories/charts.json",
       "bytes": 864,
-      "sha256": "99bd0b3037bf6920a5b49dc10fa59996fbf91df6404da79166169c953712f292"
+      "sha256": "828f93e500f764601bfaf2eb431cf141b48f978b92ebf6bedfcc8ef99487c794"
     },
     {
       "path": "categories/learning.json",
-      "bytes": 2459,
-      "sha256": "a54c25098a1c78ef89ce9575a0b49058640f9492e9bf0f5fa4e516c54ad3c4d1"
+      "bytes": 3277,
+      "sha256": "e91abc428891814f79dfc47b3b26dfad07dbdffd047047c1fed6f4c572bbf21c"
     },
     {
       "path": "categories/graphics.json",
       "bytes": 899,
-      "sha256": "e8f7385a6a32e86b58ad1520c7c13555163b8e8b90288ceddd972159ecc501af"
+      "sha256": "cafff91b5cd0ecaeb7a3f304c062a8874829259551e449f1f42d46fbac3c50f7"
     },
     {
       "path": "categories/time.json",
       "bytes": 1136,
-      "sha256": "6d7979ac8417c9f1a719226fb6cbd61616e38268f10eeaf363ab4f8e45d74dd6"
+      "sha256": "fef2800650b58793178a5e997e5bca6c272b72aa65d0cf7ee834af44fff84258"
     },
     {
       "path": "categories/weather.json",
       "bytes": 870,
-      "sha256": "702f86d428e7b915a182b8924fdc5a02d2e2945ab080b839a43b6188b6063435"
+      "sha256": "7aa5cad40300c9a80305c0d906c4724dcdd72503f36019bd383e2b9e8b34dcef"
     },
     {
       "path": "categories/onboarding.json",
-      "bytes": 2089,
-      "sha256": "a93a5d42e2a94da660fe079b116923c3462786f12b03d00f46a99cafcafa7858"
+      "bytes": 2601,
+      "sha256": "afb54e841261eefc92d04cd8314560aeecd12241d3c98fbe26127baebccda6af"
     },
     {
       "path": "categories/tasks.json",
       "bytes": 1256,
-      "sha256": "6e5be7c9ac015b3da6cc0fa8ba1a8bc2665b7bd48ed2b695a6beef044e437b6b"
+      "sha256": "3e558fd3cd61898f58096e884f14abb8dd9496e0fbd7864fdf1317956d3e1cc6"
+    },
+    {
+      "path": "categories/requests.json",
+      "bytes": 1539,
+      "sha256": "4d4c1f97c4ed5c4b2e9962c77b99f507cee0be8a9e3dcfd3c8f6ebcf47a754a8"
+    },
+    {
+      "path": "categories/finance.json",
+      "bytes": 2693,
+      "sha256": "67fd6e471e0a710313f773a582c8a90fac6b7b6a81ff304149e587a7e3a16cce"
+    },
+    {
+      "path": "categories/context.json",
+      "bytes": 1266,
+      "sha256": "a4b0894196538b33c2603ec98c947250c65336f97760eeb1cde976774edb42ab"
+    },
+    {
+      "path": "categories/discovery.json",
+      "bytes": 1171,
+      "sha256": "add7609863ac43586fc4e43e3f0eab93d6ee779bb5726fe8f82bcb60e8126c35"
+    },
+    {
+      "path": "categories/launchers.json",
+      "bytes": 1251,
+      "sha256": "8158824d9f8417abe6132960fc145a4add92240eadf94af612288641afaf54a4"
+    },
+    {
+      "path": "categories/care.json",
+      "bytes": 1096,
+      "sha256": "6c99a98de2f1601c02d1bd977a88fc5a677d013672226b58c802b26238597ea3"
+    },
+    {
+      "path": "categories/interactions.json",
+      "bytes": 1181,
+      "sha256": "dfcae40b78fb4f822837f3ea8e1a888783db76528b6dd9aa6a3e490062cfbbf8"
     },
     {
       "path": "index.json",
-      "bytes": 2650,
-      "sha256": "95aa9ff693f351b0427e71eae7ae6dc9312e5bb3e52c55bd20701a41c6c965a1"
+      "bytes": 3555,
+      "sha256": "e66dedecd8981b3585aecbcf083cb8fa459c040ce9dc44845160ef822542a05a"
     },
     {
       "path": "legacy-components.json",
-      "bytes": 4150,
-      "sha256": "4258ebf200a99df9399dc0b33f4fd63e1e34eacfb807f2d86c045bc0853a4379"
+      "bytes": 3411,
+      "sha256": "8f2b404f90183558205d9580761da007fed94bd64683e0019864fc3f01e63f72"
     },
     {
       "path": "webchat/iui.schema.json",
@@ -618,16 +938,16 @@
     {
       "path": "webchat/iui.schema.manifest.json",
       "bytes": 49474,
-      "sha256": "eb893c89745a0878205d886d8283b1d761f5d4622391766e53a9c73ab768fc4a"
+      "sha256": "a80979b6bd4b708ffe81372bed0b8b3b454311fafdefd2d2948b1cab50e868d4"
     },
     {
       "path": "source-index.json",
-      "bytes": 48312,
-      "sha256": "3a16d10bee21563bf9b874b07ff8a937388545590803e499fce2cca627248f50"
+      "bytes": 63552,
+      "sha256": "06a3b73e93f10c13805ebf336afc05fe7026d261fd62a1ba80bbf24ea609efba"
     }
   ],
   "limitations": [
-    "83-node pilot only; unmigrated source remains explicit.",
+    "110-node pilot only; unmigrated source remains explicit.",
     "Selected structural schemas need full semantic validation.",
     "No model-quality, runtime, native-browser, or clinical evaluation was performed by this generator."
   ]

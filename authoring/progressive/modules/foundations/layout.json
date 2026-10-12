@@ -2,8 +2,8 @@
   "format": "inform-ui-progressive-task/1",
   "schemaVersion": "iui/1",
   "runtime": {
-    "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
-    "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675"
+    "sourceCommit": "8067f9a6690bc7232bb349c3abbfc822c6fdcf85",
+    "publicCommit": "a98c7700dddb31c2d4659a0bb716dce804b078a4"
   },
   "rootKind": "document",
   "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
@@ -11,7 +11,7 @@
     "schemaVersion": "iui/1",
     "sourceIdentity": {
       "algorithm": "sha256",
-      "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
+      "value": "63cf6c72810177052478f0d319dd2715118d3b120cddaf65dfef216eb23b7499"
     },
     "requestedComponents": [
       "link"
@@ -179,13 +179,13 @@
       "examples/schema-modules/layout.json"
     ],
     "migrationCoverage": {
-      "migratedNodeCount": 83,
+      "migratedNodeCount": 110,
       "totalNodeCount": 218
     }
   },
   "schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "urn:micraow:inform-ui:source-selection:758995eef5a0526c6b4255543918b9d9fc1a1f51f55faeb01d494944e2c15652",
+    "$id": "urn:micraow:inform-ui:source-selection:a03497db8c7e4fae62002561f67942af556abdc2d80812d99939a95b01f6bca8",
     "title": "IUIDocument",
     "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
     "type": "object",
@@ -3196,8 +3196,8 @@
     },
     {
       "path": "docs/schema-source-modules.md#layout",
-      "sourceBytes": 8598,
-      "sourceSha256": "0b758edbc4ca293c56804511792d41075e0a29ed6dbedd297ca194a66777d703",
+      "sourceBytes": 10104,
+      "sourceSha256": "7110974a0ba88cb27b6389ee56c427c5c4291d693c998b5c3b385a30722a2666",
       "bytes": 281,
       "sha256": "21391815762e0217ad8da1d41f39ca5c0db7953ec07dddad130b165c1cb68ff2",
       "text": "## layout\n\n`foundations/layout` provides the existing foundational layout, disclosure, table, link and local control block. This first migration keeps its historical definition order. Its family is intentionally reported as a family; asking for it includes all its reported nodes.\n"
@@ -3375,8 +3375,8 @@
     }
   ],
   "identity": {
-    "indexSha256": "3a16d10bee21563bf9b874b07ff8a937388545590803e499fce2cca627248f50",
-    "schemaSha256": "cb8f0b142482b75ade6963cae106ed62f6ca27fd3934e0ea0ae5a04ca801e766",
+    "indexSha256": "06a3b73e93f10c13805ebf336afc05fe7026d261fd62a1ba80bbf24ea609efba",
+    "schemaSha256": "8f199c725069a21a58820867b51d2749a151323b5bb96237626410d8ec37883c",
     "schemaBytes": 63667
   },
   "manifestPath": "layout.json.manifest.json"

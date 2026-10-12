@@ -1,9 +1,9 @@
 {
   "format": "inform-ui-progressive-consumer-result/1",
-  "sourceCommit": "f92e91f3edf2cea6ae74f6d8c027a2b43804c6a1",
+  "sourceCommit": "8067f9a6690bc7232bb349c3abbfc822c6fdcf85",
   "passed": 8,
   "failed": 0,
-  "deterministicArtifacts": 45,
+  "deterministicArtifacts": 76,
   "combinedComponents": 10,
   "combinedExamples": 3,
   "rootKinds": [
@@ -17,19 +17,19 @@
     "sha256": "c59d34b171ee7cc54e278a857688d834363bbd6ff064f9ff503abfb74bdd0c92",
     "canonicalByteEqual": true
   },
-  "publicCommit": "e6d93b0b1640fe6955f33acdb23f565d6d406675",
-  "verifiedRemoteFiles": 119,
+  "publicCommit": "a98c7700dddb31c2d4659a0bb716dce804b078a4",
+  "verifiedRemoteFiles": 143,
   "focusedTests": {
     "passed": 21,
     "failed": 0
   },
   "semanticContracts": {
-    "explicitModules": 16,
+    "explicitModules": 28,
     "followOrdinaryLinks": false
   },
   "limits": [
     "Structural schema and source-selection tests; no renderer or browser execution.",
-    "83 of 218 registered nodes are migrated; historical functional scope remains 212 of 256.",
+    "110 of 218 registered nodes are migrated; historical functional scope remains 212 of 256.",
     "This architecture has no new model-generation accuracy or token measurement.",
     "The full historical Skill suite was not rerun for this catalog-only update."
   ]

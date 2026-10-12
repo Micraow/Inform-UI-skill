@@ -1,0 +1,879 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "8067f9a6690bc7232bb349c3abbfc822c6fdcf85",
+    "publicCommit": "a98c7700dddb31c2d4659a0bb716dce804b078a4"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "63cf6c72810177052478f0d319dd2715118d3b120cddaf65dfef216eb23b7499"
+    },
+    "requestedComponents": [
+      "bento"
+    ],
+    "requestedModules": [
+      "discovery/cards"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "discovery/cards"
+    ],
+    "includedComponents": [
+      "bento",
+      "open-detail",
+      "openai"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/supplied-discovery.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/supplied-discovery.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/supplied-discovery.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 110,
+      "totalNodeCount": 218
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:f8a64927b934b7671acb9144bd208af95a8cac5112d0475920725f74c9648f7a",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "BentoNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "bento"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "largeCard": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "context": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "imageUrl": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000000
+              },
+              "imageAlt": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "statusText": {
+                "type": "string",
+                "maxLength": 4000
+              }
+            },
+            "required": [
+              "query"
+            ]
+          },
+          "smallCardA": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "body": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "bodyIsTitle": {
+                "type": "boolean"
+              },
+              "bodySize": {
+                "enum": [
+                  "sm",
+                  "md"
+                ]
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 8000
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "context": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "linkHost": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "iconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000000
+              }
+            },
+            "required": [
+              "title",
+              "body"
+            ]
+          },
+          "smallCardB": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "body": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "bodyIsTitle": {
+                "type": "boolean"
+              },
+              "bodySize": {
+                "enum": [
+                  "sm",
+                  "md"
+                ]
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 8000
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "context": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "linkHost": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "iconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000000
+              }
+            },
+            "required": [
+              "title",
+              "body"
+            ]
+          },
+          "mediumCard": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "body": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "bodyIsTitle": {
+                "type": "boolean"
+              },
+              "bodySize": {
+                "enum": [
+                  "sm",
+                  "md"
+                ]
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 8000
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "context": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "linkHost": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500
+              },
+              "iconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000000
+              }
+            },
+            "required": [
+              "title",
+              "body"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "largeCard": {},
+            "smallCardA": {},
+            "smallCardB": {},
+            "mediumCard": {}
+          },
+          "required": [
+            "largeCard",
+            "smallCardA",
+            "smallCardB",
+            "mediumCard"
+          ]
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/BentoNode"
+          },
+          {
+            "$ref": "#/$defs/OpenDetailNode"
+          },
+          {
+            "$ref": "#/$defs/OpenaiNode"
+          }
+        ]
+      },
+      "OpenDetailNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "open-detail"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "actions": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1000
+                },
+                "payload": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 4000
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ]
+            }
+          },
+          "showMoreLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "showLessLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "title": {},
+            "action": {},
+            "actions": {}
+          },
+          "required": [
+            "title",
+            "action",
+            "actions"
+          ]
+        }
+      },
+      "OpenaiNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "openai"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "tagline": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "image": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000000
+          },
+          "imageAlt": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "websiteUrl": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "morePrompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "websiteLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "moreLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "name": {},
+            "tagline": {},
+            "image": {},
+            "websiteUrl": {},
+            "morePrompt": {}
+          },
+          "required": [
+            "name",
+            "tagline",
+            "image",
+            "websiteUrl",
+            "morePrompt"
+          ]
+        }
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/supplied-discovery.md",
+      "sourceBytes": 4554,
+      "sourceSha256": "1e78763bf59bef4ea21d6cf95cff215f72341eb89f593c8a9d78d01c4980ed32",
+      "bytes": 4554,
+      "sha256": "1e78763bf59bef4ea21d6cf95cff215f72341eb89f593c8a9d78d01c4980ed32",
+      "text": "# Supplied Bento, OpenDetail and organization views\n\nThese original views use supplied data and local cancelable requests. They do not navigate, fill a real conversation, open host sidebars, fetch favicons or emit impression analytics. The `openai` protocol name identifies the observed component family, not an endorsement or live account integration. Its example uses a fictional studio and original artwork.\n\n## Bento\n\n`bento` requires `largeCard`, `smallCardA`, `smallCardB` and `mediumCard`. The large card requests its supplied detail query/context and displays an image or supplied status text. Each support card supplies title/body and a URL or query/context; URL takes priority when both exist. Medium URL cards can include a literal source host and explicit supplied icon. There is no inferred favicon request.\n\nAt a container width below576px, the large3:2 tile appears above the support group, with two small cards stacked beside the medium card. At576px the layout becomes two columns with5:4 large/support areas; the small cards share the upper support row. At768px the medium description allowance grows. Titles have two-line limits; body-as-title text is not clamped; ordinary medium descriptions allow seven, three or six lines by layout. CSS container queries respond to the actual component container. These source checks do not constitute native geometry or reference-pixel acceptance.\n\n## OpenDetail\n\n`open-detail` has a supplied title, finite action name and up to100 uniquely identified actions. Initial visibility is four; More/Less changes between four and all while retaining row identity. Labels remain literal. `payload:null` or omitted falls back to the label; an explicit empty payload remains empty. Each row requests `request-action` with `action`, `itemId` and exact `query`. Show-more/less is itself cancelable and reports the proposed visible count.\n\n## Openai organization card\n\n`openai` requires a supplied name, tagline, image, website URL and more prompt. It presents the image in a260×70 area and the card up to320px wide. Website requests `open-url`; Ask more requests `fill-prompt`. Button labels and image alt text are supplied or use documented neutral defaults. Acceptance does not navigate or write into any external composer.\n\n## Images, events and lifetime\n\nInline images can render immediately. External images and source icons require an explicit local Load activation before their image element is created. Load controls sit outside action buttons, avoiding nested controls; activation restores keyboard focus to the labeled root. Existing safe-image resources handle failure and update/disposal cleanup.\n\nAll `iui:supplied-discovery` details are frozen, bubbling, cancelable and non-composed, with `id`, `component`, `intent` and only applicable supplied fields. `open-url`, `open-detail`, `request-action`, `fill-prompt`, `show-more` and `show-less` do not execute host work. Reset clears receipts and collapses OpenDetail; accepted native reset honors cancellation and revision protection. Source-disabled, fieldset/first-legend, ARIA, capture cancellation, hidden/inert and shared generation ownership gate every action. Updating or disposing retires previous listeners and media. Outer pending/failed phases are supplied-only.\n\nThe author suite checks actual public mount and standalone output with original fixtures. Browser discovery is recorded separately from actual native execution. Frozen unified183 assets retain their prior scope until a later unified release is explicitly generated and accepted.\n\n## Complete semantic validation boundary\n\nFull `validateDocument` checks all supplied top-level strings for nonblank `trim()` content except `fallback`, `tagline` and `imageAlt` (`DISCOVERY_TEXT`). Those content exceptions keep their structural allowance. Bento's large-card query must be nonblank when supplied and its image URL safe. Each supplied small/medium support card has a nonblank title and any query, while body/context may be empty; URL and icon source must satisfy safe-link/image rules, and at least a URL or detail query must be supplied (`DISCOVERY_ACTION`). These are direct, explicitly selected string checks, not a recursive ban on all nested content.\n\nOpen-detail action IDs and labels must be nonblank; action IDs must be unique (`DISCOVERY_ID` for duplication, `DISCOVERY_TEXT` for blank text). Organization-card image and website destinations must be safe image/link URLs. These structural-plus-semantic checks do not fetch a provider or infer an action from prose.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/supplied-discovery.json",
+      "bytes": 2959,
+      "sha256": "12ddc1a2bd0ce51263ff5ad29c0d609125ede59dd27ed260740f676fa63e3f39",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "bento",
+            "id": "bento-demo",
+            "label": "Original four-card discovery",
+            "largeCard": {
+              "query": "Explore the original large illustration",
+              "context": "Only supplied context",
+              "imageUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQCFhAEmIY1TCqYfhqAAAbcBAQnOlMywAAAABJRU5ErkJggg==",
+              "imageAlt": "Original blue square"
+            },
+            "smallCardA": {
+              "title": "Original linked card",
+              "body": "Supplied first-card description.",
+              "url": "https://example.test/first",
+              "query": "Ignored when URL is supplied"
+            },
+            "smallCardB": {
+              "title": "Original detail card",
+              "body": "An independent local detail request.",
+              "query": "Explore the supplied second topic",
+              "context": "Second supplied context",
+              "bodyIsTitle": true
+            },
+            "mediumCard": {
+              "title": "Original source card",
+              "body": "A longer supplied description with no network lookup or inferred source details.",
+              "bodySize": "md",
+              "url": "https://example.test/source",
+              "linkHost": "example.test",
+              "iconSrc": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQCFhAEmIY1TCqYfhqAAAbcBAQnOlMywAAAABJRU5ErkJggg=="
+            }
+          },
+          {
+            "type": "open-detail",
+            "id": "detail-demo",
+            "label": "Original finite action list",
+            "title": "Choose a supplied detail",
+            "action": "original-detail-action",
+            "actions": [
+              {
+                "id": "0",
+                "label": "Original option 0",
+                "payload": null
+              },
+              {
+                "id": "1",
+                "label": "Original option 1",
+                "payload": ""
+              },
+              {
+                "id": "2",
+                "label": "Original option 2",
+                "payload": "Supplied payload 2"
+              },
+              {
+                "id": "3",
+                "label": "Original option 3",
+                "payload": "Supplied payload 3"
+              },
+              {
+                "id": "4",
+                "label": "Original option 4",
+                "payload": "Supplied payload 4"
+              },
+              {
+                "id": "5",
+                "label": "Original option 5",
+                "payload": "Supplied payload 5"
+              }
+            ]
+          },
+          {
+            "type": "openai",
+            "id": "profile-demo",
+            "label": "Original organization profile fixture",
+            "name": "Fictional research studio",
+            "tagline": "Entirely supplied demonstration text.",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQCFhAEmIY1TCqYfhqAAAbcBAQnOlMywAAAABJRU5ErkJggg==",
+            "imageAlt": "Original blue square, not an organization logo",
+            "websiteUrl": "https://example.test/studio",
+            "morePrompt": "Explain this supplied fictional studio",
+            "websiteLabel": "Request website",
+            "moreLabel": "Request supplied prompt"
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "06a3b73e93f10c13805ebf336afc05fe7026d261fd62a1ba80bbf24ea609efba",
+    "schemaSha256": "fee18ee97be7f0c872354cadc6493663f9b1689da8355eec29ddb6f7795c9162",
+    "schemaBytes": 15483
+  },
+  "manifestPath": "cards.json.manifest.json"
+}

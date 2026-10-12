@@ -5,7 +5,7 @@
   "rootKind": "document",
   "sourceIdentity": {
     "algorithm": "sha256",
-    "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
+    "value": "63cf6c72810177052478f0d319dd2715118d3b120cddaf65dfef216eb23b7499"
   },
   "requestedModules": [
     "forms/fields"
@@ -33,7 +33,7 @@
     "Value": "244401b7a281945340ea39cf686aeeebaaae86292dc970640ef1e539e1b2499c"
   },
   "utf8Bytes": 15860,
-  "sha256": "4d5e545a9757371e34075054586cf1d7268cf4fb9e9ad03f4cd3c87060536401",
+  "sha256": "169dc241628512899f2caba267f87f23cedf8bf1ce15624d8920052ab3e93fae",
   "semanticValidation": "Structural schema only. Run the unchanged full validateDocument before mounting or compiling.",
   "sourceFiles": {
     "scripts/ask-location-schema.mjs": "38c27aae2683a607f3e785240eb994e7910fdbbbe3a9455932ba9ea00624f6bf",
@@ -71,8 +71,8 @@
     "scripts/recommendation-card-schema.mjs": "70da777523f7aafea195d8238ea003c666188a23e47cff80df5532998df0dc5f",
     "scripts/reservation-pills-schema.mjs": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37",
     "scripts/rox-schema.mjs": "f927fcae82439f40d1c1ee1cd086af5c97c4507abfb1d7d0994da951d88e653b",
-    "scripts/schema-source/canonical.mjs": "e1d5ac41e888ce2574292240bc85cfca6a1885a2ca9c6f6fdb656df3506aec98",
-    "scripts/schema-source/catalog.mjs": "0666f3bd5378e924bfd9df385525bb99d395bc7709c4e3d2dd201b867c40fd35",
+    "scripts/schema-source/canonical.mjs": "2f0ff6dabd4dc33b65cde7999e92394a80e06daf817b52896e1ca11a446aa68c",
+    "scripts/schema-source/catalog.mjs": "db88fad06304f13aac68b54e436ca1f5db2f075a1755789dd05184a26bfe7b61",
     "scripts/schema-source/envelope.mjs": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
     "scripts/schema-source/modules/button.mjs": "1ce2931f9794a74c3408259f3c5e011085899e615e909e99d9e6936ad555dc8f",
     "scripts/schema-source/modules/charts.mjs": "45cc94b552e8e294c68642d17fa7ae8fd54615199ca73853e32f4dbae3df9372",

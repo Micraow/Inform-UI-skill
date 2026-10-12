@@ -1,0 +1,39 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "8067f9a6690bc7232bb349c3abbfc822c6fdcf85",
+    "publicCommit": "a98c7700dddb31c2d4659a0bb716dce804b078a4",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "63cf6c72810177052478f0d319dd2715118d3b120cddaf65dfef216eb23b7499"
+    }
+  },
+  "category": "care",
+  "modules": [
+    {
+      "id": "care/providers",
+      "title": "Supplied provider availability",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/care-providers.md"
+      ],
+      "taskPath": "../modules/care/providers.json",
+      "components": [
+        {
+          "type": "care-provider-results",
+          "definition": "CareProviderResultsNode",
+          "schemaPointer": "#/schema/$defs/CareProviderResultsNode"
+        },
+        {
+          "type": "care-provider-sidebar",
+          "definition": "CareProviderSidebarNode",
+          "schemaPointer": "#/schema/$defs/CareProviderSidebarNode"
+        }
+      ]
+    }
+  ]
+}

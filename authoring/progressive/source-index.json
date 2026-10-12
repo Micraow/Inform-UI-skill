@@ -3,7 +3,7 @@
   "schemaVersion": "iui/1",
   "sourceIdentity": {
     "algorithm": "sha256",
-    "value": "20bdd9bb39d040176a12920f9e5f6f2caa8ab8c3bcacf09ccb0e9b0e2b23479d"
+    "value": "63cf6c72810177052478f0d319dd2715118d3b120cddaf65dfef216eb23b7499"
   },
   "modules": [
     {
@@ -535,6 +535,306 @@
         "examples/schema-modules/task-cards.json"
       ],
       "sourcePath": "scripts/task-cards-schema.mjs"
+    },
+    {
+      "id": "requests/user",
+      "category": "requests",
+      "title": "Local user input requests",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "AskUserDetailsNode",
+        "AskUserFilesNode"
+      ],
+      "nodeTypes": [
+        "ask-user-details",
+        "ask-user-files"
+      ],
+      "contractPath": "docs/ask-user-contract.md",
+      "semanticContractPaths": [
+        "docs/ask-user-contract.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/ask-user.json"
+      ],
+      "sourcePath": "scripts/ask-user-schema.mjs"
+    },
+    {
+      "id": "requests/location",
+      "category": "requests",
+      "title": "Local location permission request",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "AskUserLocationNode"
+      ],
+      "nodeTypes": [
+        "ask-user-location"
+      ],
+      "contractPath": "docs/ask-location.md",
+      "semanticContractPaths": [
+        "docs/ask-location.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/ask-location.json"
+      ],
+      "sourcePath": "scripts/ask-location-schema.mjs"
+    },
+    {
+      "id": "onboarding/welcome",
+      "category": "onboarding",
+      "title": "Supplied capability welcome",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "WhatsNewCapabilityWelcomeNode"
+      ],
+      "nodeTypes": [
+        "whats-new-capability-welcome"
+      ],
+      "contractPath": "docs/capability-welcome.md",
+      "semanticContractPaths": [
+        "docs/capability-welcome.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/capability-welcome.json"
+      ],
+      "sourcePath": "scripts/capability-welcome-schema.mjs"
+    },
+    {
+      "id": "learning/quiz-cards",
+      "category": "learning",
+      "title": "Supplied quiz cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "FollowUpQuizNode",
+        "MultipleChoiceBlockV2Node",
+        "PersonalityQuizNode"
+      ],
+      "nodeTypes": [
+        "follow-up-quiz",
+        "multiple-choice-block-v2",
+        "personality-quiz"
+      ],
+      "contractPath": "docs/quiz-cards.md",
+      "semanticContractPaths": [
+        "docs/quiz-cards.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/quiz-cards.json"
+      ],
+      "sourcePath": "scripts/quiz-cards-schema.mjs"
+    },
+    {
+      "id": "finance/entry",
+      "category": "finance",
+      "title": "Supplied finance entry cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "LedgerFinanceOnboardingNode",
+        "LedgerRepairBankConnectionNode",
+        "FinanceOnboardingSuggestionsNode"
+      ],
+      "nodeTypes": [
+        "ledger-finance-onboarding",
+        "ledger-repair-bank-connection",
+        "finance-onboarding-suggestions"
+      ],
+      "contractPath": "docs/finance-entry.md",
+      "semanticContractPaths": [
+        "docs/finance-entry.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/finance-entry.json"
+      ],
+      "sourcePath": "scripts/finance-entry-schema.mjs"
+    },
+    {
+      "id": "context/actions",
+      "category": "context",
+      "title": "Metadata and local suggestion actions",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "PlacesMetadataBarNode",
+        "PluginFollowupNode",
+        "InstantSuggestionsNode"
+      ],
+      "nodeTypes": [
+        "places-metadata-bar",
+        "plugin-followup",
+        "instant-suggestions"
+      ],
+      "contractPath": "docs/context-actions.md",
+      "semanticContractPaths": [
+        "docs/context-actions.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/context-actions.json"
+      ],
+      "sourcePath": "scripts/context-actions-schema.mjs"
+    },
+    {
+      "id": "finance/equity-watch",
+      "category": "finance",
+      "title": "Supplied equity and watchlist",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "LedgerEquityUpdatesNode",
+        "LedgerWatchlistNode"
+      ],
+      "nodeTypes": [
+        "ledger-equity-updates",
+        "ledger-watchlist"
+      ],
+      "contractPath": "docs/equity-watchlist.md",
+      "semanticContractPaths": [
+        "docs/equity-watchlist.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/equity-watchlist.json"
+      ],
+      "sourcePath": "scripts/equity-watchlist-schema.mjs"
+    },
+    {
+      "id": "finance/credit-display",
+      "category": "finance",
+      "title": "Supplied credit score displays",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "LedgerCreditScoreNode",
+        "LedgerCreditScoreDetailNode"
+      ],
+      "nodeTypes": [
+        "ledger-credit-score",
+        "ledger-credit-score-detail"
+      ],
+      "contractPath": "docs/credit-score.md",
+      "semanticContractPaths": [
+        "docs/credit-score.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/credit-score.json"
+      ],
+      "sourcePath": "scripts/credit-score-schema.mjs"
+    },
+    {
+      "id": "discovery/cards",
+      "category": "discovery",
+      "title": "Supplied discovery cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "BentoNode",
+        "OpenDetailNode",
+        "OpenaiNode"
+      ],
+      "nodeTypes": [
+        "bento",
+        "open-detail",
+        "openai"
+      ],
+      "contractPath": "docs/supplied-discovery.md",
+      "semanticContractPaths": [
+        "docs/supplied-discovery.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/supplied-discovery.json"
+      ],
+      "sourcePath": "scripts/supplied-discovery-schema.mjs"
+    },
+    {
+      "id": "launchers/cards",
+      "category": "launchers",
+      "title": "Local launcher and image-status cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "HomeworkHelperV2Node",
+        "ImageGenNode",
+        "InternalPartnerAppNode"
+      ],
+      "nodeTypes": [
+        "homework-helper-v2",
+        "image-gen",
+        "internal-partner-app"
+      ],
+      "contractPath": "docs/supplied-launchers.md",
+      "semanticContractPaths": [
+        "docs/supplied-launchers.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/supplied-launchers.json"
+      ],
+      "sourcePath": "scripts/supplied-launchers-schema.mjs"
+    },
+    {
+      "id": "care/providers",
+      "category": "care",
+      "title": "Supplied provider availability",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "CareRequest",
+        "CareSlot",
+        "CareDay",
+        "CareLocation",
+        "CareProvider",
+        "CareCalendarMonth",
+        "CareProviderResultsNode",
+        "CareProviderSidebarNode"
+      ],
+      "nodeTypes": [
+        "care-provider-results",
+        "care-provider-sidebar"
+      ],
+      "contractPath": "docs/care-providers.md",
+      "semanticContractPaths": [
+        "docs/care-providers.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/care-providers.json"
+      ],
+      "sourcePath": "scripts/care-providers-schema.mjs"
+    },
+    {
+      "id": "interactions/local",
+      "category": "interactions",
+      "title": "Finite local interaction cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "provides": [
+        "LedgerLowConfidenceCategoryCorrectionLegacyNode",
+        "SuperbowlRiddleNode"
+      ],
+      "nodeTypes": [
+        "ledger-low-confidence-category-correction-legacy",
+        "superbowl-riddle"
+      ],
+      "contractPath": "docs/supplied-interactions.md",
+      "semanticContractPaths": [
+        "docs/supplied-interactions.md"
+      ],
+      "examplePaths": [
+        "examples/schema-modules/supplied-interactions.json"
+      ],
+      "sourcePath": "scripts/supplied-interactions-schema.mjs"
     }
   ],
   "components": [
@@ -1367,10 +1667,280 @@
       "examplePaths": [
         "examples/schema-modules/task-cards.json"
       ]
+    },
+    {
+      "type": "ask-user-details",
+      "definition": "AskUserDetailsNode",
+      "moduleId": "requests/user",
+      "category": "requests",
+      "contractPath": "docs/ask-user-contract.md",
+      "examplePaths": [
+        "examples/schema-modules/ask-user.json"
+      ]
+    },
+    {
+      "type": "ask-user-files",
+      "definition": "AskUserFilesNode",
+      "moduleId": "requests/user",
+      "category": "requests",
+      "contractPath": "docs/ask-user-contract.md",
+      "examplePaths": [
+        "examples/schema-modules/ask-user.json"
+      ]
+    },
+    {
+      "type": "ask-user-location",
+      "definition": "AskUserLocationNode",
+      "moduleId": "requests/location",
+      "category": "requests",
+      "contractPath": "docs/ask-location.md",
+      "examplePaths": [
+        "examples/schema-modules/ask-location.json"
+      ]
+    },
+    {
+      "type": "whats-new-capability-welcome",
+      "definition": "WhatsNewCapabilityWelcomeNode",
+      "moduleId": "onboarding/welcome",
+      "category": "onboarding",
+      "contractPath": "docs/capability-welcome.md",
+      "examplePaths": [
+        "examples/schema-modules/capability-welcome.json"
+      ]
+    },
+    {
+      "type": "follow-up-quiz",
+      "definition": "FollowUpQuizNode",
+      "moduleId": "learning/quiz-cards",
+      "category": "learning",
+      "contractPath": "docs/quiz-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/quiz-cards.json"
+      ]
+    },
+    {
+      "type": "multiple-choice-block-v2",
+      "definition": "MultipleChoiceBlockV2Node",
+      "moduleId": "learning/quiz-cards",
+      "category": "learning",
+      "contractPath": "docs/quiz-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/quiz-cards.json"
+      ]
+    },
+    {
+      "type": "personality-quiz",
+      "definition": "PersonalityQuizNode",
+      "moduleId": "learning/quiz-cards",
+      "category": "learning",
+      "contractPath": "docs/quiz-cards.md",
+      "examplePaths": [
+        "examples/schema-modules/quiz-cards.json"
+      ]
+    },
+    {
+      "type": "ledger-finance-onboarding",
+      "definition": "LedgerFinanceOnboardingNode",
+      "moduleId": "finance/entry",
+      "category": "finance",
+      "contractPath": "docs/finance-entry.md",
+      "examplePaths": [
+        "examples/schema-modules/finance-entry.json"
+      ]
+    },
+    {
+      "type": "ledger-repair-bank-connection",
+      "definition": "LedgerRepairBankConnectionNode",
+      "moduleId": "finance/entry",
+      "category": "finance",
+      "contractPath": "docs/finance-entry.md",
+      "examplePaths": [
+        "examples/schema-modules/finance-entry.json"
+      ]
+    },
+    {
+      "type": "finance-onboarding-suggestions",
+      "definition": "FinanceOnboardingSuggestionsNode",
+      "moduleId": "finance/entry",
+      "category": "finance",
+      "contractPath": "docs/finance-entry.md",
+      "examplePaths": [
+        "examples/schema-modules/finance-entry.json"
+      ]
+    },
+    {
+      "type": "places-metadata-bar",
+      "definition": "PlacesMetadataBarNode",
+      "moduleId": "context/actions",
+      "category": "context",
+      "contractPath": "docs/context-actions.md",
+      "examplePaths": [
+        "examples/schema-modules/context-actions.json"
+      ]
+    },
+    {
+      "type": "plugin-followup",
+      "definition": "PluginFollowupNode",
+      "moduleId": "context/actions",
+      "category": "context",
+      "contractPath": "docs/context-actions.md",
+      "examplePaths": [
+        "examples/schema-modules/context-actions.json"
+      ]
+    },
+    {
+      "type": "instant-suggestions",
+      "definition": "InstantSuggestionsNode",
+      "moduleId": "context/actions",
+      "category": "context",
+      "contractPath": "docs/context-actions.md",
+      "examplePaths": [
+        "examples/schema-modules/context-actions.json"
+      ]
+    },
+    {
+      "type": "ledger-equity-updates",
+      "definition": "LedgerEquityUpdatesNode",
+      "moduleId": "finance/equity-watch",
+      "category": "finance",
+      "contractPath": "docs/equity-watchlist.md",
+      "examplePaths": [
+        "examples/schema-modules/equity-watchlist.json"
+      ]
+    },
+    {
+      "type": "ledger-watchlist",
+      "definition": "LedgerWatchlistNode",
+      "moduleId": "finance/equity-watch",
+      "category": "finance",
+      "contractPath": "docs/equity-watchlist.md",
+      "examplePaths": [
+        "examples/schema-modules/equity-watchlist.json"
+      ]
+    },
+    {
+      "type": "ledger-credit-score",
+      "definition": "LedgerCreditScoreNode",
+      "moduleId": "finance/credit-display",
+      "category": "finance",
+      "contractPath": "docs/credit-score.md",
+      "examplePaths": [
+        "examples/schema-modules/credit-score.json"
+      ]
+    },
+    {
+      "type": "ledger-credit-score-detail",
+      "definition": "LedgerCreditScoreDetailNode",
+      "moduleId": "finance/credit-display",
+      "category": "finance",
+      "contractPath": "docs/credit-score.md",
+      "examplePaths": [
+        "examples/schema-modules/credit-score.json"
+      ]
+    },
+    {
+      "type": "bento",
+      "definition": "BentoNode",
+      "moduleId": "discovery/cards",
+      "category": "discovery",
+      "contractPath": "docs/supplied-discovery.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-discovery.json"
+      ]
+    },
+    {
+      "type": "open-detail",
+      "definition": "OpenDetailNode",
+      "moduleId": "discovery/cards",
+      "category": "discovery",
+      "contractPath": "docs/supplied-discovery.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-discovery.json"
+      ]
+    },
+    {
+      "type": "openai",
+      "definition": "OpenaiNode",
+      "moduleId": "discovery/cards",
+      "category": "discovery",
+      "contractPath": "docs/supplied-discovery.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-discovery.json"
+      ]
+    },
+    {
+      "type": "homework-helper-v2",
+      "definition": "HomeworkHelperV2Node",
+      "moduleId": "launchers/cards",
+      "category": "launchers",
+      "contractPath": "docs/supplied-launchers.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-launchers.json"
+      ]
+    },
+    {
+      "type": "image-gen",
+      "definition": "ImageGenNode",
+      "moduleId": "launchers/cards",
+      "category": "launchers",
+      "contractPath": "docs/supplied-launchers.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-launchers.json"
+      ]
+    },
+    {
+      "type": "internal-partner-app",
+      "definition": "InternalPartnerAppNode",
+      "moduleId": "launchers/cards",
+      "category": "launchers",
+      "contractPath": "docs/supplied-launchers.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-launchers.json"
+      ]
+    },
+    {
+      "type": "care-provider-results",
+      "definition": "CareProviderResultsNode",
+      "moduleId": "care/providers",
+      "category": "care",
+      "contractPath": "docs/care-providers.md",
+      "examplePaths": [
+        "examples/schema-modules/care-providers.json"
+      ]
+    },
+    {
+      "type": "care-provider-sidebar",
+      "definition": "CareProviderSidebarNode",
+      "moduleId": "care/providers",
+      "category": "care",
+      "contractPath": "docs/care-providers.md",
+      "examplePaths": [
+        "examples/schema-modules/care-providers.json"
+      ]
+    },
+    {
+      "type": "ledger-low-confidence-category-correction-legacy",
+      "definition": "LedgerLowConfidenceCategoryCorrectionLegacyNode",
+      "moduleId": "interactions/local",
+      "category": "interactions",
+      "contractPath": "docs/supplied-interactions.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-interactions.json"
+      ]
+    },
+    {
+      "type": "superbowl-riddle",
+      "definition": "SuperbowlRiddleNode",
+      "moduleId": "interactions/local",
+      "category": "interactions",
+      "contractPath": "docs/supplied-interactions.md",
+      "examplePaths": [
+        "examples/schema-modules/supplied-interactions.json"
+      ]
     }
   ],
   "migrationCoverage": {
-    "migratedNodeCount": 83,
+    "migratedNodeCount": 110,
     "totalNodeCount": 218,
     "legacyNodeTypes": [
       "agenda",
@@ -1466,41 +2036,14 @@
       "scheduled-task-suggestion",
       "entity-card",
       "entity-overview",
-      "ask-user-details",
-      "ask-user-files",
       "ledger-spend-by-category",
       "ledger-spend-by-category-detail",
       "ledger-spend-by-category-recent-transactions",
       "conversational-onboarding-study",
       "conversational-onboarding-search",
-      "follow-up-quiz",
-      "multiple-choice-block-v2",
-      "personality-quiz",
-      "whats-new-capability-welcome",
-      "ask-user-location",
       "reservation-time-pills-ref-carousel",
       "whats-new-capability-search",
-      "ledger-finance-onboarding",
-      "ledger-repair-bank-connection",
-      "finance-onboarding-suggestions",
-      "places-metadata-bar",
-      "plugin-followup",
-      "instant-suggestions",
-      "ledger-equity-updates",
-      "ledger-watchlist",
-      "homework-helper-v2",
-      "image-gen",
-      "internal-partner-app",
-      "bento",
-      "open-detail",
-      "openai",
-      "ledger-credit-score",
-      "ledger-credit-score-detail",
-      "ledger-low-confidence-category-correction-legacy",
-      "superbowl-riddle",
       "learning-viz-dil",
-      "care-provider-results",
-      "care-provider-sidebar",
       "entity",
       "gen-image",
       "speech-synthesizer",
@@ -1546,8 +2089,8 @@
     "scripts/recommendation-card-schema.mjs": "70da777523f7aafea195d8238ea003c666188a23e47cff80df5532998df0dc5f",
     "scripts/reservation-pills-schema.mjs": "57e5b3d4bcc38a787fb282adbde1f8cb86f7878ce00aa23bb74ffd584060cc37",
     "scripts/rox-schema.mjs": "f927fcae82439f40d1c1ee1cd086af5c97c4507abfb1d7d0994da951d88e653b",
-    "scripts/schema-source/canonical.mjs": "e1d5ac41e888ce2574292240bc85cfca6a1885a2ca9c6f6fdb656df3506aec98",
-    "scripts/schema-source/catalog.mjs": "0666f3bd5378e924bfd9df385525bb99d395bc7709c4e3d2dd201b867c40fd35",
+    "scripts/schema-source/canonical.mjs": "2f0ff6dabd4dc33b65cde7999e92394a80e06daf817b52896e1ca11a446aa68c",
+    "scripts/schema-source/catalog.mjs": "db88fad06304f13aac68b54e436ca1f5db2f075a1755789dd05184a26bfe7b61",
     "scripts/schema-source/envelope.mjs": "42d1b673d777e2a150e815d7d7122fc6358f467f2200ece55b852c1dcb84bdaf",
     "scripts/schema-source/modules/button.mjs": "1ce2931f9794a74c3408259f3c5e011085899e615e909e99d9e6936ad555dc8f",
     "scripts/schema-source/modules/charts.mjs": "45cc94b552e8e294c68642d17fa7ae8fd54615199ca73853e32f4dbae3df9372",
