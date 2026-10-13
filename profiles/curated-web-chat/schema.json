@@ -311,7 +311,17 @@
       ],
       "additionalProperties": false,
       "id": "AreaChart",
-      "description": "Multi-series area chart, including stacked and signed values."
+      "description": "Multi-series area chart, including stacked and signed values.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ]
     },
     "BarChart": {
       "type": "object",
@@ -431,7 +441,17 @@
       ],
       "additionalProperties": false,
       "id": "BarChart",
-      "description": "Grouped or stacked vertical/horizontal bar chart."
+      "description": "Grouped or stacked vertical/horizontal bar chart.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ]
     },
     "HorizontalBarChart": {
       "type": "object",
@@ -544,7 +564,17 @@
       ],
       "additionalProperties": false,
       "id": "HorizontalBarChart",
-      "description": "Horizontal orientation of the same upstream BarChart engine."
+      "description": "Horizontal orientation of the same upstream BarChart engine.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ]
     },
     "LineChart": {
       "type": "object",
@@ -662,7 +692,17 @@
       ],
       "additionalProperties": false,
       "id": "LineChart",
-      "description": "Multi-series line chart with configurable interpolation and dots."
+      "description": "Multi-series line chart with configurable interpolation and dots.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ]
     },
     "HeatmapChart": {
       "type": "object",
@@ -754,7 +794,17 @@
       ],
       "additionalProperties": false,
       "id": "HeatmapChart",
-      "description": "Value heatmap with missing cells and signed diverging color scales."
+      "description": "Value heatmap with missing cells and signed diverging color scales.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is allowed for missing cells. Signed values are allowed."
+        }
+      ]
     },
     "RadarChart": {
       "type": "object",
@@ -855,7 +905,17 @@
       ],
       "additionalProperties": false,
       "id": "RadarChart",
-      "description": "Multi-series radar chart with polygon or circular grids."
+      "description": "Multi-series radar chart with polygon or circular grids.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Values must be non-negative."
+        }
+      ]
     },
     "PieChart": {
       "type": "object",
@@ -939,7 +999,16 @@
       ],
       "additionalProperties": false,
       "id": "PieChart",
-      "description": "Pie or donut chart with a keyboard-accessible interactive legend."
+      "description": "Pie or donut chart with a keyboard-accessible interactive legend.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ]
     },
     "RadialChart": {
       "type": "object",
@@ -1019,7 +1088,16 @@
       ],
       "additionalProperties": false,
       "id": "RadialChart",
-      "description": "Circular or semicircular radial magnitude chart."
+      "description": "Circular or semicircular radial magnitude chart.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ]
     },
     "FunnelChart": {
       "type": "object",
@@ -1103,7 +1181,24 @@
       ],
       "additionalProperties": false,
       "id": "FunnelChart",
-      "description": "Actual curved/straight multi-stage funnel with upstream geometry."
+      "description": "Actual curved/straight multi-stage funnel with upstream geometry.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        },
+        {
+          "id": "funnel-zero-baseline",
+          "paths": [
+            "slices",
+            "options.showPercentage"
+          ],
+          "rule": "If the first stage is zero and any later stage is positive, options.showPercentage must be false; otherwise retention percentages have no valid baseline."
+        }
+      ]
     },
     "SegmentedBar": {
       "type": "object",
@@ -1161,7 +1256,16 @@
       ],
       "additionalProperties": false,
       "id": "SegmentedBar",
-      "description": "Proportional segmented bar with interactive legend."
+      "description": "Proportional segmented bar with interactive legend.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ]
     },
     "SingleStackedBar": {
       "type": "object",
@@ -1219,7 +1323,16 @@
       ],
       "additionalProperties": false,
       "id": "SingleStackedBar",
-      "description": "Compatibility name for the same upstream SegmentedBar core."
+      "description": "Compatibility name for the same upstream SegmentedBar core.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ]
     },
     "ScatterChart": {
       "type": "object",
@@ -1316,7 +1429,16 @@
       ],
       "additionalProperties": false,
       "id": "ScatterChart",
-      "description": "Multiple named scatter datasets with finite signed coordinates."
+      "description": "Multiple named scatter datasets with finite signed coordinates.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "scatter-dataset-names",
+          "paths": [
+            "datasets"
+          ],
+          "rule": "Dataset names must be unique."
+        }
+      ]
     },
     "CalendarHeatmap": {
       "type": "object",
@@ -1379,7 +1501,10 @@
                       "type": "string",
                       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
                     }
-                  ]
+                  ],
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": false
                 }
               ]
             },
@@ -1406,7 +1531,10 @@
                   "minimum": 0,
                   "maximum": 1000000000000000
                 }
-              ]
+              ],
+              "minItems": 4,
+              "maxItems": 4,
+              "items": false
             },
             "layout": {
               "type": "string",
@@ -1481,7 +1609,18 @@
       ],
       "additionalProperties": false,
       "id": "CalendarHeatmap",
-      "description": "Contribution calendar with real date geometry, sparse days and level patterns."
+      "description": "Contribution calendar with real date geometry, sparse days and level patterns.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "calendar-order-and-span",
+          "paths": [
+            "days",
+            "options.range",
+            "options.thresholds"
+          ],
+          "rule": "Thresholds must be strictly increasing. Explicit or data-derived date ranges must be ascending and contain at most 732 days inclusive."
+        }
+      ]
     },
     "MiniAreaChart": {
       "type": "object",
@@ -1809,7 +1948,17 @@
       ],
       "additionalProperties": false,
       "id": "Table",
-      "description": "Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering."
+      "description": "Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "table-column-membership",
+          "paths": [
+            "columns",
+            "rows"
+          ],
+          "rule": "Column keys must be unique. Row keys must name declared columns; rows may omit a declared column."
+        }
+      ]
     },
     "Button": {
       "type": "object",
@@ -1950,7 +2099,17 @@
       ],
       "additionalProperties": false,
       "id": "Select",
-      "description": "Labeled single selection from supplied options."
+      "description": "Labeled single selection from supplied options.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "selection-membership",
+          "paths": [
+            "value",
+            "options"
+          ],
+          "rule": "Option values must be unique. The current value must equal one supplied option value."
+        }
+      ]
     },
     "RadioGroup": {
       "type": "object",
@@ -2001,7 +2160,17 @@
       ],
       "additionalProperties": false,
       "id": "RadioGroup",
-      "description": "Visible single-choice radio options."
+      "description": "Visible single-choice radio options.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "selection-membership",
+          "paths": [
+            "value",
+            "options"
+          ],
+          "rule": "Option values must be unique. The current value must equal one supplied option value."
+        }
+      ]
     },
     "Checkbox": {
       "type": "object",
@@ -2088,7 +2257,19 @@
       ],
       "additionalProperties": false,
       "id": "Slider",
-      "description": "Bounded numeric local slider."
+      "description": "Bounded numeric local slider.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "slider-range",
+          "paths": [
+            "value",
+            "min",
+            "max",
+            "step"
+          ],
+          "rule": "min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1."
+        }
+      ]
     },
     "Icon": {
       "type": "object",
@@ -3628,7 +3809,16 @@
       ],
       "additionalProperties": false,
       "id": "Image",
-      "description": "Image subject to the host media policy."
+      "description": "Image subject to the host media policy.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "raster-image-source",
+          "paths": [
+            "src"
+          ],
+          "rule": "src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch."
+        }
+      ]
     },
     "Video": {
       "type": "object",
@@ -3768,7 +3958,24 @@
       ],
       "additionalProperties": false,
       "id": "CodeView",
-      "description": "Supplied code View rendered with the shared Inform foundation theme."
+      "description": "Supplied code View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-CodeData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CodeData."
+        },
+        {
+          "id": "domain-code",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Code is displayed, not executed. Inline code cannot enable copy or highlighting; the data oneOf contains the exact combinations."
+        }
+      ]
     },
     "MathView": {
       "type": "object",
@@ -3796,7 +4003,24 @@
       ],
       "additionalProperties": false,
       "id": "MathView",
-      "description": "Supplied math View rendered with the shared Inform foundation theme."
+      "description": "Supplied math View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-MathData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MathData."
+        },
+        {
+          "id": "domain-math",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "The declared data schema applies. Formula rendering is display-only and does not execute JavaScript."
+        }
+      ]
     },
     "BlockquoteView": {
       "type": "object",
@@ -3973,7 +4197,24 @@
       ],
       "additionalProperties": false,
       "id": "BlockquoteView",
-      "description": "Supplied blockquote View rendered with the shared Inform foundation theme."
+      "description": "Supplied blockquote View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-BlockquoteData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in BlockquoteData."
+        },
+        {
+          "id": "domain-blockquote",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "A supplied nonempty cite must be a safe HTTP(S), mailto (no query or CR/LF escape), tel, or local #anchor URL. No credentials, whitespace, control characters or backslashes are allowed."
+        }
+      ]
     },
     "SectionView": {
       "type": "object",
@@ -4145,7 +4386,24 @@
       ],
       "additionalProperties": false,
       "id": "SectionView",
-      "description": "Supplied section View rendered with the shared Inform foundation theme."
+      "description": "Supplied section View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-SectionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SectionData."
+        },
+        {
+          "id": "domain-section",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Children must be actual elements from the selected profile. Data follows its declared schema."
+        }
+      ]
     },
     "FigureView": {
       "type": "object",
@@ -4317,7 +4575,24 @@
       ],
       "additionalProperties": false,
       "id": "FigureView",
-      "description": "Supplied figure View rendered with the shared Inform foundation theme."
+      "description": "Supplied figure View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-FigureData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FigureData."
+        },
+        {
+          "id": "domain-figure",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Children must be actual elements from the selected profile. Data follows its declared schema."
+        }
+      ]
     },
     "DetailsView": {
       "type": "object",
@@ -4493,7 +4768,24 @@
       ],
       "additionalProperties": false,
       "id": "DetailsView",
-      "description": "Supplied details View rendered with the shared Inform foundation theme."
+      "description": "Supplied details View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-DetailsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in DetailsData."
+        },
+        {
+          "id": "domain-details",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Children must be actual elements from the selected profile. Disclosure state is local to the view."
+        }
+      ]
     },
     "CitationView": {
       "type": "object",
@@ -4539,7 +4831,24 @@
       ],
       "additionalProperties": false,
       "id": "CitationView",
-      "description": "Supplied citation View rendered with the shared Inform foundation theme."
+      "description": "Supplied citation View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-CitationData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CitationData."
+        },
+        {
+          "id": "domain-citation",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Source url must be an absolute HTTP(S) URL with a hostname, without credentials, whitespace, control characters or backslashes."
+        }
+      ]
     },
     "MetricView": {
       "type": "object",
@@ -4644,7 +4953,24 @@
       ],
       "additionalProperties": false,
       "id": "MetricView",
-      "description": "Supplied metric View rendered with the shared Inform foundation theme."
+      "description": "Supplied metric View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-MetricData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MetricData."
+        },
+        {
+          "id": "domain-metric",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "No additional cross-field rule beyond the declared data schema and common evaluated disabled/error types."
+        }
+      ]
     },
     "StepsView": {
       "type": "object",
@@ -4691,7 +5017,24 @@
       ],
       "additionalProperties": false,
       "id": "StepsView",
-      "description": "Supplied steps View rendered with the shared Inform foundation theme."
+      "description": "Supplied steps View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-StepsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in StepsData."
+        },
+        {
+          "id": "domain-steps",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Each supplied step must satisfy the declared data schema; this view does not execute the steps."
+        }
+      ]
     },
     "ChecklistView": {
       "type": "object",
@@ -4793,7 +5136,24 @@
       ],
       "additionalProperties": false,
       "id": "ChecklistView",
-      "description": "Supplied checklist View rendered with the shared Inform foundation theme."
+      "description": "Supplied checklist View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-ChecklistData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ChecklistData."
+        },
+        {
+          "id": "domain-checklist",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Checklist item IDs must be unique. Each checked value is boolean. Disabled, when supplied, must be an evaluated boolean. The adapter allocates distinct local bindings; they are not external DSL state."
+        }
+      ]
     },
     "Series": {
       "type": "object",
@@ -4910,6 +5270,12 @@
       "type": "object",
       "properties": {
         "date": {
+          "x-inform-runtime-rules": [
+            {
+              "id": "real-calendar-day",
+              "rule": "Use a real Gregorian calendar day YYYY-MM-DD, year 0100–9999; a matching date pattern alone is insufficient."
+            }
+          ],
           "type": "string",
           "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
         },

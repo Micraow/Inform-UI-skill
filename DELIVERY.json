@@ -1,7 +1,9 @@
 {
   "format": "inform-web-chat-verification/1",
-  "sourceCommit": "21976c899a184f0bb375a78e55db04f107adb4a3",
-  "runtimeSha256": "7006c0155cde453bd9f01db084048e0d45eff0ff309230b3e787214eafa8f9ea",
+  "publicationReady": true,
+  "validationStage": "published",
+  "sourceCommit": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+  "runtimeSha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16",
   "codeGenerationFromStrings": "disabled",
   "profiles": [
     {
@@ -31,7 +33,7 @@
   "externalRuntimeURL": {
     "method": "GET",
     "status": 200,
-    "contentType": "application/javascript;charset=utf-8",
+    "contentType": "application/javascript; charset=utf-8",
     "accessControlAllowOrigin": "*",
     "publishedBlobMatchesSnapshot": true,
     "browserExecution": "not run"

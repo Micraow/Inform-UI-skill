@@ -173,6 +173,16 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -235,6 +245,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -299,6 +319,16 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -361,6 +391,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -425,6 +465,16 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is allowed for missing cells. Signed values are allowed."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -482,6 +532,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Values must be non-negative."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -545,6 +605,15 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -594,6 +663,15 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -645,6 +723,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        },
+        {
+          "id": "funnel-zero-baseline",
+          "paths": [
+            "slices",
+            "options.showPercentage"
+          ],
+          "rule": "If the first stage is zero and any later stage is positive, options.showPercentage must be false; otherwise retention percentages have no valid baseline."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -694,6 +789,15 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -745,6 +849,15 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -794,6 +907,15 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "scatter-dataset-names",
+          "paths": [
+            "datasets"
+          ],
+          "rule": "Dataset names must be unique."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -849,6 +971,17 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "calendar-order-and-span",
+          "paths": [
+            "days",
+            "options.range",
+            "options.thresholds"
+          ],
+          "rule": "Thresholds must be strictly increasing. Explicit or data-derived date ranges must be ascending and contain at most 732 days inclusive."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -906,6 +1039,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -950,6 +1084,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -994,6 +1129,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1037,6 +1173,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use for prose. Newlines remain text; markup and code are not executed.",
       "examples": [
@@ -1068,6 +1205,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use headings in a meaningful outline. Level defaults to 2 in the renderer.",
       "examples": [
@@ -1100,6 +1238,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.",
       "examples": [
@@ -1129,6 +1268,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use sparingly between sections. It has no text or interaction.",
       "examples": [
@@ -1159,6 +1299,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Passive notice. It does not trigger a notification service or infer urgency. Tones info, success, warning, and error use semantic soft surfaces. Keep a visible title and description so meaning does not depend on color.",
       "examples": [
@@ -1192,6 +1333,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "table-column-membership",
+          "paths": [
+            "columns",
+            "rows"
+          ],
+          "rule": "Column keys must be unique. Row keys must name declared columns; rows may omit a declared column."
+        }
       ],
       "limitations": [],
       "docs": "Columns have unique keys. Rows may omit a column, but may not introduce undeclared columns. Cells are plain scalar data.",
@@ -1240,6 +1391,7 @@
         "display",
         "local-action"
       ],
+      "runtimeRules": [],
       "limitations": [
         "No host tools, navigation, account access or message sending."
       ],
@@ -1275,6 +1427,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Pass a direct declared $variable to value to allow edits. Literal values render read-only. Draft text is not committed when validation fails.",
       "examples": [
@@ -1314,6 +1467,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Writable through a direct declared $variable; an invalid transaction must preserve the previous committed value.",
       "examples": [
@@ -1351,6 +1505,16 @@
       "capabilities": [
         "display",
         "local-state"
+      ],
+      "runtimeRules": [
+        {
+          "id": "selection-membership",
+          "paths": [
+            "value",
+            "options"
+          ],
+          "rule": "Option values must be unique. The current value must equal one supplied option value."
+        }
       ],
       "limitations": [],
       "docs": "Options have unique values. Current value must match one option.",
@@ -1395,6 +1559,16 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [
+        {
+          "id": "selection-membership",
+          "paths": [
+            "value",
+            "options"
+          ],
+          "rule": "Option values must be unique. The current value must equal one supplied option value."
+        }
+      ],
       "limitations": [],
       "docs": "Uses the same single-choice state contract as Select, with native labeled radios.",
       "examples": [
@@ -1437,6 +1611,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Pass a direct declared boolean $variable to checked for local edits.",
       "examples": [
@@ -1473,6 +1648,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "A boolean local switch. It never changes external account or app settings.",
       "examples": [
@@ -1512,6 +1688,18 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [
+        {
+          "id": "slider-range",
+          "paths": [
+            "value",
+            "min",
+            "max",
+            "step"
+          ],
+          "rule": "min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1."
+        }
+      ],
       "limitations": [],
       "docs": "Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.",
       "examples": [
@@ -1549,6 +1737,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "No remote SVG or arbitrary path data."
       ],
@@ -1589,6 +1778,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Children belong to the selected profile. Gap is a finite design token; there is no arbitrary CSS.",
       "examples": [
@@ -1637,6 +1827,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Uses a wrapping row. Choose start, center, end or stretch alignment.",
       "examples": [
@@ -1686,6 +1877,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Columns is a maximum requested column count; narrow layouts may use fewer columns.",
       "examples": [
@@ -1734,6 +1926,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use a card for one coherent section. Card owns its child slot, not external services.",
       "examples": [
@@ -1776,6 +1969,15 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "raster-image-source",
+          "paths": [
+            "src"
+          ],
+          "rule": "src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch."
+        }
+      ],
       "limitations": [
         "HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected."
       ],
@@ -1812,6 +2014,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.",
       "examples": [

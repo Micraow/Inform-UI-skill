@@ -1,20 +1,20 @@
 {
   "format": "inform-runtime-lock/2",
   "version": "2.0.0-alpha.1",
-  "sourceRef": null,
-  "publication": "No public URL is implied by this local snapshot.",
+  "sourceRef": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+  "publication": "This development snapshot matches the verified latest GET; the mutable default URL is recorded in BUILD.json and does not pin user HTML.",
   "root": "Stack",
   "componentCount": 233,
   "dataConstructorCount": 200,
   "iconCount": 755,
   "bundles": {
     "inform-ui.global.js": {
-      "bytes": 5547965,
-      "sha256": "1894442a3a5970aa0298c37fc53f077eb836d81fef2c1a54a514ae3e12b1e77b"
+      "bytes": 5572910,
+      "sha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16"
     },
     "node.mjs": {
-      "bytes": 5547832,
-      "sha256": "1a76a3e465b351d483127c6fc0324669564207dc0e5a2f0d5fb92c938386ee5f"
+      "bytes": 5572778,
+      "sha256": "7378182eece9cafec8bb51a72064f4181613d614e3c0e2d79623de4c0692bae8"
     },
     "THIRD_PARTY_NOTICES.txt": {
       "bytes": 60418,

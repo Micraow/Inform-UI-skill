@@ -13,6 +13,9 @@ const build=await readJSON(join(root,'BUILD.json')),definitions=await readJSON(j
 assert.equal(build.promptProseProjection,promptProseProjection);
 const bytes=await readFile(join(runtimeDir,'inform-ui.global.js'));
 assert.equal(createHash('sha256').update(bytes).digest('hex'),build.runtimeSha256);
+assert.equal(createHash('sha256').update(await readFile(join(runtimeDir,'node.mjs'))).digest('hex'),build.nodeRuntimeSha256);
+for(const [name,hash]of [['node.mjs',build.nodeRuntimeSha256],['inform-ui.global.js',build.runtimeSha256]])assert.equal(createHash('sha256').update(await readFile(join(root,'assets/runtime',name))).digest('hex'),hash,'Bundled Agent runtime must match generated profiles');
+const runtimeLock=await readJSON(join(root,'generated/runtime-lock.json'));assert.equal(runtimeLock.sourceRef,build.sourceCommit);assert.equal(runtimeLock.bundles['node.mjs'].sha256,build.nodeRuntimeSha256);
 if(build.runtimeHTTP){assert.equal(build.runtimeHTTP.url,build.runtimeURL);assert.equal(build.runtimeHTTP.status,200);assert.equal(build.runtimeHTTP.verifiedSourceCommit??build.runtimeHTTP.version,build.sourceCommit);assert.equal(build.runtimeHTTP.publishedSha256,build.runtimeSha256);}
 assert.equal(build.verificationLockOnly,true);assert.equal(build.runtimeChannel,'latest');
 const checks=[];
@@ -70,5 +73,5 @@ for(const def of definitions){
  }finally{runtime.dispose();}
  checks.push({profile:def.id,uiComponents:config.uiComponents,dataConstructors:config.dataConstructors,contractEquality:true,htmlMatchesSkill:true,finalCommit:true,stateTransitions:true,unselectedViewsRejected:true,glyphNamesValidated:true});
 }
-const report={format:'inform-web-chat-verification/1',sourceCommit:build.sourceCommit,runtimeSha256:build.runtimeSha256,codeGenerationFromStrings:process.execArgv.includes('--disallow-code-generation-from-strings')?'disabled':'not disabled in this invocation',profiles:checks,browser:'not run by this script',externalRuntimeURL:build.runtimeHTTP?{method:build.runtimeHTTP.method,status:build.runtimeHTTP.status,contentType:build.runtimeHTTP.contentType,accessControlAllowOrigin:build.runtimeHTTP.accessControlAllowOrigin,publishedBlobMatchesSnapshot:true,browserExecution:'not run'}:'must be independently verified against the published bundle'};
+const report={format:'inform-web-chat-verification/1',publicationReady:build.publicationReady,validationStage:build.validationStage,sourceCommit:build.sourceCommit,runtimeSha256:build.runtimeSha256,codeGenerationFromStrings:process.execArgv.includes('--disallow-code-generation-from-strings')?'disabled':'not disabled in this invocation',profiles:checks,browser:'not run by this script',externalRuntimeURL:build.runtimeHTTP?{method:build.runtimeHTTP.method,status:build.runtimeHTTP.status,contentType:build.runtimeHTTP.contentType,accessControlAllowOrigin:build.runtimeHTTP.accessControlAllowOrigin,publishedBlobMatchesSnapshot:true,browserExecution:'not run'}:'must be independently verified against the published bundle'};
 await writeFile(join(root,'DELIVERY.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

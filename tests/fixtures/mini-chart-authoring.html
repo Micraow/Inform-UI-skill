@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>六期创作工坊：示例参与趋势</title>
+<style>body{margin:0;padding:clamp(16px,4vw,40px);font:16px system-ui,sans-serif;color:#171717;background:#fff}main{max-width:960px;margin:auto}#status{max-width:960px;margin:16px auto;white-space:pre-wrap}</style>
+</head>
+<body>
+<main id="answer" aria-label="六期创作工坊：示例参与趋势"></main>
+<p id="status" role="status">正在载入答案…</p>
+<noscript>需要启用 JavaScript 才能显示这份互动答案。</noscript>
+<script id="inform-config" type="application/json">{"source":"$minimum = 0\nrecords = [\n {seq:1,period:\"第1期\",attended:42,newcomers:42},\n {seq:2,period:\"第2期\",attended:48,newcomers:33},\n {seq:3,period:\"第3期\",attended:44,newcomers:27},\n {seq:4,period:\"第4期\",attended:59,newcomers:34},\n {seq:5,period:\"第5期\",attended:66,newcomers:35},\n {seq:6,period:\"第6期\",attended:72,newcomers:36}\n]\nall = @Each(records,\"item\",{seq:item.seq,period:item.period,attended:item.attended,newcomers:item.newcomers,returning:item.attended-item.newcomers})\nvisible = @Sort(@Filter(all,\"attended\",\">=\",$minimum),\"seq\",\"asc\")\nn = @Count(visible)\nfirst = n>0 ? @First(visible) : {period:\"无\",attended:0,newcomers:0,returning:0}\nlast = n>0 ? @Last(visible) : {period:\"无\",attended:0,newcomers:0,returning:0}\noriginalFirst = @First(all)\noriginalLast = @Last(all)\ncolumns = [{key:\"period\",label:\"期次\"},{key:\"attended\",label:\"到场（人次）\"},{key:\"newcomers\",label:\"首次参与（人次）\"},{key:\"returning\",label:\"复访参与（人次）\"}]\nselectedRows = @Each(visible,\"item\",{period:item.period,attended:item.attended,newcomers:item.newcomers,returning:item.returning})\noriginalRows = @Each(all,\"item\",{period:item.period,attended:item.attended,newcomers:item.newcomers,returning:item.returning})\nroot = Stack([\n Heading(\"六期创作工坊：到场增长，复访贡献上升\",1),\n Badge(\"原创虚构示例 · 非真实活动记录\",\"info\"),\n Text(\"以下全部活动、期次与人数均为原创示例，用来演示怎样阅读参与趋势。每期每人计一次到场；首次参与指此前未参加过本轮工坊，复访指参加过本轮更早期次。跨期汇总使用人次，不能当作去重参与人数。\"),\n Card([\n  Text(\"完整六期中，到场从 \"+originalFirst.attended+\" 人次增至 \"+originalLast.attended+\" 人次，增加 \"+(originalLast.attended-originalFirst.attended)+\" 人次（\"+@Round((originalLast.attended-originalFirst.attended)/originalFirst.attended*100,1)+\"%）。\"),\n  Text(\"末期首次参与为 \"+originalLast.newcomers+\" 人次，复访为 \"+originalLast.returning+\" 人次；复访占该期到场的 \"+@Round(originalLast.returning/originalLast.attended*100,1)+\"%。\"),\n  Text(\"第三期出现回落，随后连续增长。复访人数逐期增加，而首次参与并未同步连续上升，因此总到场增长不等于每期都吸引了更多新人。这里没有活动内容、宣传或天气资料，不能据此判断变化原因。\",\"muted\")\n ],\"先读结论：完整六期示例\"),\n Alert(\"图区域已从 80 px 调整为 160 × 160 px\",\"三种迷你图都采用 size=160 的正方形绘图区，外层卡片自然增高，为标题和文字另留空间。原 80 px 区域低于组件的 100 px 下限；窄屏允许卡片换行。\",\"info\"),\n Card([\n  Slider(\"只保留到场人数至少达到此值的期次（人次，0–80）\",$minimum,0,80,1),\n  Text(\"当前门槛：\"+$minimum+\" 人次；符合条件：\"+n+\" / \"+@Count(all)+\" 期。三张图、下面的汇总与筛选表使用同一批数据。\"),\n  Button(\"重置为全部六期\",@Reset($minimum),\"secondary\")\n ],\"试着筛选参与规模\"),\n n>0 ? Stack([\n  Heading(\"当前筛选结果\",2),\n  Text(\"保留期次累计到场 \"+@Sum(visible.attended)+\" 人次，平均每期 \"+@Round(@Avg(visible.attended),1)+\" 人次；其中首次参与 \"+@Sum(visible.newcomers)+\" 人次，复访参与 \"+@Sum(visible.returning)+\" 人次。\"),\n  n>1 ? Text(\"当前最早的 \"+first.period+\" 到场 \"+first.attended+\" 人次，最晚的 \"+last.period+\" 到场 \"+last.attended+\" 人次，首末差为 \"+(last.attended-first.attended)+\" 人次。这是保留期次的首末比较，不能替代完整时间序列。\") : Text(\"目前仅保留 \"+first.period+\"：到场 \"+first.attended+\" 人次。单个期次不足以判断趋势。\",\"warning\"),\n  Grid([\n   Card([\n    MiniAreaChart(\"到场规模（人次）\",visible.attended,{size:160,animate:false,variant:\"linear\",useGradient:true,opacity:0.35}),\n    Text(\"面积图概览每期总到场；当前最小值 \"+@Min(visible.attended)+\"、最大值 \"+@Max(visible.attended)+\" 人次。\")\n   ],\"总参与\"),\n   Card([\n    MiniBarChart(\"首次参与（人次）\",visible.newcomers,{size:160,animate:false,radius:3}),\n    Text(\"柱状图比较各期新人规模；当前平均每期 \"+@Round(@Avg(visible.newcomers),1)+\" 人次。\")\n   ],\"新人参与\"),\n   Card([\n    MiniLineChart(\"复访参与（人次）\",visible.returning,{size:160,animate:false,variant:\"linear\"}),\n    Text(\"折线图呈现复访到场人数；当前平均每期 \"+@Round(@Avg(visible.returning),1)+\" 人次。复访人数不是留存率。\")\n   ],\"复访参与\")\n  ],3,\"lg\"),\n  Text(\"阅读顺序：三图从左到右均按筛选表的期序排列。筛选可能跳过中间期次，横向间隔不代表实际日历间隔。迷你图只绘制空间能容纳的最近数据；图内可展开的数据表与下表保留本次筛选的全部输入值。\",\"muted\"),\n  Table(columns,selectedRows,\"当前筛选的全部期次：与三图共用数据\")\n ],\"lg\") : Alert(\"没有期次达到当前门槛\",\"筛选后的图表与汇总暂无数据。把门槛调低，或点击“重置为全部六期”；完整示例记录仍保留在下方。\",\"warning\"),\n Card([\n  Table(columns,originalRows,\"完整六期原创示例：不随门槛隐藏\"),\n  Text(\"来源：本页原创虚构数据，无外部数据源。复访人数 = 到场人数 − 首次参与人数；平均值按保留期次等权计算；首末增幅以完整六期的首期到场为基数。这里只进行本地筛选和计算。\",\"muted\")\n ],\"原始记录与计算口径\")\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/charts"],"viewNames":[],"theme":"light"}</script>
+<script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js"></script>
+<script>
+(() => {
+ const status=document.getElementById('status');
+ let failed=false;
+ const onError=issues=>{failed=true;status.hidden=false;status.textContent='答案无法显示：'+issues.map(issue=>issue.message||String(issue)).join(' ');};
+ try {
+  if(!globalThis.InformUI)throw Error('运行库未能载入，请检查网络或 HTML 环境是否允许外部脚本。');
+  const config=JSON.parse(document.getElementById('inform-config').textContent);
+  const view=InformUI.mount(document.getElementById('answer'),{...config,onError});
+  if(view.getSnapshot()&&!failed)status.hidden=true;
+  addEventListener('pagehide',()=>view.dispose(),{once:true});
+ } catch(error) {onError([{message:error.message}]);}
+})();
+</script>
+</body>
+</html>

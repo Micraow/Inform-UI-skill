@@ -1,0 +1,20 @@
+{
+  "format": "inform-single-skill-authoring/1",
+  "fixture": "tests/fixtures/mini-chart-authoring.html",
+  "sourceCommit": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+  "runtimeSha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16",
+  "input": "A generated single-file core Skill only; no CLI, parser, existing examples or other documentation available to the independent author.",
+  "task": "Create a complete original six-period fictional participation answer with all three mini chart types; adapt an 80px requested plot to the real size contract, with synchronized local filtering and an empty state.",
+  "firstAttemptCommit": true,
+  "validatorRepairs": 0,
+  "actualMiniChartSize": 160,
+  "interactiveChecks": [
+    "all three charts use six initial records",
+    "threshold 70 leaves one record",
+    "threshold 80 produces an empty-state Alert",
+    "reset restores all six records"
+  ],
+  "codeGenerationFromStrings": "disabled during validation",
+  "browserExecution": "not established by Node validation",
+  "dslSha256": "1fe57ec30f01472f6089924d3a80ad787c2214ef8f1121e2705bf63a4cd57a92"
+}

@@ -357,7 +357,9 @@
     "moduleId": "base/icon",
     "orderedProps": [
       "name",
-      "label"
+      "label",
+      "tone",
+      "size"
     ],
     "slots": {},
     "bindingProps": [],

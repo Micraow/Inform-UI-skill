@@ -6,7 +6,7 @@
 
 ## Agent：按需发现、组合与验证
 
-- 从 [模块目录](./references/catalog.md) 找相关能力，再读取对应 generated/modules/*.txt 或 generated/views/&lt;ViewName&gt;.txt。完整库保留 233 个 UI、195 个领域 View 与 755 个 glyph，按需求加载，不必一次全部读取。Data 构造器不计入 UI。
+- 从 [模块目录](./references/catalog.md) 找相关能力，再用随包 CLI prompt 按模块或精确 View 名生成当前合同。generated/modules/*.txt 与 generated/views/&lt;ViewName&gt;.txt 的静态快照状态记录在 [generated/snapshot-status.json](./generated/snapshot-status.json)；本次静态合同已与随包 runtime 同步。自行更换 runtime 后必须重新生成，不能继续沿用旧签名。完整库保留 233 个 UI、195 个领域 View 与 755 个 glyph，按需求加载，不必一次全部读取。Data 构造器不计入 UI。
 - 现有 CLI 入口 [scripts/inform-answer.mjs](./scripts/inform-answer.mjs) 提供 catalog、prompt、icons、check、build；[语法边界](./references/dialect.md)、[交付边界](./references/delivery.md) 和 [完整示例](./examples/) 继续保留。
 - 用 createProfile({select,viewNames}) 或 CLI prompt 生成需要的合同，再用相同选择检查和构建。需要扩展时替换成匹配的 profile，不把未选组件混入默认合同。
 
@@ -41,6 +41,14 @@ CLI 使用仓库自带的 Node runtime 做开发验证；随包快照可用于�
 已验证的滚动入口是 https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js 。web-chat-latest 是项目维护的发布分支，不是具体版本号；不要自行改成 jsDelivr 的保留选择器 @latest。此次实测响应的 Cache-Control 为 public,max-age=604800,s-maxage=43200，即浏览器缓存可达 7 天、共享缓存可达 12 小时；这不是即时更新保证。
 
 每个 profile 目录都包含由同一配置自动生成的 prompt.txt、schema.json、manifest.json、profile.json、minimal.openui 与 minimal.html。模型只需读取对应的一份 Skill；其他文件供审阅、验证或程序化集成使用。
+
+## 合同与运行时
+
+组件定义是 schema、prompt 与运行时校验的共同来源。签名保留数值范围与整数要求、字符串和数组长度、枚举、默认值；嵌套组合规则和运行时跨字段规则另有明确说明。数据与状态变更都受这些限制。例如三种 Mini 图表的 size 都是 100–320 的整数，不能为适应窄卡片而传入 80。
+
+默认 37 个 UI 与精选 47 个 UI 已覆盖现有运行时附加检查的说明。更广领域 View 中未完全展开的附加检查会明确标记，不能因此声称全库所有语义已由 JSON Schema 等价表达。原生 Zod 字符长度按 UTF-16 码元计算，与标准 JSON Schema 的 Unicode 码点计数存在差异；带 emoji 的边界输入必须再通过实际 runtime 校验。
+
+滚动 latest 仍可能被缓存。BUILD.json 锁定本次实际核验的字节；维护时必须同时更新模型合同、随包 Node/browser runtime 和 latest 发布入口，并用同一边界样例复核。
 
 ## 边界
 

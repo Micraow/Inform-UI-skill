@@ -1,0 +1,876 @@
+{
+  "format": "inform-generated-snapshot-status/2",
+  "status": "current-bundled-runtime",
+  "sourceRef": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+  "nodeRuntimeSha256": "7378182eece9cafec8bb51a72064f4181613d614e3c0e2d79623de4c0692bae8",
+  "componentCount": 233,
+  "viewPromptCount": 195,
+  "generator": "scripts/sync-runtime.mjs",
+  "contracts": {
+    "generated/manifest.json": {
+      "bytes": 706261,
+      "sha256": "fa6c8dbb6139c0777ac427d615b8299f9bd9f4204e6e2aebb7e7f455ca839914"
+    },
+    "generated/schema.json": {
+      "bytes": 11776587,
+      "sha256": "62d0e3cf5e9be0c6c81bf383e476dec97fafb6d65198f6d48246824adb3fc085"
+    },
+    "generated/full-profile.txt": {
+      "bytes": 2356632,
+      "sha256": "5cb0997dc67f9c3ef41ea0babc165da112f5ea6b2ca0456618ca2500c80cfe9c"
+    },
+    "generated/catalog.json": {
+      "bytes": 263730,
+      "sha256": "fb00ea4264f44908df66243a2029fb252f6898aaddb108b3b5448d735f535370"
+    },
+    "generated/signatures.json": {
+      "bytes": 43208,
+      "sha256": "11ff03ef11ae9172e32849fa36fa8dc5f4d032e5c146c8edf5f03bb01f263dbd"
+    },
+    "generated/modules/base--chart-data.txt": {
+      "bytes": 12771,
+      "sha256": "f7b81eca120cd2b6eee93b9726d1abbd07241a68d99cc9c21c7708c6e88911e6"
+    },
+    "generated/modules/base--charts.txt": {
+      "bytes": 31699,
+      "sha256": "b27a6d9bb787eff4c1af9eab0baf12aab0242322b9a8a4d78fb593f9b548c351"
+    },
+    "generated/modules/base--text.txt": {
+      "bytes": 11793,
+      "sha256": "f47b8b63a837bf6d962f5eeb7f8c2bf3639f3862a5c4f75d9e3156eb3d85fb6c"
+    },
+    "generated/modules/base--controls.txt": {
+      "bytes": 15653,
+      "sha256": "6be1234ba22012acd2251e787d6c48c060a5c287a372ef81b437154b272b635a"
+    },
+    "generated/modules/base--icon.txt": {
+      "bytes": 12747,
+      "sha256": "55ba7f2dc3219ca5f06a4157488e009019b7ca26a21d50df8d4dbde7dfa28a49"
+    },
+    "generated/modules/base--layout.txt": {
+      "bytes": 11793,
+      "sha256": "f47b8b63a837bf6d962f5eeb7f8c2bf3639f3862a5c4f75d9e3156eb3d85fb6c"
+    },
+    "generated/modules/base--media.txt": {
+      "bytes": 13416,
+      "sha256": "444e54f7fd780ba6394dad4d1a3014af7fba3757913ddb2ec8e14dabe69e0c17"
+    },
+    "generated/modules/domain--weather.txt": {
+      "bytes": 12266,
+      "sha256": "afc58947cb49cb949931515f708965e8a47a4ef6d0c12d6ffdfbd5e4eb7ed532"
+    },
+    "generated/modules/views--assistance.txt": {
+      "bytes": 176308,
+      "sha256": "8ba418a4d73bcea0b9ae5190c19b4e629ac8569a39f42fd5e705e4ea83859375"
+    },
+    "generated/modules/views--content.txt": {
+      "bytes": 266103,
+      "sha256": "12df40eba0f2977ff5782c9da7532483b5b856421355a5d1535ae3855284eabc"
+    },
+    "generated/modules/views--discovery.txt": {
+      "bytes": 111594,
+      "sha256": "f84fc009c8b1c0310647ed90f85bc45e29f602920094d7282d9adee44e2e0836"
+    },
+    "generated/modules/views--finance.txt": {
+      "bytes": 163216,
+      "sha256": "d0785c23c7c30b867b1efe10d147442e315374c054ce2004879841104b53660d"
+    },
+    "generated/modules/views--learning.txt": {
+      "bytes": 1079614,
+      "sha256": "6bab45ab5449d7324e3cd3aa4ca55a47cbae41fa1f66bbc8ecbd2417714dd4a5"
+    },
+    "generated/modules/views--media.txt": {
+      "bytes": 542818,
+      "sha256": "4047dbe3e159923c2c0d463bb7da49da9ffdff310f22b6a29e38ea397a035353"
+    },
+    "generated/modules/views--sports.txt": {
+      "bytes": 93046,
+      "sha256": "ebe8072b418122dbcffebcecdc610c0b4c016f419f016f77a94f3c928194912b"
+    },
+    "generated/modules/views--weather.txt": {
+      "bytes": 31684,
+      "sha256": "f1570a1cbcc7827bfe093b578a199b737d6d428d8d570792a03c4fd699d20825"
+    },
+    "generated/views/AgendaView.txt": {
+      "bytes": 23521,
+      "sha256": "6c71f028698d97210890d904ec94fc2bc14543282b1876b5bc0a6fba01521db9"
+    },
+    "generated/views/AmericanFootballGamesView.txt": {
+      "bytes": 24901,
+      "sha256": "6f01c519918aa15e640038d24f1d450e1db53dfa596eb4666700356414d72dde"
+    },
+    "generated/views/AnimateView.txt": {
+      "bytes": 19725,
+      "sha256": "5805a9e01c7b589ee2873431360d34dfec4f928615790ddd8ee1055bfdfa8960"
+    },
+    "generated/views/ArtistUpcomingEventsView.txt": {
+      "bytes": 21226,
+      "sha256": "09ea0186ec9d68bf54a5dfa0b94d7f7b02b7adc722691b938ef9398ac707fc0c"
+    },
+    "generated/views/AskUserDetailsView.txt": {
+      "bytes": 23627,
+      "sha256": "b39a156e3ac90cd3bc4f8d94071ff01daa5e40997e3e6be1359e31339bad8ba4"
+    },
+    "generated/views/AskUserFilesView.txt": {
+      "bytes": 22858,
+      "sha256": "eec2f31bac9f2d964128a2d6ce9dbd027f5c94f58b599ef53288d21c8a036835"
+    },
+    "generated/views/AskUserLocationView.txt": {
+      "bytes": 22198,
+      "sha256": "fe5c95321bf4efcc0159993e02158fc74a101071f0f205f871f137f91b0e153f"
+    },
+    "generated/views/AssetDistributionView.txt": {
+      "bytes": 20674,
+      "sha256": "30870b789d51b566ad152e9330aa3fffcd8b720db93c5d7300b934d9e64af255"
+    },
+    "generated/views/AsyncImageGroupView.txt": {
+      "bytes": 21916,
+      "sha256": "783bb3b2d1fa3110f712fab531bc1f3b3ac6cf84c0536f718c7fdb1b798678ea"
+    },
+    "generated/views/AsyncImageView.txt": {
+      "bytes": 22542,
+      "sha256": "efa50280020a622352fe77193f5f7f439a6c7454c09289c93a446cd1c4cb2d94"
+    },
+    "generated/views/AsyncVideoCarouselView.txt": {
+      "bytes": 20364,
+      "sha256": "7d92350bb95800e262623d97dda3e08ebe5d73574a3f441430bcea3ca94c5d5a"
+    },
+    "generated/views/AutomationPlanSummaryView.txt": {
+      "bytes": 23762,
+      "sha256": "2dea44a4acff06dd08c9774d05b4fd0583dabd787c12e6437a44fc2d21fec996"
+    },
+    "generated/views/BasketballTournamentView.txt": {
+      "bytes": 22869,
+      "sha256": "6f232fefe7274bc8eda953748ed5de101ad4686bc18cb5bded297a4f0aa0933c"
+    },
+    "generated/views/BentoView.txt": {
+      "bytes": 25384,
+      "sha256": "2553ae00edac64848fe67e3817623bd63825a30d405a9ad9cc13dc5667aae642"
+    },
+    "generated/views/BlockquoteView.txt": {
+      "bytes": 19690,
+      "sha256": "87d4b4adbce23ee96436b6e7a7d8aa7dba0facfbb53478da682167f62e7c7780"
+    },
+    "generated/views/BusinessGalleryView.txt": {
+      "bytes": 20162,
+      "sha256": "bd9c6c960adf7167ca33d219a36a9d9583c2e1f363b380dd503393310079bdf9"
+    },
+    "generated/views/CalculatorCorrectedAdjustedAgeOfPretermInfantsView.txt": {
+      "bytes": 20967,
+      "sha256": "fa632d84c30a643644ff26a68bd1a9856e7ecf460a828243730c9ec823596d1f"
+    },
+    "generated/views/CalculatorGlasgowComaScaleGcsView.txt": {
+      "bytes": 23739,
+      "sha256": "25cd8e6b2c988892757a1525bfd26e21531e03595a9e9753f95a0ba8b4f5ee09"
+    },
+    "generated/views/CalculatorQsofaScoreView.txt": {
+      "bytes": 23309,
+      "sha256": "7769c53a4c314990577314ac09bc71476f6bd4e83ad41fe4b1b3ed02a6ecf90e"
+    },
+    "generated/views/CalculatorRoxIndexForHighFlowNasalCannulaView.txt": {
+      "bytes": 24125,
+      "sha256": "1b301e6dbf054a3b031645bdcff0c6dfa9806c5fbc1f9d27de26ed6484088f66"
+    },
+    "generated/views/CareProviderResultsView.txt": {
+      "bytes": 35059,
+      "sha256": "d78136765c760abbb3c21f9cde7943f341cc028f3185e053122dbc5a7f0545f3"
+    },
+    "generated/views/CareProviderSidebarView.txt": {
+      "bytes": 40465,
+      "sha256": "2b4e4ff7dd3fbbeaf1bc819dda83c794b8ceb4439545f08161604ae294a3319c"
+    },
+    "generated/views/CarouselView.txt": {
+      "bytes": 19630,
+      "sha256": "7522eda09135b3f7c4c9e1fafca8a564d213773c881a97cb2d572910cefb5007"
+    },
+    "generated/views/CelebrationView.txt": {
+      "bytes": 19762,
+      "sha256": "6b5046be897978d3562a1e5ce420ce3ef7c94e5bf73789808523dcd897e3e676"
+    },
+    "generated/views/ChecklistView.txt": {
+      "bytes": 20330,
+      "sha256": "a588b527d52dadacd2e2989ee00bf09af4286913d9e9fd2b490e6dce98526001"
+    },
+    "generated/views/CitationView.txt": {
+      "bytes": 19797,
+      "sha256": "a62ce8c445825dfabd3184a4266cf7c542bb439b88759064a855a63bd8244b32"
+    },
+    "generated/views/ClockView.txt": {
+      "bytes": 21268,
+      "sha256": "c861461eede6415536f05a8a055aed87dbaf8465d76390f43750424104149b1c"
+    },
+    "generated/views/CodeCiteView.txt": {
+      "bytes": 20214,
+      "sha256": "332d044c59b233c21101c1f43b222fc9ff6bde8cd0e9bbb1cf30445d3294e4fb"
+    },
+    "generated/views/CodeView.txt": {
+      "bytes": 20689,
+      "sha256": "b2dd404c367b08d123b6c2e714f18b5b48d3d05d278cf88c236c1b0f3cd9f171"
+    },
+    "generated/views/ConversationSuggestionsView.txt": {
+      "bytes": 20537,
+      "sha256": "fc5da37cd63c1096f2201b83ddeb968f44d377c2e49319b033547be60e27f144"
+    },
+    "generated/views/ConversationalOnboardingAdviceView.txt": {
+      "bytes": 23843,
+      "sha256": "64c4805f15ef65a18656e9c3e5a75be3e1b72b34055c73a70cc5f11c9227a43d"
+    },
+    "generated/views/ConversationalOnboardingSearchView.txt": {
+      "bytes": 46366,
+      "sha256": "f4fe39f1de98f095d1554b8ab84679f8711b0ede016f5c2897c445a9166fce1d"
+    },
+    "generated/views/ConversationalOnboardingStudyView.txt": {
+      "bytes": 27361,
+      "sha256": "8d965e543e5540f87213edf9803f0d2ffb17f0c033b8616e1560b8c1df96a0c1"
+    },
+    "generated/views/ConversationalOnboardingWritingView.txt": {
+      "bytes": 23076,
+      "sha256": "ba16b01d6b1bfd87d3fb1d23b3782b63e397163a487d66aace7c35e68e228ea9"
+    },
+    "generated/views/CopyWordsView.txt": {
+      "bytes": 20345,
+      "sha256": "4642b3da0e14114062800aac8b4ea0e00dec01a009e15d1d82ca6f364d08f088"
+    },
+    "generated/views/CreateInteractivePollView.txt": {
+      "bytes": 20222,
+      "sha256": "6f715609f798d8fdab0f615ac97be7d01a8225b2b89f743f8f2d74e527751b4b"
+    },
+    "generated/views/CricketMatchBoxscoreView.txt": {
+      "bytes": 23879,
+      "sha256": "a4938b28893b26dd07379e1cd3c17c19c6322eafe95fecc02b7188d7bb0ce819"
+    },
+    "generated/views/CurrencyConverterView.txt": {
+      "bytes": 20844,
+      "sha256": "9cd59e90daf3dc5c770b3dae1bd98a74789cc95ff5dc663a3a69697471c9da49"
+    },
+    "generated/views/DetailsView.txt": {
+      "bytes": 19490,
+      "sha256": "3ca73f50132613b6f9b33456d50522363eab36fd74d206d5ca2a8242ecbc0b89"
+    },
+    "generated/views/DisplayAutomationView.txt": {
+      "bytes": 21637,
+      "sha256": "a6bddd9be9a5d3a5d51b93f611d3b89ba532fd54cdcb05b85b8a14aa9abbc053"
+    },
+    "generated/views/ElectionResultsView.txt": {
+      "bytes": 22483,
+      "sha256": "0f949170a0f8e1bd0b8de91d113f7498a81e61dcfda8d741ad591f937709b3f0"
+    },
+    "generated/views/EmailDraftView.txt": {
+      "bytes": 20050,
+      "sha256": "c80056d6735a2475c2f4bd50b56b253ea8a3e88ba38440f4b725e65e6fd2dfac"
+    },
+    "generated/views/EmailPreviewView.txt": {
+      "bytes": 21598,
+      "sha256": "169a74ad0cd0ed77ce17be9418b642ff301e92ea5728cb36f2fbf49f2f9cd667"
+    },
+    "generated/views/EntityCardView.txt": {
+      "bytes": 21643,
+      "sha256": "4776b810866c069574591bac812f5c878dd660e2032771248c3c4c999809b7a5"
+    },
+    "generated/views/EntityOverviewView.txt": {
+      "bytes": 25620,
+      "sha256": "461bda842525d1a85e028333628ea73b4920388bdc8eeae48f98210373efbba6"
+    },
+    "generated/views/EntityReviewsView.txt": {
+      "bytes": 20714,
+      "sha256": "bfb78c8479e650c99509b88f13bfff9f71c323b4766ed1c9ed004c9268507020"
+    },
+    "generated/views/EntityThumbnailListView.txt": {
+      "bytes": 21056,
+      "sha256": "8bbfbd06f71a93513abab83bb996fc66b0f827aadf73bdfb2cbec6a7e2498a1c"
+    },
+    "generated/views/EntityView.txt": {
+      "bytes": 28068,
+      "sha256": "045cf4a6436979378550597a78c95624c785c46ac46b44e33200db352d1085ed"
+    },
+    "generated/views/EventSidebarView.txt": {
+      "bytes": 22322,
+      "sha256": "8e9de67c0a9ec0d9e53d2163e9ab415e36d5cb18d4e6f646bb0b936a6c1b5634"
+    },
+    "generated/views/F1RacesView.txt": {
+      "bytes": 21857,
+      "sha256": "d75895bf70e917573fa2b3b9c40953c6db249f3eda5f20e03d8472be1ffc2d44"
+    },
+    "generated/views/F1StandingsView.txt": {
+      "bytes": 21025,
+      "sha256": "adb5d325f14beb7bdbdfcf372dbd80858b16a48dffa5743511716723369c7661"
+    },
+    "generated/views/FaviconView.txt": {
+      "bytes": 19744,
+      "sha256": "b2d9ce523e9b5467d7fe863ecedb1df0d28a66c9ff2d676511ddf14caaf8d421"
+    },
+    "generated/views/FieldView.txt": {
+      "bytes": 19733,
+      "sha256": "0265bb7b4271b2a47f0f184ba264a463de8ce1662760700fba45acc27941dc75"
+    },
+    "generated/views/FigureView.txt": {
+      "bytes": 19453,
+      "sha256": "ac1ca4b5dfb0f30a31dd11e1472e4c18152dc35d297cb46f4010b93ab01dd34f"
+    },
+    "generated/views/FileCiteView.txt": {
+      "bytes": 20528,
+      "sha256": "dfeb797598c2f2cb5890c1f238b1a4ad4e76c357ef90574be75dc12ad3fdf786"
+    },
+    "generated/views/FileNavListView.txt": {
+      "bytes": 23262,
+      "sha256": "79772a8fd24560590d820ad26e879d5aefe47797f635d859aca2c2e4d8855265"
+    },
+    "generated/views/FillBlankView.txt": {
+      "bytes": 20437,
+      "sha256": "863711e0b7ce278714b9de30830ea84754772aef151330b150ed5e23d07d6cea"
+    },
+    "generated/views/FinanceChartView.txt": {
+      "bytes": 22458,
+      "sha256": "58a3d2e0899ed146ec810e47260be45486e0c1ff4224edd6b2b769b5c1cfa27e"
+    },
+    "generated/views/FinanceComparisonView.txt": {
+      "bytes": 22940,
+      "sha256": "16807e2db70f0ed9546a6bc112ada1b8b59f4d3751c18892dd9158849369eaf4"
+    },
+    "generated/views/FinanceHeatmapView.txt": {
+      "bytes": 21800,
+      "sha256": "6bd04419bdd1163240e26c51a2cccdb0a12d2410ec3dc8f7183f723407d12d95"
+    },
+    "generated/views/FinanceOnboardingSuggestionsView.txt": {
+      "bytes": 22828,
+      "sha256": "4dc4627e2c2be5ef3419271fdecf7ded2b2e333a12a837fea34f562119f615b8"
+    },
+    "generated/views/FinanceQuoteView.txt": {
+      "bytes": 21528,
+      "sha256": "5eee8d0ea82165f54cb9802558693faa6fb1cf18d987805ef0d521bcd7a8a180"
+    },
+    "generated/views/FlashcardsView.txt": {
+      "bytes": 20411,
+      "sha256": "0df4577705979008bc31d18c885844c61b2c1c782430f8cdf34a0fc51041d13f"
+    },
+    "generated/views/FlightOptionView.txt": {
+      "bytes": 21954,
+      "sha256": "afa8e15ccba640d2175a33b78b1bc9e87702211da381d417a49e57eed30224f0"
+    },
+    "generated/views/FlightResultsView.txt": {
+      "bytes": 22334,
+      "sha256": "685147cc6e8d07c177325d9b00fc885803a9f3623f13e17b75aa7485912ba783"
+    },
+    "generated/views/FlightSearchFormView.txt": {
+      "bytes": 21014,
+      "sha256": "05ec5bec70a1098bcd9788f64f4720a5b55a7b2103090d3b424cf99cf872588f"
+    },
+    "generated/views/FlightTrackerView.txt": {
+      "bytes": 24762,
+      "sha256": "f552216ff987833a04bc4cd7d3dcd069d4c5acf7fd6ea04e82135cb90ae82669"
+    },
+    "generated/views/FollowUpActionBarView.txt": {
+      "bytes": 20553,
+      "sha256": "883a9d86406bd2bdd1771716d71a61427f2a63eb1568ed88afaf3974d29efa31"
+    },
+    "generated/views/FollowUpCardGroupView.txt": {
+      "bytes": 21454,
+      "sha256": "4d0ab8a23f8035145d44213e992897afc74a3fb33bf7b398353c497e3afacb86"
+    },
+    "generated/views/FollowUpQuizView.txt": {
+      "bytes": 23727,
+      "sha256": "ff675b273666f3f639677266f9cb894b2efb08e3fe7c2c4cdee9f2c9b5d4b137"
+    },
+    "generated/views/FormView.txt": {
+      "bytes": 20044,
+      "sha256": "ebb7a580a7782c6c0ea4e7d008ac2bbd7f31db3cb85e0c51ab7d9b9c7092d904"
+    },
+    "generated/views/GenImageView.txt": {
+      "bytes": 26647,
+      "sha256": "114bbe32bf1120cedeb90bc73054bfaf49ee30effc96e28c56ac91d011126141"
+    },
+    "generated/views/GridItemView.txt": {
+      "bytes": 19663,
+      "sha256": "7c4bd2d5aea59a38b0579adc1855933891c11f4bf46a9098e5fbd097b2624337"
+    },
+    "generated/views/HomeworkHelperV2View.txt": {
+      "bytes": 22276,
+      "sha256": "37a3d4fc0e77afd962b99900adc9d181b4cf86e03f20237adff5b0dac2f7dd8e"
+    },
+    "generated/views/HtmlViewView.txt": {
+      "bytes": 20017,
+      "sha256": "5be032baeacea16563010c12471234d803002ce5ee5f4b36c4b0f9422f5ec536"
+    },
+    "generated/views/ImageGenView.txt": {
+      "bytes": 21539,
+      "sha256": "9e53dfa378b1e71cebea8de7bac13670ead79e6951d72fb746b3f9bd5abb811d"
+    },
+    "generated/views/ImageGridView.txt": {
+      "bytes": 21800,
+      "sha256": "4c9fad27c788218fe67c448308f81753515c3cfb3b9e97d21041ca32f79937d9"
+    },
+    "generated/views/InstantSuggestionsView.txt": {
+      "bytes": 22160,
+      "sha256": "70fa7afbebac773990ae1c3a8cf794d29c11756aac7297cec33daea1dfb5242f"
+    },
+    "generated/views/InternalPartnerAppView.txt": {
+      "bytes": 22237,
+      "sha256": "fe8729570b16e5b242dff10dba0e0f7e24b39538afe5760887e5579e6ce3d77a"
+    },
+    "generated/views/JobsView.txt": {
+      "bytes": 21516,
+      "sha256": "1da559e8b93bdf01e8b5d02a087a61a791db7b80e58d2282a442866499d72781"
+    },
+    "generated/views/LabelView.txt": {
+      "bytes": 19572,
+      "sha256": "ccf2fffeb07ba433e454fa09618b71333f496542d9e106277ccbe2ed7425bddc"
+    },
+    "generated/views/LearningAudioLabelCardView.txt": {
+      "bytes": 20277,
+      "sha256": "9fd0a0fa1f1df62ed47d4fa0bc63aeeab48f99573464ca7b65d4010287689ed0"
+    },
+    "generated/views/LearningImageChoiceCardView.txt": {
+      "bytes": 20673,
+      "sha256": "470edc3f1348d862d2c162bd7be9f4d9270ffe64ee49e1aa3c6d0118ffa3e060"
+    },
+    "generated/views/LearningImageLabelCardView.txt": {
+      "bytes": 20331,
+      "sha256": "2f01792c237ec8b8997ebbc4d66eb8339f7c3387b85d158c319b4b1dc9fb7db4"
+    },
+    "generated/views/LearningSpeakCardView.txt": {
+      "bytes": 25915,
+      "sha256": "9f9a7567c2cc97cf20b7488121cab44dc65353d18c107c1ea43489c257ef84d0"
+    },
+    "generated/views/LearningVizDilView.txt": {
+      "bytes": 991332,
+      "sha256": "2f14a1b8eac36967f6a8045003a6ceeb11309ef0c1649ec67abfdcae3dce55bd"
+    },
+    "generated/views/LearningVoiceModeLauncherCardView.txt": {
+      "bytes": 22129,
+      "sha256": "c44fd4c5585537e43d2d1336d6b6870a6e38ba4dbc2e7b5e339d0e5b6f06ad08"
+    },
+    "generated/views/LedgerAccountsView.txt": {
+      "bytes": 21764,
+      "sha256": "e3dd37e3553da3d83f4bab68328e09e98f508b05810daf8394651cb44a65802c"
+    },
+    "generated/views/LedgerCreditScoreDetailView.txt": {
+      "bytes": 25210,
+      "sha256": "e2cbfa52675498465cccd85d14edb20ebd217a21843a3640aec444f2f205bdd2"
+    },
+    "generated/views/LedgerCreditScoreView.txt": {
+      "bytes": 29232,
+      "sha256": "86806ce9cb71aa1c89a554db52c82f0c106913baab10d4d01cbaf9a6169bc6f7"
+    },
+    "generated/views/LedgerEquityUpdatesView.txt": {
+      "bytes": 26224,
+      "sha256": "c15917b1ffe10fa78324e8d1557e635e27c6c3a0716efe3e173b21325b47b56a"
+    },
+    "generated/views/LedgerFeeInterestPaidView.txt": {
+      "bytes": 22444,
+      "sha256": "e23c83b81d0b87f7c0d0f3b1026ce59755a1b2c72c729604b7e4a1d7696b1463"
+    },
+    "generated/views/LedgerFinanceOnboardingView.txt": {
+      "bytes": 23200,
+      "sha256": "847d7a956e366b27a4f49d9bba36ac62732a85d0f8b63d148b6adf40bf7e5653"
+    },
+    "generated/views/LedgerFinanceStatusBannerView.txt": {
+      "bytes": 21392,
+      "sha256": "2a36f37881f3ab1609b9b96db87eee6a0877b4a10b3b20647d9863abbf05c87e"
+    },
+    "generated/views/LedgerIncomeTrackerView.txt": {
+      "bytes": 21784,
+      "sha256": "3844c2a66da44a3b032df22132f6000686b43e20be70a9d7f038ac77b2ba10c2"
+    },
+    "generated/views/LedgerLowConfidenceCategoryCorrectionLegacyView.txt": {
+      "bytes": 24575,
+      "sha256": "042ef2f84ba05544a09509b600b661574d310f6a4310a2a521546add4c3cdd39"
+    },
+    "generated/views/LedgerLowConfidenceCategoryCorrectionView.txt": {
+      "bytes": 22228,
+      "sha256": "d1cf47098ebabdfdc3d9f53ada9978588612121a40344d5415957d9a490ebf26"
+    },
+    "generated/views/LedgerNetWorthView.txt": {
+      "bytes": 21496,
+      "sha256": "0bf2e1ea047924b78ce1e5451d18fa0231c6dc1a4e05bd892b8da5564fe2531f"
+    },
+    "generated/views/LedgerRecurringTransactionsView.txt": {
+      "bytes": 22348,
+      "sha256": "4fcecb9f25c59ce2ac07db9aafe5f7f6b42336caae082aac9b98714d46de15d8"
+    },
+    "generated/views/LedgerRepairBankConnectionView.txt": {
+      "bytes": 23138,
+      "sha256": "d0ff3868e4be1b9637442abf44bf48f3edaba56ac15e50a0a7771cb05c14ab99"
+    },
+    "generated/views/LedgerSpendByCategoryDetailView.txt": {
+      "bytes": 22539,
+      "sha256": "39b34cd31396ad5b93ce33fb42544897fc7414590cc7d4d61ba8469d3d4d9e3b"
+    },
+    "generated/views/LedgerSpendByCategoryRecentTransactionsView.txt": {
+      "bytes": 23128,
+      "sha256": "ca8ed237d9dd601b76c1d02718bc0dfc9f75f3bc7d7635d76428e7fe88f13cf1"
+    },
+    "generated/views/LedgerSpendByCategoryView.txt": {
+      "bytes": 30611,
+      "sha256": "c9a21b23b87678f17ba9503b0ffc86ea14898b46f1bf4303a637e2086d1e5068"
+    },
+    "generated/views/LedgerSpendSoFarThisMonthView.txt": {
+      "bytes": 24436,
+      "sha256": "ea2544961dc9f50ea965b21cce39abb040259bd164e680974a749c3dd52a4140"
+    },
+    "generated/views/LedgerTransactionDetailView.txt": {
+      "bytes": 26136,
+      "sha256": "bb2679b3760fef1cb2dde274eb6f4b3e613b68ec0bf32fcf58b5121ca471a234"
+    },
+    "generated/views/LedgerUpcomingActivityView.txt": {
+      "bytes": 26986,
+      "sha256": "facc5beef5120804101f8a258d2a89817c8a5b7b2c8eac425b771c59f4b38813"
+    },
+    "generated/views/LedgerWatchlistView.txt": {
+      "bytes": 25043,
+      "sha256": "9a76f60af32b6776438a78d43663ac99d125152c4691b39c366bceaf89007674"
+    },
+    "generated/views/LinkCardView.txt": {
+      "bytes": 20492,
+      "sha256": "b6f12649951e11871e8499efd1cb6a3d267fb8de7a9cec3c7938f99c3b42d818"
+    },
+    "generated/views/LinkView.txt": {
+      "bytes": 20741,
+      "sha256": "d3a127d2c0ab9cf58248f74f1d43e737f181937dcfea77b45f02e0af1c1afb9b"
+    },
+    "generated/views/ListAutomationsView.txt": {
+      "bytes": 22476,
+      "sha256": "fac35a03e33dd6ee657effbd9cd80b5f48328c71dfd530217027087647416515"
+    },
+    "generated/views/ListView.txt": {
+      "bytes": 19660,
+      "sha256": "1385dc69c18e6c722fa75747b12120f27e8c26b7fa2db4a88f290746f21cdcdf"
+    },
+    "generated/views/LoadingBlockView.txt": {
+      "bytes": 20603,
+      "sha256": "666a80b0dce62ff149e4509824a86243bb9e8014a47cfa4251877f0ee480e8ae"
+    },
+    "generated/views/LoadingView.txt": {
+      "bytes": 19736,
+      "sha256": "a1edf31e14b219a968af4693ef2ab4d293530057bc27bbef2694da2ce484b122"
+    },
+    "generated/views/LocalBusinessView.txt": {
+      "bytes": 21560,
+      "sha256": "26b9cf5616f1e80a2c24384398702e114015bc9e25dff8f07ee001d9d20b1f00"
+    },
+    "generated/views/LocationChoiceRequestView.txt": {
+      "bytes": 20436,
+      "sha256": "13a322023f3afbaf633e65cdce3f2acf37b03bce1bc9e5510f82efbb5d0c95ff"
+    },
+    "generated/views/LottieView.txt": {
+      "bytes": 506008,
+      "sha256": "ae94f2fab31e39877ae557d182d8cec9ed0d53b942c9fd1c8bfcfd247bf72b10"
+    },
+    "generated/views/MarkdownView.txt": {
+      "bytes": 19510,
+      "sha256": "b684db12a2eb4bab85bd570fa713f1d803a8885e6775f8a4df8c0c2e3e3af85f"
+    },
+    "generated/views/MathView.txt": {
+      "bytes": 19424,
+      "sha256": "dfcdff91618ae4f5c0efb0c8538cd9792312bc7a7c22cddbc306fcf52fd9c61d"
+    },
+    "generated/views/MetricGridView.txt": {
+      "bytes": 19581,
+      "sha256": "243ec34693defb5652b415249b027a0ecfe7867fcb958c090fda9d2412bded2d"
+    },
+    "generated/views/MetricView.txt": {
+      "bytes": 19995,
+      "sha256": "3ba78c0c19d3365a70b0ed9875091d3b49bc443d6342028165a189520fc0f50a"
+    },
+    "generated/views/MultipleChoiceBlockV2View.txt": {
+      "bytes": 23154,
+      "sha256": "cc3f2fe5d4078366af7f43ae2b58b3a839922ff1dff2e4109e4018d4364cb59a"
+    },
+    "generated/views/NbaGameBoxscoreView.txt": {
+      "bytes": 22821,
+      "sha256": "9cf6c68460dc171b18281cf593e8c5bd41f22e7a40cdedb36c430fb763755179"
+    },
+    "generated/views/NbaPlayerSummaryView.txt": {
+      "bytes": 21591,
+      "sha256": "38a5069db1ec02b1c396265a43c422a7e1bd9c4eefa5c9309641adbb7c71dec4"
+    },
+    "generated/views/NbaScoresView.txt": {
+      "bytes": 23881,
+      "sha256": "49fa893e9227255843ab58a147301d5c715bd78b1bbb75a91f66048dcf345557"
+    },
+    "generated/views/NewsArticleView.txt": {
+      "bytes": 20444,
+      "sha256": "7d6757939419760bbb3c2794cd15b4f8993f1df8b65dcedd492e26e87bc43caf"
+    },
+    "generated/views/OfferVoiceConversationView.txt": {
+      "bytes": 21793,
+      "sha256": "7d35bdd88837a3add050a2d10496d6e7f1b14d9e4de1a5ed8a1425ca9ad95127"
+    },
+    "generated/views/OnboardingFeatureCardView.txt": {
+      "bytes": 24239,
+      "sha256": "65a9a4f061be557d45e4497531df07311fdfd7af475f5b4c36443ddfbf7cbed4"
+    },
+    "generated/views/OnboardingPluginSuggestionsView.txt": {
+      "bytes": 23174,
+      "sha256": "791ce45a9d892d463e45c19ab3e11cca0209e1af5fe165fc0d9dead675b0e589"
+    },
+    "generated/views/OnboardingSelectionView.txt": {
+      "bytes": 24276,
+      "sha256": "083d8ff535d017f6264e69b7d0b417178a9687996e032054cac1b178817e4bdf"
+    },
+    "generated/views/OnboardingStarterTasksView.txt": {
+      "bytes": 23569,
+      "sha256": "a5305b9a3b1547c831fd91e0077428125c6a9c123566a94efea3b3cb7b970dda"
+    },
+    "generated/views/OpenDetailView.txt": {
+      "bytes": 22220,
+      "sha256": "4504523b09e4d103da1c5bfd503c65791c470699910dc6bc940fc36b3a9b030d"
+    },
+    "generated/views/OpenaiView.txt": {
+      "bytes": 22055,
+      "sha256": "f772462d1bae24301ed8479fe32a91b6012a5f8185e4c607589210e52d222635"
+    },
+    "generated/views/PackageTrackerView.txt": {
+      "bytes": 21834,
+      "sha256": "21018cd51a82d95fee81cd56956aa4eb3985f9b49eac4251a9652cbece66cc9f"
+    },
+    "generated/views/PersonProfileView.txt": {
+      "bytes": 20908,
+      "sha256": "9646d68afcb1a9d34b930951a58c8aeb336cc350c60073359ef608280675fda9"
+    },
+    "generated/views/PersonalityQuizView.txt": {
+      "bytes": 33744,
+      "sha256": "e02add0d86fee032cf8e8e7096a951b649d914a554452c23c5da44d0bccbba7b"
+    },
+    "generated/views/PlacesMetadataBarView.txt": {
+      "bytes": 22967,
+      "sha256": "7b907291f66c50a8b563bc0a837f69f14d40e0c815016ce5329f0f16f2de54d7"
+    },
+    "generated/views/PluginFollowupView.txt": {
+      "bytes": 22523,
+      "sha256": "b85074404026bd39eee7b7c315fbac0da7e8fd7c449a090ccb5c78420aa94aa3"
+    },
+    "generated/views/PopoverView.txt": {
+      "bytes": 19719,
+      "sha256": "0d2ef8dba85fc56220d58d948787c2a7865f4aeb33de4d4be47cc87ebfe4ea4a"
+    },
+    "generated/views/PressableView.txt": {
+      "bytes": 19910,
+      "sha256": "10057f196bdf8979b78a89ba0f1cf7c7b0994e464252ab0a712cf3bdce0eae40"
+    },
+    "generated/views/ProductCardView.txt": {
+      "bytes": 21624,
+      "sha256": "4c36ef4f922675240a113c9e84d19022b54855dafe942dc9cdf44a98648bc97d"
+    },
+    "generated/views/PromptChecklistView.txt": {
+      "bytes": 28436,
+      "sha256": "1a1605b2c80a0c2dce8fee86690b01d667a4ec179eb0082185205f2c1fc4c318"
+    },
+    "generated/views/PromptSuggestionsView.txt": {
+      "bytes": 20081,
+      "sha256": "b03fc3d746894bb101e1f6de75abae7c6fe64b288203e7b32fa2a0f3e8c30cb2"
+    },
+    "generated/views/PulseIndicatorView.txt": {
+      "bytes": 19772,
+      "sha256": "35ed4ed550990e3ac8e09516fee36018c15fa1bc94a6f0bd5f0782367fe9330b"
+    },
+    "generated/views/PushDripSeriesIntroView.txt": {
+      "bytes": 23005,
+      "sha256": "20c2d97037ba5242b7bb06ff397cc26f09d55dfcf24150167d2d9cacb2786dfd"
+    },
+    "generated/views/QuestionnaireView.txt": {
+      "bytes": 30183,
+      "sha256": "c51cc20d14466c50d9bfc294fd9c033b2ae2324788ac039a8f8bfacd5085f810"
+    },
+    "generated/views/QuizView.txt": {
+      "bytes": 20855,
+      "sha256": "74a2ca1d71a1056f35e1b492d560bf9a758096a58c54f542b173a32ec3c4e648"
+    },
+    "generated/views/RatingSummaryView.txt": {
+      "bytes": 19914,
+      "sha256": "5275d3804e7fedf4c6eca3aa702af9b8e6f6f4a73b6119001da23c715ab38c71"
+    },
+    "generated/views/RatingView.txt": {
+      "bytes": 19803,
+      "sha256": "8ca2136f77105c6f020f0684f4bd39db35ddb48c786f1e1236cdc36f0a4542de"
+    },
+    "generated/views/RecommendationCardView.txt": {
+      "bytes": 22322,
+      "sha256": "21ad823fae5e76d9af64065e97de0ba9e33336ec9a3e3093cb015229a0035215"
+    },
+    "generated/views/RecommendationLinkCardView.txt": {
+      "bytes": 20690,
+      "sha256": "2639618e53160240451488bcce931659fce8c3c5580b380737cdca7350d1a2bd"
+    },
+    "generated/views/RedditThreadCardView.txt": {
+      "bytes": 23045,
+      "sha256": "8cd8b1b07d589d8aa42aba95403208651f83dbed368d9bc3600d8844cc4ad58d"
+    },
+    "generated/views/ReservationTimePillsRefCarouselView.txt": {
+      "bytes": 52088,
+      "sha256": "ecc494dcaf891a137ece4141271c39452c7493444ed386c0d15519d24c320a89"
+    },
+    "generated/views/RestaurantAvailabilityView.txt": {
+      "bytes": 20850,
+      "sha256": "69d18f0dad4fd98721be2532cbc8cff0325698afb257bc0687800a64ebb0559c"
+    },
+    "generated/views/RestaurantMenuView.txt": {
+      "bytes": 20894,
+      "sha256": "94ec11b941614537d4333bca90d2fab63844616bd373dae6977e7b07a3b691f8"
+    },
+    "generated/views/RestaurantReviewsView.txt": {
+      "bytes": 21318,
+      "sha256": "9dc3f07ee84752ba291e871948390cb0af2bb10b1aea1354fb39e34af57d4a61"
+    },
+    "generated/views/ScheduledTaskSuggestionView.txt": {
+      "bytes": 20483,
+      "sha256": "5770b6cb2209e7c31f946c2f9688701c6ddbc5b72d552a81352b4e2141cbceb7"
+    },
+    "generated/views/SearchImageView.txt": {
+      "bytes": 23424,
+      "sha256": "a91de5efe1508216a3f1e27324d9770949ce6b380126da2fa82956747ae7f408"
+    },
+    "generated/views/SectionView.txt": {
+      "bytes": 19467,
+      "sha256": "b0db80bc2e07456667a5d5f1954f9b2a28e86c11f490644818b42822d1c0ddf5"
+    },
+    "generated/views/SegmentedView.txt": {
+      "bytes": 20242,
+      "sha256": "f66b5f26c6c8bc4035fefb28b5479cd36f127d914b0e17328c5189947ea44bc3"
+    },
+    "generated/views/SentenceBuilderView.txt": {
+      "bytes": 20277,
+      "sha256": "4e4973f5bc7cab385bf34e5f95bd0dff5db54f45fda004928053c7722c0ad20e"
+    },
+    "generated/views/SharedActivityPlannerView.txt": {
+      "bytes": 21956,
+      "sha256": "66e300ba83d2553bfaf7cf509176cf7303544075b43227612c9a159a42950ad4"
+    },
+    "generated/views/SidebarFactTableView.txt": {
+      "bytes": 21112,
+      "sha256": "a6b37dc73a7541f1fb197fea2b625ab6a8cf332ca8ba3de4c4f7ebdcb9cad0c5"
+    },
+    "generated/views/SidebarPeopleAlsoAskView.txt": {
+      "bytes": 20630,
+      "sha256": "5c4690270c73cc83f66b8821f96b8ed0d933cedc184663c44d008accff1a336a"
+    },
+    "generated/views/SoccerGamesView.txt": {
+      "bytes": 23917,
+      "sha256": "0a95a3b61297d2dd94ae8aef98b04da05d506a1e8bd551a0840ade5423b9ef83"
+    },
+    "generated/views/SpacerView.txt": {
+      "bytes": 19468,
+      "sha256": "dc4bf1c24d45b6693c34a2c1c031271d9d5acc842d4f63617ecc0bca1dadc57d"
+    },
+    "generated/views/SpeechSynthesizerView.txt": {
+      "bytes": 21332,
+      "sha256": "3e77c4d6a95b21d3d1136e82a2ad11cf35aaa481ee1e062a9b22715d82103c5d"
+    },
+    "generated/views/SportsScheduleView.txt": {
+      "bytes": 24943,
+      "sha256": "3fe83fc25cf979c1cb09e62c5599d4db51cf04255b85513326500e647a53741f"
+    },
+    "generated/views/SportsScoreboardView.txt": {
+      "bytes": 24729,
+      "sha256": "666b1899e0789f16f58ea6484aec90de521cdaeb1181d66b1e44d4bb721379e1"
+    },
+    "generated/views/SportsStandingsView.txt": {
+      "bytes": 24829,
+      "sha256": "35f8ebd9382c063f78a069adf30248c2b07374d194898358203c89d5b27017c2"
+    },
+    "generated/views/StepsView.txt": {
+      "bytes": 19601,
+      "sha256": "c8801536e9cc9d18578102eb821aebb7632c962548fa21cf24382ea42a24cd23"
+    },
+    "generated/views/StopPushDripSeriesView.txt": {
+      "bytes": 22983,
+      "sha256": "2ba20878b30126c74261ef3b428bc837de89effc5d86a1a2cfeb792a79cde6c7"
+    },
+    "generated/views/StopwatchView.txt": {
+      "bytes": 19646,
+      "sha256": "a0b278823033bb7d774090e2c4dd5794d233804896e60a7802d4a77ebf9430a4"
+    },
+    "generated/views/SuperbowlRiddleView.txt": {
+      "bytes": 25222,
+      "sha256": "23e44e0a18bb2d7189262add06d485b8367e9aea51191938769004a582570fb9"
+    },
+    "generated/views/SvgView.txt": {
+      "bytes": 20192,
+      "sha256": "f4d329a999adeab86aba03139ef1e2275a22c5e94154599088751e2adee12bb2"
+    },
+    "generated/views/TabGroupView.txt": {
+      "bytes": 20964,
+      "sha256": "d52497ea668f317ea5de051285b47afbec2ae7797331f164f86c4d855815ff3a"
+    },
+    "generated/views/TabPanelView.txt": {
+      "bytes": 19630,
+      "sha256": "3b4fe0e6dad306283947db3a62ff31b84979609a5ce8f725b6f5cc130da2e933"
+    },
+    "generated/views/TabbedSectionView.txt": {
+      "bytes": 20472,
+      "sha256": "804cfa5786aea7e3ef32dde59dfc04665c2e77905fee32e974b81c0e22bd1134"
+    },
+    "generated/views/TaskAutopauseCardView.txt": {
+      "bytes": 22321,
+      "sha256": "2c939d85407717de5dc88c5238b3410029bf859dac442771af734673319a6f1a"
+    },
+    "generated/views/TaskExpansionCardView.txt": {
+      "bytes": 20319,
+      "sha256": "21dc7403682e55b26871898c416121e1b9cf17f965876255b53ebfc55c7ccc8a"
+    },
+    "generated/views/TennisPlayerSummaryView.txt": {
+      "bytes": 21483,
+      "sha256": "8474ac0f23166add8f090563c2ff9376a9d0ea23fd6fbbcf99ba1b12747e5152"
+    },
+    "generated/views/TimerView.txt": {
+      "bytes": 19558,
+      "sha256": "ba03bd02cd2cb8950ddcfa27fb49616cfc33a1a04fa54fe87bcd79bc58d0aabc"
+    },
+    "generated/views/TooltipView.txt": {
+      "bytes": 19638,
+      "sha256": "abccc033bbe94843428e6240da3960906180d3a44c40d557a01db56ad1f5feca"
+    },
+    "generated/views/TopologyView.txt": {
+      "bytes": 20302,
+      "sha256": "d8a408d417eb33dcfadc1d639223648ac801b80f81599bcaf27a4405949a5c54"
+    },
+    "generated/views/TransactionListView.txt": {
+      "bytes": 20816,
+      "sha256": "d4faab8b607013afeaff6e85cbfd1e22c6c8bc5cf657c6fc8faa07a59842e323"
+    },
+    "generated/views/UnitConverterView.txt": {
+      "bytes": 21572,
+      "sha256": "770924b37f263ce2565a60f2551688a8ca665edc34018c394a2a39b972c5c442"
+    },
+    "generated/views/VisualCardCarouselView.txt": {
+      "bytes": 24260,
+      "sha256": "0b6478f87b1ca07584b48c88d636ac20ee1ae9b83d66f2146098111b925739e3"
+    },
+    "generated/views/VocabCardView.txt": {
+      "bytes": 20357,
+      "sha256": "d73d341ad913e6ecc9f21b3bdc7c09c397d0e89ddd3196b44afceda51a9c75d5"
+    },
+    "generated/views/WeatherSidebarTitleView.txt": {
+      "bytes": 21366,
+      "sha256": "21f3231cdfa7a0a202a7a113864e8c560672bfab3cc3c7156f40d498e3146a0b"
+    },
+    "generated/views/WeatherView.txt": {
+      "bytes": 28636,
+      "sha256": "865376dcd4588a68fca261c1b3cb6b8a62378c2411eb7e4d52ea84d606cc8d2c"
+    },
+    "generated/views/WebLinkCardsView.txt": {
+      "bytes": 20020,
+      "sha256": "56bbc676185223dad7100255d0bd40ab844484fc90ff07c89abf322b6827c84d"
+    },
+    "generated/views/WhatsNewCapabilitySearchView.txt": {
+      "bytes": 67285,
+      "sha256": "717044fe4cac21756b274f905edc5ab7b416ec1f0495ccce05be55bafc3f3b8c"
+    },
+    "generated/views/WhatsNewCapabilityWelcomeView.txt": {
+      "bytes": 25509,
+      "sha256": "833e85844f305ddb958a88845d7c2ed4cc95afc4bb52de0289fea3e733866ed8"
+    },
+    "generated/views/WordCardView.txt": {
+      "bytes": 20585,
+      "sha256": "c1467603258e392e83a295d9594ecbcb4cf8bcf38958b011c39f15a9ca3a7fc9"
+    },
+    "generated/views/WritingBlockView.txt": {
+      "bytes": 19754,
+      "sha256": "319b8a65c7fe304f590e031ecd58212c856996b7bf4719397ab4866a9efd7cc6"
+    },
+    "generated/views/YoutubeView.txt": {
+      "bytes": 20244,
+      "sha256": "385a686efb7fad69be30f39be02476e4ef7056591e47b014fd72b33db1684955"
+    }
+  },
+  "limitations": "Projection preserves schema constraints and annotated runtime rules; incomplete domain semantic descriptions are explicitly marked. Native UTF-16 string-length behavior is not equivalent to Unicode code-point counting in standard JSON Schema."
+}

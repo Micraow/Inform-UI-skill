@@ -27,38 +27,38 @@ Props typed `ActionExpression` accept one @step, or Action([@steps...]) for seve
 Props marked `$binding<type>` accept a `$variable` reference for two-way binding.
 
 ### base/text
-Text(content: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
-Heading(content: string, level?: number) — Semantic heading.
-Badge(label: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Compact supplied status label.
+Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
+Heading(content: string{minLength=1,maxLength=512}, level?: integer[1,6]) — Semantic heading.
+Badge(label: string{minLength=1,maxLength=512}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Compact supplied status label.
 Divider() — Thematic separator.
-Alert(title: string, description: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Supplied notice with visible title and explanation.
-Table(columns: {key: string, label: string}[], rows: Record<string, string | number | boolean | any>[], caption?: string) — Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering.
+Alert(title: string{minLength=1,maxLength=512}, description: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Supplied notice with visible title and explanation.
+Table(columns: {key: string{maxLength=64,pattern="^[A-Za-z][A-Za-z0-9_]*$"}, label: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=32}, rows: ({[key: string]: string{maxLength=2048} | number | boolean | null})[]{maxItems=1000}, caption?: string{minLength=1,maxLength=512}) — Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering.
 
 ### base/layout
-Stack(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
-Row(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
-Grid(children: Component[], columns?: number, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
-Card(children: Component[], title?: string) — Grouped surface with optional title.
+Stack(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
+Row(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
+Grid(children: Component[]{minItems=0,maxItems=128}, columns?: integer[1,6], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
+Card(children: Component[]{minItems=0,maxItems=128}, title?: string{minLength=1,maxLength=512}) — Grouped surface with optional title.
 
 ### base/controls
-Button(label: string, onPress: ActionExpression, variant?: "primary" | "secondary" | "ghost", disabled?: boolean) — Explicit local state action button.
-Input(label: string, value: $binding<string>, placeholder?: string, disabled?: boolean) — Labeled single-line text input bound to local state.
-Textarea(label: string, value: $binding<string>, rows?: number, placeholder?: string, disabled?: boolean) — Labeled multiline text input.
-Select(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Labeled single selection from supplied options.
-RadioGroup(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Visible single-choice radio options.
-Checkbox(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled boolean checkbox.
-Switch(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled local on/off switch.
-Slider(label: string, value: $binding<number>, min: number, max: number, step?: number, disabled?: boolean) — Bounded numeric local slider.
+Button(label: string{minLength=1,maxLength=512}, onPress: ActionExpression, variant?: "primary" | "secondary" | "ghost", disabled?: boolean) — Explicit local state action button.
+Input(label: string{minLength=1,maxLength=512}, value: $binding<string{maxLength=4096}>, placeholder?: string{maxLength=512}, disabled?: boolean) — Labeled single-line text input bound to local state.
+Textarea(label: string{minLength=1,maxLength=512}, value: $binding<string{maxLength=20000}>, rows?: integer[2,20], placeholder?: string{maxLength=512}, disabled?: boolean) — Labeled multiline text input.
+Select(label: string{minLength=1,maxLength=512}, value: $binding<string{minLength=1,maxLength=512}>, options: {label: string{minLength=1,maxLength=512}, value: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=128}, disabled?: boolean) — Labeled single selection from supplied options.
+RadioGroup(label: string{minLength=1,maxLength=512}, value: $binding<string{minLength=1,maxLength=512}>, options: {label: string{minLength=1,maxLength=512}, value: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=128}, disabled?: boolean) — Visible single-choice radio options.
+Checkbox(label: string{minLength=1,maxLength=512}, checked: $binding<boolean>, disabled?: boolean) — Labeled boolean checkbox.
+Switch(label: string{minLength=1,maxLength=512}, checked: $binding<boolean>, disabled?: boolean) — Labeled local on/off switch.
+Slider(label: string{minLength=1,maxLength=512}, value: $binding<number[-1e100,1e100]>, min: number[-1e100,1e100], max: number[-1e100,1e100], step?: number(0,∞), disabled?: boolean) — Bounded numeric local slider.
 
 ### base/icon
-Icon(name: string, label?: string) — A bundled icon selected by canonical catalog name.
+Icon(name: IconName (exact bundled catalog), label?: string{minLength=1,maxLength=512} | null, tone?: "default" | "muted" | "info" | "success" | "warning" | "error", size?: 16 | 20 | 24 | 32 | 48) — A bundled official SVG icon with semantic tone and a fixed optical size.
 
 ### base/media
-Image(src: string, alt: string, caption?: string) — Image subject to the host media policy.
-Video(src: string, title: string, poster?: string, captions?: {src: string, label: string, language: string}[]) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
+Image(src: string{minLength=1,maxLength=1000000}, alt: string{maxLength=2048}, caption?: string{minLength=1,maxLength=512}) — Image subject to the host media policy.
+Video(src: string{maxLength=500000,pattern="^(?:data:video\\/(?:mp4|webm|ogg);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, title: string{minLength=1,maxLength=512}, poster?: string{maxLength=500000,pattern="^(?:data:image\\/(?:png|jpeg|gif|webp);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, captions?: {src: string{maxLength=12000,pattern="^(?:data:text\\/vtt(?:;charset=utf-8)?(?:;base64)?,[^\\r\\n]*|https:\\/\\/[^\\s]+)$"}, label: string{minLength=1,maxLength=512}, language: string{pattern="^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{2,8})*$"}}[]{maxItems=8}) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
 
 ### views/discovery
-RestaurantReviewsView(data: RestaurantReviewsData) — Supplied restaurant reviews View rendered with the shared Inform foundation theme.
+RestaurantReviewsView(data: {label: string{minLength=1,maxLength=200}, restaurantName: string{minLength=1,maxLength=200}, reviews: ({id: string{maxLength=12000,pattern="^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"}, author: string{minLength=1,maxLength=200}, text: string{minLength=1,maxLength=6000}, rating?: number[0,5], food?: number[0,5], service?: number[0,5], atmosphere?: number[0,5], visitDate?: string{minLength=10,maxLength=10,pattern="^[1-9]\\d{3}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$(?![\\s\\S])"}, occasion: "breakfast" | "lunch" | "dinner" | "other" | "unknown", dishes?: string{minLength=1,maxLength=200}[]{minItems=0,maxItems=12}, source?: {label: string{minLength=1,maxLength=200}, url: string{minLength=1,maxLength=2048}}})[]{minItems=0,maxItems=60}, description?: string{maxLength=2000}, source?: {label: string{minLength=1,maxLength=200}, url: string{minLength=1,maxLength=2048}}}) — Supplied restaurant reviews View rendered with the shared Inform foundation theme.
 
 ## Built-in Functions
 
@@ -139,6 +139,7 @@ Before finishing, walk your output and verify:
 3. Every $binding appears in at least one component or expression.
 
 - Component means any available UI component in this profile. Data constructors are not UI children.
+- Read signatures together with all schema and runtime relationship rules: integer requires a whole number; [a,b] includes both bounds, (a,b) excludes them; minItems/maxItems count array entries; ? means the field may be omitted, not that null is accepted. null is allowed only when explicitly listed. Runtime string minLength/maxLength use UTF-16 code units (an emoji may count as 2), which can differ from standard JSON Schema Unicode-code-point counting; final validation uses Inform runtime. {default=...} records an annotated default; the runtime determines its application. A tuple lists positional item types; allowed rest items are shown. Undeclared keys are rejected by strict objects. Catalog-backed enums must match their named catalog. Constraints on an untyped schema apply only to the relevant value kind; do not infer a narrower type.
 - The positional parameter order is an ABI. Never emit named arguments, unknown props, callback functions, raw HTML, arbitrary CSS, imports, Query, Mutation, @Run, @OpenUrl or @ToAssistant.
 - All mutable variables must be explicitly declared. Use direct declared $variables for ordinary writable bindings. $value is reserved for assignment-binding input; it is not standalone state. Arbitrary callbacks or JavaScript functions are forbidden.
 - Only @Set, @Reset and Action([...]) are local action syntax. Actions have no authority to call external services.
@@ -147,11 +148,45 @@ Before finishing, walk your output and verify:
 - Inform semantics: == and != compare scalar values strictly; logical operators require booleans. Sort uses deterministic lexicographic string order and rejects mixed number/string keys. Filter relational operators require numbers. @Each uses an inline template with a named item, no index parameter or JavaScript lambda.
 - Display supplied facts accurately. Domain modules do not fetch, verify or transact on data.
 - Icon.name must match an exact name from the bundled searchable icon catalog. Search the catalog by purpose and include only the names needed for this answer; the runtime still validates its full enum.
+- Text usage: Use for prose. Newlines remain text; markup and code are not executed.
+- Heading usage: Use headings in a meaningful outline. Level defaults to 2 in the renderer.
+- Badge usage: A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.
+- Divider usage: Use sparingly between sections. It has no text or interaction.
+- Alert usage: Passive notice. It does not trigger a notification service or infer urgency. Tones info, success, warning, and error use semantic soft surfaces. Keep a visible title and description so meaning does not depend on color.
+- Table usage: Columns have unique keys. Rows may omit a column, but may not introduce undeclared columns. Cells are plain scalar data.
+- Stack usage: Children belong to the selected profile. Gap is a finite design token; there is no arbitrary CSS.
+- Row usage: Uses a wrapping row. Choose start, center, end or stretch alignment.
+- Grid usage: Columns is a maximum requested column count; narrow layouts may use fewer columns.
+- Card usage: Use a card for one coherent section. Card owns its child slot, not external services.
+- Button usage: onPress is a runtime-issued local action. Use @Set, @Reset or Action; literal action-like objects are forbidden.
+- Input usage: Pass a direct declared $variable to value to allow edits. Literal values render read-only. Draft text is not committed when validation fails.
+- Textarea usage: Writable through a direct declared $variable; an invalid transaction must preserve the previous committed value.
+- Select usage: Options have unique values. Current value must match one option.
+- RadioGroup usage: Uses the same single-choice state contract as Select, with native labeled radios.
+- Checkbox usage: Pass a direct declared boolean $variable to checked for local edits.
+- Switch usage: A boolean local switch. It never changes external account or app settings.
+- Slider usage: Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.
+- Icon usage: Only exact bundled canonical names are accepted. Arguments: name, label, tone, size. Use null label for a decorative icon beside visible text. Use a nonempty label for an icon that conveys meaning alone. Tones: default, muted, info, success, warning, error. Sizes: 16, 20, 24, 32, 48; default 20. Tone communicates supplied meaning; it never verifies status. Public OpenAI Apps SDK UI glyphs are distinct from Inform UI role mapping.
+- Image usage: Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.
+- Video usage: Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.
+- RestaurantReviewsView usage: Use RestaurantReviewsView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
 - Button: No host tools, navigation, account access or message sending.
 - Icon: No remote SVG or arbitrary path data.
 - Image: HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected.
 - RestaurantReviewsView: Supplied source data is not independently fetched or verified.
 - RestaurantReviewsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
 - RestaurantReviewsView: Base composition is a target until adapter evidence confirms extraction.
+- ## Schema relationship constraints
+
+These compact JSON clauses use JSON Schema semantics in addition to the signatures; sibling constraints also apply. oneOf means exactly one branch; anyOf means at least one; allOf means every branch. Optional properties may be absent, including inside conditions. default is a schema annotation; its application is determined by the runtime contract. x-inform-runtime-rules are additional checks enforced by Inform runtime, not by an ordinary JSON Schema validator.
+
+- Table [runtime rule table-column-membership]: Column keys must be unique. Row keys must name declared columns; rows may omit a declared column.
+- Table.rows[]: {"type":"object","propertyNames":{"type":"string"},"additionalProperties":{"anyOf":[{"type":"string","maxLength":2048},{"type":"number"},{"type":"boolean"},{"type":"null"}]}}
+- Select [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
+- RadioGroup [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
+- Slider [runtime rule slider-range]: min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1.
+- Image [runtime rule raster-image-source]: src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch.
+- RestaurantReviewsView [runtime rule data-schema-RestaurantReviewsData]: The supplied data must satisfy every bound, required field and conditional branch in RestaurantReviewsData.
+- RestaurantReviewsView [runtime rule domain-restaurant-reviews]: Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity.
 - Data constructors (not renderers):
-RestaurantReviewsData(label: string, restaurantName: string, reviews: {id: string, author: string, text: string, rating?: number, food?: number, service?: number, atmosphere?: number, visitDate?: string, occasion: "breakfast" | "lunch" | "dinner" | "other" | "unknown", dishes?: string[], source?: {label: string, url: string}}[], description?: string, source?: {label: string, url: string}): Strict supplied record for RestaurantReviewsView. Conditional variants are enforced by the same bounded validator.
+RestaurantReviewsData(label: string{minLength=1,maxLength=200}, restaurantName: string{minLength=1,maxLength=200}, reviews: ({id: string{pattern="^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"}, author: string{minLength=1,maxLength=200}, text: string{minLength=1,maxLength=6000}, rating?: number[0,5], food?: number[0,5], service?: number[0,5], atmosphere?: number[0,5], visitDate?: string{minLength=10,maxLength=10,pattern="^[1-9]\\d{3}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])$(?![\\s\\S])"}, occasion: "breakfast" | "lunch" | "dinner" | "other" | "unknown", dishes?: string{minLength=1,maxLength=200}[]{minItems=0,maxItems=12}, source?: {label: string{minLength=1,maxLength=200}, url: string{minLength=1,maxLength=2048}}})[]{minItems=0,maxItems=60}, description?: string{maxLength=2000}, source?: {label: string{minLength=1,maxLength=200}, url: string{minLength=1,maxLength=2048}}): Strict supplied record for RestaurantReviewsView. Conditional variants are enforced by the same bounded validator.

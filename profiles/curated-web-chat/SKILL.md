@@ -11,6 +11,7 @@ description: 生成完整互动 HTML 答案，在 Inform 基础与图表之外�
 
 - 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 latest，不把 commit 或版本号写入 HTML。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
 - 47 个 UI 构造器、15 个数据构造器。本版只额外开放：MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、CodeView、BlockquoteView、ChecklistView。不要改成全部 views/content；其他领域 View 不在本版合同里。
+- 下面的范围、整数、长度、枚举、默认值和组合条件均属于校验合同；省略可选参数不等于可以传任意值。变量、计算结果和状态更新也必须满足约束，图表空间不足时调整外层布局，不把受限尺寸缩到下限以下。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部195个View。
 - CodeView 只显示字符串，不执行代码；代码块用 language、highlight:true、copy:true，inline:true 时不可同时启用高亮/复制。它保留缩进和原始换行，长行在面板内横向滚动；不把每行强行断开。复制需要浏览器安全上下文、权限与真实点击，失败应按页面提示处理。
 - BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。
@@ -56,65 +57,65 @@ Props typed `ActionExpression` accept one @step, or Action([@steps...]) for seve
 Props marked `$binding<type>` accept a `$variable` reference for two-way binding.
 
 ### base/charts
-AreaChart(title: string, labels: string[], series: Series[], options?: {height?: number, legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string, yAxisLabel?: string, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "linear" | "natural" | "step", stacked?: boolean, crosshair?: boolean, highlight?: boolean}) — Multi-series area chart, including stacked and signed values.
-BarChart(title: string, labels: string[], series: Series[], options?: {height?: number, legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string, yAxisLabel?: string, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "grouped" | "stacked", orientation?: "vertical" | "horizontal", barRadius?: number}) — Grouped or stacked vertical/horizontal bar chart.
-HorizontalBarChart(title: string, labels: string[], series: Series[], options?: {height?: number, legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string, yAxisLabel?: string, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "grouped" | "stacked", barRadius?: number}) — Horizontal orientation of the same upstream BarChart engine.
-LineChart(title: string, labels: string[], series: Series[], options?: {height?: number, legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string, yAxisLabel?: string, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "linear" | "natural" | "step", showDots?: boolean, crosshair?: boolean, highlight?: boolean}) — Multi-series line chart with configurable interpolation and dots.
-HeatmapChart(title: string, labels: string[], series: Series[], options?: {height?: number, legend?: boolean, animate?: boolean, rampMode?: "sequential" | "diverging", showColorScale?: boolean, showCellLabels?: boolean, showYAxis?: boolean}) — Value heatmap with missing cells and signed diverging color scales.
-RadarChart(title: string, labels: string[], series: Series[], options?: {height?: number, legend?: boolean, animate?: boolean, grid?: boolean, gridShape?: "circle" | "polygon", gridLevels?: number, variant?: "line" | "area", showDots?: boolean}) — Multi-series radar chart with polygon or circular grids.
-PieChart(title: string, slices: Slice[], options?: {height?: number, legend?: boolean, animate?: boolean, variant?: "pie" | "donut", appearance?: "circular" | "semiCircular", format?: "percentage" | "number", legendVariant?: "default" | "stacked"}) — Pie or donut chart with a keyboard-accessible interactive legend.
-RadialChart(title: string, slices: Slice[], options?: {height?: number, legend?: boolean, animate?: boolean, variant?: "circular" | "semiCircular", format?: "percentage" | "number", legendVariant?: "default" | "stacked", grid?: boolean}) — Circular or semicircular radial magnitude chart.
-FunnelChart(title: string, slices: Slice[], options?: {height?: number, legend?: boolean, animate?: boolean, orientation?: "horizontal" | "vertical", edges?: "curved" | "straight", layers?: number, showLabels?: boolean, showValues?: boolean, showPercentage?: boolean}) — Actual curved/straight multi-stage funnel with upstream geometry.
-SegmentedBar(title: string, slices: Slice[], options?: {legend?: boolean, animate?: boolean, legendVariant?: "default" | "stacked"}) — Proportional segmented bar with interactive legend.
-SingleStackedBar(title: string, slices: Slice[], options?: {legend?: boolean, animate?: boolean, legendVariant?: "default" | "stacked"}) — Compatibility name for the same upstream SegmentedBar core.
-ScatterChart(title: string, datasets: ScatterSeries[], options?: {height?: number, legend?: boolean, animate?: boolean, grid?: boolean, verticalGrid?: boolean, showYAxis?: boolean, xAxisLabel?: string, yAxisLabel?: string, dotRadius?: number}) — Multiple named scatter datasets with finite signed coordinates.
-CalendarHeatmap(title: string, days: CalendarDay[], options?: {height?: number, animate?: boolean, range?: "6m" | "12m" | any, thresholds?: any, layout?: "fluid" | "fill", weekStartDay?: number, showMonthLabels?: boolean, weekdayTickFilter?: "all" | "odd" | "even", weekdayLabelFormat?: "full" | "initial", legendVariant?: "swatches" | "gradient" | "none", valueLabel?: string, patterns?: "diagonal" | "dots" | "cross" | "horizontal" | "vertical"[]}) — Contribution calendar with real date geometry, sparse days and level patterns.
-MiniAreaChart(title: string, values: number[], options?: {size?: number, animate?: boolean, variant?: "linear" | "natural" | "step", useGradient?: boolean, opacity?: number}) — Compact upstream area sparkline with signed values.
-MiniBarChart(title: string, values: number[], options?: {size?: number, animate?: boolean, radius?: number}) — Compact upstream bar sparkline with signed values.
-MiniLineChart(title: string, values: number[], options?: {size?: number, animate?: boolean, variant?: "linear" | "natural" | "step"}) — Compact upstream line sparkline with signed values.
+AreaChart(title: string{maxLength=240}, labels: string{maxLength=240}[]{maxItems=256}, series: ({name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}})[]{maxItems=12}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string{maxLength=240}, yAxisLabel?: string{maxLength=240}, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "linear" | "natural" | "step", stacked?: boolean, crosshair?: boolean, highlight?: boolean}) — Multi-series area chart, including stacked and signed values.
+BarChart(title: string{maxLength=240}, labels: string{maxLength=240}[]{maxItems=256}, series: ({name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}})[]{maxItems=12}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string{maxLength=240}, yAxisLabel?: string{maxLength=240}, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "grouped" | "stacked", orientation?: "vertical" | "horizontal", barRadius?: number[0,16]}) — Grouped or stacked vertical/horizontal bar chart.
+HorizontalBarChart(title: string{maxLength=240}, labels: string{maxLength=240}[]{maxItems=256}, series: ({name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}})[]{maxItems=12}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string{maxLength=240}, yAxisLabel?: string{maxLength=240}, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "grouped" | "stacked", barRadius?: number[0,16]}) — Horizontal orientation of the same upstream BarChart engine.
+LineChart(title: string{maxLength=240}, labels: string{maxLength=240}[]{maxItems=256}, series: ({name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}})[]{maxItems=12}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, grid?: boolean, condensed?: boolean, showYAxis?: boolean, xAxisLabel?: string{maxLength=240}, yAxisLabel?: string{maxLength=240}, tickVariant?: "singleLine" | "multiLine" | "angled", variant?: "linear" | "natural" | "step", showDots?: boolean, crosshair?: boolean, highlight?: boolean}) — Multi-series line chart with configurable interpolation and dots.
+HeatmapChart(title: string{maxLength=240}, labels: string{maxLength=240}[]{maxItems=256}, series: ({name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}})[]{maxItems=12}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, rampMode?: "sequential" | "diverging", showColorScale?: boolean, showCellLabels?: boolean, showYAxis?: boolean}) — Value heatmap with missing cells and signed diverging color scales.
+RadarChart(title: string{maxLength=240}, labels: string{maxLength=240}[]{maxItems=256}, series: ({name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}})[]{maxItems=12}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, grid?: boolean, gridShape?: "circle" | "polygon", gridLevels?: integer[1,12], variant?: "line" | "area", showDots?: boolean}) — Multi-series radar chart with polygon or circular grids.
+PieChart(title: string{maxLength=240}, slices: {label: string{maxLength=240}, value: number[0,1e15]}[]{maxItems=64}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, variant?: "pie" | "donut", appearance?: "circular" | "semiCircular", format?: "percentage" | "number", legendVariant?: "default" | "stacked"}) — Pie or donut chart with a keyboard-accessible interactive legend.
+RadialChart(title: string{maxLength=240}, slices: {label: string{maxLength=240}, value: number[0,1e15]}[]{maxItems=64}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, variant?: "circular" | "semiCircular", format?: "percentage" | "number", legendVariant?: "default" | "stacked", grid?: boolean}) — Circular or semicircular radial magnitude chart.
+FunnelChart(title: string{maxLength=240}, slices: {label: string{maxLength=240}, value: number[0,1e15]}[]{maxItems=64}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, orientation?: "horizontal" | "vertical", edges?: "curved" | "straight", layers?: integer[1,6], showLabels?: boolean, showValues?: boolean, showPercentage?: boolean}) — Actual curved/straight multi-stage funnel with upstream geometry.
+SegmentedBar(title: string{maxLength=240}, slices: {label: string{maxLength=240}, value: number[0,1e15]}[]{maxItems=64}, options?: {legend?: boolean, animate?: boolean, legendVariant?: "default" | "stacked"}) — Proportional segmented bar with interactive legend.
+SingleStackedBar(title: string{maxLength=240}, slices: {label: string{maxLength=240}, value: number[0,1e15]}[]{maxItems=64}, options?: {legend?: boolean, animate?: boolean, legendVariant?: "default" | "stacked"}) — Compatibility name for the same upstream SegmentedBar core.
+ScatterChart(title: string{maxLength=240}, datasets: {name: string{maxLength=240}, points: {x: number[-1e15,1e15], y: number[-1e15,1e15]}[]{maxItems=512}}[]{maxItems=12}, options?: {height?: integer[160,800], legend?: boolean, animate?: boolean, grid?: boolean, verticalGrid?: boolean, showYAxis?: boolean, xAxisLabel?: string{maxLength=240}, yAxisLabel?: string{maxLength=240}, dotRadius?: number[1,12]}) — Multiple named scatter datasets with finite signed coordinates.
+CalendarHeatmap(title: string{maxLength=240}, days: {date: string{pattern="^\\d{4}-\\d{2}-\\d{2}$"}, value: number[0,1e15]}[]{maxItems=732}, options?: {height?: integer[120,600], animate?: boolean, range?: "6m" | "12m" | [string{pattern="^\\d{4}-\\d{2}-\\d{2}$"}, string{pattern="^\\d{4}-\\d{2}-\\d{2}$"}]{minItems=2,maxItems=2}, thresholds?: [number[0,1e15], number[0,1e15], number[0,1e15], number[0,1e15]]{minItems=4,maxItems=4}, layout?: "fluid" | "fill", weekStartDay?: integer[0,6], showMonthLabels?: boolean, weekdayTickFilter?: "all" | "odd" | "even", weekdayLabelFormat?: "full" | "initial", legendVariant?: "swatches" | "gradient" | "none", valueLabel?: string{maxLength=240}, patterns?: ("diagonal" | "dots" | "cross" | "horizontal" | "vertical" | null)[]{maxItems=5}}) — Contribution calendar with real date geometry, sparse days and level patterns.
+MiniAreaChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItems=256}, options?: {size?: integer[100,320], animate?: boolean, variant?: "linear" | "natural" | "step", useGradient?: boolean, opacity?: number[0,1]}) — Compact upstream area sparkline with signed values.
+MiniBarChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItems=256}, options?: {size?: integer[100,320], animate?: boolean, radius?: number[0,12]}) — Compact upstream bar sparkline with signed values.
+MiniLineChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItems=256}, options?: {size?: integer[100,320], animate?: boolean, variant?: "linear" | "natural" | "step"}) — Compact upstream line sparkline with signed values.
 
 ### base/text
-Text(content: string, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
-Heading(content: string, level?: number) — Semantic heading.
-Badge(label: string, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Compact supplied status label.
+Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
+Heading(content: string{minLength=1,maxLength=512}, level?: integer[1,6]) — Semantic heading.
+Badge(label: string{minLength=1,maxLength=512}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Compact supplied status label.
 Divider() — Thematic separator.
-Alert(title: string, description: string, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Supplied notice with visible title and explanation.
-Table(columns: {key: string, label: string}[], rows: Record<string, string | number | boolean | any>[], caption?: string) — Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering.
+Alert(title: string{minLength=1,maxLength=512}, description: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Supplied notice with visible title and explanation.
+Table(columns: {key: string{maxLength=64,pattern="^[A-Za-z][A-Za-z0-9_]*$"}, label: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=32}, rows: ({[key: string]: string{maxLength=2048} | number | boolean | null})[]{maxItems=1000}, caption?: string{minLength=1,maxLength=512}) — Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering.
 
 ### base/controls
-Button(label: string, onPress: ActionExpression, variant?: "primary" | "secondary" | "ghost", disabled?: boolean) — Explicit local state action button.
-Input(label: string, value: $binding<string>, placeholder?: string, disabled?: boolean) — Labeled single-line text input bound to local state.
-Textarea(label: string, value: $binding<string>, rows?: number, placeholder?: string, disabled?: boolean) — Labeled multiline text input.
-Select(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Labeled single selection from supplied options.
-RadioGroup(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Visible single-choice radio options.
-Checkbox(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled boolean checkbox.
-Switch(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled local on/off switch.
-Slider(label: string, value: $binding<number>, min: number, max: number, step?: number, disabled?: boolean) — Bounded numeric local slider.
+Button(label: string{minLength=1,maxLength=512}, onPress: ActionExpression, variant?: "primary" | "secondary" | "ghost", disabled?: boolean) — Explicit local state action button.
+Input(label: string{minLength=1,maxLength=512}, value: $binding<string{maxLength=4096}>, placeholder?: string{maxLength=512}, disabled?: boolean) — Labeled single-line text input bound to local state.
+Textarea(label: string{minLength=1,maxLength=512}, value: $binding<string{maxLength=20000}>, rows?: integer[2,20], placeholder?: string{maxLength=512}, disabled?: boolean) — Labeled multiline text input.
+Select(label: string{minLength=1,maxLength=512}, value: $binding<string{minLength=1,maxLength=512}>, options: {label: string{minLength=1,maxLength=512}, value: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=128}, disabled?: boolean) — Labeled single selection from supplied options.
+RadioGroup(label: string{minLength=1,maxLength=512}, value: $binding<string{minLength=1,maxLength=512}>, options: {label: string{minLength=1,maxLength=512}, value: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=128}, disabled?: boolean) — Visible single-choice radio options.
+Checkbox(label: string{minLength=1,maxLength=512}, checked: $binding<boolean>, disabled?: boolean) — Labeled boolean checkbox.
+Switch(label: string{minLength=1,maxLength=512}, checked: $binding<boolean>, disabled?: boolean) — Labeled local on/off switch.
+Slider(label: string{minLength=1,maxLength=512}, value: $binding<number[-1e100,1e100]>, min: number[-1e100,1e100], max: number[-1e100,1e100], step?: number(0,∞), disabled?: boolean) — Bounded numeric local slider.
 
 ### base/icon
-Icon(name: string, label?: string, tone?: "default" | "muted" | "info" | "success" | "warning" | "error", size?: 16 | 20 | 24 | 32 | 48) — A bundled official SVG icon with semantic tone and a fixed optical size.
+Icon(name: IconName (exact bundled catalog), label?: string{minLength=1,maxLength=512} | null, tone?: "default" | "muted" | "info" | "success" | "warning" | "error", size?: 16 | 20 | 24 | 32 | 48) — A bundled official SVG icon with semantic tone and a fixed optical size.
 
 ### base/layout
-Stack(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
-Row(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
-Grid(children: Component[], columns?: number, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
-Card(children: Component[], title?: string) — Grouped surface with optional title.
+Stack(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
+Row(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
+Grid(children: Component[]{minItems=0,maxItems=128}, columns?: integer[1,6], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
+Card(children: Component[]{minItems=0,maxItems=128}, title?: string{minLength=1,maxLength=512}) — Grouped surface with optional title.
 
 ### base/media
-Image(src: string, alt: string, caption?: string) — Image subject to the host media policy.
-Video(src: string, title: string, poster?: string, captions?: {src: string, label: string, language: string}[]) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
+Image(src: string{minLength=1,maxLength=1000000}, alt: string{maxLength=2048}, caption?: string{minLength=1,maxLength=512}) — Image subject to the host media policy.
+Video(src: string{maxLength=500000,pattern="^(?:data:video\\/(?:mp4|webm|ogg);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, title: string{minLength=1,maxLength=512}, poster?: string{maxLength=500000,pattern="^(?:data:image\\/(?:png|jpeg|gif|webp);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, captions?: {src: string{maxLength=12000,pattern="^(?:data:text\\/vtt(?:;charset=utf-8)?(?:;base64)?,[^\\r\\n]*|https:\\/\\/[^\\s]+)$"}, label: string{minLength=1,maxLength=512}, language: string{pattern="^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{2,8})*$"}}[]{maxItems=8}) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
 
 ### views/content
-CodeView(data: CodeData) — Supplied code View rendered with the shared Inform foundation theme.
-MathView(data: MathData) — Supplied math View rendered with the shared Inform foundation theme.
-BlockquoteView(data: BlockquoteData, children: Component[]) — Supplied blockquote View rendered with the shared Inform foundation theme.
-SectionView(data: SectionData, children: Component[]) — Supplied section View rendered with the shared Inform foundation theme.
-FigureView(data: FigureData, children: Component[]) — Supplied figure View rendered with the shared Inform foundation theme.
-DetailsView(data: DetailsData, children: Component[]) — Supplied details View rendered with the shared Inform foundation theme.
-CitationView(data: CitationData) — Supplied citation View rendered with the shared Inform foundation theme.
-MetricView(data: MetricData) — Supplied metric View rendered with the shared Inform foundation theme.
-StepsView(data: StepsData) — Supplied steps View rendered with the shared Inform foundation theme.
-ChecklistView(data: ChecklistData) — Supplied checklist View rendered with the shared Inform foundation theme.
+CodeView(data: {value: string{maxLength=12000}, language?: string{minLength=1,maxLength=200}, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean}) — Supplied code View rendered with the shared Inform foundation theme.
+MathView(data: {latex: string{minLength=1,maxLength=6000}, block?: boolean}) — Supplied math View rendered with the shared Inform foundation theme.
+BlockquoteView(data: {attribution?: string{maxLength=500}, cite?: string{minLength=1,maxLength=2048}}, children: Component[]{minItems=1,maxItems=30}) — Supplied blockquote View rendered with the shared Inform foundation theme.
+SectionView(data: {heading?: string{maxLength=12000}}, children: Component[]{minItems=0,maxItems=500}) — Supplied section View rendered with the shared Inform foundation theme.
+FigureView(data: {caption?: string{maxLength=12000}}, children: Component[]{minItems=0,maxItems=500}) — Supplied figure View rendered with the shared Inform foundation theme.
+DetailsView(data: {summary: string{minLength=1,maxLength=200}}, children: Component[]{minItems=0,maxItems=500}) — Supplied details View rendered with the shared Inform foundation theme.
+CitationView(data: {title: string{minLength=1,maxLength=300}, url: string{minLength=1,maxLength=2048}, publisher?: string{minLength=1,maxLength=200}, description?: string{minLength=1,maxLength=1000}, number?: integer[1,999]}) — Supplied citation View rendered with the shared Inform foundation theme.
+MetricView(data: {variant?: "plain" | "card", label: string{minLength=1,maxLength=200}, value: string{maxLength=12000} | number | boolean | null, unit?: string{minLength=1,maxLength=200}, hint?: string{maxLength=12000}, precision?: integer[0,6], color?: "default" | "secondary" | "tertiary" | "success" | "warning" | "danger" | "info" | "accent"}) — Supplied metric View rendered with the shared Inform foundation theme.
+StepsView(data: {items: {title: string{minLength=1,maxLength=200}, detail?: string{maxLength=12000}, latex?: string{maxLength=12000}}[]{minItems=1,maxItems=20}}) — Supplied steps View rendered with the shared Inform foundation theme.
+ChecklistView(data: {label: string{minLength=1,maxLength=200}, items: ({id: string{maxLength=12000,pattern="^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"}, label: string{minLength=1,maxLength=200}, hint?: string{maxLength=1000}, disabled?: string{maxLength=12000} | number | boolean | null, checked?: boolean})[]{minItems=0,maxItems=50}, disabled?: string{maxLength=12000} | number | boolean | null, filter?: boolean, bulk?: boolean, emptyText?: string{maxLength=1000}}) — Supplied checklist View rendered with the shared Inform foundation theme.
 
 ## Built-in Functions
 
@@ -195,6 +196,7 @@ Before finishing, walk your output and verify:
 3. Every $binding appears in at least one component or expression.
 
 - Component means any available UI component in this profile. Data constructors are not UI children.
+- Read signatures together with all schema and runtime relationship rules: integer requires a whole number; [a,b] includes both bounds, (a,b) excludes them; minItems/maxItems count array entries; ? means the field may be omitted, not that null is accepted. null is allowed only when explicitly listed. Runtime string minLength/maxLength use UTF-16 code units (an emoji may count as 2), which can differ from standard JSON Schema Unicode-code-point counting; final validation uses Inform runtime. {default=...} records an annotated default; the runtime determines its application. A tuple lists positional item types; allowed rest items are shown. Undeclared keys are rejected by strict objects. Catalog-backed enums must match their named catalog. Constraints on an untyped schema apply only to the relevant value kind; do not infer a narrower type.
 - The positional parameter order is an ABI. Never emit named arguments, unknown props, callback functions, raw HTML, arbitrary CSS, imports, Query, Mutation, @Run, @OpenUrl or @ToAssistant.
 - All mutable variables must be explicitly declared. Use direct declared $variables for ordinary writable bindings. $value is reserved for assignment-binding input; it is not standalone state. Arbitrary callbacks or JavaScript functions are forbidden.
 - Only @Set, @Reset and Action([...]) are local action syntax. Actions have no authority to call external services.
@@ -203,6 +205,54 @@ Before finishing, walk your output and verify:
 - Inform semantics: == and != compare scalar values strictly; logical operators require booleans. Sort uses deterministic lexicographic string order and rejects mixed number/string keys. Filter relational operators require numbers. @Each uses an inline template with a named item, no index parameter or JavaScript lambda.
 - Display supplied facts accurately. Domain modules do not fetch, verify or transact on data.
 - Icon.name must match an exact name from the bundled searchable icon catalog. Search the catalog by purpose and include only the names needed for this answer; the runtime still validates its full enum.
+- base/charts shared usage: Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion.
+- AreaChart usage: Null values are rejected; signed values retain the upstream zero baseline.
+- BarChart usage: Negative, positive and zero values are supported. Options.orientation selects horizontal layout.
+- HorizontalBarChart usage: This is the BarChart horizontal variant, not an additional source chart family.
+- LineChart usage: Null is rejected instead of silently changing a missing measurement to zero.
+- HeatmapChart usage: Series correspond to rows and labels to columns. Null cells retain missing-value semantics. Use rampMode="diverging" for signed values.
+- RadarChart usage: Non-negative values only. Null is rejected. Labels identify radial axes.
+- PieChart usage: Non-negative slices; no fabricated equal wedges when the sum is zero.
+- RadialChart usage: Non-negative magnitudes; empty and zero-total inputs are explicitly identified.
+- FunnelChart usage: Stage order is supplied order. Percentages are relative to the first stage, not the sum. Non-negative values; no forced monotonic reordering. When the first stage is zero but later stages are positive, set showPercentage:false because retention is undefined.
+- SegmentedBar usage: Non-negative magnitudes. SingleStackedBar is an upstream alias and does not count as a separate chart family.
+- SingleStackedBar usage: Non-negative magnitudes. SingleStackedBar is an upstream alias and does not count as a separate chart family.
+- ScatterChart usage: Each ScatterSeries(name, points) contains Point(x,y) data, not UI children.
+- CalendarHeatmap usage: Use CalendarDay("YYYY-MM-DD",value). Dates are calendar days, duplicates sum, absent days are zero. Real dates, ascending thresholds and a maximum 732-day range are validated.
+- MiniAreaChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
+- MiniBarChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
+- MiniLineChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
+- Text usage: Use for prose. Newlines remain text; markup and code are not executed.
+- Heading usage: Use headings in a meaningful outline. Level defaults to 2 in the renderer.
+- Badge usage: A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.
+- Divider usage: Use sparingly between sections. It has no text or interaction.
+- Alert usage: Passive notice. It does not trigger a notification service or infer urgency. Tones info, success, warning, and error use semantic soft surfaces. Keep a visible title and description so meaning does not depend on color.
+- Table usage: Columns have unique keys. Rows may omit a column, but may not introduce undeclared columns. Cells are plain scalar data.
+- Button usage: onPress is a runtime-issued local action. Use @Set, @Reset or Action; literal action-like objects are forbidden.
+- Input usage: Pass a direct declared $variable to value to allow edits. Literal values render read-only. Draft text is not committed when validation fails.
+- Textarea usage: Writable through a direct declared $variable; an invalid transaction must preserve the previous committed value.
+- Select usage: Options have unique values. Current value must match one option.
+- RadioGroup usage: Uses the same single-choice state contract as Select, with native labeled radios.
+- Checkbox usage: Pass a direct declared boolean $variable to checked for local edits.
+- Switch usage: A boolean local switch. It never changes external account or app settings.
+- Slider usage: Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.
+- Icon usage: Only exact bundled canonical names are accepted. Arguments: name, label, tone, size. Use null label for a decorative icon beside visible text. Use a nonempty label for an icon that conveys meaning alone. Tones: default, muted, info, success, warning, error. Sizes: 16, 20, 24, 32, 48; default 20. Tone communicates supplied meaning; it never verifies status. Public OpenAI Apps SDK UI glyphs are distinct from Inform UI role mapping.
+- Stack usage: Children belong to the selected profile. Gap is a finite design token; there is no arbitrary CSS.
+- Row usage: Uses a wrapping row. Choose start, center, end or stretch alignment.
+- Grid usage: Columns is a maximum requested column count; narrow layouts may use fewer columns.
+- Card usage: Use a card for one coherent section. Card owns its child slot, not external services.
+- Image usage: Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.
+- Video usage: Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.
+- CodeView usage: Use CodeView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- MathView usage: Use MathView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- BlockquoteView usage: Use BlockquoteView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- SectionView usage: Use SectionView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- FigureView usage: Use FigureView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- DetailsView usage: Use DetailsView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- CitationView usage: Use CitationView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- MetricView usage: Use MetricView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- StepsView usage: Use StepsView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
+- ChecklistView usage: Use ChecklistView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
 - AreaChart: Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.
 - AreaChart: Legend visibility is local presentation state, not a second DSL state store.
 - AreaChart: Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL.
@@ -284,22 +334,68 @@ Before finishing, walk your output and verify:
 - ChecklistView: Supplied source data is not independently fetched or verified.
 - ChecklistView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
 - ChecklistView: Base composition is a target until adapter evidence confirms extraction.
+- ## Schema relationship constraints
+
+These compact JSON clauses use JSON Schema semantics in addition to the signatures; sibling constraints also apply. oneOf means exactly one branch; anyOf means at least one; allOf means every branch. Optional properties may be absent, including inside conditions. default is a schema annotation; its application is determined by the runtime contract. x-inform-runtime-rules are additional checks enforced by Inform runtime, not by an ordinary JSON Schema validator.
+
+- AreaChart [runtime rule chart-series-relations]: Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed.
+- BarChart [runtime rule chart-series-relations]: Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed.
+- HorizontalBarChart [runtime rule chart-series-relations]: Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed.
+- LineChart [runtime rule chart-series-relations]: Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed.
+- HeatmapChart [runtime rule chart-series-relations]: Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is allowed for missing cells. Signed values are allowed.
+- RadarChart [runtime rule chart-series-relations]: Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Values must be non-negative.
+- PieChart [runtime rule slice-labels]: Slice or funnel-stage labels must be unique.
+- RadialChart [runtime rule slice-labels]: Slice or funnel-stage labels must be unique.
+- FunnelChart [runtime rule slice-labels]: Slice or funnel-stage labels must be unique.
+- FunnelChart [runtime rule funnel-zero-baseline]: If the first stage is zero and any later stage is positive, options.showPercentage must be false; otherwise retention percentages have no valid baseline.
+- SegmentedBar [runtime rule slice-labels]: Slice or funnel-stage labels must be unique.
+- SingleStackedBar [runtime rule slice-labels]: Slice or funnel-stage labels must be unique.
+- ScatterChart [runtime rule scatter-dataset-names]: Dataset names must be unique.
+- CalendarHeatmap [runtime rule calendar-order-and-span]: Thresholds must be strictly increasing. Explicit or data-derived date ranges must be ascending and contain at most 732 days inclusive.
+- Table [runtime rule table-column-membership]: Column keys must be unique. Row keys must name declared columns; rows may omit a declared column.
+- Table.rows[]: {"type":"object","propertyNames":{"type":"string"},"additionalProperties":{"anyOf":[{"type":"string","maxLength":2048},{"type":"number"},{"type":"boolean"},{"type":"null"}]}}
+- Select [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
+- RadioGroup [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
+- Slider [runtime rule slider-range]: min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1.
+- Image [runtime rule raster-image-source]: src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch.
+- CodeView [runtime rule data-schema-CodeData]: The supplied data must satisfy every bound, required field and conditional branch in CodeData.
+- CodeView [runtime rule domain-code]: Code is displayed, not executed. Inline code cannot enable copy or highlighting; the data oneOf contains the exact combinations.
+- MathView [runtime rule data-schema-MathData]: The supplied data must satisfy every bound, required field and conditional branch in MathData.
+- MathView [runtime rule domain-math]: The declared data schema applies. Formula rendering is display-only and does not execute JavaScript.
+- BlockquoteView [runtime rule data-schema-BlockquoteData]: The supplied data must satisfy every bound, required field and conditional branch in BlockquoteData.
+- BlockquoteView [runtime rule domain-blockquote]: A supplied nonempty cite must be a safe HTTP(S), mailto (no query or CR/LF escape), tel, or local #anchor URL. No credentials, whitespace, control characters or backslashes are allowed.
+- SectionView [runtime rule data-schema-SectionData]: The supplied data must satisfy every bound, required field and conditional branch in SectionData.
+- SectionView [runtime rule domain-section]: Children must be actual elements from the selected profile. Data follows its declared schema.
+- FigureView [runtime rule data-schema-FigureData]: The supplied data must satisfy every bound, required field and conditional branch in FigureData.
+- FigureView [runtime rule domain-figure]: Children must be actual elements from the selected profile. Data follows its declared schema.
+- DetailsView [runtime rule data-schema-DetailsData]: The supplied data must satisfy every bound, required field and conditional branch in DetailsData.
+- DetailsView [runtime rule domain-details]: Children must be actual elements from the selected profile. Disclosure state is local to the view.
+- CitationView [runtime rule data-schema-CitationData]: The supplied data must satisfy every bound, required field and conditional branch in CitationData.
+- CitationView [runtime rule domain-citation]: Source url must be an absolute HTTP(S) URL with a hostname, without credentials, whitespace, control characters or backslashes.
+- MetricView [runtime rule data-schema-MetricData]: The supplied data must satisfy every bound, required field and conditional branch in MetricData.
+- MetricView [runtime rule domain-metric]: No additional cross-field rule beyond the declared data schema and common evaluated disabled/error types.
+- StepsView [runtime rule data-schema-StepsData]: The supplied data must satisfy every bound, required field and conditional branch in StepsData.
+- StepsView [runtime rule domain-steps]: Each supplied step must satisfy the declared data schema; this view does not execute the steps.
+- ChecklistView [runtime rule data-schema-ChecklistData]: The supplied data must satisfy every bound, required field and conditional branch in ChecklistData.
+- ChecklistView [runtime rule domain-checklist]: Checklist item IDs must be unique. Each checked value is boolean. Disabled, when supplied, must be an evaluated boolean. The adapter allocates distinct local bindings; they are not external DSL state.
+- CalendarDay.date [runtime rule real-calendar-day]: Use a real Gregorian calendar day YYYY-MM-DD, year 0100–9999; a matching date pattern alone is insufficient.
+- CodeData: {"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":true}]},{"const":false}]},"copy":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":false}]},{"type":"boolean"}]},"highlight":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":false}]},{"type":"boolean"}]}},"required":["value"],"additionalProperties":false,"oneOf":[{"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"const":true},"copy":{"const":false},"highlight":{"const":false}},"required":["inline"],"additionalProperties":false},{"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"const":false},"copy":{"type":"boolean"},"highlight":{"type":"boolean"}},"required":[],"additionalProperties":false}]}
 - Data constructors (not renderers):
-Series(name: string, values: number[]): Named finite series; null is supported only by HeatmapChart as a missing cell.
-Slice(label: string, value: number): Named non-negative magnitude for pie, radial, funnel or segmented charts.
-Point(x: number, y: number): A finite scatter coordinate. Negative and zero values are supported.
-ScatterSeries(name: string, points: {x: number, y: number}[]): Named scatter dataset containing finite Point values.
-CalendarDay(date: string, value: number): ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar.
-CodeData(value: string, language?: string, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean): Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator.
-MathData(latex: string, block?: boolean): Strict supplied record for MathView. Conditional variants are enforced by the same bounded validator.
-BlockquoteData(attribution?: string, cite?: string): Strict supplied record for BlockquoteView. Conditional variants are enforced by the same bounded validator.
-SectionData(heading?: string): Strict supplied record for SectionView. Conditional variants are enforced by the same bounded validator.
-FigureData(caption?: string): Strict supplied record for FigureView. Conditional variants are enforced by the same bounded validator.
-DetailsData(summary: string): Strict supplied record for DetailsView. Conditional variants are enforced by the same bounded validator.
-CitationData(title: string, url: string, publisher?: string, description?: string, number?: number): Strict supplied record for CitationView. Conditional variants are enforced by the same bounded validator.
-MetricData(variant?: "plain" | "card", label: string, value: string | number | boolean | any, unit?: string, hint?: string, precision?: number, color?: "default" | "secondary" | "tertiary" | "success" | "warning" | "danger" | "info" | "accent"): Strict supplied record for MetricView. Conditional variants are enforced by the same bounded validator.
-StepsData(items: {title: string, detail?: string, latex?: string}[]): Strict supplied record for StepsView. Conditional variants are enforced by the same bounded validator.
-ChecklistData(label: string, items: {id: string, label: string, hint?: string, disabled?: string | number | boolean | any, checked?: boolean}[], disabled?: string | number | boolean | any, filter?: boolean, bulk?: boolean, emptyText?: string): Strict supplied record for ChecklistView. Conditional variants are enforced by the same bounded validator.
+Series(name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}): Named finite series; null is supported only by HeatmapChart as a missing cell.
+Slice(label: string{maxLength=240}, value: number[0,1e15]): Named non-negative magnitude for pie, radial, funnel or segmented charts.
+Point(x: number[-1e15,1e15], y: number[-1e15,1e15]): A finite scatter coordinate. Negative and zero values are supported.
+ScatterSeries(name: string{maxLength=240}, points: {x: number[-1e15,1e15], y: number[-1e15,1e15]}[]{maxItems=512}): Named scatter dataset containing finite Point values.
+CalendarDay(date: string{pattern="^\\d{4}-\\d{2}-\\d{2}$"}, value: number[0,1e15]): ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar.
+CodeData(value: string{maxLength=12000}, language?: string{minLength=1,maxLength=200}, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean): Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator.
+MathData(latex: string{minLength=1,maxLength=6000}, block?: boolean): Strict supplied record for MathView. Conditional variants are enforced by the same bounded validator.
+BlockquoteData(attribution?: string{maxLength=500}, cite?: string{minLength=1,maxLength=2048}): Strict supplied record for BlockquoteView. Conditional variants are enforced by the same bounded validator.
+SectionData(heading?: string{maxLength=12000}): Strict supplied record for SectionView. Conditional variants are enforced by the same bounded validator.
+FigureData(caption?: string{maxLength=12000}): Strict supplied record for FigureView. Conditional variants are enforced by the same bounded validator.
+DetailsData(summary: string{minLength=1,maxLength=200}): Strict supplied record for DetailsView. Conditional variants are enforced by the same bounded validator.
+CitationData(title: string{minLength=1,maxLength=300}, url: string{minLength=1,maxLength=2048}, publisher?: string{minLength=1,maxLength=200}, description?: string{minLength=1,maxLength=1000}, number?: integer[1,999]): Strict supplied record for CitationView. Conditional variants are enforced by the same bounded validator.
+MetricData(variant?: "plain" | "card", label: string{minLength=1,maxLength=200}, value: string{maxLength=12000} | number | boolean | null, unit?: string{minLength=1,maxLength=200}, hint?: string{maxLength=12000}, precision?: integer[0,6], color?: "default" | "secondary" | "tertiary" | "success" | "warning" | "danger" | "info" | "accent"): Strict supplied record for MetricView. Conditional variants are enforced by the same bounded validator.
+StepsData(items: {title: string{minLength=1,maxLength=200}, detail?: string{maxLength=12000}, latex?: string{maxLength=12000}}[]{minItems=1,maxItems=20}): Strict supplied record for StepsView. Conditional variants are enforced by the same bounded validator.
+ChecklistData(label: string{minLength=1,maxLength=200}, items: ({id: string{pattern="^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"}, label: string{minLength=1,maxLength=200}, hint?: string{maxLength=1000}, disabled?: string{maxLength=12000} | number | boolean | null, checked?: boolean})[]{minItems=0,maxItems=50}, disabled?: string{maxLength=12000} | number | boolean | null, filter?: boolean, bulk?: boolean, emptyText?: string{maxLength=1000}): Strict supplied record for ChecklistView. Conditional variants are enforced by the same bounded validator.
 
 ## 可直接改写的最小 HTML
 

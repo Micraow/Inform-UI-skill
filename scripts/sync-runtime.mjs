@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {readFile,copyFile,mkdtemp,rm} from 'node:fs/promises';
+import {readFile,copyFile,mkdtemp,rm,readdir} from 'node:fs/promises';
 import {join,resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 import {createHash} from 'node:crypto';
@@ -92,5 +92,9 @@ await saveJSON(join(skillRoot,'generated/runtime-lock.json'),{format:'inform-run
 const groups=modules.filter(m=>m.components.length).map(m=>`- ${m.id}: ${m.components.length} ${m.kind} components; ${m.components.map(c=>c.name).join(', ')}. Prompt: ${m.prompt}${m.kind==='composed-view'?'; exact-name prompts: generated/views/<ViewName>.txt':''}`).join('\n');
 const chartText=charts?`## Chart source families\n\n${charts.familyCount} source families provide ${charts.constructorCount} DSL names. Names sharing a family are variants or aliases, not additional source engines.\n\n${charts.families.map(f=>`- ${f.family}: ${f.names.join(', ')}`).join('\n')}\n\n`:'';
 await save(join(skillRoot,'references/catalog.md'),`# Generated component directory\n\nGenerated from the actual createProfile() manifest and prompt. Do not hand-edit.\n\n${count} renderable component names; ${manifest.dataShapes.length} data constructors. Data constructors are not UI children. Component count alone does not establish browser, accessibility, or host-service coverage.\n\n${groups}\n\n${chartText}## Data constructors\n\n${manifest.dataShapes.map(d=>`- ${d.name}(${d.orderedProps.join(', ')}): ${d.description}`).join('\n')}\n\n## Glyph discovery\n\n${icons.iconCount} official glyphs are separately indexed in generated/icons.json. Use the icons CLI command; do not load the whole catalog into a prompt.\n`);
+const contractFiles=['generated/manifest.json','generated/schema.json','generated/full-profile.txt','generated/catalog.json','generated/signatures.json',...modules.map(m=>m.prompt),...(await readdir(join(skillRoot,'generated/views'))).filter(name=>name.endsWith('.txt')).map(name=>'generated/views/'+name)];
+const contractHashes={};
+for(const path of contractFiles){const bytes=await readFile(join(skillRoot,path));contractHashes[path]={bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};}
+await saveJSON(join(skillRoot,'generated/snapshot-status.json'),{format:'inform-generated-snapshot-status/2',status:'current-bundled-runtime',sourceRef:opts['source-ref']??null,nodeRuntimeSha256:hashes['node.mjs'].sha256,componentCount:count,viewPromptCount:manifest.components.filter(c=>c.moduleId?.startsWith('views/')).length,generator:'scripts/sync-runtime.mjs',contracts:contractHashes,limitations:'Projection preserves schema constraints and annotated runtime rules; incomplete domain semantic descriptions are explicitly marked. Native UTF-16 string-length behavior is not equivalent to Unicode code-point counting in standard JSON Schema.'});
 console.log(JSON.stringify({ok:true,componentCount:count,modules:modules.length,iconCount:icons.iconCount}));
 } finally {await rm(snapshotDir,{recursive:true,force:true});}

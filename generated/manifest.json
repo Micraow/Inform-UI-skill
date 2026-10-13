@@ -734,6 +734,16 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -796,6 +806,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -860,6 +880,16 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -922,6 +952,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Signed values are allowed."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -986,6 +1026,16 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is allowed for missing cells. Signed values are allowed."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1043,6 +1093,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "chart-series-relations",
+          "paths": [
+            "labels",
+            "series"
+          ],
+          "rule": "Series names must be unique and cannot be __if_label__, __proto__, constructor or prototype. Each values array must have exactly labels.length entries. Null is rejected; use finite numbers. Values must be non-negative."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -1106,6 +1166,15 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1155,6 +1224,15 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -1206,6 +1284,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        },
+        {
+          "id": "funnel-zero-baseline",
+          "paths": [
+            "slices",
+            "options.showPercentage"
+          ],
+          "rule": "If the first stage is zero and any later stage is positive, options.showPercentage must be false; otherwise retention percentages have no valid baseline."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1255,6 +1350,15 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -1306,6 +1410,15 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "slice-labels",
+          "paths": [
+            "slices"
+          ],
+          "rule": "Slice or funnel-stage labels must be unique."
+        }
+      ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1355,6 +1468,15 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "scatter-dataset-names",
+          "paths": [
+            "datasets"
+          ],
+          "rule": "Dataset names must be unique."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -1410,6 +1532,17 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "calendar-order-and-span",
+          "paths": [
+            "days",
+            "options.range",
+            "options.thresholds"
+          ],
+          "rule": "Thresholds must be strictly increasing. Explicit or data-derived date ranges must be ascending and contain at most 732 days inclusive."
+        }
       ],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
@@ -1467,6 +1600,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1511,6 +1645,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1555,6 +1690,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
         "Legend visibility is local presentation state, not a second DSL state store.",
@@ -1598,6 +1734,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use for prose. Newlines remain text; markup and code are not executed.",
       "examples": [
@@ -1629,6 +1766,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use headings in a meaningful outline. Level defaults to 2 in the renderer.",
       "examples": [
@@ -1661,8 +1799,9 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
-      "docs": "A badge displays a supplied label; tone does not independently verify status.",
+      "docs": "A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.",
       "examples": [
         {
           "id": "badge",
@@ -1690,6 +1829,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use sparingly between sections. It has no text or interaction.",
       "examples": [
@@ -1720,8 +1860,9 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
-      "docs": "Passive notice. It does not trigger a notification service or infer urgency.",
+      "docs": "Passive notice. It does not trigger a notification service or infer urgency. Tones info, success, warning, and error use semantic soft surfaces. Keep a visible title and description so meaning does not depend on color.",
       "examples": [
         {
           "id": "alert",
@@ -1753,6 +1894,16 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "table-column-membership",
+          "paths": [
+            "columns",
+            "rows"
+          ],
+          "rule": "Column keys must be unique. Row keys must name declared columns; rows may omit a declared column."
+        }
       ],
       "limitations": [],
       "docs": "Columns have unique keys. Rows may omit a column, but may not introduce undeclared columns. Cells are plain scalar data.",
@@ -1801,6 +1952,7 @@
         "display",
         "local-action"
       ],
+      "runtimeRules": [],
       "limitations": [
         "No host tools, navigation, account access or message sending."
       ],
@@ -1836,6 +1988,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Pass a direct declared $variable to value to allow edits. Literal values render read-only. Draft text is not committed when validation fails.",
       "examples": [
@@ -1875,6 +2028,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Writable through a direct declared $variable; an invalid transaction must preserve the previous committed value.",
       "examples": [
@@ -1912,6 +2066,16 @@
       "capabilities": [
         "display",
         "local-state"
+      ],
+      "runtimeRules": [
+        {
+          "id": "selection-membership",
+          "paths": [
+            "value",
+            "options"
+          ],
+          "rule": "Option values must be unique. The current value must equal one supplied option value."
+        }
       ],
       "limitations": [],
       "docs": "Options have unique values. Current value must match one option.",
@@ -1956,6 +2120,16 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [
+        {
+          "id": "selection-membership",
+          "paths": [
+            "value",
+            "options"
+          ],
+          "rule": "Option values must be unique. The current value must equal one supplied option value."
+        }
+      ],
       "limitations": [],
       "docs": "Uses the same single-choice state contract as Select, with native labeled radios.",
       "examples": [
@@ -1998,6 +2172,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Pass a direct declared boolean $variable to checked for local edits.",
       "examples": [
@@ -2034,6 +2209,7 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "A boolean local switch. It never changes external account or app settings.",
       "examples": [
@@ -2073,6 +2249,18 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [
+        {
+          "id": "slider-range",
+          "paths": [
+            "value",
+            "min",
+            "max",
+            "step"
+          ],
+          "rule": "min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1."
+        }
+      ],
       "limitations": [],
       "docs": "Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.",
       "examples": [
@@ -2096,7 +2284,9 @@
       "layer": "base",
       "orderedProps": [
         "name",
-        "label"
+        "label",
+        "tone",
+        "size"
       ],
       "slots": {},
       "bindingProps": [],
@@ -2108,10 +2298,11 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "No remote SVG or arbitrary path data."
       ],
-      "docs": "Only bundled canonical names are accepted. Provide label when the icon conveys meaning; otherwise it is decorative.",
+      "docs": "Only exact bundled canonical names are accepted. Arguments: name, label, tone, size. Use null label for a decorative icon beside visible text. Use a nonempty label for an icon that conveys meaning alone. Tones: default, muted, info, success, warning, error. Sizes: 16, 20, 24, 32, 48; default 20. Tone communicates supplied meaning; it never verifies status. Public OpenAI Apps SDK UI glyphs are distinct from Inform UI role mapping.",
       "examples": [
         {
           "id": "icon",
@@ -2148,6 +2339,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Children belong to the selected profile. Gap is a finite design token; there is no arbitrary CSS.",
       "examples": [
@@ -2196,6 +2388,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Uses a wrapping row. Choose start, center, end or stretch alignment.",
       "examples": [
@@ -2245,6 +2438,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Columns is a maximum requested column count; narrow layouts may use fewer columns.",
       "examples": [
@@ -2293,6 +2487,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Use a card for one coherent section. Card owns its child slot, not external services.",
       "examples": [
@@ -2335,6 +2530,15 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "raster-image-source",
+          "paths": [
+            "src"
+          ],
+          "rule": "src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch."
+        }
+      ],
       "limitations": [
         "HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected."
       ],
@@ -2371,6 +2575,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [],
       "docs": "Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.",
       "examples": [
@@ -2404,6 +2609,7 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [],
       "limitations": [
         "Values are supplied by the author; loading this component does not fetch or verify weather."
       ],
@@ -2438,6 +2644,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TaskExpansionCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TaskExpansionCardData."
+        },
+        {
+          "id": "domain-task-expansion-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2468,6 +2691,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PromptSuggestionsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PromptSuggestionsData."
+        },
+        {
+          "id": "domain-prompt-suggestions",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -2500,6 +2740,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FollowUpCardGroupData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FollowUpCardGroupData."
+        },
+        {
+          "id": "domain-follow-up-card-group",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2530,6 +2787,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ConversationSuggestionsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ConversationSuggestionsData."
+        },
+        {
+          "id": "domain-conversation-suggestions",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -2562,6 +2836,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FollowUpActionBarData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FollowUpActionBarData."
+        },
+        {
+          "id": "domain-follow-up-action-bar",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2592,6 +2883,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-DisplayAutomationData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in DisplayAutomationData."
+        },
+        {
+          "id": "domain-display-automation",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -2625,6 +2933,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ListAutomationsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ListAutomationsData."
+        },
+        {
+          "id": "domain-list-automations",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
         "Supplied source data is not independently fetched or verified.",
@@ -2657,6 +2982,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AutomationPlanSummaryData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AutomationPlanSummaryData."
+        },
+        {
+          "id": "domain-automation-plan-summary",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2687,6 +3029,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ScheduledTaskSuggestionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ScheduledTaskSuggestionData."
+        },
+        {
+          "id": "domain-scheduled-task-suggestion",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -2720,6 +3079,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ConversationalOnboardingAdviceData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ConversationalOnboardingAdviceData."
+        },
+        {
+          "id": "domain-conversational-onboarding-advice",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2750,6 +3126,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ConversationalOnboardingWritingData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ConversationalOnboardingWritingData."
+        },
+        {
+          "id": "domain-conversational-onboarding-writing",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -2782,6 +3175,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-OnboardingFeatureCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in OnboardingFeatureCardData."
+        },
+        {
+          "id": "domain-onboarding-feature-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2812,6 +3222,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-OnboardingPluginSuggestionsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in OnboardingPluginSuggestionsData."
+        },
+        {
+          "id": "domain-onboarding-plugin-suggestions",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -2845,6 +3272,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-OnboardingStarterTasksData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in OnboardingStarterTasksData."
+        },
+        {
+          "id": "domain-onboarding-starter-tasks",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2875,6 +3319,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ConversationalOnboardingStudyData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ConversationalOnboardingStudyData."
+        },
+        {
+          "id": "domain-conversational-onboarding-study",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -2907,6 +3368,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ConversationalOnboardingSearchData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ConversationalOnboardingSearchData."
+        },
+        {
+          "id": "domain-conversational-onboarding-search",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2937,6 +3415,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-WhatsNewCapabilityWelcomeData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in WhatsNewCapabilityWelcomeData."
+        },
+        {
+          "id": "domain-whats-new-capability-welcome",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -2969,6 +3464,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-WhatsNewCapabilitySearchData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in WhatsNewCapabilitySearchData."
+        },
+        {
+          "id": "domain-whats-new-capability-search",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -2999,6 +3511,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TaskAutopauseCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TaskAutopauseCardData."
+        },
+        {
+          "id": "domain-task-autopause-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -3032,6 +3561,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PluginFollowupData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PluginFollowupData."
+        },
+        {
+          "id": "domain-plugin-followup",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
         "Supplied source data is not independently fetched or verified.",
@@ -3064,6 +3610,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-InstantSuggestionsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in InstantSuggestionsData."
+        },
+        {
+          "id": "domain-instant-suggestions",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3094,6 +3657,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PersonProfileData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PersonProfileData."
+        },
+        {
+          "id": "domain-person-profile",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3126,6 +3706,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-NewsArticleData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in NewsArticleData."
+        },
+        {
+          "id": "domain-news-article",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3156,6 +3753,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EntityReviewsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EntityReviewsData."
+        },
+        {
+          "id": "domain-entity-reviews",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3188,6 +3802,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CreateInteractivePollData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CreateInteractivePollData."
+        },
+        {
+          "id": "domain-create-interactive-poll",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3218,6 +3849,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SidebarPeopleAlsoAskData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SidebarPeopleAlsoAskData."
+        },
+        {
+          "id": "domain-sidebar-people-also-ask",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3250,6 +3898,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EmailPreviewData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EmailPreviewData."
+        },
+        {
+          "id": "domain-email-preview",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3280,6 +3945,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FileNavListData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FileNavListData."
+        },
+        {
+          "id": "domain-file-nav-list",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3312,6 +3994,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-JobsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in JobsData."
+        },
+        {
+          "id": "domain-jobs",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3342,6 +4041,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ProductCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ProductCardData."
+        },
+        {
+          "id": "domain-product-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3374,6 +4090,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SharedActivityPlannerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SharedActivityPlannerData."
+        },
+        {
+          "id": "domain-shared-activity-planner",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3404,6 +4137,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CodeCiteData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CodeCiteData."
+        },
+        {
+          "id": "domain-code-cite",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3436,6 +4186,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FileCiteData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FileCiteData."
+        },
+        {
+          "id": "domain-file-cite",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3466,6 +4233,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SidebarFactTableData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SidebarFactTableData."
+        },
+        {
+          "id": "domain-sidebar-fact-table",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3498,6 +4282,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EntityThumbnailListData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EntityThumbnailListData."
+        },
+        {
+          "id": "domain-entity-thumbnail-list",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3528,6 +4329,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RedditThreadCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RedditThreadCardData."
+        },
+        {
+          "id": "domain-reddit-thread-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3560,6 +4378,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-MarkdownData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MarkdownData."
+        },
+        {
+          "id": "domain-markdown",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3590,6 +4425,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-WritingBlockData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in WritingBlockData."
+        },
+        {
+          "id": "domain-writing-block",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3622,6 +4474,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EmailDraftData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EmailDraftData."
+        },
+        {
+          "id": "domain-email-draft",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3652,6 +4521,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CodeData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CodeData."
+        },
+        {
+          "id": "domain-code",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Code is displayed, not executed. Inline code cannot enable copy or highlighting; the data oneOf contains the exact combinations."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3684,6 +4570,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-MathData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MathData."
+        },
+        {
+          "id": "domain-math",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "The declared data schema applies. Formula rendering is display-only and does not execute JavaScript."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3714,6 +4617,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SpacerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SpacerData."
+        },
+        {
+          "id": "domain-spacer",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3753,6 +4673,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LinkData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LinkData."
+        },
+        {
+          "id": "domain-link",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3783,6 +4720,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FaviconData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FaviconData."
+        },
+        {
+          "id": "domain-favicon",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3822,6 +4776,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-GridItemData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in GridItemData."
+        },
+        {
+          "id": "domain-grid-item",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3859,6 +4830,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-BlockquoteData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in BlockquoteData."
+        },
+        {
+          "id": "domain-blockquote",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "A supplied nonempty cite must be a safe HTTP(S), mailto (no query or CR/LF escape), tel, or local #anchor URL. No credentials, whitespace, control characters or backslashes are allowed."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3898,6 +4886,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SectionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SectionData."
+        },
+        {
+          "id": "domain-section",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Children must be actual elements from the selected profile. Data follows its declared schema."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -3935,6 +4940,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FigureData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FigureData."
+        },
+        {
+          "id": "domain-figure",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Children must be actual elements from the selected profile. Data follows its declared schema."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -3974,6 +4996,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-DetailsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in DetailsData."
+        },
+        {
+          "id": "domain-details",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Children must be actual elements from the selected profile. Disclosure state is local to the view."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4004,6 +5043,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TooltipData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TooltipData."
+        },
+        {
+          "id": "domain-tooltip",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4043,6 +5099,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PopoverData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PopoverData."
+        },
+        {
+          "id": "domain-popover",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4073,6 +5146,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PulseIndicatorData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PulseIndicatorData."
+        },
+        {
+          "id": "domain-pulse-indicator",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4105,6 +5195,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LoadingData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LoadingData."
+        },
+        {
+          "id": "domain-loading",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4135,6 +5242,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LoadingBlockData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LoadingBlockData."
+        },
+        {
+          "id": "domain-loading-block",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4167,6 +5291,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CitationData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CitationData."
+        },
+        {
+          "id": "domain-citation",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Source url must be an absolute HTTP(S) URL with a hostname, without credentials, whitespace, control characters or backslashes."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4197,6 +5338,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-WebLinkCardsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in WebLinkCardsData."
+        },
+        {
+          "id": "domain-web-link-cards",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4236,6 +5394,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AnimateData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AnimateData."
+        },
+        {
+          "id": "domain-animate",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4266,6 +5441,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CelebrationData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CelebrationData."
+        },
+        {
+          "id": "domain-celebration",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4305,6 +5497,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CarouselData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CarouselData."
+        },
+        {
+          "id": "domain-carousel",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4342,6 +5551,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TabPanelData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TabPanelData."
+        },
+        {
+          "id": "domain-tab-panel",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4383,6 +5609,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TabGroupData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TabGroupData."
+        },
+        {
+          "id": "domain-tab-group",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4421,6 +5664,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ListData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ListData."
+        },
+        {
+          "id": "domain-list",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4451,6 +5711,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-MetricData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MetricData."
+        },
+        {
+          "id": "domain-metric",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "No additional cross-field rule beyond the declared data schema and common evaluated disabled/error types."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4490,6 +5767,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-MetricGridData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MetricGridData."
+        },
+        {
+          "id": "domain-metric-grid",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4520,6 +5814,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-StepsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in StepsData."
+        },
+        {
+          "id": "domain-steps",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Each supplied step must satisfy the declared data schema; this view does not execute the steps."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4552,6 +5863,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LabelData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LabelData."
+        },
+        {
+          "id": "domain-label",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4582,6 +5910,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ChecklistData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ChecklistData."
+        },
+        {
+          "id": "domain-checklist",
+          "paths": [
+            "data"
+          ],
+          "complete": true,
+          "rule": "Checklist item IDs must be unique. Each checked value is boolean. Disabled, when supplied, must be an evaluated boolean. The adapter allocates distinct local bindings; they are not external DSL state."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4618,6 +5963,23 @@
         "display",
         "local-state"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RatingData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RatingData."
+        },
+        {
+          "id": "domain-rating",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4652,6 +6014,23 @@
       "capabilities": [
         "display",
         "local-state"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SegmentedData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SegmentedData."
+        },
+        {
+          "id": "domain-segmented",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4690,6 +6069,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FieldData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FieldData."
+        },
+        {
+          "id": "domain-field",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4733,6 +6129,23 @@
         "display",
         "local-action"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FormData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FormData."
+        },
+        {
+          "id": "domain-form",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4763,6 +6176,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TopologyData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TopologyData."
+        },
+        {
+          "id": "domain-topology",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4795,6 +6225,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ClockData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ClockData."
+        },
+        {
+          "id": "domain-clock",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4825,6 +6272,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-StopwatchData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in StopwatchData."
+        },
+        {
+          "id": "domain-stopwatch",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4857,6 +6321,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TimerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TimerData."
+        },
+        {
+          "id": "domain-timer",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4887,6 +6368,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-UnitConverterData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in UnitConverterData."
+        },
+        {
+          "id": "domain-unit-converter",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -4919,6 +6417,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SvgData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SvgData."
+        },
+        {
+          "id": "domain-svg",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4950,6 +6465,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RecommendationCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RecommendationCardData."
+        },
+        {
+          "id": "domain-recommendation-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -4980,6 +6512,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PromptChecklistData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PromptChecklistData."
+        },
+        {
+          "id": "domain-prompt-checklist",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5023,6 +6572,23 @@
         "display",
         "local-action"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PressableData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PressableData."
+        },
+        {
+          "id": "domain-pressable",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5053,6 +6619,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-HtmlViewData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in HtmlViewData."
+        },
+        {
+          "id": "domain-html-view",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -5086,6 +6669,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TabbedSectionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TabbedSectionData."
+        },
+        {
+          "id": "domain-tabbed-section",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5116,6 +6716,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-VisualCardCarouselData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in VisualCardCarouselData."
+        },
+        {
+          "id": "domain-visual-card-carousel",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5148,6 +6765,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LinkCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LinkCardData."
+        },
+        {
+          "id": "domain-link-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5178,6 +6812,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RecommendationLinkCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RecommendationLinkCardData."
+        },
+        {
+          "id": "domain-recommendation-link-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5210,6 +6861,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EntityCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EntityCardData."
+        },
+        {
+          "id": "domain-entity-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5240,6 +6908,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EntityOverviewData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EntityOverviewData."
+        },
+        {
+          "id": "domain-entity-overview",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5272,6 +6957,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AskUserDetailsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AskUserDetailsData."
+        },
+        {
+          "id": "domain-ask-user-details",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5302,6 +7004,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AskUserFilesData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AskUserFilesData."
+        },
+        {
+          "id": "domain-ask-user-files",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -5335,6 +7054,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-OfferVoiceConversationData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in OfferVoiceConversationData."
+        },
+        {
+          "id": "domain-offer-voice-conversation",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
         "Supplied source data is not independently fetched or verified.",
@@ -5367,6 +7103,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-MultipleChoiceBlockV2Data",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MultipleChoiceBlockV2Data."
+        },
+        {
+          "id": "domain-multiple-choice-block-v2",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5398,6 +7151,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ReservationTimePillsRefCarouselData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ReservationTimePillsRefCarouselData."
+        },
+        {
+          "id": "domain-reservation-time-pills-ref-carousel",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5428,6 +7198,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PushDripSeriesIntroData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PushDripSeriesIntroData."
+        },
+        {
+          "id": "domain-push-drip-series-intro",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -5461,6 +7248,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-StopPushDripSeriesData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in StopPushDripSeriesData."
+        },
+        {
+          "id": "domain-stop-push-drip-series",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
         "Supplied source data is not independently fetched or verified.",
@@ -5492,6 +7296,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-InternalPartnerAppData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in InternalPartnerAppData."
+        },
+        {
+          "id": "domain-internal-partner-app",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -5525,6 +7346,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-BentoData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in BentoData."
+        },
+        {
+          "id": "domain-bento",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5555,6 +7393,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-OpenDetailData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in OpenDetailData."
+        },
+        {
+          "id": "domain-open-detail",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5587,6 +7442,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-OpenaiData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in OpenaiData."
+        },
+        {
+          "id": "domain-openai",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5617,6 +7489,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SuperbowlRiddleData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SuperbowlRiddleData."
+        },
+        {
+          "id": "domain-superbowl-riddle",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5649,6 +7538,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EntityData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EntityData."
+        },
+        {
+          "id": "domain-entity",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5679,6 +7585,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RatingSummaryData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RatingSummaryData."
+        },
+        {
+          "id": "domain-rating-summary",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5711,6 +7634,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AgendaData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AgendaData."
+        },
+        {
+          "id": "domain-agenda",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5741,6 +7681,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RestaurantAvailabilityData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RestaurantAvailabilityData."
+        },
+        {
+          "id": "domain-restaurant-availability",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5773,6 +7730,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LocationChoiceRequestData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LocationChoiceRequestData."
+        },
+        {
+          "id": "domain-location-choice-request",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5803,6 +7777,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FlightOptionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FlightOptionData."
+        },
+        {
+          "id": "domain-flight-option",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5835,6 +7826,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ArtistUpcomingEventsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ArtistUpcomingEventsData."
+        },
+        {
+          "id": "domain-artist-upcoming-events",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5865,6 +7873,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PackageTrackerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PackageTrackerData."
+        },
+        {
+          "id": "domain-package-tracker",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5897,6 +7922,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FlightTrackerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FlightTrackerData."
+        },
+        {
+          "id": "domain-flight-tracker",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5927,6 +7969,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LocalBusinessData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LocalBusinessData."
+        },
+        {
+          "id": "domain-local-business",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -5959,6 +8018,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RestaurantReviewsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RestaurantReviewsData."
+        },
+        {
+          "id": "domain-restaurant-reviews",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -5989,6 +8065,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FlightSearchFormData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FlightSearchFormData."
+        },
+        {
+          "id": "domain-flight-search-form",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6021,6 +8114,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FlightResultsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FlightResultsData."
+        },
+        {
+          "id": "domain-flight-results",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6051,6 +8161,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-EventSidebarData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in EventSidebarData."
+        },
+        {
+          "id": "domain-event-sidebar",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6083,6 +8210,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-RestaurantMenuData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in RestaurantMenuData."
+        },
+        {
+          "id": "domain-restaurant-menu",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6113,6 +8257,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AskUserLocationData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AskUserLocationData."
+        },
+        {
+          "id": "domain-ask-user-location",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -6146,6 +8307,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PlacesMetadataBarData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PlacesMetadataBarData."
+        },
+        {
+          "id": "domain-places-metadata-bar",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6176,6 +8354,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CareProviderResultsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CareProviderResultsData."
+        },
+        {
+          "id": "domain-care-provider-results",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6208,6 +8403,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CareProviderSidebarData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CareProviderSidebarData."
+        },
+        {
+          "id": "domain-care-provider-sidebar",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6238,6 +8450,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FinanceQuoteData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FinanceQuoteData."
+        },
+        {
+          "id": "domain-finance-quote",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6270,6 +8499,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FinanceChartData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FinanceChartData."
+        },
+        {
+          "id": "domain-finance-chart",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6300,6 +8546,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FinanceComparisonData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FinanceComparisonData."
+        },
+        {
+          "id": "domain-finance-comparison",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6332,6 +8595,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FinanceHeatmapData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FinanceHeatmapData."
+        },
+        {
+          "id": "domain-finance-heatmap",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6362,6 +8642,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AssetDistributionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AssetDistributionData."
+        },
+        {
+          "id": "domain-asset-distribution",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6394,6 +8691,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TransactionListData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TransactionListData."
+        },
+        {
+          "id": "domain-transaction-list",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6424,6 +8738,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerAccountsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerAccountsData."
+        },
+        {
+          "id": "domain-ledger-accounts",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6456,6 +8787,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerRecurringTransactionsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerRecurringTransactionsData."
+        },
+        {
+          "id": "domain-ledger-recurring-transactions",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6486,6 +8834,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CurrencyConverterData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CurrencyConverterData."
+        },
+        {
+          "id": "domain-currency-converter",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6518,6 +8883,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerTransactionDetailData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerTransactionDetailData."
+        },
+        {
+          "id": "domain-ledger-transaction-detail",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6548,6 +8930,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerFinanceStatusBannerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerFinanceStatusBannerData."
+        },
+        {
+          "id": "domain-ledger-finance-status-banner",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6580,6 +8979,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerLowConfidenceCategoryCorrectionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerLowConfidenceCategoryCorrectionData."
+        },
+        {
+          "id": "domain-ledger-low-confidence-category-correction",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6610,6 +9026,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerNetWorthData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerNetWorthData."
+        },
+        {
+          "id": "domain-ledger-net-worth",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6642,6 +9075,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerFeeInterestPaidData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerFeeInterestPaidData."
+        },
+        {
+          "id": "domain-ledger-fee-interest-paid",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6672,6 +9122,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerSpendSoFarThisMonthData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerSpendSoFarThisMonthData."
+        },
+        {
+          "id": "domain-ledger-spend-so-far-this-month",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6704,6 +9171,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerUpcomingActivityData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerUpcomingActivityData."
+        },
+        {
+          "id": "domain-ledger-upcoming-activity",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6734,6 +9218,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerIncomeTrackerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerIncomeTrackerData."
+        },
+        {
+          "id": "domain-ledger-income-tracker",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6766,6 +9267,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerSpendByCategoryData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerSpendByCategoryData."
+        },
+        {
+          "id": "domain-ledger-spend-by-category",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6796,6 +9314,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerSpendByCategoryDetailData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerSpendByCategoryDetailData."
+        },
+        {
+          "id": "domain-ledger-spend-by-category-detail",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6828,6 +9363,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerSpendByCategoryRecentTransactionsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerSpendByCategoryRecentTransactionsData."
+        },
+        {
+          "id": "domain-ledger-spend-by-category-recent-transactions",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6858,6 +9410,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerFinanceOnboardingData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerFinanceOnboardingData."
+        },
+        {
+          "id": "domain-ledger-finance-onboarding",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -6891,6 +9460,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerRepairBankConnectionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerRepairBankConnectionData."
+        },
+        {
+          "id": "domain-ledger-repair-bank-connection",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
         "Supplied source data is not independently fetched or verified.",
@@ -6923,6 +9509,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FinanceOnboardingSuggestionsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FinanceOnboardingSuggestionsData."
+        },
+        {
+          "id": "domain-finance-onboarding-suggestions",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -6953,6 +9556,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerEquityUpdatesData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerEquityUpdatesData."
+        },
+        {
+          "id": "domain-ledger-equity-updates",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -6985,6 +9605,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerWatchlistData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerWatchlistData."
+        },
+        {
+          "id": "domain-ledger-watchlist",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7015,6 +9652,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerCreditScoreData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerCreditScoreData."
+        },
+        {
+          "id": "domain-ledger-credit-score",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7047,6 +9701,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerCreditScoreDetailData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerCreditScoreDetailData."
+        },
+        {
+          "id": "domain-ledger-credit-score-detail",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7077,6 +9748,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LedgerLowConfidenceCategoryCorrectionLegacyData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LedgerLowConfidenceCategoryCorrectionLegacyData."
+        },
+        {
+          "id": "domain-ledger-low-confidence-category-correction-legacy",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7109,6 +9797,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-WordCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in WordCardData."
+        },
+        {
+          "id": "domain-word-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7139,6 +9844,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CopyWordsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CopyWordsData."
+        },
+        {
+          "id": "domain-copy-words",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7171,6 +9893,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-QuizData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in QuizData."
+        },
+        {
+          "id": "domain-quiz",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7201,6 +9940,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FlashcardsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FlashcardsData."
+        },
+        {
+          "id": "domain-flashcards",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7233,6 +9989,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FillBlankData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FillBlankData."
+        },
+        {
+          "id": "domain-fill-blank",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7263,6 +10036,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SentenceBuilderData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SentenceBuilderData."
+        },
+        {
+          "id": "domain-sentence-builder",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7295,6 +10085,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-VocabCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in VocabCardData."
+        },
+        {
+          "id": "domain-vocab-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7325,6 +10132,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LearningAudioLabelCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LearningAudioLabelCardData."
+        },
+        {
+          "id": "domain-learning-audio-label-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7357,6 +10181,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LearningImageChoiceCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LearningImageChoiceCardData."
+        },
+        {
+          "id": "domain-learning-image-choice-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7388,6 +10229,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LearningImageLabelCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LearningImageLabelCardData."
+        },
+        {
+          "id": "domain-learning-image-label-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7418,6 +10276,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LearningVoiceModeLauncherCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LearningVoiceModeLauncherCardData."
+        },
+        {
+          "id": "domain-learning-voice-mode-launcher-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -7451,6 +10326,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LearningSpeakCardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LearningSpeakCardData."
+        },
+        {
+          "id": "domain-learning-speak-card",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7481,6 +10373,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-FollowUpQuizData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in FollowUpQuizData."
+        },
+        {
+          "id": "domain-follow-up-quiz",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7513,6 +10422,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-PersonalityQuizData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in PersonalityQuizData."
+        },
+        {
+          "id": "domain-personality-quiz",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7543,6 +10469,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-HomeworkHelperV2Data",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in HomeworkHelperV2Data."
+        },
+        {
+          "id": "domain-homework-helper-v2",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7575,6 +10518,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LearningVizDilData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LearningVizDilData."
+        },
+        {
+          "id": "domain-learning-viz-dil",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7605,6 +10565,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CalculatorCorrectedAdjustedAgeOfPretermInfantsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CalculatorCorrectedAdjustedAgeOfPretermInfantsData."
+        },
+        {
+          "id": "domain-calculator-corrected-adjusted-age-of-preterm-infants",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7637,6 +10614,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CalculatorGlasgowComaScaleGcsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CalculatorGlasgowComaScaleGcsData."
+        },
+        {
+          "id": "domain-calculator-glasgow-coma-scale-gcs",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7667,6 +10661,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CalculatorRoxIndexForHighFlowNasalCannulaData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CalculatorRoxIndexForHighFlowNasalCannulaData."
+        },
+        {
+          "id": "domain-calculator-rox-index-for-high-flow-nasal-cannula",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7699,6 +10710,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CalculatorQsofaScoreData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CalculatorQsofaScoreData."
+        },
+        {
+          "id": "domain-calculator-qsofa-score",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7729,6 +10757,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-QuestionnaireData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in QuestionnaireData."
+        },
+        {
+          "id": "domain-questionnaire",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7761,6 +10806,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-BusinessGalleryData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in BusinessGalleryData."
+        },
+        {
+          "id": "domain-business-gallery",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7791,6 +10853,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-YoutubeData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in YoutubeData."
+        },
+        {
+          "id": "domain-youtube",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -7824,6 +10903,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SearchImageData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SearchImageData."
+        },
+        {
+          "id": "domain-search-image",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7854,6 +10950,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AsyncImageGroupData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AsyncImageGroupData."
+        },
+        {
+          "id": "domain-async-image-group",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -7886,6 +10999,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AsyncImageData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AsyncImageData."
+        },
+        {
+          "id": "domain-async-image",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7916,6 +11046,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-LottieData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in LottieData."
+        },
+        {
+          "id": "domain-lottie",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -7949,6 +11096,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ImageGridData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ImageGridData."
+        },
+        {
+          "id": "domain-image-grid",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -7980,6 +11144,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AsyncVideoCarouselData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AsyncVideoCarouselData."
+        },
+        {
+          "id": "domain-async-video-carousel",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8010,6 +11191,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ImageGenData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ImageGenData."
+        },
+        {
+          "id": "domain-image-gen",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -8043,6 +11241,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-GenImageData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in GenImageData."
+        },
+        {
+          "id": "domain-gen-image",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
         "Supplied source data is not independently fetched or verified.",
@@ -8074,6 +11289,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SpeechSynthesizerData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SpeechSynthesizerData."
+        },
+        {
+          "id": "domain-speech-synthesizer",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Host-owned capability. Contract registration does not grant permissions or execute external actions.",
@@ -8107,6 +11339,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-OnboardingSelectionData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in OnboardingSelectionData."
+        },
+        {
+          "id": "domain-onboarding-selection",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8137,6 +11386,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-F1RacesData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in F1RacesData."
+        },
+        {
+          "id": "domain-f1-races",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -8169,6 +11435,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-F1StandingsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in F1StandingsData."
+        },
+        {
+          "id": "domain-f1-standings",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8199,6 +11482,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SportsScheduleData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SportsScheduleData."
+        },
+        {
+          "id": "domain-sports-schedule",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -8231,6 +11531,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SportsScoreboardData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SportsScoreboardData."
+        },
+        {
+          "id": "domain-sports-scoreboard",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8261,6 +11578,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SportsStandingsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SportsStandingsData."
+        },
+        {
+          "id": "domain-sports-standings",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -8293,6 +11627,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-NbaScoresData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in NbaScoresData."
+        },
+        {
+          "id": "domain-nba-scores",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8323,6 +11674,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SoccerGamesData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SoccerGamesData."
+        },
+        {
+          "id": "domain-soccer-games",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -8355,6 +11723,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-AmericanFootballGamesData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in AmericanFootballGamesData."
+        },
+        {
+          "id": "domain-american-football-games",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8385,6 +11770,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-BasketballTournamentData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in BasketballTournamentData."
+        },
+        {
+          "id": "domain-basketball-tournament",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -8417,6 +11819,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-ElectionResultsData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in ElectionResultsData."
+        },
+        {
+          "id": "domain-election-results",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8447,6 +11866,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-NbaGameBoxscoreData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in NbaGameBoxscoreData."
+        },
+        {
+          "id": "domain-nba-game-boxscore",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -8479,6 +11915,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-CricketMatchBoxscoreData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CricketMatchBoxscoreData."
+        },
+        {
+          "id": "domain-cricket-match-boxscore",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8509,6 +11962,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-NbaPlayerSummaryData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in NbaPlayerSummaryData."
+        },
+        {
+          "id": "domain-nba-player-summary",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
@@ -8541,6 +12011,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-TennisPlayerSummaryData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in TennisPlayerSummaryData."
+        },
+        {
+          "id": "domain-tennis-player-summary",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8572,6 +12059,23 @@
       "capabilities": [
         "display"
       ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-WeatherData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in WeatherData."
+        },
+        {
+          "id": "domain-weather",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
         "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
@@ -8602,6 +12106,23 @@
       },
       "capabilities": [
         "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-WeatherSidebarTitleData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in WeatherSidebarTitleData."
+        },
+        {
+          "id": "domain-weather-sidebar-title",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
       ],
       "limitations": [
         "Supplied source data is not independently fetched or verified.",
