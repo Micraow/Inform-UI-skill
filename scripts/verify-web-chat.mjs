@@ -40,6 +40,13 @@ for(const def of definitions){
  assert.equal(src,build.runtimeURL);assert(!src.includes(build.sourceCommit));assert(!html.includes(build.sourceCommit));assert(!skill.includes(build.sourceCommit));
  assert.equal((html.match(/<script/g)||[]).length,3);
  assert(skill.includes('无需终端、CLI、npm、React 工程'));
+ if(def.skillPath==='SKILL.md'){
+  assert(skill.includes('Agent 按需扩展'));assert(skill.includes('scripts/inform-answer.mjs'));
+  const webSkill=await readFile(join(dir,'SKILL.md'),'utf8');
+  assert(webSkill.includes('name: inform-web-chat-core'));
+  assert(webSkill.includes(webChatPrompt(profile.prompt({bindings:true,builtinFunctions:true}))));
+  assert(webSkill.includes(html.trim()));
+ }
  const iconLine=profile.prompt().split('\n').find(line=>line.startsWith('Icon('));assert(iconLine.length<2000);
  const allowedIcons=new Set(profile.schema.$defs.Icon.properties.name.enum);for(const name of config.glyphShortlist)assert(allowedIcons.has(name),name);
  const runtime=api.createRuntime(profile);

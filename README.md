@@ -1,13 +1,31 @@
-# Inform：直接给 Web Chat 的互动答案 Skill
+# Inform 互动答案 Skill
 
-默认使用根目录 [SKILL.md](./SKILL.md)。把这个文件完整交给模型，再提出你的问题；模型即可输出一份引用 Inform browser JS latest 入口的完整 HTML，不用写死版本号。
+面向 Agent 和 Web Chat AI，用 Inform DSL 与 browser JS 生成完整、可阅读、可交互的 HTML 答案。文字、图表、媒体和本地控件共同解释问题；无需创建 React 工程。
 
-无需让模型操作终端、运行 CLI、安装 npm/React，或读取全部领域组件。
+根目录 [SKILL.md](./SKILL.md) 是通用入口，默认使用精简的基础与图表合同。它既能直接交给聊天模型，也能供具备文件和工具能力的 Agent 使用；默认 HTML 引用 latest，不写死版本号。
 
-## 选一份即可
+## Agent：按需发现、组合与验证
 
-- 默认基础 + 图表：[SKILL.md](./SKILL.md)。适合比较、数据探索、预算选择与普通图文解释。没有领域 View。
-- 精选十个内容视图：[curated-web-chat/SKILL.md](./profiles/curated-web-chat/SKILL.md)。在相同基础上加入 MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、CodeView、BlockquoteView、ChecklistView，用于指标、图注、分节、步骤、公式、折叠说明、来源、代码、引文和核对清单。
+- 从 [模块目录](./references/catalog.md) 找相关能力，再读取对应 generated/modules/*.txt 或 generated/views/&lt;ViewName&gt;.txt。完整库保留 233 个 UI、195 个领域 View 与 755 个 glyph，按需求加载，不必一次全部读取。Data 构造器不计入 UI。
+- 现有 CLI 入口 [scripts/inform-answer.mjs](./scripts/inform-answer.mjs) 提供 catalog、prompt、icons、check、build；[语法边界](./references/dialect.md)、[交付边界](./references/delivery.md) 和 [完整示例](./examples/) 继续保留。
+- 用 createProfile({select,viewNames}) 或 CLI prompt 生成需要的合同，再用相同选择检查和构建。需要扩展时替换成匹配的 profile，不把未选组件混入默认合同。
+
+```sh
+node scripts/inform-answer.mjs catalog
+node scripts/inform-answer.mjs icons --query chart --limit 8
+node scripts/inform-answer.mjs prompt --select base/layout,base/text,views/content --views MetricView,CodeView --out prompt.txt
+node scripts/inform-answer.mjs check answer.openui --select base/layout,base/text,views/content --views MetricView,CodeView
+node scripts/inform-answer.mjs build answer.openui --out answer.html --select base/layout,base/text,views/content --views MetricView,CodeView --runtime-url https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js
+```
+
+CLI 使用仓库自带的 Node runtime 做开发验证；随包快照可用于明确的离线/调试场景。它不要求安装 React 或运行时依赖。按需 prompt 和静态目录是开发辅助，不表示宿主查询、支付或发送服务自动可用。
+
+## Web Chat：只交给模型一份文件
+
+- [基础与图表](./profiles/web-chat-core/SKILL.md)：37 个 UI，适合比较、数据探索、预算选择与普通图文解释；也可继续使用根通用入口。
+- [精选十个内容视图](./profiles/curated-web-chat/SKILL.md)：47 个 UI，在相同基础上加入 MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、CodeView、BlockquoteView、ChecklistView。
+
+这两份轻量 profile 是项目的使用子入口，不替代 Agent 的完整模块发现能力。Web Chat 路线无需让模型运行 CLI 或读取全部组件；选一份文件，再提出问题即可。
 
 当前基础版为 37 个 UI，精选版为 47 个 UI；数据构造器不计入 UI。通用对比使用已有 Table/Grid/MetricView，过程使用 StepsView；当前合同没有 ComparisonView 或 TimelineView，不借用金融专用比较组件冒充通用组件。
 

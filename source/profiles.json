@@ -1,8 +1,8 @@
 [
   {
     "id": "web-chat-core",
-    "name": "inform-web-chat-core",
-    "label": "默认：基础与图表",
+    "name": "inform-interactive-answers",
+    "label": "Inform 互动答案：基础与图表",
     "select": [
       "base/layout",
       "base/text",
@@ -14,7 +14,7 @@
     "viewNames": [],
     "source": "core.openui",
     "title": "让图表、表格和解释一起更新",
-    "description": "生成无需工程或终端的完整互动 HTML 答案，默认只开放 Inform 基础组件与图表，不加载领域 View 的模型上下文。",
+    "description": "供 Agent 和 Web Chat AI 生成完整互动 HTML 答案。默认使用 Inform 基础组件与图表；Agent 可按需发现模块、领域视图和图标，并使用可选 CLI 验证与构建。无需创建 React 工程。",
     "outputDirectory": "profiles/web-chat-core",
     "skillPath": "SKILL.md"
   },

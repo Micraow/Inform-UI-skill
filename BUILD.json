@@ -57,7 +57,7 @@
         "Link"
       ],
       "promptBytes": 23642,
-      "skillBytes": 30285,
+      "skillBytes": 31793,
       "schemaBytes": 90033,
       "sourceSha256": "47d1507f09c572092afb4537ee4916ade8b5c0990eb1d763eef06f24197a8ff5"
     },
@@ -122,7 +122,7 @@
         "Link"
       ],
       "promptBytes": 29752,
-      "skillBytes": 39786,
+      "skillBytes": 39802,
       "schemaBytes": 132382,
       "sourceSha256": "174b7bf166f513e6294db7e6d77962bfeb99de123e242e61647f9edfad17c90b"
     }

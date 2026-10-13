@@ -1,11 +1,18 @@
 ---
-name: inform-web-chat-core
-description: 生成无需工程或终端的完整互动 HTML 答案，默认只开放 Inform 基础组件与图表，不加载领域 View 的模型上下文。
+name: inform-interactive-answers
+description: 供 Agent 和 Web Chat AI 生成完整互动 HTML 答案。默认使用 Inform 基础组件与图表；Agent 可按需发现模块、领域视图和图标，并使用可选 CLI 验证与构建。无需创建 React 工程。
 ---
 
-# 默认：基础与图表
+# Inform 互动答案：基础与图表
 
-把本文件直接交给 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，用图文和有意义的本地交互帮助理解。无需终端、CLI、npm、React 工程或额外的全量组件文档。
+把本文件交给 Agent 或 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，用图文和有意义的本地交互帮助理解。默认路线无需终端、CLI、npm、React 工程或额外的全量组件文档。
+## 两条使用路线
+
+- **直接写答案**：Agent 和 Web Chat 都可以只读本文件，用下面的基础与图表合同输出 HTML，不要求终端。专门的轻量入口位于 profiles/web-chat-core/SKILL.md 和 profiles/curated-web-chat/SKILL.md。
+- **Agent 按需扩展**：有仓库文件或工具能力时，先读 references/catalog.md，再按模块读 generated/modules/*.txt，或按名称读 generated/views/<ViewName>.txt；不要把所有 195 个 View 和 755 个 glyph 一次性塞进上下文。全量目录不是本默认 profile 的额外授权。
+- **可选 CLI**：node scripts/inform-answer.mjs catalog 做模块发现；prompt --select 模块列表 --views 精确View列表 生成该选择的合同；icons --query 关键词 发现官方图标；check answer.openui 检查，build answer.openui --out answer.html 构建。check/build 都要传同一 --select 和 --views；构建使用 --runtime-url https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js 跟随 latest。CLI 随仓库提供 Node runtime，不要求安装 React 工程。
+- 扩展时必须同时用真实 profile 重新生成 prompt/schema，并让 HTML 的 select/viewNames 保持一致；不能把扩展 View 混进本文件默认的 37 个 UI 合同。离线或调试可显式使用随包的验证快照，但不要把固定 commit 写成默认 HTML 入口。
+
 
 ## 写作和交付合同
 
