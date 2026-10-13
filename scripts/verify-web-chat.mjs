@@ -16,7 +16,13 @@ assert.equal(createHash('sha256').update(bytes).digest('hex'),build.runtimeSha25
 assert.equal(createHash('sha256').update(await readFile(join(runtimeDir,'node.mjs'))).digest('hex'),build.nodeRuntimeSha256);
 for(const [name,hash]of [['node.mjs',build.nodeRuntimeSha256],['inform-ui.global.js',build.runtimeSha256]])assert.equal(createHash('sha256').update(await readFile(join(root,'assets/runtime',name))).digest('hex'),hash,'Bundled Agent runtime must match generated profiles');
 const runtimeLock=await readJSON(join(root,'generated/runtime-lock.json'));assert.equal(runtimeLock.sourceRef,build.sourceCommit);assert.equal(runtimeLock.bundles['node.mjs'].sha256,build.nodeRuntimeSha256);
-if(build.runtimeHTTP){assert.equal(build.runtimeHTTP.url,build.runtimeURL);assert.equal(build.runtimeHTTP.status,200);assert.equal(build.runtimeHTTP.verifiedSourceCommit??build.runtimeHTTP.version,build.sourceCommit);assert.equal(build.runtimeHTTP.publishedSha256,build.runtimeSha256);}
+if(build.runtimeHTTP){
+ assert.equal(build.runtimeHTTP.url,build.runtimeURL);assert.equal(build.runtimeHTTP.status,200);
+ if(build.validationStage==='git-published-cdn-pending'){
+  assert.equal(build.runtimeHTTP.gitPublishedSourceCommit,build.sourceCommit);assert.equal(build.runtimeHTTP.expectedSha256,build.runtimeSha256);
+  assert.equal(build.runtimeHTTP.matchesSnapshot,false);assert.equal(build.publicationReady,false);assert.equal(build.bundledRuntimeReady,true);
+ }else{assert.equal(build.runtimeHTTP.verifiedSourceCommit??build.runtimeHTTP.version,build.sourceCommit);assert.equal(build.runtimeHTTP.publishedSha256,build.runtimeSha256);}
+}
 assert.equal(build.verificationLockOnly,true);assert.equal(build.runtimeChannel,'latest');
 const checks=[];
 function nodes(root){const out=[];const walk=value=>{if(!value||typeof value!=='object')return;if(value.type==='element')out.push(value);for(const child of Object.values(value))Array.isArray(child)?child.forEach(walk):walk(child);};walk(root);return out;}
@@ -73,5 +79,5 @@ for(const def of definitions){
  }finally{runtime.dispose();}
  checks.push({profile:def.id,uiComponents:config.uiComponents,dataConstructors:config.dataConstructors,contractEquality:true,htmlMatchesSkill:true,finalCommit:true,stateTransitions:true,unselectedViewsRejected:true,glyphNamesValidated:true});
 }
-const report={format:'inform-web-chat-verification/1',publicationReady:build.publicationReady,validationStage:build.validationStage,sourceCommit:build.sourceCommit,runtimeSha256:build.runtimeSha256,codeGenerationFromStrings:process.execArgv.includes('--disallow-code-generation-from-strings')?'disabled':'not disabled in this invocation',profiles:checks,browser:'not run by this script',externalRuntimeURL:build.runtimeHTTP?{method:build.runtimeHTTP.method,status:build.runtimeHTTP.status,contentType:build.runtimeHTTP.contentType,accessControlAllowOrigin:build.runtimeHTTP.accessControlAllowOrigin,publishedBlobMatchesSnapshot:true,browserExecution:'not run'}:'must be independently verified against the published bundle'};
+const report={format:'inform-web-chat-verification/1',publicationReady:build.publicationReady,validationStage:build.validationStage,sourceCommit:build.sourceCommit,runtimeSha256:build.runtimeSha256,codeGenerationFromStrings:process.execArgv.includes('--disallow-code-generation-from-strings')?'disabled':'not disabled in this invocation',profiles:checks,browser:'not run by this script',externalRuntimeURL:build.runtimeHTTP?{method:build.runtimeHTTP.method,status:build.runtimeHTTP.status,contentType:build.runtimeHTTP.contentType,accessControlAllowOrigin:build.runtimeHTTP.accessControlAllowOrigin,publishedBlobMatchesSnapshot:build.runtimeHTTP.publishedSha256===build.runtimeSha256,cacheState:build.runtimeHTTP.cacheState??'observed snapshot match only',purgeStatus:build.runtimeHTTP.purgeStatus??'not required for recorded observation',browserExecution:'not run'}:'must be independently verified against the published bundle'};
 await writeFile(join(root,'DELIVERY.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

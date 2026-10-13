@@ -1,20 +1,20 @@
 {
   "format": "inform-runtime-lock/2",
   "version": "2.0.0-alpha.1",
-  "sourceRef": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
-  "publication": "This development snapshot matches the verified latest GET; the mutable default URL is recorded in BUILD.json and does not pin user HTML.",
+  "sourceRef": "c7f6254c75783cd9bf391d1748234132fbeb2532",
+  "publication": "Git release refs are verified and bundled bytes match this lock. The mutable CDN entry has returned stale cached bytes; current CDN convergence and external browser execution are not established.",
   "root": "Stack",
   "componentCount": 233,
   "dataConstructorCount": 200,
   "iconCount": 755,
   "bundles": {
     "inform-ui.global.js": {
-      "bytes": 5572910,
-      "sha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16"
+      "bytes": 5574680,
+      "sha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db"
     },
     "node.mjs": {
-      "bytes": 5572778,
-      "sha256": "7378182eece9cafec8bb51a72064f4181613d614e3c0e2d79623de4c0692bae8"
+      "bytes": 5574548,
+      "sha256": "11372ee15ef5fe9d1ec6070322563588405ea8887d574fe31e6c9c3ba0c34dfe"
     },
     "THIRD_PARTY_NOTICES.txt": {
       "bytes": 60418,

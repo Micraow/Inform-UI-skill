@@ -1,13 +1,13 @@
 {
   "format": "inform-web-chat-skill/1",
-  "validationStage": "published",
-  "publicationReady": true,
-  "sourceCommit": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+  "validationStage": "git-published-cdn-pending",
+  "publicationReady": false,
+  "sourceCommit": "c7f6254c75783cd9bf391d1748234132fbeb2532",
   "verificationLockOnly": true,
   "runtimeChannel": "latest",
   "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-  "runtimeSha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16",
-  "nodeRuntimeSha256": "7378182eece9cafec8bb51a72064f4181613d614e3c0e2d79623de4c0692bae8",
+  "runtimeSha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db",
+  "nodeRuntimeSha256": "11372ee15ef5fe9d1ec6070322563588405ea8887d574fe31e6c9c3ba0c34dfe",
   "runtimeUpdateSemantics": "The default latest URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.",
   "promptProseProjection": "declaration-lines-and-root-position/1",
   "profiles": [
@@ -15,11 +15,11 @@
       "id": "web-chat-core",
       "outputDirectory": "profiles/web-chat-core",
       "skillPath": "SKILL.md",
-      "sourceCommit": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+      "sourceCommit": "c7f6254c75783cd9bf391d1748234132fbeb2532",
       "verificationLockOnly": true,
       "runtimeChannel": "latest",
       "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-      "runtimeSha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16",
+      "runtimeSha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db",
       "select": [
         "base/layout",
         "base/text",
@@ -67,11 +67,11 @@
       "id": "web-chat-views",
       "outputDirectory": "profiles/curated-web-chat",
       "skillPath": "profiles/curated-web-chat/SKILL.md",
-      "sourceCommit": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+      "sourceCommit": "c7f6254c75783cd9bf391d1748234132fbeb2532",
       "verificationLockOnly": true,
       "runtimeChannel": "latest",
       "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-      "runtimeSha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16",
+      "runtimeSha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db",
       "select": [
         "base/layout",
         "base/text",
@@ -136,14 +136,73 @@
     "contentType": "application/javascript; charset=utf-8",
     "accessControlAllowOrigin": "*",
     "version": "web-chat-latest",
-    "verifiedSourceCommit": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
-    "immutable": false,
+    "gitPublishedSourceCommit": "c7f6254c75783cd9bf391d1748234132fbeb2532",
+    "expectedSha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db",
+    "verifiedSourceCommit": null,
+    "publishedSha256": "7006c0155cde453bd9f01db084048e0d45eff0ff309230b3e787214eafa8f9ea",
+    "publishedBytes": 5554357,
+    "matchesSnapshot": false,
+    "observedAtUTC": "2026-10-13T16:48:54Z",
+    "branchAtObservation": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
+    "laterRefVerified": true,
     "cacheControl": "public, max-age=604800, s-maxage=43200",
-    "publishedBytes": 5572910,
-    "publishedSha256": "bd2815aa1901b70c1ccef1541778b8a1888ffd0e66217480a9ae0f12c5967a16",
-    "bodyEvidence": "Actual public GET body SHA-256 equals the frozen runtime snapshot. Source branch commit independently verified. HTTP success is not browser execution.",
-    "reportedOn": "2026-10-13"
+    "cacheState": "stale-inconsistent",
+    "purgeStatus": "pending official workflow",
+    "bodyEvidence": "Different observed rolling responses contain different cached versions; earlier successful GET does not imply globally converged CDN state",
+    "browserExecution": "not verified"
   },
   "modelWorkflow": "Read one SKILL.md; produce complete HTML using the latest entry; no CLI required",
-  "browserVerification": "Not established by generation or Node validation"
+  "browserVerification": "Not established by generation or Node validation",
+  "bundledRuntimeReady": true,
+  "contractComparison": {
+    "againstSkillCommit": "7853434d76d3f03bbaf2f91a30a3e3aa544196d8",
+    "coreCuratedFullSchemaManifestPromptUnchanged": true,
+    "checks": [
+      {
+        "path": "profiles/web-chat-core/schema.json",
+        "sha256": "18456b019f1f23718533d4bfdaaa467b29cbfce69cc5f6d5aaf507a26ab02aa6",
+        "unchanged": true
+      },
+      {
+        "path": "profiles/web-chat-core/manifest.json",
+        "sha256": "b6aea4f6ec8357ec0323865f89d0ad5ebd36ad1208484a3294a03fdd41bd37c2",
+        "unchanged": true
+      },
+      {
+        "path": "profiles/web-chat-core/prompt.txt",
+        "sha256": "fa2b203f8073f26a41e3c1da958ae64701a6b32abc2bedd4a0d75bb89cb5f78d",
+        "unchanged": true
+      },
+      {
+        "path": "profiles/curated-web-chat/schema.json",
+        "sha256": "f08fb53adff2b54ba829454a0f23818649d2aab1b8891cb84e2d8ff6f3735402",
+        "unchanged": true
+      },
+      {
+        "path": "profiles/curated-web-chat/manifest.json",
+        "sha256": "f3be6eb1874537d8370b2f4bcb5ed4e5b5347ca4451689b69c605f893fe7dd61",
+        "unchanged": true
+      },
+      {
+        "path": "profiles/curated-web-chat/prompt.txt",
+        "sha256": "49bd26cdb99ff786c1bae529323feb90234e6407f03ae6c84a7b81917b595a84",
+        "unchanged": true
+      },
+      {
+        "path": "generated/schema.json",
+        "sha256": "62d0e3cf5e9be0c6c81bf383e476dec97fafb6d65198f6d48246824adb3fc085",
+        "unchanged": true
+      },
+      {
+        "path": "generated/manifest.json",
+        "sha256": "fa6c8dbb6139c0777ac427d615b8299f9bd9f4204e6e2aebb7e7f455ca839914",
+        "unchanged": true
+      },
+      {
+        "path": "generated/full-profile.txt",
+        "sha256": "5cb0997dc67f9c3ef41ea0babc165da112f5ea6b2ca0456618ca2500c80cfe9c",
+        "unchanged": true
+      }
+    ]
+  }
 }
