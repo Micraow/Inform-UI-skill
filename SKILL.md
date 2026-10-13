@@ -9,7 +9,7 @@ description: 生成无需工程或终端的完整互动 HTML 答案，默认只�
 
 ## 写作和交付合同
 
-- 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和固定版本 script URL。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
+- 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 latest，不把 commit 或版本号写入 HTML。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
 - 37 个 UI 构造器、5 个数据构造器。本版不开放任何领域 View。使用基础组件、图表与文字完成答案；不要从旧目录猜 View 名称。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部195个View。
 - 不声明已完成查询、订票、付款、发送或其他宿主服务。这里只处理给定数据和本地状态。Query、Mutation、@Run、@OpenUrl、@ToAssistant 与任意 JS 均不支持。
@@ -18,7 +18,7 @@ description: 生成无需工程或终端的完整互动 HTML 答案，默认只�
 - 只用 @Filter、@Sort、@Each 等下方实际列出的纯函数。没有 lambda、.map() 或 eval。Each 的第三参数是内联模板。Table 的行对象只能含 columns 声明的键；用 @Each 投影并保留原始记录做选择。
 - source 是 JSON 字符串，完整进行 JSON 转义；HTML 数据块中的每个 < 写成 \u003c，避免正文的 </script> 结束数据块。不要把 DSL 直接拼接成可执行 JavaScript。
 - 若使用图标，可直接选以下已核对的官方名称：Check、Info、Warning、ArrowRight、Chart、Calendar、BookOpen、Lightbulb、MapPin、Search、Filter、Settings、Play、Pause、CircleQuestion、Link。这里故意不列全部 755 个 glyph；没有额外目录时用文字或这些名称，不猜名字。
-- HTML 依赖网络获取固定版本 JS；网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
+- HTML 依赖网络获取 latest JS；它是会更新的入口，CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即拿到最新字节。网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
 
 这是 OpenUI 派生的严格本地方言，不是全部上游 runtime 的兼容替代。精简的是模型合同与可用组件集合；使用的 browser JS 仍是同一完整 bundle。不宣称未测的 token 或下载体积节省。
 
@@ -264,7 +264,7 @@ CalendarDay(date: string, value: number): ISO calendar day and non-negative magn
 <p id="status" role="status">正在载入答案…</p>
 <noscript>需要启用 JavaScript 才能显示这份互动答案。</noscript>
 <script id="inform-config" type="application/json">{"source":"$minimum = 60\nrows = [{name:\"读书会\",score:91},{name:\"写作课\",score:76},{name:\"分享会\",score:67},{name:\"讨论班\",score:54}]\nvisible = @Sort(@Filter(rows,\"score\",\">=\",$minimum),\"score\",\"desc\")\nroot = Stack([\n Heading(\"让图表、表格和解释一起更新\",1),\n Text(\"这组原创示例中，读书会反馈分最高，为 91 分。调整最低分，可以观察候选活动怎样变化；图表和表格始终使用同一份筛选结果。\",\"muted\"),\n Card([Slider(\"最低反馈分\",$minimum,0,100,1),Button(\"恢复 60 分\",@Reset($minimum),\"secondary\")],\"试着筛选\"),\n Text(\"达到阈值：\"+@Count(visible)+\" 场活动\"),\n @Count(visible)>0 ? Stack([\n  Text(\"候选活动的等权平均反馈分：\"+@Round(@Avg(visible.score),1)+\" 分。\"),\n  BarChart(\"候选活动反馈分\",visible.name,[Series(\"反馈分\",visible.score)],{height:280,animate:false}),\n  Table([{key:\"name\",label:\"活动\"},{key:\"score\",label:\"反馈分\"}],visible,\"与图表相同的数据\")\n ],\"lg\") : Alert(\"当前没有匹配结果\",\"把最低分调到 91 或以下，或使用恢复按钮。\",\"warning\"),\n Text(\"反馈分不能单独决定活动是否适合你。还要核对主题、时间与费用。这里没有提供这些资料，所有活动与分数都是演示数据。\"),\n Text(\"来源：本例原创四行数据。筛选按 score ≥ 最低分；平均分按活动等权计算。\",\"muted\")\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/charts"],"viewNames":[],"theme":"light"}</script>
-<script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@675c6659b40becce1b1ed2d6383d2dee852e8a14/cdn/next/inform-ui.global.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js"></script>
 <script>
 (() => {
  const status=document.getElementById('status');

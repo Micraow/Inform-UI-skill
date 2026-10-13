@@ -1,14 +1,15 @@
 {
-  "method":"HEAD",
-  "url":"https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@675c6659b40becce1b1ed2d6383d2dee852e8a14/cdn/next/inform-ui.global.js",
-  "status":200,
-  "contentType":"application/javascript;charset=utf-8",
-  "accessControlAllowOrigin":"*",
-  "version":"675c6659b40becce1b1ed2d6383d2dee852e8a14",
-  "immutable":true,
-  "publishedGitBlobSha":"27468d379d86ae533e206a783a21e9e671812ded",
-  "publishedBytes":5554145,
-  "publishedSha256":"b298629c8e10042dcff093bf7a94da2c1ef9625695b09291758688eeef2c6db2",
-  "bodyEvidence":"Published Git blob matches the local snapshot. HEAD verified availability and headers; no browser execution is implied.",
-  "reportedOn":"2026-10-13"
+  "method": "GET",
+  "url": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
+  "status": 200,
+  "contentType": "application/javascript;charset=utf-8",
+  "accessControlAllowOrigin": "*",
+  "version": "web-chat-latest",
+  "verifiedSourceCommit": "21976c899a184f0bb375a78e55db04f107adb4a3",
+  "immutable": false,
+  "cacheControl": "public,max-age=604800,s-maxage=43200",
+  "publishedBytes": 5554357,
+  "publishedSha256": "7006c0155cde453bd9f01db084048e0d45eff0ff309230b3e787214eafa8f9ea",
+  "bodyEvidence": "Actual public GET body SHA-256 equals the verified local latest snapshot. Branch source commit was independently verified. HTTP availability does not by itself imply browser execution.",
+  "reportedOn": "2026-10-13"
 }

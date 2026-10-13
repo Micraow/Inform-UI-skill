@@ -9,7 +9,7 @@ description: 生成完整互动 HTML 答案，在 Inform 基础与图表之外�
 
 ## 写作和交付合同
 
-- 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和固定版本 script URL。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
+- 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 latest，不把 commit 或版本号写入 HTML。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
 - 47 个 UI 构造器、15 个数据构造器。本版只额外开放：MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、CodeView、BlockquoteView、ChecklistView。不要改成全部 views/content；其他领域 View 不在本版合同里。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部195个View。
 - CodeView 只显示字符串，不执行代码；代码块用 language、highlight:true、copy:true，inline:true 时不可同时启用高亮/复制。它保留缩进和原始换行，长行在面板内横向滚动；不把每行强行断开。复制需要浏览器安全上下文、权限与真实点击，失败应按页面提示处理。
@@ -21,7 +21,7 @@ description: 生成完整互动 HTML 答案，在 Inform 基础与图表之外�
 - 只用 @Filter、@Sort、@Each 等下方实际列出的纯函数。没有 lambda、.map() 或 eval。Each 的第三参数是内联模板。Table 的行对象只能含 columns 声明的键；用 @Each 投影并保留原始记录做选择。
 - source 是 JSON 字符串，完整进行 JSON 转义；HTML 数据块中的每个 < 写成 \u003c，避免正文的 </script> 结束数据块。不要把 DSL 直接拼接成可执行 JavaScript。
 - 若使用图标，可直接选以下已核对的官方名称：Check、Info、Warning、ArrowRight、Chart、Calendar、BookOpen、Lightbulb、MapPin、Search、Filter、Settings、Play、Pause、CircleQuestion、Link。这里故意不列全部 755 个 glyph；没有额外目录时用文字或这些名称，不猜名字。
-- HTML 依赖网络获取固定版本 JS；网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
+- HTML 依赖网络获取 latest JS；它是会更新的入口，CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即拿到最新字节。网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
 
 这是 OpenUI 派生的严格本地方言，不是全部上游 runtime 的兼容替代。精简的是模型合同与可用组件集合；使用的 browser JS 仍是同一完整 bundle。不宣称未测的 token 或下载体积节省。
 
@@ -319,7 +319,7 @@ ChecklistData(label: string, items: {id: string, label: string, hint?: string, d
 <p id="status" role="status">正在载入答案…</p>
 <noscript>需要启用 JavaScript 才能显示这份互动答案。</noscript>
 <script id="inform-config" type="application/json">{"source":"$largest = 12\n$showMethod = true\nnumbers = [4,6,8,$largest]\nmean = @Avg(numbers)\nmedian = (numbers[1]+numbers[2])/2\nroot = Stack([\n Badge(\"交互式概念解释\"),\n Heading(\"为什么一个大数会拉高平均数？\",1),\n Text(\"平均数把所有值都放进总和。中位数只看排序后的中间位置。把最后一个数从 12 调高，你会看到平均数上升，而这组数据的中位数一直是 7。\",\"muted\"),\n Card([Slider(\"第四个数\",$largest,8,80,2),Switch(\"展开计算过程\",$showMethod),Button(\"恢复为 12\",@Reset($largest),\"secondary\")],\"自己试一次\"),\n Grid([MetricView({label:\"平均数\",value:@Round(mean,1)}),MetricView({label:\"中位数\",value:median}),MetricView({label:\"第四个数\",value:$largest})],3,\"lg\"),\n FigureView({caption:\"四个原创示例数字。只改变第四项，前三项始终为 4、6、8。\"},[BarChart(\"四个数的大小\",[\"第一项\",\"第二项\",\"第三项\",\"第四项\"],[Series(\"数值\",numbers)],{height:280,animate:false})]),\n $showMethod ? SectionView({heading:\"从数字到结论\"},[\n  StepsView({items:[{title:\"求和\",detail:\"4 + 6 + 8 + \"+$largest+\" = \"+@Sum(numbers)},{title:\"计算平均数\",detail:@Sum(numbers)+\" ÷ 4 = \"+mean},{title:\"找中间位置\",detail:\"已经按升序排列。中间两个数为 6 与 8，所以中位数为 (6 + 8) ÷ 2 = 7。\"}]}),\n  MathView({latex:\"\\\\bar{x}=\\\\frac{1}{n}\\\\sum_{i=1}^{n}x_i\",block:true})\n ]) : Text(\"计算过程已收起；图表与统计值仍会随滑块更新。\",\"muted\"),\n Heading(\"该用哪个指标？\",2),\n Text(\"如果问题关心总量被平均分配的结果，平均数很直接。如果想描述一组数据的中间位置，又不想让单个极端值产生很大影响，中位数往往更有帮助。先明确问题，再选择统计量。\"),\n BlockquoteView({attribution:\"本示例的原创总结\"},[Text(\"先问要描述总量的平均分配，还是数据的中间位置，再决定用平均数还是中位数。\")]),\n SectionView({heading:\"用代码复现当前数字\"},[\n  Text(\"这是可复制的 JavaScript 示例，只作代码展示，不在页面内执行。滑块改变后，第一行中的第四个数会同步更新。\"),\n  CodeView({value:\"const values = [4, 6, 8, \"+$largest+\"];\\nfunction average(values) {\\n  const total = values.reduce((sum, value) => sum + value, 0);\\n  return total / values.length;\\n}\\nconst mean = average(values);\\n// 这组数字已按升序排列，中间两项不随第四项改变。\\nconst median = (values[1] + values[2]) / 2;\\nconsole.log({ mean, median });\",language:\"javascript\",copy:true,highlight:true})\n ]),\n ChecklistView({label:\"读完后的本地核对清单\",items:[{id:\"question\",label:\"我能说明平均数和中位数各自回答什么问题\",checked:false},{id:\"extreme\",label:\"我试过把第四个数调高，比较两项指标\",checked:false},{id:\"boundary\",label:\"我知道这组数据始终有序，不能把结论无限推广\",checked:false}],filter:true,bulk:true}),\n Text(\"核对清单只记录当前页面视图中的自检，不改变上方数字，也不会发送或保存到外部服务。\",\"muted\"),\n DetailsView({summary:\"这个演示的边界\"},[Text(\"第四个数的最小值为 8，数据始终有序，中间两项不会改变。这说明的是这一组四个数的行为；别推广成任何数据变化都不会影响中位数。\")]),\n CitationView({number:1,title:\"NIST：Measures of Location\",url:\"https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm\",publisher:\"NIST/SEMATECH e-Handbook\",description:\"平均数、中位数及极端值影响的定义与解释。图表数据由本示例原创，不来自 NIST。\"})\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/charts","views/content"],"viewNames":["MetricView","FigureView","SectionView","StepsView","MathView","DetailsView","CitationView","CodeView","BlockquoteView","ChecklistView"],"theme":"light"}</script>
-<script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@675c6659b40becce1b1ed2d6383d2dee852e8a14/cdn/next/inform-ui.global.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js"></script>
 <script>
 (() => {
  const status=document.getElementById('status');

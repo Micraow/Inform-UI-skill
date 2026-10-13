@@ -1,7 +1,7 @@
 {
   "format": "inform-no-cli-authoring-check/1",
   "fixture": "tests/no-cli-authored.html",
-  "fixtureSha256": "f5438bea5bc3c6e59e10e5cdf78b62e227c6434c3cc1c8203cfe22f021ac5eab",
+  "fixtureSha256": "b261e4e65403b128f6ab3bb07f024b0a28a8431bf872c0a6df4b1414594a364c",
   "authorInputs": "Only core SKILL.md and fictional three-route task; no CLI/runtime/other docs or validation feedback",
   "firstCommitPassed": true,
   "filterSortPassed": true,

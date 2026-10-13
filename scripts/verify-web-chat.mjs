@@ -13,7 +13,8 @@ const build=await readJSON(join(root,'BUILD.json')),definitions=await readJSON(j
 assert.equal(build.promptProseProjection,promptProseProjection);
 const bytes=await readFile(join(runtimeDir,'inform-ui.global.js'));
 assert.equal(createHash('sha256').update(bytes).digest('hex'),build.runtimeSha256);
-if(build.runtimeHTTP){assert.equal(build.runtimeHTTP.url,build.runtimeURL);assert.equal(build.runtimeHTTP.status,200);assert.equal(build.runtimeHTTP.version,build.sourceCommit);assert.equal(build.runtimeHTTP.publishedSha256,build.runtimeSha256);}
+if(build.runtimeHTTP){assert.equal(build.runtimeHTTP.url,build.runtimeURL);assert.equal(build.runtimeHTTP.status,200);assert.equal(build.runtimeHTTP.verifiedSourceCommit??build.runtimeHTTP.version,build.sourceCommit);assert.equal(build.runtimeHTTP.publishedSha256,build.runtimeSha256);}
+assert.equal(build.verificationLockOnly,true);assert.equal(build.runtimeChannel,'latest');
 const checks=[];
 function nodes(root){const out=[];const walk=value=>{if(!value||typeof value!=='object')return;if(value.type==='element')out.push(value);for(const child of Object.values(value))Array.isArray(child)?child.forEach(walk):walk(child);};walk(root);return out;}
 const accepted=result=>{assert(result.ok,JSON.stringify(result));return result.snapshot;};
@@ -36,7 +37,7 @@ for(const def of definitions){
  const htmlConfig=JSON.parse(html.match(/<script id="inform-config" type="application\/json">([\s\S]*?)<\/script>/)[1]);
  assert.deepEqual(htmlConfig,{source,select:def.select,viewNames:def.viewNames,theme:'light'});
  const src=html.match(/<script src="([^"]+)"><\/script>/)[1].replaceAll('&amp;','&');
- assert.equal(src,build.runtimeURL);assert(src.includes(build.sourceCommit));
+ assert.equal(src,build.runtimeURL);assert(!src.includes(build.sourceCommit));assert(!html.includes(build.sourceCommit));assert(!skill.includes(build.sourceCommit));
  assert.equal((html.match(/<script/g)||[]).length,3);
  assert(skill.includes('无需终端、CLI、npm、React 工程'));
  const iconLine=profile.prompt().split('\n').find(line=>line.startsWith('Icon('));assert(iconLine.length<2000);

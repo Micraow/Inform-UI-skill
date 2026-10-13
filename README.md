@@ -1,6 +1,6 @@
 # Inform：直接给 Web Chat 的互动答案 Skill
 
-默认使用根目录 [SKILL.md](./SKILL.md)。把这个文件完整交给模型，再提出你的问题；模型即可输出一份引用固定版本 Inform browser JS 的完整 HTML。
+默认使用根目录 [SKILL.md](./SKILL.md)。把这个文件完整交给模型，再提出你的问题；模型即可输出一份引用 Inform browser JS latest 入口的完整 HTML，不用写死版本号。
 
 无需让模型操作终端、运行 CLI、安装 npm/React，或读取全部领域组件。
 
@@ -11,14 +11,16 @@
 
 当前基础版为 37 个 UI，精选版为 47 个 UI；数据构造器不计入 UI。通用对比使用已有 Table/Grid/MetricView，过程使用 StepsView；当前合同没有 ComparisonView 或 TimelineView，不借用金融专用比较组件冒充通用组件。
 
-不要把两个 Skill 或全量组件目录一起塞给模型。精确组件数量、数据类型数量、固定 UI commit、runtime URL 和 SHA-256 见 [BUILD.json](./BUILD.json)。
+不要把两个 Skill 或全量组件目录一起塞给模型。精确组件数量、数据类型数量、runtime URL 见 [BUILD.json](./BUILD.json)。其中 UI commit 和内容 SHA-256 只记录开发验证时的快照，方便复现；它们不锁定用户 HTML 的运行版本。
 
 ## 直接试用
 
 - [基础与图表 HTML](./profiles/web-chat-core/minimal.html)
 - [精选内容视图 HTML](./profiles/curated-web-chat/minimal.html)
 
-保存对应 HTML 后用浏览器打开。HTML 通过固定 HTTPS URL 加载运行库，需要联网；浏览器或聊天预览器必须允许脚本运行。若预览器禁用脚本，请下载后用普通浏览器打开。页面会明确显示加载或渲染错误。
+保存对应 HTML 后用浏览器打开。HTML 通过可更新的 latest HTTPS 入口加载运行库，需要联网；CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即取得最新字节。浏览器或聊天预览器必须允许脚本运行。若预览器禁用脚本，请下载后用普通浏览器打开。页面会明确显示加载或渲染错误。
+
+已验证的滚动入口是 https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js 。web-chat-latest 是项目维护的发布分支，不是具体版本号；不要自行改成 jsDelivr 的保留选择器 @latest。此次实测响应的 Cache-Control 为 public,max-age=604800,s-maxage=43200，即浏览器缓存可达 7 天、共享缓存可达 12 小时；这不是即时更新保证。
 
 每个 profile 目录都包含由同一配置自动生成的 prompt.txt、schema.json、manifest.json、profile.json、minimal.openui 与 minimal.html。模型只需读取对应的一份 Skill；其他文件供审阅、验证或程序化集成使用。
 
@@ -34,6 +36,6 @@
 
 source/profiles.json 是唯一选库配置。scripts/generate-web-chat.mjs 从对应版本的真实 runtime API 生成所有模型合同与 HTML；scripts/verify-web-chat.mjs 用同一 runtime 复核。发布新 UI 版本时应一起再生成并验证，不能仅手改 CDN URL。普通使用者与模型不需要运行这些脚本。
 
-scripts/prompt-projection.mjs 只修正固定 runtime prompt 中两处说明文字：声明从新行开始但表达式可跨行，以及 root 不必在首行。组件签名、示例、名称和 schema 不变；原文变化时生成会停止并要求复核。
+scripts/prompt-projection.mjs 只修正已验 runtime prompt 中两处说明文字：声明从新行开始但表达式可跨行，以及 root 不必在首行。组件签名、示例、名称和 schema 不变；原文变化时生成会停止并要求复核。
 
 代码遵循 MIT；外部 browser bundle 保留其发布包中的第三方许可。
