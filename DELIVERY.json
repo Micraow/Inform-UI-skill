@@ -2,8 +2,8 @@
   "format": "inform-web-chat-verification/1",
   "publicationReady": false,
   "validationStage": "git-published-cdn-pending",
-  "sourceCommit": "c7f6254c75783cd9bf391d1748234132fbeb2532",
-  "runtimeSha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db",
+  "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+  "runtimeSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
   "codeGenerationFromStrings": "disabled",
   "profiles": [
     {

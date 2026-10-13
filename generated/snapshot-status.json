@@ -1,8 +1,8 @@
 {
   "format": "inform-generated-snapshot-status/2",
   "status": "current-bundled-runtime",
-  "sourceRef": "c7f6254c75783cd9bf391d1748234132fbeb2532",
-  "nodeRuntimeSha256": "11372ee15ef5fe9d1ec6070322563588405ea8887d574fe31e6c9c3ba0c34dfe",
+  "sourceRef": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+  "nodeRuntimeSha256": "c4b869a01e825131b1aef45e862b6758960900045ac50a589dfdecc26c9fca73",
   "componentCount": 233,
   "viewPromptCount": 195,
   "generator": "scripts/sync-runtime.mjs",
@@ -873,5 +873,5 @@
     }
   },
   "limitations": "Projection preserves schema constraints and annotated runtime rules; incomplete domain semantic descriptions are explicitly marked. Native UTF-16 string-length behavior is not equivalent to Unicode code-point counting in standard JSON Schema.",
-  "contractComparison": "Core, curated and full schema, manifest and prompt rechecked byte-identical to Skill 7853434; no static contract regeneration was needed."
+  "contractComparison": "Core, curated and full schema, manifest and prompt rechecked byte-identical to Skill 3cd41b8; no static contract regeneration was needed."
 }

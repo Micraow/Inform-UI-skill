@@ -1,7 +1,7 @@
 {
   "format": "inform-runtime-lock/2",
   "version": "2.0.0-alpha.1",
-  "sourceRef": "c7f6254c75783cd9bf391d1748234132fbeb2532",
+  "sourceRef": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
   "publication": "Git release refs are verified and bundled bytes match this lock. The mutable CDN entry has returned stale cached bytes; current CDN convergence and external browser execution are not established.",
   "root": "Stack",
   "componentCount": 233,
@@ -9,12 +9,12 @@
   "iconCount": 755,
   "bundles": {
     "inform-ui.global.js": {
-      "bytes": 5574680,
-      "sha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db"
+      "bytes": 5577244,
+      "sha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee"
     },
     "node.mjs": {
-      "bytes": 5574548,
-      "sha256": "11372ee15ef5fe9d1ec6070322563588405ea8887d574fe31e6c9c3ba0c34dfe"
+      "bytes": 5577112,
+      "sha256": "c4b869a01e825131b1aef45e862b6758960900045ac50a589dfdecc26c9fca73"
     },
     "THIRD_PARTY_NOTICES.txt": {
       "bytes": 60418,

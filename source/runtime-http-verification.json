@@ -5,8 +5,8 @@
   "contentType": "application/javascript; charset=utf-8",
   "accessControlAllowOrigin": "*",
   "version": "web-chat-latest",
-  "gitPublishedSourceCommit": "c7f6254c75783cd9bf391d1748234132fbeb2532",
-  "expectedSha256": "70a38b2a4c56090f047e11ddb34d5d9a7a60f7f97fe7f9a32973dbc2945670db",
+  "gitPublishedSourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+  "expectedSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
   "verifiedSourceCommit": null,
   "publishedSha256": "7006c0155cde453bd9f01db084048e0d45eff0ff309230b3e787214eafa8f9ea",
   "publishedBytes": 5554357,
@@ -18,5 +18,6 @@
   "cacheState": "stale-inconsistent",
   "purgeStatus": "pending official workflow",
   "bodyEvidence": "Different observed rolling responses contain different cached versions; earlier successful GET does not imply globally converged CDN state",
-  "browserExecution": "not verified"
+  "browserExecution": "not verified",
+  "laterRefValue": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc"
 }
