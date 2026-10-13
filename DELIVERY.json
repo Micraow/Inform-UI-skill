@@ -1,0 +1,40 @@
+{
+  "format": "inform-skill-delivery/2",
+  "version": "2.0.0-alpha.1",
+  "counts": {
+    "uiComponents": 233,
+    "foundation": 21,
+    "chartNames": 16,
+    "chartFamilies": 14,
+    "domainWeather": 1,
+    "migratedViews": 195,
+    "dataConstructors": 200,
+    "modules": 16,
+    "icons": 755
+  },
+  "examples": [
+    "budget-choice",
+    "filter-sort-chart",
+    "composed-explanation"
+  ],
+  "checks": {
+    "skillValidator": "passed",
+    "finalDslCommits": "3/3 passed",
+    "nodeTests": {
+      "passed": 13,
+      "failed": 0,
+      "command": "npm run check",
+      "codeGenerationFromStrings": "disabled"
+    },
+    "browserExamples": "not run in this delivery checkpoint"
+  },
+  "runtimeLock": "generated/runtime-lock.json",
+  "runtimePublication": "Local bundle included. No public CDN URL or publication is implied.",
+  "constraints": [
+    "OpenUI-derived strict local dialect, not full upstream runtime compatibility",
+    "No token-saving benchmark claim",
+    "No legacy iui1 input compatibility",
+    "Host services require explicit real integration and authorization"
+  ],
+  "license": "MIT; bundled dependencies retain assets/runtime/THIRD_PARTY_NOTICES.txt"
+}

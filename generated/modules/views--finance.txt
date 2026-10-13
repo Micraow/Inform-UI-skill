@@ -1,0 +1,294 @@
+Generate an Inform UI 2 document using the pinned OpenUI language. This profile is local-only. Use only the component and data constructors listed below.
+
+## Syntax Rules
+
+1. Each statement is on its own line: `identifier = Expression`
+2. `root` is the entry point — every program must define `root = Stack(...)`
+3. Expressions are: strings ("..."), numbers, booleans (true/false), null, arrays ([...]), objects ({...}), or component calls TypeName(arg1, arg2, ...)
+4. Use references for readability: define `name = ...` on one line, then use `name` later
+5. EVERY variable (except root) MUST be referenced by at least one other variable. Unreferenced variables do not render; connect intended output to root. Always include defined variables in their parent's children/items array.
+6. Arguments are POSITIONAL (order matters, not names). Write `SomeComp([children], "row", "l")` NOT `SomeComp([children], direction: "row", gap: "l")` — colon syntax is rejected
+7. Optional arguments can be omitted from the end
+8. Declare mutable state with `$varName = defaultValue`. Components marked with `$binding` can read/write these. Undeclared $variables are errors in Inform UI.
+9. String concatenation: `"text" + $var + "more"`
+10. Dot member access: `query.field` reads a field; on arrays it extracts that field from every element
+11. Index access: `arr[0]`, `data[index]`
+12. Arithmetic operators: +, -, *, /, % (work on numbers; + is string concat when either side is a string)
+13. Comparison: ==, !=, >, <, >=, <=
+14. Logical: &&, ||, ! (prefix)
+15. Ternary: `condition ? valueIfTrue : valueIfFalse`
+16. Parentheses for grouping: `(a + b) * c`
+- Strings use double quotes with backslash escaping
+
+## Component Signatures
+
+Arguments marked with ? are optional. Sub-components can be inline or referenced; prefer references for better streaming.
+Props typed `ActionExpression` accept one @step, or Action([@steps...]) for several. See the Action section for available steps (@Set, @Reset).
+Props marked `$binding<type>` accept a `$variable` reference for two-way binding.
+
+### base/text
+Text(content: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
+Heading(content: string, level?: number) — Semantic heading.
+Badge(label: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Compact supplied status label.
+Divider() — Thematic separator.
+Alert(title: string, description: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Supplied notice with visible title and explanation.
+Table(columns: {key: string, label: string}[], rows: Record<string, string | number | boolean | any>[], caption?: string) — Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering.
+
+### base/layout
+Stack(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
+Row(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
+Grid(children: Component[], columns?: number, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
+Card(children: Component[], title?: string) — Grouped surface with optional title.
+
+### base/controls
+Button(label: string, onPress: ActionExpression, variant?: "primary" | "secondary" | "ghost", disabled?: boolean) — Explicit local state action button.
+Input(label: string, value: $binding<string>, placeholder?: string, disabled?: boolean) — Labeled single-line text input bound to local state.
+Textarea(label: string, value: $binding<string>, rows?: number, placeholder?: string, disabled?: boolean) — Labeled multiline text input.
+Select(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Labeled single selection from supplied options.
+RadioGroup(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Visible single-choice radio options.
+Checkbox(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled boolean checkbox.
+Switch(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled local on/off switch.
+Slider(label: string, value: $binding<number>, min: number, max: number, step?: number, disabled?: boolean) — Bounded numeric local slider.
+
+### base/icon
+Icon(name: string, label?: string) — A bundled icon selected by canonical catalog name.
+
+### base/media
+Image(src: string, alt: string, caption?: string) — Image subject to the host media policy.
+Video(src: string, title: string, poster?: string, captions?: {src: string, label: string, language: string}[]) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
+
+### views/finance
+FinanceQuoteView(data: FinanceQuoteData) — Supplied finance quote View rendered with the shared Inform foundation theme.
+FinanceChartView(data: FinanceChartData) — Supplied finance chart View rendered with the shared Inform foundation theme.
+FinanceComparisonView(data: FinanceComparisonData) — Supplied finance comparison View rendered with the shared Inform foundation theme.
+FinanceHeatmapView(data: FinanceHeatmapData) — Supplied finance heatmap View rendered with the shared Inform foundation theme.
+AssetDistributionView(data: AssetDistributionData) — Supplied asset distribution View rendered with the shared Inform foundation theme.
+TransactionListView(data: TransactionListData) — Supplied transaction list View rendered with the shared Inform foundation theme.
+LedgerAccountsView(data: LedgerAccountsData) — Supplied ledger accounts View rendered with the shared Inform foundation theme.
+LedgerRecurringTransactionsView(data: LedgerRecurringTransactionsData) — Supplied ledger recurring transactions View rendered with the shared Inform foundation theme.
+CurrencyConverterView(data: CurrencyConverterData) — Supplied currency converter View rendered with the shared Inform foundation theme.
+LedgerTransactionDetailView(data: LedgerTransactionDetailData) — Supplied ledger transaction detail View rendered with the shared Inform foundation theme.
+LedgerFinanceStatusBannerView(data: LedgerFinanceStatusBannerData) — Supplied ledger finance status banner View rendered with the shared Inform foundation theme.
+LedgerLowConfidenceCategoryCorrectionView(data: LedgerLowConfidenceCategoryCorrectionData) — Supplied ledger low confidence category correction View rendered with the shared Inform foundation theme.
+LedgerNetWorthView(data: LedgerNetWorthData) — Supplied ledger net worth View rendered with the shared Inform foundation theme.
+LedgerFeeInterestPaidView(data: LedgerFeeInterestPaidData) — Supplied ledger fee interest paid View rendered with the shared Inform foundation theme.
+LedgerSpendSoFarThisMonthView(data: LedgerSpendSoFarThisMonthData) — Supplied ledger spend so far this month View rendered with the shared Inform foundation theme.
+LedgerUpcomingActivityView(data: LedgerUpcomingActivityData) — Supplied ledger upcoming activity View rendered with the shared Inform foundation theme.
+LedgerIncomeTrackerView(data: LedgerIncomeTrackerData) — Supplied ledger income tracker View rendered with the shared Inform foundation theme.
+LedgerSpendByCategoryView(data: LedgerSpendByCategoryData) — Supplied ledger spend by category View rendered with the shared Inform foundation theme.
+LedgerSpendByCategoryDetailView(data: LedgerSpendByCategoryDetailData) — Supplied ledger spend by category detail View rendered with the shared Inform foundation theme.
+LedgerSpendByCategoryRecentTransactionsView(data: LedgerSpendByCategoryRecentTransactionsData) — Supplied ledger spend by category recent transactions View rendered with the shared Inform foundation theme.
+LedgerFinanceOnboardingView(data: LedgerFinanceOnboardingData) — Supplied ledger finance onboarding View rendered with the shared Inform foundation theme.
+LedgerRepairBankConnectionView(data: LedgerRepairBankConnectionData) — Supplied ledger repair bank connection View rendered with the shared Inform foundation theme.
+FinanceOnboardingSuggestionsView(data: FinanceOnboardingSuggestionsData) — Supplied finance onboarding suggestions View rendered with the shared Inform foundation theme.
+LedgerEquityUpdatesView(data: LedgerEquityUpdatesData) — Supplied ledger equity updates View rendered with the shared Inform foundation theme.
+LedgerWatchlistView(data: LedgerWatchlistData) — Supplied ledger watchlist View rendered with the shared Inform foundation theme.
+LedgerCreditScoreView(data: LedgerCreditScoreData) — Supplied ledger credit score View rendered with the shared Inform foundation theme.
+LedgerCreditScoreDetailView(data: LedgerCreditScoreDetailData) — Supplied ledger credit score detail View rendered with the shared Inform foundation theme.
+LedgerLowConfidenceCategoryCorrectionLegacyView(data: LedgerLowConfidenceCategoryCorrectionLegacyData) — Supplied ledger low confidence category correction legacy View rendered with the shared Inform foundation theme.
+
+## Built-in Functions
+
+Data functions prefixed with `@` to distinguish from components. These are the ONLY functions available — do NOT invent new ones.
+Use @-prefixed built-in functions (@Count, @Sum, @Avg, @Min, @Max, @Round) on data. Do NOT hardcode computed values.
+
+@Count(array: any[]) → number — Returns array length
+@First(array: any[]) → any — Returns first element of array
+@Last(array: any[]) → any — Returns last element of array
+@Sum(numbers: number[]) → number — Sum of numeric array
+@Avg(numbers: number[]) → number — Average of numeric array
+@Min(numbers: number[]) → number — Minimum value in array
+@Max(numbers: number[]) → number — Maximum value in array
+@Sort(array: any[], field: string, direction?: "asc" | "desc") → any[] — Sort array by field. Direction: "asc" (default) or "desc"
+@Filter(array: any[], field: string, operator: "==" | "!=" | ">" | "<" | ">=" | "<=" | "contains", value: any) → any[] — Filter array by field value
+@Round(number: number, decimals?: number) → number — Round to N decimal places (default 0)
+@Abs(number: number) → number — Absolute value
+@Floor(number: number) → number — Round down to nearest integer
+@Ceil(number: number) → number — Round up to nearest integer
+@Each(array: any[], varName: string, template: any) — Evaluate template for each element. varName is the loop variable — use it ONLY inside the template expression (inline). Do NOT create a separate statement for the template.
+
+Builtins compose — output of one is input to the next:
+`@Count(@Filter(data.rows, "field", "==", "val"))` for KPIs/chart values, `@Round(@Avg(data.rows.score), 1)`, `@Each(data.rows, "item", Comp(item.field))` for per-item rendering.
+Array pluck: `data.rows.field` extracts a field from every row → use with @Sum, @Avg, charts, tables.
+
+IMPORTANT @Each rule: The loop variable (e.g. "item") is ONLY available inside the @Each template expression. Always inline the template — do NOT extract it to a separate statement.
+CORRECT: `list = @Each(rows, "t", Comp(t.name))`
+WRONG: `item = Comp(t.name)` then `list = @Each(rows, "t", item)`, because t is undefined in item.
+
+## Action — Button Behavior
+
+An action updates declared local state. Pass a listed step, or Action([...]) for a transaction of local steps. A button must have an explicit action; it never sends a message or opens a URL automatically.
+
+Available steps:
+- @Set(variable: $variable, value: any) — Set a $variable to a specific value
+- @Reset(variable: $variable) — Reset $variables to their declared defaults; pass several to reset each (e.g. @Reset($title, $priority) restores $title="" and $priority="medium")
+
+Example:
+$count = 0
+root = Stack([Button("Add one", @Set($count, $count + 1)), Button("Reset", @Reset($count))])
+A rejected step rolls back the complete transaction.
+
+## Statement order and passive previews
+
+openui-lang supports hoisting: a reference can be used BEFORE it is defined. The parser resolves all references after the full input is parsed.
+
+During streaming, the output is re-parsed on every chunk. Undefined references are temporarily unresolved and appear once their definitions stream in. This creates a progressive top-down reveal — structure first, then data fills in.
+
+**Optional layout-first ordering for passive previews:**
+1. `root = Stack(...)` — UI shell appears immediately
+2. $variable declarations — state ready for bindings
+3. Component definitions — fill in with data already available
+4. Data values — leaf content last
+
+The root statement may appear anywhere in a complete document. Placing it first is optional. Inform partial previews remain passive and do not commit state, execute actions, load resources, or guarantee streaming performance.
+
+## Examples
+
+root = Stack([Text("Hello")])
+
+root = Stack([Heading("Overview", 2)])
+
+root = Stack([Badge("Draft", "muted")])
+
+root = Stack([Divider()])
+
+root = Stack([Alert("Note", "Data is supplied", "muted")])
+
+root = Stack([Table([{key: "name", label: "Name"}], [{name: "Ada"}], "People")])
+
+## Important Rules
+- Choose components that best represent the content (tables for comparisons, charts for trends, forms for input, etc.)
+
+## Final Verification
+Before finishing, walk your output and verify:
+1. root = Stack(...) is the FIRST line (for optimal streaming).
+2. Every referenced name is defined. Every defined name (other than root) is reachable from root.
+3. Every $binding appears in at least one component or expression.
+
+- Component means any available UI component in this profile. Data constructors are not UI children.
+- The positional parameter order is an ABI. Never emit named arguments, unknown props, callback functions, raw HTML, arbitrary CSS, imports, Query, Mutation, @Run, @OpenUrl or @ToAssistant.
+- All mutable variables must be explicitly declared. Use direct declared $variables for ordinary writable bindings. $value is reserved for assignment-binding input; it is not standalone state. Arbitrary callbacks or JavaScript functions are forbidden.
+- Only @Set, @Reset and Action([...]) are local action syntax. Actions have no authority to call external services.
+- Output must be complete. Partial streaming is preview-only. Invalid values or unknown components reject the document, rather than silently dropping content.
+- Numbers are finite. Division and remainder by zero are errors. Do not depend on implicit numeric coercion or unsafe object keys.
+- Inform semantics: == and != compare scalar values strictly; logical operators require booleans. Sort uses deterministic lexicographic string order and rejects mixed number/string keys. Filter relational operators require numbers. @Each uses an inline template with a named item, no index parameter or JavaScript lambda.
+- Display supplied facts accurately. Domain modules do not fetch, verify or transact on data.
+- Icon.name must match an exact name from the bundled searchable icon catalog. Search the catalog by purpose and include only the names needed for this answer; the runtime still validates its full enum.
+- Button: No host tools, navigation, account access or message sending.
+- Icon: No remote SVG or arbitrary path data.
+- Image: HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected.
+- FinanceQuoteView: Supplied source data is not independently fetched or verified.
+- FinanceQuoteView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FinanceQuoteView: Base composition is a target until adapter evidence confirms extraction.
+- FinanceChartView: Supplied source data is not independently fetched or verified.
+- FinanceChartView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FinanceChartView: Base composition is a target until adapter evidence confirms extraction.
+- FinanceComparisonView: Supplied source data is not independently fetched or verified.
+- FinanceComparisonView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FinanceComparisonView: Base composition is a target until adapter evidence confirms extraction.
+- FinanceHeatmapView: Supplied source data is not independently fetched or verified.
+- FinanceHeatmapView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FinanceHeatmapView: Base composition is a target until adapter evidence confirms extraction.
+- AssetDistributionView: Supplied source data is not independently fetched or verified.
+- AssetDistributionView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- AssetDistributionView: Base composition is a target until adapter evidence confirms extraction.
+- TransactionListView: Supplied source data is not independently fetched or verified.
+- TransactionListView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- TransactionListView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerAccountsView: Supplied source data is not independently fetched or verified.
+- LedgerAccountsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerAccountsView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerRecurringTransactionsView: Supplied source data is not independently fetched or verified.
+- LedgerRecurringTransactionsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerRecurringTransactionsView: Base composition is a target until adapter evidence confirms extraction.
+- CurrencyConverterView: Supplied source data is not independently fetched or verified.
+- CurrencyConverterView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- CurrencyConverterView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerTransactionDetailView: Supplied source data is not independently fetched or verified.
+- LedgerTransactionDetailView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerTransactionDetailView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerFinanceStatusBannerView: Supplied source data is not independently fetched or verified.
+- LedgerFinanceStatusBannerView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerFinanceStatusBannerView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerLowConfidenceCategoryCorrectionView: Supplied source data is not independently fetched or verified.
+- LedgerLowConfidenceCategoryCorrectionView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerLowConfidenceCategoryCorrectionView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerNetWorthView: Supplied source data is not independently fetched or verified.
+- LedgerNetWorthView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerNetWorthView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerFeeInterestPaidView: Supplied source data is not independently fetched or verified.
+- LedgerFeeInterestPaidView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerFeeInterestPaidView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerSpendSoFarThisMonthView: Supplied source data is not independently fetched or verified.
+- LedgerSpendSoFarThisMonthView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerSpendSoFarThisMonthView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerUpcomingActivityView: Supplied source data is not independently fetched or verified.
+- LedgerUpcomingActivityView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerUpcomingActivityView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerIncomeTrackerView: Supplied source data is not independently fetched or verified.
+- LedgerIncomeTrackerView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerIncomeTrackerView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerSpendByCategoryView: Supplied source data is not independently fetched or verified.
+- LedgerSpendByCategoryView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerSpendByCategoryView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerSpendByCategoryDetailView: Supplied source data is not independently fetched or verified.
+- LedgerSpendByCategoryDetailView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerSpendByCategoryDetailView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerSpendByCategoryRecentTransactionsView: Supplied source data is not independently fetched or verified.
+- LedgerSpendByCategoryRecentTransactionsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerSpendByCategoryRecentTransactionsView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerFinanceOnboardingView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- LedgerFinanceOnboardingView: Supplied source data is not independently fetched or verified.
+- LedgerFinanceOnboardingView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerFinanceOnboardingView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerRepairBankConnectionView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- LedgerRepairBankConnectionView: Supplied source data is not independently fetched or verified.
+- LedgerRepairBankConnectionView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerRepairBankConnectionView: Base composition is a target until adapter evidence confirms extraction.
+- FinanceOnboardingSuggestionsView: Supplied source data is not independently fetched or verified.
+- FinanceOnboardingSuggestionsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FinanceOnboardingSuggestionsView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerEquityUpdatesView: Supplied source data is not independently fetched or verified.
+- LedgerEquityUpdatesView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerEquityUpdatesView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerWatchlistView: Supplied source data is not independently fetched or verified.
+- LedgerWatchlistView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerWatchlistView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerCreditScoreView: Supplied source data is not independently fetched or verified.
+- LedgerCreditScoreView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerCreditScoreView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerCreditScoreDetailView: Supplied source data is not independently fetched or verified.
+- LedgerCreditScoreDetailView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerCreditScoreDetailView: Base composition is a target until adapter evidence confirms extraction.
+- LedgerLowConfidenceCategoryCorrectionLegacyView: Supplied source data is not independently fetched or verified.
+- LedgerLowConfidenceCategoryCorrectionLegacyView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LedgerLowConfidenceCategoryCorrectionLegacyView: Base composition is a target until adapter evidence confirms extraction.
+- Data constructors (not renderers):
+FinanceQuoteData(title?: string, source: {label: string, synthetic: boolean, url?: string}, status?: "ready" | "loading" | "error", message?: string, instrument: {id: string, symbol: string, name: string, currency: string, exchange?: string, timezone: string, asOf: string, marketStatus: "open" | "closed" | "pre" | "post" | "halted" | "unknown", delayMinutes: number, price: number | any, previousClose: number | any, history: {time: string, price: number | any}[]}): Strict supplied record for FinanceQuoteView. Conditional variants are enforced by the same bounded validator.
+FinanceChartData(title?: string, source: {label: string, synthetic: boolean, url?: string}, status?: "ready" | "loading" | "error", message?: string, instrument: {id: string, symbol: string, name: string, currency: string, exchange?: string, timezone: string, asOf: string, marketStatus: "open" | "closed" | "pre" | "post" | "halted" | "unknown", delayMinutes: number, price: number | any, previousClose: number | any, history: {time: string, price: number | any}[]}, ranges: {id: string, label: string, from: string, to: string}[], initialRange?: string): Strict supplied record for FinanceChartView. Conditional variants are enforced by the same bounded validator.
+FinanceComparisonData(title?: string, source: {label: string, synthetic: boolean, url?: string}, status?: "ready" | "loading" | "error", message?: string, instruments: {id: string, symbol: string, name: string, currency: string, exchange?: string, timezone: string, asOf: string, marketStatus: "open" | "closed" | "pre" | "post" | "halted" | "unknown", delayMinutes: number, price: number | any, previousClose: number | any, history: {time: string, price: number | any}[]}[], baselineAt: string, timezone?: string, ranges: {id: string, label: string, from: string, to: string}[], initialRange?: string): Strict supplied record for FinanceComparisonView. Conditional variants are enforced by the same bounded validator.
+FinanceHeatmapData(title?: string, source: {label: string, synthetic: boolean, url?: string}, asOf: string, timezone: string, weightLabel: string, changeBasis: string, cells: {id: string, symbol: string, name: string, sector: string, weight: number | any, price: number | any, currency: string, changePercent: number | any, asOf: string, marketStatus: "open" | "closed" | "pre" | "post" | "halted" | "unknown", delayMinutes: number}[], initialSector?: string, status?: "ready" | "loading" | "error", message?: string): Strict supplied record for FinanceHeatmapView. Conditional variants are enforced by the same bounded validator.
+AssetDistributionData(label: string, description?: string, source?: {label: string, url: string}, observedAt?: string, accounts: {id: string, name: string, amount: number | any, currency: string, category?: string, note?: string}[]): Strict supplied record for AssetDistributionView. Conditional variants are enforced by the same bounded validator.
+TransactionListData(label: string, description?: string, source?: {label: string, url: string}, transactions: {id: string, date: string, description: string, amount: number, currency: string, direction: "debit" | "credit", status?: "pending" | "posted", counterparty?: string, note?: string}[]): Strict supplied record for TransactionListView. Conditional variants are enforced by the same bounded validator.
+LedgerAccountsData(label: string, description?: string, source?: {label: string, url: string}, accounts: {id: string, label: string, institution: string, kind: "cash" | "credit" | "investment" | "loan" | "other" | "unknown", status: "active" | "closed" | "unknown", suffix?: string, balance?: {amount: string | any, currency: string}, observedAt?: string, note?: string, source?: {label: string, url: string}}[], initiallyRevealed?: boolean): Strict supplied record for LedgerAccountsView. Conditional variants are enforced by the same bounded validator.
+LedgerRecurringTransactionsData(label: string, description?: string, source?: {label: string, url: string}, records: {id: string, label: string, counterparty?: string, cadence: "weekly" | "monthly" | "yearly" | "other" | "unknown", status: "scheduled" | "paused" | "unknown", direction: "incoming" | "outgoing" | "unknown", estimatedAmount?: {amount: string | any, currency: string}, nextDate?: string, observedAt?: string, note?: string, source?: {label: string, url: string}}[], initialReviewedIds?: string[]): Strict supplied record for LedgerRecurringTransactionsView. Conditional variants are enforced by the same bounded validator.
+CurrencyConverterData(title?: string, source: {label: string, synthetic: boolean, url?: string}, asOf: string, base: string, rates: {currency: string, rate: number | any}[], amount: number, from?: string, to?: string, precision?: number, status?: "ready" | "loading" | "error", message?: string): Strict supplied record for CurrencyConverterView. Conditional variants are enforced by the same bounded validator.
+LedgerTransactionDetailData(label: string, status?: "pending" | "resolved" | "failed", mobile?: boolean, sensitiveValuesHidden?: boolean, disabled?: boolean, fallback?: string, data?: {transactionId: string, name: string, amountLabel: string, maskedAmountLabel: string, merchant: string, dateLabel: string, account: string, category: string, logo?: {src: string, alt: string}, labels: {merchant: string, date: string, account: string, category: string, budget: string, related: string, empty: string, masked: string}, budget?: {limitLabel: string, progressPct: number, color?: "default" | "success" | "warning" | "danger" | "info" | "accent"}, related: ({id: string, name: string, dateLabel: string, amountLabel: string, maskedAmountLabel: string, actionLabel: string, pendingLabel: string, logo?: {src: string, alt: string}, disabled?: boolean, pending: true} | {id: string, name: string, dateLabel: string, amountLabel: string, maskedAmountLabel: string, actionLabel: string, pendingLabel?: string, logo?: {src: string, alt: string}, disabled?: boolean, pending?: false})[]}): Strict supplied record for LedgerTransactionDetailView. Conditional variants are enforced by the same bounded validator.
+LedgerFinanceStatusBannerData(label: string, fallback?: string, status?: "pending" | "failed" | "resolved", data?: {title: string, description: string}): Strict supplied record for LedgerFinanceStatusBannerView. Conditional variants are enforced by the same bounded validator.
+LedgerLowConfidenceCategoryCorrectionData(label: string, description?: string, source?: {label: string, url: string}, snapshotId: string, categories: {id: string, label: string}[], transactions: {id: string, label: string, date: string | any, money: {amount: string | any, currency: string}, originalCategoryId: string | any, suggestedCategoryId: string | any, confidence: number | any, note?: string}[], disabled?: boolean): Strict supplied record for LedgerLowConfidenceCategoryCorrectionView. Conditional variants are enforced by the same bounded validator.
+LedgerNetWorthData(label: string, description?: string, source?: {label: string, url: string}, currency: string, intervals: {id: string, label: string, currentValue: number | any, change: number | any, changePercent: number | any, changeWindow: string, points: {date: string, value: number | any}[]}[], initialIntervalId?: string, masked?: boolean, disabled?: boolean, balanceNote?: string, conversionNote?: string): Strict supplied record for LedgerNetWorthView. Conditional variants are enforced by the same bounded validator.
+LedgerFeeInterestPaidData(label: string, description?: string, source?: {label: string, url: string}, ranges: {id: string, label: string, totalPaid: number | any, totalPaidLabel: string, totalStatusLabel?: string, conversionNote?: string, emptyLabel?: string, transactions: {id: string, displayName: string, dateLabel: string, categoryLabel: string, accountDetail: string, amountLabel: string, amountTone?: "primary" | "secondary" | "positive" | "negative", maskedAmountLabel?: string, logoUrl?: string, categoryIcon?: "bank" | "credit-card" | "receipt" | "percent"}[]}[], initialRangeId?: string, masked?: boolean, disabled?: boolean, showMoreLabel?: string, showLessLabel?: string, maskedLabel?: string): Strict supplied record for LedgerFeeInterestPaidView. Conditional variants are enforced by the same bounded validator.
+LedgerSpendSoFarThisMonthData(label: string, periodLabel: string, totalLabel: string | any, categories: {id: string, label: string, amountLabel: string | any, fraction: number | any}[], months?: {id: string, label: string, totalValue: number | any, totalLabel: string | any, dayCount: number, points: {day: number, value: number | any, label: string | any}[], current?: boolean, daysElapsed?: number, groupLabel?: string}[], averageSeries?: {id: string, label: string, totalValue: number | any, totalLabel: string | any, dayCount: number, points: {day: number, value: number | any, label: string | any}[], current?: boolean, daysElapsed?: number, groupLabel?: string}, previousSeries?: {id: string, label: string, totalValue: number | any, totalLabel: string | any, dayCount: number, points: {day: number, value: number | any, label: string | any}[], current?: boolean, daysElapsed?: number, groupLabel?: string}, selectedMonth?: string, comparison?: string, status?: "pending" | "resolved" | "failed", fallback?: string, hasConnectedAccounts?: boolean, noAccountsLabel?: string, previousLabel?: string, averageLabel?: string, comparisonLabel?: string, emptyLabel?: string, masked?: boolean, maskedLabel?: string, disabled?: boolean): Strict supplied record for LedgerSpendSoFarThisMonthView. Conditional variants are enforced by the same bounded validator.
+LedgerUpcomingActivityData(label: string, activities: {id: string, title: string, amountLabel: string | any, dateLabel: string | any, kind?: "income" | "expense" | "other", accountLabel?: string, amountUnknown?: boolean, detailEnabled?: boolean, iconSrc?: string}[], emptyLabel?: string, masked?: boolean, maskedLabel?: string, disabled?: boolean, flows?: {incoming: {top?: {id: string, title: string, amountLabel: string | any, dateLabel: string | any, kind?: "income" | "expense" | "other", accountLabel?: string, amountUnknown?: boolean, detailEnabled?: boolean, iconSrc?: string}, items: {id: string, title: string, amountLabel: string | any, dateLabel: string | any, kind?: "income" | "expense" | "other", accountLabel?: string, amountUnknown?: boolean, detailEnabled?: boolean, iconSrc?: string}[], expandedItems?: {id: string, title: string, amountLabel: string | any, dateLabel: string | any, kind?: "income" | "expense" | "other", accountLabel?: string, amountUnknown?: boolean, detailEnabled?: boolean, iconSrc?: string}[]}, outgoing: {top?: {id: string, title: string, amountLabel: string | any, dateLabel: string | any, kind?: "income" | "expense" | "other", accountLabel?: string, amountUnknown?: boolean, detailEnabled?: boolean, iconSrc?: string}, items: {id: string, title: string, amountLabel: string | any, dateLabel: string | any, kind?: "income" | "expense" | "other", accountLabel?: string, amountUnknown?: boolean, detailEnabled?: boolean, iconSrc?: string}[], expandedItems?: {id: string, title: string, amountLabel: string | any, dateLabel: string | any, kind?: "income" | "expense" | "other", accountLabel?: string, amountUnknown?: boolean, detailEnabled?: boolean, iconSrc?: string}[]}}, activeFlow?: "incoming" | "outgoing", expanded?: boolean, showFlowTabs?: boolean, status?: "pending" | "resolved" | "failed", fallback?: string, hasConnectedAccounts?: boolean, noAccountsLabel?: string, incomingLabel?: string, outgoingLabel?: string, moreLabel?: string, lessLabel?: string): Strict supplied record for LedgerUpcomingActivityView. Conditional variants are enforced by the same bounded validator.
+LedgerIncomeTrackerData(label: string, subtitle?: string, hasIncome: boolean, estimatedMonthlyIncomeLabel?: string, incomeSourcesLabel?: string, nextPaycheck?: {name?: string | any, amountLabel?: string | any, nextPayment?: string | any, frequency?: string | any, accountDetail?: string | any, logoUrl?: string, icon?: "banknote" | "bank" | "briefcase" | "calendar"} | any, emptyLabel?: string, masked?: boolean, maskedLabel?: string, estimatedLabel?: string, nextPaycheckLabel?: string, recurringIncomeLabel?: string, noUpcomingLabel?: string, dateUnavailableLabel?: string, source?: {label: string, url: string}): Strict supplied record for LedgerIncomeTrackerView. Conditional variants are enforced by the same bounded validator.
+LedgerSpendByCategoryData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, isLoading?: boolean, hasConnectedAccounts?: boolean, noAccountsLabel?: string, sensitiveValuesHidden?: boolean, maskedLabel?: string, unknownLabel?: string, months?: {id: string, label: string, optionLabel?: string, optionGroup?: string, monthStart?: string, totalLabel: string | any, segments: {id: string, label: string, weight: number, color: string}[], topCategories: {id: string, label: string, key?: string, amountLabel: string | any, percentLabel: string | any, filledPct: number, color: string, icon?: string, detailEnabled?: boolean, detailLabel?: string, topDetailLabel?: string, topDetailAmountLabel?: string | any, topDetailShareLabel?: string | any}[], categories: {id: string, label: string, key?: string, amountLabel: string | any, percentLabel: string | any, filledPct: number, color: string, icon?: string, detailEnabled?: boolean, detailLabel?: string, topDetailLabel?: string, topDetailAmountLabel?: string | any, topDetailShareLabel?: string | any}[], hasMoreCategories?: boolean}[], selectedMonthId?: string, compactTitle?: string, conversionNote?: string, moreLabel?: string, lessLabel?: string, noSpendingTitle?: string, noSpendingDescription?: string, monetaryValueReferencesEnabled?: boolean, disabled?: boolean): Strict supplied record for LedgerSpendByCategoryView. Conditional variants are enforced by the same bounded validator.
+LedgerSpendByCategoryDetailData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, isLoading?: boolean, hasConnectedAccounts?: boolean, noAccountsLabel?: string, sensitiveValuesHidden?: boolean, maskedLabel?: string, unknownLabel?: string, groups?: {id: string, label: string, subtotalLabel: string | any, filledPct: number}[], noDetailedBreakdownLabel?: string): Strict supplied record for LedgerSpendByCategoryDetailView. Conditional variants are enforced by the same bounded validator.
+LedgerSpendByCategoryRecentTransactionsData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, isLoading?: boolean, hasConnectedAccounts?: boolean, noAccountsLabel?: string, sensitiveValuesHidden?: boolean, maskedLabel?: string, unknownLabel?: string, transactions?: {id: string, title: string, dateLabel: string | any, amountLabel: string | any, logoSrc?: string, icon?: string}[], noRecentTransactionsLabel?: string): Strict supplied record for LedgerSpendByCategoryRecentTransactionsView. Conditional variants are enforced by the same bounded validator.
+LedgerFinanceOnboardingData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, title?: string, description?: string, prompt?: string, action?: {kind: "prompt" | "action", value: string}, threadMode?: string, systemHint?: string, iconSrc?: string, loadImageLabel?: string, icon?: string, ctaLabel?: string, linkId?: string, initializing?: boolean): Strict supplied record for LedgerFinanceOnboardingView. Conditional variants are enforced by the same bounded validator.
+LedgerRepairBankConnectionData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, title?: string, description?: string, prompt?: string, action?: {kind: "prompt" | "action", value: string}, threadMode?: string, systemHint?: string, iconSrc?: string, loadImageLabel?: string, icon?: string, ctaLabel?: string, linkId?: string, initializing?: boolean): Strict supplied record for LedgerRepairBankConnectionView. Conditional variants are enforced by the same bounded validator.
+FinanceOnboardingSuggestionsData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, heading?: string, prefillAvailable?: boolean, items?: {id: string, label: string, query: string, emoji?: string, disabled?: boolean}[], followUp?: {label: string, query: string, event?: string, icon?: string, disabled?: boolean}): Strict supplied record for FinanceOnboardingSuggestionsView. Conditional variants are enforced by the same bounded validator.
+LedgerEquityUpdatesData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, title?: string, asOfLabel?: string, emptyLabel?: string, unknownLabel?: string, labels?: {stock: string, price: string, percent: string, value?: string, up: string, down: string, showMore: string, showLess: string, masked: string}, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, rows?: {id: string, ticker: string, name: string, priceLabel: string | any, percentLabel: string | any, percentDirection?: "up" | "down" | "flat", percentColor?: "primary" | "secondary" | "positive" | "negative", valueLabel: string | any, valueDirection?: "up" | "down" | "flat", valueColor?: "primary" | "secondary" | "positive" | "negative"}[], hasPositions?: boolean, connected?: boolean, masked?: boolean, conversionNote?: string, noAccounts?: {title: string, description: string, actionLabel: string, query: string}): Strict supplied record for LedgerEquityUpdatesView. Conditional variants are enforced by the same bounded validator.
+LedgerWatchlistData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, title?: string, asOfLabel?: string, emptyLabel?: string, unknownLabel?: string, labels?: {stock: string, price: string, percent: string, value?: string, up: string, down: string, showMore: string, showLess: string, masked: string}, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, rows?: {id: string, ticker: string, name: string, priceLabel: string | any, percentLabel: string | any, percentDirection?: "up" | "down" | "flat", percentColor?: "primary" | "secondary" | "positive" | "negative", valueLabel?: string | any, valueDirection?: "up" | "down" | "flat", valueColor?: "primary" | "secondary" | "positive" | "negative"}[], hasEntries?: boolean, rowsToShow?: number): Strict supplied record for LedgerWatchlistView. Conditional variants are enforced by the same bounded validator.
+LedgerCreditScoreData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, dataStatus?: "loading" | "empty" | "ready", masked?: boolean, resetLabel?: string, loadImageLabel?: string, title?: string, scoreLabel?: string | any, scorePosition?: number, activeView?: "overview" | "trend", viewOptions?: {value: "overview" | "trend", label: string}[], selectedPeriod?: string, history?: {id: string, label: string, points: {id: string, x: number, label: string, accessibilityLabel: string, values: Record<string, number | any>}[], series: {key: string, label: string, tone?: "primary" | "secondary" | "positive" | "warning" | "negative"}[], yMin?: number, yMax?: number, yTicks?: {value: number, label: string}[]}[], hasHistory?: boolean, metrics?: {id: string, label: string, valueLabel: string | any, tone?: "primary" | "secondary" | "positive" | "warning" | "negative", detailEnabled?: boolean}[], disclosure?: {text: string, linkText?: string, url?: string}, reportDateLabel?: string, labels?: {maskedScore: string, maskedValue: string, unknown: string, loading: string, empty: string, noHistory: string, viewSelector: string, rangeSelector: string, scoreMeter: string, scoreDetails: string, historyChart: string, close: string}): Strict supplied record for LedgerCreditScoreView. Conditional variants are enforced by the same bounded validator.
+LedgerCreditScoreDetailData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, dataStatus?: "loading" | "empty" | "ready", masked?: boolean, resetLabel?: string, loadImageLabel?: string, summaryLabel?: string | any, ratingLabel?: string | any, ratingTone?: "primary" | "secondary" | "positive" | "warning" | "negative", rows?: {id: string, label: string, valueLabel: string | any, progressPercent?: number | any}[], factors?: {description: string}[], relatedTitle?: string, relatedItems?: {id: string, label: string, detailLabel?: string | any, valueLabel?: string | any, valueAccessibilityLabel?: string | any, logo?: string, fallbackGlyph?: string}[], relatedNote?: string, labels?: {maskedValue: string, unknown: string, loading: string, empty: string, takeaways: string}): Strict supplied record for LedgerCreditScoreDetailView. Conditional variants are enforced by the same bounded validator.
+LedgerLowConfidenceCategoryCorrectionLegacyData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, title?: string, connected?: boolean, emptyLabel?: string, masked?: boolean, showMoreLabel?: string, showLessLabel?: string, loadImageLabel?: string, noAccounts?: {title: string, description: string, actionLabel: string, query: string}, transactions?: {id: string, name: string, dateLabel: string, amountLabel: string, amountValue?: number | any, maskedAmountLabel: string, categoryLabel: string, query: string, logo?: string, logoAlt?: string, fallbackGlyph?: string}[]): Strict supplied record for LedgerLowConfidenceCategoryCorrectionLegacyView. Conditional variants are enforced by the same bounded validator.

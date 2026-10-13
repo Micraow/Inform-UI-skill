@@ -1,2 +1,0 @@
-/** Two original fictional local suggestions. Neither starts an external task. */
-export function originalScheduledSuggestions(){return{version:'iui/1',body:[{type:'scheduled-task-suggestion',id:'notebook_offer',label:'Discuss the fictional notebook review',creationGuidelines:'Describe a hypothetical review of a paper notebook. This example does not request a real reminder.',originSurface:'chat'},{type:'scheduled-task-suggestion',id:'practice_opt_in',label:'Accept the local practice suggestion',action:'task-opt-in-accept',originSurface:'work'}]};}

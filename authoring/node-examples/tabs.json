@@ -1,1 +1,0 @@
-{"version":"iui/1","body":[{"type":"tab-group","label":"Sections","initial":"one","children":[{"type":"tab-panel","id":"one","label":"First","children":[{"type":"text","value":"First original panel"}]}]}]}

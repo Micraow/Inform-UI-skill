@@ -1,2 +1,0 @@
-/** Cancel local feature/plugin/task requests; no service fallback is attached. */
-export function attachOnboardingCardsReceipt(host,output){const receive=e=>{e.preventDefault();output.textContent=`Local request: ${e.detail.intent}`;};const names=['iui:onboarding-feature','iui:onboarding-plugin','iui:onboarding-task'];for(const name of names)host.addEventListener(name,receive);return()=>{for(const name of names)host.removeEventListener(name,receive);};}

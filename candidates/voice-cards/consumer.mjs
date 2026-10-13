@@ -1,2 +1,0 @@
-/** A local text receipt. Explicit cancellation prevents an embedding host's fallback. */
-export function attachVoiceReceipt(host,output){const receive=event=>{event.preventDefault();output.textContent=`Local ${event.type}: ${event.detail.intent}`;};for(const type of['iui:voice','iui:speak'])host.addEventListener(type,receive);return()=>{for(const type of['iui:voice','iui:speak'])host.removeEventListener(type,receive);};}

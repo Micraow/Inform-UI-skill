@@ -1,0 +1,20 @@
+$budget = 300
+$order = "asc"
+$chosen = ""
+plans = [{id:"essentials",name:"基础组合",cost:180,detail:"台灯与书立，先解决照明和收纳。"},{id:"comfort",name:"舒适组合",cost:280,detail:"在基础组合上增加桌垫与靠垫。"},{id:"complete",name:"完整组合",cost:420,detail:"再增加一个小置物架，适合确实缺少空间的书桌。"}]
+visible = @Sort(@Filter(plans,"cost","<=",$budget),"cost",$order)
+picked = @First(@Filter(plans,"id","==",$chosen))
+root = Stack([
+ Badge("可调整的预算比较"),
+ Heading("先补足必需，再决定要不要升级",1),
+ Text("如果照明和收纳是当前问题，基础组合已经够用。先调整预算看可选项，再比较升级部分是否真的有用。金额均为虚构示例，单位为元，不代表真实商品或报价。","muted"),
+ Grid([
+  Card([Slider("预算上限（元）",$budget,100,500,20),Select("排序方式",$order,[{label:"价格从低到高",value:"asc"},{label:"价格从高到低",value:"desc"}]),Text("当前预算："+$budget+" 元")],"调整条件"),
+  Card([Text("符合预算："+@Count(visible)+" 个组合"),$chosen=="" ? Text("还没有选择。请在下方选一个组合。") : Stack([Text("已选："+picked.name),Text("预算差额："+($budget-picked.cost)+" 元"),picked.cost>$budget ? Alert("选择超出新预算","降低预算后，原选择会保留，便于你重新比较。","warning") : Text("该选择仍在预算内。","success")]),Button("重置选择与预算",Action([@Reset($chosen,$budget),@Set($order,"asc")]),"secondary")],"你的决定")
+ ],2,"lg"),
+ @Count(visible)==0 ? Alert("当前没有可选组合","把预算提高到至少 180 元，可以看到基础组合。","warning") : Stack(@Each(visible,"plan",Card([Text(plan.detail),Row([Badge(plan.cost+" 元"),Button("选择"+plan.name,@Set($chosen,plan.id),"secondary")],"lg")],plan.name)),"md"),
+ Divider(),
+ Heading("怎么选更合适",2),
+ Text("先列出你已经有的物品，再看升级组合是否重复。选择只会改变这个页面的本地状态；如果准备购买，还需要核实具体商品、实际总价与退换条件。"),
+ Text("数据来源：本示例原创的三个虚构组合。预算差额 = 预算上限 − 所选组合金额。","muted")
+],"xl")

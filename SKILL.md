@@ -1,40 +1,55 @@
 ---
-name: inform-ui-author
-description: 按任务生成语义化 iui/1 JSON。先选固定运行版本，再只读取相关组件的依赖闭包、相邻约束和示例；支持正文、图表、供数视图和本地问卷。普通文字足够时不强加界面。
+name: inform-interactive-answers
+description: 用 Inform 的 OpenUI 派生 DSL 生成打开即可阅读和交互的完整 HTML 答案。适用于带文字、图表、图片、领域视图和本地筛选控件的解释、比较与探索；使用已构建的 browser JS，无需创建 React 工程。
 ---
 
-# Inform UI Author
+# Inform 互动答案
 
-你负责内容、来源、阅读顺序和选型；运行库负责校验与渲染。默认使用描述性字段的 canonical `iui/1` JSON。Inform UI 是独立、非官方实现，不依赖模型厂商服务。
+交付一份完整答案，而不是组件陈列页：先回答问题，再用有目的的图文与交互帮助理解。输出 HTML，使用提供的 Inform browser bundle 和 DSL；框架与图表依赖已在 bundle 内。不要创建 React 工程、安装运行时依赖、套用旧 iui1 JSON 或自行实现另一套解释器。
 
-## 最短完整路径
+## 最短路径
 
-1. 普通文字能说清就用文字。趋势、比较、精确数值或可见输入结果才需要图表、表格或控件。声明数据是实测、供数还是合成。
-2. 在 [README](README.md) 与 [版本兼容表](RECOVERY-CONSUMERS.md) 选择一个固定运行版本。JS、CSS、schema、字体与许可必须同版；source-only 不等于公开 CDN 已包含。没有准确合同，不能只凭名称猜字段。
-3. 从当前 [219节点分类索引](authoring/current219/index.json) 选模块，再读完整任务包里的 schema 闭包、语义和例子，共91个源码模块；布局族会带入41节点。跨模块与 WebChat 单文件见 [同版按需规则](authoring/current219/README.md)。先核包内公开身份；本地候选不能当可安装版本。`rating-summary` 是只读供数摘要，旧 `rating` 是输入扩展；`toggle` 的来源映射未证。219是协议覆盖数，不能当全部组件视觉验收。问卷按所选版本读取完整包。
-4. nodeSchema / 节点任务包只约束一个节点，不包含整个 Document。跨组件要保留所有依赖；最终完整文档仍须调用同版 `validateDocument` 做结构和语义校验。不要自行拼接不闭合的 `$defs`，也不要把所有领域说明默认塞入上下文。
-5. 核对预期数值与必要交互：取消、重置、较新输入、隐藏字段、更新和销毁。未实际编译或预览，就说明未执行；不能把 JSON 解析通过当作功能或临床验证。
+1. 确认实际 runtime 文件或已验证的固定版本 URL。随附 assets/runtime/inform-ui.global.js 是可用本地 bundle；版本与 SHA-256 见 generated/runtime-lock.json。未给公开地址时，使用同目录相对路径并交付该文件，不能猜 CDN 路径、latest 或发布状态。
+2. 读 references/catalog.md 找所需模块；先读取相关 generated/modules/*.txt；领域组件可进一步只读 generated/views/<ViewName>.txt。模块 prompt 来自实际 createProfile({select,viewNames}).prompt({bindings:true,builtinFunctions:true})。base/* 是基础组件与图表；views/* 是领域组合视图；Series 等是数据构造器，不能放进 UI children。按分类发现 glyph，别把完整图标目录放入 prompt。
+3. 按下面的壳写 HTML，并在 JSON 配置的 source 字符串里放 DSL。只使用已选模块中的签名与数据结构。完整范例见 examples/；语法边界见 references/dialect.md，交付与宿主限制见 references/delivery.md。
+4. 有终端时运行 scripts/inform-answer.mjs check，再用 build 生成安全壳。无终端时沿用壳与已验证范例；不要声称运行过检查。HTML 打开后应直接呈现答案，而不是让读者点击“生成”或粘贴代码。
 
-## 始终保留的语义
+## 固定 HTML 壳
 
-- 单位、来源、时间、适用条件及定义版本显式提供。未知 `null`、缺失、无效、真实 `0` 和 `false` 不得互换；不擅自补值或推断。
-- 问卷须显式选择隐藏值 retain/clear 策略。隐藏答案不参与提交和计算；无效或必填未知立即抑制旧结果。相邻任务包说明 pending、可取消冻结快照和异步退休规则，不能只读此摘要写问卷。
-- JSON 不放任意 JavaScript、组件 HTML/CSS、事件函数、`eval` 或 `native` 逃逸。表达式使用同版受限运算；循环、非法引用和非有限值必须报错。
-- 链接和来源不是授权。供数、本地意图与真正联网、导航、剪贴板、账户或医疗服务分开；不让生成的内容悄悄执行外部动作。第三方许可和适用性须另核。
-- HTML 中的 JSON 数据块须把 `<` 转义为 `\u003c`，不要把用户文本拼入启动脚本。保留固定资产/SRI、错误提示和清理逻辑。
+以下为最小可运行例。实际输出应有准确标题、语言、完整答案和可见加载失败提示；CLI 会生成这些。JSON 内字符串必须用 JSON.stringify 转义，并将所有 `<` 转为 `\u003c`，避免正文中的 `</script>` 提前结束数据块。
 
-最小文档：
-```json
-{"version":"iui/1","body":[{"type":"text","value":"一个简短解释可以已经足够。"}]}
+```html
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>答案</title>
+<main id="answer"></main>
+<script id="document" type="application/json">{"source":"root = Stack([Heading(\"答案\",1),Text(\"这里写完整解释。\")])","select":["base/layout"]}</script>
+<script src="./inform-ui.global.js"></script>
+<script>
+const config = JSON.parse(document.getElementById('document').textContent);
+const view = InformUI.mount(document.getElementById('answer'), config);
+addEventListener('pagehide', () => view.dispose(), {once:true});
+</script>
+</html>
 ```
 
-需交 HTML 时，按 [当前同版构建说明](authoring/current219/README.md) 使用固定源码和资产；独立内嵌页面由匹配的 Node `compileHtml` 构建。浏览器入口提供 `validateDocument` 与 `mount`，不提供 Node 编译器。
+mount 接受 source、select、viewNames、theme（light/dark）；样式随 bundle 注入。select 选模块，viewNames 进一步限定所选模块中的领域 View；两者限定可用组件和 prompt 范围，不会使已下载的完整 JS 变小。允许的其他宿主选项与生命周期见 references/delivery.md。
 
-## 按需参考，不默认注入
+## DSL 必须遵守
 
-- [218入口快照](SKILL.cd1c545.md)、[218目录](authoring/progressive/index.json) 与 [218按需规则](authoring/progressive/README.md) 保留原字节及测量；[旧问卷任务包](authoring/packs/questionnaire.json) 只配其自身固定源码。不能只读此摘要写问卷。
-- [历史完整指南快照](SKILL.7b9a332.md) 保留原文及其固定版本。只有任务选择该版本或需要对应深层合同才读取。
-- [历史 Web Chat 全文](WEB-CHAT-GUIDE.md) 与其自身旧版锁配套，不能覆盖当前版本选择。
-- [量化设计与评测](authoring/README.md)：默认 canonical；可选紧凑语法尚未证明模型收益，不作为必需步骤。
+- 每条声明独占一行；最终 root 必须是 Stack。组件参数按位置传递，只有末尾可选参数能直接省略。对象数据内使用 key:value，不能把组件调用写成命名参数。
+- 普通变量承载数据或组件；$state = default 显式声明可变状态。每次完整 commit 会重置默认状态；阅读中的交互通过绑定与本地 Action 完成。
+- 算术 + - * / %；比较 == != < <= > >=；布尔逻辑 && || !；三元条件。数值必须有限，条件必须是 boolean，除零会报错。
+- 数据访问用 row.field、array[index]。@Filter(rows,"score",">=",$minimum)、@Sort(rows,"score","desc") 和 @Each(rows,"row",Text(row.name))；无箭头函数、回调、JS 方法、任意脚本。
+- 控件绑定传 $state。Button 的动作使用 @Set($state,expression)、@Reset($state) 或 Action([@Set(...),@Reset(...)])。先检查组件有哪些 binding/action props；不能把普通 JSON 当动作。
+- 纯函数、精确参数与严格差异见 references/dialect.md。这是固定 OpenUI 派生方言，不代表全部上游能力或语义；不宣传未测 token 节省。
 
-历史组件对照保持212/256。通用问卷扩展不意味着剩余44个专用组件已完成，也不要求继续逐项实现它们。
+## 让答案真正有用
+
+保留问题所需的论述、依据、假设和结论。图表补充文字解释与数据表；图片必须有 alt 与必要图注；用有语义的标题和可理解的控件标签。单位、范围、日期、数据来源应可见。真实资料与原创示例数据分别标注，不伪造引用、最新行情或查询结果。
+
+交互应改变读者关心的结果：筛选后同步更新图表、表格与统计值；处理空集合、极值、重置和原选择失效。保留可见的文本结果，不靠颜色或图标传达唯一含义。图标使用准确官方名称，运行 icons --query 只拿相关候选。
+
+宿主服务不由 DSL 名称自动获得：查询、订票、支付、发送、地图/媒体加载等必须另有真实宿主集成与授权。外部 intent 视图最多展示所给数据与明确的不可用状态，不得假装执行成功。

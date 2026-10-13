@@ -1,0 +1,19 @@
+$minimum = 60
+$direction = "desc"
+rows = [{name:"春季工作坊",score:82,participants:24},{name:"夏季读书会",score:91,participants:18},{name:"秋季分享会",score:67,participants:32},{name:"冬季讨论班",score:54,participants:16},{name:"周末写作课",score:76,participants:20}]
+visible = @Sort(@Filter(rows,"score",">=",$minimum),"score",$direction)
+root = Stack([
+ Badge("示例数据 · 可复算"),
+ Heading("筛选会改变样本，排序只改变顺序",1),
+ Text("这五场虚构活动的反馈分数中，夏季读书会最高，达到 91 分。先用最低分筛出想看的活动，再切换排序，观察图表、表格与统计值如何保持一致。","muted"),
+ Card([Slider("最低反馈分数",$minimum,0,100,1),Select("按分数排序",$direction,[{label:"从高到低",value:"desc"},{label:"从低到高",value:"asc"}]),Button("恢复初始条件",@Reset($minimum,$direction),"secondary")],"探索这组数据"),
+ Row([Badge("符合条件："+@Count(visible)+" 场"),Badge("参与人数合计："+@Sum(visible.participants)),Badge("当前阈值："+$minimum+" 分")],"md"),
+ @Count(visible)>0 ? Stack([
+  Text("筛选后平均分："+@Round(@Avg(visible.score),1)+" 分。最高分："+@Max(visible.score)+" 分。"),
+  BarChart("符合条件活动的反馈分数",visible.name,[Series("反馈分数",@Each(visible,"item",item.score))],{height:300,animate:false,yAxisLabel:"分数（0–100）"}),
+  Table([{key:"name",label:"活动"},{key:"score",label:"反馈分数"},{key:"participants",label:"参与人数"}],visible,"同一筛选结果的可访问数据表")
+ ],"lg") : Alert("没有活动达到这个阈值","请把最低分调到 91 分或以下。没有匹配数据时，不画空图，也不把平均分显示成 0。","warning"),
+ Heading("读图时要注意",2),
+ Text("这些分数只是示例，不代表实际研究结果。按人数加权的平均分与这里按活动等权计算的平均分不是同一指标；参与人数也不等于填写反馈的人数。"),
+ Text("数据来源：本示例原创的五行数据。筛选规则：score ≥ 最低分；排序字段：score；平均分：筛选后各场分数之和 ÷ 场数。","muted")
+],"xl")

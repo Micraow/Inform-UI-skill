@@ -1,0 +1,41 @@
+[
+  {
+    "id": "budget-choice",
+    "title": "先补足必需，再决定要不要升级",
+    "lang": "zh-CN",
+    "select": [
+      "base/layout",
+      "base/controls"
+    ]
+  },
+  {
+    "id": "filter-sort-chart",
+    "title": "筛选会改变样本，排序只改变顺序",
+    "lang": "zh-CN",
+    "select": [
+      "base/layout",
+      "base/controls",
+      "base/charts"
+    ]
+  },
+  {
+    "id": "composed-explanation",
+    "title": "为什么一个大数会拉高平均数？",
+    "lang": "zh-CN",
+    "select": [
+      "base/layout",
+      "base/controls",
+      "base/charts",
+      "views/content"
+    ],
+    "viewNames": [
+      "MetricView",
+      "FigureView",
+      "SectionView",
+      "StepsView",
+      "MathView",
+      "DetailsView",
+      "CitationView"
+    ]
+  }
+]

@@ -1,2 +1,0 @@
-/** Local receipt only: never save, infer traits, share, copy, or contact a grading service. */
-export function attachQuizReceipt(host,output){const listener=e=>{e.preventDefault();output.textContent=`Requested quiz action: ${e.detail.component}/${e.detail.intent} at revision ${e.detail.revision}`;};host.addEventListener('iui:quiz-action',listener);return()=>host.removeEventListener('iui:quiz-action',listener);}

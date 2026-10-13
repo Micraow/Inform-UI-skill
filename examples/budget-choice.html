@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>先补足必需，再决定要不要升级</title>
+<style>html{color-scheme:light}body{margin:0;padding:clamp(16px,4vw,48px);background:#fff;color:#171717;font-family:system-ui,sans-serif}main{max-width:1040px;margin:auto}#inform-status{max-width:1040px;margin:16px auto;white-space:pre-wrap}</style>
+</head>
+<body>
+<main id="answer" aria-label="先补足必需，再决定要不要升级"></main>
+<p id="inform-status" role="status">Loading interactive answer…</p>
+<noscript>This answer needs JavaScript to show its content and local controls.</noscript>
+<script id="inform-document" type="application/json">{"source":"$budget = 300\n$order = \"asc\"\n$chosen = \"\"\nplans = [{id:\"essentials\",name:\"基础组合\",cost:180,detail:\"台灯与书立，先解决照明和收纳。\"},{id:\"comfort\",name:\"舒适组合\",cost:280,detail:\"在基础组合上增加桌垫与靠垫。\"},{id:\"complete\",name:\"完整组合\",cost:420,detail:\"再增加一个小置物架，适合确实缺少空间的书桌。\"}]\nvisible = @Sort(@Filter(plans,\"cost\",\"\u003c=\",$budget),\"cost\",$order)\npicked = @First(@Filter(plans,\"id\",\"==\",$chosen))\nroot = Stack([\n Badge(\"可调整的预算比较\"),\n Heading(\"先补足必需，再决定要不要升级\",1),\n Text(\"如果照明和收纳是当前问题，基础组合已经够用。先调整预算看可选项，再比较升级部分是否真的有用。金额均为虚构示例，单位为元，不代表真实商品或报价。\",\"muted\"),\n Grid([\n  Card([Slider(\"预算上限（元）\",$budget,100,500,20),Select(\"排序方式\",$order,[{label:\"价格从低到高\",value:\"asc\"},{label:\"价格从高到低\",value:\"desc\"}]),Text(\"当前预算：\"+$budget+\" 元\")],\"调整条件\"),\n  Card([Text(\"符合预算：\"+@Count(visible)+\" 个组合\"),$chosen==\"\" ? Text(\"还没有选择。请在下方选一个组合。\") : Stack([Text(\"已选：\"+picked.name),Text(\"预算差额：\"+($budget-picked.cost)+\" 元\"),picked.cost>$budget ? Alert(\"选择超出新预算\",\"降低预算后，原选择会保留，便于你重新比较。\",\"warning\") : Text(\"该选择仍在预算内。\",\"success\")]),Button(\"重置选择与预算\",Action([@Reset($chosen,$budget),@Set($order,\"asc\")]),\"secondary\")],\"你的决定\")\n ],2,\"lg\"),\n @Count(visible)==0 ? Alert(\"当前没有可选组合\",\"把预算提高到至少 180 元，可以看到基础组合。\",\"warning\") : Stack(@Each(visible,\"plan\",Card([Text(plan.detail),Row([Badge(plan.cost+\" 元\"),Button(\"选择\"+plan.name,@Set($chosen,plan.id),\"secondary\")],\"lg\")],plan.name)),\"md\"),\n Divider(),\n Heading(\"怎么选更合适\",2),\n Text(\"先列出你已经有的物品，再看升级组合是否重复。选择只会改变这个页面的本地状态；如果准备购买，还需要核实具体商品、实际总价与退换条件。\"),\n Text(\"数据来源：本示例原创的三个虚构组合。预算差额 = 预算上限 − 所选组合金额。\",\"muted\")\n],\"xl\")\n","select":["base/layout","base/controls"],"theme":"light"}</script>
+<script src="../assets/runtime/inform-ui.global.js"></script>
+<script>
+(() => {
+  const status=document.getElementById('inform-status');
+  let failed=false;
+  const fail=issues=>{failed=true;status.hidden=false;status.textContent='Could not render this answer. '+issues.map(issue=>issue.message||String(issue)).join(' ');};
+  try {
+    if(!globalThis.InformUI)throw Error('Inform UI bundle could not be loaded. Keep the supplied runtime beside this HTML or use the verified release URL.');
+    const config=JSON.parse(document.getElementById('inform-document').textContent);
+    const view=InformUI.mount(document.getElementById('answer'),{...config,onError:fail});
+    if(view.getSnapshot()&&!failed){status.hidden=true;status.textContent='';}
+    addEventListener('pagehide',()=>view.dispose(),{once:true});
+  } catch(error) {fail([{message:error.message}]);}
+})();
+</script>
+</body>
+</html>

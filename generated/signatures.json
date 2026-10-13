@@ -1,0 +1,2347 @@
+{
+  "AreaChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "labels",
+      "series",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "BarChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "labels",
+      "series",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "HorizontalBarChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "labels",
+      "series",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LineChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "labels",
+      "series",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "HeatmapChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "labels",
+      "series",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RadarChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "labels",
+      "series",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PieChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "slices",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RadialChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "slices",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FunnelChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "slices",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SegmentedBar": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "slices",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SingleStackedBar": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "slices",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ScatterChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "datasets",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CalendarHeatmap": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "days",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MiniAreaChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "values",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MiniBarChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "values",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MiniLineChart": {
+    "moduleId": "base/charts",
+    "orderedProps": [
+      "title",
+      "values",
+      "options"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Text": {
+    "moduleId": "base/text",
+    "orderedProps": [
+      "content",
+      "tone"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Heading": {
+    "moduleId": "base/text",
+    "orderedProps": [
+      "content",
+      "level"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Badge": {
+    "moduleId": "base/text",
+    "orderedProps": [
+      "label",
+      "tone"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Divider": {
+    "moduleId": "base/text",
+    "orderedProps": [],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Alert": {
+    "moduleId": "base/text",
+    "orderedProps": [
+      "title",
+      "description",
+      "tone"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Table": {
+    "moduleId": "base/text",
+    "orderedProps": [
+      "columns",
+      "rows",
+      "caption"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Button": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "onPress",
+      "variant",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": [
+      "onPress"
+    ]
+  },
+  "Input": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "value",
+      "placeholder",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "value"
+    ],
+    "actionProps": []
+  },
+  "Textarea": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "value",
+      "rows",
+      "placeholder",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "value"
+    ],
+    "actionProps": []
+  },
+  "Select": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "value",
+      "options",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "value"
+    ],
+    "actionProps": []
+  },
+  "RadioGroup": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "value",
+      "options",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "value"
+    ],
+    "actionProps": []
+  },
+  "Checkbox": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "checked",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "checked"
+    ],
+    "actionProps": []
+  },
+  "Switch": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "checked",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "checked"
+    ],
+    "actionProps": []
+  },
+  "Slider": {
+    "moduleId": "base/controls",
+    "orderedProps": [
+      "label",
+      "value",
+      "min",
+      "max",
+      "step",
+      "disabled"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "value"
+    ],
+    "actionProps": []
+  },
+  "Icon": {
+    "moduleId": "base/icon",
+    "orderedProps": [
+      "name",
+      "label"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Stack": {
+    "moduleId": "base/layout",
+    "orderedProps": [
+      "children",
+      "gap"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 128,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Row": {
+    "moduleId": "base/layout",
+    "orderedProps": [
+      "children",
+      "gap",
+      "align"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 128,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Grid": {
+    "moduleId": "base/layout",
+    "orderedProps": [
+      "children",
+      "columns",
+      "gap"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 128,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Card": {
+    "moduleId": "base/layout",
+    "orderedProps": [
+      "children",
+      "title"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 128,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Image": {
+    "moduleId": "base/media",
+    "orderedProps": [
+      "src",
+      "alt",
+      "caption"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Video": {
+    "moduleId": "base/media",
+    "orderedProps": [
+      "src",
+      "title",
+      "poster",
+      "captions"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WeatherCard": {
+    "moduleId": "domain/weather",
+    "orderedProps": [
+      "location",
+      "temperatureC",
+      "condition"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TaskExpansionCardView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PromptSuggestionsView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FollowUpCardGroupView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ConversationSuggestionsView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FollowUpActionBarView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "DisplayAutomationView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ListAutomationsView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AutomationPlanSummaryView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ScheduledTaskSuggestionView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ConversationalOnboardingAdviceView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ConversationalOnboardingWritingView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "OnboardingFeatureCardView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "OnboardingPluginSuggestionsView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "OnboardingStarterTasksView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ConversationalOnboardingStudyView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ConversationalOnboardingSearchView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WhatsNewCapabilityWelcomeView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WhatsNewCapabilitySearchView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TaskAutopauseCardView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PluginFollowupView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "InstantSuggestionsView": {
+    "moduleId": "views/assistance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PersonProfileView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "NewsArticleView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EntityReviewsView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CreateInteractivePollView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SidebarPeopleAlsoAskView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EmailPreviewView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FileNavListView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "JobsView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ProductCardView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SharedActivityPlannerView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CodeCiteView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FileCiteView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SidebarFactTableView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EntityThumbnailListView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RedditThreadCardView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MarkdownView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WritingBlockView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EmailDraftView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CodeView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MathView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SpacerView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LinkView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 32,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FaviconView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "GridItemView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 1,
+        "max": 30,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "BlockquoteView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 1,
+        "max": 30,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SectionView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 500,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FigureView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 500,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "DetailsView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 500,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TooltipView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PopoverView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 1,
+        "max": 20,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PulseIndicatorView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LoadingView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LoadingBlockView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CitationView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WebLinkCardsView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AnimateView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 50,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CelebrationView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CarouselView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 500,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TabPanelView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 500,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TabGroupView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 1,
+        "max": 20,
+        "accepts": [
+          "TabPanelView"
+        ]
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ListView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 500,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MetricView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MetricGridView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 1,
+        "max": 12,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "StepsView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LabelView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ChecklistView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RatingView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "value"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "value"
+    ],
+    "actionProps": []
+  },
+  "SegmentedView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "value"
+    ],
+    "slots": {},
+    "bindingProps": [
+      "value"
+    ],
+    "actionProps": []
+  },
+  "FieldView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children"
+    ],
+    "slots": {
+      "children": {
+        "min": 1,
+        "max": 20,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FormView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children",
+      "onSubmit"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 500,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": [
+      "onSubmit"
+    ]
+  },
+  "TopologyView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ClockView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "StopwatchView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TimerView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "UnitConverterView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SvgView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RecommendationCardView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PromptChecklistView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PressableView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data",
+      "children",
+      "onPress"
+    ],
+    "slots": {
+      "children": {
+        "min": 1,
+        "max": 30,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": [
+      "onPress"
+    ]
+  },
+  "HtmlViewView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TabbedSectionView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "VisualCardCarouselView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LinkCardView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RecommendationLinkCardView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EntityCardView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EntityOverviewView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AskUserDetailsView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AskUserFilesView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "OfferVoiceConversationView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "MultipleChoiceBlockV2View": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ReservationTimePillsRefCarouselView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PushDripSeriesIntroView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "StopPushDripSeriesView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "InternalPartnerAppView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "BentoView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "OpenDetailView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "OpenaiView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SuperbowlRiddleView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EntityView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RatingSummaryView": {
+    "moduleId": "views/content",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AgendaView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RestaurantAvailabilityView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LocationChoiceRequestView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FlightOptionView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ArtistUpcomingEventsView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PackageTrackerView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FlightTrackerView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LocalBusinessView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RestaurantReviewsView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FlightSearchFormView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FlightResultsView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "EventSidebarView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "RestaurantMenuView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AskUserLocationView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PlacesMetadataBarView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CareProviderResultsView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CareProviderSidebarView": {
+    "moduleId": "views/discovery",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FinanceQuoteView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FinanceChartView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FinanceComparisonView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FinanceHeatmapView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AssetDistributionView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TransactionListView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerAccountsView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerRecurringTransactionsView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CurrencyConverterView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerTransactionDetailView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerFinanceStatusBannerView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerLowConfidenceCategoryCorrectionView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerNetWorthView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerFeeInterestPaidView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerSpendSoFarThisMonthView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerUpcomingActivityView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerIncomeTrackerView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerSpendByCategoryView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerSpendByCategoryDetailView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerSpendByCategoryRecentTransactionsView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerFinanceOnboardingView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerRepairBankConnectionView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FinanceOnboardingSuggestionsView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerEquityUpdatesView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerWatchlistView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerCreditScoreView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerCreditScoreDetailView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LedgerLowConfidenceCategoryCorrectionLegacyView": {
+    "moduleId": "views/finance",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WordCardView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CopyWordsView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "QuizView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FlashcardsView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FillBlankView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SentenceBuilderView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "VocabCardView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LearningAudioLabelCardView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LearningImageChoiceCardView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LearningImageLabelCardView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LearningVoiceModeLauncherCardView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LearningSpeakCardView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "FollowUpQuizView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "PersonalityQuizView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "HomeworkHelperV2View": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LearningVizDilView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CalculatorCorrectedAdjustedAgeOfPretermInfantsView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CalculatorGlasgowComaScaleGcsView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CalculatorRoxIndexForHighFlowNasalCannulaView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CalculatorQsofaScoreView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "QuestionnaireView": {
+    "moduleId": "views/learning",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "BusinessGalleryView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "YoutubeView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SearchImageView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AsyncImageGroupView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AsyncImageView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "LottieView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ImageGridView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AsyncVideoCarouselView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ImageGenView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "GenImageView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SpeechSynthesizerView": {
+    "moduleId": "views/media",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "OnboardingSelectionView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "F1RacesView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "F1StandingsView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SportsScheduleView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SportsScoreboardView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SportsStandingsView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "NbaScoresView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "SoccerGamesView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "AmericanFootballGamesView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "BasketballTournamentView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "ElectionResultsView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "NbaGameBoxscoreView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CricketMatchBoxscoreView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "NbaPlayerSummaryView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "TennisPlayerSummaryView": {
+    "moduleId": "views/sports",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WeatherView": {
+    "moduleId": "views/weather",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "WeatherSidebarTitleView": {
+    "moduleId": "views/weather",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  }
+}

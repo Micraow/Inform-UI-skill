@@ -1,0 +1,558 @@
+Generate an Inform UI 2 document using the pinned OpenUI language. This profile is local-only. Use only the component and data constructors listed below.
+
+## Syntax Rules
+
+1. Each statement is on its own line: `identifier = Expression`
+2. `root` is the entry point — every program must define `root = Stack(...)`
+3. Expressions are: strings ("..."), numbers, booleans (true/false), null, arrays ([...]), objects ({...}), or component calls TypeName(arg1, arg2, ...)
+4. Use references for readability: define `name = ...` on one line, then use `name` later
+5. EVERY variable (except root) MUST be referenced by at least one other variable. Unreferenced variables do not render; connect intended output to root. Always include defined variables in their parent's children/items array.
+6. Arguments are POSITIONAL (order matters, not names). Write `SomeComp([children], "row", "l")` NOT `SomeComp([children], direction: "row", gap: "l")` — colon syntax is rejected
+7. Optional arguments can be omitted from the end
+8. Declare mutable state with `$varName = defaultValue`. Components marked with `$binding` can read/write these. Undeclared $variables are errors in Inform UI.
+9. String concatenation: `"text" + $var + "more"`
+10. Dot member access: `query.field` reads a field; on arrays it extracts that field from every element
+11. Index access: `arr[0]`, `data[index]`
+12. Arithmetic operators: +, -, *, /, % (work on numbers; + is string concat when either side is a string)
+13. Comparison: ==, !=, >, <, >=, <=
+14. Logical: &&, ||, ! (prefix)
+15. Ternary: `condition ? valueIfTrue : valueIfFalse`
+16. Parentheses for grouping: `(a + b) * c`
+- Strings use double quotes with backslash escaping
+
+## Component Signatures
+
+Arguments marked with ? are optional. Sub-components can be inline or referenced; prefer references for better streaming.
+Props typed `ActionExpression` accept one @step, or Action([@steps...]) for several. See the Action section for available steps (@Set, @Reset).
+Props marked `$binding<type>` accept a `$variable` reference for two-way binding.
+
+### base/text
+Text(content: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
+Heading(content: string, level?: number) — Semantic heading.
+Badge(label: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Compact supplied status label.
+Divider() — Thematic separator.
+Alert(title: string, description: string, tone?: "default" | "muted" | "success" | "warning" | "error") — Supplied notice with visible title and explanation.
+Table(columns: {key: string, label: string}[], rows: Record<string, string | number | boolean | any>[], caption?: string) — Supplied scalar data table. Row keys must be declared column keys; use @Each to project business records before rendering.
+
+### base/layout
+Stack(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
+Row(children: Component[], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
+Grid(children: Component[], columns?: number, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
+Card(children: Component[], title?: string) — Grouped surface with optional title.
+
+### base/controls
+Button(label: string, onPress: ActionExpression, variant?: "primary" | "secondary" | "ghost", disabled?: boolean) — Explicit local state action button.
+Input(label: string, value: $binding<string>, placeholder?: string, disabled?: boolean) — Labeled single-line text input bound to local state.
+Textarea(label: string, value: $binding<string>, rows?: number, placeholder?: string, disabled?: boolean) — Labeled multiline text input.
+Select(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Labeled single selection from supplied options.
+RadioGroup(label: string, value: $binding<string>, options: {label: string, value: string}[], disabled?: boolean) — Visible single-choice radio options.
+Checkbox(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled boolean checkbox.
+Switch(label: string, checked: $binding<boolean>, disabled?: boolean) — Labeled local on/off switch.
+Slider(label: string, value: $binding<number>, min: number, max: number, step?: number, disabled?: boolean) — Bounded numeric local slider.
+
+### base/icon
+Icon(name: string, label?: string) — A bundled icon selected by canonical catalog name.
+
+### base/media
+Image(src: string, alt: string, caption?: string) — Image subject to the host media policy.
+Video(src: string, title: string, poster?: string, captions?: {src: string, label: string, language: string}[]) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
+
+### views/content
+PersonProfileView(data: PersonProfileData) — Supplied person profile View rendered with the shared Inform foundation theme.
+NewsArticleView(data: NewsArticleData) — Supplied news article View rendered with the shared Inform foundation theme.
+EntityReviewsView(data: EntityReviewsData) — Supplied entity reviews View rendered with the shared Inform foundation theme.
+CreateInteractivePollView(data: CreateInteractivePollData) — Supplied create interactive poll View rendered with the shared Inform foundation theme.
+SidebarPeopleAlsoAskView(data: SidebarPeopleAlsoAskData) — Supplied sidebar people also ask View rendered with the shared Inform foundation theme.
+EmailPreviewView(data: EmailPreviewData) — Supplied email preview View rendered with the shared Inform foundation theme.
+FileNavListView(data: FileNavListData) — Supplied file nav list View rendered with the shared Inform foundation theme.
+JobsView(data: JobsData) — Supplied jobs View rendered with the shared Inform foundation theme.
+ProductCardView(data: ProductCardData) — Supplied product card View rendered with the shared Inform foundation theme.
+SharedActivityPlannerView(data: SharedActivityPlannerData) — Supplied shared activity planner View rendered with the shared Inform foundation theme.
+CodeCiteView(data: CodeCiteData) — Supplied code cite View rendered with the shared Inform foundation theme.
+FileCiteView(data: FileCiteData) — Supplied file cite View rendered with the shared Inform foundation theme.
+SidebarFactTableView(data: SidebarFactTableData) — Supplied sidebar fact table View rendered with the shared Inform foundation theme.
+EntityThumbnailListView(data: EntityThumbnailListData) — Supplied entity thumbnail list View rendered with the shared Inform foundation theme.
+RedditThreadCardView(data: RedditThreadCardData) — Supplied reddit thread card View rendered with the shared Inform foundation theme.
+MarkdownView(data: MarkdownData) — Supplied markdown View rendered with the shared Inform foundation theme.
+WritingBlockView(data: WritingBlockData) — Supplied writing block View rendered with the shared Inform foundation theme.
+EmailDraftView(data: EmailDraftData) — Supplied email draft View rendered with the shared Inform foundation theme.
+CodeView(data: CodeData) — Supplied code View rendered with the shared Inform foundation theme.
+MathView(data: MathData) — Supplied math View rendered with the shared Inform foundation theme.
+SpacerView(data: SpacerData) — Supplied spacer View rendered with the shared Inform foundation theme.
+LinkView(data: LinkData, children: Component[]) — Supplied link View rendered with the shared Inform foundation theme.
+FaviconView(data: FaviconData) — Supplied favicon View rendered with the shared Inform foundation theme.
+GridItemView(data: GridItemData, children: Component[]) — Supplied grid item View rendered with the shared Inform foundation theme.
+BlockquoteView(data: BlockquoteData, children: Component[]) — Supplied blockquote View rendered with the shared Inform foundation theme.
+SectionView(data: SectionData, children: Component[]) — Supplied section View rendered with the shared Inform foundation theme.
+FigureView(data: FigureData, children: Component[]) — Supplied figure View rendered with the shared Inform foundation theme.
+DetailsView(data: DetailsData, children: Component[]) — Supplied details View rendered with the shared Inform foundation theme.
+TooltipView(data: TooltipData) — Supplied tooltip View rendered with the shared Inform foundation theme.
+PopoverView(data: PopoverData, children: Component[]) — Supplied popover View rendered with the shared Inform foundation theme.
+PulseIndicatorView(data: PulseIndicatorData) — Supplied pulse indicator View rendered with the shared Inform foundation theme.
+LoadingView(data: LoadingData) — Supplied loading View rendered with the shared Inform foundation theme.
+LoadingBlockView(data: LoadingBlockData) — Supplied loading block View rendered with the shared Inform foundation theme.
+CitationView(data: CitationData) — Supplied citation View rendered with the shared Inform foundation theme.
+WebLinkCardsView(data: WebLinkCardsData) — Supplied web link cards View rendered with the shared Inform foundation theme.
+AnimateView(data: AnimateData, children: Component[]) — Supplied animate View rendered with the shared Inform foundation theme.
+CelebrationView(data: CelebrationData) — Supplied celebration View rendered with the shared Inform foundation theme.
+CarouselView(data: CarouselData, children: Component[]) — Supplied carousel View rendered with the shared Inform foundation theme.
+TabPanelView(data: TabPanelData, children: Component[]) — Supplied tab panel View rendered with the shared Inform foundation theme.
+TabGroupView(data: TabGroupData, children: TabPanelView[]) — Supplied tab group View rendered with the shared Inform foundation theme.
+ListView(data: ListData, children: Component[]) — Supplied list View rendered with the shared Inform foundation theme.
+MetricView(data: MetricData) — Supplied metric View rendered with the shared Inform foundation theme.
+MetricGridView(data: MetricGridData, children: Component[]) — Supplied metric grid View rendered with the shared Inform foundation theme.
+StepsView(data: StepsData) — Supplied steps View rendered with the shared Inform foundation theme.
+LabelView(data: LabelData) — Supplied label View rendered with the shared Inform foundation theme.
+ChecklistView(data: ChecklistData) — Supplied checklist View rendered with the shared Inform foundation theme.
+RatingView(data: RatingData, value: $binding<number>) — Supplied rating View rendered with the shared Inform foundation theme.
+SegmentedView(data: SegmentedData, value: $binding<string | number | boolean | any>) — Supplied segmented View rendered with the shared Inform foundation theme.
+FieldView(data: FieldData, children: Component[]) — Supplied field View rendered with the shared Inform foundation theme.
+FormView(data: FormData, children: Component[], onSubmit: ActionExpression) — Supplied form View rendered with the shared Inform foundation theme.
+TopologyView(data: TopologyData) — Supplied topology View rendered with the shared Inform foundation theme.
+ClockView(data: ClockData) — Supplied clock View rendered with the shared Inform foundation theme.
+StopwatchView(data: StopwatchData) — Supplied stopwatch View rendered with the shared Inform foundation theme.
+TimerView(data: TimerData) — Supplied timer View rendered with the shared Inform foundation theme.
+UnitConverterView(data: UnitConverterData) — Supplied unit converter View rendered with the shared Inform foundation theme.
+SvgView(data: SvgData) — Supplied svg View rendered with the shared Inform foundation theme.
+RecommendationCardView(data: RecommendationCardData) — Supplied recommendation card View rendered with the shared Inform foundation theme.
+PromptChecklistView(data: PromptChecklistData) — Supplied prompt checklist View rendered with the shared Inform foundation theme.
+PressableView(data: PressableData, children: Component[], onPress: ActionExpression) — Supplied pressable View rendered with the shared Inform foundation theme.
+HtmlViewView(data: HtmlViewData) — Supplied html view View rendered with the shared Inform foundation theme.
+TabbedSectionView(data: TabbedSectionData) — Supplied tabbed section View rendered with the shared Inform foundation theme.
+VisualCardCarouselView(data: VisualCardCarouselData) — Supplied visual card carousel View rendered with the shared Inform foundation theme.
+LinkCardView(data: LinkCardData) — Supplied link card View rendered with the shared Inform foundation theme.
+RecommendationLinkCardView(data: RecommendationLinkCardData) — Supplied recommendation link card View rendered with the shared Inform foundation theme.
+EntityCardView(data: EntityCardData) — Supplied entity card View rendered with the shared Inform foundation theme.
+EntityOverviewView(data: EntityOverviewData) — Supplied entity overview View rendered with the shared Inform foundation theme.
+AskUserDetailsView(data: AskUserDetailsData) — Supplied ask user details View rendered with the shared Inform foundation theme.
+AskUserFilesView(data: AskUserFilesData) — Supplied ask user files View rendered with the shared Inform foundation theme.
+OfferVoiceConversationView(data: OfferVoiceConversationData) — Supplied offer voice conversation View rendered with the shared Inform foundation theme.
+MultipleChoiceBlockV2View(data: MultipleChoiceBlockV2Data) — Supplied multiple choice block v2 View rendered with the shared Inform foundation theme.
+ReservationTimePillsRefCarouselView(data: ReservationTimePillsRefCarouselData) — Supplied reservation time pills ref carousel View rendered with the shared Inform foundation theme.
+PushDripSeriesIntroView(data: PushDripSeriesIntroData) — Supplied push drip series intro View rendered with the shared Inform foundation theme.
+StopPushDripSeriesView(data: StopPushDripSeriesData) — Supplied stop push drip series View rendered with the shared Inform foundation theme.
+InternalPartnerAppView(data: InternalPartnerAppData) — Supplied internal partner app View rendered with the shared Inform foundation theme.
+BentoView(data: BentoData) — Supplied bento View rendered with the shared Inform foundation theme.
+OpenDetailView(data: OpenDetailData) — Supplied open detail View rendered with the shared Inform foundation theme.
+OpenaiView(data: OpenaiData) — Supplied openai View rendered with the shared Inform foundation theme.
+SuperbowlRiddleView(data: SuperbowlRiddleData) — Supplied superbowl riddle View rendered with the shared Inform foundation theme.
+EntityView(data: EntityData) — Supplied entity View rendered with the shared Inform foundation theme.
+RatingSummaryView(data: RatingSummaryData) — Supplied rating summary View rendered with the shared Inform foundation theme.
+
+## Built-in Functions
+
+Data functions prefixed with `@` to distinguish from components. These are the ONLY functions available — do NOT invent new ones.
+Use @-prefixed built-in functions (@Count, @Sum, @Avg, @Min, @Max, @Round) on data. Do NOT hardcode computed values.
+
+@Count(array: any[]) → number — Returns array length
+@First(array: any[]) → any — Returns first element of array
+@Last(array: any[]) → any — Returns last element of array
+@Sum(numbers: number[]) → number — Sum of numeric array
+@Avg(numbers: number[]) → number — Average of numeric array
+@Min(numbers: number[]) → number — Minimum value in array
+@Max(numbers: number[]) → number — Maximum value in array
+@Sort(array: any[], field: string, direction?: "asc" | "desc") → any[] — Sort array by field. Direction: "asc" (default) or "desc"
+@Filter(array: any[], field: string, operator: "==" | "!=" | ">" | "<" | ">=" | "<=" | "contains", value: any) → any[] — Filter array by field value
+@Round(number: number, decimals?: number) → number — Round to N decimal places (default 0)
+@Abs(number: number) → number — Absolute value
+@Floor(number: number) → number — Round down to nearest integer
+@Ceil(number: number) → number — Round up to nearest integer
+@Each(array: any[], varName: string, template: any) — Evaluate template for each element. varName is the loop variable — use it ONLY inside the template expression (inline). Do NOT create a separate statement for the template.
+
+Builtins compose — output of one is input to the next:
+`@Count(@Filter(data.rows, "field", "==", "val"))` for KPIs/chart values, `@Round(@Avg(data.rows.score), 1)`, `@Each(data.rows, "item", Comp(item.field))` for per-item rendering.
+Array pluck: `data.rows.field` extracts a field from every row → use with @Sum, @Avg, charts, tables.
+
+IMPORTANT @Each rule: The loop variable (e.g. "item") is ONLY available inside the @Each template expression. Always inline the template — do NOT extract it to a separate statement.
+CORRECT: `list = @Each(rows, "t", Comp(t.name))`
+WRONG: `item = Comp(t.name)` then `list = @Each(rows, "t", item)`, because t is undefined in item.
+
+## Action — Button Behavior
+
+An action updates declared local state. Pass a listed step, or Action([...]) for a transaction of local steps. A button must have an explicit action; it never sends a message or opens a URL automatically.
+
+Available steps:
+- @Set(variable: $variable, value: any) — Set a $variable to a specific value
+- @Reset(variable: $variable) — Reset $variables to their declared defaults; pass several to reset each (e.g. @Reset($title, $priority) restores $title="" and $priority="medium")
+
+Example:
+$count = 0
+root = Stack([Button("Add one", @Set($count, $count + 1)), Button("Reset", @Reset($count))])
+A rejected step rolls back the complete transaction.
+
+## Statement order and passive previews
+
+openui-lang supports hoisting: a reference can be used BEFORE it is defined. The parser resolves all references after the full input is parsed.
+
+During streaming, the output is re-parsed on every chunk. Undefined references are temporarily unresolved and appear once their definitions stream in. This creates a progressive top-down reveal — structure first, then data fills in.
+
+**Optional layout-first ordering for passive previews:**
+1. `root = Stack(...)` — UI shell appears immediately
+2. $variable declarations — state ready for bindings
+3. Component definitions — fill in with data already available
+4. Data values — leaf content last
+
+The root statement may appear anywhere in a complete document. Placing it first is optional. Inform partial previews remain passive and do not commit state, execute actions, load resources, or guarantee streaming performance.
+
+## Examples
+
+root = Stack([Text("Hello")])
+
+root = Stack([Heading("Overview", 2)])
+
+root = Stack([Badge("Draft", "muted")])
+
+root = Stack([Divider()])
+
+root = Stack([Alert("Note", "Data is supplied", "muted")])
+
+root = Stack([Table([{key: "name", label: "Name"}], [{name: "Ada"}], "People")])
+
+## Important Rules
+- Choose components that best represent the content (tables for comparisons, charts for trends, forms for input, etc.)
+
+## Final Verification
+Before finishing, walk your output and verify:
+1. root = Stack(...) is the FIRST line (for optimal streaming).
+2. Every referenced name is defined. Every defined name (other than root) is reachable from root.
+3. Every $binding appears in at least one component or expression.
+
+- Component means any available UI component in this profile. Data constructors are not UI children.
+- The positional parameter order is an ABI. Never emit named arguments, unknown props, callback functions, raw HTML, arbitrary CSS, imports, Query, Mutation, @Run, @OpenUrl or @ToAssistant.
+- All mutable variables must be explicitly declared. Use direct declared $variables for ordinary writable bindings. $value is reserved for assignment-binding input; it is not standalone state. Arbitrary callbacks or JavaScript functions are forbidden.
+- Only @Set, @Reset and Action([...]) are local action syntax. Actions have no authority to call external services.
+- Output must be complete. Partial streaming is preview-only. Invalid values or unknown components reject the document, rather than silently dropping content.
+- Numbers are finite. Division and remainder by zero are errors. Do not depend on implicit numeric coercion or unsafe object keys.
+- Inform semantics: == and != compare scalar values strictly; logical operators require booleans. Sort uses deterministic lexicographic string order and rejects mixed number/string keys. Filter relational operators require numbers. @Each uses an inline template with a named item, no index parameter or JavaScript lambda.
+- Display supplied facts accurately. Domain modules do not fetch, verify or transact on data.
+- Icon.name must match an exact name from the bundled searchable icon catalog. Search the catalog by purpose and include only the names needed for this answer; the runtime still validates its full enum.
+- Button: No host tools, navigation, account access or message sending.
+- Icon: No remote SVG or arbitrary path data.
+- Image: HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected.
+- PersonProfileView: Supplied source data is not independently fetched or verified.
+- PersonProfileView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- PersonProfileView: Base composition is a target until adapter evidence confirms extraction.
+- NewsArticleView: Supplied source data is not independently fetched or verified.
+- NewsArticleView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- NewsArticleView: Base composition is a target until adapter evidence confirms extraction.
+- EntityReviewsView: Supplied source data is not independently fetched or verified.
+- EntityReviewsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- EntityReviewsView: Base composition is a target until adapter evidence confirms extraction.
+- CreateInteractivePollView: Supplied source data is not independently fetched or verified.
+- CreateInteractivePollView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- CreateInteractivePollView: Base composition is a target until adapter evidence confirms extraction.
+- SidebarPeopleAlsoAskView: Supplied source data is not independently fetched or verified.
+- SidebarPeopleAlsoAskView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SidebarPeopleAlsoAskView: Base composition is a target until adapter evidence confirms extraction.
+- EmailPreviewView: Supplied source data is not independently fetched or verified.
+- EmailPreviewView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- EmailPreviewView: Base composition is a target until adapter evidence confirms extraction.
+- FileNavListView: Supplied source data is not independently fetched or verified.
+- FileNavListView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FileNavListView: Base composition is a target until adapter evidence confirms extraction.
+- JobsView: Supplied source data is not independently fetched or verified.
+- JobsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- JobsView: Base composition is a target until adapter evidence confirms extraction.
+- ProductCardView: Supplied source data is not independently fetched or verified.
+- ProductCardView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- ProductCardView: Base composition is a target until adapter evidence confirms extraction.
+- SharedActivityPlannerView: Supplied source data is not independently fetched or verified.
+- SharedActivityPlannerView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SharedActivityPlannerView: Base composition is a target until adapter evidence confirms extraction.
+- CodeCiteView: Supplied source data is not independently fetched or verified.
+- CodeCiteView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- CodeCiteView: Base composition is a target until adapter evidence confirms extraction.
+- FileCiteView: Supplied source data is not independently fetched or verified.
+- FileCiteView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FileCiteView: Base composition is a target until adapter evidence confirms extraction.
+- SidebarFactTableView: Supplied source data is not independently fetched or verified.
+- SidebarFactTableView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SidebarFactTableView: Base composition is a target until adapter evidence confirms extraction.
+- EntityThumbnailListView: Supplied source data is not independently fetched or verified.
+- EntityThumbnailListView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- EntityThumbnailListView: Base composition is a target until adapter evidence confirms extraction.
+- RedditThreadCardView: Supplied source data is not independently fetched or verified.
+- RedditThreadCardView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- RedditThreadCardView: Base composition is a target until adapter evidence confirms extraction.
+- MarkdownView: Supplied source data is not independently fetched or verified.
+- MarkdownView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- MarkdownView: Base composition is a target until adapter evidence confirms extraction.
+- WritingBlockView: Supplied source data is not independently fetched or verified.
+- WritingBlockView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- WritingBlockView: Base composition is a target until adapter evidence confirms extraction.
+- EmailDraftView: Supplied source data is not independently fetched or verified.
+- EmailDraftView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- EmailDraftView: Base composition is a target until adapter evidence confirms extraction.
+- CodeView: Supplied source data is not independently fetched or verified.
+- CodeView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- CodeView: Base composition is a target until adapter evidence confirms extraction.
+- MathView: Supplied source data is not independently fetched or verified.
+- MathView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- MathView: Base composition is a target until adapter evidence confirms extraction.
+- SpacerView: Supplied source data is not independently fetched or verified.
+- SpacerView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SpacerView: Base composition is a target until adapter evidence confirms extraction.
+- LinkView: Supplied source data is not independently fetched or verified.
+- LinkView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LinkView: Base composition is a target until adapter evidence confirms extraction.
+- FaviconView: Supplied source data is not independently fetched or verified.
+- FaviconView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FaviconView: Base composition is a target until adapter evidence confirms extraction.
+- GridItemView: Supplied source data is not independently fetched or verified.
+- GridItemView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- GridItemView: Base composition is a target until adapter evidence confirms extraction.
+- BlockquoteView: Supplied source data is not independently fetched or verified.
+- BlockquoteView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- BlockquoteView: Base composition is a target until adapter evidence confirms extraction.
+- SectionView: Supplied source data is not independently fetched or verified.
+- SectionView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SectionView: Base composition is a target until adapter evidence confirms extraction.
+- FigureView: Supplied source data is not independently fetched or verified.
+- FigureView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FigureView: Base composition is a target until adapter evidence confirms extraction.
+- DetailsView: Supplied source data is not independently fetched or verified.
+- DetailsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- DetailsView: Base composition is a target until adapter evidence confirms extraction.
+- TooltipView: Supplied source data is not independently fetched or verified.
+- TooltipView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- TooltipView: Base composition is a target until adapter evidence confirms extraction.
+- PopoverView: Supplied source data is not independently fetched or verified.
+- PopoverView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- PopoverView: Base composition is a target until adapter evidence confirms extraction.
+- PulseIndicatorView: Supplied source data is not independently fetched or verified.
+- PulseIndicatorView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- PulseIndicatorView: Base composition is a target until adapter evidence confirms extraction.
+- LoadingView: Supplied source data is not independently fetched or verified.
+- LoadingView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LoadingView: Base composition is a target until adapter evidence confirms extraction.
+- LoadingBlockView: Supplied source data is not independently fetched or verified.
+- LoadingBlockView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LoadingBlockView: Base composition is a target until adapter evidence confirms extraction.
+- CitationView: Supplied source data is not independently fetched or verified.
+- CitationView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- CitationView: Base composition is a target until adapter evidence confirms extraction.
+- WebLinkCardsView: Supplied source data is not independently fetched or verified.
+- WebLinkCardsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- WebLinkCardsView: Base composition is a target until adapter evidence confirms extraction.
+- AnimateView: Supplied source data is not independently fetched or verified.
+- AnimateView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- AnimateView: Base composition is a target until adapter evidence confirms extraction.
+- CelebrationView: Supplied source data is not independently fetched or verified.
+- CelebrationView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- CelebrationView: Base composition is a target until adapter evidence confirms extraction.
+- CarouselView: Supplied source data is not independently fetched or verified.
+- CarouselView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- CarouselView: Base composition is a target until adapter evidence confirms extraction.
+- TabPanelView: Supplied source data is not independently fetched or verified.
+- TabPanelView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- TabPanelView: Base composition is a target until adapter evidence confirms extraction.
+- TabGroupView: Supplied source data is not independently fetched or verified.
+- TabGroupView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- TabGroupView: Base composition is a target until adapter evidence confirms extraction.
+- ListView: Supplied source data is not independently fetched or verified.
+- ListView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- ListView: Base composition is a target until adapter evidence confirms extraction.
+- MetricView: Supplied source data is not independently fetched or verified.
+- MetricView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- MetricView: Base composition is a target until adapter evidence confirms extraction.
+- MetricGridView: Supplied source data is not independently fetched or verified.
+- MetricGridView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- MetricGridView: Base composition is a target until adapter evidence confirms extraction.
+- StepsView: Supplied source data is not independently fetched or verified.
+- StepsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- StepsView: Base composition is a target until adapter evidence confirms extraction.
+- LabelView: Supplied source data is not independently fetched or verified.
+- LabelView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LabelView: Base composition is a target until adapter evidence confirms extraction.
+- ChecklistView: Supplied source data is not independently fetched or verified.
+- ChecklistView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- ChecklistView: Base composition is a target until adapter evidence confirms extraction.
+- RatingView: Supplied source data is not independently fetched or verified.
+- RatingView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- RatingView: Base composition is a target until adapter evidence confirms extraction.
+- SegmentedView: Supplied source data is not independently fetched or verified.
+- SegmentedView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SegmentedView: Base composition is a target until adapter evidence confirms extraction.
+- FieldView: Supplied source data is not independently fetched or verified.
+- FieldView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FieldView: Base composition is a target until adapter evidence confirms extraction.
+- FormView: Supplied source data is not independently fetched or verified.
+- FormView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- FormView: Base composition is a target until adapter evidence confirms extraction.
+- TopologyView: Supplied source data is not independently fetched or verified.
+- TopologyView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- TopologyView: Base composition is a target until adapter evidence confirms extraction.
+- ClockView: Supplied source data is not independently fetched or verified.
+- ClockView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- ClockView: Base composition is a target until adapter evidence confirms extraction.
+- StopwatchView: Supplied source data is not independently fetched or verified.
+- StopwatchView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- StopwatchView: Base composition is a target until adapter evidence confirms extraction.
+- TimerView: Supplied source data is not independently fetched or verified.
+- TimerView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- TimerView: Base composition is a target until adapter evidence confirms extraction.
+- UnitConverterView: Supplied source data is not independently fetched or verified.
+- UnitConverterView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- UnitConverterView: Base composition is a target until adapter evidence confirms extraction.
+- SvgView: Supplied source data is not independently fetched or verified.
+- SvgView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SvgView: Base composition is a target until adapter evidence confirms extraction.
+- RecommendationCardView: Supplied source data is not independently fetched or verified.
+- RecommendationCardView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- RecommendationCardView: Base composition is a target until adapter evidence confirms extraction.
+- PromptChecklistView: Supplied source data is not independently fetched or verified.
+- PromptChecklistView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- PromptChecklistView: Base composition is a target until adapter evidence confirms extraction.
+- PressableView: Supplied source data is not independently fetched or verified.
+- PressableView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- PressableView: Base composition is a target until adapter evidence confirms extraction.
+- HtmlViewView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- HtmlViewView: Supplied source data is not independently fetched or verified.
+- HtmlViewView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- HtmlViewView: Base composition is a target until adapter evidence confirms extraction.
+- TabbedSectionView: Supplied source data is not independently fetched or verified.
+- TabbedSectionView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- TabbedSectionView: Base composition is a target until adapter evidence confirms extraction.
+- VisualCardCarouselView: Supplied source data is not independently fetched or verified.
+- VisualCardCarouselView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- VisualCardCarouselView: Base composition is a target until adapter evidence confirms extraction.
+- LinkCardView: Supplied source data is not independently fetched or verified.
+- LinkCardView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- LinkCardView: Base composition is a target until adapter evidence confirms extraction.
+- RecommendationLinkCardView: Supplied source data is not independently fetched or verified.
+- RecommendationLinkCardView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- RecommendationLinkCardView: Base composition is a target until adapter evidence confirms extraction.
+- EntityCardView: Supplied source data is not independently fetched or verified.
+- EntityCardView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- EntityCardView: Base composition is a target until adapter evidence confirms extraction.
+- EntityOverviewView: Supplied source data is not independently fetched or verified.
+- EntityOverviewView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- EntityOverviewView: Base composition is a target until adapter evidence confirms extraction.
+- AskUserDetailsView: Supplied source data is not independently fetched or verified.
+- AskUserDetailsView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- AskUserDetailsView: Base composition is a target until adapter evidence confirms extraction.
+- AskUserFilesView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- AskUserFilesView: Supplied source data is not independently fetched or verified.
+- AskUserFilesView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- AskUserFilesView: Base composition is a target until adapter evidence confirms extraction.
+- OfferVoiceConversationView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- OfferVoiceConversationView: Supplied source data is not independently fetched or verified.
+- OfferVoiceConversationView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- OfferVoiceConversationView: Base composition is a target until adapter evidence confirms extraction.
+- MultipleChoiceBlockV2View: Supplied source data is not independently fetched or verified.
+- MultipleChoiceBlockV2View: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- MultipleChoiceBlockV2View: Base composition is a target until adapter evidence confirms extraction.
+- ReservationTimePillsRefCarouselView: Supplied source data is not independently fetched or verified.
+- ReservationTimePillsRefCarouselView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- ReservationTimePillsRefCarouselView: Base composition is a target until adapter evidence confirms extraction.
+- PushDripSeriesIntroView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- PushDripSeriesIntroView: Supplied source data is not independently fetched or verified.
+- PushDripSeriesIntroView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- PushDripSeriesIntroView: Base composition is a target until adapter evidence confirms extraction.
+- StopPushDripSeriesView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- StopPushDripSeriesView: Supplied source data is not independently fetched or verified.
+- StopPushDripSeriesView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- StopPushDripSeriesView: Base composition is a target until adapter evidence confirms extraction.
+- InternalPartnerAppView: Host-owned capability. Contract registration does not grant permissions or execute external actions.
+- InternalPartnerAppView: Supplied source data is not independently fetched or verified.
+- InternalPartnerAppView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- InternalPartnerAppView: Base composition is a target until adapter evidence confirms extraction.
+- BentoView: Supplied source data is not independently fetched or verified.
+- BentoView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- BentoView: Base composition is a target until adapter evidence confirms extraction.
+- OpenDetailView: Supplied source data is not independently fetched or verified.
+- OpenDetailView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- OpenDetailView: Base composition is a target until adapter evidence confirms extraction.
+- OpenaiView: Supplied source data is not independently fetched or verified.
+- OpenaiView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- OpenaiView: Base composition is a target until adapter evidence confirms extraction.
+- SuperbowlRiddleView: Supplied source data is not independently fetched or verified.
+- SuperbowlRiddleView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SuperbowlRiddleView: Base composition is a target until adapter evidence confirms extraction.
+- EntityView: Supplied source data is not independently fetched or verified.
+- EntityView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- EntityView: Base composition is a target until adapter evidence confirms extraction.
+- RatingSummaryView: Supplied source data is not independently fetched or verified.
+- RatingSummaryView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- RatingSummaryView: Base composition is a target until adapter evidence confirms extraction.
+- Data constructors (not renderers):
+PersonProfileData(name: string, role?: string, organization?: string, location?: string, biography?: string, expanded?: boolean, facts?: {id: string, label: string, value: string}[], links?: {id: string, label: string, url: string}[], source?: {label: string, url?: string}): Strict supplied record for PersonProfileView. Conditional variants are enforced by the same bounded validator.
+NewsArticleData(headline: string, source: {label: string, url?: string}, summary?: string, author?: string, published?: string, paragraphs?: string[], expanded?: boolean, tags?: string[]): Strict supplied record for NewsArticleView. Conditional variants are enforced by the same bounded validator.
+EntityReviewsData(label: string, description?: string, source?: {label: string, url?: string}, items: {id: string, author: string, body: string, rating: number | any, date?: string, title?: string, url?: string}[]): Strict supplied record for EntityReviewsView. Conditional variants are enforced by the same bounded validator.
+CreateInteractivePollData(label: string, description?: string, question?: string, options: {id: string, label: string}[], multiple?: boolean, disabled?: boolean): Strict supplied record for CreateInteractivePollView. Conditional variants are enforced by the same bounded validator.
+SidebarPeopleAlsoAskData(label: string, description?: string, items: {id: string, question: string, answer: string | any, sources?: {label: string, url: string}[]}[], expanded?: string[]): Strict supplied record for SidebarPeopleAlsoAskView. Conditional variants are enforced by the same bounded validator.
+EmailPreviewData(subject: string, from: {name?: string, address: string}, to: {name?: string, address: string}[], cc?: {name?: string, address: string}[], sentAt?: string, body: string, quotedText?: string, attachments?: {id: string, name: string, sizeBytes?: number, mediaType?: string, description?: string, url?: string}[], source?: {label: string, url: string}): Strict supplied record for EmailPreviewView. Conditional variants are enforced by the same bounded validator.
+FileNavListData(label: string, description?: string, entries: ({id: string, name: string, parentId?: string | any, description?: string, kind: "folder"} | {id: string, name: string, parentId?: string | any, description?: string, sizeBytes?: number, mediaType?: string, kind: "file", category?: "document" | "image" | "audio" | "video" | "archive" | "other", modifiedAt?: string, url?: string})[], initialFolderId?: string, source?: {label: string, url: string}): Strict supplied record for FileNavListView. Conditional variants are enforced by the same bounded validator.
+JobsData(label: string, description?: string, jobs: {id: string, title: string, organization: string, location: string, workplace: "remote" | "hybrid" | "onsite" | "unknown", employment: "full-time" | "part-time" | "contract" | "internship" | "unknown", description?: string, salary?: {minimum: number, maximum: number, currency: string, period: "hour" | "month" | "year"}, postedDate?: string, deadlineDate?: string, url?: string}[], source?: {label: string, url: string}): Strict supplied record for JobsView. Conditional variants are enforced by the same bounded validator.
+ProductCardData(productId: string, name: string, brand?: string, seller?: string, description?: string, availability: "available" | "unavailable" | "unknown", price?: {amount: number, currency: string}, variants?: {id: string, label: string, availability: "available" | "unavailable" | "unknown", price?: {amount: number, currency: string}}[], initialVariantId?: string, initialQuantity?: number, disabled?: boolean, image?: {src: string, alt: string}, source?: {label: string, url: string}): Strict supplied record for ProductCardView. Conditional variants are enforced by the same bounded validator.
+SharedActivityPlannerData(label: string, description?: string, participants: {id: string, label: string}[], options: {id: string, label: string, startsAt: string, endsAt: string, location?: string, description?: string, availability: {participantId: string, status: "available" | "unavailable" | "unknown"}[], source?: {label: string, url: string}}[], disabled?: boolean): Strict supplied record for SharedActivityPlannerView. Conditional variants are enforced by the same bounded validator.
+CodeCiteData(label: string, fileName: string, language?: string, startLine: number, lines: string[], citedStart?: number, citedEnd?: number, source?: {label: string, url: string}): Strict supplied record for CodeCiteView. Conditional variants are enforced by the same bounded validator.
+FileCiteData(label: string, fileName: string, mediaType?: string, totalPages?: number, pages: {number: number, label?: string, text: string, source?: {label: string, url: string}}[], initialPage?: number, source?: {label: string, url: string}): Strict supplied record for FileCiteView. Conditional variants are enforced by the same bounded validator.
+SidebarFactTableData(label: string, description?: string, facts: {id: string, label: string, value: string | any, unit?: string, group?: string, note?: string, observedAt?: string, source?: {label: string, url: string}}[], source?: {label: string, url: string}): Strict supplied record for SidebarFactTableView. Conditional variants are enforced by the same bounded validator.
+EntityThumbnailListData(label: string, description?: string, entities: {id: string, label: string, category: string, description?: string, fields?: {label: string, value: string}[], image?: {src: string, alt: string}, source?: {label: string, url: string}}[], initialSelectedId?: string, disabled?: boolean): Strict supplied record for EntityThumbnailListView. Conditional variants are enforced by the same bounded validator.
+RedditThreadCardData(title: string, author: string, body: string, source: {label: string, url?: string}, comments: {id: string, author: string, body: string, score?: number | any, replies?: {id: string, author: string, body: string, score?: number | any, replies?: {id: string, author: string, body: string, score?: number | any, replies?: {id: string, author: string, body: string, score?: number | any, replies?: {id: string, author: string, body: string, score?: number | any, replies?: {id: string, author: string, body: string, score?: number | any, replies?: any[]}[]}[]}[]}[]}[]}[], community?: string, score?: number | any, expanded?: boolean): Strict supplied record for RedditThreadCardView. Conditional variants are enforced by the same bounded validator.
+MarkdownData(value: string): Strict supplied record for MarkdownView. Conditional variants are enforced by the same bounded validator.
+WritingBlockData(label: string, value: string, editable?: boolean, note?: string): Strict supplied record for WritingBlockView. Conditional variants are enforced by the same bounded validator.
+EmailDraftData(label: string, subject: string, body: string, to: string[], cc?: string[], note?: string, editable?: boolean): Strict supplied record for EmailDraftView. Conditional variants are enforced by the same bounded validator.
+CodeData(value: string, language?: string, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean): Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator.
+MathData(latex: string, block?: boolean): Strict supplied record for MathView. Conditional variants are enforced by the same bounded validator.
+SpacerData(height?: number): Strict supplied record for SpacerView. Conditional variants are enforced by the same bounded validator.
+LinkData(value?: string | number | boolean | any, href?: string, url?: string, title?: string, status?: "pending" | "resolved" | "failed" | "pending" | "failed", fallback?: string, disabled?: boolean, source?: string, snippet?: string, faviconSrc?: string, imageSrc?: string, mobile?: boolean, hostLink?: boolean, copyLabel?: string, loadImageLabel?: string): Strict supplied record for LinkView. Conditional variants are enforced by the same bounded validator.
+FaviconData(label: string, src?: string, fallback?: string, size?: "sm" | "md" | "lg"): Strict supplied record for FaviconView. Conditional variants are enforced by the same bounded validator.
+GridItemData(colSpan?: number, rowSpan?: number, mobileColSpan?: number): Strict supplied record for GridItemView. Conditional variants are enforced by the same bounded validator.
+BlockquoteData(attribution?: string, cite?: string): Strict supplied record for BlockquoteView. Conditional variants are enforced by the same bounded validator.
+SectionData(heading?: string): Strict supplied record for SectionView. Conditional variants are enforced by the same bounded validator.
+FigureData(caption?: string): Strict supplied record for FigureView. Conditional variants are enforced by the same bounded validator.
+DetailsData(summary: string): Strict supplied record for DetailsView. Conditional variants are enforced by the same bounded validator.
+TooltipData(label: string, value: string, placement?: "top" | "bottom"): Strict supplied record for TooltipView. Conditional variants are enforced by the same bounded validator.
+PopoverData(label: string, title?: string, placement?: "top" | "bottom"): Strict supplied record for PopoverView. Conditional variants are enforced by the same bounded validator.
+PulseIndicatorData(label: string, status: "idle" | "busy" | "success" | "warning" | "error", animate?: boolean): Strict supplied record for PulseIndicatorView. Conditional variants are enforced by the same bounded validator.
+LoadingData(label: string, progress?: string | number | boolean | any, size?: "sm" | "md" | "lg", showValue?: boolean): Strict supplied record for LoadingView. Conditional variants are enforced by the same bounded validator.
+LoadingBlockData(label: string, shape?: "text" | "card" | "circle" | "text" | "card" | "circle", lines?: number, animate?: boolean): Strict supplied record for LoadingBlockView. Conditional variants are enforced by the same bounded validator.
+CitationData(title: string, url: string, publisher?: string, description?: string, number?: number): Strict supplied record for CitationView. Conditional variants are enforced by the same bounded validator.
+WebLinkCardsData(label: string, items: {title: string, url: string, publisher?: string, description?: string}[]): Strict supplied record for WebLinkCardsView. Conditional variants are enforced by the same bounded validator.
+AnimateData(label: string, effect?: "fade" | "rise", duration?: number, disabled?: boolean): Strict supplied record for AnimateView. Conditional variants are enforced by the same bounded validator.
+CelebrationData(label: string, message: string, duration?: number, disabled?: boolean): Strict supplied record for CelebrationView. Conditional variants are enforced by the same bounded validator.
+CarouselData(label?: string, controls?: boolean): Strict supplied record for CarouselView. Conditional variants are enforced by the same bounded validator.
+TabPanelData(label: string, disabled?: boolean): Strict supplied record for TabPanelView. Conditional variants are enforced by the same bounded validator.
+TabGroupData(label: string, initialIndex?: number): Strict supplied record for TabGroupView. Conditional variants are enforced by the same bounded validator.
+ListData(ordered?: boolean, items: (string | number | boolean | any)[]): Strict supplied record for ListView. Conditional variants are enforced by the same bounded validator.
+MetricData(variant?: "plain" | "card", label: string, value: string | number | boolean | any, unit?: string, hint?: string, precision?: number, color?: "default" | "secondary" | "tertiary" | "success" | "warning" | "danger" | "info" | "accent"): Strict supplied record for MetricView. Conditional variants are enforced by the same bounded validator.
+MetricGridData(columns?: number): Strict supplied record for MetricGridView. Conditional variants are enforced by the same bounded validator.
+StepsData(items: {title: string, detail?: string, latex?: string}[]): Strict supplied record for StepsView. Conditional variants are enforced by the same bounded validator.
+LabelData(text: string, target: string): Strict supplied record for LabelView. Conditional variants are enforced by the same bounded validator.
+ChecklistData(label: string, items: {id: string, label: string, hint?: string, disabled?: string | number | boolean | any, checked?: boolean}[], disabled?: string | number | boolean | any, filter?: boolean, bulk?: boolean, emptyText?: string): Strict supplied record for ChecklistView. Conditional variants are enforced by the same bounded validator.
+RatingData(label: string, max?: number, disabled?: string | number | boolean | any, clearable?: boolean, hint?: string): Strict supplied record for RatingView. Conditional variants are enforced by the same bounded validator.
+SegmentedData(label: string, hint?: string, error?: string | number | boolean | any, required?: boolean, disabled?: string | number | boolean | any, options: {value: string | number, label: string, disabled?: boolean}[]): Strict supplied record for SegmentedView. Conditional variants are enforced by the same bounded validator.
+FieldData(label: string, hint?: string, disabled?: string | number | boolean | any): Strict supplied record for FieldView. Conditional variants are enforced by the same bounded validator.
+FormData(label: string, submitLabel?: string, cancelLabel?: string, disabled?: string | number | boolean | any, successMessage?: string, errorMessage?: string): Strict supplied record for FormView. Conditional variants are enforced by the same bounded validator.
+TopologyData(nodes: {id: string, label: string, subtitle?: string}[], links: {from: string, to: string, label?: string, load?: string | number | boolean | any}[], highlight?: "max-load" | "none", caption?: string): Strict supplied record for TopologyView. Conditional variants are enforced by the same bounded validator.
+ClockData(title?: string, timezone: string, mode: "live" | "snapshot" | "live" | "snapshot", at?: string, hourCycle?: "h12" | "h23", seconds?: boolean): Strict supplied record for ClockView. Conditional variants are enforced by the same bounded validator.
+StopwatchData(title?: string, elapsedMs?: number, laps?: boolean): Strict supplied record for StopwatchView. Conditional variants are enforced by the same bounded validator.
+TimerData(title?: string, durationMs: number): Strict supplied record for TimerView. Conditional variants are enforced by the same bounded validator.
+UnitConverterData(title?: string, category: "length" | "mass" | "temperature" | "speed" | "area" | "volume" | "time" | "pressure" | "data", amount: number, from: "m" | "cm" | "mm" | "km" | "in" | "ft" | "yd" | "mi" | "nmi" | "kg" | "g" | "mg" | "t" | "lb" | "oz" | "K" | "C" | "F" | "m-s" | "km-h" | "ft-s" | "mph" | "kn" | "m2" | "cm2" | "km2" | "ft2" | "ha" | "acre" | "L" | "mL" | "m3" | "gal-us" | "gal-imp" | "s" | "ms" | "min" | "h" | "d" | "Pa" | "kPa" | "MPa" | "bar" | "atm" | "psi" | "B" | "bit" | "kB" | "MB" | "GB" | "KiB" | "MiB" | "GiB", to: "m" | "cm" | "mm" | "km" | "in" | "ft" | "yd" | "mi" | "nmi" | "kg" | "g" | "mg" | "t" | "lb" | "oz" | "K" | "C" | "F" | "m-s" | "km-h" | "ft-s" | "mph" | "kn" | "m2" | "cm2" | "km2" | "ft2" | "ha" | "acre" | "L" | "mL" | "m3" | "gal-us" | "gal-imp" | "s" | "ms" | "min" | "h" | "d" | "Pa" | "kPa" | "MPa" | "bar" | "atm" | "psi" | "B" | "bit" | "kB" | "MB" | "GB" | "KiB" | "MiB" | "GiB", precision?: number, temperatureMode?: "absolute" | "difference"): Strict supplied record for UnitConverterView. Conditional variants are enforced by the same bounded validator.
+SvgData(viewBox: string, shapes: {tag: "rect" | "line" | "circle" | "path" | "text" | "polyline" | "polygon", attrs: Record<string, string | number>, text?: string}[], label?: string): Strict supplied record for SvgView. Conditional variants are enforced by the same bounded validator.
+RecommendationCardData(label: string, fallback?: string, status: "pending" | "failed" | "resolved", canOpenConversation?: boolean, data?: {conversationId: string, title: string, description: string, emoji?: string, iconData?: string}): Strict supplied record for RecommendationCardView. Conditional variants are enforced by the same bounded validator.
+PromptChecklistData(label: string, fallback?: string, disabled?: boolean, status: "pending" | "failed" | "resolved", data?: {title: string, mode: "full" | "compact", tasks: {id: string, title: string, prompts: {id: string, label: string, promptText: string, summary?: string, icon?: "info" | "check" | "warning" | "error" | "plus" | "minus" | "arrow-left" | "arrow-right" | "external-link" | "clock", imageData?: string}[], tryOwnPromptText: string, tryOwnLabel?: string}[], completedTaskIds: string[], selectedTaskId?: string | any, completedItemsExpanded?: boolean, latestCompletedTaskId?: string, latestCompletedTaskTitle?: string, showCompletedItemsLabel: string, tryOwnLabel: string, completion: {headline: string, body: string, showCompletedItemsLabel: string}}): Strict supplied record for PromptChecklistView. Conditional variants are enforced by the same bounded validator.
+PressableData(label: string, description?: string, disabled?: string | number | boolean | any, tone?: "default" | "primary" | "danger"): Strict supplied record for PressableView. Conditional variants are enforced by the same bounded validator.
+HtmlViewData(html: string, title?: string, height?: number, width?: number | string): Strict supplied record for HtmlViewView. Conditional variants are enforced by the same bounded validator.
+TabbedSectionData(label: string, tabs: {id: string, label: string, title: string, content: string, disabled?: boolean}[], activeId?: string, vertical?: boolean, disabled?: boolean, status?: "pending" | "resolved" | "failed", fallback?: string): Strict supplied record for TabbedSectionView. Conditional variants are enforced by the same bounded validator.
+VisualCardCarouselData(title: string, items: {id: string, label: string, title?: string, query?: string, caption?: string, subtitle?: string, source?: string, metadata?: string, reason?: string, summary?: string, image?: {content_url?: string, thumbnail_url?: string, title?: string, content_size?: {width: number, height: number}, thumbnail_size?: {width: number, height: number}, thumbnail_crop_info?: {center_x_percent: number, center_y_percent: number}, content_presentation?: {aspect_ratio: number, placement: {left: number, top: number, width: number, height: number}}, thumbnail_presentation?: {aspect_ratio: number, placement: {left: number, top: number, width: number, height: number}}}, imageLoading?: boolean, imageIndex?: number, url?: string, entity?: {id: string, kind: string}, disabled?: boolean}[], viewerImages?: {content_url?: string, thumbnail_url?: string, title?: string, content_size?: {width: number, height: number}, thumbnail_size?: {width: number, height: number}, thumbnail_crop_info?: {center_x_percent: number, center_y_percent: number}, content_presentation?: {aspect_ratio: number, placement: {left: number, top: number, width: number, height: number}}, thumbnail_presentation?: {aspect_ratio: number, placement: {left: number, top: number, width: number, height: number}}}[], viewer?: "local" | "intent", mobile?: boolean, disabled?: boolean, status?: "pending" | "resolved" | "failed", fallback?: string): Strict supplied record for VisualCardCarouselView. Conditional variants are enforced by the same bounded validator.
+LinkCardData(url?: string, title?: string, status?: "pending" | "resolved" | "failed", fallback?: string, disabled?: boolean, source?: string, snippet?: string, faviconSrc?: string, imageSrc?: string, mobile?: boolean, hostLink?: boolean, copyLabel?: string, loadImageLabel?: string): Strict supplied record for LinkCardView. Conditional variants are enforced by the same bounded validator.
+RecommendationLinkCardData(url?: string, title?: string, status?: "pending" | "resolved" | "failed", fallback?: string, disabled?: boolean, source?: string, snippet?: string, faviconSrc?: string, imageSrc?: string, mobile?: boolean, hostLink?: boolean, copyLabel?: string, loadImageLabel?: string): Strict supplied record for RecommendationLinkCardView. Conditional variants are enforced by the same bounded validator.
+EntityCardData(label: string, status?: "pending" | "failed" | "resolved", fallback?: string, disabled?: boolean, loadImageLabel?: string, title?: string, subtitle?: string, image?: {src: string, alt?: string} | any, actionId?: string, actionLabel?: string): Strict supplied record for EntityCardView. Conditional variants are enforced by the same bounded validator.
+EntityOverviewData(label: string, status?: "pending" | "failed" | "resolved", fallback?: string, disabled?: boolean, loadImageLabel?: string, variant?: "single" | "carousel", item?: {id: string, title: string, images: {src: string, alt?: string}[], metadata: {label: string, value: string}[], description?: string, actionId?: string, actionLabel?: string, disabled?: boolean}, items?: {id: string, title: string, images: {src: string, alt?: string}[], metadata: {label: string, value: string}[], description?: string, actionId?: string, actionLabel?: string, disabled?: boolean}[], emptyLabel?: string, title?: string, mobile?: boolean): Strict supplied record for EntityOverviewView. Conditional variants are enforced by the same bounded validator.
+AskUserDetailsData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, showCTA?: boolean, enabled?: boolean, disabled?: boolean, localReview?: boolean, cancelLabel?: string, reviewLabel?: string, invalidLabel?: string, acceptedLabel?: string, invitation?: string, buttonLabel?: string, submitLabel?: string, questions?: {id: string, label: string, kind?: "text" | "textarea" | "select", required?: boolean, placeholder?: string, initialValue?: string, maxLength?: number, options?: {value: string, label: string}[]}[], emptyLabel?: string): Strict supplied record for AskUserDetailsView. Conditional variants are enforced by the same bounded validator.
+AskUserFilesData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, showCTA?: boolean, enabled?: boolean, disabled?: boolean, localReview?: boolean, cancelLabel?: string, reviewLabel?: string, invalidLabel?: string, acceptedLabel?: string, kind?: "file" | "photo" | "video" | "media", buttonLabel?: string, fileLabel?: string, photoLabel?: string, videoLabel?: string, mediaLabel?: string, submitLabel?: string, emptyLabel?: string, multiple?: boolean, maxFiles?: number, maxFileBytes?: number): Strict supplied record for AskUserFilesView. Conditional variants are enforced by the same bounded validator.
+OfferVoiceConversationData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, available?: boolean, unavailableLabel?: string, requestedLabel?: string, cancelledLabel?: string, presentation?: "button" | "card", buttonLabel?: string, description?: string, iconSrc?: string): Strict supplied record for OfferVoiceConversationView. Conditional variants are enforced by the same bounded validator.
+MultipleChoiceBlockV2Data(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, title?: string, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, emptyLabel?: string, options?: {id: string, label: string, disabled?: boolean, query?: string}[], correctChoiceId?: string, selectedChoiceId?: string, feedback?: {status?: "correct" | "incorrect", open?: boolean, hint?: string, error?: string}, correctLabel?: string, incorrectLabel?: string): Strict supplied record for MultipleChoiceBlockV2View. Conditional variants are enforced by the same bounded validator.
+ReservationTimePillsRefCarouselData(label: string, items?: {id: string, referenceId?: string, groups: {id: string, dateLabel: string, dateTimeLabel?: string, partySizeLabel: string, providerName: string, logos?: {name: string, src: string}[], times: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean}[], desktopSlots?: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean, label: string, unavailable?: boolean, moreOptions?: boolean, providerOptions?: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean}[], seatingOptions?: {id: string, label: string, options: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean}[]}[]}[], mobileSlots?: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean, label: string, unavailable?: boolean, moreOptions?: boolean, providerOptions?: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean}[], seatingOptions?: {id: string, label: string, options: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean}[]}[]}[], changeOptions?: {id: string, providerName?: string, timeLabel?: string, startDateTime?: string, bookingQuery?: string, url?: string, launcher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, retryLauncher?: {providerId: string, requestId?: string, available?: boolean}, disabled?: boolean}[], requestedLauncher?: {providerId: string, requestId?: string, available?: boolean}, seeMoreLauncher?: {providerId: string, requestId?: string, available?: boolean}, emptyLabel?: string, retryLabel?: string}[], voiceCard?: {title?: string, metadataLabel?: string, hasRating?: boolean, images: {id: string, src: string, alt: string}[], action?: {kind: "prompt", query: string} | {kind: "url", url: string} | {kind: "provider", providerId: string, requestId?: string, available?: boolean} | {kind: "entity", entityId: string, available?: boolean}}, showMoreTimesLabel?: string, disabled?: boolean}[], status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, previousLabel?: string, nextLabel?: string, emptyLabel?: string, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string): Strict supplied record for ReservationTimePillsRefCarouselView. Conditional variants are enforced by the same bounded validator.
+PushDripSeriesIntroData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, stopped?: boolean, stoppedLabel?: string, confirming?: boolean, confirmationTitle?: string, confirmationMessage?: string, confirmLabel?: string, cancelLabel?: string, unavailableLabel?: string, introPrefix?: string, introLinkLabel?: string, introSuffix?: string): Strict supplied record for PushDripSeriesIntroView. Conditional variants are enforced by the same bounded validator.
+StopPushDripSeriesData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, stopped?: boolean, stoppedLabel?: string, confirming?: boolean, confirmationTitle?: string, confirmationMessage?: string, confirmLabel?: string, cancelLabel?: string, unavailableLabel?: string, actionLabel?: string, actionStyle?: "text-links" | "outline-keep" | "red" | "solid", confirmationLayout?: "card" | "inline"): Strict supplied record for StopPushDripSeriesView. Conditional variants are enforced by the same bounded validator.
+InternalPartnerAppData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, requestedLabel?: string, cancelledLabel?: string, loadImageLabel?: string, title?: string, buttonLabel?: string, providerLogo?: string, launcher?: {appId: string, viewId?: string, query?: string}): Strict supplied record for InternalPartnerAppView. Conditional variants are enforced by the same bounded validator.
+BentoData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, loadImageLabel?: string, requestedLabel?: string, cancelledLabel?: string, largeCard?: {query: string, context?: string, imageUrl?: string, imageAlt?: string, statusText?: string}, smallCardA?: {title: string, body: string, bodyIsTitle?: boolean, bodySize?: "sm" | "md", url?: string, query?: string, context?: string, linkHost?: string, iconSrc?: string}, smallCardB?: {title: string, body: string, bodyIsTitle?: boolean, bodySize?: "sm" | "md", url?: string, query?: string, context?: string, linkHost?: string, iconSrc?: string}, mediumCard?: {title: string, body: string, bodyIsTitle?: boolean, bodySize?: "sm" | "md", url?: string, query?: string, context?: string, linkHost?: string, iconSrc?: string}): Strict supplied record for BentoView. Conditional variants are enforced by the same bounded validator.
+OpenDetailData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, loadImageLabel?: string, requestedLabel?: string, cancelledLabel?: string, title?: string, action?: string, actions?: {id: string, label: string, payload?: string | any, disabled?: boolean}[], showMoreLabel?: string, showLessLabel?: string): Strict supplied record for OpenDetailView. Conditional variants are enforced by the same bounded validator.
+OpenaiData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, loadImageLabel?: string, requestedLabel?: string, cancelledLabel?: string, name?: string, tagline?: string, image?: string, imageAlt?: string, websiteUrl?: string, morePrompt?: string, websiteLabel?: string, moreLabel?: string): Strict supplied record for OpenaiView. Conditional variants are enforced by the same bounded validator.
+SuperbowlRiddleData(label: string, status?: "resolved" | "pending" | "failed", fallback?: string, disabled?: boolean, resetLabel?: string, title?: string, instructions?: string, initial?: {left: ("fox" | "chicken" | "grain")[], right: ("fox" | "chicken" | "grain")[], boatSide: "left" | "right", cargo: "fox" | "chicken" | "grain" | any, outcome: "playing" | "won" | "lost"}, labels?: {fox: string, chicken: string, grain: string, leftBank: string, rightBank: string, boat: string, cross: string, unload: string, wonTitle: string, wonDescription: string, lostTitle: string, lostDescription: string, followups: string}, wonFollowups?: {id: string, label: string, query: string}[], lostFollowups?: {id: string, label: string, query: string}[]): Strict supplied record for SuperbowlRiddleView. Conditional variants are enforced by the same bounded validator.
+EntityData(label: string, status?: "resolved" | "pending" | "failed", disabled?: boolean, fallback?: string, resetLabel?: string, loadImageLabel?: string, value?: string, mobile?: boolean, category?: string, query?: string, action?: {kind: "url" | "query" | "entity", url?: string, query?: string, entityId?: string, category?: string, appendToCurrent?: boolean}, detailPayload?: {entityId: string, category?: string, query?: string}, entityData?: {name?: string, categories?: string[], rating?: number | any, priceLabel?: string, open?: boolean, legacyWebsiteUrl?: string}, image?: {content_url?: string, thumbnail_url?: string, title?: string, content_size?: {width: number, height: number}, thumbnail_size?: {width: number, height: number}, thumbnail_crop_info?: {center_x_percent: number, center_y_percent: number}, content_presentation?: {aspect_ratio: number, placement: {left: number, top: number, width: number, height: number}}, thumbnail_presentation?: {aspect_ratio: number, placement: {left: number, top: number, width: number, height: number}}}, directionsUrl?: string, websiteUrl?: string, directionsLabel?: string, websiteLabel?: string, openLabel?: string, closedLabel?: string, detailsLabel?: string, closeLabel?: string): Strict supplied record for EntityView. Conditional variants are enforced by the same bounded validator.
+RatingSummaryData(ratingLabel: string, reviewCountLabel?: string, provider?: {label: string, url: string}): Strict supplied record for RatingSummaryView. Conditional variants are enforced by the same bounded validator.
