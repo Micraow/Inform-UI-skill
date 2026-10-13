@@ -205,5 +205,32 @@
         "unchanged": true
       }
     ]
+  },
+  "runtimeSourceValidation": {
+    "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+    "focusedNodeTestsPassed": 44,
+    "sliderRegressionCasesPassed": 7,
+    "build": "passed",
+    "narrowTypecheck": "0 diagnostics",
+    "fullTypecheck": {
+      "status": "incomplete",
+      "exitCode": 137,
+      "reason": "resource termination; not a passing full typecheck"
+    },
+    "localHTTPBrowser": {
+      "viewports": [
+        390,
+        1440
+      ],
+      "scenarios": [
+        "typing",
+        "CDP composition events",
+        "tab switching",
+        "local form submit"
+      ],
+      "passed": true
+    },
+    "OSIME": "not verified",
+    "CDNCacheConvergence": "not verified; purge pending"
   }
 }
