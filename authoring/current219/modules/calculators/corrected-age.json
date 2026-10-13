@@ -1,0 +1,398 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "calculator-corrected-adjusted-age-of-preterm-infants"
+    ],
+    "requestedModules": [
+      "calculators/corrected-age"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "calculators/corrected-age"
+    ],
+    "includedComponents": [
+      "calculator-corrected-adjusted-age-of-preterm-infants"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/corrected-age.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/corrected-age.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/corrected-age.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:68a75d5d8b22aade2df70487a778c25fa1802747e420f13817cf0232953f2036",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "CalculatorCorrectedAdjustedAgeOfPretermInfantsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "calculator-corrected-adjusted-age-of-preterm-infants"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "initial": {
+            "$ref": "#/$defs/CorrectedAgeInput"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "calculateLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "CorrectedAgeInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "basis": {
+            "anyOf": [
+              {
+                "enum": [
+                  "gestation",
+                  "due-date"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "birthDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "observationDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "dueDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "gestationalWeeks": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 8
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "gestationalDays": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "maxLength": 8
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "confirmedPreterm": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/CalculatorCorrectedAdjustedAgeOfPretermInfantsNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/corrected-age.md",
+      "sourceBytes": 10286,
+      "sourceSha256": "e77e3ca1c85141c146a3ca15e6416d162f879ec9e5dbbb951b009b1ac1990220",
+      "bytes": 10286,
+      "sha256": "e77e3ca1c85141c146a3ca15e6416d162f879ec9e5dbbb951b009b1ac1990220",
+      "text": "# Corrected age: proposed bounded arithmetic contract\n\nStatus: original source candidate. The pure arithmetic and local UI have author tests; independent runtime acceptance is pending and no component count has changed. This is an original date/unit calculation, not a clinical assessment or a reproduction of a captured implementation.\n\n## Verified facts and source limits\n\n1. AAP HealthyChildren, “Corrected Age For Preemies”, updated 2018-12-10, gives elapsed age minus the difference between supplied gestational age and 40 weeks. Its public example supports subtraction in weeks. The implementation will use integer days and will never equate four weeks with a calendar month.\n   https://www.healthychildren.org/English/ages-stages/baby/preemie/Pages/Corrected-Age-For-Preemies.aspx\n2. NICE NG72 recommendations 1.1.13 and 1.3.7 describe corrected age from the original due date and adjustment during early developmental follow-up. Recommendation 1.3.11 identifies assessment at two corrected years. This library will implement no assessment, milestone, screening or referral logic. The cited recommendation facts were checked against official indexed text; no guideline body text is included.\n   https://www.nice.org.uk/guidance/ng72/chapter/Recommendations\n3. WHO defines preterm birth before 37 completed gestational weeks. This describes the input applicability check, not a viability or outcome judgment.\n   https://www.who.int/news-room/fact-sheets/detail/preterm-birth\n\nThese sources do not license copying their article text, diagrams, questionnaires or UI. The code, prose and test data will be original; only factual equations and bibliographic links are used. No claim of clinical validation, guideline endorsement or worldwide permission to reproduce source materials is made. Source text and assets will not be bundled.\n\n## Inputs and determinism\n\n- A supplied birth date and observation date, each exact Gregorian YYYY-MM-DD. Never substitute today's date or infer missing values.\n- Exactly one basis: supplied original due date; or completed gestational weeks plus remaining days (integer, days0..6). Blank, null and malformed values are unavailable/invalid, never zero.\n- Weeks-to-days: gestationDays=7*weeks+days. Validate units first (nonnegative integral completed weeks bounded to two input digits, days0..6; a total of zero is invalid). After valid units, any gestation at/above259 days is outside this preterm calculator's supported applicability and produces no corrected-age result, including40+0 and later gestations. Only positive totals below259 enter the arithmetic. The two-digit input bound is a software limit, not a clinical threshold. This is not a plausibility/viability assessment of smaller values; user-facing text states supplied gestation must come from a qualified record.\n- Due-date basis requires an explicit supplied confirmation of preterm birth; the date gap itself does not diagnose prematurity. The due date must be22..279 days after the birth date. A1..21day interval with the explicit preterm confirmation is rejected as inconsistent with this product's equivalent gestation basis (37weeks or later), not used to diagnose prematurity. These are arithmetic consistency bounds, not a clinical gestational-age estimate.\n- Date parsing will reject impossible dates, overflow normalization, times and time-zone suffixes. A documented software input range1900..2199 bounds supplied dates. Internal arithmetic must also correctly handle derived due dates and second anniversaries through2202; derived dates are never clamped or wrapped into the input range. Cross-basis equivalence tests require both sets of supplied dates to lie in their supported input range.\n- If both bases are supplied, schema/semantics rejects the ambiguity rather than silently selecting one. If cross-check data is added later, disagreement must be explicit; that is not in this first contract.\n\n## Arithmetic and outcomes\n\nGestation basis: correctionDays=280-gestationDays; inferredArithmeticDueDate=birthDate+correctionDays. Due-date basis: correctionDays=dueDate-birthDate. ChronologicalDays=observationDate-birthDate. CorrectedDays=chronologicalDays-correctionDays, equivalently observationDate-dueDate.\n\nInteger civil-day arithmetic makes daylight-saving/time-zone differences irrelevant. Display nonnegative durations as complete weeks and remaining days, with the exact day count. Never round weeks or render approximate months as calendar months.\n\nStatus precedence:\n1. Parse every supplied nonblank field. Impossible dates, invalid integer/day units, observation before birth or an inconsistent basis are invalid; identify all affected fields and show no numeric result. Missing another field must not hide a supplied invalid value.\n2. If supplied fields are valid but required fields are missing: incomplete, no numeric result.\n3. Not confirmed preterm or gestation>=37 weeks: unsupported applicability, no corrected-age result.\n4. Observation before due date: before-due-date, show days until the supplied/arithmetic due date, not a negative developmental age or a zero-age clamp.\n5. Observation after the due-date second calendar anniversary: outside-supported-window, return only the reason and window-end date, with no corrected duration or other age-result fields. Exactly the anniversary returns arithmetic values with an explicit boundary flag. This is a product output window, not advice to stop follow-up after it. For a Feb29 due date, Feb28 in the second non-leap year is the documented software anniversary convention; it is not attributed to clinical guidance.\n6. Otherwise: calculated arithmetic result, chronological duration, correction interval and corrected duration, alongside the source/version and arithmetic-only caveat.\n\nNo dosing, vaccination-age choice, developmental diagnosis, prediction or treatment advice; no real patient persistence or external service. Inputs are local and resettable. Calculate/Reset are keyboard-accessible; invalid fields receive useful errors. Source disabled, native fieldsets/first legend, cancellation, replacement, disposal and native form reset must use the current common lifecycle. Reset restores supplied values; later input wins. No fake loading delay or automatic success state.\n\n## Independent verification gates before implementation count\n\n- Independently derive date vectors with a separate standard date implementation and manually check whole-week examples, zero corrected days, week/day remainders, leap days, year boundary, both equivalent bases and window boundary.\n- Property checks: correctedDays=observationDueDifference; advancing observation by one civil day advances valid result by one; equivalent gestation/due-date inputs match; invalid/unknown values never produce a numeric result.\n- Check cross-time-zone invariance; no use of local midnight milliseconds/24hours.\n- Review unsupported cases and the documented leap-anniversary convention separately from arithmetic correctness.\n- Exercise original synthetic inputs only. Author tests, independent review and actual public runtime workflows must pass before any canonical count changes. Native and clinical validation remain separate claims.\n\n\n## Public input and local UI\n\nProtocol type: `calculator-corrected-adjusted-age-of-preterm-infants`. Supply `label` and optional `initial` containing `basis` (`gestation` or `due-date`), `birthDate`, `observationDate`, `gestationalWeeks`, `gestationalDays`, `dueDate`, and `confirmedPreterm`. Exactly one basis is used; conflicting supplied fields are reported as invalid. `disabled`, `calculateLabel`, and `resetLabel` are optional. Within the protocol’s structural types, empty/null or malformed date and unit fields are represented as unavailable/invalid outcomes rather than coerced into numbers. The basis enum is gestation/due-date/null; an unknown enum or non-boolean confirmation is a schema error. Integer unit strings are accepted from local text controls; blanks do not mean zero.\n\n`calculateCorrectedAge(input)` is a pure exported function. Its result is discriminated by `status`: invalid, incomplete, unsupported, before-due-date, outside-supported-window, or calculated. Only calculated results contain age durations. Before-due results contain only a due date and days remaining; outside-window results contain only the reason and window-end date. `remainingDays` in a calculated result is the remainder after complete weeks; before-due uses it solely for days until the due date.\n\nThe widget edits a local draft and computes only when Calculate is accepted. `iui:corrected-age` is a bubbling, cancelable, non-composed event whose frozen detail contains `id`, `intent` (`calculate` or `reset`), and, for calculate, a frozen result. It does not submit, transmit, store or log medical data. The embedding application controls its own event handlers and privacy obligations. Local Reset restores the supplied initial draft; native host-form reset uses after-default cancellation checks, current ownership, and newer-input priority. No system clock, patient lookup, remote service or scoring model is used.\n\nThe default labels distinguish the interval until a due date from the complete-week remainder. The visible arithmetic-only notice is not an optional label override. Extremely small positive gestation values remain software arithmetic inputs, not clinical plausibility or viability claims; use supplied qualified records. Product boundaries do not replace follow-up or professional assessment.\n\nIf accepted Reset changes the basis and hides the focused input, focus returns to the visible Reset action. Canceled reset and still-visible fields retain their focus.\n\n## Source module and document validation\n\n`calculators/corrected-age` uses the unchanged original installer. Structural input types deliberately admit blank/null and malformed date/unit drafts so the pure calculation can return invalid/incomplete instead of inventing a result. Full document validation separately requires label, calculateLabel and resetLabel, when supplied, to be nonblank by trim() (`CORRECTED_AGE_LABEL`). The existing arithmetic/version/unsupported-window rules above remain unchanged; selected-schema acceptance is not a successful calculation or a clinical claim.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/corrected-age.json",
+      "bytes": 787,
+      "sha256": "ab364c9562d646c1aaa75dbea36fed0467a781002f21708bcfd356e9b9775736",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "calculator-corrected-adjusted-age-of-preterm-infants",
+            "id": "fictional-weeks",
+            "label": "Fictional date arithmetic: weeks and days",
+            "initial": {
+              "basis": "gestation",
+              "birthDate": "2026-01-01",
+              "observationDate": "2026-04-23",
+              "gestationalWeeks": 32,
+              "gestationalDays": 0
+            }
+          },
+          {
+            "type": "calculator-corrected-adjusted-age-of-preterm-infants",
+            "id": "fictional-due-date",
+            "label": "Fictional date arithmetic: supplied due date",
+            "initial": {
+              "basis": "due-date",
+              "birthDate": "2026-01-01",
+              "observationDate": "2026-04-23",
+              "dueDate": "2026-02-26",
+              "confirmedPreterm": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "bb7e44da8aba931f45474ccafd64da6d26fae260afb26af1e639d557855b03fb",
+    "schemaBytes": 5858
+  },
+  "manifestPath": "corrected-age.json.manifest.json"
+}

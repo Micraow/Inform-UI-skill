@@ -17,7 +17,9 @@ export async function repositoryFiles(directory = root) {
   return result.sort();
 }
 
+const publicGalleryFiles = new Set(['create', 'explore', 'compose', 'panorama'].map(name => 'assets/gallery-' + name + '.png'));
 export function forbiddenPath(file) {
+  if (publicGalleryFiles.has(file)) return false;
   return /(?:^|\/)(?:private-evidence|historical-archives|captured[^/]*|native-runtime[^/]*)(?:\/|$)/i.test(file)
     || /(?:^|\/)(?:factories\.js|boot\.js|native\.css|requirements(?:-[^.]*)?\.txt|\.env(?:\..*)?)$/i.test(file)
     || /\.(?:py|pyc|whl|har|zip|png|jpe?g|webp|woff2?|ttf)$/i.test(file);
@@ -38,11 +40,18 @@ export async function checkSkill() {
   const files = await repositoryFiles();
   for (const file of files) {
     if (forbiddenPath(file)) throw new Error(`Non-distributable or out-of-scope path: ${file}`);
-    if ((await lstat(path.join(root, file))).size > 256_000) {
-      // The requested generated WebChat single-file schema is the sole large-file exception.
-      if (file !== 'authoring/progressive/webchat/iui.schema.json') throw new Error(`Unexpected large file: ${file}`);
+    if (publicGalleryFiles.has(file)) {
       const bytes = await readFile(path.join(root, file));
-      const manifest = JSON.parse(await readFile(path.join(root, 'authoring/progressive/webchat/iui.schema.manifest.json'), 'utf8'));
+      const manifest = JSON.parse(await readFile(path.join(root, 'assets/gallery-manifest.json'), 'utf8'));
+      const item = manifest.files?.find(item => item.path === file);
+      if (!item || manifest.format !== 'inform-ui-original-gallery/1' || bytes.length > 1_000_000 || bytes.length !== item.bytes || createHash('sha256').update(bytes).digest('hex') !== item.sha256 || bytes.subarray(1, 4).toString() !== 'PNG' || bytes.readUInt32BE(16) !== item.width || bytes.readUInt32BE(20) !== 1440) throw new Error('Original public gallery image identity mismatch: ' + file);
+      continue;
+    }
+    if ((await lstat(path.join(root, file))).size > 256_000) {
+      // Only these explicitly versioned generated WebChat schemas may exceed the limit.
+      if (!['authoring/progressive/webchat/iui.schema.json', 'authoring/current219/webchat/iui.schema.json'].includes(file)) throw new Error(`Unexpected large file: ${file}`);
+      const bytes = await readFile(path.join(root, file));
+      const manifest = JSON.parse(await readFile(path.join(root, path.posix.dirname(file), 'iui.schema.manifest.json'), 'utf8'));
       if (bytes.length > 1_000_000 || manifest.format !== 'inform-ui-source-selection/1' || manifest.mode !== 'full' || manifest.schemaVersion !== 'iui/1' || bytes.length !== manifest.utf8Bytes || createHash('sha256').update(bytes).digest('hex') !== manifest.sha256) throw new Error('Generated WebChat schema identity mismatch.');
     }
   }

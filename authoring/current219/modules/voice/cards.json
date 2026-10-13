@@ -1,0 +1,779 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "learning-voice-mode-launcher-card"
+    ],
+    "requestedModules": [
+      "voice/cards"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "voice/cards"
+    ],
+    "includedComponents": [
+      "learning-voice-mode-launcher-card",
+      "offer-voice-conversation",
+      "learning-speak-card"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/voice-cards.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/voice-cards.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/voice-cards.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:db9ea1ea2ab4a5e8f2d62ad36b7e4ace014354bacab5d919d366a5063aad2df2",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "LearningSpeakCardNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "learning-speak-card"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "unavailableLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "exercises": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 30,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "sourceText": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "language": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "mode": {
+                  "enum": [
+                    "repeat",
+                    "recall"
+                  ]
+                },
+                "phase": {
+                  "enum": [
+                    "idle",
+                    "starting",
+                    "listening",
+                    "success",
+                    "failure",
+                    "error"
+                  ]
+                },
+                "available": {
+                  "type": "boolean"
+                },
+                "playbackAvailable": {
+                  "type": "boolean"
+                },
+                "playbackPhase": {
+                  "enum": [
+                    "idle",
+                    "playing",
+                    "error"
+                  ]
+                },
+                "labels": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "directions": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 2000
+                    },
+                    "start": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "stop": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "retry": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "starting": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "listening": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "success": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "failure": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "error": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "play": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "stopPlayback": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "playbackError": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    },
+                    "hiddenWord": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [],
+                  "additionalProperties": false
+                },
+                "segments": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 200,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "minLength": 0,
+                        "maxLength": 4000
+                      },
+                      "matched": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "text"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "progressLabels": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 30,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            }
+          },
+          "previousLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "nextLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "doneLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "exercises": {}
+          },
+          "required": [
+            "exercises"
+          ]
+        }
+      },
+      "LearningVoiceModeLauncherCardNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "learning-voice-mode-launcher-card"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "unavailableLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "startLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "voiceSession": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "title": {},
+            "description": {},
+            "startLabel": {},
+            "voiceSession": {}
+          },
+          "required": [
+            "title",
+            "description",
+            "startLabel",
+            "voiceSession"
+          ]
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LearningVoiceModeLauncherCardNode"
+          },
+          {
+            "$ref": "#/$defs/OfferVoiceConversationNode"
+          },
+          {
+            "$ref": "#/$defs/LearningSpeakCardNode"
+          }
+        ]
+      },
+      "OfferVoiceConversationNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "offer-voice-conversation"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "unavailableLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "presentation": {
+            "enum": [
+              "button",
+              "card"
+            ]
+          },
+          "buttonLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "iconSrc": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "buttonLabel": {}
+          },
+          "required": [
+            "buttonLabel"
+          ]
+        }
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/voice-cards.md",
+      "sourceBytes": 5816,
+      "sourceSha256": "ca2595cfc3e37a8c5e3da03bc64f80982d03b08fe07e6c0be0176a2fcdf91d13",
+      "bytes": 5816,
+      "sha256": "ca2595cfc3e37a8c5e3da03bc64f80982d03b08fe07e6c0be0176a2fcdf91d13",
+      "text": "# Supplied voice cards\n\nThe three voice presentations use authored text, explicit capability flags and supplied phases. They emit cancelable local DOM events. They never ask for microphone access, synthesize speech, recognize a transcript, score pronunciation, start a session, or call an application service. Accepting an event changes only a local request receipt.\n\n## Common data\n\n`label` is the accessible group name. `status` is `resolved` (default), `pending`, or `failed`. A pending presentation contains a status placeholder without controls. Failed presentations use `fallback`, or hide when it is absent. `available: true` enables the primary request; omission is unavailable. This is a supplied capability flag, not a hardware probe. `disabled` overrides capability. Optional `unavailableLabel`, `requestedLabel`, and `cancelledLabel` supply local copy.\n\n`learning-voice-mode-launcher-card` requires resolved `title`, `description`, `startLabel`, and `voiceSession: {id}`. `offer-voice-conversation` requires `buttonLabel`, with optional `presentation: \"button\" | \"card\"`, `description`, and `iconSrc`. A card's label and description share one native button. A supplied safe icon uses the existing owned image reader; this is the only optional external image resource. It is unrelated to voice permissions or services.\n\nBoth emit `iui:voice` with a frozen `{id, source, intent: \"start\", voiceSessionId?}` detail. `source` identifies the presentation; only the launcher includes the supplied session ID. The session ID is an opaque reference, never a credential.\n\n## Speaking exercises\n\n`learning-speak-card` requires one to thirty `exercises`. Each has a unique `id` and nonblank target `text`, with optional `language`, `sourceText`, `mode: \"repeat\" | \"recall\"`, and `phase: \"idle\" | \"starting\" | \"listening\" | \"success\" | \"failure\" | \"error\"`. The phase is controlled by document updates. Clicking Start does not manufacture a listening or successful state.\n\nExercise `available: false` additionally disables speaking. `playbackAvailable: true` enables local playback requests when speaking is not starting/listening; `playbackPhase` is supplied as `idle`, `playing`, or `error`. Recall additionally needs `sourceText`. Its target stays masked until supplied success/failure, except for supplied matched segments. Optional `segments: [{text, matched?}]` must reconstruct the target exactly. This renderer performs no matching or scoring.\n\nAn optional `labels` object supplies `title`, `directions`, `start`, `stop`, `retry`, `starting`, `listening`, `success`, `failure`, `error`, `play`, `stopPlayback`, `playbackError`, and `hiddenWord`. Defaults are English. `progressLabels`, when present, has exactly one label per exercise. `previousLabel`, `nextLabel`, and `doneLabel` customize navigation. Next requires the current supplied success; Finish appears at the last exercise and requires every exercise's supplied success. An accepted Finish is disabled until reset or a new document generation; a canceled Finish remains available.\n\nRequests emit `iui:speak` with frozen `{id, exerciseId, intent, text, language?, exerciseIds?}`. `intent` is `start`, `stop`, `play`, `stop-playback`, or `finish`. Finish includes a frozen ordered `exerciseIds` snapshot. Events bubble, are cancelable, and do not cross a shadow boundary. `preventDefault()` records cancellation; it never starts an external fallback.\n\n## Lifecycle and reset\n\nA project-owned, visible “Reset practice” button (customizable with `resetLabel`) clears the local request receipt, accepted-finish guard and page selection. This is a local adaptation rather than a voice service action. It is also the form-associated anchor for native reset, so reset still works when speaking is unavailable or Finish has already been accepted. The button still respects component, fieldset, ARIA, hidden and inert disabled rules. Native reset clears the same local state. It does not change supplied speech phases. Canceled resets preserve state; newer navigation wins over an already pending reset. Requests are blocked while reset reconciliation is pending. Current native/ARIA disabled state, fieldset first-legend behavior, hidden/inert ancestry, ownership loss, update and disposal are checked at delivery. Constructor reentry is serialized and ordinary errors remain observable.\n\nThe installer is `installVoiceCardsSchema({node, defs})`. Core semantic inspection is `inspectVoiceCards(node, path, add, safe)`. Rendering is `renderVoiceCard(context, node, owner, host)` with `voice-cards.css`. Registry, generated schema, exported API and bundled stylesheet wiring are owned by the central integration.\n\n## Required nonblank semantic checks\n\nRun full `validateDocument` after structural schema validation. Every supplied top-level string on these three nodes must be nonblank after `trim()`, including `label`, optional `id`, fallback/description, action labels and request labels. This applies in pending and failed phases too; omission of an optional field is distinct from supplying whitespace. `voiceSession.id`, when present, must also be nonblank. Failures use `VOICE_CARD_DATA`.\n\nFor Speak, every supplied string directly on each exercise must be nonblank (including its ID, target text, source text, language and optional messages). `recall` requires nonblank `sourceText`. Every value in exercise `labels` must be nonblank; each `progressLabels` entry must be nonblank and the array must have exactly one entry per supplied exercise. Exercise IDs must be unique. Segment text concatenation must exactly reconstruct the exercise target; individual segments may contain whitespace when structurally permitted and the exact reconstruction holds. The nonblank rule is not an arbitrary recursive ban on whitespace inside all nested strings.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/voice-cards.json",
+      "bytes": 1122,
+      "sha256": "6018cdb030ce2d4c06b41637c091562d7110e669a3bcf0e382c3dbb8d4b2ccd5",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "learning-speak-card",
+            "label": "Original speaking practice",
+            "available": true,
+            "exercises": [
+              {
+                "id": "first",
+                "text": "A quiet blue room",
+                "phase": "success",
+                "playbackAvailable": true
+              },
+              {
+                "id": "second",
+                "text": "A bright red door",
+                "sourceText": "Recall the supplied phrase",
+                "mode": "recall",
+                "phase": "idle"
+              }
+            ]
+          },
+          {
+            "type": "learning-voice-mode-launcher-card",
+            "label": "Original voice request",
+            "title": "Describe an invented room",
+            "description": "A local supplied prompt.",
+            "startLabel": "Request practice",
+            "voiceSession": {
+              "id": "fictional-session"
+            },
+            "available": true
+          },
+          {
+            "type": "offer-voice-conversation",
+            "label": "Original conversation offer",
+            "buttonLabel": "Request a conversation",
+            "presentation": "card",
+            "description": "Only a local request is emitted.",
+            "available": true
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "abb063a6cf39512d0eb2e89c8ebf57210c15251e148bc7186ca2dc929799b53e",
+    "schemaBytes": 15001
+  },
+  "manifestPath": "cards.json.manifest.json"
+}

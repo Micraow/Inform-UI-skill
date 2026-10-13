@@ -1,0 +1,886 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "onboarding-feature-card"
+    ],
+    "requestedModules": [
+      "onboarding/cards"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "onboarding/cards"
+    ],
+    "includedComponents": [
+      "onboarding-feature-card",
+      "onboarding-plugin-suggestions",
+      "onboarding-starter-tasks"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/onboarding-cards.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/onboarding-cards.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/onboarding-cards.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:e3bce83cc3f6568f6826261f8be8cedc6765f74d45cf10811a2a894964a66bc6",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/OnboardingFeatureCardNode"
+          },
+          {
+            "$ref": "#/$defs/OnboardingPluginSuggestionsNode"
+          },
+          {
+            "$ref": "#/$defs/OnboardingStarterTasksNode"
+          }
+        ]
+      },
+      "OnboardingFeatureCardNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "onboarding-feature-card"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "welcomeHeading": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "welcomeBody": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12000
+          },
+          "features": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "featureId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "imageSrc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "darkImageSrc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "artworkLabel": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "tooltip": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "featureId",
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "benefits": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "featureId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "symbol": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "previousLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "nextLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "title": {},
+            "features": {},
+            "benefits": {}
+          },
+          "required": [
+            "title",
+            "features",
+            "benefits"
+          ]
+        }
+      },
+      "OnboardingPluginSuggestionsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "onboarding-plugin-suggestions"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "plugins": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "status": {
+                  "enum": [
+                    "available",
+                    "connected",
+                    "unavailable"
+                  ]
+                },
+                "statusLabel": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "connectLabel": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "imageSrc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "darkImageSrc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "disabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "status"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "canBrowse": {
+            "type": "boolean"
+          },
+          "canConnect": {
+            "type": "boolean"
+          },
+          "browseLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "title": {},
+            "plugins": {}
+          },
+          "required": [
+            "title",
+            "plugins"
+          ]
+        }
+      },
+      "OnboardingStarterTasksNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "onboarding-starter-tasks"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "heading": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "variant": {
+            "enum": [
+              "pills",
+              "cards",
+              "selection"
+            ]
+          },
+          "tasks": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1200
+                },
+                "prompt": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4000
+                },
+                "starterPromptId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "requiresSitePreview": {
+                  "type": "boolean"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "disabled": {
+                  "type": "boolean"
+                },
+                "imageSrc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "darkImageSrc": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "imageWidth": {
+                  "type": "integer",
+                  "minimum": 16,
+                  "maximum": 160
+                },
+                "symbol": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "selectedTaskId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "canRequestSitePreview": {
+            "type": "boolean"
+          },
+          "actionLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "heading": {},
+            "tasks": {}
+          },
+          "required": [
+            "heading",
+            "tasks"
+          ]
+        }
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/onboarding-cards.md",
+      "sourceBytes": 6651,
+      "sourceSha256": "4041d0938b452a0f30efd15ef0d031da4cd8abf9ea6636267fac66f9e2ff610e",
+      "bytes": 6651,
+      "sha256": "4041d0938b452a0f30efd15ef0d031da4cd8abf9ea6636267fac66f9e2ff610e",
+      "text": "# Finite onboarding cards\n\nThese three presentations consume explicit data and emit cancelable local requests. They do not install or connect an app, open a client modal, change account settings, submit a conversation turn, create a task, request a site preview, or send analytics. Accepted requests change only a local receipt and, for selection cards, the local choice.\n\n## Shared contract\n\nEvery node needs an accessible `label`. `status` is `resolved` (default), `pending`, or `failed`. Pending nodes show a loading status without actionable controls. Failed nodes use `fallback` or hide if no fallback is supplied. `disabled` rejects all action requests even if a host tampers with a button's disabled property. Optional `requestedLabel`, `cancelledLabel`, and `emptyLabel` customize copy.\n\nImage fields are safe supplied `imageSrc` and/or `darkImageSrc`. The renderer chooses one image for the current theme and uses the existing owned image reader. Artwork is decorative beside meaningful supplied text. No icon lookup or image search occurs. Ordinary external image loading is the only optional remote resource in these components.\n\n## Feature collection\n\n`onboarding-feature-card` requires `title`, `features`, and `benefits`. Up to twelve features have unique `id`, `featureId`, `title`, and `description`, with optional artwork, `artworkLabel`, `tooltip`, and `disabled`. The shared finite carousel preserves native scrolling and accessible controls.\n\nUp to twenty benefit rows have unique `id`, `title`, and `description`, with optional short `symbol` and `featureId`. A benefit with no feature ID is static. `welcomeHeading` and `welcomeBody` are optional. The body uses the project's finite Markdown parser for text formatting; links become text and inline images do not load.\n\nFeature and benefit controls emit `iui:onboarding-feature` with frozen `{id, target, itemId, featureId, intent, tooltip?}`. `target` is `feature` or `benefit`. Featured `intelligence` requests `set-thinking-effort`, featured `images` requests `open-image-composer`, and other features or benefit rows request `open-feature`. These are local intent names, never calls to an application API.\n\n## Plugin suggestions\n\n`onboarding-plugin-suggestions` requires `title` and `plugins`. Each plugin has a unique `id`, `label`, and supplied `status: \"available\" | \"connected\" | \"unavailable\"`. It may include `description`, `statusLabel`, `connectLabel`, artwork, and `disabled`. Only the first four supplied entries are displayed and actionable. Up to thirty may be supplied; hidden entries cannot emit requests.\n\n`canBrowse: true` requires `browseLabel` and exposes Browse. `canConnect: true` exposes Connect only for available entries. Missing capabilities hide those controls. Connected/unavailable labels remain supplied presentation, and an accepted Connect request never fabricates a connected state.\n\nControls emit `iui:onboarding-plugin` with frozen `{id, intent: \"browse\" | \"connect\", pluginId?, position?}`. Connect includes the plugin ID and its one-based visible position. No credentials, login flow, installation status mutation or telemetry is included.\n\n## Starter tasks\n\n`onboarding-starter-tasks` requires `heading` and up to twenty `tasks`. Each task needs a unique `id` and `label`; optional fields include `description`, artwork, short `symbol`, `completed`, and `disabled`.\n\n- `variant: \"pills\"` (default) is a wrapping collection of prompt buttons.\n- `variant: \"cards\"` shows artwork, label, description and a separate button. `actionLabel` supplies its visible action text.\n- `variant: \"selection\"` is a responsive pressed-button grid with a local reset button. Optional `selectedTaskId` must name a supplied task. `resetLabel` customizes reset copy.\n\nPills/cards require nonblank `prompt` text per task and optionally `starterPromptId`. A task with `requiresSitePreview: true` is disabled unless `canRequestSitePreview: true` is supplied. Completion styling is supplied and does not disable an otherwise supported prompt. Selection tasks do not accept prompt/preview payloads.\n\nControls emit `iui:onboarding-task`. Prompt detail is frozen `{id, intent: \"submit-prompt\", taskId, prompt, starterPromptId?, requiresSitePreview}`. Selection detail is frozen `{id, intent: \"select\", taskId}`. A canceled selection retains the previous choice. A later accepted selection updates only local `aria-pressed` state.\n\n## Lifecycle and reset\n\nAll events bubble, are cancelable, and do not cross shadow boundaries. Constructor reentry is serialized; ordinary errors remain observable and release the admission lock. Current native/ARIA disabled state, first-legend fieldset behavior, hidden/inert ancestry, ownership loss, update and disposal are checked before and after delivery.\n\nNative reset clears receipts and restores the initial local selection. Canceling reset preserves current state. A new selection is local input and supersedes an already queued reset; other request intents wait until reset reconciliation settles. Document updates replace all local state with the newest supplied data. Image resources, carousel resources and reset listeners are generation-owned and released on disposal.\n\nIntegration entry points are `installOnboardingCardsSchema({node, defs})`, `inspectOnboardingCards(node, path, add, safe)`, and `renderOnboardingCards(context, node, owner, host)`, with `onboarding-cards.css`. The central integration owns registry, generated schema, API exports and bundled stylesheets.\n\n## Required nonblank semantic checks\n\nFull `validateDocument` rejects every supplied top-level string that is blank after `trim()` on these three nodes, including labels, titles, optional IDs, welcome content, fallback and action/receipt labels. It likewise checks every direct string property in each supplied `features[]`, `benefits[]`, `plugins[]` or `tasks[]` record. This covers IDs, descriptions, prompts and optional image-source strings; image URLs must additionally pass the existing safe-image validator. Failures use `ONBOARDING_CARD_DATA`. These checks apply even to provided fields in pending/failed phases. Optional fields may be omitted; supplied whitespace is not a default.\n\nIDs must be unique within each list. Browse capability requires a nonblank `browseLabel`. Non-selection task presentations require a nonblank prompt for every task and cannot supply `selectedTaskId`. Selection presentation requires any selected ID to identify a supplied task and rejects task prompt, starter-prompt and site-preview payloads. Do not broaden the direct-property check into an invented recursive prohibition on every possible nested value.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/onboarding-cards.json",
+      "bytes": 2371,
+      "sha256": "78e46cbfac7b817e9707b7a75421d9c3d582abc604d07d39319307a68f46bfc2",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "onboarding-feature-card",
+            "label": "Explore features",
+            "title": "More ways to work",
+            "features": [
+              {
+                "id": "thinking",
+                "featureId": "intelligence",
+                "title": "Think carefully",
+                "description": "Consider a supplied problem."
+              },
+              {
+                "id": "image",
+                "featureId": "images",
+                "title": "Imagine something",
+                "description": "Describe an idea."
+              }
+            ],
+            "benefits": [
+              {
+                "id": "work",
+                "title": "Work on a plan",
+                "description": "A useful planning space.",
+                "featureId": "work"
+              },
+              {
+                "id": "info",
+                "title": "Included tools",
+                "description": "Supplied information."
+              }
+            ]
+          },
+          {
+            "type": "onboarding-plugin-suggestions",
+            "label": "Suggested apps",
+            "title": "Connect useful apps",
+            "canConnect": true,
+            "canBrowse": true,
+            "browseLabel": "Browse apps",
+            "plugins": [
+              {
+                "id": "notes",
+                "label": "Notes app",
+                "status": "available",
+                "connectLabel": "Connect notes"
+              },
+              {
+                "id": "calendar",
+                "label": "Calendar app",
+                "status": "connected"
+              },
+              {
+                "id": "files",
+                "label": "Files app",
+                "status": "unavailable",
+                "statusLabel": "Not offered"
+              }
+            ]
+          },
+          {
+            "type": "onboarding-starter-tasks",
+            "label": "Starter ideas",
+            "heading": "Choose an idea",
+            "tasks": [
+              {
+                "id": "outline",
+                "label": "Outline a plan",
+                "prompt": "Prepare a sample outline.",
+                "completed": true
+              },
+              {
+                "id": "preview",
+                "label": "Preview an idea",
+                "prompt": "Preview this example.",
+                "requiresSitePreview": true
+              }
+            ],
+            "canRequestSitePreview": true
+          },
+          {
+            "type": "onboarding-starter-tasks",
+            "label": "Starter ideas",
+            "heading": "Choose an idea",
+            "tasks": [
+              {
+                "id": "one",
+                "label": "First idea"
+              },
+              {
+                "id": "two",
+                "label": "Second idea"
+              }
+            ],
+            "variant": "selection"
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "5000f40f6b7d6afa504c2a5543d4fe3decb4c412aeac937a3476816b9b498126",
+    "schemaBytes": 15984
+  },
+  "manifestPath": "cards.json.manifest.json"
+}

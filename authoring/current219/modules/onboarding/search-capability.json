@@ -1,0 +1,2461 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "whats-new-capability-search"
+    ],
+    "requestedModules": [
+      "onboarding/search-capability"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "requests/location",
+      "media/readers",
+      "reservations/pills",
+      "onboarding/search-capability"
+    ],
+    "includedComponents": [
+      "ask-user-location",
+      "search-image",
+      "youtube",
+      "reservation-time-pills-ref-carousel",
+      "whats-new-capability-search"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/ask-location.md",
+      "docs/media-readers.md",
+      "docs/reservation-pills.md",
+      "docs/capability-search.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/ask-location.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/media-readers.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/reservation-pills.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/capability-search.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/ask-location.json",
+      "examples/schema-modules/media-reader.json",
+      "examples/schema-modules/reservation-pills.json",
+      "examples/schema-modules/capability-search.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:0e4088ac670c8a2c52691ab3c6a713f40eabac0ac603c2836ffd656e68018ed8",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "AskUserLocationNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ask-user-location"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "learnMoreUrl": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "learnMoreLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "notNowLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "turnOnLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dismissed": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "title": {},
+            "description": {},
+            "learnMoreUrl": {},
+            "learnMoreLabel": {},
+            "notNowLabel": {},
+            "turnOnLabel": {}
+          },
+          "required": [
+            "title",
+            "description",
+            "learnMoreUrl",
+            "learnMoreLabel",
+            "notNowLabel",
+            "turnOnLabel"
+          ]
+        }
+      },
+      "CapabilitySearchExample": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "exampleLabel": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "notes": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            }
+          },
+          "ctaPrompt": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "ctaLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "venue": {
+            "$ref": "#/$defs/CapabilitySearchVenue"
+          },
+          "venueAction": {
+            "$ref": "#/$defs/CapabilitySearchTarget"
+          },
+          "searchImage": {
+            "$ref": "#/$defs/SearchImageRecord"
+          },
+          "nativeMap": {
+            "type": "boolean"
+          },
+          "showSourceImage": {
+            "type": "boolean"
+          },
+          "reservationWidget": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "$ref": "#/$defs/ReservationPillsData"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          "enrichmentPending": {
+            "type": "boolean"
+          },
+          "footer": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "sources": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "$ref": "#/$defs/CapabilitySearchSource"
+            }
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "notes",
+          "sources"
+        ],
+        "additionalProperties": false
+      },
+      "CapabilitySearchSource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "CapabilitySearchTarget": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "prompt"
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 8000
+              }
+            },
+            "required": [
+              "kind",
+              "query"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "url"
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "kind",
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "entity"
+              },
+              "entityId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "available": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "kind",
+              "entityId"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "capability"
+              },
+              "capabilityId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "available": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "kind",
+              "capabilityId"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CapabilitySearchVenue": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "address": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "referenceId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "name",
+          "detail",
+          "address"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ReservationTimePillsRefCarouselNode"
+          },
+          {
+            "$ref": "#/$defs/AskUserLocationNode"
+          },
+          {
+            "$ref": "#/$defs/SearchImageNode"
+          },
+          {
+            "$ref": "#/$defs/YoutubeNode"
+          },
+          {
+            "$ref": "#/$defs/WhatsNewCapabilitySearchNode"
+          }
+        ]
+      },
+      "ReservationPillsCarouselItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "referenceId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "groups": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsGroup"
+            }
+          },
+          "voiceCard": {
+            "$ref": "#/$defs/ReservationPillsVoiceCard"
+          },
+          "showMoreTimesLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "groups"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationPillsData": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "groups": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsGroup"
+            }
+          },
+          "voiceCard": {
+            "$ref": "#/$defs/ReservationPillsVoiceCard"
+          },
+          "showMoreTimesLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "mode": {
+            "enum": [
+              "standard",
+              "voice"
+            ]
+          },
+          "seatingEnabled": {
+            "type": "boolean"
+          },
+          "collapsedGroups": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30
+          },
+          "initialGroups": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30
+          },
+          "expandedGroups": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30
+          },
+          "showMoreDatesLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "showFewerDatesLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "label",
+          "groups"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationPillsGroup": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "dateLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "dateTimeLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "partySizeLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "providerName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "logos": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "src": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                }
+              },
+              "required": [
+                "name",
+                "src"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "times": {
+            "type": "array",
+            "maxItems": 48,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsProviderOption"
+            }
+          },
+          "desktopSlots": {
+            "type": "array",
+            "maxItems": 48,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsSlot"
+            }
+          },
+          "mobileSlots": {
+            "type": "array",
+            "maxItems": 48,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsSlot"
+            }
+          },
+          "changeOptions": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsProviderOption"
+            }
+          },
+          "requestedLauncher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "seeMoreLauncher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "retryLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "id",
+          "dateLabel",
+          "partySizeLabel",
+          "providerName",
+          "times"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationPillsLauncher": {
+        "type": "object",
+        "properties": {
+          "providerId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "requestId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "available": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "providerId"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationPillsProviderOption": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "providerName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "timeLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "startDateTime": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "bookingQuery": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "launcher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "seeMoreLauncher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "retryLauncher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationPillsSlot": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "providerName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "timeLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "startDateTime": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "bookingQuery": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "launcher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "seeMoreLauncher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "retryLauncher": {
+            "$ref": "#/$defs/ReservationPillsLauncher"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "unavailable": {
+            "type": "boolean"
+          },
+          "moreOptions": {
+            "type": "boolean"
+          },
+          "providerOptions": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsProviderOption"
+            }
+          },
+          "seatingOptions": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "options": {
+                  "type": "array",
+                  "maxItems": 12,
+                  "items": {
+                    "$ref": "#/$defs/ReservationPillsProviderOption"
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "options"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationPillsTarget": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "prompt"
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 8000
+              }
+            },
+            "required": [
+              "kind",
+              "query"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "url"
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "kind",
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "provider"
+              },
+              "providerId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "requestId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "available": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "kind",
+              "providerId"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "const": "entity"
+              },
+              "entityId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "available": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "kind",
+              "entityId"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ReservationPillsVoiceCard": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "metadataLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "hasRating": {
+            "type": "boolean"
+          },
+          "images": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80
+                },
+                "src": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2048
+                },
+                "alt": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                }
+              },
+              "required": [
+                "id",
+                "src",
+                "alt"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "action": {
+            "$ref": "#/$defs/ReservationPillsTarget"
+          }
+        },
+        "required": [
+          "images"
+        ],
+        "additionalProperties": false
+      },
+      "ReservationTimePillsRefCarouselNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "reservation-time-pills-ref-carousel"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 16,
+            "items": {
+              "$ref": "#/$defs/ReservationPillsCarouselItem"
+            }
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "previousLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "nextLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "items": {}
+          },
+          "required": [
+            "items"
+          ]
+        }
+      },
+      "SearchImageNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "search-image"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "searchImage": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/SearchImageRecord"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alt": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "minWidth": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "minHeight": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "maxWidth": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "maxHeight": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "aspectRatio": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              },
+              {
+                "type": "string",
+                "maxLength": 40,
+                "pattern": "^[0-9]+(?:\\.[0-9]+)?\\s*[:/]\\s*[0-9]+(?:\\.[0-9]+)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "fit": {
+            "enum": [
+              "cover",
+              "contain",
+              "fill",
+              "none",
+              "scale-down"
+            ]
+          },
+          "position": {
+            "type": "string",
+            "maxLength": 50,
+            "pattern": "^[0-9]+(?:\\.[0-9]+)?% [0-9]+(?:\\.[0-9]+)?%$(?![\\s\\S])"
+          },
+          "frame": {
+            "type": "boolean"
+          },
+          "radius": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 256
+          },
+          "hoverZoom": {
+            "type": "boolean"
+          },
+          "hideOnFailure": {
+            "type": "boolean"
+          },
+          "sourcePending": {
+            "type": "boolean"
+          },
+          "upgradeToFullRes": {
+            "const": false
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "contentCropFit": {
+            "enum": [
+              "contain",
+              "cover"
+            ]
+          },
+          "containOutsideAspectRatio": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              },
+              "max": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              }
+            },
+            "required": [
+              "min",
+              "max"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "type",
+          "searchImage"
+        ],
+        "additionalProperties": false
+      },
+      "SearchImagePlacement": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          },
+          "top": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000
+          }
+        },
+        "required": [
+          "left",
+          "top",
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      },
+      "SearchImagePresentation": {
+        "type": "object",
+        "properties": {
+          "aspect_ratio": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000
+          },
+          "placement": {
+            "$ref": "#/$defs/SearchImagePlacement"
+          }
+        },
+        "required": [
+          "aspect_ratio",
+          "placement"
+        ],
+        "additionalProperties": false
+      },
+      "SearchImageRecord": {
+        "type": "object",
+        "properties": {
+          "content_url": {
+            "type": "string",
+            "maxLength": 500000
+          },
+          "thumbnail_url": {
+            "type": "string",
+            "maxLength": 500000
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "content_size": {
+            "$ref": "#/$defs/SearchImageSize"
+          },
+          "thumbnail_size": {
+            "$ref": "#/$defs/SearchImageSize"
+          },
+          "thumbnail_crop_info": {
+            "type": "object",
+            "properties": {
+              "center_x_percent": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "center_y_percent": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              }
+            },
+            "required": [
+              "center_x_percent",
+              "center_y_percent"
+            ],
+            "additionalProperties": false
+          },
+          "content_presentation": {
+            "$ref": "#/$defs/SearchImagePresentation"
+          },
+          "thumbnail_presentation": {
+            "$ref": "#/$defs/SearchImagePresentation"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "SearchImageSize": {
+        "type": "object",
+        "properties": {
+          "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100000
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100000
+          }
+        },
+        "required": [
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "WhatsNewCapabilitySearchNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "whats-new-capability-search"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "intro": {
+            "type": "string",
+            "maxLength": 8000
+          },
+          "examples": {
+            "type": "array",
+            "maxItems": 24,
+            "items": {
+              "$ref": "#/$defs/CapabilitySearchExample"
+            }
+          },
+          "locationPrompt": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "searchLocation": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "offerPreciseLocation": {
+            "type": "boolean"
+          },
+          "locationVariant": {
+            "enum": [
+              "button",
+              "widget"
+            ]
+          },
+          "inlineLocationLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "locationAvailable": {
+            "type": "boolean"
+          },
+          "locationWidget": {
+            "$ref": "#/$defs/AskUserLocationNode"
+          },
+          "nativeMapUnavailableLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "streaming": {
+            "type": "boolean"
+          },
+          "streamingLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "enrichmentLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "animateReveal": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "requestedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "cancelledLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "examples": {}
+          },
+          "required": [
+            "examples"
+          ]
+        }
+      },
+      "YoutubeNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "youtube"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadMode": {
+            "enum": [
+              "direct",
+              "on-demand"
+            ]
+          },
+          "videoId": {
+            "type": "string",
+            "minLength": 11,
+            "maxLength": 11,
+            "pattern": "^[A-Za-z0-9_-]{11}$(?![\\s\\S])"
+          },
+          "caption": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "startSeconds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 86400
+          },
+          "fullscreen": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "videoId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/ask-location.md",
+      "sourceBytes": 4177,
+      "sourceSha256": "e73510140d00d4d0fdf57c54c9495bbf58ca93398333b1aafc7db80e901a405b",
+      "bytes": 4177,
+      "sha256": "e73510140d00d4d0fdf57c54c9495bbf58ca93398333b1aafc7db80e901a405b",
+      "text": "# Supplied location request\n\n`ask-user-location` is an original, finite implementation of the observable first-generation location-request card. It is separate from the already registered `location-choice-request` second-generation presentation. No captured implementation or artwork is included.\n\n## Contract\n\nRequired `label` is the accessible group name. Resolved cards require supplied `title`, `description`, `learnMoreUrl`, `learnMoreLabel`, `notNowLabel` and `turnOnLabel`. Optional `dismissed` initializes local dismissal. `status: pending` presents a 130px loading area; `failed` presents the supplied `fallback` or hides the component. Every string is bounded, nonblank and rendered as text. The informational URL must pass the library's safe-link validation.\n\nThe card is stacked below a 576px component-container width and horizontal at or above that width. It contains an original generic location symbol, descriptive text, informational action and two finite actions. Fonts and colors use the library tokens; pixel equivalence to a separate product is not claimed.\n\nAll buttons have native keyboard activation and `type=button`. They dispatch a bubbling, non-composed, cancelable `iui:ask-location` event with a frozen detail:\n\n- `{ id, intent: 'request-location-permission' }`\n- `{ id, intent: 'learn-more', url }`\n- `{ id, intent: 'dismiss' }`\n\n`id` is null when omitted. Acceptance is only a local receipt. No browser permission prompt, geolocation lookup, remote request, account operation or navigation occurs. A host must separately obtain appropriate user permission for external actions. Canceling `dismiss` keeps the card visible; accepting it hides the request panel. Repeated permission requests remain possible and never fabricate a permission result.\n\nThe visible `Reset location request` control (supply `resetLabel` to change it) is an explicit local adaptation. It restores supplied initial dismissal and clears the local receipt. Its stable presence also permits native form reset after the panel is dismissed. An accepted form reset restores initial state; canceled resets preserve state; requests during a pending reset are blocked. Native form association does not cross a ShadowRoot boundary.\n\n`disabled`, native disabled fieldsets and first legends, ARIA disabled, hidden/inert ancestors, event cancellation and generation ownership are respected. Controls cannot bypass supplied disabled by changing their DOM property. Same-turn ancestor removal permanently retires old controls until explicit controller update. Dispatch and construction use the shared exclusive intent gate. Update and dispose release listeners and suppress stale writes.\n\n## Validation\n\nThe original example uses `https://example.test/location-help`, not a live service. Author tests exercise public Node/browser validation, pending/failed states, all three local intents, cancellation, form reset, first-legend behavior, actual recursive dispatch, update/dispose, ShadowRoot boundaries, repeated listener release and real standalone compilation. Native browser tests are provided separately; discovery is not execution.\n\nFor composed supplied views, the internal renderer accepts an optional third `{ gate }` argument reusing an existing `intentGate`. The child keeps its own owned generation and reset lifecycle; parents should preserve it rather than reconstruct it in response to unrelated native resets. Parent streaming or capability restrictions must be projected into the actual child `disabled` input.\n\n## Complete semantic text and URL checks\n\nFull `validateDocument` rejects every supplied top-level string that is blank after `trim()`, including optional identifiers, labels, descriptions, fallback and informational-link fields (`ASK_LOCATION_DATA`). The rule applies in all phases. Optional omission is distinct from supplying whitespace; no legacy empty-string exception is introduced for this node. `learnMoreUrl`, when present, must also pass the existing safe-link policy (`ASK_LOCATION_URL`). Structure-only selected schemas do not replace this semantic gate. The permission request remains a local intent and never grants location access by itself.\n"
+    },
+    {
+      "path": "docs/media-readers.md",
+      "sourceBytes": 2382,
+      "sourceSha256": "9a4bcf33acc7dae9a1969c980c2c9a2ffae375dadc35d597a2bc98f9a259d77a",
+      "bytes": 2382,
+      "sha256": "9a4bcf33acc7dae9a1969c980c2c9a2ffae375dadc35d597a2bc98f9a259d77a",
+      "text": "# Supplied media readers\n\n`media/readers` owns the existing SearchImage and YouTube schemas in `scripts/media-reader-definitions.json`. Other media families depend on this source module explicitly. Structural schema validation is necessary; use full `validateDocument` for the following semantic checks and the common expression and URL policies.\n\n## Search image\n\n`search-image` displays a supplied `searchImage` record, its loading/error state and bounded layout. It does not search or discover images. The content and thumbnail URLs, when supplied, must pass the safe image policy: absolute credential-free HTTP(S), or supported inline raster data. The renderer selects the supplied source and honors fit, crop metadata and fallback. Resource assignment and release follow the shared generation/ownership contract. Direct image rendering can load a supplied remote image; this primitive alone does not promise a click-to-load gate. Higher-level components may impose an explicit activation gate.\n\n`SEARCH_IMAGE_RATIO` requires a supplied numeric ratio, or parsed colon/slash ratio, to be finite, positive and at most 1000. `containOutsideAspectRatio.min` must be strictly less than `max`; the structural schema also bounds their individual values. `SEARCH_IMAGE_POSITION` requires both supplied percentage coordinates to be at most 100, in addition to the schema's nonnegative two-percentage syntax. Crop centers are supplied fractions or percentages; rendering clamps them and does not infer a subject. URL failures report `UNSAFE_URL`. No additional blanket nonblank-label rule is introduced for this record.\n\n## YouTube\n\n`youtube` accepts a supplied, structurally bounded video ID and label, optional start time, caption, fullscreen and disabled settings. `YOUTUBE_LABEL` rejects whitespace-only labels. There is no URL discovery, metadata lookup or provider SDK. The fixed iframe uses youtube-nocookie.com with autoplay off and standard controls; embedding still contacts that external service.\n\nThe default load mode is direct, scheduled after admission. Explicit `loadMode: \"on-demand\"` shows a local load control first. Unload, replacement and disposal revoke the owned iframe source. Disabled and actual DOM admission gates apply. Do not describe direct mode as offline or as requiring an activation click. Compiled HTML must retain the existing fixed iframe CSP policy.\n"
+    },
+    {
+      "path": "docs/reservation-pills.md",
+      "sourceBytes": 10633,
+      "sourceSha256": "e863d1217f2021295ddc1b07f5b6973c756e3f73298e8cef8cdd06331fa8d5b7",
+      "bytes": 10633,
+      "sha256": "e863d1217f2021295ddc1b07f5b6973c756e3f73298e8cef8cdd06331fa8d5b7",
+      "text": "# Supplied reservation pills\n\nThis independent domain has two presentations. The internal `renderReservationPills` is the reusable grouped reader; `reservation-time-pills-ref-carousel` is the canonical card collection. The card collection uses the existing finite Carousel renderer. Neither presentation is an adapter to a reservation service.\n\n## Integration contract\n\n- Run `installReservationPillsSchema({node, defs})` in the central schema generator. It registers only `ReservationTimePillsRefCarouselNode`; the ordinary data structure is a reusable `$defs.ReservationPillsData`, not another canonical component.\n- Export the types and helpers in `src/core/reservation-pills.ts`. Connect `inspectReservationPillsCarousel(node, path, add, isSafeURL)` to canonical validation and `renderReservationPillsCarousel(context, node, owner, host)` to rendering. Include `reservation-pills.css` in the existing stylesheet build. Generated schema/types, registry, public exports and CDN wiring belong to the integrating change.\n- A composite renders ordinary data with `renderReservationPills(context, data, owner, host, {id, disabled, gate})` and validates it with `inspectReservationPills(data, path, add, isSafeURL)`. Passing its existing `intentGate` shares admission with sibling controls. A nested composite must retain the real mounted owner and host for supplied image ownership.\n- Bounded snapshots support up to 30 groups, 48 times per list, 12 provider choices, 8 seating choices, 12 photos and 16 carousel items. IDs are unique within each corresponding list. Visible labels must be nonblank, URLs must pass the existing safe-URL policy, and supplied timestamps must include an offset. No current time, live availability, implicit location or provider SDK is consulted.\n\n## Complete ordinary grouped presentation\n\nEach visible group shows the supplied date, party size and provider logos. It defaults to three groups and honors supplied initial/collapsed/expanded counts. More/Fewer dates is a local toggle. A container-width measurement and owned resize observer select the desktop or mobile slot list; an empty preferred list falls back to the other list, then the supplied `times` list. The fallback list requires each time's `timeLabel`. Slot content is shown only when both selected slots and the group's `times` are nonempty; otherwise the supplied empty message and provider retry choices appear.\n\nUnavailable times are noninteractive. One provider acts directly; multiple providers open a labeled disclosure of native buttons, with Close, Escape-to-trigger and outside-pointer dismissal. No provider means no choice button. With seating enabled and multiple seating types, selecting a time replaces its row with a Back-to-times control and seat-specific provider choices. A single local selection is shared across groups. Changing layout, reset or Back clears it.\n\nParty-size controls emit `change-party`; their action resolution follows the supplied ordinary provider options. A “more options” slot uses group change options, then group/slot more-times destinations. Voice-sized presentation uses the first group and up to five mobile-preferred slots; additional supplied slots can expose a more-times request. Its optional summary has a first-image thumbnail for one or two images, or a three-photo mosaic for three or more. No voice or audio capability is invoked.\n\n## Distinct canonical card presentation\n\nItems without a supplied `voiceCard` are omitted. Each card shows its title/action, metadata and optional decorative rating star. A mosaic appears only when at least three images exist; one or two images do not become thumbnails here. Only the first group is used. Only the first five `mobileSlots` are used, without desktop or `times` fallback, provider menus or seating selection. This preserves the separate card contract rather than wrapping the ordinary reader.\n\nThe party/date heading uses the first change option's launcher or URL; when no first option exists it can use the group's requested launcher. Heading action deliberately ignores a booking query. Card times resolve only their own booking query, launcher or URL; they never inherit a group provider. More times requires more than five mobile slots and a first-option or group requested launcher. It uses the purpose-specific more launcher when supplied. Empty mobile slots show the supplied empty state and first-option retry destination. The finite rail keeps native scrolling, snap points, previous/next controls and the existing Carousel's visible-range semantics.\n\n## Bounded local requests\n\nEvery activation dispatches a bubbling, cancelable, non-composed `iui:reservation-pills` event. Its frozen detail includes `id`, `intent` and relevant item/reference/group/slot/seating/option IDs. Intents are `book`, `more-times`, `retry`, `change-party`, `open-card` and `view-image`. A normalized frozen action is one of:\n\n- `{kind: 'prompt', query}`\n- `{kind: 'url', url}`\n- `{kind: 'provider', providerId, requestId?, selectedTime?}`\n- `{kind: 'entity', entityId}`\n\nProvider/entity capabilities must explicitly supply `available: true`. Arbitrary application URIs, raw tool payloads and executable callbacks are outside the schema. Ordinary booking resolution prefers a nonblank booking query, then a purpose-specific or ordinary launcher, then matching supplied provider inheritance, then URL. Inherited provider requests include `selectedTime` when it can be derived from an offset-bearing timestamp or formatted AM/PM time. An explicitly unavailable selected capability is not silently replaced with another destination.\n\nAn image request carries the selected index and a frozen snapshot of all supplied image descriptors. Images themselves use the existing passive, safe-URL SearchImage primitive; their source URLs may be loaded by the browser, but no booking/provider, map, location, microphone, speech, navigation or account operation is performed. A host may cancel any request. “Accepted” means only that the local event was not canceled; it is not a reservation confirmation. Cancellation keeps a provider disclosure open for correction. Accepted requests close it. Both leave supplied availability untouched.\n\n## State, reset and ownership\n\nOrdinary controls use native buttons and labeled disclosures, not a simulated ARIA menu requiring custom menu-key handling. The canonical unresolved states are `pending` (passive status), `failed` (supplied fallback or hidden), and default `resolved` (including a genuine empty collection).\n\nA stable visible **Reset reservation view** button is an explicit local adaptation. It restores supplied group counts, clears seating and provider choices and local receipts; canonical reset also returns the rail to its start. Native form reset respects cancellation, matching form ownership, shadow roots, disabled fieldsets and first-legend exceptions. Pending reset blocks requests; newer local input or generation replacement wins. Per-control disabled/ARIA-disabled, hidden/inert ancestry, snapshot capability gates and irreversible owner loss are rechecked. Shared generation, owner, painter and intent-gate helpers own callbacks, resize observers, image sources and reset work. Reentrant replacement/disposal retires old requests, and ordinary errors remain observable.\n\n## Observation and verification scope\n\nBehavior was observed read-only from fixed reference catalog 9ed3c8626296b98932a83b86fe045157fe3caf82: the ordinary grouped presentation inside lazy module 59478 and the independent card collection in module 499797. This implementation is independently authored JavaScript/TypeScript and CSS; captured source, telemetry, runtime state and proprietary assets are not shipped. `whats-new-capability-search` and location prompts are not registered or claimed by this domain.\n\nThe focused suite executes esbuild-compiled domain modules against jsdom, including strict AJV schema checks, both presentation contracts, routing, cancellation, reset, update/dispose, reentry, late image-source compensation and resize-observer release. Native Playwright scenarios cover keyboard disclosure and focus, narrow RTL/container changes and canonical rail behavior. Browser discovery alone is not a native execution pass. The main integrator must verify generated/public-consumer wiring separately.\n\nFocused handoff verification on the isolated domain: 36/36 compiled-module tests passed; TypeScript `--noEmit`, owned queues (174 files, 21 deferred sites, zero violations), source-boundary and whitespace checks passed. Playwright discovered three scenarios; native execution was not run in this lane. These results do not claim central registration, generated schema, public package or CDN verification.\n\n## Source module and exact validation\n\n`reservations/pills` owns the original installer and both its public carousel and internal grouped-data definitions. `RESERVATION_PILLS_DATA` covers the following semantic rules in addition to the structural bounds. Full `validateDocument` still checks supplied data during pending/failed states.\n\nEvery direct string on carousel, item-as-grouped-data, grouped-data, group, option/slot, seating option, launcher, logo, voice card, voice-card action and image record must be nonblank by `trim()`. This includes supplied fallback and IDs. IDs must be unique within each carousel items, groups, times, changeOptions, desktopSlots, mobileSlots, providerOptions, seatingOptions, each seating option's options, and each voice-card images list. Separate lists retain independent ID scopes. All supplied option/action destination URLs and logo/image sources must pass the corresponding safe link/image policy.\n\nA supplied startDateTime must match an offset-bearing timestamp syntax (Z or numeric offset) and have a finite `Date.parse` result. This is the existing syntax/parse check, not an added calendar-normalization promise. Ordinary grouped data with neither nonempty desktopSlots nor nonempty mobileSlots requires a visible nonblank timeLabel for each fallback time. The canonical carousel deliberately disables that fallback-label requirement, preserving its separate mobile-card contract.\n\nFor grouped data, the effective collapsed count is `min(collapsedGroups ?? 3, groups.length)` and effective expanded count is `min(expandedGroups ?? groups.length, groups.length)`; expanded cannot be smaller. Initial group counts retain their structural bounds. Validation does not manufacture availability, a launcher or booking destination. Request resolution and explicit capability availability remain separate local interaction rules described above.\n"
+    },
+    {
+      "path": "docs/capability-search.md",
+      "sourceBytes": 10477,
+      "sourceSha256": "12e38f02d9533063509a5305d9f65286cee19c3139536ed25f719f524c4d0202",
+      "bytes": 10477,
+      "sha256": "12e38f02d9533063509a5305d9f65286cee19c3139536ed25f719f524c4d0202",
+      "text": "# Supplied search capability examples\n\n`whats-new-capability-search` is a complete supplied composition: all examples are visible together, with explanatory notes, venue information, source requests, optional location request and the reusable ordinary reservation reader. It is separate from the tab-switching conversational onboarding search component.\n\n## Integration and dependencies\n\nThe domain depends on the independently implemented ReservationPills domain (`aa2ddaa581482cc2904940c7801ad79db054e477`) and original AskUserLocation V1 (`60154c7f384d09f724b1481f4adadce9247053d5`). Those domains own their existing renderers, inspectors, schemas, reset behavior and CSS. This change does not reimplement or duplicate them.\n\n- Register `installCapabilitySearchSchema({node, defs})` alongside the existing ReservationPills, AskLocation and SearchImage definitions. It adds `WhatsNewCapabilitySearchNode` and its bounded data definitions.\n- Export the domain's core types, `capabilitySearchAction`, `capabilitySearchVenueAction` and `inspectCapabilitySearch`. Add `inspectCapabilitySearch(node, path, add, isSafeURL)` to validation; it directly calls both child semantic inspectors and the SearchImage inspector.\n- Render with `renderCapabilitySearch(context, node, owner, host)`. Include `capability-search.css` alongside the existing child styles. The real mounted owner and host are retained for passive supplied images.\n- Central registration, generated schema/types, public exports, package/CDN builds and progress accounting belong to the integrating change. The source-domain tests do not claim that those public integration steps have run.\n\n## Data and presentation\n\nA resolved node supplies `label` and `examples`. The authored `examples` array corresponds to the observed all-at-once content list, not tabs: there is no selected index, tablist, hidden example panel or synthesized search operation. Up to 24 examples are accepted; each has unique `id`, `title`, `notes` and `sources`. Each example has up to 30 notes and 30 uniquely identified sources. Optional narrative strings can be empty; interactive labels and destinations must be nonblank. URL and nested child safety checks are mandatory.\n\nThe introduction is shown when nonempty. For examples without a venue, the title and optional example label appear above a numbered notes list. A notes CTA appears only when notes are nonempty and `ctaPrompt` is supplied. Non-venue footers appear after sources.\n\nA venue shows its supplied name/action, detail and address. The title button is disabled when its action is absent or its capability is unavailable. An 80-pixel supplied image or neutral local placeholder appears unless `nativeMap` is true and `showSourceImage` is false. A requested native map is represented by the supplied unavailable message; no map renderer, tile request, place lookup or geolocation runs.\n\nThe default venue CTA appears only when both `reservationWidget` and `enrichmentPending` are absent/false. A widget shell `{}` deliberately suppresses that CTA even when no child data has arrived. When `reservationWidget.data` exists, the real `renderReservationPills` is embedded with its complete date/provider/seating/responsive contract. The child's local request ID is the venue's `referenceId`, or the example ID when no reference is supplied; `data-search-example-id` retains the enclosing example identity.\n\nEnrichment pending shows a passive status and suppresses the venue footer. A settled venue footer appears before source buttons. Sources always use their supplied labels and safe URLs and do not navigate automatically. Missing live enrichment does not fabricate venue data or successful availability.\n\n## Location variants and streaming\n\nThe location line appears when `locationPrompt` is nonempty or `offerPreciseLocation` is true. Button mode shows `searchLocation` when supplied, otherwise the prompt. The inline request is enabled only when `locationAvailable: true`, the node is enabled and it is not streaming.\n\nWidget mode uses the original AskUserLocation V1 renderer when a `locationWidget` exists and the parent permits a local request. The V1 keeps its own informational link, cancellation-aware dismissal, local permission intent, stable reset control and phase handling. When widget data or permission capability is unavailable, the inline choice is shown instead. Omitting `locationVariant` uses the inline presentation. No browser permission prompt is opened.\n\n`streaming: true` disables parent and reservation actions through their actual supplied disabled state. A widget location request becomes the disabled inline location choice. When there are no examples, a passive streaming status is shown; an empty settled list has its own supplied empty message. New data arrives only through the ordinary document-update mechanism. `pending` uses a passive 100-pixel presentation; `failed` shows its supplied fallback or hides itself.\n\nOptional reveal motion is a short local opacity/position transition. It does not reorder or defer examples and is disabled by the reduced-motion preference.\n\n## Local request API\n\nParent controls dispatch a frozen, bubbling, cancelable, non-composed `iui:capability-search` event. Detail contains the node `id`, an intent and relevant `exampleId` / `sourceId`:\n\n- `example-prompt`: the notes CTA's supplied prompt\n- `venue-action`: the explicit supplied venue-title action\n- `venue-cta`: venue URL first, otherwise the example prompt\n- `open-source`: the selected source URL\n- `request-location`: a request without coordinates or a permission API call\n\nA normalized frozen `action`, when applicable, is `{kind: 'prompt', query}`, `{kind: 'url', url}`, `{kind: 'entity', entityId}` or `{kind: 'capability', capabilityId}`. Entity and generic capability actions require explicit `available: true`. No arbitrary handler name, raw runtime/tool payload, executable callback or service credential is accepted. Unavailable capabilities remain disabled even if a consumer tampers with the DOM button's disabled property.\n\nThe child event namespaces remain `iui:reservation-pills` and `iui:ask-location`; they are not redispatched under a second parent event. All three readers share one intent gate, so reentrant construction cannot activate a sibling reader. “Accepted” confirms only an uncanceled local event. It does not mean that a search, booking, login, map, location or voice operation occurred. Supplied images can load their explicit safe URLs through the existing passive image reader, with source release on retirement.\n\n## Reset and ownership\n\nThe parent's visible **Reset search requests** control clears only its local receipt. It never rebuilds either child, resets their current selection, or changes supplied data. Each child retains its own visible reset control. A real form reset is independently reconciled by the parent and child readers, respecting cancellation, pending admission, disabled fieldsets and first-legend rules, shadow ownership and newer input. A child interaction that occurs after a reset was queued, including during parent reset painting, keeps its current state.\n\nShared lifecycle, irreversible owner tracking, guarded painting and the shared intent gate handle update/dispose, parent removal, host-constructor reentry, errors and pending work. Hidden/inert ancestry, per-control ARIA-disabled, snapshot disabled state and supplied capability availability are checked before dispatch. The child renderers retain their own resource management; the parent does not duplicate it.\n\n## Observation and verification\n\nThe ordinary contract was observed read-only in module 59478 from fixed reference catalog `9ed3c8626296b98932a83b86fe045157fe3caf82`, including its complete final search composition. Code, fixtures and CSS here are independently authored. The reference's private runtime, captured code/assets, telemetry and client-service dispatch machinery are not shipped.\n\nFocused tests execute esbuild-compiled modules and strict AJV validation with the actual child definitions. They cover both location branches, notes/default CTA distinctions, widget shells, all-at-once rendering, image/map/enrichment/source behavior, streaming, parent/child cancellation, shared-gate reentry, newer child input during reset, update/dispose and source compensation. Playwright scenarios cover keyboard controls, the real nested children, streaming replacement, narrow RTL and reduced motion. Discovery is not a native execution result.\n\nIsolated handoff verification: 35/35 compiled-module tests passed with the unchanged four AskLocation source/schema dependencies from `60154c7`; strict AJV, TypeScript `--noEmit`, owned queues (176 renderer files, 21 deferred sites, zero violations), source boundary and whitespace checks passed. Four Playwright scenarios were discovered; native execution was not run in this lane.\n\n## Source dependencies and semantic checks\n\n`onboarding/search-capability` explicitly depends on `reservations/pills`, `requests/location` and `media/readers`. Their mandatory contracts remain part of the selected package: nested ordinary reservation data, location widget and search images are passed through their unchanged semantic inspectors.\n\n`CAPABILITY_SEARCH_DATA` rejects whitespace-only top-level id, label, inlineLocationLabel, nativeMapUnavailableLabel, streamingLabel, enrichmentLabel, resetLabel, requestedLabel, cancelledLabel and emptyLabel. For every example, IDs and titles, supplied prompt/ctaPrompt/ctaLabel, every note, source IDs/labels, venue name/referenceId and all direct string fields of a venueAction must be nonblank. Example IDs are unique in the document's examples list; source IDs are unique within each example. Source URLs, supplied venue URL and URL-kind venueAction destinations require the safe link policy. Other structurally valid content fields, such as intro, locationPrompt, searchLocation, fallback, footer, venue detail/address and exampleLabel, retain their existing empty/whitespace allowances.\n\nAn empty reservationWidget shell is valid and intentionally has different CTA behavior from absence. Only its supplied data is inspected. Sources and child references are never inferred from text. Pending/failed/streaming presentation does not bypass validation of fields that are present. The shared location and image rules, and the ordinary reservation fallback-time-label rule, therefore remain necessary alongside this parent page.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/ask-location.json",
+      "bytes": 571,
+      "sha256": "f99b6c65d7d3bee28147ebfa9b07f4796d3052154ec090317f91fe20d24a0ae6",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "ask-user-location",
+            "id": "local-permission-request",
+            "label": "Optional location request",
+            "title": "Choose whether to share a location",
+            "description": "Location can help a connected host offer nearby suggestions. This demonstration only sends a local request.",
+            "learnMoreUrl": "https://example.test/location-help",
+            "learnMoreLabel": "Learn more",
+            "notNowLabel": "Not now",
+            "turnOnLabel": "Request location",
+            "resetLabel": "Reset local request"
+          }
+        ]
+      }
+    },
+    {
+      "path": "examples/schema-modules/media-reader.json",
+      "bytes": 352,
+      "sha256": "5002e4630e69f71a2f51fa2b395c4885b82431d298c8251c4b4949a102fbb6ab",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "search-image",
+            "alt": "No supplied image yet",
+            "searchImage": null,
+            "sourcePending": true,
+            "aspectRatio": "16:9"
+          },
+          {
+            "type": "youtube",
+            "label": "Supplied synthetic video ID",
+            "videoId": "abcdefghijk",
+            "loadMode": "on-demand"
+          }
+        ]
+      }
+    },
+    {
+      "path": "examples/schema-modules/reservation-pills.json",
+      "bytes": 7985,
+      "sha256": "2e640cc51a966665276b59e517c43d95277ded58be1e068330cfc3b0de05f5e3",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "reservation-time-pills-ref-carousel",
+            "id": "sample-carousel",
+            "label": "Supplied reservation cards",
+            "items": [
+              {
+                "id": "card1",
+                "referenceId": "ref1",
+                "voiceCard": {
+                  "title": "Sample dining room",
+                  "metadataLabel": "Supplied rating · Sample cuisine",
+                  "hasRating": true,
+                  "action": {
+                    "kind": "entity",
+                    "entityId": "sample-venue",
+                    "available": true
+                  },
+                  "images": [
+                    {
+                      "id": "photo-0",
+                      "src": "https://images.example.test/venue-0.png",
+                      "alt": "Sample dining view 1"
+                    },
+                    {
+                      "id": "photo-1",
+                      "src": "https://images.example.test/venue-1.png",
+                      "alt": "Sample dining view 2"
+                    },
+                    {
+                      "id": "photo-2",
+                      "src": "https://images.example.test/venue-2.png",
+                      "alt": "Sample dining view 3"
+                    }
+                  ]
+                },
+                "groups": [
+                  {
+                    "id": "g1",
+                    "dateLabel": "Friday, October 16",
+                    "dateTimeLabel": "Friday at 6 pm",
+                    "partySizeLabel": "2 people",
+                    "providerName": "Provider A",
+                    "times": [
+                      {
+                        "id": "t1",
+                        "providerName": "Provider A",
+                        "launcher": {
+                          "providerId": "provider-a",
+                          "available": true
+                        },
+                        "timeLabel": "6:00 PM"
+                      }
+                    ],
+                    "desktopSlots": [
+                      {
+                        "id": "s1",
+                        "label": "6:00 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "bookingQuery": "Request the supplied 6 pm option"
+                      }
+                    ],
+                    "mobileSlots": [
+                      {
+                        "id": "early",
+                        "label": "5:30 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "5:30 PM",
+                        "bookingQuery": "Explore the supplied 5:30 pm option."
+                      },
+                      {
+                        "id": "main",
+                        "label": "6:00 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "bookingQuery": "Explore the supplied 6 pm option."
+                      },
+                      {
+                        "id": "unavailable",
+                        "label": "6:30 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "bookingQuery": "Request the supplied 6 pm option",
+                        "unavailable": true
+                      },
+                      {
+                        "id": "late",
+                        "label": "7:00 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "launcher": {
+                          "providerId": "sample-provider",
+                          "available": true
+                        }
+                      },
+                      {
+                        "id": "later",
+                        "label": "7:30 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "url": "https://example.com/dining"
+                      },
+                      {
+                        "id": "hidden",
+                        "label": "8:00 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "bookingQuery": "Request the supplied 6 pm option"
+                      }
+                    ],
+                    "changeOptions": [
+                      {
+                        "id": "a",
+                        "providerName": "Provider A",
+                        "launcher": {
+                          "providerId": "provider-a",
+                          "available": true
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "hidden-group",
+                    "dateLabel": "Friday, October 16",
+                    "dateTimeLabel": "Friday at 6 pm",
+                    "partySizeLabel": "2 people",
+                    "providerName": "Provider A",
+                    "times": [
+                      {
+                        "id": "t1",
+                        "providerName": "Provider A",
+                        "launcher": {
+                          "providerId": "provider-a",
+                          "available": true
+                        },
+                        "timeLabel": "6:00 PM"
+                      }
+                    ],
+                    "desktopSlots": [
+                      {
+                        "id": "s1",
+                        "label": "6:00 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "bookingQuery": "Request the supplied 6 pm option"
+                      }
+                    ],
+                    "mobileSlots": [
+                      {
+                        "id": "mobile",
+                        "label": "6:30 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:30 PM",
+                        "bookingQuery": "Request the supplied 6 pm option"
+                      }
+                    ],
+                    "changeOptions": [
+                      {
+                        "id": "a",
+                        "providerName": "Provider A",
+                        "launcher": {
+                          "providerId": "provider-a",
+                          "available": true
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "showMoreTimesLabel": "More supplied times"
+              },
+              {
+                "id": "card2",
+                "voiceCard": {
+                  "title": "Second supplied dining room",
+                  "metadataLabel": "Supplied rating · Sample cuisine",
+                  "hasRating": true,
+                  "action": {
+                    "kind": "entity",
+                    "entityId": "sample-venue",
+                    "available": true
+                  },
+                  "images": []
+                },
+                "groups": [
+                  {
+                    "id": "second",
+                    "dateLabel": "Friday, October 16",
+                    "dateTimeLabel": "Friday at 6 pm",
+                    "partySizeLabel": "2 people",
+                    "providerName": "Provider A",
+                    "times": [
+                      {
+                        "id": "t1",
+                        "providerName": "Provider A",
+                        "launcher": {
+                          "providerId": "provider-a",
+                          "available": true
+                        },
+                        "timeLabel": "6:00 PM"
+                      }
+                    ],
+                    "desktopSlots": [
+                      {
+                        "id": "s1",
+                        "label": "6:00 PM",
+                        "providerName": "Provider A",
+                        "timeLabel": "6:00 PM",
+                        "bookingQuery": "Request the supplied 6 pm option"
+                      }
+                    ],
+                    "mobileSlots": [],
+                    "changeOptions": [
+                      {
+                        "id": "retry",
+                        "providerName": "Provider A",
+                        "launcher": {
+                          "providerId": "provider-a",
+                          "available": true
+                        },
+                        "retryLauncher": {
+                          "providerId": "sample-retry",
+                          "available": true
+                        }
+                      }
+                    ],
+                    "emptyLabel": "No matching times in this supplied snapshot."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "reservation-time-pills-ref-carousel",
+            "label": "Pending supplied cards",
+            "status": "pending",
+            "fallback": "Waiting for supplied options"
+          },
+          {
+            "type": "reservation-time-pills-ref-carousel",
+            "label": "Failed supplied cards",
+            "status": "failed",
+            "fallback": "No reservation data was supplied."
+          }
+        ]
+      }
+    },
+    {
+      "path": "examples/schema-modules/capability-search.json",
+      "bytes": 12267,
+      "sha256": "28015412d7cfea92059ba31954734ee005327c771fa1051c8d3fd77ce88e403c",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "whats-new-capability-search",
+            "id": "search-guide",
+            "label": "Search capability examples",
+            "intro": "Explore the supplied examples together.",
+            "locationPrompt": "Results use a supplied area.",
+            "offerPreciseLocation": true,
+            "locationVariant": "widget",
+            "locationAvailable": true,
+            "inlineLocationLabel": "Request location",
+            "locationWidget": {
+              "type": "ask-user-location",
+              "id": "location-child",
+              "label": "Supplied location request",
+              "title": "Use a supplied location?",
+              "description": "This example emits a local request only.",
+              "learnMoreUrl": "https://example.com/location",
+              "learnMoreLabel": "Learn about location",
+              "notNowLabel": "Not now",
+              "turnOnLabel": "Request location"
+            },
+            "examples": [
+              {
+                "id": "idea",
+                "title": "Plan a sample evening",
+                "exampleLabel": "A supplied example",
+                "notes": [
+                  "Compare only the supplied possibilities.",
+                  "Ask a follow-up question."
+                ],
+                "ctaPrompt": "Explain the supplied possibilities.",
+                "ctaLabel": "Explore this example",
+                "sources": [
+                  {
+                    "id": "source",
+                    "label": "Example source",
+                    "url": "https://example.com/source"
+                  }
+                ],
+                "footer": "Supplied example footer"
+              },
+              {
+                "id": "place",
+                "title": "Plan a sample evening",
+                "exampleLabel": "A supplied example",
+                "notes": [],
+                "ctaLabel": "Review this place",
+                "sources": [
+                  {
+                    "id": "source",
+                    "label": "Example source",
+                    "url": "https://example.com/source"
+                  }
+                ],
+                "footer": "Supplied example footer",
+                "venue": {
+                  "name": "Sample Dining Room",
+                  "detail": "Supplied cuisine · Example rating",
+                  "address": "An illustrative address",
+                  "url": "https://example.com/dining",
+                  "referenceId": "sample-place"
+                },
+                "venueAction": {
+                  "kind": "entity",
+                  "entityId": "sample-place",
+                  "available": true
+                },
+                "searchImage": {
+                  "content_url": "https://images.example.test/dining.png"
+                }
+              },
+              {
+                "id": "reservation",
+                "title": "Plan a sample evening",
+                "exampleLabel": "A supplied example",
+                "notes": [],
+                "ctaLabel": "Explore this example",
+                "sources": [
+                  {
+                    "id": "source",
+                    "label": "Example source",
+                    "url": "https://example.com/source"
+                  }
+                ],
+                "footer": "Supplied reservation footer",
+                "venue": {
+                  "name": "Second Dining Room",
+                  "detail": "Supplied cuisine · Example rating",
+                  "address": "An illustrative address",
+                  "url": "https://example.com/dining",
+                  "referenceId": "sample-place"
+                },
+                "venueAction": {
+                  "kind": "url",
+                  "url": "https://example.com/second"
+                },
+                "reservationWidget": {
+                  "data": {
+                    "label": "Supplied restaurant times",
+                    "seatingEnabled": true,
+                    "groups": [
+                      {
+                        "id": "day-0",
+                        "dateLabel": "Day 1",
+                        "partySizeLabel": "2 people",
+                        "providerName": "Provider A",
+                        "times": [
+                          {
+                            "id": "time",
+                            "timeLabel": "6:00 PM"
+                          }
+                        ],
+                        "desktopSlots": [
+                          {
+                            "id": "six",
+                            "label": "6:00 PM",
+                            "bookingQuery": "Review the supplied 6 pm option"
+                          },
+                          {
+                            "id": "seven",
+                            "label": "7:00 PM",
+                            "seatingOptions": [
+                              {
+                                "id": "inside",
+                                "label": "Inside",
+                                "options": [
+                                  {
+                                    "id": "a",
+                                    "bookingQuery": "Review inside seating"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "outside",
+                                "label": "Outside",
+                                "options": [
+                                  {
+                                    "id": "b",
+                                    "bookingQuery": "Review outside seating"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "day-1",
+                        "dateLabel": "Day 2",
+                        "partySizeLabel": "2 people",
+                        "providerName": "Provider A",
+                        "times": [
+                          {
+                            "id": "time",
+                            "timeLabel": "6:00 PM"
+                          }
+                        ],
+                        "desktopSlots": [
+                          {
+                            "id": "six",
+                            "label": "6:00 PM",
+                            "bookingQuery": "Review the supplied 6 pm option"
+                          },
+                          {
+                            "id": "seven",
+                            "label": "7:00 PM",
+                            "seatingOptions": [
+                              {
+                                "id": "inside",
+                                "label": "Inside",
+                                "options": [
+                                  {
+                                    "id": "a",
+                                    "bookingQuery": "Review inside seating"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "outside",
+                                "label": "Outside",
+                                "options": [
+                                  {
+                                    "id": "b",
+                                    "bookingQuery": "Review outside seating"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "day-2",
+                        "dateLabel": "Day 3",
+                        "partySizeLabel": "2 people",
+                        "providerName": "Provider A",
+                        "times": [
+                          {
+                            "id": "time",
+                            "timeLabel": "6:00 PM"
+                          }
+                        ],
+                        "desktopSlots": [
+                          {
+                            "id": "six",
+                            "label": "6:00 PM",
+                            "bookingQuery": "Review the supplied 6 pm option"
+                          },
+                          {
+                            "id": "seven",
+                            "label": "7:00 PM",
+                            "seatingOptions": [
+                              {
+                                "id": "inside",
+                                "label": "Inside",
+                                "options": [
+                                  {
+                                    "id": "a",
+                                    "bookingQuery": "Review inside seating"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "outside",
+                                "label": "Outside",
+                                "options": [
+                                  {
+                                    "id": "b",
+                                    "bookingQuery": "Review outside seating"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "day-3",
+                        "dateLabel": "Day 4",
+                        "partySizeLabel": "2 people",
+                        "providerName": "Provider A",
+                        "times": [
+                          {
+                            "id": "time",
+                            "timeLabel": "6:00 PM"
+                          }
+                        ],
+                        "desktopSlots": [
+                          {
+                            "id": "six",
+                            "label": "6:00 PM",
+                            "bookingQuery": "Review the supplied 6 pm option"
+                          },
+                          {
+                            "id": "seven",
+                            "label": "7:00 PM",
+                            "seatingOptions": [
+                              {
+                                "id": "inside",
+                                "label": "Inside",
+                                "options": [
+                                  {
+                                    "id": "a",
+                                    "bookingQuery": "Review inside seating"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "outside",
+                                "label": "Outside",
+                                "options": [
+                                  {
+                                    "id": "b",
+                                    "bookingQuery": "Review outside seating"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "id": "waiting",
+                "title": "Plan a sample evening",
+                "exampleLabel": "A supplied example",
+                "notes": [],
+                "ctaPrompt": "Explain the supplied possibilities.",
+                "ctaLabel": "Explore this example",
+                "sources": [
+                  {
+                    "id": "source",
+                    "label": "Example source",
+                    "url": "https://example.com/source"
+                  }
+                ],
+                "footer": "Shown only after supplied details arrive.",
+                "venue": {
+                  "name": "Third supplied dining room",
+                  "detail": "Supplied cuisine · Example rating",
+                  "address": "An illustrative address",
+                  "url": "https://example.com/dining",
+                  "referenceId": "sample-place"
+                },
+                "reservationWidget": {},
+                "enrichmentPending": true,
+                "nativeMap": true
+              }
+            ],
+            "animateReveal": true
+          },
+          {
+            "type": "whats-new-capability-search",
+            "id": "inline-search",
+            "label": "Inline location variant",
+            "intro": "Explore the supplied examples together.",
+            "locationPrompt": "Results use a supplied area.",
+            "offerPreciseLocation": true,
+            "locationVariant": "button",
+            "locationAvailable": true,
+            "inlineLocationLabel": "Request location",
+            "locationWidget": {
+              "type": "ask-user-location",
+              "id": "location-child",
+              "label": "Supplied location request",
+              "title": "Use a supplied location?",
+              "description": "This example emits a local request only.",
+              "learnMoreUrl": "https://example.com/location",
+              "learnMoreLabel": "Learn about location",
+              "notNowLabel": "Not now",
+              "turnOnLabel": "Request location"
+            },
+            "examples": [],
+            "searchLocation": "Sample City",
+            "emptyLabel": "No supplied examples in this variant."
+          },
+          {
+            "type": "whats-new-capability-search",
+            "label": "Streaming examples",
+            "streaming": true,
+            "examples": [],
+            "intro": "More supplied examples may arrive through a document update."
+          },
+          {
+            "type": "whats-new-capability-search",
+            "label": "Pending search examples",
+            "status": "pending"
+          },
+          {
+            "type": "whats-new-capability-search",
+            "label": "Unavailable search examples",
+            "status": "failed",
+            "fallback": "No search examples were supplied."
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "c00bdbf87d528a221bd843ba81d796186517f070bcb37cc75f5f62d61b49348d",
+    "schemaBytes": 37594
+  },
+  "manifestPath": "search-capability.json.manifest.json"
+}

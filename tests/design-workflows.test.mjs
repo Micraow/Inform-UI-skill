@@ -22,7 +22,7 @@ test('whole input sums include matching entry, navigation, brief, example and ex
    assert.equal(arm.wholeInputBytes,arm.items.reduce((n,x)=>n+x.bytes,0));
    assert.equal(new Set(arm.items.map(x=>x.path)).size,arm.items.length);
    for(const f of arm.items){
-    const b=f.path.startsWith('task-brief:')?Buffer.from(original.brief+'\n'):f.path.endsWith('-task.json')?null:await read(f.path);
+    const b=f.path.startsWith('task-brief:')?Buffer.from(original.brief+'\n'):f.path.endsWith('-task.json')?null:await read(f.path==='SKILL.md'?'SKILL.cd1c545.md':f.path);
     if(b){assert.equal(f.bytes,b.length);assert.equal(f.sha256,hash(b));}
    }
    for(const p of ['SKILL.md','authoring/progressive/README.md','authoring/progressive/index.json','authoring/design-workflows/'+original.example])assert.ok(arm.items.some(x=>x.path===p));

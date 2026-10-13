@@ -1,0 +1,338 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "svg"
+    ],
+    "requestedModules": [
+      "graphics/vector"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "graphics/vector"
+    ],
+    "includedComponents": [
+      "svg"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/vector-compatibility.md#portable-svg"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/vector-compatibility.md#portable-svg",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/svg.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:bf776d9c15b9e7586ec19ea3e911eeb25aef640807f5f3428acc43cf14490857",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/SvgNode"
+          }
+        ]
+      },
+      "SvgNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "svg"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "viewBox": {
+            "type": "string",
+            "pattern": "^\\d+\\s+\\d+\\s+\\d+\\s+\\d+$"
+          },
+          "shapes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "enum": [
+                    "rect",
+                    "line",
+                    "circle",
+                    "path",
+                    "text",
+                    "polyline",
+                    "polygon"
+                  ]
+                },
+                "attrs": {
+                  "type": "object",
+                  "maxProperties": 24,
+                  "additionalProperties": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "maxLength": 12000
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
+                  }
+                },
+                "text": {
+                  "type": "string",
+                  "maxLength": 12000
+                }
+              },
+              "required": [
+                "tag",
+                "attrs"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 150
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "viewBox",
+          "shapes"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/vector-compatibility.md#portable-svg",
+      "sourceBytes": 2270,
+      "sourceSha256": "82700ff34f16a52d0a3fc2e27baec0e067d05d60aaccc3fb04bd4cc94a96f6e4",
+      "bytes": 1919,
+      "sha256": "aaed37829fb7090fe4d8d51948a3c225488e03eee0fde5a798079aad033fc7de",
+      "text": "## Portable SVG\n\n`svg` supports the bounded rect/line/circle/path/text/polyline/polygon grammar, at most 150 shapes and 24 attributes per shape. It is not arbitrary SVG markup. Text remains text, with no events, external resources, links or scripts. Full semantic validation follows structural validation.\n\nViewBox keeps the existing four nonnegative integer-token syntax; width and height must be positive finite and their product finite (`SVG_VIEWBOX`). Numeric attributes are x/y/x1/y1/x2/y2/cx/cy/r/rx/ry/width/height/stroke-width/opacity/fill-opacity/stroke-opacity/font-size/dx/dy. They require finite unitless numeric tokens, including optional exponent form; empty or CSS-unit values fail. r/rx/ry/width/height/stroke-width/font-size cannot be negative; opacities must be in [0,1] (`SVG_NUMBER`).\n\nOther allowed attributes are fill/stroke/stroke-dasharray/stroke-linecap/stroke-linejoin/d/points/text-anchor/dominant-baseline/font-weight/transform. Unknown names fail `SVG_ATTRIBUTE`. Paint accepts none/currentColor/transparent, black/white/red/green/blue/gray/grey/orange/purple, hex of length 3/4/6/8, and the existing numeric rgb/rgba/hsl/hsla grammar; URL paint fails `SVG_PAINT`. This is not a full CSS parser.\n\nPath text allows M/Z/L/H/V/C/S/Q/T/A in either case plus digits/whitespace/decimal/comma/sign/exponent characters (`SVG_PATH`). Points and dash arrays are numeric lists; dasharray also permits none. Transforms allow numeric translate/scale/rotate/matrix/skewX/skewY calls (`SVG_TRANSFORM`). Numeric tokens in these lists must be finite. These checks do not claim complete geometric grammar validation.\n\nEnum attributes are: linecap butt/round/square; linejoin miter/round/bevel; text-anchor start/middle/end; dominant-baseline auto/middle/central/hanging/text-before-edge/text-after-edge/alphabetic; font-weight normal/bold or hundreds from 100 through 900. Other values fail `SVG_ATTRIBUTE`.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/svg.json",
+      "bytes": 361,
+      "sha256": "7ac83105ab6b27ce7ca438d79e226213cfc81ffc28eff9ca1904a3de01af66a3",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "svg",
+            "label": "Original square",
+            "viewBox": "0 0 20 20",
+            "shapes": [
+              {
+                "tag": "rect",
+                "attrs": {
+                  "x": 1,
+                  "y": 1,
+                  "width": 18,
+                  "height": 18,
+                  "fill": "blue"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "ab13f9814fcf979c711e10cae120ff68604731987bd3751593f658b9269cb039",
+    "schemaBytes": 4920
+  },
+  "manifestPath": "vector.json.manifest.json"
+}

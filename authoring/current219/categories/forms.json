@@ -1,0 +1,78 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "forms",
+  "modules": [
+    {
+      "id": "forms/fields",
+      "title": "Validated form fields and local form",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/forms.md",
+        "docs/date-field.md"
+      ],
+      "taskPath": "../modules/forms/fields.json",
+      "components": [
+        {
+          "type": "input",
+          "definition": "InputNode",
+          "schemaPointer": "#/schema/$defs/InputNode"
+        },
+        {
+          "type": "textarea",
+          "definition": "TextareaNode",
+          "schemaPointer": "#/schema/$defs/TextareaNode"
+        },
+        {
+          "type": "radio",
+          "definition": "RadioNode",
+          "schemaPointer": "#/schema/$defs/RadioNode"
+        },
+        {
+          "type": "segmented",
+          "definition": "SegmentedNode",
+          "schemaPointer": "#/schema/$defs/SegmentedNode"
+        },
+        {
+          "type": "field",
+          "definition": "FieldNode",
+          "schemaPointer": "#/schema/$defs/FieldNode"
+        },
+        {
+          "type": "form",
+          "definition": "FormNode",
+          "schemaPointer": "#/schema/$defs/FormNode"
+        }
+      ]
+    },
+    {
+      "id": "forms/questionnaire",
+      "title": "Declarative questionnaires",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/questionnaire-contract.md"
+      ],
+      "taskPath": "../modules/forms/questionnaire.json",
+      "components": [
+        {
+          "type": "questionnaire",
+          "definition": "QuestionnaireNode",
+          "schemaPointer": "#/schema/$defs/QuestionnaireNode"
+        }
+      ]
+    }
+  ]
+}

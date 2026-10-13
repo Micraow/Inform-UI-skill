@@ -15,7 +15,8 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const args=parseProgressiveOptions(process.argv.slice(2),['--library','--revision','--output','--case']);
 for(const flag of ['--library','--revision','--output'])assert.ok(args[flag],flag);
 const library=path.resolve(args['--library']),revision=args['--revision'];
-const read=async p=>readFile(path.join(root,p));
+// Preserve the original reading material and recorded paths for this 218-node experiment.
+const read=async p=>readFile(path.join(root,p==='SKILL.md'?'SKILL.cd1c545.md':p));
 const catalog=JSON.parse(await read('authoring/progressive/source-index.json'));
 const publication=JSON.parse(await read('authoring/progressive/source-public.json'));
 assert.ok([publication.sourceCommit,publication.publicCommit].includes(revision),'revision matches verified source');

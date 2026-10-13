@@ -1,0 +1,809 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "sidebar-people-also-ask"
+    ],
+    "requestedModules": [
+      "readers/supplied"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "readers/supplied"
+    ],
+    "includedComponents": [
+      "sidebar-people-also-ask",
+      "email-preview",
+      "file-nav-list"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/related-questions.md",
+      "docs/mail-files.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/related-questions.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/mail-files.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/supplied-readers.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:8120386f1cf0efca817ee8e36fd6cfa0ffaa8682736599eedd9999444a477f9e",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "EmailPreviewAttachment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000000000
+          },
+          "mediaType": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "EmailPreviewNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "email-preview"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "subject": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "from": {
+            "$ref": "#/$defs/EmailPreviewPerson"
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailPreviewPerson"
+            },
+            "minItems": 0,
+            "maxItems": 40
+          },
+          "cc": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailPreviewPerson"
+            },
+            "minItems": 0,
+            "maxItems": 40
+          },
+          "sentAt": {
+            "type": "string",
+            "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d(?:Z|[+-](?:(?:0\\d|1[0-3]):[0-5]\\d|14:00))$(?![\\s\\S])",
+            "minLength": 17,
+            "maxLength": 22
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 20000
+          },
+          "quotedText": {
+            "type": "string",
+            "maxLength": 20000
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/EmailPreviewAttachment"
+            },
+            "minItems": 0,
+            "maxItems": 20
+          },
+          "source": {
+            "$ref": "#/$defs/ReaderSource"
+          }
+        },
+        "required": [
+          "type",
+          "subject",
+          "from",
+          "to",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "EmailPreviewPerson": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "address": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 320
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "additionalProperties": false
+      },
+      "FileNavEntry": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/FileNavFolder"
+          },
+          {
+            "$ref": "#/$defs/FileNavFile"
+          }
+        ]
+      },
+      "FileNavFile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "parentId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000000000
+          },
+          "mediaType": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "kind": {
+            "const": "file"
+          },
+          "category": {
+            "enum": [
+              "document",
+              "image",
+              "audio",
+              "video",
+              "archive",
+              "other"
+            ]
+          },
+          "modifiedAt": {
+            "type": "string",
+            "pattern": "^[1-9]\\d{3}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d(?:Z|[+-](?:(?:0\\d|1[0-3]):[0-5]\\d|14:00))$(?![\\s\\S])",
+            "minLength": 17,
+            "maxLength": 22
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind"
+        ],
+        "additionalProperties": false
+      },
+      "FileNavFolder": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "parentId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "kind": {
+            "const": "folder"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind"
+        ],
+        "additionalProperties": false
+      },
+      "FileNavListNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "file-nav-list"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/FileNavEntry"
+            },
+            "minItems": 0,
+            "maxItems": 120
+          },
+          "initialFolderId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "source": {
+            "$ref": "#/$defs/ReaderSource"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "entries"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/SidebarPeopleAlsoAskNode"
+          },
+          {
+            "$ref": "#/$defs/EmailPreviewNode"
+          },
+          {
+            "$ref": "#/$defs/FileNavListNode"
+          }
+        ]
+      },
+      "ReaderSource": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "label",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "RelatedQuestion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "answer": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/RelatedQuestionSource"
+            },
+            "minItems": 0,
+            "maxItems": 5
+          }
+        },
+        "required": [
+          "id",
+          "question",
+          "answer"
+        ],
+        "additionalProperties": false
+      },
+      "RelatedQuestionSource": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "label",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "SidebarPeopleAlsoAskNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "sidebar-people-also-ask"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/RelatedQuestion"
+            },
+            "minItems": 0,
+            "maxItems": 40
+          },
+          "expanded": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+            },
+            "minItems": 0,
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/related-questions.md",
+      "sourceBytes": 5548,
+      "sourceSha256": "802dd63e8c7d89da146492f65ed1fff54116f8aee329876ddc11b55a1ea38531",
+      "bytes": 5548,
+      "sha256": "802dd63e8c7d89da146492f65ed1fff54116f8aee329876ddc11b55a1ea38531",
+      "text": "# Supplied related questions\n\nThe inventory-confirmed `sidebar-people-also-ask` candidate is an original supplied-question reader. It does not discover popular questions, rank relevance, search the web, generate answers, verify truth or fetch sources. The author supplies every question, answer and source. It is a distinct structured contract with explicit missing-answer semantics and per-answer provenance, not a generic accordion alias.\n\n## Contract\n\nRequired `label` (1–200 Unicode codepoints) and `items` (0–40). Optional `description` (0–2000) and `expanded` (0–40 unique supplied question IDs). Each item requires a unique `id`, `question` (1–500) and `answer` (0–10000 codepoints or null). Null explicitly means no answer was supplied; an empty string remains an exactly empty supplied answer. IDs are bounded local keys, not paths. Optional `sources` contains at most five `{label,url}` records. Source labels are 1–200 codepoints; URLs must be allowed absolute HTTP(S), without credentials. Relative, executable, data and filesystem URLs are rejected. No HTML, bindings, providers or action fields are supported.\n\nExpanded IDs must refer to supplied questions. Exact-path semantic issues are `DUPLICATE_ID`, `QUESTION_REFERENCE` and `UNSAFE_URL`; unsupported fields and structural bounds report `SCHEMA`. Questions, answers and source order are preserved exactly. There is no freshness or authority inference.\n\n## Reading and local controls\n\nNative details/summary disclosures expose the literal answer and optional source links. Multiple questions may stay open. An initial expanded list is applied only on mounting/updating. Search filters question and answer text by case-insensitive substring, retaining all bounded rows and their disclosure state. The search limit is 200 UTF-16 code units; oversized forged input is rejected without replacing the accepted query. Clear restores all rows and preserves disclosure state. Empty collection, no matches, missing answer and missing source are distinct states.\n\nNative source anchors disclose opening a new tab, use `noopener noreferrer` and `no-referrer`, and perform no prefetch or automatic navigation. No hidden media, script, remote preview, answer request or generated link is rendered.\n\nSearch has an explicit native label. A polite status reports the visible match count. Long text wraps, answers preserve line breaks, source labels can wrap, and the component follows document language/theme and logical layout direction. Native disclosures and ordinary safe links remain reading affordances inside disabled Forms; search and Clear are guarded interactive controls.\n\nControls have no payload names or bindings and do not enter host FormData or action snapshots. Unrelated `setState` preserves query, focus, row identity and disclosures. Native outer form reset clears only the search, retaining reading state. Cancellation, disabled/hidden/inert ancestry, newer input, moved controls, update and disposal follow the shared reviewed reader lifecycle. Actual control ancestry and root ownership are checked; a retained moved input cannot change the model or be overwritten by its blocked handler. First-legend native exceptions and shadow-root resets are supported.\n\n## Acceptance boundary\n\nThis candidate lives in a separate tree from the running 37-candidate batch and the jobs/product-card worker. The accepted canonical total remains 53; no completed count is inferred from the 101-node schema. Prepared browser cases cover keyboard/pointer/touch, source behavior, responsive light/dark views, RTL, forced colors and absence of runtime requests. They require actual execution and screenshot review before browser or visual acceptance. Current acceptance locks refer to older immutable assets and must not be reused for this candidate.\n\n## Local checkpoint evidence\n\nThe initial related-question/public/core run passed 42/42 tests. After adding extra pending-Forms, moved-control, overlength-input and listener-retirement cases, the focused related-question/Forms run passed 37/37, with zero failures or skips. The runs overlap and are not a full aggregate claim. Build, CDN, TypeScript and public type consumers, and source-boundary checks passed. Browser discovery found 639 cases in 70 files, including eight newly prepared cases; none was executed locally. A final theme-token-only search-input style update is separately rebuilt before packaging.\n\nFinal selected schema verification caught and corrected four stale 100-node assertions inherited from the prior baseline; the exact expected inventory is now 101. All three selected ownership/CDN/stale-directory checks and the deterministic full-union/CLI check passed after correction. The clarified “No external search” labels and final theme-token styles were rebuilt; all 27 related-question tests passed again. Browser execution, visual review and the full aggregate remain pending.\n\n## Source module and semantic scope\n\n`readers/supplied` maintains the original question-reader declaration. Full `validateDocument` requires question IDs and expanded IDs to be unique in their respective lists (`DUPLICATE_ID`), and expanded IDs must name supplied questions (`QUESTION_REFERENCE`). Every question source URL requires absolute core-safe HTTP(S) (`UNSAFE_URL`). Answer null remains unknown and an empty supplied answer remains distinct; validation does not generate, retrieve or verify answers. Structurally valid literal text retains its original whitespace handling without an added blanket trim rule.\n"
+    },
+    {
+      "path": "docs/mail-files.md",
+      "sourceBytes": 8351,
+      "sourceSha256": "6628ead5b89585495515f7deab78859c4cfbf083fed8f2b4b6b97a9080ddbda4",
+      "bytes": 8351,
+      "sha256": "6628ead5b89585495515f7deab78859c4cfbf083fed8f2b4b6b97a9080ddbda4",
+      "text": "# Supplied email preview and file navigation\n\n`email-preview` and `file-nav-list` are original, distinct Base-domain readers. They only render document-supplied text and metadata. They do not connect to a mailbox or filesystem, mark messages read, reply/forward, upload/download automatically, fetch previews or resolve missing files. A normal source/file anchor is the only way to navigate outside the local view, and only on the user's ordinary link activation. These later candidates are separate from the frozen 97-node checkpoint and do not change canonical accepted totals.\n\n## email-preview\n\nRequired `subject` (1–500 Unicode codepoints), `from: {address,name?}`, `to` (0–40 recipient objects), and `body` (0–20000). A supplied address is a literal string (1–320), not a verified mailbox. Names use bounded short text (1–200). Optional `cc` (0–40), `sentAt`, `quotedText` (0–20000), `attachments` (0–20), and `source: {label,url}`. HTML payloads, provider endpoints and action fields are unsupported.\n\nThe reader shows literal subject/sender/time, a native recipient disclosure preserving To/Cc order, exact plain-text body, optional native quoted-text disclosure and supplied attachment metadata. Bodies longer than 600 Unicode codepoints have an explicitly labeled shorter excerpt plus a native full/short toggle. Exact full text remains available; neither markup nor remote content is rendered. Reading state survives unrelated host state changes.\n\nAttachments require unique local `id` and `name`; optional `sizeBytes`, `mediaType`, `description` and `url`. A native name search filters mounted attachment rows, preserving details. Search is local, case-insensitive substring matching over names, limited to 200 UTF-16 code units. Empty input, no attachments and no matches are explicit. Missing sizes/types are labeled not supplied; zero bytes remains exact zero. No image thumbnail or media player is instantiated.\n\n## file-nav-list\n\nRequired `label` and `entries` (0–120). Optional `description`, `initialFolderId`, and `source`.\n\nEach entry has unique `id`, `name`, `kind: folder | file`, optional `parentId` (null/absent means top-level), and optional `description`. Parent references must resolve to supplied folders. Cycles are invalid; an entry may have at most four folder ancestors. The initial folder, when provided, must resolve to a supplied folder. Names and IDs are metadata, never filesystem paths; slashes in names are not interpreted.\n\nFile entries optionally supply `category: document | image | audio | video | archive | other`, `sizeBytes`, `mediaType`, `modifiedAt` and `url`. Folder entries cannot have file size/type/time/URL fields. Categories are supplied, not guessed from file extensions or MIME labels. Missing categories have an explicit category-not-supplied filter and label. No symbolic links, filesystem mounts, paths or provider APIs exist.\n\nThe navigator keeps all bounded rows mounted, hiding those outside the selected folder/filter. Native folder buttons, breadcrumbs and parent-folder control navigate locally. Navigation clears current search/category filters and moves focus to the destination folder heading. A current-folder breadcrumb or root parent action is a no-op. Returning to a folder preserves its file-details disclosure state and row identity.\n\nName search only applies inside the current folder. File-category filtering affects files; folders remain available for navigation and are still subject to name search. Count text describes the current folder's supplied entries. Reset filters retains the current folder. Empty metadata, empty folders and no matches are distinct.\n\n## Shared metadata and lifecycle\n\n`sizeBytes` is a supplied integer from 0 through 1e12, displayed as exact bytes; missing values are never treated as zero. `sentAt`/`modifiedAt` are strict Gregorian minute timestamps, years 1000–9999, with explicit `Z` or offset up to 14:00. Impossible civil dates are rejected, and offsets are displayed literally without local-time conversion or freshness inference.\n\nAll source/file/attachment links require allowed absolute HTTP(S) URLs with no credentials or disguised unsafe schemes. They disclose new-tab opening and use `noopener noreferrer` plus `no-referrer`. There is no `download` attribute, automatic navigation or prefetch.\n\nControls are native and have no payload names; reader values never enter host bindings, FormData or action snapshots. Unrelated `setState` preserves local folder/filter/body/disclosure state and focus. Native outer form reset restores filters while preserving selected folder and reading disclosures, unless canceled or the controls become disabled/hidden/inert. Newer explicit input takes precedence over queued resets. If one control is detached or reparented during reset, the local model is preserved and only still-owned controls are restored, preventing display/model mismatch without writing to outside controls. Shadow-root resets are supported.\n\nControl guards inspect their actual ancestry and ownership: disabled/pending fieldsets, hidden/inert wrappers, detached controls and controls moved outside their root cannot perform actions. Update resets local state and retires prior listeners; dispose also retires queued reset reconciliation. Ordinary native disclosures and safe anchors remain reading affordances.\n\n## Validation and acceptance\n\nStructural bounds/unsupported fields report `SCHEMA`. Semantic exact-path failures include `DUPLICATE_ID`, `READER_TIME`, `UNSAFE_URL`, `FILE_PARENT`, `FILE_CYCLE`, `FILE_DEPTH` and `FILE_FOLDER`.\n\nFocused tests cover public Node/browser parity, literal hostile content, unknown/zero data, bounded records, local navigation/filtering, stable row/disclosure/focus state, native reset cancellation/newer-input races, shadow roots, inherited disabled/pending/first-legend behavior, detached controls, atomic update/disposal, deterministic compiler output and safe URLs. Browser scenarios are prepared separately for pointer/keyboard/touch, themes and widths, RTL, forced colors, and zero runtime requests. They are not browser acceptance evidence until executed and visually reviewed.\n\n## Local checkpoint evidence\n\nOn baseline `4e246b6c3d5cd80fdf6746fd3d3c8c8dad11e733`, generation produced 100 structural node types. Build/CDN, TypeScript/public type consumers and source-boundary checks passed. Initial reader/Forms/core tests passed 78/78; selected schema-owner/closed-reference/CDN-directory checks passed 3/3. After independent review identified partial-control native-reset inconsistencies, the corrected reader/Forms guard suite passed 64/64, including both first-control and later-control detachment, outside-control nonmutation, form movement and listener balance. These runs overlap and are not a full-suite claim.\n\nReal-browser/visual acceptance, full aggregate checks, the complete schema-subset matrix, CI and deployment remain unrun for this isolated candidate. Integrate source-only changes onto the newer reviewed combined baseline, preserving its existing fixes, and regenerate all derived artifacts before later acceptance. The frozen 97-node checkpoint is unaffected.\n\n## Source module and precise validation\n\n`readers/supplied` maintains the original mail/file declarations. Full document validation requires all supplied source, attachment and file URLs to be absolute core-safe HTTP(S) (`UNSAFE_URL`). Optional sentAt and file modifiedAt values must be real Gregorian minute timestamps in years 1000–9999 with Z or signed offsets through 14:00 (`READER_TIME`). Textual sender/recipient addresses are supplied metadata, not a verified mailbox or a network destination automatically contacted.\n\nAttachment IDs are unique within that mail preview; file-navigation entry IDs are unique within the supplied list (`DUPLICATE_ID`). Every non-null parentId must reference a supplied folder (`FILE_PARENT`); ancestry cannot cycle (`FILE_CYCLE`) and may contain at most four folder ancestors (`FILE_DEPTH`). A supplied initialFolderId must identify a folder (`FILE_FOLDER`). Missing/null parent means a root entry. These checks establish only consistency of supplied metadata; no filesystem, symlink or account lookup is performed. Literal text retains its existing structural bounds and whitespace handling without an additional blanket trim rule.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/supplied-readers.json",
+      "bytes": 3687,
+      "sha256": "02fa910910dd2e94a5366c564a24c08d86da698a1b6eb34c5bcb2611c8e770f9",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "sidebar-people-also-ask",
+            "label": "Questions about the supplied sample",
+            "description": "Original demonstration text; no remote answer service.",
+            "expanded": [
+              "scope"
+            ],
+            "items": [
+              {
+                "id": "scope",
+                "question": "What does this sample provide?",
+                "answer": "A local reader for explicitly supplied questions and answers.\nSources remain ordinary optional links.",
+                "sources": [
+                  {
+                    "label": "Example source",
+                    "url": "https://example.org/reference"
+                  }
+                ]
+              },
+              {
+                "id": "missing",
+                "question": "Has the source been independently verified?",
+                "answer": null
+              },
+              {
+                "id": "literal",
+                "question": "Can the answer contain markup?",
+                "answer": "<script>literal text</script> is displayed as text, never run."
+              }
+            ]
+          },
+          {
+            "type": "email-preview",
+            "subject": "Example itinerary notes",
+            "from": {
+              "name": "Example sender",
+              "address": "sender@example.org"
+            },
+            "to": [
+              {
+                "name": "Example recipient",
+                "address": "recipient@example.org"
+              }
+            ],
+            "cc": [
+              {
+                "address": "observer@example.org"
+              }
+            ],
+            "sentAt": "2028-02-29T09:00+01:00",
+            "body": "These are supplied plain-text notes.\n\nNo mailbox is connected. Links and attachments are only the metadata supplied with this example.",
+            "quotedText": "An original quoted-text example. No external content was fetched.",
+            "attachments": [
+              {
+                "id": "notes",
+                "name": "Example notes.txt",
+                "mediaType": "text/plain",
+                "sizeBytes": 1024,
+                "url": "https://example.org/notes"
+              },
+              {
+                "id": "image",
+                "name": "Example photo metadata",
+                "mediaType": "image/png"
+              }
+            ],
+            "source": {
+              "label": "Synthetic message source",
+              "url": "https://example.org/message"
+            }
+          },
+          {
+            "type": "file-nav-list",
+            "label": "Example supplied files",
+            "description": "Synthetic metadata, not a filesystem connection.",
+            "entries": [
+              {
+                "id": "travel",
+                "kind": "folder",
+                "name": "Travel notes",
+                "description": "A supplied folder."
+              },
+              {
+                "id": "empty",
+                "kind": "folder",
+                "name": "Empty folder"
+              },
+              {
+                "id": "readme",
+                "kind": "file",
+                "name": "Readme.txt",
+                "category": "document",
+                "mediaType": "text/plain",
+                "sizeBytes": 0,
+                "url": "https://example.org/readme"
+              },
+              {
+                "id": "pdf",
+                "parentId": "travel",
+                "kind": "file",
+                "name": "Itinerary.pdf",
+                "category": "document",
+                "sizeBytes": 32768,
+                "modifiedAt": "2028-02-29T08:00Z",
+                "url": "https://example.org/itinerary"
+              },
+              {
+                "id": "photos",
+                "parentId": "travel",
+                "kind": "folder",
+                "name": "Photo metadata"
+              },
+              {
+                "id": "photo",
+                "parentId": "photos",
+                "kind": "file",
+                "name": "Example view.png",
+                "category": "image",
+                "mediaType": "image/png",
+                "description": "Only metadata. No thumbnail is requested."
+              },
+              {
+                "id": "unknown",
+                "kind": "file",
+                "name": "Unknown metadata"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "0a1d8772acf8047dc3c769c9db74bae335185b798aa515d941b3b124d0b4058c",
+    "schemaBytes": 12608
+  },
+  "manifestPath": "supplied.json.manifest.json"
+}

@@ -7,16 +7,16 @@ const read = path => readFile(new URL(path, root), 'utf8');
 
 test('reader entry provides a real skill installation and one pinned runtime quickstart', async () => {
   const readme = await read('README.md');
-  assert.ok(Buffer.byteLength(readme) < 7500, 'Keep the user-facing entry short.');
+  assert.ok(Buffer.byteLength(readme) < 9500, 'Keep the user-facing entry short.');
   assert.match(readme, /\.agents\/skills\/inform-ui-author/);
-  assert.match(readme, /git clone --branch recovery\/consumers-126-20261011/);
+  assert.match(readme, /git clone \\\n  https:\/\/github\.com\/Micraow\/Inform-UI-skill\.git/);
   const revision = readme.match(/git -C Inform-UI checkout --detach ([a-f0-9]{40})/)?.[1];
-  assert.equal(revision, '9ee7191bfcccb04fe8d414f9bcdc08f330aa780d');
+  assert.equal(revision, '5849d9ba6352da8f3fe32dcf3525d0418129e3f8');
   assert.ok(readme.includes('https://github.com/Micraow/Inform-UI/tree/' + revision));
   assert.ok(readme.includes('https://github.com/Micraow/Inform-UI/blob/' + revision + '/docs/showcase.md'));
   assert.match(readme, /npm --prefix Inform-UI run showcase/);
   assert.match(readme, /http:\/\/127\.0\.0\.1:4175/);
-  assert.match(readme, /217 个可渲染示例/);
+  assert.match(readme, /218 个可渲染示例/);
   assert.match(readme, /`native` 拒绝边界/);
   assert.match(readme, /iui\.mjs validate \.agents\/skills\/inform-ui-author\/getting-started\/capacity\.json --json/);
   assert.match(readme, /iui\.mjs build \.agents\/skills\/inform-ui-author\/getting-started\/capacity\.json --out answer\.html --lang zh-CN/);
@@ -48,4 +48,17 @@ test('readme illustration is original, static and clearly labeled as a concept',
   assert.match(svg, /Not a screenshot/);
   assert.match(svg, /<title id="title">Inform UI Skill<\/title>/);
   assert.doesNotMatch(svg, /<script|<foreignObject|<image|\bon\w+=|href=/i);
+});
+
+test('README gallery images are real landscape PNGs with a three-page panorama', async () => {
+  const readme = await read('README.md');
+  for (const name of ['create', 'explore', 'compose', 'panorama']) {
+    const path = `assets/gallery-${name}.png`;
+    assert.ok(readme.includes(path));
+    const image = await readFile(new URL(path, root));
+    assert.equal(image.subarray(1, 4).toString(), 'PNG');
+    assert.equal(image.readUInt32BE(16), name === 'panorama' ? 6480 : 2160);
+    assert.equal(image.readUInt32BE(20), 1440);
+  }
+  assert.match(readme, /http:\/\/127\.0\.0\.1:4175\/gallery\.html/);
 });

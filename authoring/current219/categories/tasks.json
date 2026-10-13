@@ -1,0 +1,44 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "tasks",
+  "modules": [
+    {
+      "id": "tasks/cards",
+      "title": "Local task intent cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/task-cards.md"
+      ],
+      "taskPath": "../modules/tasks/cards.json",
+      "components": [
+        {
+          "type": "push-drip-series-intro",
+          "definition": "PushDripSeriesIntroNode",
+          "schemaPointer": "#/schema/$defs/PushDripSeriesIntroNode"
+        },
+        {
+          "type": "stop-push-drip-series",
+          "definition": "StopPushDripSeriesNode",
+          "schemaPointer": "#/schema/$defs/StopPushDripSeriesNode"
+        },
+        {
+          "type": "task-autopause-card",
+          "definition": "TaskAutopauseCardNode",
+          "schemaPointer": "#/schema/$defs/TaskAutopauseCardNode"
+        }
+      ]
+    }
+  ]
+}

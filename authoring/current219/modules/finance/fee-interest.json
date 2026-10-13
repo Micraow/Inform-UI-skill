@@ -1,0 +1,572 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "ledger-fee-interest-paid"
+    ],
+    "requestedModules": [
+      "finance/fee-interest"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "shared/ledger-source",
+      "finance/fee-interest"
+    ],
+    "includedComponents": [
+      "ledger-fee-interest-paid"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/ledger-source-contract.md#source",
+      "docs/ledger-history-contract.md#fee-interest"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/ledger-source-contract.md#source",
+        "followLinks": false
+      },
+      {
+        "path": "docs/ledger-history-contract.md#fee-interest",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/fee-interest.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:804673b16e171fb6f6ff3972a8f3f98bf5996f185b8822c62ae31f3566d75295",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "LedgerFeeInterestPaidNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ledger-fee-interest-paid"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "source": {
+            "$ref": "#/$defs/LedgerSource"
+          },
+          "ranges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LedgerFeeInterestRange"
+            },
+            "minItems": 0,
+            "maxItems": 8
+          },
+          "initialRangeId": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "masked": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "showMoreLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "showLessLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "maskedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "ranges"
+        ],
+        "additionalProperties": false
+      },
+      "LedgerFeeInterestRange": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "totalPaid": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "totalPaidLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "totalStatusLabel": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "conversionNote": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "emptyLabel": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/LedgerFeeInterestTransaction"
+            },
+            "minItems": 0,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "totalPaid",
+          "totalPaidLabel",
+          "transactions"
+        ],
+        "additionalProperties": false
+      },
+      "LedgerFeeInterestTransaction": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$(?![\\s\\S])"
+          },
+          "displayName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "dateLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "categoryLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "accountDetail": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amountLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amountTone": {
+            "enum": [
+              "primary",
+              "secondary",
+              "positive",
+              "negative"
+            ]
+          },
+          "maskedAmountLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "logoUrl": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8192
+          },
+          "categoryIcon": {
+            "enum": [
+              "bank",
+              "credit-card",
+              "receipt",
+              "percent"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "displayName",
+          "dateLabel",
+          "categoryLabel",
+          "accountDetail",
+          "amountLabel"
+        ],
+        "additionalProperties": false
+      },
+      "LedgerSource": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "label",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LedgerFeeInterestPaidNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/ledger-source-contract.md#source",
+      "sourceBytes": 5996,
+      "sourceSha256": "99e5f95b94565ca7ac5aa67537efbb308788a5e7611bc450692a9c815daea69a",
+      "bytes": 386,
+      "sha256": "eb8a62f505a61039a98e965d36d227a10adf77e8516db064b8fa93c3ae52c4e2",
+      "text": "## Source\n\n`LedgerSource` is `{label,url}`. Its URL must pass the shared safe-link policy and be an absolute HTTP(S) destination (`UNSAFE_URL`); empty, relative, credential-bearing or unsafe destinations fail. Source labels keep their structural minimum length without an additional whitespace trim rule. The source object has no credential, provider endpoint or connection capability.\n"
+    },
+    {
+      "path": "docs/ledger-history-contract.md#fee-interest",
+      "sourceBytes": 2112,
+      "sourceSha256": "92ee6dd74f6f37fce997094d7103cef703a1d42685f0dcbe8ec04e87bfa70571",
+      "bytes": 882,
+      "sha256": "beedd7f261861e4ecf98cb3ac1f7770d551ddbb58bdfc97ac556e3a4d1eb9a16",
+      "text": "## Fee interest\n\nThe maintained source is `scripts/fee-interest-definitions.json`. Amounts, totals, dates and conversion notes remain supplied, not calculated from display strings. `FEE_INTEREST_LABEL` checks exactly top-level label/showMoreLabel/showLessLabel/maskedLabel; range label/totalPaidLabel/totalStatusLabel/conversionNote/emptyLabel; row displayName/dateLabel/categoryLabel/accountDetail/amountLabel/maskedAmountLabel. Optional omitted fields stay legal; other text keeps structural constraints. Range IDs are unique and initialRangeId must exist (`FEE_INTEREST_RANGE`). Row IDs are unique inside each range (`FEE_INTEREST_TRANSACTION`), with reuse across ranges allowed. Source needs absolute HTTP(S) plus safe-link policy; truthy logoUrl uses image safety (`UNSAFE_URL`). Selection, expansion and masking are local. No fee sum, rate, tax or account status is inferred.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/fee-interest.json",
+      "bytes": 3716,
+      "sha256": "ab2700172da0601c8e00bf8c3eaa35406c0329b6d5478eb845b881ea1b2eb114",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "ledger-fee-interest-paid",
+            "id": "supplied-fees",
+            "label": "Synthetic fees and interest",
+            "description": "Invented teaching labels only. No account access, calculation, currency conversion or payment.",
+            "initialRangeId": "month",
+            "showMoreLabel": "Show all supplied rows",
+            "showLessLabel": "Show fewer rows",
+            "maskedLabel": "Amounts hidden",
+            "ranges": [
+              {
+                "id": "month",
+                "label": "Supplied month",
+                "totalPaid": 900,
+                "totalPaidLabel": "USD 900.00 supplied",
+                "totalStatusLabel": "Supplied total is independent of row labels",
+                "conversionNote": "No currency conversion performed",
+                "transactions": [
+                  {
+                    "id": "supplied0",
+                    "displayName": "Synthetic charge 1",
+                    "dateLabel": "Supplied day 1",
+                    "categoryLabel": "Supplied fee",
+                    "accountDetail": "Fictional sample account",
+                    "amountLabel": "USD 1.00",
+                    "amountTone": "negative",
+                    "categoryIcon": "receipt",
+                    "logoUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQTL5DEmIY1TCqYfhqAABnlmAQyeC+cQAAAABJRU5ErkJggg=="
+                  },
+                  {
+                    "id": "supplied1",
+                    "displayName": "Synthetic charge 2",
+                    "dateLabel": "Supplied day 2",
+                    "categoryLabel": "Supplied interest",
+                    "accountDetail": "Fictional sample account",
+                    "amountLabel": "USD 2.00",
+                    "amountTone": "negative",
+                    "categoryIcon": "percent"
+                  },
+                  {
+                    "id": "supplied2",
+                    "displayName": "Synthetic charge 3",
+                    "dateLabel": "Supplied day 3",
+                    "categoryLabel": "Supplied fee",
+                    "accountDetail": "Fictional sample account",
+                    "amountLabel": "USD 3.00",
+                    "amountTone": "negative",
+                    "categoryIcon": "receipt"
+                  },
+                  {
+                    "id": "supplied3",
+                    "displayName": "Synthetic charge 4",
+                    "dateLabel": "Supplied day 4",
+                    "categoryLabel": "Supplied interest",
+                    "accountDetail": "Fictional sample account",
+                    "amountLabel": "USD 0.00",
+                    "amountTone": "secondary",
+                    "categoryIcon": "percent"
+                  },
+                  {
+                    "id": "supplied4",
+                    "displayName": "Synthetic charge 5",
+                    "dateLabel": "Date not supplied",
+                    "categoryLabel": "Supplied fee",
+                    "accountDetail": "Fictional sample account",
+                    "amountLabel": "Amount not supplied",
+                    "amountTone": "negative",
+                    "categoryIcon": "receipt"
+                  }
+                ]
+              },
+              {
+                "id": "zero",
+                "label": "Explicit zero",
+                "totalPaid": 0,
+                "totalPaidLabel": "USD 0.00 supplied",
+                "emptyLabel": "No charges supplied for this range",
+                "transactions": []
+              },
+              {
+                "id": "unknown",
+                "label": "Unknown total",
+                "totalPaid": null,
+                "totalPaidLabel": "Total not supplied",
+                "transactions": [
+                  {
+                    "id": "unreported",
+                    "displayName": "Synthetic pending record",
+                    "dateLabel": "Date not supplied",
+                    "categoryLabel": "Category not supplied",
+                    "accountDetail": "Fictional unreported account",
+                    "amountLabel": "Amount not supplied"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "7151f788e9e69ca4a4f2a5446836f83af7d960da204f5d37ef7a7a42b867eeb4",
+    "schemaBytes": 8027
+  },
+  "manifestPath": "fee-interest.json.manifest.json"
+}

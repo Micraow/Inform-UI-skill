@@ -1,0 +1,44 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "launchers",
+  "modules": [
+    {
+      "id": "launchers/cards",
+      "title": "Local launcher and image-status cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/supplied-launchers.md"
+      ],
+      "taskPath": "../modules/launchers/cards.json",
+      "components": [
+        {
+          "type": "homework-helper-v2",
+          "definition": "HomeworkHelperV2Node",
+          "schemaPointer": "#/schema/$defs/HomeworkHelperV2Node"
+        },
+        {
+          "type": "image-gen",
+          "definition": "ImageGenNode",
+          "schemaPointer": "#/schema/$defs/ImageGenNode"
+        },
+        {
+          "type": "internal-partner-app",
+          "definition": "InternalPartnerAppNode",
+          "schemaPointer": "#/schema/$defs/InternalPartnerAppNode"
+        }
+      ]
+    }
+  ]
+}

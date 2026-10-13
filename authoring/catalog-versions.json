@@ -1,0 +1,25 @@
+{
+  "format": "inform-ui-authoring-catalog-versions/1",
+  "current": "current219",
+  "catalogs": [
+    {
+      "id": "current219",
+      "status": "current",
+      "protocolNodes": 219,
+      "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+      "entry": "SKILL.md",
+      "index": "authoring/current219/index.json",
+      "readme": "authoring/current219/README.md"
+    },
+    {
+      "id": "progressive218",
+      "status": "historical",
+      "protocolNodes": 218,
+      "sourceCommit": "50054d2e436e8a0e215043ad3839f78623ecf4f8",
+      "entry": "SKILL.cd1c545.md",
+      "index": "authoring/progressive/index.json",
+      "readme": "authoring/progressive/README.md"
+    }
+  ],
+  "compatibility": "Select one exact source revision for schema, renderer and documentation. Node registration counts do not establish source, functional or visual equivalence."
+}

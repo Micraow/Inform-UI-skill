@@ -1,0 +1,44 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "discovery",
+  "modules": [
+    {
+      "id": "discovery/cards",
+      "title": "Supplied discovery cards",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/supplied-discovery.md"
+      ],
+      "taskPath": "../modules/discovery/cards.json",
+      "components": [
+        {
+          "type": "bento",
+          "definition": "BentoNode",
+          "schemaPointer": "#/schema/$defs/BentoNode"
+        },
+        {
+          "type": "open-detail",
+          "definition": "OpenDetailNode",
+          "schemaPointer": "#/schema/$defs/OpenDetailNode"
+        },
+        {
+          "type": "openai",
+          "definition": "OpenaiNode",
+          "schemaPointer": "#/schema/$defs/OpenaiNode"
+        }
+      ]
+    }
+  ]
+}

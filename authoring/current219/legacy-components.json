@@ -1,0 +1,14 @@
+{
+  "format": "inform-ui-unmigrated-components/1",
+  "generated": true,
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "componentTypes": [],
+  "usage": "These components remain in the merged full source. Select their exact-version full contract; no automatic fallback is performed by the selected-module tool."
+}

@@ -18,3 +18,9 @@ boot.js
 native.css
 .env
 .env.*
+
+# Original public Inform UI renders, verified by assets/gallery-manifest.json.
+!assets/gallery-create.png
+!assets/gallery-explore.png
+!assets/gallery-compose.png
+!assets/gallery-panorama.png

@@ -1,0 +1,39 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "vocabulary",
+  "modules": [
+    {
+      "id": "vocabulary/supplied",
+      "title": "Vocabulary tools",
+      "dependsOn": [
+        "travel/snapshots"
+      ],
+      "semanticContractPaths": [
+        "docs/vocabulary-tools.md"
+      ],
+      "taskPath": "../modules/vocabulary/supplied.json",
+      "components": [
+        {
+          "type": "word-card",
+          "definition": "WordCardNode",
+          "schemaPointer": "#/schema/$defs/WordCardNode"
+        },
+        {
+          "type": "copy-words",
+          "definition": "CopyWordsNode",
+          "schemaPointer": "#/schema/$defs/CopyWordsNode"
+        }
+      ]
+    }
+  ]
+}

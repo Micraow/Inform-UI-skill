@@ -1,0 +1,44 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "context",
+  "modules": [
+    {
+      "id": "context/actions",
+      "title": "Metadata and local suggestion actions",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/context-actions.md"
+      ],
+      "taskPath": "../modules/context/actions.json",
+      "components": [
+        {
+          "type": "places-metadata-bar",
+          "definition": "PlacesMetadataBarNode",
+          "schemaPointer": "#/schema/$defs/PlacesMetadataBarNode"
+        },
+        {
+          "type": "plugin-followup",
+          "definition": "PluginFollowupNode",
+          "schemaPointer": "#/schema/$defs/PluginFollowupNode"
+        },
+        {
+          "type": "instant-suggestions",
+          "definition": "InstantSuggestionsNode",
+          "schemaPointer": "#/schema/$defs/InstantSuggestionsNode"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3383 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "link"
+    ],
+    "requestedModules": [
+      "foundations/layout"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "foundations/layout"
+    ],
+    "includedComponents": [
+      "link",
+      "favicon",
+      "image",
+      "box",
+      "card",
+      "row",
+      "col",
+      "grid",
+      "grid-item",
+      "blockquote",
+      "section",
+      "figure",
+      "details",
+      "tooltip",
+      "popover",
+      "flow",
+      "icon",
+      "pulse-indicator",
+      "loading",
+      "loading-block",
+      "citation",
+      "web-link-cards",
+      "prompt-suggestions",
+      "animate",
+      "celebration",
+      "carousel",
+      "tab-panel",
+      "tab-group",
+      "list",
+      "restaurant-menu",
+      "table",
+      "metric",
+      "metric-grid",
+      "steps",
+      "callout",
+      "label",
+      "slider",
+      "checklist",
+      "rating",
+      "toggle",
+      "select"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/schema-source-modules.md#layout",
+      "docs/foundations.md#引用与网格",
+      "docs/foundations.md#结构化表格",
+      "docs/supplied-links.md",
+      "docs/favicon.md",
+      "docs/overlays.md",
+      "docs/overlay-resource-lifecycle.md",
+      "docs/motion.md",
+      "docs/loading.md",
+      "docs/source-citations.md",
+      "docs/source-cards.md",
+      "docs/prompt-suggestions.md",
+      "docs/carousel.md",
+      "docs/tabs.md",
+      "docs/restaurant-menu.md",
+      "docs/label.md",
+      "docs/checklist.md",
+      "docs/rating.md",
+      "docs/primitives.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/schema-source-modules.md#layout",
+        "followLinks": false
+      },
+      {
+        "path": "docs/foundations.md#引用与网格",
+        "followLinks": false
+      },
+      {
+        "path": "docs/foundations.md#结构化表格",
+        "followLinks": false
+      },
+      {
+        "path": "docs/supplied-links.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/favicon.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/overlays.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/overlay-resource-lifecycle.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/motion.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/loading.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/source-citations.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/source-cards.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/prompt-suggestions.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/carousel.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/tabs.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/restaurant-menu.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/label.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/checklist.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/rating.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/primitives.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/layout.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:12d0292d8df8d54059b327ea1e03a5985502186f23286e8a629f1eaafd0942ac",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "AnimateNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "animate"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 50
+          },
+          "effect": {
+            "enum": [
+              "fade",
+              "rise"
+            ]
+          },
+          "duration": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 1000
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "BlockquoteNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "blockquote"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 30
+          },
+          "attribution": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "cite": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "BoxNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "box"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "CalloutNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "callout"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "tone": {
+            "enum": [
+              "neutral",
+              "info",
+              "caution"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "CardNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "card"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "CarouselNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "carousel"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "controls": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "CelebrationNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "celebration"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "duration": {
+            "type": "integer",
+            "minimum": 300,
+            "maximum": 1800
+          },
+          "disabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "message"
+        ],
+        "additionalProperties": false
+      },
+      "ChecklistItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "bind"
+        ],
+        "additionalProperties": false
+      },
+      "ChecklistNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "checklist"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ChecklistItem"
+            },
+            "minItems": 0,
+            "maxItems": 50
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "filter": {
+            "type": "boolean"
+          },
+          "bulk": {
+            "type": "boolean"
+          },
+          "emptyText": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "CitationNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "citation"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          }
+        },
+        "required": [
+          "type",
+          "title",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "ColNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "col"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "DetailsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "details"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "summary",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "FaviconNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "favicon"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12000
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2
+          },
+          "size": {
+            "enum": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "FigureNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "figure"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          "caption": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "FlowNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "flow"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 50
+          },
+          "gap": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "GridItemNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "grid-item"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "colSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "rowSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "mobileColSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "GridNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "grid"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          },
+          "columns": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "mobileColumns": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "IconNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "icon"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "name": {
+            "enum": [
+              "info",
+              "check",
+              "warning",
+              "error",
+              "plus",
+              "minus",
+              "arrow-left",
+              "arrow-right",
+              "external-link",
+              "clock"
+            ]
+          },
+          "size": {
+            "enum": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          },
+          "tone": {
+            "enum": [
+              "default",
+              "muted",
+              "info",
+              "success",
+              "warning",
+              "danger"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "ImageNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "image"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500000
+          },
+          "alt": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "aspectRatio": {
+            "enum": [
+              "1:1",
+              "4:3",
+              "16:9",
+              "3:4"
+            ]
+          },
+          "fit": {
+            "enum": [
+              "cover",
+              "contain"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "src",
+          "alt"
+        ],
+        "additionalProperties": false
+      },
+      "LabelNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "label"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "text",
+          "target"
+        ],
+        "additionalProperties": false
+      },
+      "LinkNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "link"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "href": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "resolved",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "snippet": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "faviconSrc": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200000
+          },
+          "imageSrc": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200000
+          },
+          "mobile": {
+            "type": "boolean"
+          },
+          "hostLink": {
+            "type": "boolean"
+          },
+          "copyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false,
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "link"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "resolved",
+                  "failed"
+                ]
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "snippet": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "faviconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "imageSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "mobile": {
+                "type": "boolean"
+              },
+              "hostLink": {
+                "type": "boolean"
+              },
+              "copyLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "loadImageLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Node"
+                },
+                "minItems": 0,
+                "maxItems": 32
+              }
+            },
+            "required": [
+              "value",
+              "href"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "link"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "resolved",
+                  "failed"
+                ]
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "snippet": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "faviconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "imageSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "mobile": {
+                "type": "boolean"
+              },
+              "hostLink": {
+                "type": "boolean"
+              },
+              "copyLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "loadImageLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Node"
+                },
+                "minItems": 0,
+                "maxItems": 32
+              }
+            },
+            "required": [
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "link"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "value": {
+                "$ref": "#/$defs/Value"
+              },
+              "href": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "status": {
+                "enum": [
+                  "pending",
+                  "failed"
+                ]
+              },
+              "fallback": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "snippet": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "faviconSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "imageSrc": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200000
+              },
+              "mobile": {
+                "type": "boolean"
+              },
+              "hostLink": {
+                "type": "boolean"
+              },
+              "copyLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "loadImageLabel": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Node"
+                },
+                "minItems": 0,
+                "maxItems": 32
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ListNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "list"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "ordered": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Value"
+                },
+                {
+                  "$ref": "#/$defs/Node"
+                }
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "type",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "LoadingBlockNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "loading-block"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "shape": {
+            "enum": [
+              "text",
+              "card",
+              "circle"
+            ]
+          },
+          "lines": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "animate": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "loading-block"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "shape": {
+                "const": "text"
+              },
+              "lines": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10
+              },
+              "animate": {
+                "type": "boolean"
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "loading-block"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "shape": {
+                "enum": [
+                  "card",
+                  "circle"
+                ]
+              },
+              "animate": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "shape"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "LoadingNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "loading"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "progress": {
+            "$ref": "#/$defs/Value"
+          },
+          "size": {
+            "enum": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          },
+          "showValue": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "MenuItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "price": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            },
+            "minItems": 0,
+            "maxItems": 8
+          },
+          "status": {
+            "enum": [
+              "available",
+              "unavailable"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "price"
+        ],
+        "additionalProperties": false
+      },
+      "MenuSection": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/MenuItem"
+            },
+            "minItems": 0,
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "MetricGridNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "metric-grid"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "columns": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "MetricNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "metric"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "variant": {
+            "enum": [
+              "plain",
+              "card"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "precision": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6
+          },
+          "color": {
+            "enum": [
+              "default",
+              "secondary",
+              "tertiary",
+              "success",
+              "warning",
+              "danger",
+              "info",
+              "accent"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/LinkNode"
+          },
+          {
+            "$ref": "#/$defs/FaviconNode"
+          },
+          {
+            "$ref": "#/$defs/ImageNode"
+          },
+          {
+            "$ref": "#/$defs/BoxNode"
+          },
+          {
+            "$ref": "#/$defs/CardNode"
+          },
+          {
+            "$ref": "#/$defs/RowNode"
+          },
+          {
+            "$ref": "#/$defs/ColNode"
+          },
+          {
+            "$ref": "#/$defs/GridNode"
+          },
+          {
+            "$ref": "#/$defs/GridItemNode"
+          },
+          {
+            "$ref": "#/$defs/BlockquoteNode"
+          },
+          {
+            "$ref": "#/$defs/SectionNode"
+          },
+          {
+            "$ref": "#/$defs/FigureNode"
+          },
+          {
+            "$ref": "#/$defs/DetailsNode"
+          },
+          {
+            "$ref": "#/$defs/TooltipNode"
+          },
+          {
+            "$ref": "#/$defs/PopoverNode"
+          },
+          {
+            "$ref": "#/$defs/FlowNode"
+          },
+          {
+            "$ref": "#/$defs/IconNode"
+          },
+          {
+            "$ref": "#/$defs/PulseIndicatorNode"
+          },
+          {
+            "$ref": "#/$defs/LoadingNode"
+          },
+          {
+            "$ref": "#/$defs/LoadingBlockNode"
+          },
+          {
+            "$ref": "#/$defs/CitationNode"
+          },
+          {
+            "$ref": "#/$defs/WebLinkCardsNode"
+          },
+          {
+            "$ref": "#/$defs/PromptSuggestionsNode"
+          },
+          {
+            "$ref": "#/$defs/AnimateNode"
+          },
+          {
+            "$ref": "#/$defs/CelebrationNode"
+          },
+          {
+            "$ref": "#/$defs/CarouselNode"
+          },
+          {
+            "$ref": "#/$defs/TabPanelNode"
+          },
+          {
+            "$ref": "#/$defs/TabGroupNode"
+          },
+          {
+            "$ref": "#/$defs/ListNode"
+          },
+          {
+            "$ref": "#/$defs/RestaurantMenuNode"
+          },
+          {
+            "$ref": "#/$defs/TableNode"
+          },
+          {
+            "$ref": "#/$defs/MetricNode"
+          },
+          {
+            "$ref": "#/$defs/MetricGridNode"
+          },
+          {
+            "$ref": "#/$defs/StepsNode"
+          },
+          {
+            "$ref": "#/$defs/CalloutNode"
+          },
+          {
+            "$ref": "#/$defs/LabelNode"
+          },
+          {
+            "$ref": "#/$defs/SliderNode"
+          },
+          {
+            "$ref": "#/$defs/ChecklistNode"
+          },
+          {
+            "$ref": "#/$defs/RatingNode"
+          },
+          {
+            "$ref": "#/$defs/ToggleNode"
+          },
+          {
+            "$ref": "#/$defs/SelectNode"
+          }
+        ]
+      },
+      "PopoverNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "popover"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "placement": {
+            "enum": [
+              "top",
+              "bottom"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "PromptSuggestion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "PromptSuggestionsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "prompt-suggestions"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/PromptSuggestion"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "initialVisible": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "PulseIndicatorNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "pulse-indicator"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "idle",
+              "busy",
+              "success",
+              "warning",
+              "error"
+            ]
+          },
+          "animate": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "RatingNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "rating"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+          },
+          "max": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 10
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          },
+          "clearable": {
+            "type": "boolean"
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind"
+        ],
+        "additionalProperties": false
+      },
+      "RestaurantMenuNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "restaurant-menu"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            },
+            "required": [
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/MenuSection"
+            },
+            "minItems": 0,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "title",
+          "currency",
+          "sections"
+        ],
+        "additionalProperties": false
+      },
+      "RowNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "row"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "gap": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "padding": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "radius": {
+            "enum": [
+              "none",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "2xl"
+            ]
+          },
+          "border": {
+            "type": "boolean"
+          },
+          "background": {
+            "enum": [
+              "none",
+              "surface",
+              "surface-secondary",
+              "surface-tertiary",
+              "success-soft",
+              "danger-soft",
+              "info-soft"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "stretch"
+            ]
+          },
+          "justify": {
+            "enum": [
+              "start",
+              "center",
+              "end",
+              "between",
+              "around"
+            ]
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 30,
+                "maximum": 1400
+              },
+              {
+                "enum": [
+                  "100%",
+                  "auto"
+                ]
+              }
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "SectionNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "section"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "heading": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "SelectNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "select"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 12000
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 40
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind",
+          "options"
+        ],
+        "additionalProperties": false
+      },
+      "SliderNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "slider"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "step": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "marks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "label": {
+                  "type": "string",
+                  "maxLength": 12000
+                }
+              },
+              "required": [
+                "value",
+                "label"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 30
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind",
+          "min",
+          "max",
+          "step"
+        ],
+        "additionalProperties": false
+      },
+      "SourceRecord": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2048
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "title",
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "StepsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "steps"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "detail": {
+                  "type": "string",
+                  "maxLength": 12000
+                },
+                "latex": {
+                  "type": "string",
+                  "maxLength": 12000
+                }
+              },
+              "required": [
+                "title"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "TabGroupNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "tab-group"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "initial": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/TabPanelNode"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "TabPanelNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "tab-panel"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Node"
+            },
+            "minItems": 0,
+            "maxItems": 500
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "label",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "TableCell": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Value"
+          },
+          {
+            "$ref": "#/$defs/TableCellObject"
+          }
+        ]
+      },
+      "TableCellObject": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/$defs/Value"
+          },
+          "rowSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "colSpan": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "header": {
+            "type": "boolean"
+          },
+          "scope": {
+            "enum": [
+              "row",
+              "col",
+              "rowgroup"
+            ]
+          },
+          "align": {
+            "enum": [
+              "start",
+              "center",
+              "end"
+            ]
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "TableNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "table"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/TableCell"
+              },
+              "minItems": 0,
+              "maxItems": 20
+            },
+            "minItems": 0,
+            "maxItems": 200
+          },
+          "sections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/TableSection"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          },
+          "caption": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "loading",
+              "error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "type",
+          "columns"
+        ],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "table"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "columns": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "minItems": 1,
+                "maxItems": 20
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/TableCell"
+                  },
+                  "minItems": 0,
+                  "maxItems": 20
+                },
+                "minItems": 0,
+                "maxItems": 200
+              },
+              "sections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/TableSection"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              },
+              "caption": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "loading",
+                  "error"
+                ]
+              },
+              "message": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "rows"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "table"
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "columns": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "minItems": 1,
+                "maxItems": 20
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/TableCell"
+                  },
+                  "minItems": 0,
+                  "maxItems": 20
+                },
+                "minItems": 0,
+                "maxItems": 200
+              },
+              "sections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/TableSection"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              },
+              "caption": {
+                "type": "string",
+                "maxLength": 12000
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "loading",
+                  "error"
+                ]
+              },
+              "message": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "sections"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TableSection": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "enum": [
+              "head",
+              "body",
+              "foot"
+            ]
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/TableCell"
+              },
+              "minItems": 0,
+              "maxItems": 20
+            },
+            "minItems": 0,
+            "maxItems": 200
+          }
+        },
+        "required": [
+          "kind",
+          "rows"
+        ],
+        "additionalProperties": false
+      },
+      "ToggleNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "toggle"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "bind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "bind"
+        ],
+        "additionalProperties": false
+      },
+      "TooltipNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "tooltip"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "placement": {
+            "enum": [
+              "top",
+              "bottom"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "WebLinkCardsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "web-link-cards"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/SourceRecord"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "items"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/schema-source-modules.md#layout",
+      "sourceBytes": 16435,
+      "sourceSha256": "a03b4a59a1586d701ddac59ce6a18235180f62630c09c3247221ca4f21c0449c",
+      "bytes": 281,
+      "sha256": "21391815762e0217ad8da1d41f39ca5c0db7953ec07dddad130b165c1cb68ff2",
+      "text": "## layout\n\n`foundations/layout` provides the existing foundational layout, disclosure, table, link and local control block. This first migration keeps its historical definition order. Its family is intentionally reported as a family; asking for it includes all its reported nodes.\n"
+    },
+    {
+      "path": "docs/foundations.md#引用与网格",
+      "sourceBytes": 4856,
+      "sourceSha256": "16fa73b1a2685b914a7106cf5321226d0ac9039982484f6bf719036da5993ba6",
+      "bytes": 710,
+      "sha256": "794cb73e8557441245ad0794e8eb0211611b558e48f8fc2d495e362d11e94d36",
+      "text": "## 引用与网格\n\n`blockquote` 包含1–30个 `children`，可提供 `attribution` 和受限URL `cite`。来源由作者提供，组件不检索或验证出处；带来源的署名会形成可访问的普通链接。\n\n`grid` 仍为1–6列，默认2列；新增 `mobileColumns`，在520px及以下生效，默认1列。`grid-item` 只能作为grid的直接子节点，包含1–30个children；桌面 `colSpan` 默认1、上限为父grid列数，`rowSpan` 默认1、上限20。窄屏 `mobileColSpan` 默认1、上限为父grid的mobileColumns；行跨度恢复自动。DOM阅读顺序保持作者顺序，没有密集重排或瀑布流。\n\n可直接查看[合成示例JSON](../examples/foundations.json)。\n"
+    },
+    {
+      "path": "docs/foundations.md#结构化表格",
+      "sourceBytes": 4856,
+      "sourceSha256": "16fa73b1a2685b914a7106cf5321226d0ac9039982484f6bf719036da5993ba6",
+      "bytes": 2287,
+      "sha256": "c12e7b6e3552f9931f00ab3debe69b49495c06d221eff4c5eb4ac5b55c2211fe",
+      "text": "## 结构化表格\n\n表格保持 `columns` 必填（1–20个列名），并选择 `rows` 或 `sections`，不能同时提供。旧rows的每格标量/表达式继续支持。新单元格对象形如：\n\n```json\n{\"value\":\"实验组A\",\"header\":true,\"rowSpan\":2,\"colSpan\":1,\"align\":\"start\"}\n```\n\n`value` 必填；`rowSpan` 为1–200，`colSpan` 为1–20，默认都是1。`header:true` 输出表头格；`align` 可为start/center/end。空值null是一个真实空格，0显示为0，不会互换。\n\nsections有1–12段，按可选head、一个或多个body、可选foot排列。每段包含 `kind` 与二维 `rows`。head替代columns自动表头；未提供head时仍使用columns。所有段总计最多200个输入行。\n\n每格按从左向右的首个空列放置，跨行/跨列矩形必须全部落在本段内。不得交叠、超宽、跨段或留下逻辑缺格。被先前rowSpan完全覆盖的行可以写空数组，其他空行不合法。组件不补格、不猜测合计或重排数据。\n\nhead内的所有格都是列头，默认scope为col；body/foot的header格默认scope为row，只关联其右侧且行范围重叠的单元格。可显式指定rowgroup，但必须从本段首行跨完整段。暂不提供colgroup。多层列头使用colSpan与自动生成的headers关联，不假造列组语义。\n\n原生table/caption/thead/tbody/tfoot保留语义。所有数据格会引用适用的列头和同组左侧行头，header ID在不同实例及更新之间唯一。横向内容溢出时局部滚动，区域可用Tab聚焦及原生方向键滚动；没有伪装成可编辑grid。表格规则参考[HTML标准](https://html.spec.whatwg.org/multipage/tables.html)，视觉是采用项目tokens的原创实现。\n\n`status` 可为ready/loading/error，默认ready；`message` 可覆盖默认状态文案。非ready时保留实际caption/表头，隐藏数据体；ready无数据时显示明确空态。所有示例均由调用方提供，组件不连接数据服务。\n\n完整[结构化表格JSON](../examples/structured-tables.json)展示多层列头、跨行组、第二tbody和显式footer。常见错误码：TABLE_SOURCE、TABLE_SECTION、TABLE_LIMIT、TABLE_WIDTH、TABLE_SPAN、TABLE_OVERLAP、TABLE_SCOPE；非法状态引用和URL继续走共用校验。\n"
+    },
+    {
+      "path": "docs/supplied-links.md",
+      "sourceBytes": 3549,
+      "sourceSha256": "ecd87e7ff65a94b7a837c56867735e9e8afc1715c76dac7ec30a28ea3a95dc7e",
+      "bytes": 3549,
+      "sha256": "ecd87e7ff65a94b7a837c56867735e9e8afc1715c76dac7ec30a28ea3a95dc7e",
+      "text": "# Supplied Link family\n\nThree canonical presentations share an original local intent contract: `link`, `link-card`, and `recommendation-link-card`. The first extends an existing protocol node; only the other two add registered types, bringing the protocol registry from154 to156. This does not automatically change canonical completion counts.\n\n## Compatibility and supplied data\n\nThe original `link` shape `{value, href}` retains its native anchor and existing navigation policy. It is a distinct variant and cannot mix the new fields. New supplied links use `url` and optional `title` (defaults to the URL), `id`, `disabled`, `status` (resolved by default, pending or failed), and literal `fallback`. A resolved link requires an allowed explicit URL. Unsafe schemes and images are rejected before mounting. Failure without fallback is hidden; pending displays a loading state. The recommendation placeholder is128px high.\n\nCards additionally display optional `source` and `snippet`. Supplied `faviconSrc` and recommendation `imageSrc` are optional. There is no inferred favicon, metadata fetch, account/provider lookup or impression logging. Inline allowed raster data renders directly. A remote supplied image stays unloaded until the user activates its separate `Load supplied image` button; `loadImageLabel` customizes the label. The existing owned image renderer then handles load/error, hide-on-failure and source release.\n\nInline `link` can have0–32 passive `children`. It reuses the library's existing passive-content contract, rejects nested interactions and consent-gated remote image children, and keeps an explicit accessible link label. `mobile: true` omits the desktop preview. `hostLink: true` uses the simple host-link presentation without the decorative external arrow or preview. Neither flag enables navigation in the new supplied variant.\n\n## Local host integration\n\nNative buttons with link semantics support keyboard activation. An open action emits `iui:link-open`; the preview copy action emits `iui:link-copy`. Both carry a frozen `{id: string | null, url: string}`, bubble, are cancelable, and do not cross a ShadowRoot boundary. The library never navigates, writes clipboard contents or sends telemetry. A consuming host can explicitly handle an accepted request.\n\nOn non-mobile HTTP(S) inline links, focus immediately opens an accessible URL/copy disclosure and pointer hover opens it after150ms. Touch hover does not open it. The exact destination remains accessible even when display text is truncated. Copy has its own local intent; `copyLabel` customizes its text. Escape dismisses the topmost disclosure and restores trigger focus, outside interaction dismisses it, and a shared coordinator prevents unrelated open previews from accumulating. No extra network request is made to create a preview.\n\nTimers, images and handlers belong to the existing render generation. Admission is exclusive before open/copy host reads, events are constructor-safe, and old controls retire on replacement or observed owner removal. Disabled controls, inherited disabled fieldsets and capture cancellation are respected.\n\n## Evidence boundary\n\nThe implementation is independently authored JS/TS from observed functional facts. It contains no private captured runtime or reference images. Local tests and source-built consumer checks are distinct from future native/pixel review. The packaged CDN stays on unified154 until a separately identified asset build; current source can be rebuilt with `npm run generate && npm run build`.\n"
+    },
+    {
+      "path": "docs/favicon.md",
+      "sourceBytes": 1796,
+      "sourceSha256": "9bcdfffc139a831671d21afd271fb1218aeea061eee93f1713c8758064c16f99",
+      "bytes": 1796,
+      "sha256": "9bcdfffc139a831671d21afd271fb1218aeea061eee93f1713c8758064c16f99",
+      "text": "# Supplied website icon\n\nFinite original support for canonical `base-favicon`; source candidate awaiting combined browser acceptance. Required `label` is 1–200 Unicode code points. Optional `src` is a supplied allowed image URL, `fallback` is 1–2 literal code points and `size` is sm/md/lg, default md. The image URL limit is12000 code points. Existing URL policy allows HTTP(S) and base64 PNG/JPEG/GIF/WebP, rejecting credentials, relative URLs, SVG data and browser-internal schemes.\n\nWithout an image the component shows an accessible local fallback. It never discovers a site's favicon, calls an icon service, fetches a domain or guesses an initial from a name. Data images can decode locally. Remote images do not create an img element or request until the user explicitly activates Load icon; the UI names the supplied host first. The request uses no-referrer. This does not remove all ordinary browser networking effects or claim that a user has no cookies for the destination.\n\nThe visual box stays24/32/48 pixels across pending/success/error states. Fallback stays visible until an intrinsic image loads successfully. Errors show a local fallback and explicit Retry; pending and loaded actions are guarded no-ops, preserving focus. Old retry image listeners are removed rather than accumulated. Removal/update/dispose guards later events; it does not revoke a request already sent.\n\nThe labelled visual is separate from status and native type=button controls. It has no state binding, form submission or clipboard behavior; inherited disabled fieldsets block activation. Unrelated host changes retain the visual state. See the original offline-safe example in `examples/favicon.json`; its local blue PNG is project-generated and its remote example uses the reserved .invalid domain.\n"
+    },
+    {
+      "path": "docs/overlays.md",
+      "sourceBytes": 3193,
+      "sourceSha256": "073f52da6709e11c673714d76e32f84a513930f69f61b42f25b44f05e1c43a99",
+      "bytes": 3193,
+      "sha256": "073f52da6709e11c673714d76e32f84a513930f69f61b42f25b44f05e1c43a99",
+      "text": "# 工具提示与非模态面板\n\n`tooltip` 和 `popover` 属于62节点协议的base组。当前固定CDN为01ae9d8，完整SHA与SRI见[浏览器入口](cdn.md)；源码、实际浏览器、新固定CDN与消费者已整批验收；[证据与边界](verification-62.md)。\n\n## 合同\n\n`tooltip` 是带可见原生按钮的小提示，必填 `label`（1–200字）和 `value`（最多2000字的纯文本）。可选 `placement:\"top\"|\"bottom\"`，默认top。它不是承载交互控件的容器，不接收HTML、children或任意事件。\n\n```json\n{\"type\":\"tooltip\",\"label\":\"合成数据是什么意思？\",\"value\":\"这里的数据由作者编造，仅用于解释交互。\"}\n```\n\n`popover` 必填 `label`（1–200字）与1–20个普通 `children`，可选 `title`（1–200字）和 `placement`（top/bottom，默认bottom）。它是有明确关闭按钮的非模态说明面板，允许现有输入和其他安全节点。子节点仍受同一Schema、引用、深度及资源规则约束；组件不会替调用方创建action适配器或请求远程数据。\n\n```json\n{\"type\":\"popover\",\"label\":\"展开说明\",\"title\":\"本地面板\",\"children\":[{\"type\":\"text\",\"value\":\"背景内容仍可使用。\"}]}\n```\n\n两者都可以提供普通 `id`。内部ARIA标识与用户id使用独立命名域。\n\n## 行为\n\n- Tooltip在悬停或触发按钮聚焦时显示，指针可以跨过间隔移到提示内容；离开/失焦或Escape关闭。触摸和键盘激活可切换，避免focus与click叠加导致双开关。内容本身不能聚焦。\n- Popover打开后聚焦关闭按钮；Close/Escape返回其触发按钮。点击外部或焦点离开整个分支时关闭，不抢回用户刚选的焦点。回到自身触发按钮可以继续保持打开，Tab不被限制在面板内。\n- 同一document只保留一条popover分支。开启同级关闭旧分支；嵌套保持祖先打开，Escape逐层关闭最内层，关闭祖先时清理所有后代。\n- 支持原生Popover API时，在浏览器top layer内显示，DOM仍留在原宿主，继承它的主题和语言。位置根据视口边界钳制或上下翻转；长内容在面板内滚动。滚动/resize重新定位，锚点不可见或脱离文档时关闭。\n- 不支持原生API时，明确降级为有界流式展开内容，保留按钮、关闭和可访问关系；这不是浮层定位的完整替代。\n- `setState()` 仅更新已有子节点与位置，保留打开状态/焦点/输入选择。`update()` 和 `dispose()` 清理监听器、定时器、观察器和旧面板。\n- 关闭面板只是隐藏，不等于卸载子节点：已开始的页内计时继续进行，子表单操作也不会自动取消。需要停止时使用子组件的暂停/取消，或由宿主update/dispose。\n\n完整原创[示例JSON](../examples/overlays.json)包含嵌套面板和表单输入，需base+forms；单纯提示和文本面板只需base。没有网络加载、HTML注入或服务调用。\n\n实现参考[WAI-ARIA工具提示模式](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)与浏览器原生语义，未复制第三方实现。自动化语义检查不等同人工屏幕阅读器、全部浏览器或WCAG审计通过。\n"
+    },
+    {
+      "path": "docs/overlay-resource-lifecycle.md",
+      "sourceBytes": 1525,
+      "sourceSha256": "e87b00a682356db1bd48f6cfd808e1a83b2255d517b762e707ad018c8bf23f75",
+      "bytes": 1525,
+      "sha256": "e87b00a682356db1bd48f6cfd808e1a83b2255d517b762e707ad018c8bf23f75",
+      "text": "# Overlay resource lifetime\n\nTooltip and Popover retain their existing presentation, dismissal and focus contracts. Their open-session positioning listeners, observers, pending animation frame, delayed pointer leave and pointer-release listeners are owned by the existing render generation.\n\nRegistration is not assumed to be atomic: a host constructor or registration hook can synchronously replace or dispose a mount before returning. The resource must then be released, including an observer target registered after the first disconnect. Observer disconnection is idempotent. A pending frame or leave timer returned late is cancelled; synchronous callbacks release their task scope without blocking a later request.\n\nIndependent predecessor controls reproduced six leaks (two components, each with late frame, observer construction and observer registration), while ordinary open/close controls passed. Focused successor results are recorded separately after execution. No protocol, source data, public event or CSS contract changes are required.\n\n## Focused author verification\n\n48 source-level overlay/position/lifecycle tests passed. Strict type checking and declaration generation passed in separate processes, followed by the owned-queue and source-boundary checks. The first combined build produced all JavaScript bundles but its declaration subprocess was killed by the environment; that failure log is retained rather than called a successful combined build. No new native-browser or whole-library run is claimed.\n"
+    },
+    {
+      "path": "docs/motion.md",
+      "sourceBytes": 2353,
+      "sourceSha256": "438d0073d5566ebc355960b48edfeca85c1b582597833e5b4a23eea55d07a3bc",
+      "bytes": 2353,
+      "sha256": "438d0073d5566ebc355960b48edfeca85c1b582597833e5b4a23eea55d07a3bc",
+      "text": "# Explicit bounded motion\n\n`animate` and `celebration` are original base-group portable nodes. Their controls require an explicit native activation, including host `.click()`. Mount, state updates and document loading never start a preview.\n\n- `animate`: required literal `label` (1–200 Unicode code points) and `children` (0–50). Optional `effect`: `fade` (default) or `rise`; integer `duration`: 100–1000 ms (default 300); literal boolean `disabled` (default false).\n- `celebration`: required literal `label` (1–200) and `message` (1–1000). Optional integer `duration`: 300–1800 ms (default 900); literal boolean `disabled` (default false). The localized supplied-message disclosure makes no achievement or completion claim.\n\nPreview and Stop stay mounted and focusable, with `aria-disabled` no-op states for playing/idle. Native node/fieldset disabling is honored even for forged events. Empty animate children have an empty label and no controls. Preview controls are unbound `type=button` controls, never form values.\n\nAnimate applies one finite WAAPI effect to a persistent content surface. Celebration uses six fixed original shapes inside a separate clipped decorative strip. Reading content and focus outlines are never clipped by the strip. There is no autoplay, loop, audio, whole-page particles, arbitrary CSS/keyframes, host callback or network/storage access.\n\nThe owning window's reduced-motion preference produces an honest static state and cancels active motion when it changes. Missing animation support produces a static unavailable message. Missing `matchMedia` means ordinary bounded motion, not an inferred preference. No timer or frame-loop fallback is provided. All previews end through WAAPI completion promises; stop/update/dispose release their handles and media listeners. Unrelated state updates retain DOM, nested drafts, tabs, timers and in-progress previews.\n\nRun `npm run generate && npm run build`, then `node --test tests/motion.test.mjs`, `npm run typecheck`, `npm run test:types`, `npm run build:cdn` and `npm run check:boundary`. The focused jsdom suite uses labeled WAAPI/media/clock test doubles and is not browser acceptance. `tests/browser/motion.spec.mjs` is prepared for real browser coverage but has not been executed. No existing browser-verified component counts are changed by this candidate.\n"
+    },
+    {
+      "path": "docs/loading.md",
+      "sourceBytes": 2865,
+      "sourceSha256": "ae80d7d618ba5da85cb8e1c91a07248637de53b4fb1d4b89128b57fd220e1363",
+      "bytes": 2865,
+      "sha256": "ae80d7d618ba5da85cb8e1c91a07248637de53b4fb1d4b89128b57fd220e1363",
+      "text": "# 调用方提供的加载状态与占位\n\n这四项加载/占位/引用/链接卡已通过66节点同版批次验收，固定CDN为d370。338项Node、241项Chromium及42+18消费者视图通过，实际亮暗窄宽原图已复核。[证据与有限范围](verification-66.md)。\n\n## loading\n\n必填 `label` 为1–200字的原样可见标签，也是进度条的无障碍名称。可选 `progress` 是普通Value：常数、已声明state/computed引用或现有受限表达式。解析结果必须是0–100的有限数值；零是明确进度，省略才是不确定状态。null、数值字符串、布尔值、越界、未知引用、除零与非有限结果均拒绝，不转换、不夹取、不补零。\n\n`size` 为sm/md/lg，默认md，分别使用4/8/12px条高或16/20/28px不确定转圈。`showValue` 默认true，只控制冗余可见百分数，false也保留标签和准确ARIA数值。ARIA、data-value和条形比例保留JS解析后的原数值；例如25.125/100*100是25.124999999999996，不承诺十进制代数化简。\n\n省略progress时，转圈旁明确显示“未提供进度”，没有aria-valuenow或伪造百分比。动画尊重减动态偏好；它不观察网络、启动任务、自动递增、宣布成功、设置宿主aria-busy或反复live播报。达到100仅表示调用方提供了100，不证明外部任务完成。\n\n## loading-block\n\n必填 `label` 仍为1–200字可见说明。`shape` 为text/card/circle，默认text；`animate` 默认true，只使用CSS轻微脉冲并支持减动态/强制配色。\n\n- text：`lines` 为1–10整数，默认3；多行末行68%宽，单行为100%。\n- card：一个有界媒体块和两行文字占位，总宽不超过24rem。\n- circle：不超过48px的圆形占位。\n\ncard/circle不得提供lines，避免接受被忽略的参数。装饰几何整体aria-hidden，可见标签在其外。没有status/progressbar/live角色、任意尺寸/CSS/HTML、真实媒体、自动替换内容或隐式准备就绪判断。\n\n## 更新与局部状态\n\n动态progress在候选state被接受之前检查。setState或update若令某个progress越界，旧state、DOM、控件草稿和焦点整体保留；合法更新原位刷新进度，不重新创建组件。字段min/max/step仍约束数字草稿；全局progress范围是额外的文档语义约束，不能靠控件自己的范围绕过。\n\n无关state更新不会改变字面shape/label，也不会让不确定状态凭空获得进度。多个挂载实例、不同ownerDocument和最近宿主语言/主题保持独立；dispose移除绑定，不创建全局计时器或监听器。\n\n[原生JSON示例](../examples/loading-states.json)只需base Document分片。完整schema、派生分片、类型与独立结构校验仍从同一个生成器产生；结构合法不替代公共validateDocument的引用和数值语义检查。\n"
+    },
+    {
+      "path": "docs/source-citations.md",
+      "sourceBytes": 6473,
+      "sourceSha256": "192b0f7333d200b75b64d2d329706702977a22eb13ca72d83aa40ae15130e9ea",
+      "bytes": 6473,
+      "sha256": "192b0f7333d200b75b64d2d329706702977a22eb13ca72d83aa40ae15130e9ea",
+      "text": "# Supplied source citation readers\n\nInventory candidates `code-cite` and `file-cite` are implemented as independent Base readers. Planned acceptance: literal numbered code with validated absolute cited range, reversible context and manual excerpt selection; supplied document-page excerpts with explicit page navigation and manual excerpt selection. Sources are safe ordinary links. No code execution, local file access, downloads, OCR, syntax plugin, remote preview or clipboard API is used. All displayed content comes from the supplied document.\n\n## Code citation\n\nRequired label, fileName (literal label), startLine (1–10,000,000), and 1–120 literal lines (up to 2000 characters each). Optional language is only a supplied label, not a syntax engine. Optional citedStart/citedEnd must be supplied together, ordered and inside the supplied window; the final absolute line cannot exceed 10,000,000. Without a range all supplied lines are cited. Native ordered-list numbers preserve absolute line values even when context is hidden; blank lines stay blank and markup-looking text stays literal.\n\nThe context button reveals/hides only supplied surrounding lines while retaining DOM identity and cited highlighting. A manual-select control reveals a readonly textarea containing exactly the cited lines joined by newline, without line numbers or added characters. It focuses/selects the owned excerpt so the user can use their system copy command. No clipboard write or code execution occurs.\n\n## File citation\n\nRequired label, fileName and 1–30 unique supplied pages `{number,text,label?,source?}`. Page numbers are positive bounded integers; optional totalPages cannot be below any supplied page. Optional initialPage must have an excerpt; otherwise the first supplied record is shown. Source order is preserved, including noncontiguous page numbers. No omitted page is generated. Optional mediaType remains a label, never a loader or decoder.\n\nNative page selector and previous/next controls show one retained excerpt panel. Boundary buttons are inert and keep focus; native reset restores the supplied initial excerpt, with cancellation, revision and lifecycle checks. Manual selection shows exact current supplied text. Navigation hides/clears the manual preview to avoid copying stale page content. A focus listener changing page or moving controls prevents later selection through revision and ownership checks. The readonly excerpt contributes no Forms values.\n\n## Safety and integration\n\nAll control activation checks actual connection, containment, disabled state and hidden/inert ancestry. Paint/restore never reclaims outside rows/panels/previews. Focus is a host-interruption boundary, checked before native select and before status output. Native reset uses the audited reader helper. Disposal/replacement retires handlers and queued work. Sources use safe absolute HTTP(S), noopener/noreferrer and no referrer. No runtime service, private capture, filesystem path access, remote preview or asset fetch is included.\n\nSource map: generator/subset map, core source-citations inspector/wiring, source-citations renderer/citation-labels/wiring/CSS, example, this document, unit/type/browser preparation and protocol-count assertions. Generated files are preserved unstaged, excluded from source commits. Current112 protocol types are not canonical acceptance. Source-only integration must regenerate/build/CDN. This branch also carries the separately committed vocabulary-focus fix equivalent to2cf86f1; that fix must not be dropped when later components are integrated.\n\n## Verification and composed-boundary follow-up\n\nInitial citation suite: 35/35. Final citations/corrected-vocabulary/Forms/core suite: 140/140 (`/tmp/inform-source-citations-final.log`). Generation/build, no-emit types, public type consumer, CDN rebuild, source-boundary and prepared browser syntax passed. Browser text-selection and visual acceptance are unexecuted.\n\nThe shared composed-tree guard gap is fixed by source ce660c1 (carried here as3048c70). It follows observable assignedSlot/parent/shadow-host ancestry and preserves native disabled-fieldset rules. Old control suite:8pass/24fail; corrected broad reader suite:363/363. A citation-specific follow-up rechecks the now-revealed preview with that guard before focus, after focus and after selection. This prevents selection when the preview itself is moved into a hidden/inert assigned-slot wrapper, even when the action button remains visible. Final citation/shared-guard/vocabulary run:121/121 (`/tmp/inform-citation-composed-final.log`). CSS visibility and private closed-shadow slot wrappers that the platform does not expose through assignedSlot are not claimed to be inspected.\nSelected schema ownership/closed-reference metrics, domain fixture compatibility and CDN/source identity checks passed 3/3 (`/tmp/inform-source-citations-schema.log`).\n\n## Maintained source selection and exact range exceptions\n\n`citations/supplied` owns the two existing declarations and depends on `travel/snapshots` for `TravelEventSource`. That dependency's nodes are reported in selected manifests. The unchanged full `validateDocument` remains required after structural validation.\n\nLabel, fileName, optional language/mediaType/page label and source label are structurally 1–200 characters. No additional trim/nonblank semantic rule is applied, so whitespace-only short values remain accepted. Code lines may be empty and contain up to 2000 characters each; file page text is 1–6000 characters, including whitespace-only text. File names and media types remain literal labels, not filesystem paths to open or formats to decode.\n\nAll line/page/count bounds are integers 1–10,000,000. The code window has 1–120 lines; `startLine + lines.length - 1` cannot exceed the upper bound. Cited endpoints must be both present or both absent and form an inclusive ordered range inside that window. A single-line cited range is valid. File pages contain 1–30 unique page numbers; gaps and nonchronological supplied order are valid. Optional totalPages is not inferred from list length and only limits each supplied page number. InitialPage must name a supplied excerpt. Root and page sources each require safe absolute HTTP(S) URLs. Node IDs use the ordinary document-wide node-ID rules; no extra citation ID is introduced. No source retrieval, text reconstruction, line splitting, code execution, OCR or missing-page generation occurs.\n"
+    },
+    {
+      "path": "docs/source-cards.md",
+      "sourceBytes": 3057,
+      "sourceSha256": "5712e7460ac521be1322507fd92a433079a6969c2c9d78be79ca2d94b051a92e",
+      "bytes": 3057,
+      "sha256": "5712e7460ac521be1322507fd92a433079a6969c2c9d78be79ca2d94b051a92e",
+      "text": "# 调用方提供的引用与链接卡\n\n这四项加载/占位/引用/链接卡已通过66节点同版批次验收，固定CDN为d370。338项Node、241项Chromium及42+18消费者视图通过，实际亮暗窄宽原图已复核。[证据与有限范围](verification-66.md)。\n\n## 有限数据合同\n\n`citation` 必填title（1–300字）及url（1–2048字），可选publisher（1–200）、description（1–1000）和number（1–999整数）。这是独立来源条目，标题是单一原生链接；数字由作者指定，不自动编号或表示排序。\n\n`web-link-cards` 必填label（1–200）及items（1–20条）。每条包含title/url，以及可选publisher/description，同样范围。保留重复条目和调用方顺序，不去重。条目不支持id、number、children、图像、favicon、日期、状态表达式、检索词或自定义HTML。\n\n所有文字都是原样文本。URL只接受绝对HTTP(S)，复用核心isSafeURL后进一步收窄协议；凭据、空白/控制符、反斜杠、无效主机/端口和其他协议被拒绝。来源节点不支持普通link所允许的fragment/mailto/tel。完整文档在mount/update替换DOM前检查，并给出准确url字段路径。\n\n原生链接使用新标签页、noopener noreferrer、no-referrer，并提供本地化无障碍新标签页说明。显示的目标主机/端口由URL解析器提取，使用LTR bdi隔离混合方向；publisher仍是作者提供的独立信息。库不抓取页面、不加载图片、不检查链接是否存在，也不判断来源是否支持某个论点。\n\n## 真实水平滚动\n\n链接卡保留原生ul/li和一条可水平滚动的轨道。按钮按当前轨道一页宽度前后移动，在首尾截断，不循环、不克隆、不自动播放。原生键盘、触摸、触控板、链接Enter/修饰键/上下文菜单不被拦截。\n\n边界按钮使用aria-disabled=true，保持已有焦点和Tab站；Click/Enter/Space在边界是精确无操作。轨道仅在存在溢出时额外可聚焦，缩放后移除Tab属性也不主动移走焦点。可见范围说明是非live文字，包含部分可见的首末条目，不伪造selected/current项。\n\n按实际子卡片矩形计算边界和可见范围，缩放下统一坐标空间；逻辑前后方向兼容负值、反向正值和默认正值RTL模型。程序滚动始终即时，因此无动画等待、自动变化或减动态偏好冲突。几何/字体/窗口变化重新检查边界；浏览器节点归其ownerDocument，所有监听、观察器和帧在update/dispose清理。\n\n无关setState不重建卡片，保留原生链接焦点和轨道位置。文档update按现有合同重建；无效update保持旧DOM、state与焦点。空来源列表被拒绝，单条列表没有伪造可滚动状态。\n\n[完整原创JSON](../examples/source-cards.json)只需base Document分片。示例全部使用虚构说明与example.invalid地址；测试不会向这些外部目的地发请求。合同及测试不构成全浏览器、读屏器或来源真实性认证。\n"
+    },
+    {
+      "path": "docs/prompt-suggestions.md",
+      "sourceBytes": 5746,
+      "sourceSha256": "cb8cced61aa8612ea60c3beb64519cc7e6dae8286575cfb533af81b98efb203f",
+      "bytes": 5746,
+      "sha256": "cb8cced61aa8612ea60c3beb64519cc7e6dae8286575cfb533af81b98efb203f",
+      "text": "# Supplied prompt suggestions and an explicit DOM handoff\n\n`prompt-suggestions` is one canonical base node. Conversation and onboarding aliases are not separate implemented components. This original local candidate does not promote any browser-accepted component count.\n\n## Authored contract\n\nSee the complete original [example](../examples/prompt-suggestions.json).\n\n- Required `label`: 1–200 Unicode code points.\n- Required `items`: 1–12 objects containing only `id` and `text`. IDs match `^[A-Za-z_][A-Za-z0-9_.-]{0,79}$` and must be unique. Literal text is 1–2,000 Unicode code points; repeated visible text is allowed.\n- Optional `description`: at most 1,000 Unicode code points, including an empty string.\n- Optional `initialVisible`: integer 1–12, default 6, clamped to the actual number of items.\n- Optional ordinary node `id` identifies the component in the integration event. Missing IDs produce `componentId: null`.\n\nNo callbacks, shared-state bindings, generated text, URLs, remote source data, message submission or persisted conversation are part of this contract. Exact supplied strings are displayed as literal text, never interpreted as instructions. Global JSON, depth and text budgets still apply.\n\n## Local interactions\n\nEvery choice is a native `type=\"button\"` with `aria-pressed`. A persistent Show more/Show fewer button uses `aria-expanded` and `aria-controls`; it hides overflow rows without rebuilding their DOM. The selected choice remains selected when it is hidden. Hidden overflow cannot be activated until expanded. Clear selection is persistent and stays focusable with `aria-disabled=\"true\"` when there is nothing to clear; that boundary is a strict no-op. Collapse and Clear preserve native action focus without moving it outside the action.\n\nAll actions honor native inherited disabled fieldsets, including forged click events and an enclosing document form's busy state. Choices have no `name` or `data-bind`, cannot submit a form and never enter a form's snapshot values. The component is allowed within document forms.\n\nUnrelated `setState` changes preserve the actual DOM, local selection/expansion, focus and status text. Invalid document updates are atomic; valid replacement starts clean. Disposal removes all component listeners. English/Chinese chrome follows the nearest host language; supplied content and its original line breaks remain unchanged. Layout supports automatic content direction, wrapping, light/dark palettes and forced-color selected outlines.\n\n## Host integration\n\nEach explicit accepted-for-dispatch activation, including host `.click()` on a visible enabled choice, dispatches exactly one `iui:suggestion` `CustomEvent` from the component root. It bubbles, is cancelable and is non-composed. Event construction uses the component's owner document/window, including a `createEvent` fallback for documents with no default view. The shallow-frozen detail contains only primitive fields:\n\n```ts\ninterface SuggestionDetail {\n  readonly componentId: string | null;\n  readonly suggestionId: string;\n  readonly text: string;\n}\n```\n\n`SuggestionDetail` is exported as a type from the main and browser entries. A complete minimal host consumer can preview the event without calling any chat service:\n\n```js\nimport {mount} from '@micraow/inform-ui/browser';\n\nconst preview = document.createElement('p');\nconst host = document.createElement('div');\ndocument.body.append(host, preview);\nhost.addEventListener('iui:suggestion', event => {\n  if (event.detail.suggestionId === 'terms') {\n    event.preventDefault(); // Reject only this local selection.\n    return;\n  }\n  preview.textContent = 'Host received a local event: ' + event.detail.text;\n});\nconst controller = mount(host, suppliedDocument);\n```\n\nCalling `preventDefault()` preserves the previous selection and reports that selection was not accepted. An uncanceled event selects locally and says any further handling belongs to the host app. The renderer never claims a message was sent. Cancellation cannot undo operations a host listener already performed, and uncanceled dispatch is not confirmation that an external operation succeeded. Consumer exceptions follow ordinary DOM event semantics. The host owns any composer insertion, external communication, authorization and error handling.\n\nThere is no event on mount, Show more/fewer, Clear or unrelated state updates. Reentrant activation and local actions are suppressed while the component's integration event is being dispatched. Synchronous consumer replacement/disposal invalidates the old renderer before post-dispatch painting, so detached or replacement content cannot be changed by a stale event. No network request, storage write, timer or chat service is implemented.\n\n## Evidence and verification limits\n\nSource baseline: `ba820ebf5a4effa4177c37901d3b267561dc1fa8`.\n\n`node --test tests/suggestions.test.mjs` covers the public schema/semantic API, strict negative cases, resource budgets, frozen detail and source immutability, cancellation, ownerDocument fallback, reentrancy, update/dispose cleanup, disabled/busy forms, no-submit behavior, persistent controls, literal Unicode and deterministic compilation.\n\n`tests/browser/suggestions.spec.mjs` is prepared but **unexecuted** in this isolated implementation. It covers native keyboard, pointer and touch at 390/768/1100 in light/dark, an actual local event consumer, Arabic-first RTL, long strings, forced colors, Chinese chrome, form and lifecycle interactions. Listed tests are not browser execution; screenshots exist only after these tests actually run. The integration owner runs the complete aggregate and accumulated browser acceptance. No push, remote CI, public acceptance or release is claimed here.\n"
+    },
+    {
+      "path": "docs/carousel.md",
+      "sourceBytes": 1990,
+      "sourceSha256": "8b46f1e1014a271530dda0c1d22028ec90cb492a31db4e55a60e20dd58ec33d7",
+      "bytes": 1990,
+      "sha256": "8b46f1e1014a271530dda0c1d22028ec90cb492a31db4e55a60e20dd58ec33d7",
+      "text": "# 有限轮播内容集合：后批候选\n\n增强已有 `carousel`，不增加协议节点数。当前公共验收计数仍以组件进度记录为准；本增强尚未完成浏览器/CDN验收。\n\n```json\n{\"type\":\"carousel\",\"label\":\"作者给定的笔记\",\"controls\":true,\"children\":[{\"type\":\"text\",\"value\":\"第一条\"},{\"type\":\"text\",\"value\":\"第二条\"}]}\n```\n\n- `children` 保持0–500个普通节点，沿用全局节点/深度预算及嵌套语义校验。0项有明确空提示；1项没有无用按钮。\n- 可选 `label` 为1–200字符，省略时用本地化“可滚动内容集合”；`controls` 默认true，false只去掉按钮，保留原生滚动。\n- 按钮每次前进/后退一个当前可视宽度，精确停在边界。边界按钮以 `aria-disabled` 保留焦点且操作无效果；没有循环、自动播放、选中项、复制内容或远程请求。\n- `.iui-carousel` 是实际滚动区域，保留 `role=region`，可见label提供唯一名称。有溢出才额外进入Tab顺序。外层无名shell持有作者 `id`/`data-iui`，因此需要滚动元素的选择器应使用 `.iui-carousel`。\n- 内容按作者顺序只渲染一次。滚动和无关 `setState` 保留子字段草稿、时间控件、展开面板、DOM和焦点。普通 `controller.update` 仍按主库生命周期重建；子组件照常清理。\n- 页数提示表示部分可见的作者条目范围，不代表选中的slide。原生键盘、横向滚轮和触摸滚动不被拦截。代码/表格可继续在子组件内局部滚动。\n- 同版base闭包示例：[carousel-basic.json](../examples/carousel-basic.json)。含表单/时间示例：[carousel.json](../examples/carousel.json)，需base+forms+time。领域卡片示例：[carousel-contained.json](../examples/carousel-contained.json)，需base+weather+finance+converters。\n\n所有示例为原创合成数据。本地23项隔离/公共API检查已通过；实际Chromium场景另备，未将待运行测试计为验收。\n"
+    },
+    {
+      "path": "docs/tabs.md",
+      "sourceBytes": 2135,
+      "sourceSha256": "ef8337548985b10701ecfcc58ccf8be378c04aecf8c0d695026a88ff52ad6dd3",
+      "bytes": 2135,
+      "sha256": "ef8337548985b10701ecfcc58ccf8be378c04aecf8c0d695026a88ff52ad6dd3",
+      "text": "# Finite local tabs\n\nCandidate canonical component: tab-group. Original protocol nodes tab-group and tab-panel describe one component, not two completion counts. The accepted d370 CDN does not support these nodes yet; real browser/visual acceptance is deferred to the accumulated batch.\n\nA group requires a supplied label and1..20 direct tab-panel children. Each panel requires a globally unique authored id, label and0..500 ordinary children under the existing total resource bounds. disabled is a literal boolean. At least one panel is enabled; initial optionally names an enabled direct panel. Otherwise the first enabled panel is selected. Orphan panels, arbitrary group children and nonexistent/disabled initial selections are rejected.\n\nNative tab buttons use one roving tab stop, aria-selected and aria-controls; panels use role=tabpanel and aria-labelledby. ArrowLeft/Right wrap through enabled tabs in physical direction, respecting RTL. Home/End select the first/last enabled authored panel. Space/Enter use native button activation. Vertical arrows and modified keys are not intercepted. The tab rail scrolls locally when needed; selecting a tab never deliberately scrolls the whole page or changes shared state.\n\nInactive panels are hidden, not destroyed. Numeric drafts and local widget state persist, timers continue running, and the existing overlay hidden-anchor observer closes surfaces whose triggers became hidden. Unrelated shared-state changes preserve selection, focus and rail position. A valid full update starts a new instance; invalid updates preserve it; disposal removes handlers and size observation.\n\nPlace complete forms inside individual panels. A tab-group inside an enclosing form is rejected, because required fields hidden on another panel must not strand invalid focus. This rule is checked recursively through ordinary layouts/lists.\n\nExamples: [basic base-domain tabs](../examples/tabs.json), [forms/time/overlay composition](../examples/tabs-local-state.json). No remote loading, URL/hash synchronization, auto-rotation, lazy mounting, drag reordering, persistence or arbitrary script behavior.\n"
+    },
+    {
+      "path": "docs/restaurant-menu.md",
+      "sourceBytes": 5304,
+      "sourceSha256": "cbad3c91f0a2158c3210cf69323832d8e8e9ad051be5111b22e3a9c0f4337f92",
+      "bytes": 5304,
+      "sha256": "cbad3c91f0a2158c3210cf69323832d8e8e9ad051be5111b22e3a9c0f4337f92",
+      "text": "# Supplied restaurant menu\n\n`restaurant-menu` is one original finite Base-domain node. It browses supplied data locally; it does not fetch restaurant information, verify availability, establish dietary safety, order food, reserve tables or process payments. The example is synthetic and original.\n\n## Data contract\n\n- Required `title`: 1–200 Unicode code points; `currency`: exactly three uppercase ASCII letters; `sections`: 0–20.\n- Optional `description`: at most 2,000 code points; `source`: required `label` (1–200), optional allowed absolute HTTP(S) `url` (1–2,048).\n- A section has `id` (the shared key shape), `title` (1–200), and `items` (0–40).\n- An item has `id`, `name` (1–200), and required `price`: a finite nonnegative number or `null`. Optional `description` (≤2,000), `tags` (0–8 strings of 1–40), and `status` (`available` or `unavailable`).\n- Section IDs are unique within the menu. Item IDs are unique across all its sections. Those two namespaces are separate; independent menu nodes can reuse IDs. Total items ≤200. Shared document budgets also apply.\n- Every object rejects unknown fields. No media, callback, binding, storage or transaction fields are supported. `MENU_ID`, `MENU_LIMIT`, `MENU_FORM` and `UNSAFE_URL` identify semantic violations; shape errors use the normal `SCHEMA` code.\n\nCurrency is a supplied label, not independently verified ISO currency data. Prices use their exact JavaScript numeric string and the supplied code, including scientific notation when necessary; there is no rounding to two decimal places, currency-symbol lookup, conversion or total. `0` is shown as an explicit zero; `null` is “Price not supplied.” Missing status is labelled “Status not supplied.” Tags and statuses are literal supplied claims, never recommendations or safety certifications. As with all JSON numbers, serialization cannot retain lexical notation or precision already lost by the caller.\n\n## Local interaction\n\nNative search and section controls filter existing item DOM, preserving supplied order. Query matching is `trim().toLowerCase()` plus literal substring against each name, description or tag; no normalization, fuzzy matching or semantic search is performed. A query and category are intersected. Sections with no matching items are hidden while controls remain available. Count announces actual visible/total items, with separate empty-menu and no-match messages.\n\nThe query limit is 200 Unicode code points. Overlong pasted drafts are never truncated. They retain the last valid search results and show explicit limit feedback; a changed section still intersects that last valid search. Correcting the draft resumes matching. Clear search clears both query and section and focuses the search control. It does not collapse native descriptions.\n\nDescriptions longer than 200 code points use native `details`/`summary`. All items remain mounted. Open disclosures, input selection, DOM identity and focus survive unrelated host state changes, including host reset actions and temporarily hidden ancestors. This component has no state binding. A successful full document update resets local state; an invalid update leaves the old tree intact. Disposal/update detaches component listeners. Internal IDs sit outside the authored ID namespace and elements come from the mount’s owner document.\n\nMenu nodes are rejected anywhere under an authored document form, including nested layouts, lists and disclosures (`MENU_FORM`). When the host itself lives inside an external native form, search cancels only unmodified, noncomposing Enter (also respecting IME key code 229); modified Enter and native arrow navigation are untouched. Controls have no names and do not enter form data. Their defaults track the current local values so an external form reset stays synchronized. An external disabled fieldset suppresses both native interaction and forged input/change/click events.\n\nEnglish and Chinese interface labels follow the mount’s existing language convention. Titles appear before interface text to support genuine Arabic-first `dir=auto`; unsupported interface languages use English. Scoped CSS uses existing theme tokens, native visible focus, responsive wrapping and forced-color borders with no animation.\n\n## Verification status\n\n`tests/menu.test.mjs` covers public schema and semantic validation, finite bounds, exact values, search/filter/reset, Unicode, native key boundaries, form ownership, disabled controls, retained details/focus, owner-document isolation, atomic update/disposal, source safety, literal text and deterministic compilation. `tests/types-menu.mts` verifies the public generated node union.\n\n`tests/browser/menu.spec.mjs` is prepared for the combined acceptance batch. It is explicitly unexecuted in this component handoff. It covers real keyboard, pointer and touch interactions, 390/768/1100 light/dark layouts, Arabic-first RTL, forced colors, exact price display, focus/disclosure retention, external form submission, disabled fields and lifecycle. No browser/visual pass or aggregate canonical acceptance is claimed here.\n\nNumeric negative zero is displayed as `0`, matching JSON compilation; no nonzero price is rounded. Source links announce their new-tab context and suppress referrer information.\n"
+    },
+    {
+      "path": "docs/label.md",
+      "sourceBytes": 3710,
+      "sourceSha256": "f516a5f47fabf0077e371f0f881caf6b139c372133d6f8e716a4ecd30e461a0c",
+      "bytes": 3710,
+      "sha256": "f516a5f47fabf0077e371f0f881caf6b139c372133d6f8e716a4ecd30e461a0c",
+      "text": "# Additional native labels\n\nThe existing partial canonical `base-label` now has a finite standalone `label` node. This is one pending enhancement, not an alias or a new verified component. The verified component count remains unchanged pending the accumulated real-browser batch.\n\n```json\n{\n  \"version\": \"iui/1\",\n  \"state\": { \"name\": \"\" },\n  \"body\": [\n    { \"type\": \"label\", \"text\": \"Additional name label\", \"target\": \"name-field\" },\n    { \"type\": \"input\", \"id\": \"name-field\", \"kind\": \"text\", \"label\": \"Name\", \"bind\": \"name\" }\n  ]\n}\n```\n\nBoth `text` and `target` are required literal strings of 1–200 Unicode code points. `target` must match an exact authored node ID in the same document, in either forward or backward order. Supported targets are input kinds text, number, email, checkbox and date, plus textarea, slider, toggle and select. A label does not replace the target's required original label. Radio, segmented choices, groups, forms, arbitrary text and unsupported nodes are not label targets. Missing/duplicate IDs and invalid references reject the complete document before DOM replacement.\n\nThe renderer produces an actual native `label` whose `htmlFor` identifies the interactive input, textarea or select, never its wrapper. The authored wrapper ID is preserved. Existing control IDs and native labels remain intact; formerly ID-less toggle/select controls receive renderer-reserved IDs. Slider control IDs use their own reserved namespace to avoid authored-wrapper collisions. These generated IDs are internal details.\n\nMultiple labels can name one control. Their DOM order follows the document's explicit author order, including the original field label. Assistive technology may combine these strings into the accessible name. Label text is inert and wraps in the inherited writing direction. Authors should keep extra labels concise and avoid redundant names.\n\nNative pointer/touch label activation focuses or toggles the control according to the browser's native behavior. There is no synthetic click, focus forwarding, custom keyboard activation or extra tab stop: a native label is not a separate button contract. Labels do not open hidden panels/details, bypass disabled controls, submit forms, change drafts, or change a field's form ownership. A label inside one form may name a field outside that form, but that field does not enter the form's submit snapshot.\n\nEach mount has a local synchronous association registry. Labels and native targets unregister on replacement/disposal. Invalid updates preserve the old associations and drafts; separate roots and ownerDocuments never share authored-ID lookups. There are no global selectors, observer/timer resolution, host binding or dynamic-label protocol.\n\n## Verification boundary\n\nPublic-API Node/JSDOM coverage includes every supported native target variant, both target orders, multiple labels, original-label preservation, schema subsets, Unicode limits, literal injection strings, exact/missing/wrong/duplicate IDs, native checkbox label clicks, disabled controls, rejected drafts, atomic invalid updates, replacement/reused IDs, cleanup, independent roots/documents, form snapshots, hidden panels and the portable compiler.\n\nJSDOM confirms real native associations and checkbox activation. It does not establish true pointer/touch behavior or browser text-field focus. Prepared `tests/browser/label.spec.mjs` scenarios cover light/dark themes at 390/768/1100 widths, real pointer and touch activation, native control keyboard focus and keys, disabled/hidden boundaries, lifecycle and Arabic-first RTL/forced colors. These browser scenarios have not been executed locally. No browser acceptance or count promotion is claimed.\n"
+    },
+    {
+      "path": "docs/checklist.md",
+      "sourceBytes": 2442,
+      "sourceSha256": "8a700e473d2d91e3e9d91b2deea1e357a1258cfdde3e8002383eead5d1ea1c6a",
+      "bytes": 2442,
+      "sha256": "8a700e473d2d91e3e9d91b2deea1e357a1258cfdde3e8002383eead5d1ea1c6a",
+      "text": "# Controlled local checklist\n\nOriginal finite support for canonical `checklist`. This candidate is locally tested and awaits the larger combined real-browser acceptance batch.\n\n`checklist` is a base-domain node with required `label` (1–200 code points) and `items` (0–50). Each item has unique `id`, literal `label`, and a unique `bind` naming declared boolean state. Optional item `hint` is at most 1000 code points; `disabled` is a boolean or expression resolving to a boolean. Overall `disabled` uses the same contract. Optional `filter` and `bulk` booleans default to true; `emptyText` is a literal at most 1000 code points.\n\nNative checkboxes compose the established Forms field registry. The count covers all supplied items, including disabled items. An empty checklist shows zero of zero and explicit empty content, without inventing a percentage. All/Open/Done only changes visibility; item DOM and local filter survive unrelated host updates. If a focused item becomes hidden by completion, focus moves only to the next visible enabled checkbox or the filter. Outside focus is untouched.\n\nSelect all/Clear all applies one atomic state patch to enabled items only. Global derived constraints can reject that complete patch; the UI preserves all accepted values and reports rejection. The operation never claims a partially applied update. Boundary actions remain focusable with `aria-disabled` and are strict no-ops. Native disabled fieldsets and submitting forms block all interactions.\n\nA checklist can live within a form because its native fields participate in the same submit values, disabled omission, cancel/reset snapshots and lifecycle as ordinary checkbox inputs. Its own buttons never submit the form. Full document update resets the local view only after validation succeeds. Labels, hints and state are rendered as text; no external tasks, reminders, network or persistence are provided.\n\nSee `examples/checklist.json` and `examples/checklist-form.json`. Original public validation/mount/compile tests are in `tests/checklist.test.mjs`; native pointer, keyboard and touch layouts are prepared in `tests/browser/checklist.spec.mjs` for later combined acceptance.\n\nForm ownership means the document's `form` node. Do not wrap a mounted controlled checklist in a separately managed outer HTML form, whose native reset would bypass the renderer snapshot lifecycle. Ordinary inherited disabled fieldsets remain supported.\n"
+    },
+    {
+      "path": "docs/rating.md",
+      "sourceBytes": 3887,
+      "sourceSha256": "180182028c40f28d4aee555bd7277c35c6254f3db8902d43153057fb76a39bc3",
+      "bytes": 3887,
+      "sha256": "180182028c40f28d4aee555bd7277c35c6254f3db8902d43153057fb76a39bc3",
+      "text": "# Rating: project-local controlled input extension\n\n`rating` is a project-local controlled rating INPUT extension using independently authored MIT-licensed code. Its editable radio-group behavior is not a reconstruction of the read-only rating-summary display. Use [`rating-summary`](rating-summary.md) for a supplied rating label, review-count label and optional source link. This input's existing contract is preserved. Verification results are tied to the exact tested commit; see the CI record for current coverage. It is not a supplied average, online review service, verified grade, or persisted preference.\n\n## Contract\n\nRequired fields are `label` (1–200 Unicode code points) and `bind` (a declared state key). Optional fields:\n\n- `max`: integer 2–10, default 5\n- `disabled`: an ordinary Value resolving to a boolean, default false\n- `clearable`: boolean, default true\n- `hint`: literal string, at most 1,000 Unicode code points\n\nThe bound state is an integer from 0 through `max`. Zero means unrated. Positive values are chosen explicitly. Fractions, strings, undeclared/computed-only bindings, and out-of-range values are rejected. The initial document, host `setState`, and declared set-button values satisfy every rating sharing the binding. A failed global transition leaves the whole state unchanged.\n\nSee the complete original [example](../examples/rating.json). A disabled rating is noninteractive but still reflects accepted host state. There is no `readOnly`, custom glyph, arbitrary HTML, `initial`, or alternate unbound protocol.\n\n## Interaction and ownership\n\nA fieldset/legend groups native, same-name radio inputs. Each visible star is decorative; numeric accessible labels and a visible numeric output communicate the choice. Native radio arrow/Space/Tab behavior is left to the browser. No custom keyboard handler claims Home/End behavior. Forced-colors retains native radio affordances, selected borders, and visible focus. Touch labels are at least 44 px high.\n\nClear writes 0. At zero it remains focusable with `aria-disabled=\"true\"` and safely does nothing. Setting `clearable:false` removes this button; hosts may still set 0. An ordinary document reset returns the bound state to its document initial value. Rejected input restores the accepted selection/output and shows localized feedback without moving focus.\n\nRating is a standalone shared-state input and is rejected beneath any `form` node, including nested containers and list items (`RATING_FORM`). It does not participate in form submission, Cancel, native form-reset snapshots, required-field validation, or host action adapters. Do not mount it inside an externally owned HTML form. Ordinary disabled fieldset ancestors are honored.\n\nAll options and output DOM survive unrelated/same-value state updates. Valid `controller.update` replaces the tree; an invalid update is atomic. Disposal removes listeners so detached controls cannot change replacement state. Each widget/mount has an independent radio name and internal ID namespace, including across ownerDocuments.\n\n## Verification boundary\n\nNode/JSDOM tests cover public schema/types/validation, shared state, atomic rejection, disabled guards, repeated dispatch, label activation, Clear/reset, focus/DOM preservation, namespace isolation, updates/disposal, literal content, and deterministic offline compilation. JSDOM is not evidence of actual native keyboard gestures or layout.\n\n`tests/browser/rating.spec.mjs` is prepared for the combined CI batch, covering pointer/native keys/touch, Tab group navigation, 390/768/1100 light/dark screenshots, actual RTL, forced colors, reduced motion, overflow, rejection and lifecycle. These browser tests have not been executed locally; pixel, browser, screen-reader and mobile acceptance remains pending. No network, timer, animation, storage, third-party code or remote assets are introduced.\n"
+    },
+    {
+      "path": "docs/primitives.md",
+      "sourceBytes": 2653,
+      "sourceSha256": "42d3f49ec6a88a2d0dddf61ae1eac12f64f1a6e267b395467aafc5044c321482",
+      "bytes": 2653,
+      "sha256": "42d3f49ec6a88a2d0dddf61ae1eac12f64f1a6e267b395467aafc5044c321482",
+      "text": "# 流式布局、有限图标与显式状态\n\n这是62节点协议的base增强，已通过源码、固定CDN与消费者整批验收。按canonical合同计入flow/icon/pulse-indicator三项；[验收证据与范围](verification-62.md)。\n\n## Flow\n\n`flow` 包含1–50个普通children。横向按DOM顺序折行，`gap` 为none/sm/md/lg（0/4/8/16px，默认md），`align` 为start/center/end（默认center），`justify` 为start/center/end/between（默认start）。它不做密集重排、瀑布流或断点脚本测量。\n\n普通子节点保留自身状态、焦点、绑定和清理；无关setState不重新创建它们。time/weather/finance/converter的直属大小包含容器有界地使用20rem基础宽度，仍受父级100%限制，避免auto固有宽度丢失。其他children保留自然宽度。grid-item仍只能直属grid；flow不能绕过任何子节点域、URL或状态语义校验。\n\n## Icon\n\n`icon.name` 只允许10个原创符号：info、check、warning、error、plus、minus、arrow-left、arrow-right、external-link、clock。没有外部图标包、URL、任意path或HTML输入。clock只是静态符号，不显示时间；左右箭头表示物理方向，不会自动镜像。\n\n`size` 为sm/md/lg（16/20/24px，默认md），`tone` 为default/muted/info/success/warning/danger（默认default）。没有label时图标是装饰并从无障碍树隐藏；提供1–200字label时输出带准确名称的图像语义。图标不获取键盘焦点，也没有点击行为。\n\n## Pulse indicator\n\n`pulse-indicator` 必须带1–200字label以及idle/busy/success/warning/error之一的status。作者标签与本地化状态文字均可见，色点仅作装饰，不能只靠颜色表达含义。\n\n`animate` 默认true；只有busy状态有CSS脉冲，减动态偏好会停用动画。没有计时器、网络请求、自动状态转换、估算进度、隐式aria-busy或反复live播报。status是调用方给定的字面量，不证明服务真实状态；无关setState不会改变它。要改status须普通update，这也会按现有合同重建文档中的本地组件状态。\n\n## 示例与边界\n\n- [基础原生JSON](../examples/local-status-primitives.json)：只需base Document分片\n- [表单与时间混合JSON](../examples/primitives-with-form-and-time.json)：需完整Schema，或base+forms+time明确并集\n- [当前组合JSON](../examples/current-components.json)：数字草稿保护、表格、计时与有限基础节点\n\n所有新字段仍由单一Schema生成器及公共validateDocument检查。自动化标签/几何回归不等同人工屏幕阅读器、全部浏览器或WCAG审计。\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/layout.json",
+      "bytes": 275,
+      "sha256": "c18f68666fb14eca9f4ddfbec1d4faada980d59e9ee9bd574f670bba03d1e7c4",
+      "document": {
+        "version": "iui/1",
+        "state": {
+          "count": 2
+        },
+        "body": [
+          {
+            "type": "card",
+            "children": [
+              {
+                "type": "metric",
+                "label": "Notebooks",
+                "value": {
+                  "$": "count"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "28c89fd9b2805b23218cef538ada949e43f527e1b7f50dd938a4af1972d78735",
+    "schemaBytes": 63667
+  },
+  "manifestPath": "layout.json.manifest.json"
+}

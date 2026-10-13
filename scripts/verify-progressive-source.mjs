@@ -5,10 +5,10 @@ import path from 'node:path';
 import {tmpdir} from 'node:os';
 import {generateProgressiveCatalog} from './generate-progressive-catalog.mjs';
 import {createProgressiveTask,parseProgressiveOptions} from './progressive-source-consumer.mjs';
-const args=parseProgressiveOptions(process.argv.slice(2),['--library','--revision','--generated','--publication']);for(const flag of ['--library','--revision','--generated'])assert.ok(args[flag],flag);
+const args=parseProgressiveOptions(process.argv.slice(2),['--library','--revision','--generated','--publication','--catalog-version']);for(const flag of ['--library','--revision','--generated'])assert.ok(args[flag],flag);
 const options={library:args['--library'],revision:args['--revision']},temporary=await mkdtemp(path.join(tmpdir(),'iui-progressive-verify-'));let checks=0;
 try{
- const rebuilt=await generateProgressiveCatalog({...options,output:temporary,publication:args['--publication']}),expected=JSON.parse(await readFile(path.join(args['--generated'],'generation.json'),'utf8'));
+ const rebuilt=await generateProgressiveCatalog({...options,output:temporary,publication:args['--publication'],catalogVersion:args['--catalog-version']}),expected=JSON.parse(await readFile(path.join(args['--generated'],'generation.json'),'utf8'));
  assert.deepEqual(rebuilt,expected);checks++;
  for(const entry of rebuilt.artifacts){assert.deepEqual(await readFile(path.join(temporary,entry.path)),await readFile(path.join(args['--generated'],entry.path)),entry.path);}checks++;
  const document=await createProgressiveTask({...options,components:['text','input','questionnaire']}),reordered=await createProgressiveTask({...options,components:['questionnaire','input','text']});assert.deepEqual(document,reordered);checks++;

@@ -1,0 +1,58 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "choices",
+  "modules": [
+    {
+      "id": "choices/local",
+      "title": "Supplied choices polls availability and gallery",
+      "dependsOn": [
+        "shared/value"
+      ],
+      "semanticContractPaths": [
+        "docs/restaurant-availability.md",
+        "docs/onboarding-selection.md",
+        "docs/create-interactive-poll.md",
+        "docs/location-choice-request.md",
+        "docs/business-gallery.md"
+      ],
+      "taskPath": "../modules/choices/local.json",
+      "components": [
+        {
+          "type": "restaurant-availability",
+          "definition": "RestaurantAvailabilityNode",
+          "schemaPointer": "#/schema/$defs/RestaurantAvailabilityNode"
+        },
+        {
+          "type": "onboarding-selection",
+          "definition": "OnboardingSelectionNode",
+          "schemaPointer": "#/schema/$defs/OnboardingSelectionNode"
+        },
+        {
+          "type": "create-interactive-poll",
+          "definition": "CreateInteractivePollNode",
+          "schemaPointer": "#/schema/$defs/CreateInteractivePollNode"
+        },
+        {
+          "type": "location-choice-request",
+          "definition": "LocationChoiceRequestNode",
+          "schemaPointer": "#/schema/$defs/LocationChoiceRequestNode"
+        },
+        {
+          "type": "business-gallery",
+          "definition": "BusinessGalleryNode",
+          "schemaPointer": "#/schema/$defs/BusinessGalleryNode"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "format": "inform-ui-progressive-category/1",
+  "generated": true,
+  "schemaVersion": "iui/1",
+  "source": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    }
+  },
+  "category": "activities",
+  "modules": [
+    {
+      "id": "activities/supplied",
+      "title": "Activity planning",
+      "dependsOn": [
+        "travel/snapshots"
+      ],
+      "semanticContractPaths": [
+        "docs/activity-planning.md"
+      ],
+      "taskPath": "../modules/activities/supplied.json",
+      "components": [
+        {
+          "type": "shared-activity-planner",
+          "definition": "SharedActivityPlannerNode",
+          "schemaPointer": "#/schema/$defs/SharedActivityPlannerNode"
+        },
+        {
+          "type": "event-sidebar",
+          "definition": "EventSidebarNode",
+          "schemaPointer": "#/schema/$defs/EventSidebarNode"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1398 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "entity"
+    ],
+    "requestedModules": [
+      "media/inline-host"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "media/readers",
+      "media/inline-host"
+    ],
+    "includedComponents": [
+      "search-image",
+      "youtube",
+      "entity",
+      "gen-image",
+      "speech-synthesizer"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/media-readers.md",
+      "docs/inline-host-media.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/media-readers.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/inline-host-media.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/media-reader.json",
+      "examples/schema-modules/inline-host-media.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:3daaa31e003b986c340399b106d9d8a92bd1c2b95b39636201f6ad72426c3b8a",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "EntityNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "entity"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "mobile": {
+            "type": "boolean"
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "action": {
+            "$ref": "#/$defs/InlineHostAction"
+          },
+          "detailPayload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entityId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "category": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 8000
+              }
+            },
+            "required": [
+              "entityId"
+            ]
+          },
+          "entityData": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 1000
+              },
+              "categories": {
+                "type": "array",
+                "maxItems": 30,
+                "items": {
+                  "type": "string",
+                  "maxLength": 300
+                }
+              },
+              "rating": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "priceLabel": {
+                "type": "string",
+                "maxLength": 300
+              },
+              "open": {
+                "type": "boolean"
+              },
+              "legacyWebsiteUrl": {
+                "type": "string",
+                "maxLength": 4000
+              }
+            },
+            "required": []
+          },
+          "image": {
+            "$ref": "#/$defs/SearchImageRecord"
+          },
+          "directionsUrl": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "websiteUrl": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "directionsLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "websiteLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "openLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "closedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "detailsLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "closeLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "value": {}
+          },
+          "required": [
+            "value"
+          ]
+        }
+      },
+      "GenImageNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "gen-image"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "images": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "$ref": "#/$defs/SearchImageRecord"
+            }
+          },
+          "loading": {
+            "type": "boolean"
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "maxWidth": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "maxHeight": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "minWidth": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "minHeight": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "frameWidth": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "frameHeight": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "frameMaxWidth": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "frameMaxHeight": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4096
+                  },
+                  {
+                    "type": "string",
+                    "maxLength": 32,
+                    "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "aspectRatio": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              },
+              {
+                "type": "string",
+                "maxLength": 40,
+                "pattern": "^[0-9]+(?:\\.[0-9]+)?\\s*[:/]\\s*[0-9]+(?:\\.[0-9]+)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "frameAspectRatio": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              },
+              {
+                "type": "string",
+                "maxLength": 40,
+                "pattern": "^[0-9]+(?:\\.[0-9]+)?\\s*[:/]\\s*[0-9]+(?:\\.[0-9]+)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "radius": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 256
+          },
+          "frame": {
+            "type": "boolean"
+          },
+          "fit": {
+            "enum": [
+              "cover",
+              "contain"
+            ]
+          },
+          "presentation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "frame": {
+                "type": "boolean"
+              },
+              "minWidth": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4096
+                  },
+                  {
+                    "type": "string",
+                    "maxLength": 32,
+                    "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+                  }
+                ]
+              },
+              "minHeight": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4096
+                  },
+                  {
+                    "type": "string",
+                    "maxLength": 32,
+                    "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,3})?(?:px|%|rem|vw|vh)?$(?![\\s\\S])"
+                  }
+                ]
+              },
+              "radius": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 256
+              }
+            },
+            "required": []
+          },
+          "onClickAction": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/InlineHostAction"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defaultAction": {
+            "$ref": "#/$defs/InlineHostAction"
+          },
+          "openLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "InlineHostAction": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "url",
+              "query",
+              "entity"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "entityId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "appendToCurrent": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "kind"
+        ]
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/SearchImageNode"
+          },
+          {
+            "$ref": "#/$defs/YoutubeNode"
+          },
+          {
+            "$ref": "#/$defs/EntityNode"
+          },
+          {
+            "$ref": "#/$defs/GenImageNode"
+          },
+          {
+            "$ref": "#/$defs/SpeechSynthesizerNode"
+          }
+        ]
+      },
+      "SearchImageNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "search-image"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "searchImage": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/SearchImageRecord"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "alt": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "minWidth": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "minHeight": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "maxWidth": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "maxHeight": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4096
+              },
+              {
+                "type": "string",
+                "pattern": "^(?:100|[1-9]?[0-9](?:\\.[0-9]{1,3})?)%$(?![\\s\\S])"
+              }
+            ]
+          },
+          "aspectRatio": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              },
+              {
+                "type": "string",
+                "maxLength": 40,
+                "pattern": "^[0-9]+(?:\\.[0-9]+)?\\s*[:/]\\s*[0-9]+(?:\\.[0-9]+)?$(?![\\s\\S])"
+              }
+            ]
+          },
+          "fit": {
+            "enum": [
+              "cover",
+              "contain",
+              "fill",
+              "none",
+              "scale-down"
+            ]
+          },
+          "position": {
+            "type": "string",
+            "maxLength": 50,
+            "pattern": "^[0-9]+(?:\\.[0-9]+)?% [0-9]+(?:\\.[0-9]+)?%$(?![\\s\\S])"
+          },
+          "frame": {
+            "type": "boolean"
+          },
+          "radius": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 256
+          },
+          "hoverZoom": {
+            "type": "boolean"
+          },
+          "hideOnFailure": {
+            "type": "boolean"
+          },
+          "sourcePending": {
+            "type": "boolean"
+          },
+          "upgradeToFullRes": {
+            "const": false
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "contentCropFit": {
+            "enum": [
+              "contain",
+              "cover"
+            ]
+          },
+          "containOutsideAspectRatio": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              },
+              "max": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1000
+              }
+            },
+            "required": [
+              "min",
+              "max"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "type",
+          "searchImage"
+        ],
+        "additionalProperties": false
+      },
+      "SearchImagePlacement": {
+        "type": "object",
+        "properties": {
+          "left": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          },
+          "top": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1000
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000
+          }
+        },
+        "required": [
+          "left",
+          "top",
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      },
+      "SearchImagePresentation": {
+        "type": "object",
+        "properties": {
+          "aspect_ratio": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000
+          },
+          "placement": {
+            "$ref": "#/$defs/SearchImagePlacement"
+          }
+        },
+        "required": [
+          "aspect_ratio",
+          "placement"
+        ],
+        "additionalProperties": false
+      },
+      "SearchImageRecord": {
+        "type": "object",
+        "properties": {
+          "content_url": {
+            "type": "string",
+            "maxLength": 500000
+          },
+          "thumbnail_url": {
+            "type": "string",
+            "maxLength": 500000
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "content_size": {
+            "$ref": "#/$defs/SearchImageSize"
+          },
+          "thumbnail_size": {
+            "$ref": "#/$defs/SearchImageSize"
+          },
+          "thumbnail_crop_info": {
+            "type": "object",
+            "properties": {
+              "center_x_percent": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "center_y_percent": {
+                "type": "number",
+                "minimum": -1000,
+                "maximum": 1000
+              }
+            },
+            "required": [
+              "center_x_percent",
+              "center_y_percent"
+            ],
+            "additionalProperties": false
+          },
+          "content_presentation": {
+            "$ref": "#/$defs/SearchImagePresentation"
+          },
+          "thumbnail_presentation": {
+            "$ref": "#/$defs/SearchImagePresentation"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "SearchImageSize": {
+        "type": "object",
+        "properties": {
+          "width": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100000
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100000
+          }
+        },
+        "required": [
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      },
+      "SpeechSynthesizerNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "speech-synthesizer"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "fallback": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "resetLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadImageLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "playbackStatus": {
+            "enum": [
+              "idle",
+              "starting",
+              "playing",
+              "paused",
+              "error"
+            ]
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 4000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "playbackSpeed": {
+            "type": "number",
+            "minimum": 0.25,
+            "maximum": 4
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 16000
+              },
+              "language": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "voiceId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              }
+            },
+            "required": []
+          },
+          "controls": {
+            "enum": [
+              "default",
+              "custom"
+            ]
+          },
+          "playLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "stopLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "unavailableLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "statusLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "YoutubeNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "youtube"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "loadMode": {
+            "enum": [
+              "direct",
+              "on-demand"
+            ]
+          },
+          "videoId": {
+            "type": "string",
+            "minLength": 11,
+            "maxLength": 11,
+            "pattern": "^[A-Za-z0-9_-]{11}$(?![\\s\\S])"
+          },
+          "caption": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "startSeconds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 86400
+          },
+          "fullscreen": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "$ref": "#/$defs/Value"
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "videoId"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/media-readers.md",
+      "sourceBytes": 2382,
+      "sourceSha256": "9a4bcf33acc7dae9a1969c980c2c9a2ffae375dadc35d597a2bc98f9a259d77a",
+      "bytes": 2382,
+      "sha256": "9a4bcf33acc7dae9a1969c980c2c9a2ffae375dadc35d597a2bc98f9a259d77a",
+      "text": "# Supplied media readers\n\n`media/readers` owns the existing SearchImage and YouTube schemas in `scripts/media-reader-definitions.json`. Other media families depend on this source module explicitly. Structural schema validation is necessary; use full `validateDocument` for the following semantic checks and the common expression and URL policies.\n\n## Search image\n\n`search-image` displays a supplied `searchImage` record, its loading/error state and bounded layout. It does not search or discover images. The content and thumbnail URLs, when supplied, must pass the safe image policy: absolute credential-free HTTP(S), or supported inline raster data. The renderer selects the supplied source and honors fit, crop metadata and fallback. Resource assignment and release follow the shared generation/ownership contract. Direct image rendering can load a supplied remote image; this primitive alone does not promise a click-to-load gate. Higher-level components may impose an explicit activation gate.\n\n`SEARCH_IMAGE_RATIO` requires a supplied numeric ratio, or parsed colon/slash ratio, to be finite, positive and at most 1000. `containOutsideAspectRatio.min` must be strictly less than `max`; the structural schema also bounds their individual values. `SEARCH_IMAGE_POSITION` requires both supplied percentage coordinates to be at most 100, in addition to the schema's nonnegative two-percentage syntax. Crop centers are supplied fractions or percentages; rendering clamps them and does not infer a subject. URL failures report `UNSAFE_URL`. No additional blanket nonblank-label rule is introduced for this record.\n\n## YouTube\n\n`youtube` accepts a supplied, structurally bounded video ID and label, optional start time, caption, fullscreen and disabled settings. `YOUTUBE_LABEL` rejects whitespace-only labels. There is no URL discovery, metadata lookup or provider SDK. The fixed iframe uses youtube-nocookie.com with autoplay off and standard controls; embedding still contacts that external service.\n\nThe default load mode is direct, scheduled after admission. Explicit `loadMode: \"on-demand\"` shows a local load control first. Unload, replacement and disposal revoke the owned iframe source. Disabled and actual DOM admission gates apply. Do not describe direct mode as offline or as requiring an activation click. Compiled HTML must retain the existing fixed iframe CSP policy.\n"
+    },
+    {
+      "path": "docs/inline-host-media.md",
+      "sourceBytes": 6007,
+      "sourceSha256": "a5e4cdcf3b8a2a700e03b8284362e4910c637b2dd54e3ff6d7d6043db114e67e",
+      "bytes": 6007,
+      "sha256": "a5e4cdcf3b8a2a700e03b8284362e4910c637b2dd54e3ff6d7d6043db114e67e",
+      "text": "# Inline entity, supplied generated-image view, and speech host adapter\n\nThese are original implementations of observable presentation and interaction contracts. All examples and images are fictional. Registration is 213; these three candidates do not change the approved 205-component completion count until independent review.\n\n## Entity\n\n`entity` supplies an inline `value`, optional finite `action`, `detailPayload`, and metadata. Activation chooses the explicit action first, then the supplied entity detail payload, then the supplied category/query (default category `ask_sidebar`). No entity lookup occurs.\n\nOn desktop, a detail payload with metadata enables a 150 ms mouse-hover or focus preview. Touch hover is excluded. The preview presents supplied name, 96 px image, nonempty categories, one-decimal rating including zero, price and open/closed text. It offers supplied directions and website intents. An explicit website takes priority over a credential-free HTTPS legacy domain URL. Mobile retains the inline action without the desktop preview. Escape and Close restore focus without reopening the preview.\n\n## GenImage\n\n`gen-image` displays supplied `images`; it does not generate images. Pending frames use a 220 px default square or the supplied aspect ratio and height. Authored dimensions and resolved `frame*` overrides are supported, including an explicit null `frameMaxHeight` that removes the cap. `presentation` supplies frame, radius and minimum dimensions. Dimensions are bounded numbers or safe CSS lengths.\n\nOnly the first supplied image is shown inline. A null `onClickAction` makes it passive; an explicit action precedes `defaultAction`. Otherwise activation opens the existing local image viewer with the complete supplied list. Loading and unactivated external media cannot be opened even if a host changes the DOM disabled property. Resolved empty content can show supplied fallback text; a failed or absent resolved image without such content has zero height.\n\n## SpeechSynthesizer\n\n`speech-synthesizer` is a finite host adapter, defaulting to unavailable. The host supplies availability, playback status, optional error, playback speed (0.25–4), and bounded text/language/voice ID metadata. Default controls show Play for idle and Stop for other supplied statuses; custom controls show both and the supplied error.\n\nPlay and Stop emit local requests and leave playback status unchanged until the host updates the document. This library does not call browser speech synthesis, record audio, fetch media, or claim audible playback. A connected disabled adapter with an available active supplied status emits one stop request with reason `disabled`; the host may cancel or handle it. Reset clears only the local receipt, not host playback state.\n\n## Shared contract\n\n`iui:inline-host-media` bubbles, is cancelable and non-composed. Its frozen finite detail contains component, nullable ID and an intent (`open-url`, `new-turn`, `open-entity`, `view-images`, `play`, `stop`, `reset`). Image lists and speech source metadata are deeply frozen. URLs are validated; URL intents do not navigate automatically. Inline original raster data loads locally. External image URLs require an explicit local Load gesture, outside action buttons.\n\nThe implementation reuses shared ownership, generation, admission, reset, image-reader, overlay and viewer mechanisms. It honors supplied disabled state, DOM disabled/fieldset/first-legend, hidden/inert/ARIA and capture cancellation. Replacement or permanent removal retires old controls and image sources. Hover timer late registration is compensated using generation acquisition. Accepted native reset closes local previews/viewers; canceled reset leaves them open. Explicit local Reset controls do not submit surrounding forms.\n\nSource tests cover real public mount and compiled standalone output. Browser tests are authored for a later grouped run; discovery does not claim native geometry, decoding, playback or reference-pixel acceptance. Initial negative logs retain the loading-button admission defect and the fixture corrections for CSS calc normalization and asynchronous first image connection.\n\n## Structural and semantic bounds\n\nThis module explicitly depends on `media/readers`; [the supplied media contract](media-readers.md) defines shared image URL checks. Full `validateDocument` applies the following precise additional checks without changing older empty-string allowances.\n\n`INLINE_TEXT` rejects whitespace-only top-level `label`, `resetLabel`, `loadImageLabel`, and an entity's supplied `value`. Other optional display labels retain their structural rules. `INLINE_ACTION` requires a URL-kind action to contain a safe link URL, query-kind action to contain a nonblank query, and entity-kind action to contain at least a nonblank entityId or query. A supplied entity detailPayload requires nonblank entityId. These checks apply to explicit/default actions even when another action would take precedence. Entity directionsUrl and websiteUrl pass the safe link policy (`UNSAFE_URL`). Images use the shared content/thumbnail URL check in all supplied records; no media source is inferred.\n\nFor gen-image, `INLINE_RATIO` checks aspectRatio and frameAspectRatio as finite positive ratios at most 1000. `INLINE_DIMENSION` checks dimension strings from width/height, min/max width/height and corresponding frame dimensions: parsed magnitude at most 4096, and percentage magnitude at most 100. The schema supplies the allowed finite CSS syntax; numeric dimensions are structurally bounded. The same check includes presentation minWidth/minHeight overrides. A null frameMaxHeight remains permitted. No unrestricted CSS expression is executed.\n\n`INLINE_SOURCE` requires each supplied speech source text/language/voiceId value to be nonblank. An absent source remains absent, and host playback states do not establish actual audio playback. Pending or failed presentation does not skip these checks for fields that are supplied.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/media-reader.json",
+      "bytes": 352,
+      "sha256": "5002e4630e69f71a2f51fa2b395c4885b82431d298c8251c4b4949a102fbb6ab",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "search-image",
+            "alt": "No supplied image yet",
+            "searchImage": null,
+            "sourcePending": true,
+            "aspectRatio": "16:9"
+          },
+          {
+            "type": "youtube",
+            "label": "Supplied synthetic video ID",
+            "videoId": "abcdefghijk",
+            "loadMode": "on-demand"
+          }
+        ]
+      }
+    },
+    {
+      "path": "examples/schema-modules/inline-host-media.json",
+      "bytes": 2358,
+      "sha256": "a490ae9457c7ec54ef22f66b68ca641343f7d1985d7b908fa4d06213c14c3d14",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "entity",
+            "id": "original-place",
+            "label": "Original supplied entity",
+            "value": "Fictional place",
+            "detailPayload": {
+              "entityId": "place-1",
+              "category": "original-places"
+            },
+            "entityData": {
+              "name": "Fictional place details",
+              "categories": [
+                "Original category",
+                "",
+                "Second category"
+              ],
+              "rating": 0,
+              "priceLabel": "Supplied price tier",
+              "open": false,
+              "legacyWebsiteUrl": "https://example.test/place"
+            },
+            "image": {
+              "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQCFhAEmIY1TCqYfhqAAAbcBAQnOlMywAAAABJRU5ErkJggg==",
+              "title": "Original blue square"
+            },
+            "directionsUrl": "https://example.test/directions",
+            "detailsLabel": "View the supplied fictional place",
+            "closedLabel": "Supplied closed",
+            "openLabel": "Supplied open"
+          },
+          {
+            "type": "gen-image",
+            "id": "original-generated-view",
+            "label": "Supplied original image result",
+            "images": [
+              {
+                "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQCFhAEmIY1TCqYfhqAAAbcBAQnOlMywAAAABJRU5ErkJggg==",
+                "title": "Original blue square"
+              },
+              {
+                "content_url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR4nGNQCFhAEmIY1TCqYfhqAAAbcBAQnOlMywAAAABJRU5ErkJggg==",
+                "title": "Second original blue square"
+              }
+            ],
+            "aspectRatio": "4:3",
+            "maxWidth": 320,
+            "maxHeight": 240,
+            "openLabel": "View original supplied images",
+            "fallback": "Original image unavailable"
+          },
+          {
+            "type": "speech-synthesizer",
+            "id": "original-speech",
+            "label": "Original speech adapter",
+            "available": true,
+            "playbackStatus": "idle",
+            "playbackSpeed": 1.25,
+            "source": {
+              "text": "An original sentence supplied for a local speech request.",
+              "language": "en",
+              "voiceId": "host-chosen-original"
+            },
+            "controls": "custom",
+            "playLabel": "Request original speech",
+            "stopLabel": "Request speech stop",
+            "unavailableLabel": "No host speech provider"
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "52847509aee4d3201d80c027544b0a54a1d44852521f9f579b0b6058d914a453",
+    "schemaBytes": 27611
+  },
+  "manifestPath": "inline-host.json.manifest.json"
+}

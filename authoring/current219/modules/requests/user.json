@@ -1,0 +1,631 @@
+{
+  "format": "inform-ui-progressive-task/1",
+  "schemaVersion": "iui/1",
+  "runtime": {
+    "sourceCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8",
+    "publicCommit": "5849d9ba6352da8f3fe32dcf3525d0418129e3f8"
+  },
+  "rootKind": "document",
+  "validation": "The selected schema is structural. Validate the complete document with the same runtime and test task-specific outcomes.",
+  "selection": {
+    "schemaVersion": "iui/1",
+    "sourceIdentity": {
+      "algorithm": "sha256",
+      "value": "3f076be203f75613616055b10d908f3af0592b0d1f10badee94e192602d861f4"
+    },
+    "requestedComponents": [
+      "ask-user-details"
+    ],
+    "requestedModules": [
+      "requests/user"
+    ],
+    "resolvedModules": [
+      "shared/value",
+      "requests/user"
+    ],
+    "includedComponents": [
+      "ask-user-details",
+      "ask-user-files"
+    ],
+    "contracts": [
+      "docs/api.md#状态与表达式",
+      "docs/security.md",
+      "docs/ask-user-contract.md"
+    ],
+    "contractSelections": [
+      {
+        "path": "docs/api.md#状态与表达式",
+        "followLinks": false
+      },
+      {
+        "path": "docs/security.md",
+        "followLinks": false
+      },
+      {
+        "path": "docs/ask-user-contract.md",
+        "followLinks": false
+      }
+    ],
+    "examples": [
+      "examples/schema-modules/ask-user.json"
+    ],
+    "migrationCoverage": {
+      "migratedNodeCount": 219,
+      "totalNodeCount": 219
+    }
+  },
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "urn:micraow:inform-ui:source-selection:2f89ac368ec7098f5853a92f83c5ef0aa71e71f03f37ce52ed9105cd97a46625",
+    "title": "IUIDocument",
+    "description": "The project-defined iui/1 wire contract. Semantic validation additionally enforces safe expressions, data and URLs. Native nodes are recognized but unsupported by the portable renderer.",
+    "type": "object",
+    "properties": {
+      "version": {
+        "const": "iui/1"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 12000
+      },
+      "theme": {
+        "enum": [
+          "auto",
+          "light",
+          "dark"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 12000
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "computed": {
+        "type": "object",
+        "propertyNames": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$"
+        },
+        "maxProperties": 80,
+        "additionalProperties": {
+          "$ref": "#/$defs/Value"
+        }
+      },
+      "body": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/Node"
+        },
+        "minItems": 1,
+        "maxItems": 150
+      }
+    },
+    "required": [
+      "version",
+      "body"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+      "AskUserDetailsNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ask-user-details"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "showCTA": {
+            "type": "boolean"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "localReview": {
+            "type": "boolean"
+          },
+          "cancelLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "reviewLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "invalidLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "acceptedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "invitation": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 2000
+          },
+          "buttonLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "submitLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "questions": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,79}$(?![\\s\\S])"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 500
+                },
+                "kind": {
+                  "enum": [
+                    "text",
+                    "textarea",
+                    "select"
+                  ]
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "placeholder": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 300
+                },
+                "initialValue": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 4000
+                },
+                "maxLength": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4000
+                },
+                "options": {
+                  "type": "array",
+                  "maxItems": 30,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 200
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 300
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "label"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "label"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {
+          "properties": {
+            "questions": false
+          }
+        },
+        "else": {
+          "properties": {
+            "questions": {},
+            "buttonLabel": {},
+            "submitLabel": {}
+          },
+          "required": [
+            "questions",
+            "buttonLabel",
+            "submitLabel"
+          ]
+        }
+      },
+      "AskUserFilesNode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "const": "ask-user-files"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "pending",
+              "failed"
+            ]
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "showCTA": {
+            "type": "boolean"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "localReview": {
+            "type": "boolean"
+          },
+          "cancelLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "reviewLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "invalidLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "acceptedLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "kind": {
+            "enum": [
+              "file",
+              "photo",
+              "video",
+              "media"
+            ]
+          },
+          "buttonLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "fileLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "photoLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "videoLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "mediaLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "submitLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "emptyLabel": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "multiple": {
+            "type": "boolean"
+          },
+          "maxFiles": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20
+          },
+          "maxFileBytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000000
+          }
+        },
+        "required": [
+          "type",
+          "label"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "pending",
+                "failed"
+              ]
+            }
+          },
+          "required": [
+            "status"
+          ]
+        },
+        "then": {},
+        "else": {
+          "properties": {
+            "kind": {}
+          },
+          "required": [
+            "kind"
+          ]
+        }
+      },
+      "Node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/AskUserDetailsNode"
+          },
+          {
+            "$ref": "#/$defs/AskUserFilesNode"
+          }
+        ]
+      },
+      "Value": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 12000
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "$": {
+                "type": "string",
+                "pattern": "^[A-Za-z_][A-Za-z0-9_.-]{0,79}$",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "$"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "op": {
+                "enum": [
+                  "add",
+                  "sub",
+                  "mul",
+                  "div",
+                  "max",
+                  "min",
+                  "round",
+                  "abs",
+                  "clamp",
+                  "gt",
+                  "lt",
+                  "eq",
+                  "if",
+                  "format"
+                ]
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Value"
+                },
+                "minItems": 1,
+                "maxItems": 12
+              }
+            },
+            "required": [
+              "op",
+              "args"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "contracts": [
+    {
+      "path": "docs/api.md#状态与表达式",
+      "sourceBytes": 4773,
+      "sourceSha256": "ff2c494f8a63ac7b1fe3c4f9b64dfd41a89f74be05833aa9f517a01c1241d85e",
+      "bytes": 587,
+      "sha256": "1173caacf1080ae762cd4b96ed6aac04f3ce2fc5ecc34ec675b1f34b2017cf01",
+      "text": "## 状态与表达式\n\n`state` 保存字符串、有限数值或布尔值。引用写作 `{ \"$\": \"gain\" }`，计算写作 `{ \"op\": \"mul\", \"args\": [12, { \"$\": \"gain\" }] }`。\n\n可用操作符：`add`、`sub`、`mul`、`div`、`max`、`min`、`round`、`abs`、`clamp`、`gt`、`lt`、`eq`、`if`、`format`。它们是受约束的数据树，不是 JavaScript 源码。未知引用、循环依赖、非法参数、除零及非有限结果会被拒绝。\n\n需要直接求值时，可从主入口导入 `evaluateValue` 和 `evaluateState`；通常由控件与渲染器自动处理即可。\n"
+    },
+    {
+      "path": "docs/security.md",
+      "sourceBytes": 4732,
+      "sourceSha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "bytes": 4732,
+      "sha256": "db45dd48a9f8f4209c70a9637c3349a87c3885f3740f5b6308379799c2acbd75",
+      "text": "# API and security model\n\n`iui/1` is data, never executable source. Content text is inserted through text nodes. The only HTML sink is KaTeX's generated visual HTML plus accessible MathML with `trust:false`, bounded expansion/size, and strict parsing; model HTML never enters that sink directly. Unsupported TeX falls back to visible source.\n\n## Validation\n\nThe JSON Schema is generated from `scripts/generate-schema.mjs`. TypeScript declarations and the Ajv standalone validator are generated in the same step. CI rejects drift. Browser code imports the already generated validator, avoiding runtime `new Function` and allowing a script hash CSP without `unsafe-eval`.\n\n`validateDocument(input)` returns `{ok:true,document}` or `{ok:false,issues}`. It accepts plain JSON values only; custom prototypes, accessors, cyclic objects, reserved keys, nonfinite numbers, and excessive values/text/depth are rejected before Ajv traversal. Semantics additionally reject unknown references, computed cycles, bad operator arities/types, numerical errors, duplicate IDs, unknown state bindings, broken topology endpoints, malformed table widths, invalid chart data, and unsafe resource declarations.\n\n`evaluateValue(value,state,computed)` evaluates a constrained expression and throws on invalid input. `evaluateState(document,override)` returns validated, frozen state/computed results or issues. Controller state updates use this checked path. Numeric operators do not coerce strings. `if` is lazy at evaluation but both branches are inspected for references and types; runtime arithmetic errors still reject the state transition.\n\nLimits include 64 JSON nesting levels, 2,000 node-like objects, 50,000 values, a two-million-UTF-16-code-unit text budget (including JSON keys, retained across merged state updates), and schema-specific row/series/child limits. These limits reduce resource exhaustion; they are not a promise of fixed latency for every valid document.\n\n## Browser boundary\n\nNo raw HTML, CSS, JS, callback, import, network action, form submission, or arbitrary AppBlock is accepted. SVG uses a fixed shape list and numeric/color/geometry attribute allowlists. `native` is recognized solely to report `UNSUPPORTED_NATIVE`. It does not load an adapter.\n\nModel URLs are limited to the documented link/image policy. Remote images require a reader action and use no-referrer. URLs still lead to third parties when a reader activates them; validation does not certify the destination's content or privacy. Callers handling confidential documents should avoid remote URLs altogether.\n\nCompiled inline HTML applies a CSP containing the exact SHA-256 of its runtime. It blocks network connections, objects, forms, base URL changes, and remote scripts/fonts; font-src data: permits the bundled official WOFF2 fonts. Styles allow inline rules because the renderer writes bounded, host-owned numeric/enum properties. The host browser's CSP remains authoritative for `mount`; pass `styles:false` and serve the stylesheet when embedding under a stricter host policy.\n\n`compileHtml(input,{assets:'inline',backend:'portable',lang})` emits one self-contained HTML file. `compileArtifact(input,{assets:'shared',assetBase:'./iui-assets/',lang})` also returns an asset map with safe relative file paths. Shared output is intended for a static HTTP server; no claim is made for every browser's file-origin shared-script policy. Both reject unsupported backends.\n\n## Lifecycle and scope\n\nControllers isolate state. `update` validates the complete next document and resets state. `setState` merges a scalar patch, verifies all bindings and derived values, then updates existing nodes without replacing focused controls. `dispose` is idempotent and removes its owned elements, listeners, and resize observer. External DOM edits by the embedding host are outside this contract.\n\nThe library does not authenticate users, persist documents, store credentials, run simulations as scientific truth, fetch sources, or verify model-generated facts. Applications remain responsible for provenance, permissions, and their host threat model.\n\nJSON Schema string `maxLength` and evaluated Value/state string maxima use Unicode code points. A Value string accepts at most 12,000 code points, including astral characters, while the independent whole-document resource budget still counts UTF-16 storage units. The resolved evaluation context (state, computed scalars and the evaluated Value) is checked against the same storage budget before DOM creation or refresh; accepted documents therefore do not defer that rejection until rendering. Native form minLength/maxLength constraints retain HTML UTF-16 semantics; they do not redefine the global string contract.\n"
+    },
+    {
+      "path": "docs/ask-user-contract.md",
+      "sourceBytes": 7192,
+      "sourceSha256": "1c3b368b9618bd5cac9ae85f33c6299b70ea27d95ccdd48b91b97c1a89c1503d",
+      "bytes": 7192,
+      "sha256": "1c3b368b9618bd5cac9ae85f33c6299b70ea27d95ccdd48b91b97c1a89c1503d",
+      "text": "# Local details and file requests\n\n`ask-user-details` and `ask-user-files` preserve a supplied call-to-action presentation and emit local cancelable requests. They do not invoke a host input service, attach or upload files, read file contents, fetch data, request account access, log telemetry or ask for device location.\n\n## CTA contract\n\nBoth have a nonblank `label`, optional `id`, `status` (`resolved` by default, `pending`, `failed`), `fallback`, `showCTA` (true by default), `enabled` and `disabled`. Pending shows an accessible 180×40 loading block; failed shows the supplied fallback or hides. `showCTA: false` hides the resolved component without actionable controls.\n\nDetails require resolved `buttonLabel`, `submitLabel` and finite `questions` (up to 20). An optional nonempty `invitation` appears above the CTA. Explicit `enabled: true` is required; unknown capability remains disabled. Each question has unique `id`, nonblank `label`, optional `kind: text | textarea | select`, `required`, `placeholder`, `initialValue`, and `maxLength` (1–4000). Select questions have finite unique `options: [{value,label}]` (1–30). These are project-owned bounded question fields, not a promise to accept arbitrary host-service question payloads.\n\nFiles require resolved `kind: file | photo | video | media`. `buttonLabel` overrides the kind-specific `fileLabel`, `photoLabel`, `videoLabel`, or `mediaLabel`, with plain local defaults. Explicit `enabled: false` disables it; unknown capability leaves the local request enabled. The enabled state is supplied, not discovered.\n\nWithout `localReview: true`, activation only emits:\n\n- `iui:ask-user-details`: `{id, questions, submitLabel}`. Questions/options are copied and deeply frozen.\n- `iui:ask-user-files`: `{id, kind}`. There is no implicit picker or upload.\n\nBoth events bubble, are cancelable and non-composed. The default CTA does not create a form or input picker. Preventing default leaves presentation unchanged.\n\n## Optional original local-review extension\n\n`localReview: true` opens an inline review only after an accepted request. This is a project-owned local alternative, not a reconstruction of an external upload/input service. Controls are not nested forms; text inputs have no submitted form names. Enter in a single-line question is prevented from implicitly submitting the surrounding host form. Native button Enter/Space activation remains available.\n\nDetails show the bounded text/textarea/select questions. Submit checks required fields, maximum lengths and supplied select values. A valid submission emits `iui:user-details-submit` with deeply frozen `{id, answers: [{id,value}]}`. Empty questions display `emptyLabel` or a default and cannot submit.\n\nFiles show an explicitly operated native file picker. Only `name`, `size`, `type` and `lastModified` are read into copied metadata; no File object is retained or emitted. No FileReader, text/arrayBuffer/stream call, object URL, upload, image decode or content inspection is used. At most 21 metadata entries are read; permitted `maxFiles` is at most 20. `multiple` defaults false (one file); multi-file mode defaults to five, overridable by `maxFiles`. `maxFileBytes` defaults to 10,000,000 per file. Kind checks use the browser-supplied MIME string only and are presentation validation, not content/security validation. Empty, oversized, wrong-kind or excessive selections do not submit. File paths are neither requested nor emitted.\n\nA valid file review emits `iui:user-files-submit` with deeply frozen `{id,kind,files:[{name,size,type,lastModified}]}`. Selected filenames are displayed with text content. Empty selection displays `emptyLabel` or a default. Acceptance changes only a local status label; there is no remote side effect. Canceled submit preserves the editable review.\n\n`iui:ask-user-cancel` contains `{id,kind}` (`details` for a details review); preventing default keeps the review open. Accepted cancel clears edited values/file metadata and collapses the review. Native form reset similarly restores initial values and collapses after shared reset reconciliation. A canceled reset or newer input wins. `cancelLabel`, `reviewLabel`, `invalidLabel`, `acceptedLabel` and `submitLabel` customize local copy.\n\n## Ownership and integration\n\nThe shared owner, intent gate, input/paint scopes and native reset helper are reused. Disabled controls, first-legend fieldset rules, current ARIA state, hidden/inert ancestry, request cancellation, constructor reentry, newer input and update/dispose gate delivery. Ordinary errors remain observable. Generation cleanup releases reset listeners; file metadata is in-memory only.\n\nInstaller: `installAskUserSchema({node,defs})`, both in base. Core hook: `inspectAskUser(node,path,add)`. Renderer: `renderAskUser(context,node)`. Include `ask-user.css` in embedded and built styles. The shared `readerNativeReset` control type must include `HTMLTextAreaElement` alongside input/select/button; its runtime already uses their shared form/element properties. This is a type-only integration change, not a second reset mechanism.\n\nThe domain checkpoint excludes temporary shared wiring, that type-only adapter, and generated schema/types/validator. The integrator must wire and regenerate; schema registration alone is not functional acceptance. Examples use fictional labels and synthetic file fixtures only. DOM/compiled-artifact tests are distinct from native browser and pixel acceptance; browser test discovery alone is not execution.\n\nThis integrated source includes the installer, semantic/renderer dispatch, exact embedded/external CSS order and generated schema closure. The only shared reader change adds TextArea to the TypeScript control union; the runtime reader body is unchanged. The earlier domain-only checkpoint remains separately identified.\n\n## Structural and semantic input boundary\n\nAfter schema validation, full `validateDocument` checks every supplied top-level string except `invitation` for nonblank `trim()` content (`ASK_USER_DATA`). `invitation` keeps its existing empty/whitespace allowance where structurally permitted. Question IDs must be unique; each question label must be nonblank. Initial text length cannot exceed that question's `maxLength`, default 4000, measured by the existing JavaScript string length. Select questions need at least one option; option values and labels are nonblank and option values unique. A nonempty initial selection must name an option. Non-select questions cannot provide `options`. The check does not invent a recursive trim rule for all question fields or discard permitted empty initial text.\n\nIn file requests, single-file mode (`multiple` not true) allows only `maxFiles: 1` when provided. The existing metadata filter accepts only a nonblank name up to 255 UTF-16 units without control characters, safe-integer size from 0 through the declared byte limit, a type string up to 200 units, and a nonnegative safe-integer last-modified time. Photo/video/media modes additionally constrain the MIME prefix. These are finite local metadata checks, not content inspection or proof that a file is trustworthy; no file body is read by this interface.\n"
+    }
+  ],
+  "examples": [
+    {
+      "path": "examples/schema-modules/ask-user.json",
+      "bytes": 1067,
+      "sha256": "567e4b09fa0663ba413cb0d24b2b2d171a235edf69458b23c7d28bf52f28ba98",
+      "document": {
+        "version": "iui/1",
+        "body": [
+          {
+            "type": "ask-user-details",
+            "label": "Original details request",
+            "enabled": true,
+            "buttonLabel": "Add details",
+            "submitLabel": "Review locally",
+            "invitation": "Add a topic and format for this fictional example.",
+            "localReview": true,
+            "questions": [
+              {
+                "id": "topic",
+                "label": "Topic",
+                "required": true,
+                "maxLength": 200
+              },
+              {
+                "id": "format",
+                "label": "Format",
+                "kind": "select",
+                "options": [
+                  {
+                    "value": "brief",
+                    "label": "Brief"
+                  },
+                  {
+                    "value": "outline",
+                    "label": "Outline"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ask-user-files",
+            "label": "Original file request",
+            "kind": "file",
+            "buttonLabel": "Choose example files",
+            "localReview": true,
+            "multiple": true,
+            "maxFiles": 3,
+            "maxFileBytes": 1000000
+          }
+        ]
+      }
+    }
+  ],
+  "identity": {
+    "indexSha256": "3a87fe76bd316286ba658cd2e13fd33afd28d4640ff021f979f921fbc529611c",
+    "schemaSha256": "2eceb963c74eabcfbd5a5a43e5d86ba1fb76e23897934f28eff437eee96039e4",
+    "schemaBytes": 10898
+  },
+  "manifestPath": "user.json.manifest.json"
+}
