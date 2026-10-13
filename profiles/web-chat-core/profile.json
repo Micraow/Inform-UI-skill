@@ -1,0 +1,46 @@
+{
+  "id": "web-chat-core",
+  "outputDirectory": "profiles/web-chat-core",
+  "skillPath": "SKILL.md",
+  "sourceCommit": "675c6659b40becce1b1ed2d6383d2dee852e8a14",
+  "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@675c6659b40becce1b1ed2d6383d2dee852e8a14/cdn/next/inform-ui.global.js",
+  "runtimeSha256": "b298629c8e10042dcff093bf7a94da2c1ef9625695b09291758688eeef2c6db2",
+  "select": [
+    "base/layout",
+    "base/text",
+    "base/controls",
+    "base/icon",
+    "base/media",
+    "base/charts"
+  ],
+  "viewNames": [],
+  "modules": [
+    "base/chart-data",
+    "base/charts",
+    "base/text",
+    "base/controls",
+    "base/icon",
+    "base/layout",
+    "base/media"
+  ],
+  "uiComponents": 37,
+  "dataConstructors": 5,
+  "glyphShortlist": [
+    "Check",
+    "Info",
+    "Warning",
+    "ArrowRight",
+    "Chart",
+    "Calendar",
+    "BookOpen",
+    "Lightbulb",
+    "MapPin",
+    "Search",
+    "Filter",
+    "Settings",
+    "Play",
+    "Pause",
+    "CircleQuestion",
+    "Link"
+  ]
+}

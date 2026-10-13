@@ -1,14 +1,8 @@
 {
-  "name": "inform-interactive-answers-skill",
-  "version": "2.0.0-alpha.1",
-  "private": true,
-  "type": "module",
-  "license": "MIT",
-  "engines": { "node": ">=22" },
-  "bin": { "inform-answer": "./scripts/inform-answer.mjs" },
-  "scripts": {
-    "test": "node --disallow-code-generation-from-strings --test tests/*.test.mjs",
-    "examples": "node scripts/build-examples.mjs",
-    "check": "npm run examples && npm test"
-  }
+  "name":"inform-web-chat-profiles",
+  "version":"2.0.0-alpha.1",
+  "private":true,
+  "type":"module",
+  "license":"MIT",
+  "engines":{"node":">=22"}
 }

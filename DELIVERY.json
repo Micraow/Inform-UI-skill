@@ -1,40 +1,39 @@
 {
-  "format": "inform-skill-delivery/2",
-  "version": "2.0.0-alpha.1",
-  "counts": {
-    "uiComponents": 233,
-    "foundation": 21,
-    "chartNames": 16,
-    "chartFamilies": 14,
-    "domainWeather": 1,
-    "migratedViews": 195,
-    "dataConstructors": 200,
-    "modules": 16,
-    "icons": 755
-  },
-  "examples": [
-    "budget-choice",
-    "filter-sort-chart",
-    "composed-explanation"
-  ],
-  "checks": {
-    "skillValidator": "passed",
-    "finalDslCommits": "3/3 passed",
-    "nodeTests": {
-      "passed": 13,
-      "failed": 0,
-      "command": "npm run check",
-      "codeGenerationFromStrings": "disabled"
+  "format": "inform-web-chat-verification/1",
+  "sourceCommit": "675c6659b40becce1b1ed2d6383d2dee852e8a14",
+  "runtimeSha256": "b298629c8e10042dcff093bf7a94da2c1ef9625695b09291758688eeef2c6db2",
+  "codeGenerationFromStrings": "disabled",
+  "profiles": [
+    {
+      "profile": "web-chat-core",
+      "uiComponents": 37,
+      "dataConstructors": 5,
+      "contractEquality": true,
+      "htmlMatchesSkill": true,
+      "finalCommit": true,
+      "stateTransitions": true,
+      "unselectedViewsRejected": true,
+      "glyphNamesValidated": true
     },
-    "browserExamples": "not run in this delivery checkpoint"
-  },
-  "runtimeLock": "generated/runtime-lock.json",
-  "runtimePublication": "Local bundle included. No public CDN URL or publication is implied.",
-  "constraints": [
-    "OpenUI-derived strict local dialect, not full upstream runtime compatibility",
-    "No token-saving benchmark claim",
-    "No legacy iui1 input compatibility",
-    "Host services require explicit real integration and authorization"
+    {
+      "profile": "web-chat-views",
+      "uiComponents": 47,
+      "dataConstructors": 15,
+      "contractEquality": true,
+      "htmlMatchesSkill": true,
+      "finalCommit": true,
+      "stateTransitions": true,
+      "unselectedViewsRejected": true,
+      "glyphNamesValidated": true
+    }
   ],
-  "license": "MIT; bundled dependencies retain assets/runtime/THIRD_PARTY_NOTICES.txt"
+  "browser": "not run by this script",
+  "externalRuntimeURL": {
+    "method": "HEAD",
+    "status": 200,
+    "contentType": "application/javascript;charset=utf-8",
+    "accessControlAllowOrigin": "*",
+    "publishedBlobMatchesSnapshot": true,
+    "browserExecution": "not run"
+  }
 }

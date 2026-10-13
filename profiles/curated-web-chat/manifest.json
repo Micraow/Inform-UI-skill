@@ -1,0 +1,2357 @@
+{
+  "format": "inform-component-contract/2",
+  "id": "inform/v2/base/layout+base/text+base/controls+base/icon+base/media+base/charts+views/content",
+  "root": "Stack",
+  "openuiRevision": "cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7",
+  "requestedModules": [
+    "base/layout",
+    "base/text",
+    "base/controls",
+    "base/icon",
+    "base/media",
+    "base/charts",
+    "views/content"
+  ],
+  "modules": [
+    "base/chart-data",
+    "base/charts",
+    "base/text",
+    "base/controls",
+    "base/icon",
+    "base/layout",
+    "base/media",
+    "views/content"
+  ],
+  "runtimeResources": [
+    "inform/tokens",
+    "inform/charts-css",
+    "inform/safety-kernel",
+    "inform/foundation",
+    "inform/charts",
+    "inform/views"
+  ],
+  "moduleDefinitions": [
+    {
+      "id": "base/chart-data",
+      "layer": "chart",
+      "dependsOn": [],
+      "runtimeRequires": [],
+      "components": [],
+      "dataShapes": [
+        "Series",
+        "Slice",
+        "Point",
+        "ScatterSeries",
+        "CalendarDay"
+      ]
+    },
+    {
+      "id": "base/charts",
+      "layer": "chart",
+      "dependsOn": [
+        "base/chart-data"
+      ],
+      "runtimeRequires": [
+        "inform/charts"
+      ],
+      "components": [
+        "AreaChart",
+        "BarChart",
+        "HorizontalBarChart",
+        "LineChart",
+        "HeatmapChart",
+        "RadarChart",
+        "PieChart",
+        "RadialChart",
+        "FunnelChart",
+        "SegmentedBar",
+        "SingleStackedBar",
+        "ScatterChart",
+        "CalendarHeatmap",
+        "MiniAreaChart",
+        "MiniBarChart",
+        "MiniLineChart"
+      ],
+      "dataShapes": []
+    },
+    {
+      "id": "base/text",
+      "layer": "base",
+      "dependsOn": [],
+      "runtimeRequires": [
+        "inform/foundation"
+      ],
+      "components": [
+        "Text",
+        "Heading",
+        "Badge",
+        "Divider",
+        "Alert",
+        "Table"
+      ],
+      "dataShapes": []
+    },
+    {
+      "id": "base/controls",
+      "layer": "control",
+      "dependsOn": [
+        "base/text"
+      ],
+      "runtimeRequires": [
+        "inform/foundation"
+      ],
+      "components": [
+        "Button",
+        "Input",
+        "Textarea",
+        "Select",
+        "RadioGroup",
+        "Checkbox",
+        "Switch",
+        "Slider"
+      ],
+      "dataShapes": []
+    },
+    {
+      "id": "base/icon",
+      "layer": "base",
+      "dependsOn": [],
+      "runtimeRequires": [
+        "inform/foundation"
+      ],
+      "components": [
+        "Icon"
+      ],
+      "dataShapes": []
+    },
+    {
+      "id": "base/layout",
+      "layer": "layout",
+      "dependsOn": [
+        "base/text"
+      ],
+      "runtimeRequires": [
+        "inform/foundation"
+      ],
+      "components": [
+        "Stack",
+        "Row",
+        "Grid",
+        "Card"
+      ],
+      "dataShapes": []
+    },
+    {
+      "id": "base/media",
+      "layer": "base",
+      "dependsOn": [],
+      "runtimeRequires": [
+        "inform/foundation"
+      ],
+      "components": [
+        "Image",
+        "Video"
+      ],
+      "dataShapes": []
+    },
+    {
+      "id": "views/content",
+      "layer": "domain",
+      "dependsOn": [
+        "base/layout",
+        "base/controls",
+        "base/media",
+        "base/icon"
+      ],
+      "runtimeRequires": [
+        "inform/views"
+      ],
+      "components": [
+        "CodeView",
+        "MathView",
+        "BlockquoteView",
+        "SectionView",
+        "FigureView",
+        "DetailsView",
+        "CitationView",
+        "MetricView",
+        "StepsView",
+        "ChecklistView"
+      ],
+      "dataShapes": [
+        "CodeData",
+        "MathData",
+        "BlockquoteData",
+        "SectionData",
+        "FigureData",
+        "DetailsData",
+        "CitationData",
+        "MetricData",
+        "StepsData",
+        "ChecklistData"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "AreaChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "labels",
+        "series",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/AreaChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Null values are rejected; signed values retain the upstream zero baseline.",
+      "examples": [
+        {
+          "id": "area-chart",
+          "description": "Supplied-data AreaChart example.",
+          "source": "root = AreaChart(\"Quarterly revenue\", [\"Q1\", \"Q2\", \"Q3\", \"Q4\"], [Series(\"Revenue\", [24,38,30,47]), Series(\"Plan\", [20,30,35,40])])",
+          "props": {
+            "title": "Quarterly revenue",
+            "labels": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ],
+            "series": [
+              {
+                "name": "Revenue",
+                "values": [
+                  24,
+                  38,
+                  30,
+                  47
+                ]
+              },
+              {
+                "name": "Plan",
+                "values": [
+                  20,
+                  30,
+                  35,
+                  40
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BarChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "labels",
+        "series",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/BarChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Negative, positive and zero values are supported. Options.orientation selects horizontal layout.",
+      "examples": [
+        {
+          "id": "bar-chart",
+          "description": "Supplied-data BarChart example.",
+          "source": "root = BarChart(\"Quarterly revenue\", [\"Q1\", \"Q2\", \"Q3\", \"Q4\"], [Series(\"Revenue\", [24,38,30,47]), Series(\"Plan\", [20,30,35,40])])",
+          "props": {
+            "title": "Quarterly revenue",
+            "labels": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ],
+            "series": [
+              {
+                "name": "Revenue",
+                "values": [
+                  24,
+                  38,
+                  30,
+                  47
+                ]
+              },
+              {
+                "name": "Plan",
+                "values": [
+                  20,
+                  30,
+                  35,
+                  40
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "HorizontalBarChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "labels",
+        "series",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/HorizontalBarChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. This is the BarChart horizontal variant, not an additional source chart family.",
+      "examples": [
+        {
+          "id": "horizontal-bar-chart",
+          "description": "Supplied-data HorizontalBarChart example.",
+          "source": "root = HorizontalBarChart(\"Quarterly revenue\", [\"Q1\", \"Q2\", \"Q3\", \"Q4\"], [Series(\"Revenue\", [24,38,30,47]), Series(\"Plan\", [20,30,35,40])])",
+          "props": {
+            "title": "Quarterly revenue",
+            "labels": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ],
+            "series": [
+              {
+                "name": "Revenue",
+                "values": [
+                  24,
+                  38,
+                  30,
+                  47
+                ]
+              },
+              {
+                "name": "Plan",
+                "values": [
+                  20,
+                  30,
+                  35,
+                  40
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "LineChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "labels",
+        "series",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/LineChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Null is rejected instead of silently changing a missing measurement to zero.",
+      "examples": [
+        {
+          "id": "line-chart",
+          "description": "Supplied-data LineChart example.",
+          "source": "root = LineChart(\"Quarterly revenue\", [\"Q1\", \"Q2\", \"Q3\", \"Q4\"], [Series(\"Revenue\", [24,38,30,47]), Series(\"Plan\", [20,30,35,40])])",
+          "props": {
+            "title": "Quarterly revenue",
+            "labels": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ],
+            "series": [
+              {
+                "name": "Revenue",
+                "values": [
+                  24,
+                  38,
+                  30,
+                  47
+                ]
+              },
+              {
+                "name": "Plan",
+                "values": [
+                  20,
+                  30,
+                  35,
+                  40
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "HeatmapChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "labels",
+        "series",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/HeatmapChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Series correspond to rows and labels to columns. Null cells retain missing-value semantics. Use rampMode=\"diverging\" for signed values.",
+      "examples": [
+        {
+          "id": "heatmap-chart",
+          "description": "Supplied-data HeatmapChart example.",
+          "source": "root = HeatmapChart(\"Delta heatmap\", [\"Q1\",\"Q2\",\"Q3\",\"Q4\"], [Series(\"Delta\",[-2,0,null,4])], {rampMode:\"diverging\",showCellLabels:true})",
+          "props": {
+            "title": "Quarterly revenue",
+            "labels": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ],
+            "series": [
+              {
+                "name": "Delta",
+                "values": [
+                  -2,
+                  0,
+                  null,
+                  4
+                ]
+              }
+            ],
+            "options": {
+              "rampMode": "diverging",
+              "showCellLabels": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "RadarChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "labels",
+        "series",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/RadarChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Non-negative values only. Null is rejected. Labels identify radial axes.",
+      "examples": [
+        {
+          "id": "radar-chart",
+          "description": "Supplied-data RadarChart example.",
+          "source": "root = RadarChart(\"Quarterly revenue\", [\"Q1\", \"Q2\", \"Q3\", \"Q4\"], [Series(\"Revenue\", [24,38,30,47]), Series(\"Plan\", [20,30,35,40])])",
+          "props": {
+            "title": "Quarterly revenue",
+            "labels": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ],
+            "series": [
+              {
+                "name": "Revenue",
+                "values": [
+                  24,
+                  38,
+                  30,
+                  47
+                ]
+              },
+              {
+                "name": "Plan",
+                "values": [
+                  20,
+                  30,
+                  35,
+                  40
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "PieChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "slices",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/PieChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Non-negative slices; no fabricated equal wedges when the sum is zero.",
+      "examples": [
+        {
+          "id": "pie-chart",
+          "description": "Supplied-data PieChart example.",
+          "source": "root = PieChart(\"Channel mix\", [Slice(\"Direct\",48), Slice(\"Search\",32), Slice(\"Referral\",20)])",
+          "props": {
+            "title": "Channel mix",
+            "slices": [
+              {
+                "label": "Direct",
+                "value": 48
+              },
+              {
+                "label": "Search",
+                "value": 32
+              },
+              {
+                "label": "Referral",
+                "value": 20
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "RadialChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "slices",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/RadialChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Non-negative magnitudes; empty and zero-total inputs are explicitly identified.",
+      "examples": [
+        {
+          "id": "radial-chart",
+          "description": "Supplied-data RadialChart example.",
+          "source": "root = RadialChart(\"Channel mix\", [Slice(\"Direct\",48), Slice(\"Search\",32), Slice(\"Referral\",20)])",
+          "props": {
+            "title": "Channel mix",
+            "slices": [
+              {
+                "label": "Direct",
+                "value": 48
+              },
+              {
+                "label": "Search",
+                "value": 32
+              },
+              {
+                "label": "Referral",
+                "value": 20
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "FunnelChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "slices",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/FunnelChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Stage order is supplied order. Percentages are relative to the first stage, not the sum. Non-negative values; no forced monotonic reordering. When the first stage is zero but later stages are positive, set showPercentage:false because retention is undefined.",
+      "examples": [
+        {
+          "id": "funnel-chart",
+          "description": "Supplied-data FunnelChart example.",
+          "source": "root = FunnelChart(\"Conversion\", [Slice(\"Visits\",1000), Slice(\"Trials\",250), Slice(\"Paid\",80)])",
+          "props": {
+            "title": "Conversion",
+            "slices": [
+              {
+                "label": "Visits",
+                "value": 1000
+              },
+              {
+                "label": "Trials",
+                "value": 250
+              },
+              {
+                "label": "Paid",
+                "value": 80
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SegmentedBar",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "slices",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/SegmentedBar"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Non-negative magnitudes. SingleStackedBar is an upstream alias and does not count as a separate chart family.",
+      "examples": [
+        {
+          "id": "segmented-bar",
+          "description": "Supplied-data SegmentedBar example.",
+          "source": "root = SegmentedBar(\"Channel mix\", [Slice(\"Direct\",48), Slice(\"Search\",32), Slice(\"Referral\",20)])",
+          "props": {
+            "title": "Channel mix",
+            "slices": [
+              {
+                "label": "Direct",
+                "value": 48
+              },
+              {
+                "label": "Search",
+                "value": 32
+              },
+              {
+                "label": "Referral",
+                "value": 20
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "SingleStackedBar",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "slices",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/SingleStackedBar"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Non-negative magnitudes. SingleStackedBar is an upstream alias and does not count as a separate chart family.",
+      "examples": [
+        {
+          "id": "single-stacked-bar",
+          "description": "Supplied-data SingleStackedBar example.",
+          "source": "root = SingleStackedBar(\"Channel mix\", [Slice(\"Direct\",48), Slice(\"Search\",32), Slice(\"Referral\",20)])",
+          "props": {
+            "title": "Channel mix",
+            "slices": [
+              {
+                "label": "Direct",
+                "value": 48
+              },
+              {
+                "label": "Search",
+                "value": 32
+              },
+              {
+                "label": "Referral",
+                "value": 20
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScatterChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "datasets",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/ScatterChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Each ScatterSeries(name, points) contains Point(x,y) data, not UI children.",
+      "examples": [
+        {
+          "id": "scatter-chart",
+          "description": "Supplied-data ScatterChart example.",
+          "source": "root = ScatterChart(\"Latency by load\", [ScatterSeries(\"Sample\", [Point(-2,3),Point(0,0),Point(4,5)])])",
+          "props": {
+            "title": "Latency by load",
+            "datasets": [
+              {
+                "name": "Sample",
+                "points": [
+                  {
+                    "x": -2,
+                    "y": 3
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 4,
+                    "y": 5
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "CalendarHeatmap",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "days",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/CalendarHeatmap"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Use CalendarDay(\"YYYY-MM-DD\",value). Dates are calendar days, duplicates sum, absent days are zero. Real dates, ascending thresholds and a maximum 732-day range are validated.",
+      "examples": [
+        {
+          "id": "calendar-heatmap",
+          "description": "Supplied-data CalendarHeatmap example.",
+          "source": "root = CalendarHeatmap(\"Activity\", [CalendarDay(\"2026-10-01\",1), CalendarDay(\"2026-10-03\",4), CalendarDay(\"2026-10-07\",2)], {range:[\"2026-10-01\",\"2026-10-31\"]})",
+          "props": {
+            "title": "Activity",
+            "days": [
+              {
+                "date": "2026-10-01",
+                "value": 1
+              },
+              {
+                "date": "2026-10-03",
+                "value": 4
+              },
+              {
+                "date": "2026-10-07",
+                "value": 2
+              }
+            ],
+            "options": {
+              "range": [
+                "2026-10-01",
+                "2026-10-31"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "MiniAreaChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "values",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/MiniAreaChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.",
+      "examples": [
+        {
+          "id": "mini-area-chart",
+          "description": "Supplied-data MiniAreaChart example.",
+          "source": "root = MiniAreaChart(\"Trend\", [-2,0,4,3,7,5])",
+          "props": {
+            "title": "Trend",
+            "values": [
+              -2,
+              0,
+              4,
+              3,
+              7,
+              5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MiniBarChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "values",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/MiniBarChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.",
+      "examples": [
+        {
+          "id": "mini-bar-chart",
+          "description": "Supplied-data MiniBarChart example.",
+          "source": "root = MiniBarChart(\"Trend\", [-2,0,4,3,7,5])",
+          "props": {
+            "title": "Trend",
+            "values": [
+              -2,
+              0,
+              4,
+              3,
+              7,
+              5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "MiniLineChart",
+      "moduleId": "base/charts",
+      "layer": "chart",
+      "orderedProps": [
+        "title",
+        "values",
+        "options"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "openui/MiniLineChart"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.",
+        "Legend visibility is local presentation state, not a second DSL state store.",
+        "Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL."
+      ],
+      "docs": "Renders the MIT OpenUI React/D3 implementation pinned at cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Supplied data only; no services, callbacks, downloads or telemetry. Empty input produces an explicit empty state; all-zero input remains zero. A keyboard-operable data table provides every original value. Theme colors inherit Inform tokens, including portaled tooltips. Animation defaults off and respects reduced motion. Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.",
+      "examples": [
+        {
+          "id": "mini-line-chart",
+          "description": "Supplied-data MiniLineChart example.",
+          "source": "root = MiniLineChart(\"Trend\", [-2,0,4,3,7,5])",
+          "props": {
+            "title": "Trend",
+            "values": [
+              -2,
+              0,
+              4,
+              3,
+              7,
+              5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "moduleId": "base/text",
+      "layer": "base",
+      "orderedProps": [
+        "content",
+        "tone"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Text"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Use for prose. Newlines remain text; markup and code are not executed.",
+      "examples": [
+        {
+          "id": "text",
+          "description": "Minimal text example using supplied data.",
+          "source": "root = Text(\"Hello\")",
+          "props": {
+            "content": "Hello"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Heading",
+      "moduleId": "base/text",
+      "layer": "base",
+      "orderedProps": [
+        "content",
+        "level"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Heading"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Use headings in a meaningful outline. Level defaults to 2 in the renderer.",
+      "examples": [
+        {
+          "id": "heading",
+          "description": "Minimal heading example using supplied data.",
+          "source": "root = Heading(\"Overview\", 2)",
+          "props": {
+            "content": "Overview",
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "moduleId": "base/text",
+      "layer": "base",
+      "orderedProps": [
+        "label",
+        "tone"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Badge"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.",
+      "examples": [
+        {
+          "id": "badge",
+          "description": "Minimal badge example using supplied data.",
+          "source": "root = Badge(\"Draft\", \"muted\")",
+          "props": {
+            "label": "Draft",
+            "tone": "muted"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Divider",
+      "moduleId": "base/text",
+      "layer": "base",
+      "orderedProps": [],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Divider"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Use sparingly between sections. It has no text or interaction.",
+      "examples": [
+        {
+          "id": "divider",
+          "description": "Minimal divider example using supplied data.",
+          "source": "root = Divider()",
+          "props": {}
+        }
+      ]
+    },
+    {
+      "name": "Alert",
+      "moduleId": "base/text",
+      "layer": "base",
+      "orderedProps": [
+        "title",
+        "description",
+        "tone"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Alert"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Passive notice. It does not trigger a notification service or infer urgency. Tones info, success, warning, and error use semantic soft surfaces. Keep a visible title and description so meaning does not depend on color.",
+      "examples": [
+        {
+          "id": "alert",
+          "description": "Minimal alert example using supplied data.",
+          "source": "root = Alert(\"Note\", \"Data is supplied\", \"muted\")",
+          "props": {
+            "title": "Note",
+            "description": "Data is supplied",
+            "tone": "muted"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "moduleId": "base/text",
+      "layer": "base",
+      "orderedProps": [
+        "columns",
+        "rows",
+        "caption"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Table"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Columns have unique keys. Rows may omit a column, but may not introduce undeclared columns. Cells are plain scalar data.",
+      "examples": [
+        {
+          "id": "table",
+          "description": "Minimal table example using supplied data.",
+          "source": "root = Table([{key: \"name\", label: \"Name\"}], [{name: \"Ada\"}], \"People\")",
+          "props": {
+            "columns": [
+              {
+                "key": "name",
+                "label": "Name"
+              }
+            ],
+            "rows": [
+              {
+                "name": "Ada"
+              }
+            ],
+            "caption": "People"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "onPress",
+        "variant",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [
+        "onPress"
+      ],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Button"
+      },
+      "capabilities": [
+        "display",
+        "local-action"
+      ],
+      "limitations": [
+        "No host tools, navigation, account access or message sending."
+      ],
+      "docs": "onPress is a runtime-issued local action. Use @Set, @Reset or Action; literal action-like objects are forbidden.",
+      "examples": [
+        {
+          "id": "button",
+          "description": "Minimal button example using supplied data.",
+          "source": "$count = 0\nroot = Button(\"Reset\", @Reset($count), \"secondary\")"
+        }
+      ]
+    },
+    {
+      "name": "Input",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "value",
+        "placeholder",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [
+        "value"
+      ],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Input"
+      },
+      "capabilities": [
+        "display",
+        "local-state"
+      ],
+      "limitations": [],
+      "docs": "Pass a direct declared $variable to value to allow edits. Literal values render read-only. Draft text is not committed when validation fails.",
+      "examples": [
+        {
+          "id": "input",
+          "description": "Minimal input example using supplied data.",
+          "source": "$answer = \"\"\nroot = Input(\"Name\", $answer, \"Your name\")",
+          "props": {
+            "label": "Name",
+            "value": "",
+            "placeholder": "Your name"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "value",
+        "rows",
+        "placeholder",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [
+        "value"
+      ],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Textarea"
+      },
+      "capabilities": [
+        "display",
+        "local-state"
+      ],
+      "limitations": [],
+      "docs": "Writable through a direct declared $variable; an invalid transaction must preserve the previous committed value.",
+      "examples": [
+        {
+          "id": "textarea",
+          "description": "Minimal textarea example using supplied data.",
+          "source": "$notes = \"\"\nroot = Textarea(\"Notes\", $notes, 4)",
+          "props": {
+            "label": "Notes",
+            "value": "",
+            "rows": 4
+          }
+        }
+      ]
+    },
+    {
+      "name": "Select",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "value",
+        "options",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [
+        "value"
+      ],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Select"
+      },
+      "capabilities": [
+        "display",
+        "local-state"
+      ],
+      "limitations": [],
+      "docs": "Options have unique values. Current value must match one option.",
+      "examples": [
+        {
+          "id": "select",
+          "description": "Minimal select example using supplied data.",
+          "source": "$choice = \"a\"\nroot = Select(\"Choice\", $choice, [{label: \"A\", value: \"a\"}])",
+          "props": {
+            "label": "Choice",
+            "value": "a",
+            "options": [
+              {
+                "label": "A",
+                "value": "a"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "RadioGroup",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "value",
+        "options",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [
+        "value"
+      ],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.RadioGroup"
+      },
+      "capabilities": [
+        "display",
+        "local-state"
+      ],
+      "limitations": [],
+      "docs": "Uses the same single-choice state contract as Select, with native labeled radios.",
+      "examples": [
+        {
+          "id": "radio",
+          "description": "Minimal radio example using supplied data.",
+          "source": "$choice = \"a\"\nroot = RadioGroup(\"Choice\", $choice, [{label: \"A\", value: \"a\"}])",
+          "props": {
+            "label": "Choice",
+            "value": "a",
+            "options": [
+              {
+                "label": "A",
+                "value": "a"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "checked",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [
+        "checked"
+      ],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Checkbox"
+      },
+      "capabilities": [
+        "display",
+        "local-state"
+      ],
+      "limitations": [],
+      "docs": "Pass a direct declared boolean $variable to checked for local edits.",
+      "examples": [
+        {
+          "id": "checkbox",
+          "description": "Minimal checkbox example using supplied data.",
+          "source": "$enabled = false\nroot = Checkbox(\"Enabled\", $enabled)",
+          "props": {
+            "label": "Enabled",
+            "checked": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Switch",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "checked",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [
+        "checked"
+      ],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Switch"
+      },
+      "capabilities": [
+        "display",
+        "local-state"
+      ],
+      "limitations": [],
+      "docs": "A boolean local switch. It never changes external account or app settings.",
+      "examples": [
+        {
+          "id": "switch",
+          "description": "Minimal switch example using supplied data.",
+          "source": "$enabled = false\nroot = Switch(\"Enabled\", $enabled)",
+          "props": {
+            "label": "Enabled",
+            "checked": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Slider",
+      "moduleId": "base/controls",
+      "layer": "control",
+      "orderedProps": [
+        "label",
+        "value",
+        "min",
+        "max",
+        "step",
+        "disabled"
+      ],
+      "slots": {},
+      "bindingProps": [
+        "value"
+      ],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Slider"
+      },
+      "capabilities": [
+        "display",
+        "local-state"
+      ],
+      "limitations": [],
+      "docs": "Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.",
+      "examples": [
+        {
+          "id": "slider",
+          "description": "Minimal slider example using supplied data.",
+          "source": "$amount = 5\nroot = Slider(\"Amount\", $amount, 0, 10, 1)",
+          "props": {
+            "label": "Amount",
+            "value": 5,
+            "min": 0,
+            "max": 10,
+            "step": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Icon",
+      "moduleId": "base/icon",
+      "layer": "base",
+      "orderedProps": [
+        "name",
+        "label",
+        "tone",
+        "size"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Icon"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "No remote SVG or arbitrary path data."
+      ],
+      "docs": "Only exact bundled canonical names are accepted. Arguments: name, label, tone, size. Use null label for a decorative icon beside visible text. Use a nonempty label for an icon that conveys meaning alone. Tones: default, muted, info, success, warning, error. Sizes: 16, 20, 24, 32, 48; default 20. Tone communicates supplied meaning; it never verifies status. Public OpenAI Apps SDK UI glyphs are distinct from Inform UI role mapping.",
+      "examples": [
+        {
+          "id": "icon",
+          "description": "Minimal icon example using supplied data.",
+          "source": "root = Icon(\"AddMember\", \"Information\")",
+          "props": {
+            "name": "AddMember",
+            "label": "Information"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Stack",
+      "moduleId": "base/layout",
+      "layer": "layout",
+      "orderedProps": [
+        "children",
+        "gap"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 128,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Stack"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Children belong to the selected profile. Gap is a finite design token; there is no arbitrary CSS.",
+      "examples": [
+        {
+          "id": "stack",
+          "description": "Minimal stack example using supplied data.",
+          "source": "root = Stack([Text(\"Hello\")], \"md\")",
+          "props": {
+            "children": [
+              {
+                "type": "element",
+                "typeName": "Text",
+                "props": {
+                  "content": "Hello"
+                },
+                "partial": false
+              }
+            ],
+            "gap": "md"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Row",
+      "moduleId": "base/layout",
+      "layer": "layout",
+      "orderedProps": [
+        "children",
+        "gap",
+        "align"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 128,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Row"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Uses a wrapping row. Choose start, center, end or stretch alignment.",
+      "examples": [
+        {
+          "id": "row",
+          "description": "Minimal row example using supplied data.",
+          "source": "root = Row([Text(\"Hello\")], \"sm\", \"center\")",
+          "props": {
+            "children": [
+              {
+                "type": "element",
+                "typeName": "Text",
+                "props": {
+                  "content": "Hello"
+                },
+                "partial": false
+              }
+            ],
+            "gap": "sm",
+            "align": "center"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Grid",
+      "moduleId": "base/layout",
+      "layer": "layout",
+      "orderedProps": [
+        "children",
+        "columns",
+        "gap"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 128,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Grid"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Columns is a maximum requested column count; narrow layouts may use fewer columns.",
+      "examples": [
+        {
+          "id": "grid",
+          "description": "Minimal grid example using supplied data.",
+          "source": "root = Grid([Text(\"Hello\")], 2, \"md\")",
+          "props": {
+            "children": [
+              {
+                "type": "element",
+                "typeName": "Text",
+                "props": {
+                  "content": "Hello"
+                },
+                "partial": false
+              }
+            ],
+            "columns": 2,
+            "gap": "md"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "moduleId": "base/layout",
+      "layer": "layout",
+      "orderedProps": [
+        "children",
+        "title"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 128,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Card"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Use a card for one coherent section. Card owns its child slot, not external services.",
+      "examples": [
+        {
+          "id": "card",
+          "description": "Minimal card example using supplied data.",
+          "source": "root = Card([Text(\"Hello\")], \"Overview\")",
+          "props": {
+            "children": [
+              {
+                "type": "element",
+                "typeName": "Text",
+                "props": {
+                  "content": "Hello"
+                },
+                "partial": false
+              }
+            ],
+            "title": "Overview"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Image",
+      "moduleId": "base/media",
+      "layer": "base",
+      "orderedProps": [
+        "src",
+        "alt",
+        "caption"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Image"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected."
+      ],
+      "docs": "Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.",
+      "examples": [
+        {
+          "id": "image",
+          "description": "Minimal image example using supplied data.",
+          "source": "root = Image(\"https://example.com/image.png\", \"Supplied image\")",
+          "props": {
+            "src": "https://example.com/image.png",
+            "alt": "Supplied image"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "moduleId": "base/media",
+      "layer": "base",
+      "orderedProps": [
+        "src",
+        "title",
+        "poster",
+        "captions"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Video"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [],
+      "docs": "Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.",
+      "examples": [
+        {
+          "id": "video",
+          "description": "Minimal video example using supplied data.",
+          "source": "root = Video(\"https://example.com/example.webm\", \"Supplied video\")",
+          "props": {
+            "src": "https://example.com/example.webm",
+            "title": "Supplied video"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CodeView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "CodeView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use CodeView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "code",
+          "description": "Synthetic supplied record. Public synthetic example: examples/carousel.json",
+          "source": "root = Stack([CodeView({\"value\":\"original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_original_example_\"})])"
+        }
+      ]
+    },
+    {
+      "name": "MathView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "MathView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use MathView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "math",
+          "description": "Synthetic supplied record. Public synthetic example: examples/hpcc.json",
+          "source": "root = Stack([MathView({\"latex\":\"U_{\\\\max}=\\\\max(0.8,U_2,0.9),\\\\qquad W_{\\\\mathrm{new}}=\\\\frac{0.95\\\\times100}{U_{\\\\max}}+5\",\"block\":true})])"
+        }
+      ]
+    },
+    {
+      "name": "BlockquoteView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data",
+        "children"
+      ],
+      "slots": {
+        "children": {
+          "min": 1,
+          "max": 30,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "BlockquoteView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use BlockquoteView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "blockquote",
+          "description": "Synthetic supplied record. Public synthetic example: examples/current-components.json",
+          "source": "root = Stack([BlockquoteView({\"attribution\":\"本项目原创合成示例\"}, [Text(\"blockquote: supporting content\")])])"
+        }
+      ]
+    },
+    {
+      "name": "SectionView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data",
+        "children"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 500,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "SectionView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use SectionView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "section",
+          "description": "Synthetic supplied record. Public synthetic example: examples/current-components.json",
+          "source": "root = Stack([SectionView({\"heading\":\"调用方提供的进度与占位\"}, [Text(\"section: supporting content\")])])"
+        }
+      ]
+    },
+    {
+      "name": "FigureView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data",
+        "children"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 500,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "FigureView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use FigureView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "figure",
+          "description": "Synthetic supplied record. Public synthetic example: examples/kitchen-sink.json",
+          "source": "root = Stack([FigureView({\"caption\":\"原创图形：输入、处理、输出。\"}, [Text(\"figure: supporting content\")])])"
+        }
+      ]
+    },
+    {
+      "name": "DetailsView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data",
+        "children"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 500,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "DetailsView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use DetailsView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "details",
+          "description": "Synthetic supplied record. Public synthetic example: examples/component-collection.json",
+          "source": "root = Stack([DetailsView({\"summary\":\"01 · 横向阅读\"}, [Text(\"01 · 横向阅读: supporting content\")])])"
+        }
+      ]
+    },
+    {
+      "name": "CitationView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "CitationView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use CitationView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "citation",
+          "description": "Synthetic supplied record. Public synthetic example: examples/current-components.json",
+          "source": "root = Stack([CitationView({\"number\":1,\"title\":\"虚构方法说明（仅格式示例）\",\"url\":\"https://example.invalid/method\",\"publisher\":\"合成出版方\",\"description\":\"引用编号由作者给定；组件不判断资料是否支持页面中的结论。\"})])"
+        }
+      ]
+    },
+    {
+      "name": "MetricView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "MetricView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use MetricView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "metric",
+          "description": "Synthetic supplied record. Public synthetic example: examples/button-actions.json",
+          "source": "root = Stack([MetricView({\"label\":\"Count\",\"value\":1})])"
+        }
+      ]
+    },
+    {
+      "name": "StepsView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "StepsView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use StepsView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "steps",
+          "description": "Synthetic supplied record. Public synthetic example: examples/hpcc.json",
+          "source": "root = Stack([StepsView({\"items\":[{\"title\":\"读取三个负载比\",\"detail\":\"两侧固定为 0.80 和 0.90，中间值由控件给出。\"},{\"title\":\"取路径最大值\",\"detail\":\"中间值降到 0.60 时，路径最大值仍为 0.90。\"},{\"title\":\"按最大值计算窗口\",\"detail\":\"初始窗口结果为 84.2；把滑块移至 0.60 后，结果为 110.6。\"}]})])"
+        }
+      ]
+    },
+    {
+      "name": "ChecklistView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "ChecklistView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use ChecklistView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "checklist",
+          "description": "Synthetic supplied record. Public synthetic example: examples/checklist-form.json",
+          "source": "root = Stack([ChecklistView({\"label\":\"演示交付检查\",\"items\":[{\"id\":\"draft\",\"label\":\"准备原创草稿\",\"hint\":\"此清单没有连接外部任务系统。\",\"checked\":false},{\"id\":\"review\",\"label\":\"人工复核内容\",\"checked\":false},{\"id\":\"archive\",\"label\":\"只读示例项目\",\"disabled\":true,\"checked\":false}],\"disabled\":false})])"
+        }
+      ]
+    }
+  ],
+  "dataShapes": [
+    {
+      "name": "Series",
+      "moduleId": "base/chart-data",
+      "orderedProps": [
+        "name",
+        "values"
+      ],
+      "description": "Named finite series; null is supported only by HeatmapChart as a missing cell."
+    },
+    {
+      "name": "Slice",
+      "moduleId": "base/chart-data",
+      "orderedProps": [
+        "label",
+        "value"
+      ],
+      "description": "Named non-negative magnitude for pie, radial, funnel or segmented charts."
+    },
+    {
+      "name": "Point",
+      "moduleId": "base/chart-data",
+      "orderedProps": [
+        "x",
+        "y"
+      ],
+      "description": "A finite scatter coordinate. Negative and zero values are supported."
+    },
+    {
+      "name": "ScatterSeries",
+      "moduleId": "base/chart-data",
+      "orderedProps": [
+        "name",
+        "points"
+      ],
+      "description": "Named scatter dataset containing finite Point values."
+    },
+    {
+      "name": "CalendarDay",
+      "moduleId": "base/chart-data",
+      "orderedProps": [
+        "date",
+        "value"
+      ],
+      "description": "ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar."
+    },
+    {
+      "name": "CodeData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "value",
+        "language",
+        "inline",
+        "copy",
+        "highlight"
+      ],
+      "description": "Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "MathData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "latex",
+        "block"
+      ],
+      "description": "Strict supplied record for MathView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "BlockquoteData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "attribution",
+        "cite"
+      ],
+      "description": "Strict supplied record for BlockquoteView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "SectionData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "heading"
+      ],
+      "description": "Strict supplied record for SectionView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "FigureData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "caption"
+      ],
+      "description": "Strict supplied record for FigureView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "DetailsData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "summary"
+      ],
+      "description": "Strict supplied record for DetailsView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "CitationData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "title",
+        "url",
+        "publisher",
+        "description",
+        "number"
+      ],
+      "description": "Strict supplied record for CitationView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "MetricData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "variant",
+        "label",
+        "value",
+        "unit",
+        "hint",
+        "precision",
+        "color"
+      ],
+      "description": "Strict supplied record for MetricView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "StepsData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "items"
+      ],
+      "description": "Strict supplied record for StepsView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "ChecklistData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "label",
+        "items",
+        "disabled",
+        "filter",
+        "bulk",
+        "emptyText"
+      ],
+      "description": "Strict supplied record for ChecklistView. Conditional variants are enforced by the same bounded validator."
+    }
+  ],
+  "externalServices": []
+}

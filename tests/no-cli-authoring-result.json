@@ -1,0 +1,15 @@
+{
+  "format": "inform-no-cli-authoring-check/1",
+  "fixture": "tests/no-cli-authored.html",
+  "fixtureSha256": "f5438bea5bc3c6e59e10e5cdf78b62e227c6434c3cc1c8203cfe22f021ac5eab",
+  "authorInputs": "Only core SKILL.md and fictional three-route task; no CLI/runtime/other docs or validation feedback",
+  "firstCommitPassed": true,
+  "filterSortPassed": true,
+  "selectionActionPassed": true,
+  "invalidSelectionExplicit": true,
+  "emptyStatePassed": true,
+  "resetPassed": true,
+  "codeGenerationFromStrings": "disabled",
+  "browser": "Not established by this Node check",
+  "scope": "One independent authoring trial; not a model-wide reliability benchmark"
+}
