@@ -1,0 +1,20 @@
+$chosen = ""
+groups = [
+ {name:"绘画桌",items:[{name:"纸张",quantity:12},{name:"画笔",quantity:4}]},
+ {name:"手作桌",items:[{name:"剪刀",quantity:2}]},
+ {name:"备用桌",items:[]}
+]
+root = Stack([
+ Heading("工坊材料：一份数据生成分组与选项",1),
+ Text("全部为原创虚构示例。三组使用同一份卡片模板；每组材料使用同一份条目模板。选择只更新本页文字，不预订或领取材料。","muted"),
+ Stack(@Each(groups,"group",Card([
+  Text(@Count(group.items)+" 种材料"),
+  @Count(group.items)>0 ? Stack(@Each(group.items,"item",Row([
+   Text(item.name+"："+item.quantity+" 件"),
+   Button("选择 "+group.name+" / "+item.name,@Set($chosen,group.name+" / "+item.name),"secondary")
+  ],"sm")),"sm") : Text("这组暂无材料。","muted")
+ ],group.name)),"md"),
+ Text($chosen=="" ? "尚未选择材料。" : "当前选择："+$chosen),
+ Button("清空选择",@Reset($chosen),"ghost",$chosen==""),
+ Text("来源：本页原创示例。数量仅作展示；分组与条目均来自上方数据数组。","muted")
+],"lg")

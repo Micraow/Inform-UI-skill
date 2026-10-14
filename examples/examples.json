@@ -37,5 +37,16 @@
       "DetailsView",
       "CitationView"
     ]
+  },
+  {
+    "id": "repeated-groups",
+    "title": "工坊材料：一份数据生成分组与选项",
+    "lang": "zh-CN",
+    "select": [
+      "base/layout",
+      "base/text",
+      "base/controls"
+    ],
+    "viewNames": []
   }
 ]

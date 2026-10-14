@@ -27,6 +27,8 @@ Sort: direction is "asc" or "desc" (default asc). All keys must be numbers or al
 
 Each: the third argument is an inline expression, not a callback. It can produce data or components. Nested lexical item scopes and actions capturing an item are supported. There is no index argument. Ordinary declarations do not capture a calling Each's item. Nulls are removed only from declared UI child slots, not ordinary data arrays. All expansion is bounded by runtime budgets.
 
+For repeated UI structure, prefer a data array plus one inline Each template; nest Each for repeated items inside groups. See [repeated structures](repeated-structures.md) for runnable foundation-only examples, nested scope and empty groups. Distinct sections do not need to be forced into one template.
+
 Table rows must contain only keys declared by columns. When source records also contain selection IDs or other metadata, project the displayed fields before passing them to Table. For example: displayRows = @Each(visible,"row",{name:row.name,score:row.score}). Keep the original visible records for buttons that need row.id. The schema's Record signature does not override this semantic validation.
 
 ## State and local actions

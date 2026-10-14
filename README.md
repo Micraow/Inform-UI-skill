@@ -57,6 +57,7 @@ node scripts/inform-answer.mjs build examples/filter-sort-chart.openui --out out
 | [预算选择](examples/budget-choice.html) | 调整预算、比较方案、保留选择与重置 |
 | [数据探索](examples/filter-sort-chart.html) | 同一数据驱动文字、图表和表格 |
 | [图文解释](examples/composed-explanation.html) | 用指标、公式、步骤和图表解释平均数与中位数 |
+| [分组模板](examples/repeated-groups.html) | 两层 @Each、空组提示与捕获分组/条目的本地选择 |
 | [Agent 集成](examples/agent-integration/) | 模型文本流、被动预览、最终校验、取消与过期回复 |
 
 HTML 示例可随完整仓库下载后直接打开，使用随包 JS。数据均为示例；Agent 回放使用合成文本，不调用模型 API。
@@ -64,7 +65,7 @@ HTML 示例可随完整仓库下载后直接打开，使用随包 JS。数据均
 ## 📚 文档与结构
 
 - [Skill 入口](SKILL.md) · [基础 profile](profiles/web-chat-core/) · [精选 profile](profiles/curated-web-chat/)
-- [组件目录](references/catalog.md) · [DSL 语法](references/dialect.md) · [HTML 交付与运行时](references/delivery.md)
+- [组件目录](references/catalog.md) · [DSL 语法](references/dialect.md) · [重复结构](references/repeated-structures.md) · [HTML 交付与运行时](references/delivery.md)
 - [维护指南](references/maintenance.md) · [问题反馈](https://github.com/Micraow/Inform-UI-skill/issues)
 
 ```text
