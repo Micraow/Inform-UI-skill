@@ -4,8 +4,8 @@
   "skillPath": "SKILL.md",
   "sourceCommit": "44623e368e00911238852f5bf62c440762bee9ff",
   "verificationLockOnly": true,
-  "runtimeChannel": "latest",
-  "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
+  "runtimeChannel": "main",
+  "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js",
   "runtimeSha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d",
   "select": [
     "base/layout",

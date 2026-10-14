@@ -35,9 +35,9 @@
 
 > 用 Inform 做一份活动方案比较答案。允许调整预算、排序和选择；解释推荐理由，处理没有结果的情况。数据使用明确标注的原创示例，重复卡片用数据和 @Each 生成，输出完整 HTML。
 
-**当前使用匹配的随包运行库。** 将 `assets/runtime/inform-ui.global.js` 和 `THIRD_PARTY_NOTICES.txt` 放到 HTML 旁，把唯一的外部 script 地址改成 `./inform-ui.global.js`，再用允许 JavaScript 的浏览器打开。[详细交付说明](references/delivery.md)
+**默认使用 main 在线运行库。** 保留 Skill 给出的 HTML 壳和外部 script 地址，用允许 JavaScript 的浏览器打开。[详细交付说明](references/delivery.md)
 
-Skill 中的 latest 外链是发布模板；本快照尚未核实该外链与随包 JS 字节一致。已合入源码的新能力，不代表旧外链或缓存已经更新。
+当前 main 在线 JS 与许可证文件已按字节核实，与随包快照一致；验证记录见 `generated/build.json`。main 是会更新的入口，CDN 与浏览器缓存可能延迟更新。离线使用时，把 `assets/runtime/inform-ui.global.js` 和 `THIRD_PARTY_NOTICES.txt` 放到 HTML 旁，并将 script 地址改成 `./inform-ui.global.js`。
 
 ### Agent：按需发现，按同一合同校验
 

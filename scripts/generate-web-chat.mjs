@@ -11,8 +11,8 @@ for(const name of ['runtime-dir','runtime-url','source-commit','icons'])if(!args
 if(!/^[a-f0-9]{40}$/.test(args['source-commit']))throw Error('Use the complete immutable source commit');
 const runtimeURL=new URL(args['runtime-url']);
 if(runtimeURL.protocol!=='https:')throw Error('Use a verified HTTPS browser runtime URL');
-const runtimeChannel=args['runtime-channel']??'latest';
-if(runtimeChannel!=='latest')throw Error('Web Chat delivery uses --runtime-channel latest');
+const runtimeChannel=args['runtime-channel']??'main';
+if(runtimeChannel!=='main')throw Error('Web Chat delivery uses --runtime-channel main');
 if(runtimeURL.href.includes(args['source-commit']))throw Error('Do not pin the development source commit in the user HTML URL');
 const validationStage=args['validation-stage']??'published';
 if(!['local','published'].includes(validationStage))throw Error('Use --validation-stage local or published');
@@ -28,6 +28,8 @@ const glyphs=requestedIcons.filter(name=>iconNames.has(name));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const browserBytes=await readFile(join(resolve(args['runtime-dir']),'inform-ui.global.js'));
 if(httpReceipt&&httpReceipt.publishedSha256!==sha(browserBytes))throw Error('Published runtime and local snapshot differ');
+const noticesBytes=await readFile(join(resolve(args['runtime-dir']),'THIRD_PARTY_NOTICES.txt'));
+if(validationStage==='published'&&(httpReceipt.notices?.url!==new URL('THIRD_PARTY_NOTICES.txt',runtimeURL).href||httpReceipt.notices?.status!==200||httpReceipt.notices?.publishedSha256!==sha(noticesBytes)))throw Error('Published notices and local snapshot differ');
 const htmlEscape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const scriptJSON=value=>JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
 function html(source,definition){
@@ -68,10 +70,10 @@ function instructions(definition,manifest,prompt,minimal){
  const runtimePreparation=validationStage==='local'?`
 ## 当前运行库准备
 
-这份开发合同来自随包运行库，尚未确认 latest 入口字节与它一致。下方带 latest 外链的 HTML 是发布模板，不能直接视为新组件已经上线。当前先把 assets/runtime/inform-ui.global.js 和 THIRD_PARTY_NOTICES.txt 复制到答案 HTML 同一目录，把唯一的外部 script src 改为 ./inform-ui.global.js，其余配置不变；无需 npm 或 React。具备终端时，也可用随包 CLI build，保留默认本地 runtime，不传 --runtime-url。具体命令见 references/delivery.md。
+这份开发合同来自随包运行库，尚未确认 main 入口字节与它一致。下方带 main 外链的 HTML 是发布模板，不能直接视为新组件已经上线。当前先把 assets/runtime/inform-ui.global.js 和 THIRD_PARTY_NOTICES.txt 复制到答案 HTML 同一目录，把唯一的外部 script src 改为 ./inform-ui.global.js，其余配置不变；无需 npm 或 React。具备终端时，也可用随包 CLI build，保留默认本地 runtime，不传 --runtime-url。具体命令见 references/delivery.md。
 `:'';
- const runtimeInstruction=validationStage==='local'?'沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。':'默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 latest，不把 commit 或版本号写入 HTML。';
- const agentRouting=definition.skillPath==='SKILL.md'?`\n## 两条使用路线\n\n- **直接写答案**：Agent 和 Web Chat 都可以只读本文件，用下面的基础与图表合同输出 HTML，不要求终端。专门的轻量入口位于 profiles/web-chat-core/SKILL.md 和 profiles/curated-web-chat/SKILL.md。\n- **Agent 按需扩展**：有仓库文件或工具能力时，先读 references/catalog.md 做名称与模块发现，再用随包 CLI prompt 从当前 runtime 按模块或精确 View 名生成合同。generated/modules/*.txt 与 generated/views/<ViewName>.txt 是按同一 runtime 生成的静态合同，读取前核对 generated/snapshot-status.json 与 runtime 锁；换了 runtime 后须重新生成，不沿用旧签名。不要把全部 View 和 glyph 一次性塞进上下文。全量目录不是本默认 profile 的额外授权。\n- **可选 CLI**：node scripts/inform-answer.mjs catalog 做模块发现；prompt --select 模块列表 --views 精确View列表 生成该选择的合同；icons --query 关键词 发现官方图标；check answer.openui 检查，build answer.openui --out answer.html 构建。check/build 都要传同一 --select 和 --views；构建使用 --runtime-url ${runtimeURL.href} 跟随 latest。CLI 随仓库提供 Node runtime，不要求安装 React 工程。\n- 扩展时必须同时用真实 profile 重新生成 prompt/schema，并让 HTML 的 select/viewNames 保持一致；不能把扩展 View 混进本文件默认的 ${manifest.components.length} 个 UI 合同。离线或调试可显式使用随包的验证快照，但不要把固定 commit 写成默认 HTML 入口。\n`:'';
+ const runtimeInstruction=validationStage==='local'?'沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。':'默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 main，不把 commit 或版本号写入 HTML。';
+ const agentRouting=definition.skillPath==='SKILL.md'?`\n## 两条使用路线\n\n- **直接写答案**：Agent 和 Web Chat 都可以只读本文件，用下面的基础与图表合同输出 HTML，不要求终端。专门的轻量入口位于 profiles/web-chat-core/SKILL.md 和 profiles/curated-web-chat/SKILL.md。\n- **Agent 按需扩展**：有仓库文件或工具能力时，先读 references/catalog.md 做名称与模块发现，再用随包 CLI prompt 从当前 runtime 按模块或精确 View 名生成合同。generated/modules/*.txt 与 generated/views/<ViewName>.txt 是按同一 runtime 生成的静态合同，读取前核对 generated/snapshot-status.json 与 runtime 锁；换了 runtime 后须重新生成，不沿用旧签名。不要把全部 View 和 glyph 一次性塞进上下文。全量目录不是本默认 profile 的额外授权。\n- **可选 CLI**：node scripts/inform-answer.mjs catalog 做模块发现；prompt --select 模块列表 --views 精确View列表 生成该选择的合同；icons --query 关键词 发现官方图标；check answer.openui 检查，build answer.openui --out answer.html 构建。check/build 都要传同一 --select 和 --views；构建使用 --runtime-url ${runtimeURL.href} 跟随 main。CLI 随仓库提供 Node runtime，不要求安装 React 工程。\n- 扩展时必须同时用真实 profile 重新生成 prompt/schema，并让 HTML 的 select/viewNames 保持一致；不能把扩展 View 混进本文件默认的 ${manifest.components.length} 个 UI 合同。离线或调试可显式使用随包的验证快照，但不要把固定 commit 写成默认 HTML 入口。\n`:'';
  const extra=definition.viewNames.length?`本版只额外开放：${definition.viewNames.join('、')}。不要改成全部 views/content；其他领域 View 不在本版合同里。`:'本版不开放任何领域 View。使用基础组件、图表与文字完成答案；不要从旧目录猜 View 名称。';
  const codeGuidance=manifest.components.some(c=>c.name==='Code')?'\n- 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。':'';
  const viewGuidance=definition.viewNames.length?'\n- BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。\n- 通用对比用 Table/Grid/MetricView，过程用 StepsView；本版没有 ComparisonView 或 TimelineView。':'';
@@ -98,7 +100,7 @@ description: ${definition.description}
 - @Each 是已有的逐项展开方式，不另造 foreach、@ForEach、lambda 或 .map()；没有索引参数。内层模板可读取外层 item，循环变量不能用于模板外的独立声明。需要序号时把序号写入数据。
 - source 是 JSON 字符串，完整进行 JSON 转义；HTML 数据块中的每个 < 写成 \\u003c，避免正文的 </script> 结束数据块。不要把 DSL 直接拼接成可执行 JavaScript。
 - 若使用图标，可直接选以下已核对的官方名称：${glyphs.join('、')}。这里故意不列全部 ${iconCatalog.iconCount} 个 glyph；没有额外目录时用文字或这些名称，不猜名字。
-- HTML 依赖网络获取 latest JS；它是会更新的入口，CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即拿到最新字节。网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
+- HTML 依赖网络获取 main JS；它是会更新的入口，CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即拿到最新字节。网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
 
 这是 OpenUI 派生的严格本地方言，不是全部上游 runtime 的兼容替代。精简的是模型合同与可用组件集合；使用的 browser JS 仍是同一完整 bundle。不宣称未测的 token 或下载体积节省。
 
@@ -150,5 +152,5 @@ for(const definition of sourceProfiles){
  if(definition.skillPath==='SKILL.md')await writeFile(join(dir,'SKILL.md'),instructions({...definition,name:'inform-web-chat-core',label:'Web Chat 基础与图表',skillPath:definition.outputDirectory+'/SKILL.md'},manifest,prompt,minimal));
  generated.push({...config,promptBytes:Buffer.byteLength(prompt),skillBytes:Buffer.byteLength(skill),schemaBytes:Buffer.byteLength(JSON.stringify(profile.schema,null,2)+'\n'),sourceSha256:sha(source)});
 }
-await writeFile(join(root,'generated/build.json'),JSON.stringify({format:'inform-web-chat-skill/1',validationStage,publicationReady:validationStage==='published',sourceCommit:args['source-commit'],verificationLockOnly:true,runtimeChannel,runtimeURL:runtimeURL.href,runtimeSha256:sha(browserBytes),nodeRuntimeSha256:sha(await readFile(join(resolve(args['runtime-dir']),'node.mjs'))),runtimeUpdateSemantics:'The default latest URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.',promptProseProjection,profiles:generated,runtimeHTTP:httpReceipt,modelWorkflow:'Read one SKILL.md; produce complete HTML using the latest entry; no CLI required',browserVerification:'Not established by generation or Node validation'},null,2)+'\n');
+await writeFile(join(root,'generated/build.json'),JSON.stringify({format:'inform-web-chat-skill/1',validationStage,publicationReady:validationStage==='published',sourceCommit:args['source-commit'],verificationLockOnly:true,runtimeChannel,runtimeURL:runtimeURL.href,runtimeSha256:sha(browserBytes),noticesSha256:sha(noticesBytes),nodeRuntimeSha256:sha(await readFile(join(resolve(args['runtime-dir']),'node.mjs'))),runtimeUpdateSemantics:'The default main URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.',promptProseProjection,profiles:generated,runtimeHTTP:httpReceipt,modelWorkflow:'Read one SKILL.md; produce complete HTML using the main entry; no CLI required',browserVerification:'Not established by generation or Node validation'},null,2)+'\n');
 console.log(JSON.stringify(generated.map(p=>({id:p.id,uiComponents:p.uiComponents,dataConstructors:p.dataConstructors,promptBytes:p.promptBytes,skillBytes:p.skillBytes})),null,2));

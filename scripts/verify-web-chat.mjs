@@ -18,7 +18,8 @@ assert.equal(createHash('sha256').update(await readFile(join(runtimeDir,'node.mj
 for(const [name,hash]of [['node.mjs',build.nodeRuntimeSha256],['inform-ui.global.js',build.runtimeSha256]])assert.equal(createHash('sha256').update(await readFile(join(root,'assets/runtime',name))).digest('hex'),hash,'Bundled Agent runtime must match generated profiles');
 const runtimeLock=await readJSON(join(root,'generated/runtime-lock.json'));assert.equal(runtimeLock.sourceRef,build.sourceCommit);assert.equal(runtimeLock.bundles['node.mjs'].sha256,build.nodeRuntimeSha256);
 assertPublicationEvidence(build);
-assert.equal(build.verificationLockOnly,true);assert.equal(build.runtimeChannel,'latest');
+assert.equal(build.noticesSha256,runtimeLock.bundles['THIRD_PARTY_NOTICES.txt'].sha256);
+assert.equal(build.verificationLockOnly,true);assert.equal(build.runtimeChannel,'main');
 const checks=[];
 function nodes(root){const out=[];const walk=value=>{if(!value||typeof value!=='object')return;if(value.type==='element')out.push(value);for(const child of Object.values(value))Array.isArray(child)?child.forEach(walk):walk(child);};walk(root);return out;}
 const accepted=result=>{assert(result.ok,JSON.stringify(result));return result.snapshot;};

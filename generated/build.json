@@ -1,14 +1,15 @@
 {
   "format": "inform-web-chat-skill/1",
-  "validationStage": "git-published-cdn-pending",
-  "publicationReady": false,
+  "validationStage": "published",
+  "publicationReady": true,
   "sourceCommit": "44623e368e00911238852f5bf62c440762bee9ff",
   "verificationLockOnly": true,
-  "runtimeChannel": "latest",
-  "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
+  "runtimeChannel": "main",
+  "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js",
   "runtimeSha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d",
+  "noticesSha256": "83536fb188d63c53d131bb509a7bac87b94825316ffa57ffb85724f74079f674",
   "nodeRuntimeSha256": "ee6b0aa15189e3cacc106a3bd9b84ad512406e147cc6f206d9638356d5f5c2a9",
-  "runtimeUpdateSemantics": "The default latest URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.",
+  "runtimeUpdateSemantics": "The default main URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.",
   "promptProseProjection": "declaration-lines-and-root-position/1",
   "profiles": [
     {
@@ -17,8 +18,8 @@
       "skillPath": "SKILL.md",
       "sourceCommit": "44623e368e00911238852f5bf62c440762bee9ff",
       "verificationLockOnly": true,
-      "runtimeChannel": "latest",
-      "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
+      "runtimeChannel": "main",
+      "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js",
       "runtimeSha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d",
       "select": [
         "base/layout",
@@ -61,7 +62,7 @@
         "Link"
       ],
       "promptBytes": 42612,
-      "skillBytes": 53831,
+      "skillBytes": 53289,
       "schemaBytes": 107406,
       "sourceSha256": "c7183345044a36f67197095d56d9c30080e8ab0da3b120b8baa6e8779fcda880"
     },
@@ -71,8 +72,8 @@
       "skillPath": "profiles/curated-web-chat/SKILL.md",
       "sourceCommit": "44623e368e00911238852f5bf62c440762bee9ff",
       "verificationLockOnly": true,
-      "runtimeChannel": "latest",
-      "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
+      "runtimeChannel": "main",
+      "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js",
       "runtimeSha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d",
       "select": [
         "base/layout",
@@ -127,32 +128,44 @@
         "Link"
       ],
       "promptBytes": 55016,
-      "skillBytes": 67352,
+      "skillBytes": 66823,
       "schemaBytes": 150840,
       "sourceSha256": "bb59f93c52af82b45c9bc87f54d7d8f2388eeb994088f816f1c94d247ca0d45d"
     }
   ],
   "runtimeHTTP": {
-    "url": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
+    "url": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js",
     "method": "GET",
     "status": 200,
-    "observedAt": "2026-10-14T10:25:39.916737+00:00",
-    "bytes": 5577244,
-    "publishedSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
+    "observedAt": "2026-10-14T10:37:50.359128+00:00",
+    "bytes": 5661712,
+    "publishedSha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d",
     "contentType": "application/javascript; charset=utf-8",
     "accessControlAllowOrigin": "*",
     "cacheControl": "public, max-age=604800, s-maxage=43200",
-    "age": "342",
-    "etag": "W/\"551a1c-63exlyYem66wbeqwqx204NzorZQ\"",
-    "jsdelivrVersion": "web-chat-latest",
-    "matchesSnapshot": false,
-    "gitPublishedSourceCommit": "44623e368e00911238852f5bf62c440762bee9ff",
-    "gitPublishedAssetCommit": "d2fed954e0a371ca06c7bcced05db7a689331284",
-    "expectedSha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d",
-    "cacheState": "Rolling URL returned older bytes than the Git-published snapshot",
-    "purgeStatus": "not attempted"
+    "age": "1",
+    "etag": "W/\"566410-+V4RUbzwAXhCFlCvPqvaBLHJV7Q\"",
+    "jsdelivrVersion": "main",
+    "matchesSnapshot": true,
+    "verifiedSourceCommit": "44623e368e00911238852f5bf62c440762bee9ff",
+    "gitPublishedAssetCommit": "35904e90561c81f954b3067afc656152d3fe965d",
+    "cacheState": "Observed canonical main URL bytes match the bundled snapshot",
+    "notices": {
+      "url": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/THIRD_PARTY_NOTICES.txt",
+      "method": "GET",
+      "status": 200,
+      "observedAt": "2026-10-14T10:37:55.541523+00:00",
+      "bytes": 62017,
+      "publishedSha256": "83536fb188d63c53d131bb509a7bac87b94825316ffa57ffb85724f74079f674",
+      "contentType": "text/plain; charset=utf-8",
+      "accessControlAllowOrigin": "*",
+      "cacheControl": "public, max-age=604800, s-maxage=43200",
+      "age": "0",
+      "etag": "W/\"f241-4ijGjq5eCL+czC+xIMCy+m9pfCA\"",
+      "jsdelivrVersion": "main",
+      "matchesSnapshot": true
+    }
   },
-  "modelWorkflow": "Read one SKILL.md; produce complete HTML using the latest entry; no CLI required",
-  "browserVerification": "Not established by generation or Node validation",
-  "bundledRuntimeReady": true
+  "modelWorkflow": "Read one SKILL.md; produce complete HTML using the main entry; no CLI required",
+  "browserVerification": "Not established by generation or Node validation"
 }

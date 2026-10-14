@@ -18,7 +18,7 @@ Run from this Skill directory with Node 22 or later. No npm install is necessary
 
 Build validates with the actual strict parser and runtime, then writes HTML and copies inform-ui.global.js plus THIRD_PARTY_NOTICES.txt next to it. Keep these three files together. Opening answer.html loads its sibling JS directly, including from file://. Charts and UI frameworks are already bundled. External images, fonts, links or host services can have additional network requirements; do not call those offline.
 
-For a verified release URL, pass --runtime-url with the exact HTTPS URL. The CLI does not verify network availability or matching content for that URL: verify its bytes/version separately against generated/runtime-lock.json. Web Chat profiles use the project-maintained `web-chat-latest` branch by default; it is mutable and may be cached. For reproducible local output, keep the bundled runtime. Do not substitute a guessed CDN URL or jsDelivr’s reserved `@latest` selector. --runtime-dir permits validation and copying from another verified dist/v2; regenerate Skill contracts when switching versions.
+For a verified release URL, pass --runtime-url with the exact HTTPS URL. The CLI does not verify network availability or matching content for that URL: verify its bytes/version separately against generated/runtime-lock.json. Web Chat profiles use the project-maintained `main` branch by default; it is mutable and may be cached. For reproducible local output, keep the bundled runtime. Do not substitute a guessed CDN URL or jsDelivr’s reserved `@latest` selector. --runtime-dir permits validation and copying from another verified dist/v2; regenerate Skill contracts when switching versions.
 
 ## Foundation layout
 
@@ -28,13 +28,13 @@ These source capabilities do not imply that an older hosted runtime includes the
 
 ## Foundation code
 
-The bundled runtime and generated contracts are a matched snapshot. Before using a new constructor through the mutable `web-chat-latest` URL, check `generated/build.json`: `publicationReady:false` means no matching live runtime has been established for this snapshot. A source branch push or successful local tests alone do not establish CDN compatibility.
+The bundled runtime and generated contracts are a matched snapshot. Before using a new constructor through the mutable `main` URL, check `generated/build.json`: `publicationReady:false` means no matching live runtime has been established for this snapshot. A source branch push or successful local tests alone do not establish CDN compatibility.
 
 For the matched local starter, use the bundled runtime without `--runtime-url`:
 
     node scripts/inform-answer.mjs build profiles/web-chat-core/minimal.openui --out output/code-starter/answer.html --select base/layout,base/text,base/controls,base/icon,base/media,base/code,base/charts
 
-Without CLI tools, copy `assets/runtime/inform-ui.global.js` and its `THIRD_PARTY_NOTICES.txt` beside the generated HTML, then change its external script URL to `./inform-ui.global.js`. Preserve the profile's `select` and `viewNames`. An unverified latest-linked template is not evidence that the new code component is available there.
+Without CLI tools, copy `assets/runtime/inform-ui.global.js` and its `THIRD_PARTY_NOTICES.txt` beside the generated HTML, then change its external script URL to `./inform-ui.global.js`. Preserve the profile's `select` and `viewNames`. An unverified main-linked template is not evidence that the new code component is available there.
 
 Select `base/code` with `base/layout`, then use `Code({value:"const count = 1;",language:"javascript"})`. The default and curated profiles already include it. Block code shows the language label, highlights through bundled highlight.js grammars, and offers copy by default. Set `showLanguage:false`, `highlight:false` or `copy:false` to opt out individually. Missing or unsupported language renders plain text; source is never executed. `inline:true` is text-only and rejects explicit enhancement flags set to true.
 

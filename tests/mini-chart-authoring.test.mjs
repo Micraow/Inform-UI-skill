@@ -8,7 +8,7 @@ test('fresh single-Skill mini-chart answer commits unchanged and updates all cha
  const html=await readFile(new URL('./fixtures/mini-chart-authoring.html',import.meta.url),'utf8');
  const config=JSON.parse(html.match(/<script id="inform-config" type="application\/json">([\s\S]*?)<\/script>/)[1]);
  assert.equal(config.source,source);assert.deepEqual(config.select,select);assert.deepEqual(config.viewNames,[]);
- assert(html.includes('https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js'));
+ assert(html.includes('https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js'));
  const runtime=api.createRuntime(api.createProfile({select,viewNames:[]}));
  const accepted=r=>{assert(r.ok,JSON.stringify(r.issues));return r.snapshot;};
  const charts=s=>nodes(s.tree).filter(n=>['MiniAreaChart','MiniBarChart','MiniLineChart'].includes(n.typeName));

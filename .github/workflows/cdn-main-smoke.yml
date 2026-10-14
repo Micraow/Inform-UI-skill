@@ -1,0 +1,33 @@
+name: Published main CDN smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cdn-main-smoke.yml'
+      - 'scripts/check-published-cdn.mjs'
+      - 'scripts/publication-evidence.mjs'
+      - 'generated/build.json'
+      - 'generated/runtime-lock.json'
+      - 'profiles/**'
+      - 'tests/fixtures/foundation-layered-work.openui'
+      - 'examples/repeated-groups.openui'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: '22'
+      - name: Install pinned browser test tooling
+        run: npm install --no-save --package-lock=false --ignore-scripts @playwright/test@1.56.1
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Verify canonical CDN bytes and browser interactions
+        run: node scripts/check-published-cdn.mjs --playwright node_modules/@playwright/test/index.mjs
