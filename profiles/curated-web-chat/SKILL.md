@@ -1,15 +1,23 @@
 ---
 name: inform-web-chat-views
-description: 生成完整互动 HTML 答案，在 Inform 基础组件、代码与图表之外只开放九个内容视图，用于指标、图注、章节、步骤、公式、折叠说明、来源、引文和核对清单。
+description: 生成完整 HTML 答案，按表达目标选择呈现方式与必要交互。在 Inform 基础组件、代码与图表之外额外开放九个内容视图；开放范围不是使用要求，不必逐一展示。
 ---
 
-# 精选：九个内容视图
+# Inform HTML 答案：精选视图版
 
-把本文件交给 Agent 或 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，用图文和有意义的本地交互帮助理解。默认路线无需终端、CLI、npm、React 工程或额外的全量组件文档。
+把本文件交给 Agent 或 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，按表达目标选择呈现方式，需要时再加入图示、数据图表或有意义的本地交互。默认路线无需终端、CLI、npm、React 工程或额外的全量组件文档。
 ## 当前运行库准备
 
 这份开发合同来自随包运行库，尚未确认 main 入口字节与它一致。下方带 main 外链的 HTML 是发布模板，不能直接视为新组件已经上线。当前先把 assets/runtime/inform-ui.global.js 和 THIRD_PARTY_NOTICES.txt 复制到答案 HTML 同一目录，把唯一的外部 script src 改为 ./inform-ui.global.js，其余配置不变；无需 npm 或 React。具备终端时，也可用随包 CLI build，保留默认本地 runtime，不传 --runtime-url。具体命令见 references/delivery.md。
 
+
+## 先决定表达方式
+
+- 先明确要回答的问题、表达目标与关系类型，再选择文字、基础组件组合、图示或数据图表。文字足以说清时可以只用文字；组件目录表示可用能力，不是答案结构或覆盖率要求。
+- 区分数量关系与非数量关系。数据图表用于有明确数值含义的比较、趋势、分布或占比，标明指标、单位和必要条件；不要为了画图把位置、层级、顺序、连接或状态任意编码成数量。结构与过程应保留其真实关系，可用文字、布局组合或合同支持的图示表达，不固定采用某一种图形技术。
+- 交互必须服务于当前问题：明确用户能改变什么，以及变化如何帮助理解、比较或完成已请求的操作。没有真实目的就省略控件；静态答案同样有效。不要为体现“互动”或展示组件能力添加点击、开关、滑块或待办。
+- 不默认在结尾添加可点清单、自检或下一步任务。仅在用户明确需要核对或任务进度，或它确实承担当前任务所需的状态记录时使用清单；一般总结直接用文字。结尾由答案内容决定。
+- 一种表达已经足够时，不必再配齐图、表、代码、引文与控件。交付前检查每个元素是否帮助回答问题、是否忠实表达关系，删除只为装饰、重复结论或凑组件覆盖率而加入的元素。
 
 ## 写作和交付合同
 
@@ -19,9 +27,9 @@ description: 生成完整互动 HTML 答案，在 Inform 基础组件、代码�
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部 View。
 - 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。
 - BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。
-- 通用对比用 Table/Grid/MetricView，过程用 StepsView；本版没有 ComparisonView 或 TimelineView。
+- 根据要表达的关系选择组件；Table/Grid/MetricView 可组织对比，StepsView 可组织步骤，均非固定搭配。本版没有 ComparisonView 或 TimelineView。
 - 不声明已完成查询、订票、付款、发送或其他宿主服务。这里只处理给定数据和本地状态。Query、Mutation、@Run、@OpenUrl、@ToAssistant 与任意 JS 均不支持。
-- 概念、数据、结论和来源必须说清楚。原创演示数据明确标为示例；不伪造真实来源。图表配可读的文字结果及必要表格；图片有 alt；控件标签说明单位和作用；处理空结果、重置和失效选择。
+- 概念、数据、结论和来源必须说清楚。原创演示数据明确标为示例；不伪造真实来源。使用图表时配可读的文字结果，并保证数据可访问，必要时补充表格；使用图片时提供 alt；使用控件时标签说明单位和作用，并按实际状态流程处理空结果、重置和失效选择。
 - 每条 DSL 声明从新行开始，单个表达式可跨行；不用分号。root = Stack(...) 可以在任意位置。组件是位置参数；对象内才写 key:value。显式声明所有 $state；只有声明为 binding 的参数能绑定状态。
 - 只用 @Filter、@Sort、@Each 等下方实际列出的纯函数。没有 lambda、.map() 或 eval。Each 的第三参数是内联模板。Table 的行对象只能含 columns 声明的键；用 @Each 投影并保留原始记录做选择。
 - 同构重复的卡片、行、格子或分组，优先写数据数组 + @Each(array,"item",内联模板)，不要逐项复制组件树；分组内仍有重复时嵌套 @Each。不同结构的少量段落不必强行统一模板。
@@ -423,7 +431,7 @@ ChecklistData(label: string{minLength=1,maxLength=200}, items: ({id: string{patt
 
 ## 可直接改写的最小 HTML
 
-下面示例是完整有效程序。先保留它的 select/viewNames/加载与报错处理，再把 source 换成用户真正需要的完整答案。
+下面示例是完整有效程序，用于说明 DSL 与 HTML 壳的连接，不是回答结构模板，也不要求复用其中的图表、控件或其他组件。保留它的 select/viewNames/加载与报错处理，再按当前问题重新组织 source。
 
 ```html
 <!doctype html>
@@ -438,7 +446,7 @@ ChecklistData(label: string{minLength=1,maxLength=200}, items: ({id: string{patt
 <main id="answer" aria-label="为什么一个大数会拉高平均数？"></main>
 <p id="status" role="status">正在载入答案…</p>
 <noscript>需要启用 JavaScript 才能显示这份互动答案。</noscript>
-<script id="inform-config" type="application/json">{"source":"$largest = 12\n$showMethod = true\nnumbers = [4,6,8,$largest]\nmean = @Avg(numbers)\nmedian = (numbers[1]+numbers[2])/2\nroot = Stack([\n Badge(\"交互式概念解释\"),\n Heading(\"为什么一个大数会拉高平均数？\",1),\n Text(\"平均数把所有值都放进总和。中位数只看排序后的中间位置。把最后一个数从 12 调高，你会看到平均数上升，而这组数据的中位数一直是 7。\",\"muted\"),\n Card([Slider(\"第四个数\",$largest,8,80,2),Switch(\"展开计算过程\",$showMethod),Button(\"恢复为 12\",@Reset($largest),\"secondary\")],\"自己试一次\"),\n Grid([MetricView({label:\"平均数\",value:@Round(mean,1)}),MetricView({label:\"中位数\",value:median}),MetricView({label:\"第四个数\",value:$largest})],3,\"lg\"),\n FigureView({caption:\"四个原创示例数字。只改变第四项，前三项始终为 4、6、8。\"},[BarChart(\"四个数的大小\",[\"第一项\",\"第二项\",\"第三项\",\"第四项\"],[Series(\"数值\",numbers)],{height:280,animate:false})]),\n $showMethod ? SectionView({heading:\"从数字到结论\"},[\n  StepsView({items:[{title:\"求和\",detail:\"4 + 6 + 8 + \"+$largest+\" = \"+@Sum(numbers)},{title:\"计算平均数\",detail:@Sum(numbers)+\" ÷ 4 = \"+mean},{title:\"找中间位置\",detail:\"已经按升序排列。中间两个数为 6 与 8，所以中位数为 (6 + 8) ÷ 2 = 7。\"}]}),\n  MathView({latex:\"\\\\bar{x}=\\\\frac{1}{n}\\\\sum_{i=1}^{n}x_i\",block:true})\n ]) : Text(\"计算过程已收起；图表与统计值仍会随滑块更新。\",\"muted\"),\n Heading(\"该用哪个指标？\",2),\n Text(\"如果问题关心总量被平均分配的结果，平均数很直接。如果想描述一组数据的中间位置，又不想让单个极端值产生很大影响，中位数往往更有帮助。先明确问题，再选择统计量。\"),\n BlockquoteView({attribution:\"本示例的原创总结\"},[Text(\"先问要描述总量的平均分配，还是数据的中间位置，再决定用平均数还是中位数。\")]),\n SectionView({heading:\"用代码复现当前数字\"},[\n  Text(\"这是可复制的 JavaScript 示例，只作代码展示，不在页面内执行。滑块改变后，第一行中的第四个数会同步更新。\"),\n  Code({value:\"const values = [4, 6, 8, \"+$largest+\"];\\nfunction average(values) {\\n  const total = values.reduce((sum, value) => sum + value, 0);\\n  return total / values.length;\\n}\\nconst mean = average(values);\\n// 这组数字已按升序排列，中间两项不随第四项改变。\\nconst median = (values[1] + values[2]) / 2;\\nconsole.log({ mean, median });\",language:\"javascript\"})\n ]),\n ChecklistView({label:\"读完后的本地核对清单\",items:[{id:\"question\",label:\"我能说明平均数和中位数各自回答什么问题\",checked:false},{id:\"extreme\",label:\"我试过把第四个数调高，比较两项指标\",checked:false},{id:\"boundary\",label:\"我知道这组数据始终有序，不能把结论无限推广\",checked:false}],filter:true,bulk:true}),\n Text(\"核对清单只记录当前页面视图中的自检，不改变上方数字，也不会发送或保存到外部服务。\",\"muted\"),\n DetailsView({summary:\"这个演示的边界\"},[Text(\"第四个数的最小值为 8，数据始终有序，中间两项不会改变。这说明的是这一组四个数的行为；别推广成任何数据变化都不会影响中位数。\")]),\n CitationView({number:1,title:\"NIST：Measures of Location\",url:\"https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm\",publisher:\"NIST/SEMATECH e-Handbook\",description:\"平均数、中位数及极端值影响的定义与解释。图表数据由本示例原创，不来自 NIST。\"})\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/code","base/charts","views/content"],"viewNames":["MetricView","FigureView","SectionView","StepsView","MathView","DetailsView","CitationView","BlockquoteView","ChecklistView"],"theme":"light"}</script>
+<script id="inform-config" type="application/json">{"source":"$largest = 12\n$showMethod = true\nnumbers = [4,6,8,$largest]\nmean = @Avg(numbers)\nmedian = (numbers[1]+numbers[2])/2\nroot = Stack([\n Badge(\"交互式概念解释\"),\n Heading(\"为什么一个大数会拉高平均数？\",1),\n Text(\"平均数把所有值都放进总和。中位数只看排序后的中间位置。把最后一个数从 12 调高，你会看到平均数上升，而这组数据的中位数一直是 7。\",\"muted\"),\n Card([Slider(\"第四个数\",$largest,8,80,2),Switch(\"展开计算过程\",$showMethod),Button(\"恢复为 12\",@Reset($largest),\"secondary\")],\"自己试一次\"),\n Grid([MetricView({label:\"平均数\",value:@Round(mean,1)}),MetricView({label:\"中位数\",value:median}),MetricView({label:\"第四个数\",value:$largest})],3,\"lg\"),\n FigureView({caption:\"四个原创示例数字。只改变第四项，前三项始终为 4、6、8。\"},[BarChart(\"四个数的大小\",[\"第一项\",\"第二项\",\"第三项\",\"第四项\"],[Series(\"数值\",numbers)],{height:280,animate:false})]),\n $showMethod ? SectionView({heading:\"从数字到结论\"},[\n  StepsView({items:[{title:\"求和\",detail:\"4 + 6 + 8 + \"+$largest+\" = \"+@Sum(numbers)},{title:\"计算平均数\",detail:@Sum(numbers)+\" ÷ 4 = \"+mean},{title:\"找中间位置\",detail:\"已经按升序排列。中间两个数为 6 与 8，所以中位数为 (6 + 8) ÷ 2 = 7。\"}]}),\n  MathView({latex:\"\\\\bar{x}=\\\\frac{1}{n}\\\\sum_{i=1}^{n}x_i\",block:true})\n ]) : Text(\"计算过程已收起；图表与统计值仍会随滑块更新。\",\"muted\"),\n Heading(\"该用哪个指标？\",2),\n Text(\"如果问题关心总量被平均分配的结果，平均数很直接。如果想描述一组数据的中间位置，又不想让单个极端值产生很大影响，中位数往往更有帮助。先明确问题，再选择统计量。\"),\n BlockquoteView({attribution:\"本示例的原创总结\"},[Text(\"先问要描述总量的平均分配，还是数据的中间位置，再决定用平均数还是中位数。\")]),\n SectionView({heading:\"用代码复现当前数字\"},[\n  Text(\"这是可复制的 JavaScript 示例，只作代码展示，不在页面内执行。滑块改变后，第一行中的第四个数会同步更新。\"),\n  Code({value:\"const values = [4, 6, 8, \"+$largest+\"];\\nfunction average(values) {\\n  const total = values.reduce((sum, value) => sum + value, 0);\\n  return total / values.length;\\n}\\nconst mean = average(values);\\n// 这组数字已按升序排列，中间两项不随第四项改变。\\nconst median = (values[1] + values[2]) / 2;\\nconsole.log({ mean, median });\",language:\"javascript\"})\n ]),\n DetailsView({summary:\"这个演示的边界\"},[Text(\"第四个数的最小值为 8，数据始终有序，中间两项不会改变。这说明的是这一组四个数的行为；别推广成任何数据变化都不会影响中位数。\")]),\n CitationView({number:1,title:\"NIST：Measures of Location\",url:\"https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm\",publisher:\"NIST/SEMATECH e-Handbook\",description:\"平均数、中位数及极端值影响的定义与解释。图表数据由本示例原创，不来自 NIST。\"})\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/code","base/charts","views/content"],"viewNames":["MetricView","FigureView","SectionView","StepsView","MathView","DetailsView","CitationView","BlockquoteView","ChecklistView"],"theme":"light"}</script>
 <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js"></script>
 <script>
 (() => {

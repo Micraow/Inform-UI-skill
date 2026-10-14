@@ -68,7 +68,8 @@ for(const def of definitions){
    const button=nodes(s.tree).find(n=>n.typeName==='Button');s=accepted(runtime.dispatchLocal(button.props.onPress));assert.equal(s.state.$minimum,60);
    assert.equal(runtime.commit('root = Stack([MetricView({label:"Unavailable",value:1})])').ok,false);
   }else{
-   for(const name of def.viewNames)assert(nodes(s.tree).some(n=>n.typeName===name),'Starter must demonstrate '+name);
+   // The starter is an answer, not a component-coverage fixture. Contracts are audited above.
+   assert(!nodes(s.tree).some(n=>n.typeName==='ChecklistView'),'Starter must not append a default checklist');
 
    s=accepted(runtime.setState({$largest:80,$showMethod:false}));
    assert.equal(nodes(s.tree).find(n=>n.typeName==='MetricView'&&n.props.data.label==='平均数').props.data.value,24.5);

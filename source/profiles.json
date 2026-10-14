@@ -2,7 +2,7 @@
   {
     "id": "web-chat-core",
     "name": "inform-interactive-answers",
-    "label": "Inform 互动答案：基础与图表",
+    "label": "Inform HTML 答案：基础版",
     "select": [
       "base/layout",
       "base/text",
@@ -15,14 +15,14 @@
     "viewNames": [],
     "source": "core.openui",
     "title": "让图表、表格和解释一起更新",
-    "description": "供 Agent 和 Web Chat AI 生成完整互动 HTML 答案。默认使用 Inform 基础组件与图表；Agent 可按需发现模块、领域视图和图标，并使用可选 CLI 验证与构建。无需创建 React 工程。",
+    "description": "供 Agent 和 Web Chat AI 生成完整 HTML 答案。按表达目标选择 Inform 文字、基础组件、图示、数据图表与必要交互；Agent 可按需发现模块、领域视图和图标，并使用可选 CLI 验证与构建。无需创建 React 工程。",
     "outputDirectory": "profiles/web-chat-core",
     "skillPath": "SKILL.md"
   },
   {
     "id": "web-chat-views",
     "name": "inform-web-chat-views",
-    "label": "精选：九个内容视图",
+    "label": "Inform HTML 答案：精选视图版",
     "select": [
       "base/layout",
       "base/text",
@@ -46,7 +46,7 @@
     ],
     "source": "views.openui",
     "title": "为什么一个大数会拉高平均数？",
-    "description": "生成完整互动 HTML 答案，在 Inform 基础组件、代码与图表之外只开放九个内容视图，用于指标、图注、章节、步骤、公式、折叠说明、来源、引文和核对清单。",
+    "description": "生成完整 HTML 答案，按表达目标选择呈现方式与必要交互。在 Inform 基础组件、代码与图表之外额外开放九个内容视图；开放范围不是使用要求，不必逐一展示。",
     "outputDirectory": "profiles/curated-web-chat",
     "skillPath": "profiles/curated-web-chat/SKILL.md"
   }

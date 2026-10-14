@@ -21,8 +21,6 @@ root = Stack([
   Text("这是可复制的 JavaScript 示例，只作代码展示，不在页面内执行。滑块改变后，第一行中的第四个数会同步更新。"),
   Code({value:"const values = [4, 6, 8, "+$largest+"];\nfunction average(values) {\n  const total = values.reduce((sum, value) => sum + value, 0);\n  return total / values.length;\n}\nconst mean = average(values);\n// 这组数字已按升序排列，中间两项不随第四项改变。\nconst median = (values[1] + values[2]) / 2;\nconsole.log({ mean, median });",language:"javascript"})
  ]),
- ChecklistView({label:"读完后的本地核对清单",items:[{id:"question",label:"我能说明平均数和中位数各自回答什么问题",checked:false},{id:"extreme",label:"我试过把第四个数调高，比较两项指标",checked:false},{id:"boundary",label:"我知道这组数据始终有序，不能把结论无限推广",checked:false}],filter:true,bulk:true}),
- Text("核对清单只记录当前页面视图中的自检，不改变上方数字，也不会发送或保存到外部服务。","muted"),
  DetailsView({summary:"这个演示的边界"},[Text("第四个数的最小值为 8，数据始终有序，中间两项不会改变。这说明的是这一组四个数的行为；别推广成任何数据变化都不会影响中位数。")]),
  CitationView({number:1,title:"NIST：Measures of Location",url:"https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",publisher:"NIST/SEMATECH e-Handbook",description:"平均数、中位数及极端值影响的定义与解释。图表数据由本示例原创，不来自 NIST。"})
 ],"xl")

@@ -74,9 +74,9 @@ function instructions(definition,manifest,prompt,minimal){
 `:'';
  const runtimeInstruction=validationStage==='local'?'沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。':'默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 main，不把 commit 或版本号写入 HTML。';
  const agentRouting=definition.skillPath==='SKILL.md'?`\n## 两条使用路线\n\n- **直接写答案**：Agent 和 Web Chat 都可以只读本文件，用下面的基础与图表合同输出 HTML，不要求终端。专门的轻量入口位于 profiles/web-chat-core/SKILL.md 和 profiles/curated-web-chat/SKILL.md。\n- **Agent 按需扩展**：有仓库文件或工具能力时，先读 references/catalog.md 做名称与模块发现，再用随包 CLI prompt 从当前 runtime 按模块或精确 View 名生成合同。generated/modules/*.txt 与 generated/views/<ViewName>.txt 是按同一 runtime 生成的静态合同，读取前核对 generated/snapshot-status.json 与 runtime 锁；换了 runtime 后须重新生成，不沿用旧签名。不要把全部 View 和 glyph 一次性塞进上下文。全量目录不是本默认 profile 的额外授权。\n- **可选 CLI**：node scripts/inform-answer.mjs catalog 做模块发现；prompt --select 模块列表 --views 精确View列表 生成该选择的合同；icons --query 关键词 发现官方图标；check answer.openui 检查，build answer.openui --out answer.html 构建。check/build 都要传同一 --select 和 --views；构建使用 --runtime-url ${runtimeURL.href} 跟随 main。CLI 随仓库提供 Node runtime，不要求安装 React 工程。\n- 扩展时必须同时用真实 profile 重新生成 prompt/schema，并让 HTML 的 select/viewNames 保持一致；不能把扩展 View 混进本文件默认的 ${manifest.components.length} 个 UI 合同。离线或调试可显式使用随包的验证快照，但不要把固定 commit 写成默认 HTML 入口。\n`:'';
- const extra=definition.viewNames.length?`本版只额外开放：${definition.viewNames.join('、')}。不要改成全部 views/content；其他领域 View 不在本版合同里。`:'本版不开放任何领域 View。使用基础组件、图表与文字完成答案；不要从旧目录猜 View 名称。';
+ const extra=definition.viewNames.length?`本版只额外开放：${definition.viewNames.join('、')}。不要改成全部 views/content；其他领域 View 不在本版合同里。`:'本版不开放任何领域 View。从已开放的文字、基础组件与图表中按需选择；不要从旧目录猜 View 名称。';
  const codeGuidance=manifest.components.some(c=>c.name==='Code')?'\n- 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。':'';
- const viewGuidance=definition.viewNames.length?'\n- BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。\n- 通用对比用 Table/Grid/MetricView，过程用 StepsView；本版没有 ComparisonView 或 TimelineView。':'';
+ const viewGuidance=definition.viewNames.length?'\n- BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。\n- 根据要表达的关系选择组件；Table/Grid/MetricView 可组织对比，StepsView 可组织步骤，均非固定搭配。本版没有 ComparisonView 或 TimelineView。':'';
  return `---
 name: ${definition.name}
 description: ${definition.description}
@@ -84,7 +84,15 @@ description: ${definition.description}
 
 # ${definition.label}
 
-把本文件交给 Agent 或 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，用图文和有意义的本地交互帮助理解。默认路线无需终端、CLI、npm、React 工程或额外的全量组件文档。${runtimePreparation}${agentRouting}
+把本文件交给 Agent 或 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，按表达目标选择呈现方式，需要时再加入图示、数据图表或有意义的本地交互。默认路线无需终端、CLI、npm、React 工程或额外的全量组件文档。${runtimePreparation}${agentRouting}
+
+## 先决定表达方式
+
+- 先明确要回答的问题、表达目标与关系类型，再选择文字、基础组件组合、图示或数据图表。文字足以说清时可以只用文字；组件目录表示可用能力，不是答案结构或覆盖率要求。
+- 区分数量关系与非数量关系。数据图表用于有明确数值含义的比较、趋势、分布或占比，标明指标、单位和必要条件；不要为了画图把位置、层级、顺序、连接或状态任意编码成数量。结构与过程应保留其真实关系，可用文字、布局组合或合同支持的图示表达，不固定采用某一种图形技术。
+- 交互必须服务于当前问题：明确用户能改变什么，以及变化如何帮助理解、比较或完成已请求的操作。没有真实目的就省略控件；静态答案同样有效。不要为体现“互动”或展示组件能力添加点击、开关、滑块或待办。
+- 不默认在结尾添加可点清单、自检或下一步任务。仅在用户明确需要核对或任务进度，或它确实承担当前任务所需的状态记录时使用清单；一般总结直接用文字。结尾由答案内容决定。
+- 一种表达已经足够时，不必再配齐图、表、代码、引文与控件。交付前检查每个元素是否帮助回答问题、是否忠实表达关系，删除只为装饰、重复结论或凑组件覆盖率而加入的元素。
 
 ## 写作和交付合同
 
@@ -93,7 +101,7 @@ description: ${definition.description}
 - 下面的范围、整数、长度、枚举、默认值和组合条件均属于校验合同；省略可选参数不等于可以传任意值。变量、计算结果和状态更新也必须满足约束，图表空间不足时调整外层布局，不把受限尺寸缩到下限以下。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部 View。${codeGuidance}${viewGuidance}
 - 不声明已完成查询、订票、付款、发送或其他宿主服务。这里只处理给定数据和本地状态。Query、Mutation、@Run、@OpenUrl、@ToAssistant 与任意 JS 均不支持。
-- 概念、数据、结论和来源必须说清楚。原创演示数据明确标为示例；不伪造真实来源。图表配可读的文字结果及必要表格；图片有 alt；控件标签说明单位和作用；处理空结果、重置和失效选择。
+- 概念、数据、结论和来源必须说清楚。原创演示数据明确标为示例；不伪造真实来源。使用图表时配可读的文字结果，并保证数据可访问，必要时补充表格；使用图片时提供 alt；使用控件时标签说明单位和作用，并按实际状态流程处理空结果、重置和失效选择。
 - 每条 DSL 声明从新行开始，单个表达式可跨行；不用分号。root = Stack(...) 可以在任意位置。组件是位置参数；对象内才写 key:value。显式声明所有 $state；只有声明为 binding 的参数能绑定状态。
 - 只用 @Filter、@Sort、@Each 等下方实际列出的纯函数。没有 lambda、.map() 或 eval。Each 的第三参数是内联模板。Table 的行对象只能含 columns 声明的键；用 @Each 投影并保留原始记录做选择。
 - 同构重复的卡片、行、格子或分组，优先写数据数组 + @Each(array,"item",内联模板)，不要逐项复制组件树；分组内仍有重复时嵌套 @Each。不同结构的少量段落不必强行统一模板。
@@ -121,7 +129,7 @@ ${prompt}
 
 ## 可直接改写的最小 HTML
 
-下面示例是完整有效程序。先保留它的 select/viewNames/加载与报错处理，再把 source 换成用户真正需要的完整答案。
+下面示例是完整有效程序，用于说明 DSL 与 HTML 壳的连接，不是回答结构模板，也不要求复用其中的图表、控件或其他组件。保留它的 select/viewNames/加载与报错处理，再按当前问题重新组织 source。
 
 \`\`\`html
 ${minimal.trim()}
@@ -149,7 +157,7 @@ for(const definition of sourceProfiles){
  await writeFile(join(dir,'minimal.html'),minimal);
  const skill=instructions(definition,manifest,prompt,minimal);
  await writeFile(join(root,definition.skillPath),skill);
- if(definition.skillPath==='SKILL.md')await writeFile(join(dir,'SKILL.md'),instructions({...definition,name:'inform-web-chat-core',label:'Web Chat 基础与图表',skillPath:definition.outputDirectory+'/SKILL.md'},manifest,prompt,minimal));
+ if(definition.skillPath==='SKILL.md')await writeFile(join(dir,'SKILL.md'),instructions({...definition,name:'inform-web-chat-core',label:'Inform HTML 答案：基础版',skillPath:definition.outputDirectory+'/SKILL.md'},manifest,prompt,minimal));
  generated.push({...config,promptBytes:Buffer.byteLength(prompt),skillBytes:Buffer.byteLength(skill),schemaBytes:Buffer.byteLength(JSON.stringify(profile.schema,null,2)+'\n'),sourceSha256:sha(source)});
 }
 await writeFile(join(root,'generated/build.json'),JSON.stringify({format:'inform-web-chat-skill/1',validationStage,publicationReady:validationStage==='published',sourceCommit:args['source-commit'],verificationLockOnly:true,runtimeChannel,runtimeURL:runtimeURL.href,runtimeSha256:sha(browserBytes),noticesSha256:sha(noticesBytes),nodeRuntimeSha256:sha(await readFile(join(resolve(args['runtime-dir']),'node.mjs'))),runtimeUpdateSemantics:'The default main URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.',promptProseProjection,profiles:generated,runtimeHTTP:httpReceipt,modelWorkflow:'Read one SKILL.md; produce complete HTML using the main entry; no CLI required',browserVerification:'Not established by generation or Node validation'},null,2)+'\n');

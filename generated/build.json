@@ -62,7 +62,7 @@
         "Link"
       ],
       "promptBytes": 42612,
-      "skillBytes": 53801,
+      "skillBytes": 55535,
       "schemaBytes": 107406,
       "sourceSha256": "c7183345044a36f67197095d56d9c30080e8ab0da3b120b8baa6e8779fcda880"
     },
@@ -128,9 +128,9 @@
         "Link"
       ],
       "promptBytes": 55016,
-      "skillBytes": 67335,
+      "skillBytes": 68566,
       "schemaBytes": 150840,
-      "sourceSha256": "bb59f93c52af82b45c9bc87f54d7d8f2388eeb994088f816f1c94d247ca0d45d"
+      "sourceSha256": "a93fa07dfe7aca0dbb062acd3ef985803dba5111596028a764596cd199791fd8"
     }
   ],
   "runtimeHTTP": {
