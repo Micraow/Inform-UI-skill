@@ -94,11 +94,24 @@ description: ${definition.description}
 - 概念、数据、结论和来源必须说清楚。原创演示数据明确标为示例；不伪造真实来源。图表配可读的文字结果及必要表格；图片有 alt；控件标签说明单位和作用；处理空结果、重置和失效选择。
 - 每条 DSL 声明从新行开始，单个表达式可跨行；不用分号。root = Stack(...) 可以在任意位置。组件是位置参数；对象内才写 key:value。显式声明所有 $state；只有声明为 binding 的参数能绑定状态。
 - 只用 @Filter、@Sort、@Each 等下方实际列出的纯函数。没有 lambda、.map() 或 eval。Each 的第三参数是内联模板。Table 的行对象只能含 columns 声明的键；用 @Each 投影并保留原始记录做选择。
+- 同构重复的卡片、行、格子或分组，优先写数据数组 + @Each(array,"item",内联模板)，不要逐项复制组件树；分组内仍有重复时嵌套 @Each。不同结构的少量段落不必强行统一模板。
+- @Each 是已有的逐项展开方式，不另造 foreach、@ForEach、lambda 或 .map()；没有索引参数。内层模板可读取外层 item，循环变量不能用于模板外的独立声明。需要序号时把序号写入数据。
 - source 是 JSON 字符串，完整进行 JSON 转义；HTML 数据块中的每个 < 写成 \\u003c，避免正文的 </script> 结束数据块。不要把 DSL 直接拼接成可执行 JavaScript。
 - 若使用图标，可直接选以下已核对的官方名称：${glyphs.join('、')}。这里故意不列全部 ${iconCatalog.iconCount} 个 glyph；没有额外目录时用文字或这些名称，不猜名字。
 - HTML 依赖网络获取 latest JS；它是会更新的入口，CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即拿到最新字节。网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
 
 这是 OpenUI 派生的严格本地方言，不是全部上游 runtime 的兼容替代。精简的是模型合同与可用组件集合；使用的 browser JS 仍是同一完整 bundle。不宣称未测的 token 或下载体积节省。
+
+## 重复结构：先数据，再模板
+
+下面是完整 DSL 小例子；外层生成分组卡片，内层生成徽章。把它放进同一 HTML 壳的 source，仍只需要本 profile 已有的基础组件。
+
+\`\`\`openui
+groups = [{title:"第一组",items:["甲","乙"]},{title:"第二组",items:["丙"]}]
+root = Stack(@Each(groups,"group",Card([Row(@Each(group.items,"item",Badge(item)),"sm")],group.title)),"md")
+\`\`\`
+
+写完后检查：同一组件结构是否被逐项抄写？能否抽成一份内联模板？更完整的空组与本地选择例子按需读 references/repeated-structures.md；语法边界见 references/dialect.md。无需为此加载更多 View。
 
 ## 同源自动生成的 DSL 合同
 

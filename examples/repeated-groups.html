@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>工坊材料：一份数据生成分组与选项</title>
+<style>html{color-scheme:light}body{margin:0;padding:clamp(16px,4vw,48px);background:#fff;color:#171717;font-family:system-ui,sans-serif}main{max-width:1040px;margin:auto}#inform-status{max-width:1040px;margin:16px auto;white-space:pre-wrap}</style>
+</head>
+<body>
+<main id="answer" aria-label="工坊材料：一份数据生成分组与选项"></main>
+<p id="inform-status" role="status">Loading interactive answer…</p>
+<noscript>This answer needs JavaScript to show its content and local controls.</noscript>
+<script id="inform-document" type="application/json">{"source":"$chosen = \"\"\ngroups = [\n {name:\"绘画桌\",items:[{name:\"纸张\",quantity:12},{name:\"画笔\",quantity:4}]},\n {name:\"手作桌\",items:[{name:\"剪刀\",quantity:2}]},\n {name:\"备用桌\",items:[]}\n]\nroot = Stack([\n Heading(\"工坊材料：一份数据生成分组与选项\",1),\n Text(\"全部为原创虚构示例。三组使用同一份卡片模板；每组材料使用同一份条目模板。选择只更新本页文字，不预订或领取材料。\",\"muted\"),\n Stack(@Each(groups,\"group\",Card([\n  Text(@Count(group.items)+\" 种材料\"),\n  @Count(group.items)>0 ? Stack(@Each(group.items,\"item\",Row([\n   Text(item.name+\"：\"+item.quantity+\" 件\"),\n   Button(\"选择 \"+group.name+\" / \"+item.name,@Set($chosen,group.name+\" / \"+item.name),\"secondary\")\n  ],\"sm\")),\"sm\") : Text(\"这组暂无材料。\",\"muted\")\n ],group.name)),\"md\"),\n Text($chosen==\"\" ? \"尚未选择材料。\" : \"当前选择：\"+$chosen),\n Button(\"清空选择\",@Reset($chosen),\"ghost\",$chosen==\"\"),\n Text(\"来源：本页原创示例。数量仅作展示；分组与条目均来自上方数据数组。\",\"muted\")\n],\"lg\")\n","select":["base/layout","base/text","base/controls"],"viewNames":[],"theme":"light"}</script>
+<script src="../assets/runtime/inform-ui.global.js"></script>
+<script>
+(() => {
+  const status=document.getElementById('inform-status');
+  let failed=false;
+  const fail=issues=>{failed=true;status.hidden=false;status.textContent='Could not render this answer. '+issues.map(issue=>issue.message||String(issue)).join(' ');};
+  try {
+    if(!globalThis.InformUI)throw Error('Inform UI bundle could not be loaded. Keep the supplied runtime beside this HTML or use the verified release URL.');
+    const config=JSON.parse(document.getElementById('inform-document').textContent);
+    const view=InformUI.mount(document.getElementById('answer'),{...config,onError:fail});
+    if(view.getSnapshot()&&!failed){status.hidden=true;status.textContent='';}
+    addEventListener('pagehide',()=>view.dispose(),{once:true});
+  } catch(error) {fail([{message:error.message}]);}
+})();
+</script>
+</body>
+</html>

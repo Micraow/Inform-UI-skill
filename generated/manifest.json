@@ -172,7 +172,8 @@
         "Stack",
         "Row",
         "Grid",
-        "Card"
+        "Card",
+        "Box"
       ],
       "dataShapes": []
     },
@@ -1833,7 +1834,10 @@
       "layer": "base",
       "orderedProps": [
         "content",
-        "tone"
+        "tone",
+        "align",
+        "size",
+        "weight"
       ],
       "slots": {},
       "bindingProps": [],
@@ -1847,7 +1851,7 @@
       ],
       "runtimeRules": [],
       "limitations": [],
-      "docs": "Use for prose. Newlines remain text; markup and code are not executed.",
+      "docs": "Use for prose or labels. Newlines remain text; markup and code are not executed. Optional align: start, center, end. Size: xs=12, sm=14, md=16, lg=18 CSS pixels. Weight: regular=400, medium=500, semibold=600. Omitted typography inherits its context. Existing content and tone positions are unchanged.",
       "examples": [
         {
           "id": "text",
@@ -2481,7 +2485,8 @@
       "orderedProps": [
         "children",
         "gap",
-        "align"
+        "align",
+        "options"
       ],
       "slots": {
         "children": {
@@ -2501,7 +2506,7 @@
       ],
       "runtimeRules": [],
       "limitations": [],
-      "docs": "Uses a wrapping row. Choose start, center, end or stretch alignment.",
+      "docs": "Defaults remain wrapping, natural child widths, centered cross-axis alignment and start justification. Optional options: wrap=nowrap keeps one row; distribution=equal gives each child an equal share; justify=between separates edge labels. Children can shrink and text can wrap within a child. Use Grid preserve for a fixed count of tracks. No arbitrary CSS.",
       "examples": [
         {
           "id": "row",
@@ -2531,7 +2536,8 @@
       "orderedProps": [
         "children",
         "columns",
-        "gap"
+        "gap",
+        "responsive"
       ],
       "slots": {
         "children": {
@@ -2551,7 +2557,7 @@
       ],
       "runtimeRules": [],
       "limitations": [],
-      "docs": "Columns is a maximum requested column count; narrow layouts may use fewer columns.",
+      "docs": "Columns: 1 through 8, default 2. Default responsive=stack preserves the existing behavior: one column when the root container is 480 CSS pixels or narrower. responsive=preserve retains the requested equal tracks on narrow screens. Use short labels and small gaps for dense tracks; it does not shrink fonts or crop content.",
       "examples": [
         {
           "id": "grid",
@@ -2618,6 +2624,58 @@
               }
             ],
             "title": "Overview"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Box",
+      "moduleId": "base/layout",
+      "layer": "layout",
+      "orderedProps": [
+        "children",
+        "options"
+      ],
+      "slots": {
+        "children": {
+          "min": 0,
+          "max": 128,
+          "accepts": "all"
+        }
+      },
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Box"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "runtimeRules": [],
+      "limitations": [],
+      "docs": "Box(children, options?) is a vertical flow, not an algorithm-specific component. Defaults: transparent background, no padding, md gap, no radius, auto width, no minimum height. background: transparent, surface, info, success, warning, error; semantic backgrounds use paired theme-aware text colors. padding/gap: none, xs, sm, md, lg, xl (0,4,8,12,16,24px). radius: none=0, sm=6, md=10, lg=16px. width: auto, full, grow (remaining Row space), xs=48, sm=64, md=96px; fixed tokens do not grow or shrink in a Row. minHeight: none=0, sm=24, md=32, lg=48px; content can grow taller. Nested Box can set a different surface. No arbitrary colors, CSS, HTML, selectors or URLs.",
+      "examples": [
+        {
+          "id": "box",
+          "description": "Minimal box example using supplied data.",
+          "source": "root = Stack([Box([Text(\"A compact label\", \"default\", \"center\", \"sm\")], {background: \"info\", padding: \"sm\", radius: \"sm\"})])",
+          "props": {
+            "children": [
+              {
+                "type": "element",
+                "typeName": "Text",
+                "props": {
+                  "content": "Hello"
+                },
+                "partial": false
+              }
+            ],
+            "options": {
+              "background": "info",
+              "padding": "sm",
+              "radius": "sm"
+            }
           }
         }
       ]

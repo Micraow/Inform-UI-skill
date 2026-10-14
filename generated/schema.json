@@ -113,6 +113,9 @@
     "Card": {
       "$ref": "#/$defs/Card"
     },
+    "Box": {
+      "$ref": "#/$defs/Box"
+    },
     "Image": {
       "$ref": "#/$defs/Image"
     },
@@ -743,6 +746,7 @@
     "Row",
     "Grid",
     "Card",
+    "Box",
     "Image",
     "Video",
     "WeatherCard",
@@ -2637,6 +2641,31 @@
             "warning",
             "error"
           ]
+        },
+        "align": {
+          "type": "string",
+          "enum": [
+            "start",
+            "center",
+            "end"
+          ]
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "xs",
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "weight": {
+          "type": "string",
+          "enum": [
+            "regular",
+            "medium",
+            "semibold"
+          ]
         }
       },
       "required": [
@@ -2644,7 +2673,7 @@
       ],
       "additionalProperties": false,
       "id": "Text",
-      "description": "Plain text with a semantic tone. HTML is displayed literally."
+      "description": "Plain text with semantic tone and finite typography tokens. HTML is displayed literally."
     },
     "Heading": {
       "type": "object",
@@ -4062,6 +4091,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -4795,6 +4827,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -5407,6 +5442,35 @@
             "end",
             "stretch"
           ]
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "wrap": {
+              "type": "string",
+              "enum": [
+                "wrap",
+                "nowrap"
+              ]
+            },
+            "distribution": {
+              "type": "string",
+              "enum": [
+                "natural",
+                "equal"
+              ]
+            },
+            "justify": {
+              "type": "string",
+              "enum": [
+                "start",
+                "center",
+                "end",
+                "between"
+              ]
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [
@@ -5414,7 +5478,7 @@
       ],
       "additionalProperties": false,
       "id": "Row",
-      "description": "Wrapping horizontal flow."
+      "description": "Horizontal flow with explicit wrapping and distribution."
     },
     "Grid": {
       "type": "object",
@@ -5535,6 +5599,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -6133,7 +6200,7 @@
         "columns": {
           "type": "integer",
           "minimum": 1,
-          "maximum": 6
+          "maximum": 8
         },
         "gap": {
           "type": "string",
@@ -6145,6 +6212,13 @@
             "lg",
             "xl"
           ]
+        },
+        "responsive": {
+          "type": "string",
+          "enum": [
+            "stack",
+            "preserve"
+          ]
         }
       },
       "required": [
@@ -6152,7 +6226,7 @@
       ],
       "additionalProperties": false,
       "id": "Grid",
-      "description": "Responsive bounded column grid."
+      "description": "Equal-column grid with explicit narrow-layout behavior."
     },
     "Card": {
       "type": "object",
@@ -6273,6 +6347,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -6880,6 +6957,799 @@
       "additionalProperties": false,
       "id": "Card",
       "description": "Grouped surface with optional title."
+    },
+    "Box": {
+      "type": "object",
+      "properties": {
+        "children": {
+          "minItems": 0,
+          "maxItems": 128,
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/AreaChart"
+              },
+              {
+                "$ref": "#/$defs/BarChart"
+              },
+              {
+                "$ref": "#/$defs/HorizontalBarChart"
+              },
+              {
+                "$ref": "#/$defs/LineChart"
+              },
+              {
+                "$ref": "#/$defs/HeatmapChart"
+              },
+              {
+                "$ref": "#/$defs/RadarChart"
+              },
+              {
+                "$ref": "#/$defs/PieChart"
+              },
+              {
+                "$ref": "#/$defs/RadialChart"
+              },
+              {
+                "$ref": "#/$defs/FunnelChart"
+              },
+              {
+                "$ref": "#/$defs/SegmentedBar"
+              },
+              {
+                "$ref": "#/$defs/SingleStackedBar"
+              },
+              {
+                "$ref": "#/$defs/ScatterChart"
+              },
+              {
+                "$ref": "#/$defs/CalendarHeatmap"
+              },
+              {
+                "$ref": "#/$defs/MiniAreaChart"
+              },
+              {
+                "$ref": "#/$defs/MiniBarChart"
+              },
+              {
+                "$ref": "#/$defs/MiniLineChart"
+              },
+              {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
+                "$ref": "#/$defs/Text"
+              },
+              {
+                "$ref": "#/$defs/Heading"
+              },
+              {
+                "$ref": "#/$defs/Badge"
+              },
+              {
+                "$ref": "#/$defs/Divider"
+              },
+              {
+                "$ref": "#/$defs/Alert"
+              },
+              {
+                "$ref": "#/$defs/Table"
+              },
+              {
+                "$ref": "#/$defs/Button"
+              },
+              {
+                "$ref": "#/$defs/Input"
+              },
+              {
+                "$ref": "#/$defs/Textarea"
+              },
+              {
+                "$ref": "#/$defs/Select"
+              },
+              {
+                "$ref": "#/$defs/RadioGroup"
+              },
+              {
+                "$ref": "#/$defs/Checkbox"
+              },
+              {
+                "$ref": "#/$defs/Switch"
+              },
+              {
+                "$ref": "#/$defs/Slider"
+              },
+              {
+                "$ref": "#/$defs/Icon"
+              },
+              {
+                "$ref": "#/$defs/Stack"
+              },
+              {
+                "$ref": "#/$defs/Row"
+              },
+              {
+                "$ref": "#/$defs/Grid"
+              },
+              {
+                "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
+              },
+              {
+                "$ref": "#/$defs/Image"
+              },
+              {
+                "$ref": "#/$defs/Video"
+              },
+              {
+                "$ref": "#/$defs/WeatherCard"
+              },
+              {
+                "$ref": "#/$defs/TaskExpansionCardView"
+              },
+              {
+                "$ref": "#/$defs/PromptSuggestionsView"
+              },
+              {
+                "$ref": "#/$defs/FollowUpCardGroupView"
+              },
+              {
+                "$ref": "#/$defs/ConversationSuggestionsView"
+              },
+              {
+                "$ref": "#/$defs/FollowUpActionBarView"
+              },
+              {
+                "$ref": "#/$defs/DisplayAutomationView"
+              },
+              {
+                "$ref": "#/$defs/ListAutomationsView"
+              },
+              {
+                "$ref": "#/$defs/AutomationPlanSummaryView"
+              },
+              {
+                "$ref": "#/$defs/ScheduledTaskSuggestionView"
+              },
+              {
+                "$ref": "#/$defs/ConversationalOnboardingAdviceView"
+              },
+              {
+                "$ref": "#/$defs/ConversationalOnboardingWritingView"
+              },
+              {
+                "$ref": "#/$defs/OnboardingFeatureCardView"
+              },
+              {
+                "$ref": "#/$defs/OnboardingPluginSuggestionsView"
+              },
+              {
+                "$ref": "#/$defs/OnboardingStarterTasksView"
+              },
+              {
+                "$ref": "#/$defs/ConversationalOnboardingStudyView"
+              },
+              {
+                "$ref": "#/$defs/ConversationalOnboardingSearchView"
+              },
+              {
+                "$ref": "#/$defs/WhatsNewCapabilityWelcomeView"
+              },
+              {
+                "$ref": "#/$defs/WhatsNewCapabilitySearchView"
+              },
+              {
+                "$ref": "#/$defs/TaskAutopauseCardView"
+              },
+              {
+                "$ref": "#/$defs/PluginFollowupView"
+              },
+              {
+                "$ref": "#/$defs/InstantSuggestionsView"
+              },
+              {
+                "$ref": "#/$defs/PersonProfileView"
+              },
+              {
+                "$ref": "#/$defs/NewsArticleView"
+              },
+              {
+                "$ref": "#/$defs/EntityReviewsView"
+              },
+              {
+                "$ref": "#/$defs/CreateInteractivePollView"
+              },
+              {
+                "$ref": "#/$defs/SidebarPeopleAlsoAskView"
+              },
+              {
+                "$ref": "#/$defs/EmailPreviewView"
+              },
+              {
+                "$ref": "#/$defs/FileNavListView"
+              },
+              {
+                "$ref": "#/$defs/JobsView"
+              },
+              {
+                "$ref": "#/$defs/ProductCardView"
+              },
+              {
+                "$ref": "#/$defs/SharedActivityPlannerView"
+              },
+              {
+                "$ref": "#/$defs/CodeCiteView"
+              },
+              {
+                "$ref": "#/$defs/FileCiteView"
+              },
+              {
+                "$ref": "#/$defs/SidebarFactTableView"
+              },
+              {
+                "$ref": "#/$defs/EntityThumbnailListView"
+              },
+              {
+                "$ref": "#/$defs/RedditThreadCardView"
+              },
+              {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
+                "$ref": "#/$defs/WritingBlockView"
+              },
+              {
+                "$ref": "#/$defs/EmailDraftView"
+              },
+              {
+                "$ref": "#/$defs/MathView"
+              },
+              {
+                "$ref": "#/$defs/SpacerView"
+              },
+              {
+                "$ref": "#/$defs/LinkView"
+              },
+              {
+                "$ref": "#/$defs/FaviconView"
+              },
+              {
+                "$ref": "#/$defs/GridItemView"
+              },
+              {
+                "$ref": "#/$defs/BlockquoteView"
+              },
+              {
+                "$ref": "#/$defs/SectionView"
+              },
+              {
+                "$ref": "#/$defs/FigureView"
+              },
+              {
+                "$ref": "#/$defs/DetailsView"
+              },
+              {
+                "$ref": "#/$defs/TooltipView"
+              },
+              {
+                "$ref": "#/$defs/PopoverView"
+              },
+              {
+                "$ref": "#/$defs/PulseIndicatorView"
+              },
+              {
+                "$ref": "#/$defs/LoadingView"
+              },
+              {
+                "$ref": "#/$defs/LoadingBlockView"
+              },
+              {
+                "$ref": "#/$defs/CitationView"
+              },
+              {
+                "$ref": "#/$defs/WebLinkCardsView"
+              },
+              {
+                "$ref": "#/$defs/AnimateView"
+              },
+              {
+                "$ref": "#/$defs/CelebrationView"
+              },
+              {
+                "$ref": "#/$defs/CarouselView"
+              },
+              {
+                "$ref": "#/$defs/TabPanelView"
+              },
+              {
+                "$ref": "#/$defs/TabGroupView"
+              },
+              {
+                "$ref": "#/$defs/ListView"
+              },
+              {
+                "$ref": "#/$defs/MetricView"
+              },
+              {
+                "$ref": "#/$defs/MetricGridView"
+              },
+              {
+                "$ref": "#/$defs/StepsView"
+              },
+              {
+                "$ref": "#/$defs/LabelView"
+              },
+              {
+                "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/RatingView"
+              },
+              {
+                "$ref": "#/$defs/SegmentedView"
+              },
+              {
+                "$ref": "#/$defs/FieldView"
+              },
+              {
+                "$ref": "#/$defs/FormView"
+              },
+              {
+                "$ref": "#/$defs/TopologyView"
+              },
+              {
+                "$ref": "#/$defs/ClockView"
+              },
+              {
+                "$ref": "#/$defs/StopwatchView"
+              },
+              {
+                "$ref": "#/$defs/TimerView"
+              },
+              {
+                "$ref": "#/$defs/UnitConverterView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
+              },
+              {
+                "$ref": "#/$defs/RecommendationCardView"
+              },
+              {
+                "$ref": "#/$defs/PromptChecklistView"
+              },
+              {
+                "$ref": "#/$defs/PressableView"
+              },
+              {
+                "$ref": "#/$defs/HtmlViewView"
+              },
+              {
+                "$ref": "#/$defs/TabbedSectionView"
+              },
+              {
+                "$ref": "#/$defs/VisualCardCarouselView"
+              },
+              {
+                "$ref": "#/$defs/LinkCardView"
+              },
+              {
+                "$ref": "#/$defs/RecommendationLinkCardView"
+              },
+              {
+                "$ref": "#/$defs/EntityCardView"
+              },
+              {
+                "$ref": "#/$defs/EntityOverviewView"
+              },
+              {
+                "$ref": "#/$defs/AskUserDetailsView"
+              },
+              {
+                "$ref": "#/$defs/AskUserFilesView"
+              },
+              {
+                "$ref": "#/$defs/OfferVoiceConversationView"
+              },
+              {
+                "$ref": "#/$defs/MultipleChoiceBlockV2View"
+              },
+              {
+                "$ref": "#/$defs/ReservationTimePillsRefCarouselView"
+              },
+              {
+                "$ref": "#/$defs/PushDripSeriesIntroView"
+              },
+              {
+                "$ref": "#/$defs/StopPushDripSeriesView"
+              },
+              {
+                "$ref": "#/$defs/InternalPartnerAppView"
+              },
+              {
+                "$ref": "#/$defs/BentoView"
+              },
+              {
+                "$ref": "#/$defs/OpenDetailView"
+              },
+              {
+                "$ref": "#/$defs/OpenaiView"
+              },
+              {
+                "$ref": "#/$defs/SuperbowlRiddleView"
+              },
+              {
+                "$ref": "#/$defs/EntityView"
+              },
+              {
+                "$ref": "#/$defs/RatingSummaryView"
+              },
+              {
+                "$ref": "#/$defs/AgendaView"
+              },
+              {
+                "$ref": "#/$defs/RestaurantAvailabilityView"
+              },
+              {
+                "$ref": "#/$defs/LocationChoiceRequestView"
+              },
+              {
+                "$ref": "#/$defs/FlightOptionView"
+              },
+              {
+                "$ref": "#/$defs/ArtistUpcomingEventsView"
+              },
+              {
+                "$ref": "#/$defs/PackageTrackerView"
+              },
+              {
+                "$ref": "#/$defs/FlightTrackerView"
+              },
+              {
+                "$ref": "#/$defs/LocalBusinessView"
+              },
+              {
+                "$ref": "#/$defs/RestaurantReviewsView"
+              },
+              {
+                "$ref": "#/$defs/FlightSearchFormView"
+              },
+              {
+                "$ref": "#/$defs/FlightResultsView"
+              },
+              {
+                "$ref": "#/$defs/EventSidebarView"
+              },
+              {
+                "$ref": "#/$defs/RestaurantMenuView"
+              },
+              {
+                "$ref": "#/$defs/AskUserLocationView"
+              },
+              {
+                "$ref": "#/$defs/PlacesMetadataBarView"
+              },
+              {
+                "$ref": "#/$defs/CareProviderResultsView"
+              },
+              {
+                "$ref": "#/$defs/CareProviderSidebarView"
+              },
+              {
+                "$ref": "#/$defs/FinanceQuoteView"
+              },
+              {
+                "$ref": "#/$defs/FinanceChartView"
+              },
+              {
+                "$ref": "#/$defs/FinanceComparisonView"
+              },
+              {
+                "$ref": "#/$defs/FinanceHeatmapView"
+              },
+              {
+                "$ref": "#/$defs/AssetDistributionView"
+              },
+              {
+                "$ref": "#/$defs/TransactionListView"
+              },
+              {
+                "$ref": "#/$defs/LedgerAccountsView"
+              },
+              {
+                "$ref": "#/$defs/LedgerRecurringTransactionsView"
+              },
+              {
+                "$ref": "#/$defs/CurrencyConverterView"
+              },
+              {
+                "$ref": "#/$defs/LedgerTransactionDetailView"
+              },
+              {
+                "$ref": "#/$defs/LedgerFinanceStatusBannerView"
+              },
+              {
+                "$ref": "#/$defs/LedgerLowConfidenceCategoryCorrectionView"
+              },
+              {
+                "$ref": "#/$defs/LedgerNetWorthView"
+              },
+              {
+                "$ref": "#/$defs/LedgerFeeInterestPaidView"
+              },
+              {
+                "$ref": "#/$defs/LedgerSpendSoFarThisMonthView"
+              },
+              {
+                "$ref": "#/$defs/LedgerUpcomingActivityView"
+              },
+              {
+                "$ref": "#/$defs/LedgerIncomeTrackerView"
+              },
+              {
+                "$ref": "#/$defs/LedgerSpendByCategoryView"
+              },
+              {
+                "$ref": "#/$defs/LedgerSpendByCategoryDetailView"
+              },
+              {
+                "$ref": "#/$defs/LedgerSpendByCategoryRecentTransactionsView"
+              },
+              {
+                "$ref": "#/$defs/LedgerFinanceOnboardingView"
+              },
+              {
+                "$ref": "#/$defs/LedgerRepairBankConnectionView"
+              },
+              {
+                "$ref": "#/$defs/FinanceOnboardingSuggestionsView"
+              },
+              {
+                "$ref": "#/$defs/LedgerEquityUpdatesView"
+              },
+              {
+                "$ref": "#/$defs/LedgerWatchlistView"
+              },
+              {
+                "$ref": "#/$defs/LedgerCreditScoreView"
+              },
+              {
+                "$ref": "#/$defs/LedgerCreditScoreDetailView"
+              },
+              {
+                "$ref": "#/$defs/LedgerLowConfidenceCategoryCorrectionLegacyView"
+              },
+              {
+                "$ref": "#/$defs/WordCardView"
+              },
+              {
+                "$ref": "#/$defs/CopyWordsView"
+              },
+              {
+                "$ref": "#/$defs/QuizView"
+              },
+              {
+                "$ref": "#/$defs/FlashcardsView"
+              },
+              {
+                "$ref": "#/$defs/FillBlankView"
+              },
+              {
+                "$ref": "#/$defs/SentenceBuilderView"
+              },
+              {
+                "$ref": "#/$defs/VocabCardView"
+              },
+              {
+                "$ref": "#/$defs/LearningAudioLabelCardView"
+              },
+              {
+                "$ref": "#/$defs/LearningImageChoiceCardView"
+              },
+              {
+                "$ref": "#/$defs/LearningImageLabelCardView"
+              },
+              {
+                "$ref": "#/$defs/LearningVoiceModeLauncherCardView"
+              },
+              {
+                "$ref": "#/$defs/LearningSpeakCardView"
+              },
+              {
+                "$ref": "#/$defs/FollowUpQuizView"
+              },
+              {
+                "$ref": "#/$defs/PersonalityQuizView"
+              },
+              {
+                "$ref": "#/$defs/HomeworkHelperV2View"
+              },
+              {
+                "$ref": "#/$defs/LearningVizDilView"
+              },
+              {
+                "$ref": "#/$defs/CalculatorCorrectedAdjustedAgeOfPretermInfantsView"
+              },
+              {
+                "$ref": "#/$defs/CalculatorGlasgowComaScaleGcsView"
+              },
+              {
+                "$ref": "#/$defs/CalculatorRoxIndexForHighFlowNasalCannulaView"
+              },
+              {
+                "$ref": "#/$defs/CalculatorQsofaScoreView"
+              },
+              {
+                "$ref": "#/$defs/QuestionnaireView"
+              },
+              {
+                "$ref": "#/$defs/BusinessGalleryView"
+              },
+              {
+                "$ref": "#/$defs/YoutubeView"
+              },
+              {
+                "$ref": "#/$defs/SearchImageView"
+              },
+              {
+                "$ref": "#/$defs/AsyncImageGroupView"
+              },
+              {
+                "$ref": "#/$defs/AsyncImageView"
+              },
+              {
+                "$ref": "#/$defs/LottieView"
+              },
+              {
+                "$ref": "#/$defs/ImageGridView"
+              },
+              {
+                "$ref": "#/$defs/AsyncVideoCarouselView"
+              },
+              {
+                "$ref": "#/$defs/ImageGenView"
+              },
+              {
+                "$ref": "#/$defs/GenImageView"
+              },
+              {
+                "$ref": "#/$defs/SpeechSynthesizerView"
+              },
+              {
+                "$ref": "#/$defs/OnboardingSelectionView"
+              },
+              {
+                "$ref": "#/$defs/F1RacesView"
+              },
+              {
+                "$ref": "#/$defs/F1StandingsView"
+              },
+              {
+                "$ref": "#/$defs/SportsScheduleView"
+              },
+              {
+                "$ref": "#/$defs/SportsScoreboardView"
+              },
+              {
+                "$ref": "#/$defs/SportsStandingsView"
+              },
+              {
+                "$ref": "#/$defs/NbaScoresView"
+              },
+              {
+                "$ref": "#/$defs/SoccerGamesView"
+              },
+              {
+                "$ref": "#/$defs/AmericanFootballGamesView"
+              },
+              {
+                "$ref": "#/$defs/BasketballTournamentView"
+              },
+              {
+                "$ref": "#/$defs/ElectionResultsView"
+              },
+              {
+                "$ref": "#/$defs/NbaGameBoxscoreView"
+              },
+              {
+                "$ref": "#/$defs/CricketMatchBoxscoreView"
+              },
+              {
+                "$ref": "#/$defs/NbaPlayerSummaryView"
+              },
+              {
+                "$ref": "#/$defs/TennisPlayerSummaryView"
+              },
+              {
+                "$ref": "#/$defs/WeatherView"
+              },
+              {
+                "$ref": "#/$defs/WeatherSidebarTitleView"
+              }
+            ]
+          }
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "background": {
+              "type": "string",
+              "enum": [
+                "transparent",
+                "surface",
+                "info",
+                "success",
+                "warning",
+                "error"
+              ]
+            },
+            "padding": {
+              "type": "string",
+              "enum": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            "gap": {
+              "type": "string",
+              "enum": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            "radius": {
+              "type": "string",
+              "enum": [
+                "none",
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            "width": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "full",
+                "grow",
+                "xs",
+                "sm",
+                "md"
+              ]
+            },
+            "minHeight": {
+              "type": "string",
+              "enum": [
+                "none",
+                "sm",
+                "md",
+                "lg"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "children"
+      ],
+      "additionalProperties": false,
+      "id": "Box",
+      "description": "Generic token-based surface and sizing container."
     },
     "Image": {
       "type": "object",
@@ -16331,6 +17201,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -17160,6 +18033,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -17915,6 +18791,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -18665,6 +19544,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -19413,6 +20295,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -20167,6 +21052,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -20997,6 +21885,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -22152,6 +23043,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -22962,6 +23856,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -23717,6 +24614,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -24547,6 +25447,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -25420,6 +26323,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -26641,6 +27547,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -27428,6 +28337,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -29597,6 +30509,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"

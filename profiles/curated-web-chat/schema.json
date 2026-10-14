@@ -113,6 +113,9 @@
     "Card": {
       "$ref": "#/$defs/Card"
     },
+    "Box": {
+      "$ref": "#/$defs/Box"
+    },
     "Image": {
       "$ref": "#/$defs/Image"
     },
@@ -185,6 +188,7 @@
     "Row",
     "Grid",
     "Card",
+    "Box",
     "Image",
     "Video",
     "MathView",
@@ -1893,6 +1897,31 @@
             "warning",
             "error"
           ]
+        },
+        "align": {
+          "type": "string",
+          "enum": [
+            "start",
+            "center",
+            "end"
+          ]
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "xs",
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "weight": {
+          "type": "string",
+          "enum": [
+            "regular",
+            "medium",
+            "semibold"
+          ]
         }
       },
       "required": [
@@ -1900,7 +1929,7 @@
       ],
       "additionalProperties": false,
       "id": "Text",
-      "description": "Plain text with a semantic tone. HTML is displayed literally."
+      "description": "Plain text with semantic tone and finite typography tokens. HTML is displayed literally."
     },
     "Heading": {
       "type": "object",
@@ -3318,6 +3347,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -3493,6 +3525,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -3547,6 +3582,35 @@
             "end",
             "stretch"
           ]
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "wrap": {
+              "type": "string",
+              "enum": [
+                "wrap",
+                "nowrap"
+              ]
+            },
+            "distribution": {
+              "type": "string",
+              "enum": [
+                "natural",
+                "equal"
+              ]
+            },
+            "justify": {
+              "type": "string",
+              "enum": [
+                "start",
+                "center",
+                "end",
+                "between"
+              ]
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [
@@ -3554,7 +3618,7 @@
       ],
       "additionalProperties": false,
       "id": "Row",
-      "description": "Wrapping horizontal flow."
+      "description": "Horizontal flow with explicit wrapping and distribution."
     },
     "Grid": {
       "type": "object",
@@ -3677,6 +3741,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -3715,7 +3782,7 @@
         "columns": {
           "type": "integer",
           "minimum": 1,
-          "maximum": 6
+          "maximum": 8
         },
         "gap": {
           "type": "string",
@@ -3727,6 +3794,13 @@
             "lg",
             "xl"
           ]
+        },
+        "responsive": {
+          "type": "string",
+          "enum": [
+            "stack",
+            "preserve"
+          ]
         }
       },
       "required": [
@@ -3734,7 +3808,7 @@
       ],
       "additionalProperties": false,
       "id": "Grid",
-      "description": "Responsive bounded column grid."
+      "description": "Equal-column grid with explicit narrow-layout behavior."
     },
     "Card": {
       "type": "object",
@@ -3857,6 +3931,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -3904,6 +3981,241 @@
       "additionalProperties": false,
       "id": "Card",
       "description": "Grouped surface with optional title."
+    },
+    "Box": {
+      "type": "object",
+      "properties": {
+        "children": {
+          "minItems": 0,
+          "maxItems": 128,
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/AreaChart"
+              },
+              {
+                "$ref": "#/$defs/BarChart"
+              },
+              {
+                "$ref": "#/$defs/HorizontalBarChart"
+              },
+              {
+                "$ref": "#/$defs/LineChart"
+              },
+              {
+                "$ref": "#/$defs/HeatmapChart"
+              },
+              {
+                "$ref": "#/$defs/RadarChart"
+              },
+              {
+                "$ref": "#/$defs/PieChart"
+              },
+              {
+                "$ref": "#/$defs/RadialChart"
+              },
+              {
+                "$ref": "#/$defs/FunnelChart"
+              },
+              {
+                "$ref": "#/$defs/SegmentedBar"
+              },
+              {
+                "$ref": "#/$defs/SingleStackedBar"
+              },
+              {
+                "$ref": "#/$defs/ScatterChart"
+              },
+              {
+                "$ref": "#/$defs/CalendarHeatmap"
+              },
+              {
+                "$ref": "#/$defs/MiniAreaChart"
+              },
+              {
+                "$ref": "#/$defs/MiniBarChart"
+              },
+              {
+                "$ref": "#/$defs/MiniLineChart"
+              },
+              {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
+                "$ref": "#/$defs/Text"
+              },
+              {
+                "$ref": "#/$defs/Heading"
+              },
+              {
+                "$ref": "#/$defs/Badge"
+              },
+              {
+                "$ref": "#/$defs/Divider"
+              },
+              {
+                "$ref": "#/$defs/Alert"
+              },
+              {
+                "$ref": "#/$defs/Table"
+              },
+              {
+                "$ref": "#/$defs/Button"
+              },
+              {
+                "$ref": "#/$defs/Input"
+              },
+              {
+                "$ref": "#/$defs/Textarea"
+              },
+              {
+                "$ref": "#/$defs/Select"
+              },
+              {
+                "$ref": "#/$defs/RadioGroup"
+              },
+              {
+                "$ref": "#/$defs/Checkbox"
+              },
+              {
+                "$ref": "#/$defs/Switch"
+              },
+              {
+                "$ref": "#/$defs/Slider"
+              },
+              {
+                "$ref": "#/$defs/Icon"
+              },
+              {
+                "$ref": "#/$defs/Stack"
+              },
+              {
+                "$ref": "#/$defs/Row"
+              },
+              {
+                "$ref": "#/$defs/Grid"
+              },
+              {
+                "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
+              },
+              {
+                "$ref": "#/$defs/Image"
+              },
+              {
+                "$ref": "#/$defs/Video"
+              },
+              {
+                "$ref": "#/$defs/MathView"
+              },
+              {
+                "$ref": "#/$defs/BlockquoteView"
+              },
+              {
+                "$ref": "#/$defs/SectionView"
+              },
+              {
+                "$ref": "#/$defs/FigureView"
+              },
+              {
+                "$ref": "#/$defs/DetailsView"
+              },
+              {
+                "$ref": "#/$defs/CitationView"
+              },
+              {
+                "$ref": "#/$defs/MetricView"
+              },
+              {
+                "$ref": "#/$defs/StepsView"
+              },
+              {
+                "$ref": "#/$defs/ChecklistView"
+              }
+            ]
+          }
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "background": {
+              "type": "string",
+              "enum": [
+                "transparent",
+                "surface",
+                "info",
+                "success",
+                "warning",
+                "error"
+              ]
+            },
+            "padding": {
+              "type": "string",
+              "enum": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            "gap": {
+              "type": "string",
+              "enum": [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl"
+              ]
+            },
+            "radius": {
+              "type": "string",
+              "enum": [
+                "none",
+                "sm",
+                "md",
+                "lg"
+              ]
+            },
+            "width": {
+              "type": "string",
+              "enum": [
+                "auto",
+                "full",
+                "grow",
+                "xs",
+                "sm",
+                "md"
+              ]
+            },
+            "minHeight": {
+              "type": "string",
+              "enum": [
+                "none",
+                "sm",
+                "md",
+                "lg"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "children"
+      ],
+      "additionalProperties": false,
+      "id": "Box",
+      "description": "Generic token-based surface and sizing container."
     },
     "Image": {
       "type": "object",
@@ -4177,6 +4489,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -4369,6 +4684,9 @@
                 "$ref": "#/$defs/Card"
               },
               {
+                "$ref": "#/$defs/Box"
+              },
+              {
                 "$ref": "#/$defs/Image"
               },
               {
@@ -4559,6 +4877,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"
@@ -4755,6 +5076,9 @@
               },
               {
                 "$ref": "#/$defs/Card"
+              },
+              {
+                "$ref": "#/$defs/Box"
               },
               {
                 "$ref": "#/$defs/Image"

@@ -14,7 +14,7 @@ description: 生成完整互动 HTML 答案，在 Inform 基础组件、代码�
 ## 写作和交付合同
 
 - 沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
-- 48 个 UI 构造器、15 个数据构造器。本版只额外开放：MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、BlockquoteView、ChecklistView。不要改成全部 views/content；其他领域 View 不在本版合同里。
+- 49 个 UI 构造器、15 个数据构造器。本版只额外开放：MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、BlockquoteView、ChecklistView。不要改成全部 views/content；其他领域 View 不在本版合同里。
 - 下面的范围、整数、长度、枚举、默认值和组合条件均属于校验合同；省略可选参数不等于可以传任意值。变量、计算结果和状态更新也必须满足约束，图表空间不足时调整外层布局，不把受限尺寸缩到下限以下。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部 View。
 - 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。
@@ -24,11 +24,24 @@ description: 生成完整互动 HTML 答案，在 Inform 基础组件、代码�
 - 概念、数据、结论和来源必须说清楚。原创演示数据明确标为示例；不伪造真实来源。图表配可读的文字结果及必要表格；图片有 alt；控件标签说明单位和作用；处理空结果、重置和失效选择。
 - 每条 DSL 声明从新行开始，单个表达式可跨行；不用分号。root = Stack(...) 可以在任意位置。组件是位置参数；对象内才写 key:value。显式声明所有 $state；只有声明为 binding 的参数能绑定状态。
 - 只用 @Filter、@Sort、@Each 等下方实际列出的纯函数。没有 lambda、.map() 或 eval。Each 的第三参数是内联模板。Table 的行对象只能含 columns 声明的键；用 @Each 投影并保留原始记录做选择。
+- 同构重复的卡片、行、格子或分组，优先写数据数组 + @Each(array,"item",内联模板)，不要逐项复制组件树；分组内仍有重复时嵌套 @Each。不同结构的少量段落不必强行统一模板。
+- @Each 是已有的逐项展开方式，不另造 foreach、@ForEach、lambda 或 .map()；没有索引参数。内层模板可读取外层 item，循环变量不能用于模板外的独立声明。需要序号时把序号写入数据。
 - source 是 JSON 字符串，完整进行 JSON 转义；HTML 数据块中的每个 < 写成 \u003c，避免正文的 </script> 结束数据块。不要把 DSL 直接拼接成可执行 JavaScript。
 - 若使用图标，可直接选以下已核对的官方名称：Check、Info、Warning、ArrowRight、Chart、Calendar、BookOpen、Lightbulb、MapPin、Search、Filter、Settings、Play、Pause、CircleQuestion、Link。这里故意不列全部 755 个 glyph；没有额外目录时用文字或这些名称，不猜名字。
 - HTML 依赖网络获取 latest JS；它是会更新的入口，CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即拿到最新字节。网页宿主还需允许脚本和样式。固定壳含内联初始化与样式，严格 CSP 需宿主配置 nonce/hash。不能保证所有聊天预览器都允许执行 HTML。
 
 这是 OpenUI 派生的严格本地方言，不是全部上游 runtime 的兼容替代。精简的是模型合同与可用组件集合；使用的 browser JS 仍是同一完整 bundle。不宣称未测的 token 或下载体积节省。
+
+## 重复结构：先数据，再模板
+
+下面是完整 DSL 小例子；外层生成分组卡片，内层生成徽章。把它放进同一 HTML 壳的 source，仍只需要本 profile 已有的基础组件。
+
+```openui
+groups = [{title:"第一组",items:["甲","乙"]},{title:"第二组",items:["丙"]}]
+root = Stack(@Each(groups,"group",Card([Row(@Each(group.items,"item",Badge(item)),"sm")],group.title)),"md")
+```
+
+写完后检查：同一组件结构是否被逐项抄写？能否抽成一份内联模板？更完整的空组与本地选择例子按需读 references/repeated-structures.md；语法边界见 references/dialect.md。无需为此加载更多 View。
 
 ## 同源自动生成的 DSL 合同
 
@@ -83,7 +96,7 @@ Code(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{patt
 CodeView(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Compatibility alias for the foundation Code component.
 
 ### base/text
-Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
+Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error", align?: "start" | "center" | "end", size?: "xs" | "sm" | "md" | "lg", weight?: "regular" | "medium" | "semibold") — Plain text with semantic tone and finite typography tokens. HTML is displayed literally.
 Heading(content: string{minLength=1,maxLength=512}, level?: integer[1,6]) — Semantic heading.
 Badge(label: string{minLength=1,maxLength=512}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Compact supplied status label.
 Divider() — Thematic separator.
@@ -105,9 +118,10 @@ Icon(name: IconName (exact bundled catalog), label?: string{minLength=1,maxLengt
 
 ### base/layout
 Stack(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
-Row(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
-Grid(children: Component[]{minItems=0,maxItems=128}, columns?: integer[1,6], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
+Row(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch", options?: {wrap?: "wrap" | "nowrap", distribution?: "natural" | "equal", justify?: "start" | "center" | "end" | "between"}) — Horizontal flow with explicit wrapping and distribution.
+Grid(children: Component[]{minItems=0,maxItems=128}, columns?: integer[1,8], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", responsive?: "stack" | "preserve") — Equal-column grid with explicit narrow-layout behavior.
 Card(children: Component[]{minItems=0,maxItems=128}, title?: string{minLength=1,maxLength=512}) — Grouped surface with optional title.
+Box(children: Component[]{minItems=0,maxItems=128}, options?: {background?: "transparent" | "surface" | "info" | "success" | "warning" | "error", padding?: "none" | "xs" | "sm" | "md" | "lg" | "xl", gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", radius?: "none" | "sm" | "md" | "lg", width?: "auto" | "full" | "grow" | "xs" | "sm" | "md", minHeight?: "none" | "sm" | "md" | "lg"}) — Generic token-based surface and sizing container.
 
 ### base/media
 Image(src: string{minLength=1,maxLength=1000000}, alt: string{maxLength=2048}, caption?: string{minLength=1,maxLength=512}) — Image subject to the host media policy.
@@ -232,7 +246,7 @@ Before finishing, walk your output and verify:
 - base/code shared usage: Code(data) is a foundation component in base/code. value is required (at most 12000 Unicode code points). Optional language selects a bundled highlight.js grammar; missing/unknown languages stay plain text. No auto-detection or execution. Block defaults: highlight=true, copy=true, showLanguage=true. The fallback label is Plain text. Set each option false to opt out. inline=true stays text-only and rejects true for copy, highlight or showLanguage.
 - Code usage: CodeView(data) is a compatible alias.
 - CodeView usage: CodeView(data) is a compatible alias.
-- Text usage: Use for prose. Newlines remain text; markup and code are not executed.
+- Text usage: Use for prose or labels. Newlines remain text; markup and code are not executed. Optional align: start, center, end. Size: xs=12, sm=14, md=16, lg=18 CSS pixels. Weight: regular=400, medium=500, semibold=600. Omitted typography inherits its context. Existing content and tone positions are unchanged.
 - Heading usage: Use headings in a meaningful outline. Level defaults to 2 in the renderer.
 - Badge usage: A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.
 - Divider usage: Use sparingly between sections. It has no text or interaction.
@@ -248,9 +262,10 @@ Before finishing, walk your output and verify:
 - Slider usage: Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.
 - Icon usage: Only exact bundled canonical names are accepted. Arguments: name, label, tone, size. Use null label for a decorative icon beside visible text. Use a nonempty label for an icon that conveys meaning alone. Tones: default, muted, info, success, warning, error. Sizes: 16, 20, 24, 32, 48; default 20. Tone communicates supplied meaning; it never verifies status. Public OpenAI Apps SDK UI glyphs are distinct from Inform UI role mapping.
 - Stack usage: Children belong to the selected profile. Gap is a finite design token; there is no arbitrary CSS.
-- Row usage: Uses a wrapping row. Choose start, center, end or stretch alignment.
-- Grid usage: Columns is a maximum requested column count; narrow layouts may use fewer columns.
+- Row usage: Defaults remain wrapping, natural child widths, centered cross-axis alignment and start justification. Optional options: wrap=nowrap keeps one row; distribution=equal gives each child an equal share; justify=between separates edge labels. Children can shrink and text can wrap within a child. Use Grid preserve for a fixed count of tracks. No arbitrary CSS.
+- Grid usage: Columns: 1 through 8, default 2. Default responsive=stack preserves the existing behavior: one column when the root container is 480 CSS pixels or narrower. responsive=preserve retains the requested equal tracks on narrow screens. Use short labels and small gaps for dense tracks; it does not shrink fonts or crop content.
 - Card usage: Use a card for one coherent section. Card owns its child slot, not external services.
+- Box usage: Box(children, options?) is a vertical flow, not an algorithm-specific component. Defaults: transparent background, no padding, md gap, no radius, auto width, no minimum height. background: transparent, surface, info, success, warning, error; semantic backgrounds use paired theme-aware text colors. padding/gap: none, xs, sm, md, lg, xl (0,4,8,12,16,24px). radius: none=0, sm=6, md=10, lg=16px. width: auto, full, grow (remaining Row space), xs=48, sm=64, md=96px; fixed tokens do not grow or shrink in a Row. minHeight: none=0, sm=24, md=32, lg=48px; content can grow taller. Nested Box can set a different surface. No arbitrary colors, CSS, HTML, selectors or URLs.
 - Image usage: Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.
 - Video usage: Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.
 - MathView usage: Use MathView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
