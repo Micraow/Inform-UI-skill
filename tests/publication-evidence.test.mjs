@@ -39,3 +39,15 @@ test('published evidence rejects a noncanonical runtime URL', () => {
   changed.runtimeURL += '?temporary=1'; changed.runtimeHTTP.url = changed.runtimeURL;
   assert.throws(() => assertPublicationEvidence(changed));
 });
+
+test('automatic publication checks do not install or execute a browser', async () => {
+  const workflow = await readFile(new URL('../.github/workflows/cdn-main-smoke.yml', import.meta.url), 'utf8');
+  assert.match(workflow, /name: Published main CDN integrity/);
+  assert.match(workflow, /node scripts\/check-published-cdn\.mjs --bytes-only/);
+  assert.match(workflow, /npm run check:contracts && npm run check:profiles/);
+  assert.doesNotMatch(workflow, /playwright|chromium|--with-deps/i);
+  const script = await readFile(new URL('../scripts/check-published-cdn.mjs', import.meta.url), 'utf8');
+  const byteOnly = script.indexOf("if (process.argv.includes('--bytes-only'))");
+  assert(byteOnly > script.indexOf('assert.equal(hash(bytes)'));
+  assert(script.indexOf('process.exit(0);', byteOnly) < script.indexOf('await import('));
+});

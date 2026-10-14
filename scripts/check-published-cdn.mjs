@@ -25,6 +25,10 @@ for (const name of ['inform-ui.global.js', 'THIRD_PARTY_NOTICES.txt']) {
   assert.equal(hash(bytes), lock.bundles[name].sha256, url);
   observations.push({url, bytes:bytes.length, sha256:hash(bytes)});
 }
+if (process.argv.includes('--bytes-only')) {
+  console.log(JSON.stringify({ok:true,mode:'canonical-cdn-bytes-only',observedAt:new Date().toISOString(),observations,browserVerification:'Not executed; byte verification does not establish browser behavior'},null,2));
+  process.exit(0);
+}
 const index = process.argv.indexOf('--playwright');
 assert(index >= 0 && process.argv[index + 1], 'Pass --playwright /path/to/@playwright/test/index.mjs');
 const {chromium} = await import(pathToFileURL(resolve(process.argv[index + 1])).href);

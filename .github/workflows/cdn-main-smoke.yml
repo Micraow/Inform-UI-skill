@@ -1,4 +1,4 @@
-name: Published main CDN smoke
+name: Published main CDN integrity
 on:
   push:
     branches: [main]
@@ -15,7 +15,7 @@ on:
 permissions:
   contents: read
 jobs:
-  chromium:
+  integrity:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,9 +25,9 @@ jobs:
       - uses: actions/setup-node@v4.4.0
         with:
           node-version: '22'
-      - name: Install pinned browser test tooling
-        run: npm install --no-save --package-lock=false --ignore-scripts @playwright/test@1.56.1
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
-      - name: Verify canonical CDN bytes and browser interactions
-        run: node scripts/check-published-cdn.mjs --playwright node_modules/@playwright/test/index.mjs
+      - name: Verify canonical CDN bytes without browser execution
+        run: node scripts/check-published-cdn.mjs --bytes-only
+      - name: Verify bundled runtime contracts and profiles
+        run: npm run check:contracts && npm run check:profiles
+      - name: Test publication evidence and authoring contracts
+        run: npm test
