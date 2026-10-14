@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {readFile,writeFile} from 'node:fs/promises';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,dirname,join} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
@@ -10,7 +10,7 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const arg=process.argv.indexOf('--runtime-dir');if(arg<0||!process.argv[arg+1])throw Error('Pass --runtime-dir verified-dist-directory');
 const runtimeDir=resolve(process.argv[arg+1]),api=await import(pathToFileURL(join(runtimeDir,'node.mjs')).href);
 const readJSON=async path=>JSON.parse(await readFile(path,'utf8'));
-const build=await readJSON(join(root,'BUILD.json')),definitions=await readJSON(join(root,'source/profiles.json'));
+const build=await readJSON(join(root,'generated/build.json')),definitions=await readJSON(join(root,'source/profiles.json'));
 assert.equal(build.promptProseProjection,promptProseProjection);
 const bytes=await readFile(join(runtimeDir,'inform-ui.global.js'));
 assert.equal(createHash('sha256').update(bytes).digest('hex'),build.runtimeSha256);
@@ -76,4 +76,5 @@ for(const def of definitions){
  checks.push({profile:def.id,uiComponents:config.uiComponents,dataConstructors:config.dataConstructors,contractEquality:true,htmlMatchesSkill:true,finalCommit:true,stateTransitions:true,unselectedViewsRejected:true,glyphNamesValidated:true});
 }
 const report={format:'inform-web-chat-verification/1',publicationReady:build.publicationReady,validationStage:build.validationStage,sourceCommit:build.sourceCommit,runtimeSha256:build.runtimeSha256,codeGenerationFromStrings:process.execArgv.includes('--disallow-code-generation-from-strings')?'disabled':'not disabled in this invocation',profiles:checks,browser:'not run by this script',externalRuntimeURL:build.runtimeHTTP?{method:build.runtimeHTTP.method,status:build.runtimeHTTP.status,contentType:build.runtimeHTTP.contentType,accessControlAllowOrigin:build.runtimeHTTP.accessControlAllowOrigin,publishedBlobMatchesSnapshot:build.runtimeHTTP.publishedSha256===build.runtimeSha256,cacheState:build.runtimeHTTP.cacheState??'observed snapshot match only',purgeStatus:build.runtimeHTTP.purgeStatus??'not required for recorded observation',browserExecution:'not run'}:'must be independently verified against the published bundle'};
-await writeFile(join(root,'DELIVERY.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+await mkdir(join(root,'.reports'),{recursive:true});
+await writeFile(join(root,'.reports/web-chat.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

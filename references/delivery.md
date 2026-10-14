@@ -18,7 +18,7 @@ Run from this Skill directory with Node 22 or later. No npm install is necessary
 
 Build validates with the actual strict parser and runtime, then writes HTML and copies inform-ui.global.js plus THIRD_PARTY_NOTICES.txt next to it. Keep these three files together. Opening answer.html loads its sibling JS directly, including from file://. Charts and UI frameworks are already bundled. External images, fonts, links or host services can have additional network requirements; do not call those offline.
 
-For a verified release URL, pass --runtime-url with the exact HTTPS URL. The CLI does not verify network availability or matching content for that URL: verify its bytes/version separately against generated/runtime-lock.json. Do not replace it with a guessed CDN URL or a mutable latest tag. --runtime-dir permits validation and copying from another verified dist/v2; regenerate Skill contracts when switching versions.
+For a verified release URL, pass --runtime-url with the exact HTTPS URL. The CLI does not verify network availability or matching content for that URL: verify its bytes/version separately against generated/runtime-lock.json. Web Chat profiles use the project-maintained `web-chat-latest` branch by default; it is mutable and may be cached. For reproducible local output, keep the bundled runtime. Do not substitute a guessed CDN URL or jsDelivr’s reserved `@latest` selector. --runtime-dir permits validation and copying from another verified dist/v2; regenerate Skill contracts when switching versions.
 
 ## Actual browser API
 

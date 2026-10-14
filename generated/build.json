@@ -155,57 +155,6 @@
   "modelWorkflow": "Read one SKILL.md; produce complete HTML using the latest entry; no CLI required",
   "browserVerification": "Not established by generation or Node validation",
   "bundledRuntimeReady": true,
-  "contractComparison": {
-    "againstSkillCommit": "e4282da8d6499ba71a6a7e1f8b870d2e26ec7220",
-    "coreCuratedFullSchemaManifestPromptUnchanged": true,
-    "checks": [
-      {
-        "path": "profiles/web-chat-core/schema.json",
-        "sha256": "18456b019f1f23718533d4bfdaaa467b29cbfce69cc5f6d5aaf507a26ab02aa6",
-        "unchanged": true
-      },
-      {
-        "path": "profiles/web-chat-core/manifest.json",
-        "sha256": "b6aea4f6ec8357ec0323865f89d0ad5ebd36ad1208484a3294a03fdd41bd37c2",
-        "unchanged": true
-      },
-      {
-        "path": "profiles/web-chat-core/prompt.txt",
-        "sha256": "fa2b203f8073f26a41e3c1da958ae64701a6b32abc2bedd4a0d75bb89cb5f78d",
-        "unchanged": true
-      },
-      {
-        "path": "profiles/curated-web-chat/schema.json",
-        "sha256": "f08fb53adff2b54ba829454a0f23818649d2aab1b8891cb84e2d8ff6f3735402",
-        "unchanged": true
-      },
-      {
-        "path": "profiles/curated-web-chat/manifest.json",
-        "sha256": "f3be6eb1874537d8370b2f4bcb5ed4e5b5347ca4451689b69c605f893fe7dd61",
-        "unchanged": true
-      },
-      {
-        "path": "profiles/curated-web-chat/prompt.txt",
-        "sha256": "49bd26cdb99ff786c1bae529323feb90234e6407f03ae6c84a7b81917b595a84",
-        "unchanged": true
-      },
-      {
-        "path": "generated/schema.json",
-        "sha256": "62d0e3cf5e9be0c6c81bf383e476dec97fafb6d65198f6d48246824adb3fc085",
-        "unchanged": true
-      },
-      {
-        "path": "generated/manifest.json",
-        "sha256": "fa6c8dbb6139c0777ac427d615b8299f9bd9f4204e6e2aebb7e7f455ca839914",
-        "unchanged": true
-      },
-      {
-        "path": "generated/full-profile.txt",
-        "sha256": "5cb0997dc67f9c3ef41ea0babc165da112f5ea6b2ca0456618ca2500c80cfe9c",
-        "unchanged": true
-      }
-    ]
-  },
   "developmentPublication": {
     "repository": "Micraow/Inform-UI",
     "ref": "refs/heads/next/openui-dsl-20261013",
@@ -222,57 +171,5 @@
     "runtimeSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
     "containsBundledRuntime": false,
     "verifiedAtUTC": "2026-10-14T01:24:30Z"
-  },
-  "priorRuntimeSourceValidation": {
-    "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
-    "focusedNodeTestsPassed": 44,
-    "sliderRegressionCasesPassed": 7,
-    "build": "passed",
-    "narrowTypecheck": "0 diagnostics",
-    "fullTypecheck": {
-      "status": "incomplete",
-      "exitCode": 137,
-      "reason": "resource termination; not a passing full typecheck"
-    },
-    "localHTTPBrowser": {
-      "viewports": [
-        390,
-        1440
-      ],
-      "scenarios": [
-        "typing",
-        "CDP composition events",
-        "tab switching",
-        "local form submit"
-      ],
-      "passed": true
-    },
-    "OSIME": "not verified",
-    "CDNCacheConvergence": "not verified; purge pending"
-  },
-  "runtimeSourceValidation": {
-    "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
-    "scope": "Skill contract and integration validation only; prior browser/typecheck results belong to the separately recorded older source.",
-    "contractAudit": {
-      "componentCount": 233,
-      "viewPromptCount": 195,
-      "moduleCount": 16,
-      "dataConstructorCount": 200,
-      "coreComponents": 37,
-      "curatedComponents": 47,
-      "passed": true
-    },
-    "browser": "not rerun for this Skill sync",
-    "fullTypecheck": "not run by this repository",
-    "skillNodeTestsPassed": 64,
-    "aggregateCheck": "npm run check passed; examples, tests, full contract audit and Web Chat verification",
-    "agentIntegration": {
-      "fixture": "examples/agent-integration/VERIFICATION.json",
-      "syntheticNodeTestsPassed": 19,
-      "strictTypeScriptVersion": "5.9.3",
-      "compiledConsumerChecksPassed": 4,
-      "liveModelAPI": "not invoked",
-      "fixtureBrowser": "not tested"
-    }
   }
 }

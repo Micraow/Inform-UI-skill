@@ -91,5 +91,5 @@ does not change the runtime. The normal JavaScript suite needs no TypeScript.
 
 All workshop names, scores and cost points are synthetic. No private captures,
 model conversations or credentials are included. Current runtime and publication
-provenance remain in `generated/runtime-lock.json` and `BUILD.json`; running this
+provenance remain in `generated/runtime-lock.json` and `generated/build.json`; running this
 example does not publish or verify a rolling/CDN release.
