@@ -9,6 +9,7 @@
 - 从 [模块目录](./references/catalog.md) 找相关能力，再用随包 CLI prompt 按模块或精确 View 名生成当前合同。generated/modules/*.txt 与 generated/views/&lt;ViewName&gt;.txt 的静态快照状态记录在 [generated/snapshot-status.json](./generated/snapshot-status.json)；本次静态合同已与随包 runtime 同步。自行更换 runtime 后必须重新生成，不能继续沿用旧签名。完整库保留 233 个 UI、195 个领域 View 与 755 个 glyph，按需求加载，不必一次全部读取。Data 构造器不计入 UI。
 - 现有 CLI 入口 [scripts/inform-answer.mjs](./scripts/inform-answer.mjs) 提供 catalog、prompt、icons、check、build；[语法边界](./references/dialect.md)、[交付边界](./references/delivery.md) 和 [完整示例](./examples/) 继续保留。
 - 用 createProfile({select,viewNames}) 或 CLI prompt 生成需要的合同，再用相同选择检查和构建。需要扩展时替换成匹配的 profile，不把未选组件混入默认合同。
+- [模型供应商无关的 Agent 集成示例](./examples/agent-integration/) 提供 JavaScript 会话适配器、TypeScript 文本流消费者、合成数据回放及负面用例。固定同一 profile 生成 prompt、预览和最终校验，覆盖取消、旧回复、错误输出及本地交互；不依赖 OpenAI SDK，也不代表真实模型或浏览器验收。
 
 ```sh
 node scripts/inform-answer.mjs catalog

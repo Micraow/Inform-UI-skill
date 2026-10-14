@@ -264,7 +264,15 @@
     },
     "browser": "not rerun for this Skill sync",
     "fullTypecheck": "not run by this repository",
-    "skillNodeTestsPassed": 45,
-    "aggregateCheck": "npm run check passed; examples, tests, full contract audit and Web Chat verification"
+    "skillNodeTestsPassed": 64,
+    "aggregateCheck": "npm run check passed; examples, tests, full contract audit and Web Chat verification",
+    "agentIntegration": {
+      "fixture": "examples/agent-integration/VERIFICATION.json",
+      "syntheticNodeTestsPassed": 19,
+      "strictTypeScriptVersion": "5.9.3",
+      "compiledConsumerChecksPassed": 4,
+      "liveModelAPI": "not invoked",
+      "fixtureBrowser": "not tested"
+    }
   }
 }

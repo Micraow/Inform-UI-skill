@@ -1,0 +1,4 @@
+{
+  "select": ["base/layout", "base/text", "base/controls", "base/charts", "views/content"],
+  "viewNames": ["MetricView", "DetailsView", "ChecklistView"]
+}

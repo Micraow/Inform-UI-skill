@@ -1,0 +1,42 @@
+[
+  {
+    "id": "incomplete-final",
+    "source": "root = Stack([Text(\"unfinished",
+    "code": "INCOMPLETE"
+  },
+  {
+    "id": "unselected-view",
+    "source": "root = Stack([WeatherView({})])",
+    "code": "UNKNOWN_CALL"
+  },
+  {
+    "id": "host-action",
+    "source": "root = Stack([Button(\"Send\",@ToAssistant(\"hello\"))])",
+    "code": "HOST_CAPABILITY"
+  },
+  {
+    "id": "duplicate-declaration",
+    "source": "root = Stack([Text(\"one\")])\nroot = Stack([Text(\"two\")])",
+    "code": "DUPLICATE_DECLARATION"
+  },
+  {
+    "id": "prototype-key",
+    "source": "data = {constructor:\"unsafe\"}\nroot = Stack([Text(\"x\")])",
+    "code": "UNSAFE_KEY"
+  },
+  {
+    "id": "data-as-child",
+    "source": "root = Stack([Series(\"s\",[1,2])])",
+    "code": "CHILD_TYPE"
+  },
+  {
+    "id": "inconsistent-chart",
+    "source": "root = Stack([BarChart(\"x\",[\"a\",\"b\"],[Series(\"s\",[1])])])",
+    "code": "chart-length"
+  },
+  {
+    "id": "hidden-table-metadata",
+    "source": "root = Stack([Table([{key:\"name\",label:\"Name\"}],[{name:\"Synthetic\",id:\"hidden\"}])])",
+    "code": "unknown-column"
+  }
+]

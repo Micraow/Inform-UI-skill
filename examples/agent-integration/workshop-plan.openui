@@ -1,0 +1,28 @@
+$budget = 100
+$order = "asc"
+$selected = ""
+options = [{id:"paper",name:"Paper prototype",cost:20,score:70},{id:"digital",name:"Digital prototype",cost:80,score:90},{id:"mixed",name:"Mixed prototype",cost:120,score:95}]
+available = @Sort(@Filter(options,"cost","<=",$budget),"cost",$order)
+chosen = @First(@Filter(options,"id","==",$selected))
+tableRows = @Each(available,"option",{name:option.name,cost:option.cost,score:option.score})
+root = Stack([
+ Heading("Compare a fictional workshop plan",1),
+ Text("Synthetic demonstration data only. Costs are example points, not prices or quotes. Selection changes local state and does not place an order."),
+ Slider("Budget points",$budget,0,150,10),
+ Select("Sort",$order,[{label:"Lowest cost first",value:"asc"},{label:"Highest cost first",value:"desc"}]),
+ MetricView({label:"Available plans",value:@Count(available)}),
+ @Count(available)==0 ? Alert("No matching plans","Raise the budget to at least 20 points.","info") : Stack([
+  BarChart("Illustrative scores",available.name,[Series("Score",available.score)]),
+  Table([{key:"name",label:"Plan"},{key:"cost",label:"Cost points"},{key:"score",label:"Score"}],tableRows),
+  Stack(@Each(available,"option",Button("Choose "+option.name,@Set($selected,option.id))))
+ ]),
+ $selected=="" ? Text("Nothing selected yet.") : Stack([
+  Text("Selected: "+chosen.name),
+  chosen.cost>$budget ? Alert("Selected plan is outside the new budget","The earlier choice is retained so you can compare again.","warning") : Text("The current choice fits the budget.")
+ ]),
+ DetailsView({summary:"How to use this comparison"},[
+  Text("Inspect the chart and table together. The same filtered records drive both."),
+  ChecklistView({label:"Review before deciding",items:[{id:"goal",label:"Confirm the workshop goal"},{id:"cost",label:"Check the current budget"}]})
+ ]),
+ Button("Reset comparison",Action([@Reset($budget,$order,$selected)]),"secondary")
+])

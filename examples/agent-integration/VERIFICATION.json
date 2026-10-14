@@ -1,0 +1,81 @@
+{
+  "format": "inform-agent-integration-replay/1",
+  "ok": true,
+  "simulation": "Synthetic recorded output; no model API or host service was invoked.",
+  "sourceRef": "431f3221388af1311b9506494c39ec5686338225",
+  "nodeRuntimeSha256": "7e5f239c654b67c5acf0beded43618343d3e37879393f2f770e85812bc7f3588",
+  "fixtureSha256": "7646bbe72b427ddc292fd31522bf887013accba5f18a4b53f56ef2c4dff280df",
+  "selection": {
+    "select": [
+      "base/layout",
+      "base/text",
+      "base/controls",
+      "base/charts",
+      "views/content"
+    ],
+    "viewNames": [
+      "MetricView",
+      "DetailsView",
+      "ChecklistView"
+    ]
+  },
+  "chunks": 22,
+  "passivePreview": true,
+  "finalCommit": true,
+  "preservesLastAccepted": true,
+  "rejections": [
+    {
+      "id": "incomplete-final",
+      "code": "INCOMPLETE"
+    },
+    {
+      "id": "unselected-view",
+      "code": "UNKNOWN_CALL"
+    },
+    {
+      "id": "host-action",
+      "code": "HOST_CAPABILITY"
+    },
+    {
+      "id": "duplicate-declaration",
+      "code": "DUPLICATE_DECLARATION"
+    },
+    {
+      "id": "prototype-key",
+      "code": "UNSAFE_KEY"
+    },
+    {
+      "id": "data-as-child",
+      "code": "CHILD_TYPE"
+    },
+    {
+      "id": "inconsistent-chart",
+      "code": "chart-length"
+    },
+    {
+      "id": "hidden-table-metadata",
+      "code": "unknown-column"
+    }
+  ],
+  "browser": "Not run for this new fixture; no live-model/provider acceptance claim.",
+  "verificationKind": "synthetic integration replay",
+  "typescript": {
+    "ok": true,
+    "compiler": "Version 5.9.3",
+    "strictTypes": true,
+    "compiledConsumerChecks": [
+      "async text chunks commit a complete answer",
+      "transport failures keep the previous accepted answer",
+      "abort signals reject a generation without replacing accepted state",
+      "late responses and cleanup cannot overwrite the newer answer"
+    ],
+    "modelAPI": "not invoked",
+    "browser": "not tested"
+  },
+  "nodeTestSuite": {
+    "command": "npm run check",
+    "testsPassed": 64,
+    "failed": 0,
+    "includes": "examples, Node tests, complete catalog contract audit, Web Chat profile verification"
+  }
+}
