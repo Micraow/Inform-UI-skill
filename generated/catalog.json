@@ -1,6 +1,6 @@
 {
   "format": "inform-skill-catalog/2",
-  "componentCount": 233,
+  "componentCount": 234,
   "root": "Stack",
   "modules": [
     {
@@ -288,6 +288,44 @@
         "base/layout"
       ],
       "prompt": "generated/modules/base--charts.txt"
+    },
+    {
+      "id": "base/code",
+      "kind": "foundation",
+      "components": [
+        {
+          "name": "Code",
+          "orderedProps": [
+            "data"
+          ],
+          "slots": {},
+          "bindingProps": [],
+          "actionProps": [],
+          "limitations": [
+            "Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.",
+            "Only bundled grammars are supported; highlighting is not syntax validation."
+          ]
+        },
+        {
+          "name": "CodeView",
+          "orderedProps": [
+            "data"
+          ],
+          "slots": {},
+          "bindingProps": [],
+          "actionProps": [],
+          "limitations": [
+            "Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.",
+            "Only bundled grammars are supported; highlighting is not syntax validation."
+          ]
+        }
+      ],
+      "selectedClosure": [
+        "base/code",
+        "base/text",
+        "base/layout"
+      ],
+      "prompt": "generated/modules/base--code.txt"
     },
     {
       "id": "base/text",
@@ -1554,28 +1592,6 @@
           ],
           "viewNames": [
             "EmailDraftView"
-          ]
-        },
-        {
-          "name": "CodeView",
-          "orderedProps": [
-            "data"
-          ],
-          "slots": {},
-          "bindingProps": [],
-          "actionProps": [],
-          "limitations": [
-            "Supplied source data is not independently fetched or verified.",
-            "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
-            "Base composition is a target until adapter evidence confirms extraction."
-          ],
-          "prompt": "generated/views/CodeView.txt",
-          "select": [
-            "base/layout",
-            "views/content"
-          ],
-          "viewNames": [
-            "CodeView"
           ]
         },
         {
@@ -3055,6 +3071,7 @@
         }
       ],
       "selectedClosure": [
+        "base/code",
         "base/text",
         "base/layout",
         "base/controls",
@@ -5371,6 +5388,19 @@
       "description": "ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar."
     },
     {
+      "name": "CodeData",
+      "moduleId": "base/code",
+      "orderedProps": [
+        "value",
+        "language",
+        "inline",
+        "copy",
+        "highlight",
+        "showLanguage"
+      ],
+      "description": "Literal source text and optional foundation code display settings."
+    },
+    {
       "name": "TaskExpansionCardData",
       "moduleId": "views/assistance",
       "orderedProps": [
@@ -5969,18 +5999,6 @@
         "editable"
       ],
       "description": "Strict supplied record for EmailDraftView. Conditional variants are enforced by the same bounded validator."
-    },
-    {
-      "name": "CodeData",
-      "moduleId": "views/content",
-      "orderedProps": [
-        "value",
-        "language",
-        "inline",
-        "copy",
-        "highlight"
-      ],
-      "description": "Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator."
     },
     {
       "name": "MathData",
