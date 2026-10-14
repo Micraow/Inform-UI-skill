@@ -1,7 +1,7 @@
 {
   "format": "inform-runtime-lock/2",
   "version": "2.0.0-alpha.1",
-  "sourceRef": "44623e368e00911238852f5bf62c440762bee9ff",
+  "sourceRef": "48afebf37ad1548f70e959349ce4866f7c5359c2",
   "publication": "No public URL is implied by this local snapshot.",
   "root": "Stack",
   "componentCount": 235,
@@ -9,12 +9,12 @@
   "iconCount": 755,
   "bundles": {
     "inform-ui.global.js": {
-      "bytes": 5661712,
-      "sha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d"
+      "bytes": 5713453,
+      "sha256": "dd7d40be9cdbef90f3ad89e583c62edc8c3180d6666f953c745c1b58a479914d"
     },
     "node.mjs": {
-      "bytes": 5661580,
-      "sha256": "ee6b0aa15189e3cacc106a3bd9b84ad512406e147cc6f206d9638356d5f5c2a9"
+      "bytes": 5713321,
+      "sha256": "e794bc230ea88ec08c88b67515a0448c6388144eac501ad64767ae09711f22f6"
     },
     "THIRD_PARTY_NOTICES.txt": {
       "bytes": 62017,

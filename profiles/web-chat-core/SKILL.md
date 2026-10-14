@@ -6,10 +6,14 @@ description: 供 Agent 和 Web Chat AI 生成完整互动 HTML 答案。默认�
 # Web Chat 基础与图表
 
 把本文件交给 Agent 或 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，用图文和有意义的本地交互帮助理解。默认路线无需终端、CLI、npm、React 工程或额外的全量组件文档。
+## 当前运行库准备
+
+这份开发合同来自随包运行库，尚未确认 main 入口字节与它一致。下方带 main 外链的 HTML 是发布模板，不能直接视为新组件已经上线。当前先把 assets/runtime/inform-ui.global.js 和 THIRD_PARTY_NOTICES.txt 复制到答案 HTML 同一目录，把唯一的外部 script src 改为 ./inform-ui.global.js，其余配置不变；无需 npm 或 React。具备终端时，也可用随包 CLI build，保留默认本地 runtime，不传 --runtime-url。具体命令见 references/delivery.md。
+
 
 ## 写作和交付合同
 
-- 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 main，不把 commit 或版本号写入 HTML。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
+- 沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
 - 40 个 UI 构造器、6 个数据构造器。本版不开放任何领域 View。使用基础组件、图表与文字完成答案；不要从旧目录猜 View 名称。
 - 下面的范围、整数、长度、枚举、默认值和组合条件均属于校验合同；省略可选参数不等于可以传任意值。变量、计算结果和状态更新也必须满足约束，图表空间不足时调整外层布局，不把受限尺寸缩到下限以下。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部 View。

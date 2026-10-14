@@ -2,11 +2,11 @@
   "id": "web-chat-core",
   "outputDirectory": "profiles/web-chat-core",
   "skillPath": "SKILL.md",
-  "sourceCommit": "44623e368e00911238852f5bf62c440762bee9ff",
+  "sourceCommit": "48afebf37ad1548f70e959349ce4866f7c5359c2",
   "verificationLockOnly": true,
   "runtimeChannel": "main",
   "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js",
-  "runtimeSha256": "46706afbbba7da9e76a8e249bcdafa5f2a61082f8b01ab4802fa15434866be9d",
+  "runtimeSha256": "dd7d40be9cdbef90f3ad89e583c62edc8c3180d6666f953c745c1b58a479914d",
   "select": [
     "base/layout",
     "base/text",

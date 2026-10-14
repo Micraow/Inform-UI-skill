@@ -82,6 +82,23 @@ try {
     assert.deepEqual(layout.grids, [1,2,4,8]);
     assert(layout.scroll <= layout.viewport + 1, JSON.stringify(layout));
     results.push({fixture:'nested-Each-grid',width,...layout});
+    const originalCode = 'const int count = 7; // original sample\nstd::string name = "demo";\n';
+    const highlighted = await page.evaluate(codeText => {
+      const target = document.querySelector('main'); target.replaceChildren();
+      const issues = [];
+      const source = 'root = Stack([Code({value:' + JSON.stringify(codeText) + ',language:"cpp"})])';
+      const view = InformUI.mount(target,{source,select:['base/layout','base/code'],viewNames:[],onError:items=>issues.push(...items)});
+      const code = target.querySelector('code');
+      const result = {ready:!!view.getSnapshot(),issues,text:code?.textContent,baseColor:code?getComputedStyle(code).color:null,
+        tokens:[...target.querySelectorAll('[class*="iui-code-token-"]')].map(token=>({className:token.className,text:token.textContent,color:getComputedStyle(token).color}))};
+      view.dispose(); return result;
+    }, originalCode);
+    assert.equal(highlighted.ready, true); assert.deepEqual(highlighted.issues, []);
+    assert.equal(highlighted.text, originalCode);
+    for (const [type,text] of [['type','const'],['type','int'],['number','7'],['comment','original sample'],['string','"demo"']]) {
+      assert(highlighted.tokens.some(token=>token.className.includes('iui-code-token-'+type)&&token.text.includes(text)&&token.color!==highlighted.baseColor), 'Missing visible C++ token '+type+': '+text);
+    }
+    results.push({fixture:'original-cpp-highlighting',width,textPreserved:true,visibleTokenTypes:true});
     await page.close();
   }
   console.log(JSON.stringify({ok:true,engine:'Chromium',observedAt:new Date().toISOString(),observations,results},null,2));

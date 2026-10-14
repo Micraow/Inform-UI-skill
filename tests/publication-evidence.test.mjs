@@ -24,13 +24,18 @@ for (const [name, mutate] of [
     assert.throws(() => assertPublicationEvidence(changed));
   });
 }
+const published = {
+  ...pending, validationStage:'published', publicationReady:true, noticesSha256:'3'.repeat(64),
+  runtimeHTTP:{url:mainRuntimeURL,status:200,matchesSnapshot:true,verifiedSourceCommit:'a'.repeat(40),publishedSha256:'1'.repeat(64),
+    notices:{url:new URL('THIRD_PARTY_NOTICES.txt',mainRuntimeURL).href,status:200,matchesSnapshot:true,publishedSha256:'3'.repeat(64)}},
+};
 test('published evidence rejects altered license notice bytes', () => {
-  const changed = structuredClone(build);
+  const changed = structuredClone(published);
   changed.runtimeHTTP.notices.publishedSha256 = '0'.repeat(64);
   assert.throws(() => assertPublicationEvidence(changed));
 });
 test('published evidence rejects a noncanonical runtime URL', () => {
-  const changed = structuredClone(build);
+  const changed = structuredClone(published);
   changed.runtimeURL += '?temporary=1'; changed.runtimeHTTP.url = changed.runtimeURL;
   assert.throws(() => assertPublicationEvidence(changed));
 });
