@@ -1,4 +1,4 @@
-node_modules/
+node_modules
 .reports/
 output/
 .DS_Store

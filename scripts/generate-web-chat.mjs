@@ -79,10 +79,15 @@ function instructions(definition,manifest,prompt,minimal){
 匹配的运行库已提交到 main，随包快照也已更新。本次没有独立核验线上缓存或浏览器表现，不能把 Git 发布或随包检查表述为线上验收。下方 HTML 使用 main 在线入口；需要离线交付或明确使用本次快照时，把 assets/runtime/inform-ui.global.js 和 THIRD_PARTY_NOTICES.txt 放到 HTML 旁，并将 script src 改为 ./inform-ui.global.js。发布记录与验证范围见 generated/build.json。
 `:'';
  const runtimeInstruction=validationStage==='local'?'沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。':'默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 main，不把 commit 或版本号写入 HTML。';
- const agentRouting=definition.skillPath==='SKILL.md'?`\n## 两条使用路线\n\n- **直接写答案**：Agent 和 Web Chat 都可以只读本文件，用下面的基础与图表合同输出 HTML，不要求终端。专门的轻量入口位于 profiles/web-chat-core/SKILL.md 和 profiles/curated-web-chat/SKILL.md。\n- **Agent 按需扩展**：有仓库文件或工具能力时，先读 references/catalog.md 做名称与模块发现，再用随包 CLI prompt 从当前 runtime 按模块或精确 View 名生成合同。generated/modules/*.txt 与 generated/views/<ViewName>.txt 是按同一 runtime 生成的静态合同，读取前核对 generated/snapshot-status.json 与 runtime 锁；换了 runtime 后须重新生成，不沿用旧签名。不要把全部 View 和 glyph 一次性塞进上下文。全量目录不是本默认 profile 的额外授权。\n- **可选 CLI**：node scripts/inform-answer.mjs catalog 做模块发现；prompt --select 模块列表 --views 精确View列表 生成该选择的合同；icons --query 关键词 发现官方图标；check answer.openui 检查，build answer.openui --out answer.html 构建。check/build 都要传同一 --select 和 --views；构建使用 --runtime-url ${runtimeURL.href} 跟随 main。CLI 随仓库提供 Node runtime，不要求安装 React 工程。\n- 扩展时必须同时用真实 profile 重新生成 prompt/schema，并让 HTML 的 select/viewNames 保持一致；不能把扩展 View 混进本文件默认的 ${manifest.components.length} 个 UI 合同。离线或调试可显式使用随包的验证快照，但不要把固定 commit 写成默认 HTML 入口。\n`:'';
+ const agentRouting=definition.skillPath==='SKILL.md'?`\n## 两条使用路线\n\n- **直接写答案**：Agent 和 Web Chat 都可以只读本文件，用下面的精确组件合同输出 HTML，不要求终端。专门的轻量入口位于 profiles/web-chat-core/SKILL.md 和 profiles/curated-web-chat/SKILL.md。\n- **Agent 按需扩展**：有仓库文件或工具能力时，先读 references/catalog.md 做名称与模块发现，再用随包 CLI prompt 从当前 runtime 按模块或精确 View 名生成合同。generated/modules/*.txt 与 generated/views/<ViewName>.txt 是按同一 runtime 生成的静态合同，读取前核对 generated/snapshot-status.json 与 runtime 锁；换了 runtime 后须重新生成，不沿用旧签名。不要把全部 View 和 glyph 一次性塞进上下文。全量目录不是本默认 profile 的额外授权。\n- **可选 CLI**：node scripts/inform-answer.mjs catalog 做模块发现；prompt --select 模块列表 --views 精确View列表 生成该选择的合同；icons --query 关键词 发现官方图标；check answer.openui 检查，build answer.openui --out answer.html 构建。check/build 都要传同一 --select 和 --views；构建使用 --runtime-url ${runtimeURL.href} 跟随 main。CLI 随仓库提供 Node runtime，不要求安装 React 工程。\n- 扩展时必须同时用真实 profile 重新生成 prompt/schema，并让 HTML 的 select/viewNames 保持一致；不能把扩展 View 混进本文件默认的 ${manifest.components.length} 个 UI 合同。离线或调试可显式使用随包的验证快照，但不要把固定 commit 写成默认 HTML 入口。\n`:'';
  const extra=definition.viewNames.length?`本版只额外开放：${definition.viewNames.join('、')}。不要改成全部 views/content；其他领域 View 不在本版合同里。`:'本版不开放任何领域 View。从已开放的文字、基础组件与图表中按需选择；不要从旧目录猜 View 名称。';
  const codeGuidance=manifest.components.some(c=>c.name==='Code')?'\n- 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。':'';
- const viewGuidance=definition.viewNames.length?'\n- BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。\n- 根据要表达的关系选择组件；Table/Grid/MetricView 可组织对比，StepsView 可组织步骤，均非固定搭配。本版没有 ComparisonView 或 TimelineView。':'';
+ const viewGuidance=[
+  definition.viewNames.includes('BlockquoteView')?'\n- BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。':'',
+  definition.viewNames.includes('ChecklistView')?'\n- ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。':'',
+  definition.viewNames.includes('MarkdownView')?'\n- MarkdownView({value:文本}) 可在同一段中保留正常文字与受支持的强调、行内代码和链接；Text 仍用于纯文本。它是有限 Markdown 子集，不承诺完整 CommonMark、嵌套或任意 HTML，也不要给原句强加空格来迁就解析。':'',
+  definition.viewNames.includes('SvgView')?'\n- SvgView({viewBox,shapes,label}) 使用受限图元数组，可表达局部位置、连接与状态变化；不是原始 SVG/HTML 字符串接口。仅使用合同和语义校验支持的图元、属性与字面颜色，提供文字标签；不包含图元事件、外部资源、自动布局或任意动画。富文本与图示边界见 references/rich-content.md。':'',
+ ].join('');
  return `---
 name: ${definition.name}
 description: ${definition.description}
@@ -99,6 +104,13 @@ description: ${definition.description}
 - 交互必须服务于当前问题：明确用户能改变什么，以及变化如何帮助理解、比较或完成已请求的操作。没有真实目的就省略控件；静态答案同样有效。不要为体现“互动”或展示组件能力添加点击、开关、滑块或待办。
 - 不默认在结尾添加可点清单、自检或下一步任务。仅在用户明确需要核对或任务进度，或它确实承担当前任务所需的状态记录时使用清单；一般总结直接用文字。结尾由答案内容决定。
 - 一种表达已经足够时，不必再配齐图、表、代码、引文与控件。交付前检查每个元素是否帮助回答问题、是否忠实表达关系，删除只为装饰、重复结论或凑组件覆盖率而加入的元素。
+
+## 让组件接续正文
+
+- 以回答本身的阅读路径为主线。正文先交代正在解释的关系，局部图示、数据或状态变化放在读者正需要它的位置，后续正文接着解释观察结果和适用边界；它们共同完成一段说明，不分裂成“正文讲一遍、组件再演示一遍”。这是按需组织的方法，不是每个答案必须走完的模板。
+- 同一段中的普通文字、重点、术语代码与来源链接尽量保持语义连续；有适用的富文本合同就使用它，不把每个重点拆成徽章、提醒框或单独卡片。图示旁的文字说明其关系与变化，不只是重复图中标签。
+- 需要观察变化时，用同一份数据和已声明的 $state 同步图元、标签与解释；前后切换应说明同一对象发生了什么。没有变化问题就保持静态，不能为了使用控件编造操作，也不把所有关系都映射成数值图表。
+- Alert 仅用于真实风险、限制、错误或需要注意的状态，不用来包装普通结论、总结或每段说明。一般结论可以直接写成正文，并用适度字重或自然层级强调；Card、Badge、图标和图示同样需要承担真实信息角色。
 
 ## 布局也是表达的一部分
 
@@ -117,7 +129,7 @@ description: ${definition.description}
 - 先拆出内容单元：核心结论、说明、数值、标签、媒体、来源或有真实目的的控件；再判断它们是从属、并列、先后还是相互说明。一个完整表达可以由多个基础组件共同承担，不必寻找一个名称完全对应主题的 View，也不必把每个信息单元独立做成卡片。
 - 先定外层排布，再填内层组件：外层 Stack 维持整篇阅读主线，局部 Grid 安排并列单元，每个单元内部再用 Stack 组织标题、主体和说明；短标签与对应内容可用 Row 对齐。只有确有从属关系时才增加一层，每一层应能说明它组织了什么，避免为包装而嵌套。
 - 让组合表达一个整体：并列单元共享的标题、前提和来源放在它们共同的外层；各自的说明留在各自单元。标签、值与补充文字可用 Text 的字重、字号和语气分层；媒体与解释可在同一 Grid 中并排，解释一侧仍用 Stack 连续阅读，窄屏时按同样语义顺序堆叠。根据关系选择这些组合，不要求一篇答案配齐它们。
-- 基础组件也能构成简洁的非数量示意：用有文字标签的 Box 表示区域，用 Stack/Row/Grid 的相邻、先后和分组表达关系；必要时用文字或合同内已核对的 Icon 辅助指示方向。颜色只作补充，区域大小不暗示未经给定的数值。Divider 是主题分隔线，不是任意节点之间的连线；这些布局组件没有绝对坐标、自由连线或任意绘图能力，复杂关系超出能力时改用更清楚的文字或另行获取匹配的图示合同，不能伪造接口。
+- 基础组件也能构成简洁的非数量示意：用有文字标签的 Box 表示区域，用 Stack/Row/Grid 的相邻、先后和分组表达关系；必要时用文字或合同内已核对的 Icon 辅助指示方向。颜色只作补充，区域大小不暗示未经给定的数值。Divider 是主题分隔线，不是任意节点之间的连线；这些布局组件没有绝对坐标、自由连线或任意绘图能力。确实需要明确位置和连接时可用已开放的 SvgView 受限图元；超出其边界时改用更清楚的文字，不能伪造接口。
 - 同级重复单元先设计一份内部结构，再把内容写成数据数组，用 @Each 展开；需要分组重复时，外层组与内层条目分别展开。统一的是信息角色与对齐方式，不要求内容等长，不把不同性质的段落硬套同一模板。抽出的组件可用声明复用，但 @Each 的模板必须内联，循环变量只在所属模板作用域内读取。
 - 组合有交互时，先明确共享数据与已声明的 $state，再让相关文字、数值和可视区域读取同一份派生结果；控件只绑定合同允许 binding 的位置，通过支持的 Action 更新。不要让两块本应联动的内容各维护一份互相矛盾的数据，不把局部 View 的临时状态当作可读的共享状态。没有交互需求就保持静态组合。
 
@@ -141,11 +153,11 @@ description: ${definition.description}
 
 ## 重复结构：先数据，再模板
 
-下面是完整 DSL 小例子；外层生成分组卡片，内层生成徽章。把它放进同一 HTML 壳的 source，仍只需要本 profile 已有的基础组件。
+下面是完整 DSL 小例子；外层组织有标题的文字组，内层展开条目正文；不需要卡片或徽章。把它放进同一 HTML 壳的 source，仍只需要本 profile 已有的基础组件。
 
 \`\`\`openui
 groups = [{title:"第一组",items:["甲","乙"]},{title:"第二组",items:["丙"]}]
-root = Stack(@Each(groups,"group",Card([Row(@Each(group.items,"item",Badge(item)),"sm")],group.title)),"md")
+root = Stack(@Each(groups,"group",Stack([Heading(group.title,2),Stack(@Each(group.items,"item",Text(item)),"xs")],"sm")),"md")
 \`\`\`
 
 写完后检查：同一组件结构是否被逐项抄写？能否抽成一份内联模板？更完整的空组与本地选择例子按需读 references/repeated-structures.md；语法边界见 references/dialect.md。无需为此加载更多 View。

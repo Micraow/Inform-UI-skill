@@ -21,6 +21,12 @@ for (const path of ['SKILL.md', 'profiles/web-chat-core/SKILL.md', 'profiles/cur
     assert(!skill.includes('默认使用 Inform 基础组件与图表'));
     // Keep the approved repetition syntax alongside editorial guidance.
     assert(skill.includes('@Each(array,"item",内联模板)'));
+    assert(skill.includes('## 让组件接续正文'));
+    assert(skill.includes('后续正文接着解释观察结果和适用边界'));
+    assert(skill.includes('Alert 仅用于真实风险'));
+    assert(skill.includes('不要给原句强加空格来迁就解析'));
+    const compact = skill.match(/```openui\n([\s\S]*?)\n```/)[1];
+    assert(!/\b(?:Card|Badge)\(/.test(compact));
   });
 }
 

@@ -14,9 +14,13 @@
     "base/icon",
     "base/media",
     "base/code",
-    "base/charts"
+    "base/charts",
+    "views/content"
   ],
-  "viewNames": [],
+  "viewNames": [
+    "MarkdownView",
+    "SvgView"
+  ],
   "modules": [
     "base/chart-data",
     "base/charts",
@@ -25,10 +29,11 @@
     "base/controls",
     "base/icon",
     "base/layout",
-    "base/media"
+    "base/media",
+    "views/content"
   ],
-  "uiComponents": 40,
-  "dataConstructors": 6,
+  "uiComponents": 42,
+  "dataConstructors": 8,
   "glyphShortlist": [
     "Check",
     "Info",

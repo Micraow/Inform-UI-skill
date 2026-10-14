@@ -12,11 +12,11 @@ new loop API, domain View, custom JavaScript or unreleased layout options.
 
 ```openui
 groups = [{title:"第一组",items:["甲","乙"]},{title:"第二组",items:["丙"]}]
-root = Stack(@Each(groups,"group",Card([Row(@Each(group.items,"item",Badge(item)),"sm")],group.title)),"md")
+root = Stack(@Each(groups,"group",Stack([Heading(group.title,2),Stack(@Each(group.items,"item",Text(item)),"xs")],"sm")),"md")
 ```
 
-The outer template creates one Card per group. The inner template creates one
-Badge per item. Feed the array result to a component's declared children slot;
+The outer template groups a heading and related text. The inner template creates
+one Text per item, without adding cards or badges. Feed the array result to a component's declared children slot;
 `@Each` can also project scalar values or objects for chart labels and Table rows.
 
 ## Scope and limits

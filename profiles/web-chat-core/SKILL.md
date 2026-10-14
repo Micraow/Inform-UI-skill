@@ -1,6 +1,6 @@
 ---
 name: inform-web-chat-core
-description: 供 Agent 和 Web Chat AI 生成完整 HTML 答案。按表达目标选择 Inform 文字、基础组件、图示、数据图表与必要交互；Agent 可按需发现模块、领域视图和图标，并使用可选 CLI 验证与构建。无需创建 React 工程。
+description: 供 Agent 和 Web Chat AI 生成完整 HTML 答案。按表达目标选择文字、段内富文本、基础布局、受限图示、数据图表与必要交互；Agent 可按需扩展，并使用可选 CLI 验证与构建。无需创建 React 工程。
 ---
 
 # Inform HTML 答案：基础版
@@ -19,6 +19,13 @@ description: 供 Agent 和 Web Chat AI 生成完整 HTML 答案。按表达目�
 - 不默认在结尾添加可点清单、自检或下一步任务。仅在用户明确需要核对或任务进度，或它确实承担当前任务所需的状态记录时使用清单；一般总结直接用文字。结尾由答案内容决定。
 - 一种表达已经足够时，不必再配齐图、表、代码、引文与控件。交付前检查每个元素是否帮助回答问题、是否忠实表达关系，删除只为装饰、重复结论或凑组件覆盖率而加入的元素。
 
+## 让组件接续正文
+
+- 以回答本身的阅读路径为主线。正文先交代正在解释的关系，局部图示、数据或状态变化放在读者正需要它的位置，后续正文接着解释观察结果和适用边界；它们共同完成一段说明，不分裂成“正文讲一遍、组件再演示一遍”。这是按需组织的方法，不是每个答案必须走完的模板。
+- 同一段中的普通文字、重点、术语代码与来源链接尽量保持语义连续；有适用的富文本合同就使用它，不把每个重点拆成徽章、提醒框或单独卡片。图示旁的文字说明其关系与变化，不只是重复图中标签。
+- 需要观察变化时，用同一份数据和已声明的 $state 同步图元、标签与解释；前后切换应说明同一对象发生了什么。没有变化问题就保持静态，不能为了使用控件编造操作，也不把所有关系都映射成数值图表。
+- Alert 仅用于真实风险、限制、错误或需要注意的状态，不用来包装普通结论、总结或每段说明。一般结论可以直接写成正文，并用适度字重或自然层级强调；Card、Badge、图标和图示同样需要承担真实信息角色。
+
 ## 布局也是表达的一部分
 
 - 即使只有文字，也要主动安排视觉层级、分组、留白和阅读顺序；纯文字不等于把所有内容堆成同样密度的长段落。先让读者找到核心回答，再按内容关系展开，短答案可以直接用少量段落，不强制标题、摘要、卡片或固定结尾。
@@ -36,17 +43,19 @@ description: 供 Agent 和 Web Chat AI 生成完整 HTML 答案。按表达目�
 - 先拆出内容单元：核心结论、说明、数值、标签、媒体、来源或有真实目的的控件；再判断它们是从属、并列、先后还是相互说明。一个完整表达可以由多个基础组件共同承担，不必寻找一个名称完全对应主题的 View，也不必把每个信息单元独立做成卡片。
 - 先定外层排布，再填内层组件：外层 Stack 维持整篇阅读主线，局部 Grid 安排并列单元，每个单元内部再用 Stack 组织标题、主体和说明；短标签与对应内容可用 Row 对齐。只有确有从属关系时才增加一层，每一层应能说明它组织了什么，避免为包装而嵌套。
 - 让组合表达一个整体：并列单元共享的标题、前提和来源放在它们共同的外层；各自的说明留在各自单元。标签、值与补充文字可用 Text 的字重、字号和语气分层；媒体与解释可在同一 Grid 中并排，解释一侧仍用 Stack 连续阅读，窄屏时按同样语义顺序堆叠。根据关系选择这些组合，不要求一篇答案配齐它们。
-- 基础组件也能构成简洁的非数量示意：用有文字标签的 Box 表示区域，用 Stack/Row/Grid 的相邻、先后和分组表达关系；必要时用文字或合同内已核对的 Icon 辅助指示方向。颜色只作补充，区域大小不暗示未经给定的数值。Divider 是主题分隔线，不是任意节点之间的连线；这些布局组件没有绝对坐标、自由连线或任意绘图能力，复杂关系超出能力时改用更清楚的文字或另行获取匹配的图示合同，不能伪造接口。
+- 基础组件也能构成简洁的非数量示意：用有文字标签的 Box 表示区域，用 Stack/Row/Grid 的相邻、先后和分组表达关系；必要时用文字或合同内已核对的 Icon 辅助指示方向。颜色只作补充，区域大小不暗示未经给定的数值。Divider 是主题分隔线，不是任意节点之间的连线；这些布局组件没有绝对坐标、自由连线或任意绘图能力。确实需要明确位置和连接时可用已开放的 SvgView 受限图元；超出其边界时改用更清楚的文字，不能伪造接口。
 - 同级重复单元先设计一份内部结构，再把内容写成数据数组，用 @Each 展开；需要分组重复时，外层组与内层条目分别展开。统一的是信息角色与对齐方式，不要求内容等长，不把不同性质的段落硬套同一模板。抽出的组件可用声明复用，但 @Each 的模板必须内联，循环变量只在所属模板作用域内读取。
 - 组合有交互时，先明确共享数据与已声明的 $state，再让相关文字、数值和可视区域读取同一份派生结果；控件只绑定合同允许 binding 的位置，通过支持的 Action 更新。不要让两块本应联动的内容各维护一份互相矛盾的数据，不把局部 View 的临时状态当作可读的共享状态。没有交互需求就保持静态组合。
 
 ## 写作和交付合同
 
 - 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 main，不把 commit 或版本号写入 HTML。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
-- 40 个 UI 构造器、6 个数据构造器。本版不开放任何领域 View。从已开放的文字、基础组件与图表中按需选择；不要从旧目录猜 View 名称。
+- 42 个 UI 构造器、8 个数据构造器。本版只额外开放：MarkdownView、SvgView。不要改成全部 views/content；其他领域 View 不在本版合同里。
 - 下面的范围、整数、长度、枚举、默认值和组合条件均属于校验合同；省略可选参数不等于可以传任意值。变量、计算结果和状态更新也必须满足约束，图表空间不足时调整外层布局，不把受限尺寸缩到下限以下。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部 View。
 - 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。
+- MarkdownView({value:文本}) 可在同一段中保留正常文字与受支持的强调、行内代码和链接；Text 仍用于纯文本。它是有限 Markdown 子集，不承诺完整 CommonMark、嵌套或任意 HTML，也不要给原句强加空格来迁就解析。
+- SvgView({viewBox,shapes,label}) 使用受限图元数组，可表达局部位置、连接与状态变化；不是原始 SVG/HTML 字符串接口。仅使用合同和语义校验支持的图元、属性与字面颜色，提供文字标签；不包含图元事件、外部资源、自动布局或任意动画。富文本与图示边界见 references/rich-content.md。
 - 不声明已完成查询、订票、付款、发送或其他宿主服务。这里只处理给定数据和本地状态。Query、Mutation、@Run、@OpenUrl、@ToAssistant 与任意 JS 均不支持。
 - 概念、数据、结论和来源必须说清楚。原创演示数据明确标为示例；不伪造真实来源。使用图表时配可读的文字结果，并保证数据可访问，必要时补充表格；使用图片时提供 alt；使用控件时标签说明单位和作用，并按实际状态流程处理空结果、重置和失效选择。
 - 每条 DSL 声明从新行开始，单个表达式可跨行；不用分号。root = Stack(...) 可以在任意位置。组件是位置参数；对象内才写 key:value。显式声明所有 $state；只有声明为 binding 的参数能绑定状态。
@@ -61,11 +70,11 @@ description: 供 Agent 和 Web Chat AI 生成完整 HTML 答案。按表达目�
 
 ## 重复结构：先数据，再模板
 
-下面是完整 DSL 小例子；外层生成分组卡片，内层生成徽章。把它放进同一 HTML 壳的 source，仍只需要本 profile 已有的基础组件。
+下面是完整 DSL 小例子；外层组织有标题的文字组，内层展开条目正文；不需要卡片或徽章。把它放进同一 HTML 壳的 source，仍只需要本 profile 已有的基础组件。
 
 ```openui
 groups = [{title:"第一组",items:["甲","乙"]},{title:"第二组",items:["丙"]}]
-root = Stack(@Each(groups,"group",Card([Row(@Each(group.items,"item",Badge(item)),"sm")],group.title)),"md")
+root = Stack(@Each(groups,"group",Stack([Heading(group.title,2),Stack(@Each(group.items,"item",Text(item)),"xs")],"sm")),"md")
 ```
 
 写完后检查：同一组件结构是否被逐项抄写？能否抽成一份内联模板？更完整的空组与本地选择例子按需读 references/repeated-structures.md；语法边界见 references/dialect.md。无需为此加载更多 View。
@@ -153,6 +162,10 @@ Box(children: Component[]{minItems=0,maxItems=128}, options?: {background?: "tra
 ### base/media
 Image(src: string{minLength=1,maxLength=1000000}, alt: string{maxLength=2048}, caption?: string{minLength=1,maxLength=512}) — Image subject to the host media policy.
 Video(src: string{maxLength=500000,pattern="^(?:data:video\\/(?:mp4|webm|ogg);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, title: string{minLength=1,maxLength=512}, poster?: string{maxLength=500000,pattern="^(?:data:image\\/(?:png|jpeg|gif|webp);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, captions?: {src: string{maxLength=12000,pattern="^(?:data:text\\/vtt(?:;charset=utf-8)?(?:;base64)?,[^\\r\\n]*|https:\\/\\/[^\\s]+)$"}, label: string{minLength=1,maxLength=512}, language: string{pattern="^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{2,8})*$"}}[]{maxItems=8}) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
+
+### views/content
+MarkdownView(data: {value: string{maxLength=12000}}) — Supplied markdown View rendered with the shared Inform foundation theme.
+SvgView(data: {viewBox: string{maxLength=12000,pattern="^\\d+\\s+\\d+\\s+\\d+\\s+\\d+$"}, shapes: ({tag: "rect" | "line" | "circle" | "path" | "text" | "polyline" | "polygon", attrs: {[key: string]: string{maxLength=12000} | number}, text?: string{maxLength=12000}})[]{minItems=1,maxItems=150}, label?: string{maxLength=12000}}) — Supplied svg View rendered with the shared Inform foundation theme.
 
 ## Built-in Functions
 
@@ -284,6 +297,8 @@ Before finishing, walk your output and verify:
 - Box usage: Box(children, options?) is a vertical flow, not an algorithm-specific component. Defaults: transparent background, no padding, md gap, no radius, auto width, no minimum height. background: transparent, surface, info, success, warning, error; semantic backgrounds use paired theme-aware text colors. padding/gap: none, xs, sm, md, lg, xl (0,4,8,12,16,24px). radius: none=0, sm=6, md=10, lg=16px. width: auto, full, grow (remaining Row space), xs=48, sm=64, md=96px; fixed tokens do not grow or shrink in a Row. minHeight: none=0, sm=24, md=32, lg=48px; content can grow taller. Nested Box can set a different surface. No arbitrary colors, CSS, HTML, selectors or URLs.
 - Image usage: Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.
 - Video usage: Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.
+- MarkdownView usage: Use MarkdownView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission.
+- SvgView usage: Use SvgView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission.
 - AreaChart: Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.
 - AreaChart: Legend visibility is local presentation state, not a second DSL state store.
 - AreaChart: Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL.
@@ -339,6 +354,12 @@ Before finishing, walk your output and verify:
 - Button: No host tools, navigation, account access or message sending.
 - Icon: No remote SVG or arbitrary path data.
 - Image: HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected.
+- MarkdownView: Supplied source data is not independently fetched or verified.
+- MarkdownView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- MarkdownView: Base composition is a target until adapter evidence confirms extraction.
+- SvgView: Supplied source data is not independently fetched or verified.
+- SvgView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
+- SvgView: Base composition is a target until adapter evidence confirms extraction.
 - ## Schema relationship constraints
 
 These compact JSON clauses use JSON Schema semantics in addition to the signatures; sibling constraints also apply. oneOf means exactly one branch; anyOf means at least one; allOf means every branch. Optional properties may be absent, including inside conditions. default is a schema annotation; its application is determined by the runtime contract. x-inform-runtime-rules are additional checks enforced by Inform runtime, not by an ordinary JSON Schema validator.
@@ -365,6 +386,11 @@ These compact JSON clauses use JSON Schema semantics in addition to the signatur
 - RadioGroup [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
 - Slider [runtime rule slider-range]: min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1.
 - Image [runtime rule raster-image-source]: src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch.
+- MarkdownView [runtime rule data-schema-MarkdownData]: The supplied data must satisfy every bound, required field and conditional branch in MarkdownData.
+- MarkdownView [runtime rule domain-markdown]: Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity.
+- SvgView [runtime rule data-schema-SvgData]: The supplied data must satisfy every bound, required field and conditional branch in SvgData.
+- SvgView [runtime rule domain-svg]: Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity.
+- SvgView.data.shapes[].attrs: {"type":"object","propertyNames":{"type":"string","maxLength":200},"additionalProperties":{"anyOf":[{"type":"string","maxLength":12000},{"type":"number"}]}}
 - CalendarDay.date [runtime rule real-calendar-day]: Use a real Gregorian calendar day YYYY-MM-DD, year 0100–9999; a matching date pattern alone is insufficient.
 - Data constructors (not renderers):
 Series(name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}): Named finite series; null is supported only by HeatmapChart as a missing cell.
@@ -373,6 +399,8 @@ Point(x: number[-1e15,1e15], y: number[-1e15,1e15]): A finite scatter coordinate
 ScatterSeries(name: string{maxLength=240}, points: {x: number[-1e15,1e15], y: number[-1e15,1e15]}[]{maxItems=512}): Named scatter dataset containing finite Point values.
 CalendarDay(date: string{pattern="^\\d{4}-\\d{2}-\\d{2}$"}, value: number[0,1e15]): ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar.
 CodeData(value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean): Literal source text and optional foundation code display settings.
+MarkdownData(value: string{maxLength=12000}): Strict supplied record for MarkdownView. Conditional variants are enforced by the same bounded validator.
+SvgData(viewBox: string{pattern="^\\d+\\s+\\d+\\s+\\d+\\s+\\d+$"}, shapes: ({tag: "rect" | "line" | "circle" | "path" | "text" | "polyline" | "polygon", attrs: {[key: string]: string{maxLength=12000} | number}{maxProperties=24}, text?: string{maxLength=12000}})[]{minItems=1,maxItems=150}, label?: string{maxLength=12000}): Strict supplied record for SvgView. Conditional variants are enforced by the same bounded validator.
 
 ## 可直接改写的最小 HTML
 
@@ -391,7 +419,7 @@ CodeData(value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern
 <main id="answer" aria-label="让图表、表格和解释一起更新"></main>
 <p id="status" role="status">正在载入答案…</p>
 <noscript>需要启用 JavaScript 才能显示这份互动答案。</noscript>
-<script id="inform-config" type="application/json">{"source":"$minimum = 60\nrows = [{name:\"读书会\",score:91},{name:\"写作课\",score:76},{name:\"分享会\",score:67},{name:\"讨论班\",score:54}]\nvisible = @Sort(@Filter(rows,\"score\",\">=\",$minimum),\"score\",\"desc\")\nroot = Stack([\n Heading(\"让图表、表格和解释一起更新\",1),\n Text(\"这组原创示例中，读书会反馈分最高，为 91 分。调整最低分，可以观察候选活动怎样变化；图表和表格始终使用同一份筛选结果。\",\"muted\"),\n Card([Slider(\"最低反馈分\",$minimum,0,100,1),Button(\"恢复 60 分\",@Reset($minimum),\"secondary\")],\"试着筛选\"),\n Text(\"达到阈值：\"+@Count(visible)+\" 场活动\"),\n @Count(visible)>0 ? Stack([\n  Text(\"候选活动的等权平均反馈分：\"+@Round(@Avg(visible.score),1)+\" 分。\"),\n  BarChart(\"候选活动反馈分\",visible.name,[Series(\"反馈分\",visible.score)],{height:280,animate:false}),\n  Table([{key:\"name\",label:\"活动\"},{key:\"score\",label:\"反馈分\"}],visible,\"与图表相同的数据\")\n ],\"lg\") : Alert(\"当前没有匹配结果\",\"把最低分调到 91 或以下，或使用恢复按钮。\",\"warning\"),\n Text(\"反馈分不能单独决定活动是否适合你。还要核对主题、时间与费用。这里没有提供这些资料，所有活动与分数都是演示数据。\"),\n Code({value:\"const passing = rows.filter(row => row.score >= minimum);\\nconst ranked = passing.toSorted((a, b) => b.score - a.score);\",language:\"javascript\"}),\n Text(\"来源：本例原创四行数据。筛选按 score ≥ 最低分；平均分按活动等权计算。\",\"muted\")\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/code","base/charts"],"viewNames":[],"theme":"light"}</script>
+<script id="inform-config" type="application/json">{"source":"$minimum = 60\nrows = [{name:\"读书会\",score:91},{name:\"写作课\",score:76},{name:\"分享会\",score:67},{name:\"讨论班\",score:54}]\nvisible = @Sort(@Filter(rows,\"score\",\">=\",$minimum),\"score\",\"desc\")\nroot = Stack([\n Heading(\"让图表、表格和解释一起更新\",1),\n Text(\"这组原创示例中，读书会反馈分最高，为 91 分。调整最低分，可以观察候选活动怎样变化；图表和表格始终使用同一份筛选结果。\",\"muted\"),\n Card([Slider(\"最低反馈分\",$minimum,0,100,1),Button(\"恢复 60 分\",@Reset($minimum),\"secondary\")],\"试着筛选\"),\n Text(\"达到阈值：\"+@Count(visible)+\" 场活动\"),\n @Count(visible)>0 ? Stack([\n  Text(\"候选活动的等权平均反馈分：\"+@Round(@Avg(visible.score),1)+\" 分。\"),\n  BarChart(\"候选活动反馈分\",visible.name,[Series(\"反馈分\",visible.score)],{height:280,animate:false}),\n  Table([{key:\"name\",label:\"活动\"},{key:\"score\",label:\"反馈分\"}],visible,\"与图表相同的数据\")\n ],\"lg\") : Alert(\"当前没有匹配结果\",\"把最低分调到 91 或以下，或使用恢复按钮。\",\"warning\"),\n Text(\"反馈分不能单独决定活动是否适合你。还要核对主题、时间与费用。这里没有提供这些资料，所有活动与分数都是演示数据。\"),\n Code({value:\"const passing = rows.filter(row => row.score >= minimum);\\nconst ranked = passing.toSorted((a, b) => b.score - a.score);\",language:\"javascript\"}),\n Text(\"来源：本例原创四行数据。筛选按 score ≥ 最低分；平均分按活动等权计算。\",\"muted\")\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/code","base/charts","views/content"],"viewNames":["MarkdownView","SvgView"],"theme":"light"}</script>
 <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@main/cdn/next/inform-ui.global.js"></script>
 <script>
 (() => {

@@ -58,7 +58,7 @@ prompt、校验与渲染使用同一组模块。CLI 默认复制匹配的本地�
 
 | 入口 | 什么时候用 |
 | --- | --- |
-| [基础版](SKILL.md) | 解释概念、展示代码、比较数据、做图表和本地交互 |
+| [基础版](SKILL.md) | 组织正文与段内富文本、解释局部关系，需要时展示数据和本地交互 |
 | [精选视图版](profiles/curated-web-chat/SKILL.md) | 在基础版之上，加入公式、指标、步骤、引文、引用和折叠说明 |
 | [Agent 按需扩展](references/catalog.md) | 已明确需要某个额外模块或 View，再加载它的精确合同 |
 
@@ -66,9 +66,9 @@ prompt、校验与渲染使用同一组模块。CLI 默认复制匹配的本地�
 
 <!-- BEGIN GENERATED PROFILE COMPONENTS -->
 <details>
-<summary><strong>基础版：40 个 UI 构造器</strong> · 展开完整组件表</summary>
+<summary><strong>基础版：42 个 UI 构造器</strong> · 展开完整组件表</summary>
 
-适合解释、数据探索、图表、代码和本地交互。 入口：[基础版](SKILL.md)。
+适合自然正文、段内富文本、局部关系图示，以及需要时的数据展示与本地交互。 入口：[基础版](SKILL.md)。
 
 | 模块 | 数量 | 包含组件 |
 | --- | ---: | --- |
@@ -79,13 +79,14 @@ prompt、校验与渲染使用同一组模块。CLI 默认复制匹配的本地�
 | 媒体 | 2 | `Image`、`Video` |
 | 代码 | 2 | `Code`、`CodeView` |
 | 图表 | 16 | `AreaChart`、`BarChart`、`HorizontalBarChart`、`LineChart`、`HeatmapChart`、`RadarChart`、`PieChart`、`RadialChart`、`FunnelChart`、`SegmentedBar`、`SingleStackedBar`、`ScatterChart`、`CalendarHeatmap`、`MiniAreaChart`、`MiniBarChart`、`MiniLineChart` |
+| 富文本、图示与内容视图 | 2 | `MarkdownView`、`SvgView` |
 
-另含 6 个数据构造器：`Series`、`Slice`、`Point`、`ScatterSeries`、`CalendarDay`、`CodeData`。它们用于组织输入，不计入 UI 构造器数量。
+另含 8 个数据构造器：`Series`、`Slice`、`Point`、`ScatterSeries`、`CalendarDay`、`CodeData`、`MarkdownData`、`SvgData`。它们用于组织输入，不计入 UI 构造器数量。
 
 </details>
 
 <details>
-<summary><strong>精选视图版：49 个 UI 构造器</strong> · 展开完整组件表</summary>
+<summary><strong>精选视图版：51 个 UI 构造器</strong> · 展开完整组件表</summary>
 
 完整包含基础版，再增加 9 个内容视图，适合公式、步骤、指标、引用和折叠说明。 入口：[精选视图版](profiles/curated-web-chat/SKILL.md)。
 
@@ -98,9 +99,9 @@ prompt、校验与渲染使用同一组模块。CLI 默认复制匹配的本地�
 | 媒体 | 2 | `Image`、`Video` |
 | 代码 | 2 | `Code`、`CodeView` |
 | 图表 | 16 | `AreaChart`、`BarChart`、`HorizontalBarChart`、`LineChart`、`HeatmapChart`、`RadarChart`、`PieChart`、`RadialChart`、`FunnelChart`、`SegmentedBar`、`SingleStackedBar`、`ScatterChart`、`CalendarHeatmap`、`MiniAreaChart`、`MiniBarChart`、`MiniLineChart` |
-| 精选内容视图 | 9 | `MathView`、`BlockquoteView`、`SectionView`、`FigureView`、`DetailsView`、`CitationView`、`MetricView`、`StepsView`、`ChecklistView` |
+| 富文本、图示与内容视图 | 11 | `MarkdownView`、`MathView`、`BlockquoteView`、`SectionView`、`FigureView`、`DetailsView`、`CitationView`、`MetricView`、`StepsView`、`ChecklistView`、`SvgView` |
 
-另含 15 个数据构造器：`Series`、`Slice`、`Point`、`ScatterSeries`、`CalendarDay`、`CodeData`、`MathData`、`BlockquoteData`、`SectionData`、`FigureData`、`DetailsData`、`CitationData`、`MetricData`、`StepsData`、`ChecklistData`。它们用于组织输入，不计入 UI 构造器数量。
+另含 17 个数据构造器：`Series`、`Slice`、`Point`、`ScatterSeries`、`CalendarDay`、`CodeData`、`MarkdownData`、`MathData`、`BlockquoteData`、`SectionData`、`FigureData`、`DetailsData`、`CitationData`、`MetricData`、`StepsData`、`ChecklistData`、`SvgData`。它们用于组织输入，不计入 UI 构造器数量。
 
 </details>
 
@@ -129,7 +130,7 @@ HTML 示例随完整仓库下载后可直接打开。数据均为示例；Agent 
 
 ## 文档与使用边界
 
-- [组件目录](references/catalog.md) · [DSL 语法](references/dialect.md) · [HTML 交付](references/delivery.md)
+- [组件目录](references/catalog.md) · [DSL 语法](references/dialect.md) · [富文本与局部图示](references/rich-content.md) · [HTML 交付](references/delivery.md)
 - [维护与测试](references/maintenance.md) · [问题反馈](https://github.com/Micraow/Inform-UI-skill/issues)
 
 这里处理给定数据和页面本地状态。外部查询、发送、订票或付款需要宿主另行接入。精简 profile 限定模型可用的组件合同，浏览器仍加载完整 bundle。图片、媒体、宿主权限、CSP 和剪贴板能力各有边界，详见交付说明。

@@ -10,7 +10,7 @@
   "noticesSha256": "83536fb188d63c53d131bb509a7bac87b94825316ffa57ffb85724f74079f674",
   "nodeRuntimeSha256": "2164d7681c77d97be1847804ec69d1f74484cb69f19e5df63693701f15282d9f",
   "runtimeUpdateSemantics": "The default main URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.",
-  "promptProseProjection": "declaration-lines-and-root-position/1",
+  "promptProseProjection": "declaration-lines-root-position-and-trailing-space/2",
   "bundledRuntimeReady": true,
   "gitPublication": {
     "repository": "Micraow/Inform-UI",
@@ -34,9 +34,13 @@
         "base/icon",
         "base/media",
         "base/code",
-        "base/charts"
+        "base/charts",
+        "views/content"
       ],
-      "viewNames": [],
+      "viewNames": [
+        "MarkdownView",
+        "SvgView"
+      ],
       "modules": [
         "base/chart-data",
         "base/charts",
@@ -45,10 +49,11 @@
         "base/controls",
         "base/icon",
         "base/layout",
-        "base/media"
+        "base/media",
+        "views/content"
       ],
-      "uiComponents": 40,
-      "dataConstructors": 6,
+      "uiComponents": 42,
+      "dataConstructors": 8,
       "glyphShortlist": [
         "Check",
         "Info",
@@ -67,9 +72,9 @@
         "CircleQuestion",
         "Link"
       ],
-      "promptBytes": 42612,
-      "skillBytes": 60833,
-      "schemaBytes": 107406,
+      "promptBytes": 45695,
+      "skillBytes": 65895,
+      "schemaBytes": 115096,
       "sourceSha256": "c7183345044a36f67197095d56d9c30080e8ab0da3b120b8baa6e8779fcda880"
     },
     {
@@ -100,7 +105,9 @@
         "DetailsView",
         "CitationView",
         "BlockquoteView",
-        "ChecklistView"
+        "ChecklistView",
+        "MarkdownView",
+        "SvgView"
       ],
       "modules": [
         "base/chart-data",
@@ -113,8 +120,8 @@
         "base/media",
         "views/content"
       ],
-      "uiComponents": 49,
-      "dataConstructors": 15,
+      "uiComponents": 51,
+      "dataConstructors": 17,
       "glyphShortlist": [
         "Check",
         "Info",
@@ -133,9 +140,9 @@
         "CircleQuestion",
         "Link"
       ],
-      "promptBytes": 55016,
-      "skillBytes": 73864,
-      "schemaBytes": 150840,
+      "promptBytes": 58071,
+      "skillBytes": 78735,
+      "schemaBytes": 159150,
       "sourceSha256": "a93fa07dfe7aca0dbb062acd3ef985803dba5111596028a764596cd199791fd8"
     }
   ],

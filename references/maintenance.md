@@ -1,13 +1,19 @@
 # Maintenance
 
-Use Node.js 22 or later. The normal checks require no dependency installation.
+Use Node.js 22 or later. The authoring CLI and bundled contract checks require no
+dependency installation. The full test suite additionally uses lock-pinned JSDOM
+as a development-only DOM harness:
 
 ```sh
+npm ci --ignore-scripts
 npm run check
 ```
 
-This regenerates example HTML and runs the Node tests, complete contract audit
-and Web Chat profile checks. Reports written by the optional verification scripts
+This regenerates example HTML and runs the strict Node contract tests, separate
+Node/JSDOM tests, complete contract audit and Web Chat profile checks. The strict
+contract group keeps `--disallow-code-generation-from-strings`; JSDOM requires
+dynamic code generation for its own selector implementation. That test-only
+requirement does not allow DSL JavaScript, browser execution or CDN probing. Reports written by the optional verification scripts
 belong in `.reports/`, which is ignored by Git. Keep reusable tests and fixtures;
 do not commit one-off run logs or receipt copies.
 
@@ -19,11 +25,14 @@ do not commit one-off run logs or receipt copies.
   lock from a built Inform UI runtime. See [delivery](delivery.md) for its command.
 - `scripts/generate-web-chat.mjs` generates the single-file Skills, profiles and
   `generated/build.json` from the same runtime. Use `--validation-stage local`
-  until a matching public runtime has actually been observed; the script accepts
-  an explicit `--http-receipt` for a verified publication.
+  before Git publication. After recording the matching main commit, use
+  `--validation-stage git-published-unverified --git-release-commit <full-sha>`
+  without claiming an HTTP observation. The optional `published` stage requires
+  an explicit verified `--http-receipt`. Automatic CI checks only bundled assets;
+  an online byte check requires explicit manual opt-in.
 - `generated/build.json` records the bundled snapshot and publication provenance.
   Dated HTTP observations describe that observation only, not current CDN state.
-- `scripts/prompt-projection.mjs` adjusts two verified prose descriptions without
+- `scripts/prompt-projection.mjs` adjusts two verified prose descriptions and removes trailing whitespace without
   changing component signatures. If upstream text changes, review it before
   updating the projection.
 

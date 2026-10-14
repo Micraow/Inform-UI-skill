@@ -122,6 +122,9 @@
     "Video": {
       "$ref": "#/$defs/Video"
     },
+    "MarkdownView": {
+      "$ref": "#/$defs/MarkdownView"
+    },
     "MathView": {
       "$ref": "#/$defs/MathView"
     },
@@ -148,6 +151,9 @@
     },
     "ChecklistView": {
       "$ref": "#/$defs/ChecklistView"
+    },
+    "SvgView": {
+      "$ref": "#/$defs/SvgView"
     }
   },
   "required": [
@@ -191,6 +197,7 @@
     "Box",
     "Image",
     "Video",
+    "MarkdownView",
     "MathView",
     "BlockquoteView",
     "SectionView",
@@ -199,7 +206,8 @@
     "CitationView",
     "MetricView",
     "StepsView",
-    "ChecklistView"
+    "ChecklistView",
+    "SvgView"
   ],
   "additionalProperties": false,
   "$defs": {
@@ -3356,6 +3364,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -3381,6 +3392,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -3534,6 +3548,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -3559,6 +3576,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -3750,6 +3770,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -3775,6 +3798,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -3940,6 +3966,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -3965,6 +3994,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -4112,6 +4144,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -4137,6 +4172,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -4307,6 +4345,47 @@
       "additionalProperties": false,
       "id": "Video",
       "description": "Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy."
+    },
+    "MarkdownView": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "maxLength": 12000
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false,
+      "id": "MarkdownView",
+      "description": "Supplied markdown View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-MarkdownData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MarkdownData."
+        },
+        {
+          "id": "domain-markdown",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ]
     },
     "MathView": {
       "type": "object",
@@ -4498,6 +4577,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -4523,6 +4605,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -4693,6 +4778,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -4718,6 +4806,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -4888,6 +4979,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -4913,6 +5007,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -5087,6 +5184,9 @@
                 "$ref": "#/$defs/Video"
               },
               {
+                "$ref": "#/$defs/MarkdownView"
+              },
+              {
                 "$ref": "#/$defs/MathView"
               },
               {
@@ -5112,6 +5212,9 @@
               },
               {
                 "$ref": "#/$defs/ChecklistView"
+              },
+              {
+                "$ref": "#/$defs/SvgView"
               }
             ]
           }
@@ -5510,6 +5613,122 @@
         }
       ]
     },
+    "SvgView": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "viewBox": {
+              "type": "string",
+              "maxLength": 12000,
+              "pattern": "^\\d+\\s+\\d+\\s+\\d+\\s+\\d+$"
+            },
+            "shapes": {
+              "minItems": 1,
+              "maxItems": 150,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "const": "rect"
+                      },
+                      {
+                        "type": "string",
+                        "const": "line"
+                      },
+                      {
+                        "type": "string",
+                        "const": "circle"
+                      },
+                      {
+                        "type": "string",
+                        "const": "path"
+                      },
+                      {
+                        "type": "string",
+                        "const": "text"
+                      },
+                      {
+                        "type": "string",
+                        "const": "polyline"
+                      },
+                      {
+                        "type": "string",
+                        "const": "polygon"
+                      }
+                    ]
+                  },
+                  "attrs": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string",
+                      "maxLength": 200
+                    },
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "maxLength": 12000
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    }
+                  },
+                  "text": {
+                    "type": "string",
+                    "maxLength": 12000
+                  }
+                },
+                "required": [
+                  "tag",
+                  "attrs"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "label": {
+              "type": "string",
+              "maxLength": 12000
+            }
+          },
+          "required": [
+            "viewBox",
+            "shapes"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false,
+      "id": "SvgView",
+      "description": "Supplied svg View rendered with the shared Inform foundation theme.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "data-schema-SvgData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SvgData."
+        },
+        {
+          "id": "domain-svg",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ]
+    },
     "Series": {
       "type": "object",
       "properties": {
@@ -5676,6 +5895,20 @@
       ],
       "additionalProperties": false,
       "description": "Literal source text and optional foundation code display settings."
+    },
+    "MarkdownData": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false,
+      "description": "Strict supplied record for MarkdownView. Conditional variants are enforced by the same bounded validator."
     },
     "MathData": {
       "type": "object",
@@ -5979,6 +6212,70 @@
       ],
       "additionalProperties": false,
       "description": "Strict supplied record for ChecklistView. Conditional variants are enforced by the same bounded validator."
+    },
+    "SvgData": {
+      "type": "object",
+      "properties": {
+        "viewBox": {
+          "type": "string",
+          "pattern": "^\\d+\\s+\\d+\\s+\\d+\\s+\\d+$"
+        },
+        "shapes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "enum": [
+                  "rect",
+                  "line",
+                  "circle",
+                  "path",
+                  "text",
+                  "polyline",
+                  "polygon"
+                ]
+              },
+              "attrs": {
+                "type": "object",
+                "maxProperties": 24,
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "maxLength": 12000
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                }
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 12000
+              }
+            },
+            "required": [
+              "tag",
+              "attrs"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 150
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "viewBox",
+        "shapes"
+      ],
+      "additionalProperties": false,
+      "description": "Strict supplied record for SvgView. Conditional variants are enforced by the same bounded validator."
     }
   }
 }

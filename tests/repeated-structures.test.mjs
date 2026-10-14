@@ -38,7 +38,7 @@ for (const path of ['SKILL.md','profiles/web-chat-core/SKILL.md','profiles/curat
 }
 
 test('nested data templates expand to the same component tree as explicit components', () => {
-  const expanded = 'root = Stack([Card([Row([Badge("甲"),Badge("乙")],"sm")],"第一组"),Card([Row([Badge("丙")],"sm")],"第二组")],"md")';
+  const expanded = 'root = Stack([Stack([Heading("第一组",2),Stack([Text("甲"),Text("乙")],"xs")],"sm"),Stack([Heading("第二组",2),Stack([Text("丙")],"xs")],"sm")],"md")';
   const loop = api.createRuntime(profile), explicit = api.createRuntime(profile);
   try {
     assert.deepEqual(accept(loop.commit(compactSource)).tree, accept(explicit.commit(expanded)).tree);

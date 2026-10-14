@@ -11,10 +11,15 @@
     "inform-answer": "./scripts/inform-answer.mjs"
   },
   "scripts": {
-    "test": "node --disallow-code-generation-from-strings --test tests/*.test.mjs",
+    "test": "npm run test:contracts && npm run test:dom",
     "examples": "node scripts/build-examples.mjs",
     "check": "npm run examples && npm test && npm run check:contracts && npm run check:profiles",
     "check:contracts": "node --max-old-space-size=256 --disallow-code-generation-from-strings scripts/verify-contracts.mjs",
-    "check:profiles": "node --disallow-code-generation-from-strings scripts/verify-web-chat.mjs --runtime-dir assets/runtime"
+    "check:profiles": "node --disallow-code-generation-from-strings scripts/verify-web-chat.mjs --runtime-dir assets/runtime",
+    "test:contracts": "node --disallow-code-generation-from-strings --test tests/*.test.mjs",
+    "test:dom": "node --test tests/dom/*.test.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
   }
 }

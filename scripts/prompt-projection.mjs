@@ -1,6 +1,6 @@
 // Correct two prose-only hints in the pinned runtime's generated prompt.
 // Signatures, allowed names, examples and validation schema remain unchanged.
-export const promptProseProjection = 'declaration-lines-and-root-position/1';
+export const promptProseProjection = 'declaration-lines-root-position-and-trailing-space/2';
 export function webChatPrompt(prompt) {
   const replacements = [
     ['1. Each statement is on its own line: `identifier = Expression`',
@@ -12,5 +12,5 @@ export function webChatPrompt(prompt) {
     if (!prompt.includes(before)) throw Error('Runtime prompt changed; review the prose projection before regenerating.');
     prompt = prompt.replace(before, after);
   }
-  return prompt;
+  return prompt.replace(/[ \t]+$/gm, '');
 }

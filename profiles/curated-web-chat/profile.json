@@ -26,7 +26,9 @@
     "DetailsView",
     "CitationView",
     "BlockquoteView",
-    "ChecklistView"
+    "ChecklistView",
+    "MarkdownView",
+    "SvgView"
   ],
   "modules": [
     "base/chart-data",
@@ -39,8 +41,8 @@
     "base/media",
     "views/content"
   ],
-  "uiComponents": 49,
-  "dataConstructors": 15,
+  "uiComponents": 51,
+  "dataConstructors": 17,
   "glyphShortlist": [
     "Check",
     "Info",

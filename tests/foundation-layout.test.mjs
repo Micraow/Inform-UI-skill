@@ -64,9 +64,9 @@ test('README folded component tables are generated from both exact profile manif
   const curated = JSON.parse(await read('profiles/curated-web-chat/manifest.json'));
   const readme = await read('README.md');
   assert.equal(readme.slice(readme.indexOf(begin),readme.indexOf(end) + end.length),componentTables(core,curated));
-  assert.equal(core.components.length,40);
-  assert.equal(curated.components.length,49);
-  assert.equal(curated.components.filter(component => component.moduleId.startsWith('views/')).length,9);
+  assert.equal(core.components.length,42);
+  assert.equal(curated.components.length,51);
+  assert.equal(curated.components.filter(component => component.moduleId.startsWith('views/')).length,11);
   assert.equal((readme.match(/<details>/g) || []).length,2);
   const stale = structuredClone(curated);
   stale.components = stale.components.filter(component => component.name !== 'Box');

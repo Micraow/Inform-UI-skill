@@ -1,6 +1,6 @@
 {
   "format": "inform-component-contract/2",
-  "id": "inform/v2/base/layout+base/text+base/controls+base/icon+base/media+base/code+base/charts",
+  "id": "inform/v2/base/layout+base/text+base/controls+base/icon+base/media+base/code+base/charts+views/content",
   "root": "Stack",
   "openuiRevision": "cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7",
   "requestedModules": [
@@ -10,7 +10,8 @@
     "base/icon",
     "base/media",
     "base/code",
-    "base/charts"
+    "base/charts",
+    "views/content"
   ],
   "modules": [
     "base/chart-data",
@@ -20,14 +21,16 @@
     "base/controls",
     "base/icon",
     "base/layout",
-    "base/media"
+    "base/media",
+    "views/content"
   ],
   "runtimeResources": [
     "inform/tokens",
     "inform/charts-css",
     "inform/safety-kernel",
     "inform/foundation",
-    "inform/charts"
+    "inform/charts",
+    "inform/views"
   ],
   "moduleDefinitions": [
     {
@@ -168,6 +171,27 @@
         "Video"
       ],
       "dataShapes": []
+    },
+    {
+      "id": "views/content",
+      "layer": "domain",
+      "dependsOn": [
+        "base/layout",
+        "base/controls",
+        "base/media",
+        "base/icon"
+      ],
+      "runtimeRequires": [
+        "inform/views"
+      ],
+      "components": [
+        "MarkdownView",
+        "SvgView"
+      ],
+      "dataShapes": [
+        "MarkdownData",
+        "SvgData"
+      ]
     }
   ],
   "components": [
@@ -2199,6 +2223,102 @@
           }
         }
       ]
+    },
+    {
+      "name": "MarkdownView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "MarkdownView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-MarkdownData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in MarkdownData."
+        },
+        {
+          "id": "domain-markdown",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use MarkdownView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "markdown",
+          "description": "Synthetic supplied record. Public synthetic example: examples/component-collection.json",
+          "source": "root = Stack([MarkdownView({\"value\":\"# Markdown notes\\n\\n## Overview\\n### Scope\\n#### Details\\n##### Limits\\n###### End\\n\\nLiteral Unicode 中文 😀 עברית. *Emphasis*, **strong**, _alternate_, __alternate strong__ and `literal <code>`.\\n\\n- First\\n- Second\\n\\n3. Third\\n4. Fourth\\n\\n> One-level quote\\n\\n```text\\nconst message = \\\"中文 😀\\\";\\n<not-html>\\n```\\n\\n[Example source](https://example.test/read)\\n\\n![Images remain literal](https://example.test/no-image.png)\"})])"
+        }
+      ]
+    },
+    {
+      "name": "SvgView",
+      "moduleId": "views/content",
+      "layer": "domain",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "SvgView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "data-schema-SvgData",
+          "paths": [
+            "data"
+          ],
+          "rule": "The supplied data must satisfy every bound, required field and conditional branch in SvgData."
+        },
+        {
+          "id": "domain-svg",
+          "paths": [
+            "data"
+          ],
+          "complete": false,
+          "rule": "Additional domain-specific runtime checks are present but not yet exhaustively projected. Use the actual runtime to validate the final DSL; JSON Schema alone does not establish validity."
+        }
+      ],
+      "limitations": [
+        "Supplied source data is not independently fetched or verified.",
+        "Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.",
+        "Base composition is a target until adapter evidence confirms extraction."
+      ],
+      "docs": "Use SvgView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. ",
+      "examples": [
+        {
+          "id": "svg",
+          "description": "Synthetic supplied record. Public synthetic example: examples/kitchen-sink.json",
+          "source": "root = Stack([SvgView({\"viewBox\":\"0 0 300 90\",\"label\":\"三个相连的实验阶段\",\"shapes\":[{\"tag\":\"line\",\"attrs\":{\"x1\":40,\"y1\":45,\"x2\":260,\"y2\":45,\"stroke\":\"#48768c\",\"stroke-width\":3}},{\"tag\":\"circle\",\"attrs\":{\"cx\":40,\"cy\":45,\"r\":20,\"fill\":\"#cde4ee\"}},{\"tag\":\"rect\",\"attrs\":{\"x\":120,\"y\":25,\"width\":60,\"height\":40,\"rx\":8,\"fill\":\"#cde4ee\"}},{\"tag\":\"polygon\",\"attrs\":{\"points\":\"260,20 282,45 260,70 238,45\",\"fill\":\"#cde4ee\"}}]})])"
+        }
+      ]
     }
   ],
   "dataShapes": [
@@ -2259,6 +2379,24 @@
         "showLanguage"
       ],
       "description": "Literal source text and optional foundation code display settings."
+    },
+    {
+      "name": "MarkdownData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "value"
+      ],
+      "description": "Strict supplied record for MarkdownView. Conditional variants are enforced by the same bounded validator."
+    },
+    {
+      "name": "SvgData",
+      "moduleId": "views/content",
+      "orderedProps": [
+        "viewBox",
+        "shapes",
+        "label"
+      ],
+      "description": "Strict supplied record for SvgView. Conditional variants are enforced by the same bounded validator."
     }
   ],
   "externalServices": []
