@@ -37,7 +37,7 @@
 
 **当前使用匹配的随包运行库。** 把 `assets/runtime/inform-ui.global.js` 和 `THIRD_PARTY_NOTICES.txt` 放到 HTML 旁，并将 script 地址改成 `./inform-ui.global.js`。[详细交付说明](references/delivery.md)
 
-随包快照已包含扩展的代码语法高亮；main 在线入口仍可能返回旧缓存，尚未核实与本次新快照一致。准确的发布状态与 HTTP 观察见 `generated/build.json`。源码与 CDN 文件入库不代表各地缓存已更新。
+随包快照已包含扩展的代码语法高亮。在线入口使用 Inform UI 的 main DSL 运行库；`generated/build.json` 保留构建身份及最近一次独立核验记录，不能把旧的缓存观察当作当前在线状态。
 
 ### Agent：按需发现，按同一合同校验
 
@@ -51,6 +51,8 @@ node scripts/inform-answer.mjs build examples/filter-sort-chart.openui --out out
 ```
 
 prompt、校验与渲染使用同一组模块。CLI 默认复制匹配的本地运行库。接入自己的模型服务，见 [JavaScript / TypeScript 集成示例](examples/agent-integration/)。
+
+输入统一为 `.openui` DSL；HTML 配置里的 JSON 仅承载 DSL 字符串和渲染选项，不是另一套 UI 编写格式。底层库的公开根入口、`/browser`、`/core` 和 CLI 也统一使用 DSL，见 [Inform UI API](https://github.com/Micraow/Inform-UI/blob/main/docs/api.md)。本 Skill 随仓库使用，无需发布或安装 npm 包。
 
 ## 选一个入口
 

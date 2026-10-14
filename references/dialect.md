@@ -2,6 +2,10 @@
 
 Inform derives its lexer, Pratt grammar, AST and library contracts from OpenUI revision cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7. Its local interpreter, state transactions and host bindings have explicit stricter behavior. This is not a full upstream-runtime compatibility claim.
 
+## Public input
+
+Author answers as DSL source text (`.openui`). The HTML configuration encodes this text as a JSON string; it does not accept the historical `iui/1` JSON document format. Parser AST, evaluated trees, catalogs and JSON metadata remain internal or diagnostic representations. Use the root, `/browser` or `/core` entry when integrating the Inform UI library; there is no separate legacy authoring entry.
+
 ## Expressions and declarations
 
 Each declaration starts on a new line: name = expression. A multi-line array/component expression may continue across lines. Forward references are allowed, but duplicate declarations, unknown references and dependency cycles are rejected, even in unused declarations. Unused valid declarations do not render. The final root must evaluate to Stack.
