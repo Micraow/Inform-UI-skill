@@ -10,9 +10,18 @@ export function assertPublicationEvidence(build) {
   assert.match(build.sourceCommit, /^[a-f0-9]{40}$/);
   assert.match(build.runtimeSha256, /^[a-f0-9]{64}$/);
   const stage = build.validationStage;
-  assert(['local', 'published', 'git-published-cdn-pending'].includes(stage), 'Unknown publication stage');
+  assert(['local', 'published', 'git-published-cdn-pending', 'git-published-unverified'].includes(stage), 'Unknown publication stage');
   if (stage === 'local') {
     assert.equal(build.publicationReady, false);
+    return;
+  }
+  if (stage === 'git-published-unverified') {
+    assert.equal(build.publicationReady, false);
+    assert.equal(build.bundledRuntimeReady, true);
+    assert.equal(build.runtimeHTTP, null, 'Unverified publication must not invent an HTTP observation');
+    assert.equal(build.gitPublication?.repository, 'Micraow/Inform-UI');
+    assert.equal(build.gitPublication?.sourceCommit, build.sourceCommit);
+    assert.match(build.gitPublication?.commit ?? '', /^[a-f0-9]{40}$/);
     return;
   }
   const http = build.runtimeHTTP;

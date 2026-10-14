@@ -47,6 +47,7 @@ for(const def of definitions){
  assert.equal((html.match(/<script/g)||[]).length,3);
  assert(skill.includes('无需终端、CLI、npm、React 工程'));
  if(build.validationStage==='local'){assert(skill.includes('当前运行库准备'));assert(skill.includes('把唯一的外部 script src 改为 ./inform-ui.global.js'));assert(skill.includes('不能直接视为新组件已经上线'));}
+ if(build.validationStage==='git-published-unverified'){assert(skill.includes('匹配的运行库已提交到 main'));assert(skill.includes('没有独立核验线上缓存或浏览器表现'));assert(!skill.includes('下方带 main 外链的 HTML 是发布模板'));}
  if(def.skillPath==='SKILL.md'){
   assert(skill.includes('Agent 按需扩展'));assert(skill.includes('scripts/inform-answer.mjs'));
   const webSkill=await readFile(join(dir,'SKILL.md'),'utf8');
@@ -79,6 +80,6 @@ for(const def of definitions){
  }finally{runtime.dispose();}
  checks.push({profile:def.id,uiComponents:config.uiComponents,dataConstructors:config.dataConstructors,contractEquality:true,htmlMatchesSkill:true,finalCommit:true,stateTransitions:true,unselectedViewsRejected:true,glyphNamesValidated:true});
 }
-const report={format:'inform-web-chat-verification/1',publicationReady:build.publicationReady,validationStage:build.validationStage,sourceCommit:build.sourceCommit,runtimeSha256:build.runtimeSha256,codeGenerationFromStrings:process.execArgv.includes('--disallow-code-generation-from-strings')?'disabled':'not disabled in this invocation',profiles:checks,browser:'not run by this script',externalRuntimeURL:build.runtimeHTTP?{method:build.runtimeHTTP.method,status:build.runtimeHTTP.status,contentType:build.runtimeHTTP.contentType,accessControlAllowOrigin:build.runtimeHTTP.accessControlAllowOrigin,publishedBlobMatchesSnapshot:build.runtimeHTTP.publishedSha256===build.runtimeSha256,cacheState:build.runtimeHTTP.cacheState??'observed snapshot match only',purgeStatus:build.runtimeHTTP.purgeStatus??'not required for recorded observation',browserExecution:'not run'}:'must be independently verified against the published bundle'};
+const report={format:'inform-web-chat-verification/1',publicationReady:build.publicationReady,validationStage:build.validationStage,sourceCommit:build.sourceCommit,runtimeSha256:build.runtimeSha256,codeGenerationFromStrings:process.execArgv.includes('--disallow-code-generation-from-strings')?'disabled':'not disabled in this invocation',profiles:checks,browser:'not run by this script',externalRuntimeURL:build.runtimeHTTP?{method:build.runtimeHTTP.method,status:build.runtimeHTTP.status,contentType:build.runtimeHTTP.contentType,accessControlAllowOrigin:build.runtimeHTTP.accessControlAllowOrigin,publishedBlobMatchesSnapshot:build.runtimeHTTP.publishedSha256===build.runtimeSha256,cacheState:build.runtimeHTTP.cacheState??'observed snapshot match only',purgeStatus:build.runtimeHTTP.purgeStatus??'not required for recorded observation',browserExecution:'not run'}:'not independently checked; Git publication and bundled validation do not establish CDN or browser behavior'};
 await mkdir(join(root,'.reports'),{recursive:true});
 await writeFile(join(root,'.reports/web-chat.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

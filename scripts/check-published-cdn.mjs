@@ -11,7 +11,9 @@ const readJSON = async path => JSON.parse(await readFile(join(root, path), 'utf8
 const build = await readJSON('generated/build.json');
 const lock = await readJSON('generated/runtime-lock.json');
 assertPublicationEvidence(build);
-assert.equal(build.publicationReady, true);
+// An explicit online check can establish fresh evidence for a Git-only release.
+assert.notEqual(build.validationStage, 'local', 'Publish the matching Git artifact before an online check');
+assert.equal(build.sourceCommit, lock.sourceRef);
 assert.equal(new URL(build.runtimeURL).search, '');
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const observations = [];

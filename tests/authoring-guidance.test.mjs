@@ -35,3 +35,95 @@ test('curated starter omits an automatic end-of-answer checklist without removin
   assert((await read('profiles/curated-web-chat/prompt.txt')).includes('ChecklistView('));
   assert(!(await read('scripts/verify-web-chat.mjs')).includes('Starter must demonstrate'));
 });
+
+const layoutHeading = '## 布局也是表达的一部分';
+const layoutGuidance = text => text.slice(text.indexOf(layoutHeading), text.indexOf(end));
+for (const path of ['SKILL.md', 'profiles/web-chat-core/SKILL.md', 'profiles/curated-web-chat/SKILL.md']) {
+  test(path + ' teaches content-led text layout without requiring a card template', async () => {
+    const skill = await read(path);
+    assert(skill.includes(layoutHeading));
+    assert.equal(layoutGuidance(skill), layoutGuidance(generator));
+    assert(skill.indexOf(layoutHeading) < skill.indexOf('## 同源自动生成的 DSL 合同'));
+    for (const principle of [
+      '即使只有文字', '真实章节层级', '组与组间距较大', '连续论述用纵向流',
+      '不要用空格凑列', '行宽与阅读节奏', 'responsive:"stack"', 'wrap:"wrap"',
+      '没有任意 CSS、像素宽度、行高或断点参数', '避免卡片套卡片',
+      '不强制标题、摘要、卡片或固定结尾', '不把这些检查转成每份答案都必须出现的版式清单',
+    ]) assert(layoutGuidance(skill).includes(principle), principle);
+  });
+}
+
+test('text-only layout advice uses the actual profile contracts without cards or extra Views', async () => {
+  const {loadRuntime} = await import('../scripts/lib.mjs');
+  const api = await loadRuntime();
+  // Original, domain-neutral contract exercise; not a mandatory answer template.
+  const source = `
+root = Stack([
+  Heading("Overview",1),
+  Text("The main answer.","default","start","lg","semibold"),
+  Stack([
+    Heading("Details",2),
+    Text("A complete paragraph follows the reading order."),
+    Text("Supporting context.","muted","start","sm")
+  ],"sm"),
+  Grid([
+    Stack([Heading("First",3),Text("One related point.")],"xs"),
+    Stack([Heading("Second",3),Text("Another related point.")],"xs")
+  ],2,"md","stack"),
+  Row([Text("Label"),Text("Value")],"sm","start",{wrap:"wrap",distribution:"natural",justify:"start"}),
+  Box([Text("A short supporting note.")],{width:"full",padding:"sm",gap:"xs",background:"transparent"})
+],"lg")`;
+  for (const directory of ['web-chat-core', 'curated-web-chat']) {
+    const config = JSON.parse(await read('profiles/' + directory + '/profile.json'));
+    const runtime = api.createRuntime(api.createProfile({select:config.select,viewNames:config.viewNames}));
+    try {
+      const result = runtime.commit(source);
+      assert.equal(result.ok, true, JSON.stringify(result.issues));
+    } finally { runtime.dispose(); }
+  }
+});
+
+const compositionHeading = '## 从内容关系组合组件';
+const compositionGuidance = text => text.slice(text.indexOf(compositionHeading), text.indexOf(end));
+for (const path of ['SKILL.md', 'profiles/web-chat-core/SKILL.md', 'profiles/curated-web-chat/SKILL.md']) {
+  test(path + ' teaches composition from relationships within finite DSL capabilities', async () => {
+    const skill = await read(path);
+    assert(skill.includes(compositionHeading));
+    assert.equal(compositionGuidance(skill), compositionGuidance(generator));
+    for (const principle of [
+      '先拆出内容单元', '先定外层排布，再填内层组件', '并列单元共享的标题',
+      '有文字标签的 Box', 'Divider 是主题分隔线', '没有绝对坐标、自由连线或任意绘图能力',
+      '外层组与内层条目分别展开', '模板必须内联', '读取同一份派生结果', '没有交互需求就保持静态组合',
+    ]) assert(compositionGuidance(skill).includes(principle), principle);
+  });
+}
+
+test('original nested composition validates in both profiles using only foundation components', async () => {
+  const {loadRuntime} = await import('../scripts/lib.mjs');
+  const api = await loadRuntime();
+  const source = `
+sections = [
+  {title:"First",items:[{label:"A",detail:"A short explanation."},{label:"B",detail:"A longer explanation stays within the same information structure."}]},
+  {title:"Second",items:[{label:"C",detail:"Another point."}]}
+]
+root = Stack([
+  Heading("Related information",1),
+  Text("Shared context belongs before the parallel groups."),
+  Grid(@Each(sections,"section",Stack([
+    Heading(section.title,2),
+    Stack(@Each(section.items,"item",Box([
+      Row([Icon("Info","Supporting point"),Text(item.label,"default","start","md","semibold")],"sm","start",{wrap:"wrap"}),
+      Text(item.detail)
+    ],{background:"surface",padding:"sm",gap:"xs",width:"full"})),"sm")
+  ],"sm")),2,"lg","stack"),
+  Text("Shared supporting context follows the groups.","muted","start","sm")
+],"lg")`;
+  for (const directory of ['web-chat-core', 'curated-web-chat']) {
+    const config = JSON.parse(await read('profiles/' + directory + '/profile.json'));
+    const runtime = api.createRuntime(api.createProfile({select:config.select,viewNames:config.viewNames}));
+    try {
+      const result = runtime.commit(source);
+      assert.equal(result.ok, true, JSON.stringify(result.issues));
+    } finally { runtime.dispose(); }
+  }
+});

@@ -1,4 +1,4 @@
-name: Published main CDN integrity
+name: Bundled runtime contracts
 on:
   push:
     branches: [main]
@@ -12,6 +12,11 @@ on:
       - 'tests/fixtures/foundation-layered-work.openui'
       - 'examples/repeated-groups.openui'
   workflow_dispatch:
+    inputs:
+      verify_cdn:
+        description: Explicitly verify canonical CDN bytes
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -26,6 +31,7 @@ jobs:
         with:
           node-version: '22'
       - name: Verify canonical CDN bytes without browser execution
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_cdn }}
         run: node scripts/check-published-cdn.mjs --bytes-only
       - name: Verify bundled runtime contracts and profiles
         run: npm run check:contracts && npm run check:profiles

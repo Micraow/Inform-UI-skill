@@ -40,14 +40,34 @@ test('published evidence rejects a noncanonical runtime URL', () => {
   assert.throws(() => assertPublicationEvidence(changed));
 });
 
-test('automatic publication checks do not install or execute a browser', async () => {
+test('automatic checks remain offline; CDN verification requires explicit opt-in', async () => {
   const workflow = await readFile(new URL('../.github/workflows/cdn-main-smoke.yml', import.meta.url), 'utf8');
-  assert.match(workflow, /name: Published main CDN integrity/);
+  assert.match(workflow, /name: Bundled runtime contracts/);
+  assert.match(workflow, /workflow_dispatch:\n    inputs:\n      verify_cdn:/);
+  assert.match(workflow, /type: boolean\n        default: false/);
+  assert(workflow.includes("- name: Verify canonical CDN bytes without browser execution\n        if: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_cdn }}"));
   assert.match(workflow, /node scripts\/check-published-cdn\.mjs --bytes-only/);
   assert.match(workflow, /npm run check:contracts && npm run check:profiles/);
   assert.doesNotMatch(workflow, /playwright|chromium|--with-deps/i);
   const script = await readFile(new URL('../scripts/check-published-cdn.mjs', import.meta.url), 'utf8');
+  assert(script.includes("assert.notEqual(build.validationStage, 'local'"));
+  assert(script.includes('assert.equal(build.sourceCommit, lock.sourceRef)'));
+  assert(!script.includes('assert.equal(build.publicationReady, true)'));
   const byteOnly = script.indexOf("if (process.argv.includes('--bytes-only'))");
   assert(byteOnly > script.indexOf('assert.equal(hash(bytes)'));
   assert(script.indexOf('process.exit(0);', byteOnly) < script.indexOf('await import('));
+});
+
+const gitPublished = {
+  ...pending, validationStage:'git-published-unverified', runtimeHTTP:null,
+  gitPublication:{repository:'Micraow/Inform-UI',commit:'b'.repeat(40),sourceCommit:'a'.repeat(40)},
+};
+test('Git publication can be recorded without claiming an independent HTTP observation',()=>assertPublicationEvidence(gitPublished));
+for(const [name,mutate] of [
+  ['inventing HTTP evidence',value=>{value.runtimeHTTP={status:200};}],
+  ['claiming online readiness',value=>{value.publicationReady=true;}],
+  ['changing the recorded source',value=>{value.gitPublication.sourceCommit='c'.repeat(40);}],
+  ['omitting the release commit',value=>{delete value.gitPublication.commit;}],
+])test('unverified Git publication rejects '+name,()=>{
+ const changed=structuredClone(gitPublished);mutate(changed);assert.throws(()=>assertPublicationEvidence(changed));
 });
