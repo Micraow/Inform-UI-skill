@@ -2,11 +2,11 @@
   "id": "web-chat-views",
   "outputDirectory": "profiles/curated-web-chat",
   "skillPath": "profiles/curated-web-chat/SKILL.md",
-  "sourceCommit": "a445edbcd8a0c99ee019b8125f0594c3c0c00a76",
+  "sourceCommit": "1b6e15ca608e8ba22ceb4feb16eed2e08f91e7d4",
   "verificationLockOnly": true,
   "runtimeChannel": "latest",
   "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-  "runtimeSha256": "76ec243e4271e01ecfa65e7843d3580bdcc2c19cea432d704682d4b5984e74d4",
+  "runtimeSha256": "a06f734c6cd35e68b259cc306b12113862d1167db937a36bc98bb5bdcb4959c8",
   "select": [
     "base/layout",
     "base/text",
@@ -39,7 +39,7 @@
     "base/media",
     "views/content"
   ],
-  "uiComponents": 48,
+  "uiComponents": 49,
   "dataConstructors": 15,
   "glyphShortlist": [
     "Check",

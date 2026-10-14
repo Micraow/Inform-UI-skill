@@ -2,14 +2,14 @@
 
 Generated from the actual createProfile() manifest and prompt. Do not hand-edit.
 
-234 renderable component names; 200 data constructors. Data constructors are not UI children. Component count alone does not establish browser, accessibility, or host-service coverage.
+235 renderable component names; 200 data constructors. Data constructors are not UI children. Component count alone does not establish browser, accessibility, or host-service coverage.
 
 - base/charts: 16 chart components; AreaChart, BarChart, HorizontalBarChart, LineChart, HeatmapChart, RadarChart, PieChart, RadialChart, FunnelChart, SegmentedBar, SingleStackedBar, ScatterChart, CalendarHeatmap, MiniAreaChart, MiniBarChart, MiniLineChart. Prompt: generated/modules/base--charts.txt
 - base/code: 2 foundation components; Code, CodeView. Prompt: generated/modules/base--code.txt
 - base/text: 6 foundation components; Text, Heading, Badge, Divider, Alert, Table. Prompt: generated/modules/base--text.txt
 - base/controls: 8 foundation components; Button, Input, Textarea, Select, RadioGroup, Checkbox, Switch, Slider. Prompt: generated/modules/base--controls.txt
 - base/icon: 1 foundation components; Icon. Prompt: generated/modules/base--icon.txt
-- base/layout: 4 foundation components; Stack, Row, Grid, Card. Prompt: generated/modules/base--layout.txt
+- base/layout: 5 foundation components; Stack, Row, Grid, Card, Box. Prompt: generated/modules/base--layout.txt
 - base/media: 2 foundation components; Image, Video. Prompt: generated/modules/base--media.txt
 - domain/weather: 1 domain-view components; WeatherCard. Prompt: generated/modules/domain--weather.txt
 - views/assistance: 21 composed-view components; TaskExpansionCardView, PromptSuggestionsView, FollowUpCardGroupView, ConversationSuggestionsView, FollowUpActionBarView, DisplayAutomationView, ListAutomationsView, AutomationPlanSummaryView, ScheduledTaskSuggestionView, ConversationalOnboardingAdviceView, ConversationalOnboardingWritingView, OnboardingFeatureCardView, OnboardingPluginSuggestionsView, OnboardingStarterTasksView, ConversationalOnboardingStudyView, ConversationalOnboardingSearchView, WhatsNewCapabilityWelcomeView, WhatsNewCapabilitySearchView, TaskAutopauseCardView, PluginFollowupView, InstantSuggestionsView. Prompt: generated/modules/views--assistance.txt; exact-name prompts: generated/views/<ViewName>.txt

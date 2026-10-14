@@ -20,6 +20,12 @@ Build validates with the actual strict parser and runtime, then writes HTML and 
 
 For a verified release URL, pass --runtime-url with the exact HTTPS URL. The CLI does not verify network availability or matching content for that URL: verify its bytes/version separately against generated/runtime-lock.json. Web Chat profiles use the project-maintained `web-chat-latest` branch by default; it is mutable and may be cached. For reproducible local output, keep the bundled runtime. Do not substitute a guessed CDN URL or jsDelivr’s reserved `@latest` selector. --runtime-dir permits validation and copying from another verified dist/v2; regenerate Skill contracts when switching versions.
 
+## Foundation layout
+
+The bundled profile includes Box in base/layout, Text alignment/size/weight tokens, Row wrapping/distribution/justification options, and Grid columns 1–8 with responsive="stack" or "preserve". Prefer the default stacking behavior for ordinary content. Use preserve only when column relationships matter, and check narrow layouts separately. These options are bounded tokens, not arbitrary CSS. See the generated base/layout and base/text prompts for exact values.
+
+These source capabilities do not imply that an older hosted runtime includes them. The same local-snapshot guidance below applies.
+
 ## Foundation code
 
 The bundled runtime and generated contracts are a matched snapshot. Before using a new constructor through the mutable `web-chat-latest` URL, check `generated/build.json`: `publicationReady:false` means no matching live runtime has been established for this snapshot. A source branch push or successful local tests alone do not establish CDN compatibility.
@@ -44,17 +50,18 @@ mount returns element, runtime, profile, commit(source), preview(source), getSna
 
 The generated HTML has no eval, Function constructor, or module loader supplied by DSL. Its fixed bootstrap does use an inline script and styles; a deployed CSP must authorize those via hashes/nonces or split them into trusted static files. A no-eval Node test is not proof that an arbitrary production CSP or embedding sandbox permits the HTML.
 
-## Three complete examples
+## Complete examples
 
 - budget-choice: an actual recommendation, budget shortlist, sorting, local choice, reset, and warning when a retained choice exceeds the new budget. All prices and options are explicitly fictional.
 - filter-sort-chart: one derived dataset drives the summary, chart and accessible table; includes threshold, sorting, arithmetic and empty-state handling.
+- repeated-groups: two nested Each templates, an empty group, captured group/item selections and local reset using original synthetic materials.
 - composed-explanation: a complete explanation of mean and median using base controls/charts plus MetricView, FigureView, SectionView, StepsView, MathView, DetailsView and CitationView. A verified NIST source supports the definitions; the numbers are original synthetic data.
 
 Run npm run check to regenerate all example HTML and run the strict runtime, generation and CLI tests. The browser suite is separate: node scripts/test-browser.mjs --playwright /path/to/node_modules/@playwright/test/index.mjs. It checks file:// opening, state interactions and narrow-layout overflow with an installed Playwright/Chromium. For an explicitly supplied system Chromium in an isolated test container, add --executable /usr/bin/chromium; that path uses --no-sandbox. The script never downloads a browser. Record browser checks separately from parser/runtime checks.
 
 ## Maintaining the generated contract
 
-    node --max-old-space-size=512 scripts/sync-runtime.mjs --runtime-dir /verified/repo/dist/v2 --icons /verified/repo/src/icons/catalog.json --chart-coverage /verified/repo/packages/chart-extension/generated/upstream-prop-coverage.json --expect-components 234 --source-ref FULL_COMMIT_SHA
+    node --max-old-space-size=512 scripts/sync-runtime.mjs --runtime-dir /verified/repo/dist/v2 --icons /verified/repo/src/icons/catalog.json --chart-coverage /verified/repo/packages/chart-extension/generated/upstream-prop-coverage.json --expect-components 235 --source-ref FULL_COMMIT_SHA
     npm run check
 
 Use only a built, integrated runtime. sync-runtime generates the component directory, per-module prompts, signatures, JSON schema and glyph index from that runtime and its machine catalog, then records bundle hashes. It refuses an accidental full-glyph prompt or a prompt recommending disabled action capabilities. The sync script does not deploy or publish. Never claim a complete set of real components using a contract-only/mock renderer package; the owner must separately verify actual DOM adapters and browser behavior.

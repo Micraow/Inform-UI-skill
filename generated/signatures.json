@@ -203,7 +203,10 @@
     "moduleId": "base/text",
     "orderedProps": [
       "content",
-      "tone"
+      "tone",
+      "align",
+      "size",
+      "weight"
     ],
     "slots": {},
     "bindingProps": [],
@@ -404,7 +407,8 @@
     "orderedProps": [
       "children",
       "gap",
-      "align"
+      "align",
+      "options"
     ],
     "slots": {
       "children": {
@@ -421,7 +425,8 @@
     "orderedProps": [
       "children",
       "columns",
-      "gap"
+      "gap",
+      "responsive"
     ],
     "slots": {
       "children": {
@@ -438,6 +443,22 @@
     "orderedProps": [
       "children",
       "title"
+    ],
+    "slots": {
+      "children": {
+        "min": 0,
+        "max": 128,
+        "accepts": "all"
+      }
+    },
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "Box": {
+    "moduleId": "base/layout",
+    "orderedProps": [
+      "children",
+      "options"
     ],
     "slots": {
       "children": {

@@ -14,7 +14,7 @@ description: 供 Agent 和 Web Chat AI 生成完整互动 HTML 答案。默认�
 ## 写作和交付合同
 
 - 沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
-- 39 个 UI 构造器、6 个数据构造器。本版不开放任何领域 View。使用基础组件、图表与文字完成答案；不要从旧目录猜 View 名称。
+- 40 个 UI 构造器、6 个数据构造器。本版不开放任何领域 View。使用基础组件、图表与文字完成答案；不要从旧目录猜 View 名称。
 - 下面的范围、整数、长度、枚举、默认值和组合条件均属于校验合同；省略可选参数不等于可以传任意值。变量、计算结果和状态更新也必须满足约束，图表空间不足时调整外层布局，不把受限尺寸缩到下限以下。
 - 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部 View。
 - 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。
@@ -94,7 +94,7 @@ Code(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{patt
 CodeView(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Compatibility alias for the foundation Code component.
 
 ### base/text
-Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
+Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error", align?: "start" | "center" | "end", size?: "xs" | "sm" | "md" | "lg", weight?: "regular" | "medium" | "semibold") — Plain text with semantic tone and finite typography tokens. HTML is displayed literally.
 Heading(content: string{minLength=1,maxLength=512}, level?: integer[1,6]) — Semantic heading.
 Badge(label: string{minLength=1,maxLength=512}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Compact supplied status label.
 Divider() — Thematic separator.
@@ -116,9 +116,10 @@ Icon(name: IconName (exact bundled catalog), label?: string{minLength=1,maxLengt
 
 ### base/layout
 Stack(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Vertical flow of components.
-Row(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
-Grid(children: Component[]{minItems=0,maxItems=128}, columns?: integer[1,6], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
+Row(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch", options?: {wrap?: "wrap" | "nowrap", distribution?: "natural" | "equal", justify?: "start" | "center" | "end" | "between"}) — Horizontal flow with explicit wrapping and distribution.
+Grid(children: Component[]{minItems=0,maxItems=128}, columns?: integer[1,8], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", responsive?: "stack" | "preserve") — Equal-column grid with explicit narrow-layout behavior.
 Card(children: Component[]{minItems=0,maxItems=128}, title?: string{minLength=1,maxLength=512}) — Grouped surface with optional title.
+Box(children: Component[]{minItems=0,maxItems=128}, options?: {background?: "transparent" | "surface" | "info" | "success" | "warning" | "error", padding?: "none" | "xs" | "sm" | "md" | "lg" | "xl", gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", radius?: "none" | "sm" | "md" | "lg", width?: "auto" | "full" | "grow" | "xs" | "sm" | "md", minHeight?: "none" | "sm" | "md" | "lg"}) — Generic token-based surface and sizing container.
 
 ### base/media
 Image(src: string{minLength=1,maxLength=1000000}, alt: string{maxLength=2048}, caption?: string{minLength=1,maxLength=512}) — Image subject to the host media policy.
@@ -232,7 +233,7 @@ Before finishing, walk your output and verify:
 - base/code shared usage: Code(data) is a foundation component in base/code. value is required (at most 12000 Unicode code points). Optional language selects a bundled highlight.js grammar; missing/unknown languages stay plain text. No auto-detection or execution. Block defaults: highlight=true, copy=true, showLanguage=true. The fallback label is Plain text. Set each option false to opt out. inline=true stays text-only and rejects true for copy, highlight or showLanguage.
 - Code usage: CodeView(data) is a compatible alias.
 - CodeView usage: CodeView(data) is a compatible alias.
-- Text usage: Use for prose. Newlines remain text; markup and code are not executed.
+- Text usage: Use for prose or labels. Newlines remain text; markup and code are not executed. Optional align: start, center, end. Size: xs=12, sm=14, md=16, lg=18 CSS pixels. Weight: regular=400, medium=500, semibold=600. Omitted typography inherits its context. Existing content and tone positions are unchanged.
 - Heading usage: Use headings in a meaningful outline. Level defaults to 2 in the renderer.
 - Badge usage: A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.
 - Divider usage: Use sparingly between sections. It has no text or interaction.
@@ -248,9 +249,10 @@ Before finishing, walk your output and verify:
 - Slider usage: Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.
 - Icon usage: Only exact bundled canonical names are accepted. Arguments: name, label, tone, size. Use null label for a decorative icon beside visible text. Use a nonempty label for an icon that conveys meaning alone. Tones: default, muted, info, success, warning, error. Sizes: 16, 20, 24, 32, 48; default 20. Tone communicates supplied meaning; it never verifies status. Public OpenAI Apps SDK UI glyphs are distinct from Inform UI role mapping.
 - Stack usage: Children belong to the selected profile. Gap is a finite design token; there is no arbitrary CSS.
-- Row usage: Uses a wrapping row. Choose start, center, end or stretch alignment.
-- Grid usage: Columns is a maximum requested column count; narrow layouts may use fewer columns.
+- Row usage: Defaults remain wrapping, natural child widths, centered cross-axis alignment and start justification. Optional options: wrap=nowrap keeps one row; distribution=equal gives each child an equal share; justify=between separates edge labels. Children can shrink and text can wrap within a child. Use Grid preserve for a fixed count of tracks. No arbitrary CSS.
+- Grid usage: Columns: 1 through 8, default 2. Default responsive=stack preserves the existing behavior: one column when the root container is 480 CSS pixels or narrower. responsive=preserve retains the requested equal tracks on narrow screens. Use short labels and small gaps for dense tracks; it does not shrink fonts or crop content.
 - Card usage: Use a card for one coherent section. Card owns its child slot, not external services.
+- Box usage: Box(children, options?) is a vertical flow, not an algorithm-specific component. Defaults: transparent background, no padding, md gap, no radius, auto width, no minimum height. background: transparent, surface, info, success, warning, error; semantic backgrounds use paired theme-aware text colors. padding/gap: none, xs, sm, md, lg, xl (0,4,8,12,16,24px). radius: none=0, sm=6, md=10, lg=16px. width: auto, full, grow (remaining Row space), xs=48, sm=64, md=96px; fixed tokens do not grow or shrink in a Row. minHeight: none=0, sm=24, md=32, lg=48px; content can grow taller. Nested Box can set a different surface. No arbitrary colors, CSS, HTML, selectors or URLs.
 - Image usage: Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.
 - Video usage: Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.
 - AreaChart: Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.

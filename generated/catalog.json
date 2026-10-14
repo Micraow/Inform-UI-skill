@@ -1,6 +1,6 @@
 {
   "format": "inform-skill-catalog/2",
-  "componentCount": 234,
+  "componentCount": 235,
   "root": "Stack",
   "modules": [
     {
@@ -335,7 +335,10 @@
           "name": "Text",
           "orderedProps": [
             "content",
-            "tone"
+            "tone",
+            "align",
+            "size",
+            "weight"
           ],
           "slots": {},
           "bindingProps": [],
@@ -591,7 +594,8 @@
           "orderedProps": [
             "children",
             "gap",
-            "align"
+            "align",
+            "options"
           ],
           "slots": {
             "children": {
@@ -609,7 +613,8 @@
           "orderedProps": [
             "children",
             "columns",
-            "gap"
+            "gap",
+            "responsive"
           ],
           "slots": {
             "children": {
@@ -627,6 +632,23 @@
           "orderedProps": [
             "children",
             "title"
+          ],
+          "slots": {
+            "children": {
+              "min": 0,
+              "max": 128,
+              "accepts": "all"
+            }
+          },
+          "bindingProps": [],
+          "actionProps": [],
+          "limitations": []
+        },
+        {
+          "name": "Box",
+          "orderedProps": [
+            "children",
+            "options"
           ],
           "slots": {
             "children": {

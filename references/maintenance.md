@@ -13,6 +13,7 @@ do not commit one-off run logs or receipt copies.
 
 ## Sources and generated files
 
+- `scripts/readme-components.mjs` regenerates the README component tables from the two profile manifests; use `--check` to detect drift.
 - `source/profiles.json` is the profile-selection source of truth.
 - `scripts/sync-runtime.mjs` generates full/module/View contracts and the runtime
   lock from a built Inform UI runtime. See [delivery](delivery.md) for its command.
