@@ -50,6 +50,12 @@
     "MiniLineChart": {
       "$ref": "#/$defs/MiniLineChart"
     },
+    "Code": {
+      "$ref": "#/$defs/Code"
+    },
+    "CodeView": {
+      "$ref": "#/$defs/CodeView"
+    },
     "Text": {
       "$ref": "#/$defs/Text"
     },
@@ -131,6 +137,8 @@
     "MiniAreaChart",
     "MiniBarChart",
     "MiniLineChart",
+    "Code",
+    "CodeView",
     "Text",
     "Heading",
     "Badge",
@@ -1728,6 +1736,110 @@
       "id": "MiniLineChart",
       "description": "Compact upstream line sparkline with signed values."
     },
+    "Code": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{0,12000}$"
+            },
+            "language": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{1,200}$"
+            },
+            "inline": {
+              "type": "boolean"
+            },
+            "copy": {
+              "type": "boolean"
+            },
+            "highlight": {
+              "type": "boolean"
+            },
+            "showLanguage": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false,
+      "id": "Code",
+      "description": "Literal code with bundled syntax highlighting, a visible language label and one-click copy.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "inline-code-controls",
+          "paths": [
+            "data.inline",
+            "data.copy",
+            "data.highlight",
+            "data.showLanguage"
+          ],
+          "rule": "inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline."
+        }
+      ]
+    },
+    "CodeView": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{0,12000}$"
+            },
+            "language": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{1,200}$"
+            },
+            "inline": {
+              "type": "boolean"
+            },
+            "copy": {
+              "type": "boolean"
+            },
+            "highlight": {
+              "type": "boolean"
+            },
+            "showLanguage": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false,
+      "id": "CodeView",
+      "description": "Compatibility alias for the foundation Code component.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "inline-code-controls",
+          "paths": [
+            "data.inline",
+            "data.copy",
+            "data.highlight",
+            "data.showLanguage"
+          ],
+          "rule": "inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline."
+        }
+      ]
+    },
     "Text": {
       "type": "object",
       "properties": {
@@ -3107,6 +3219,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -3247,6 +3365,12 @@
               },
               {
                 "$ref": "#/$defs/MiniLineChart"
+              },
+              {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/Text"
@@ -3400,6 +3524,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -3545,6 +3675,12 @@
               },
               {
                 "$ref": "#/$defs/MiniLineChart"
+              },
+              {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/Text"
@@ -3852,6 +3988,36 @@
       ],
       "additionalProperties": false,
       "description": "ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar."
+    },
+    "CodeData": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^[\\s\\S]{0,12000}$"
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[\\s\\S]{1,200}$"
+        },
+        "inline": {
+          "type": "boolean"
+        },
+        "copy": {
+          "type": "boolean"
+        },
+        "highlight": {
+          "type": "boolean"
+        },
+        "showLanguage": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false,
+      "description": "Literal source text and optional foundation code display settings."
     }
   }
 }

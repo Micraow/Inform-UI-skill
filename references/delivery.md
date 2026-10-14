@@ -20,6 +20,20 @@ Build validates with the actual strict parser and runtime, then writes HTML and 
 
 For a verified release URL, pass --runtime-url with the exact HTTPS URL. The CLI does not verify network availability or matching content for that URL: verify its bytes/version separately against generated/runtime-lock.json. Web Chat profiles use the project-maintained `web-chat-latest` branch by default; it is mutable and may be cached. For reproducible local output, keep the bundled runtime. Do not substitute a guessed CDN URL or jsDelivr’s reserved `@latest` selector. --runtime-dir permits validation and copying from another verified dist/v2; regenerate Skill contracts when switching versions.
 
+## Foundation code
+
+The bundled runtime and generated contracts are a matched snapshot. Before using a new constructor through the mutable `web-chat-latest` URL, check `generated/build.json`: `publicationReady:false` means no matching live runtime has been established for this snapshot. A source branch push or successful local tests alone do not establish CDN compatibility.
+
+For the matched local starter, use the bundled runtime without `--runtime-url`:
+
+    node scripts/inform-answer.mjs build profiles/web-chat-core/minimal.openui --out output/code-starter/answer.html --select base/layout,base/text,base/controls,base/icon,base/media,base/code,base/charts
+
+Without CLI tools, copy `assets/runtime/inform-ui.global.js` and its `THIRD_PARTY_NOTICES.txt` beside the generated HTML, then change its external script URL to `./inform-ui.global.js`. Preserve the profile's `select` and `viewNames`. An unverified latest-linked template is not evidence that the new code component is available there.
+
+Select `base/code` with `base/layout`, then use `Code({value:"const count = 1;",language:"javascript"})`. The default and curated profiles already include it. Block code shows the language label, highlights through bundled highlight.js grammars, and offers copy by default. Set `showLanguage:false`, `highlight:false` or `copy:false` to opt out individually. Missing or unsupported language renders plain text; source is never executed. `inline:true` is text-only and rejects explicit enhancement flags set to true.
+
+`CodeView(data)` remains a compatibility alias in the same foundation module. Do not put it in `viewNames`; that option selects composed views. The current contract is `generated/modules/base--code.txt`. Copy uses the browser clipboard API after a real user click and may fail if the context or permissions disallow it.
+
 ## Actual browser API
 
 Global bundle: InformUI.mount(element, {source, select?, viewNames?, theme?, allowImageURL?, allowMediaURL?, onError?}). theme is light or dark. allowImageURL and allowMediaURL are trusted host predicates, not DSL code. Video is a supplied-source player, not a media search or generation service. Do not weaken the default image policy just to make an untrusted URL render. onError receives issue objects.
@@ -40,7 +54,7 @@ Run npm run check to regenerate all example HTML and run the strict runtime, gen
 
 ## Maintaining the generated contract
 
-    node --max-old-space-size=512 scripts/sync-runtime.mjs --runtime-dir /verified/repo/dist/v2 --icons /verified/repo/src/icons/catalog.json --chart-coverage /verified/repo/packages/chart-extension/generated/upstream-prop-coverage.json --expect-components 233 --source-ref FULL_COMMIT_SHA
+    node --max-old-space-size=512 scripts/sync-runtime.mjs --runtime-dir /verified/repo/dist/v2 --icons /verified/repo/src/icons/catalog.json --chart-coverage /verified/repo/packages/chart-extension/generated/upstream-prop-coverage.json --expect-components 234 --source-ref FULL_COMMIT_SHA
     npm run check
 
 Use only a built, integrated runtime. sync-runtime generates the component directory, per-module prompts, signatures, JSON schema and glyph index from that runtime and its machine catalog, then records bundle hashes. It refuses an accidental full-glyph prompt or a prompt recommending disabled action capabilities. The sync script does not deploy or publish. Never claim a complete set of real components using a contract-only/mock renderer package; the owner must separately verify actual DOM adapters and browser behavior.

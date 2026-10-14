@@ -9,6 +9,7 @@
       "base/controls",
       "base/icon",
       "base/media",
+      "base/code",
       "base/charts"
     ],
     "viewNames": [],
@@ -21,13 +22,14 @@
   {
     "id": "web-chat-views",
     "name": "inform-web-chat-views",
-    "label": "精选：十个内容视图",
+    "label": "精选：九个内容视图",
     "select": [
       "base/layout",
       "base/text",
       "base/controls",
       "base/icon",
       "base/media",
+      "base/code",
       "base/charts",
       "views/content"
     ],
@@ -39,13 +41,12 @@
       "MathView",
       "DetailsView",
       "CitationView",
-      "CodeView",
       "BlockquoteView",
       "ChecklistView"
     ],
     "source": "views.openui",
     "title": "为什么一个大数会拉高平均数？",
-    "description": "生成完整互动 HTML 答案，在 Inform 基础与图表之外只开放十个内容视图，用于指标、图注、章节、步骤、公式、折叠说明、来源、代码、引文和核对清单。",
+    "description": "生成完整互动 HTML 答案，在 Inform 基础组件、代码与图表之外只开放九个内容视图，用于指标、图注、章节、步骤、公式、折叠说明、来源、引文和核对清单。",
     "outputDirectory": "profiles/curated-web-chat",
     "skillPath": "profiles/curated-web-chat/SKILL.md"
   }

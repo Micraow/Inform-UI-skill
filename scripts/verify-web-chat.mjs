@@ -45,6 +45,7 @@ for(const def of definitions){
  assert.equal(src,build.runtimeURL);assert(!src.includes(build.sourceCommit));assert(!html.includes(build.sourceCommit));assert(!skill.includes(build.sourceCommit));
  assert.equal((html.match(/<script/g)||[]).length,3);
  assert(skill.includes('无需终端、CLI、npm、React 工程'));
+ if(build.validationStage==='local'){assert(skill.includes('当前运行库准备'));assert(skill.includes('把唯一的外部 script src 改为 ./inform-ui.global.js'));assert(skill.includes('不能直接视为新组件已经上线'));}
  if(def.skillPath==='SKILL.md'){
   assert(skill.includes('Agent 按需扩展'));assert(skill.includes('scripts/inform-answer.mjs'));
   const webSkill=await readFile(join(dir,'SKILL.md'),'utf8');
@@ -57,6 +58,7 @@ for(const def of definitions){
  const runtime=api.createRuntime(profile);
  try{
   let s=accepted(runtime.commit(source));assert.equal(s.tree.typeName,'Stack');
+  const code=nodes(s.tree).find(n=>n.typeName==='Code');assert(code,'Starter demonstrates foundation Code');assert.equal(code.props.data.language,'javascript');assert.equal(code.props.data.copy,undefined);assert.equal(code.props.data.highlight,undefined);assert.equal(code.props.data.showLanguage,undefined);assert(code.props.data.value.includes('\n'));
   assert(nodes(s.tree).some(n=>n.typeName==='Heading'&&n.props.level===1));
   if(def.id==='web-chat-core'){
    assert(nodes(s.tree).some(n=>n.typeName==='BarChart'));
@@ -66,7 +68,7 @@ for(const def of definitions){
    assert.equal(runtime.commit('root = Stack([MetricView({label:"Unavailable",value:1})])').ok,false);
   }else{
    for(const name of def.viewNames)assert(nodes(s.tree).some(n=>n.typeName===name),'Starter must demonstrate '+name);
-   const code=nodes(s.tree).find(n=>n.typeName==='CodeView');assert.equal(code.props.data.highlight,true);assert.equal(code.props.data.copy,true);assert(code.props.data.value.includes('\n'));
+
    s=accepted(runtime.setState({$largest:80,$showMethod:false}));
    assert.equal(nodes(s.tree).find(n=>n.typeName==='MetricView'&&n.props.data.label==='平均数').props.data.value,24.5);
    assert(!nodes(s.tree).some(n=>n.typeName==='StepsView'));

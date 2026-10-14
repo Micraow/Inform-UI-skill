@@ -1,13 +1,13 @@
 {
   "format": "inform-web-chat-skill/1",
-  "validationStage": "workbranch-published-rolling-pending",
+  "validationStage": "local",
   "publicationReady": false,
-  "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
+  "sourceCommit": "a445edbcd8a0c99ee019b8125f0594c3c0c00a76",
   "verificationLockOnly": true,
   "runtimeChannel": "latest",
   "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-  "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
-  "nodeRuntimeSha256": "7e5f239c654b67c5acf0beded43618343d3e37879393f2f770e85812bc7f3588",
+  "runtimeSha256": "76ec243e4271e01ecfa65e7843d3580bdcc2c19cea432d704682d4b5984e74d4",
+  "nodeRuntimeSha256": "3c3771579bcbf7c034835ee457c13eaa3cf96ae6501787e7444b2ed25be8714c",
   "runtimeUpdateSemantics": "The default latest URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.",
   "promptProseProjection": "declaration-lines-and-root-position/1",
   "profiles": [
@@ -15,31 +15,33 @@
       "id": "web-chat-core",
       "outputDirectory": "profiles/web-chat-core",
       "skillPath": "SKILL.md",
-      "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
+      "sourceCommit": "a445edbcd8a0c99ee019b8125f0594c3c0c00a76",
       "verificationLockOnly": true,
       "runtimeChannel": "latest",
       "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-      "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
+      "runtimeSha256": "76ec243e4271e01ecfa65e7843d3580bdcc2c19cea432d704682d4b5984e74d4",
       "select": [
         "base/layout",
         "base/text",
         "base/controls",
         "base/icon",
         "base/media",
+        "base/code",
         "base/charts"
       ],
       "viewNames": [],
       "modules": [
         "base/chart-data",
         "base/charts",
+        "base/code",
         "base/text",
         "base/controls",
         "base/icon",
         "base/layout",
         "base/media"
       ],
-      "uiComponents": 37,
-      "dataConstructors": 5,
+      "uiComponents": 39,
+      "dataConstructors": 6,
       "glyphShortlist": [
         "Check",
         "Info",
@@ -58,26 +60,27 @@
         "CircleQuestion",
         "Link"
       ],
-      "promptBytes": 38241,
-      "skillBytes": 46921,
-      "schemaBytes": 96507,
-      "sourceSha256": "47d1507f09c572092afb4537ee4916ade8b5c0990eb1d763eef06f24197a8ff5"
+      "promptBytes": 40380,
+      "skillBytes": 50455,
+      "schemaBytes": 100673,
+      "sourceSha256": "c7183345044a36f67197095d56d9c30080e8ab0da3b120b8baa6e8779fcda880"
     },
     {
       "id": "web-chat-views",
       "outputDirectory": "profiles/curated-web-chat",
       "skillPath": "profiles/curated-web-chat/SKILL.md",
-      "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
+      "sourceCommit": "a445edbcd8a0c99ee019b8125f0594c3c0c00a76",
       "verificationLockOnly": true,
       "runtimeChannel": "latest",
       "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-      "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
+      "runtimeSha256": "76ec243e4271e01ecfa65e7843d3580bdcc2c19cea432d704682d4b5984e74d4",
       "select": [
         "base/layout",
         "base/text",
         "base/controls",
         "base/icon",
         "base/media",
+        "base/code",
         "base/charts",
         "views/content"
       ],
@@ -89,13 +92,13 @@
         "MathView",
         "DetailsView",
         "CitationView",
-        "CodeView",
         "BlockquoteView",
         "ChecklistView"
       ],
       "modules": [
         "base/chart-data",
         "base/charts",
+        "base/code",
         "base/text",
         "base/controls",
         "base/icon",
@@ -103,7 +106,7 @@
         "base/media",
         "views/content"
       ],
-      "uiComponents": 47,
+      "uiComponents": 48,
       "dataConstructors": 15,
       "glyphShortlist": [
         "Check",
@@ -123,53 +126,13 @@
         "CircleQuestion",
         "Link"
       ],
-      "promptBytes": 53016,
-      "skillBytes": 63351,
-      "schemaBytes": 144408,
-      "sourceSha256": "174b7bf166f513e6294db7e6d77962bfeb99de123e242e61647f9edfad17c90b"
+      "promptBytes": 52784,
+      "skillBytes": 63976,
+      "schemaBytes": 143113,
+      "sourceSha256": "bb59f93c52af82b45c9bc87f54d7d8f2388eeb994088f816f1c94d247ca0d45d"
     }
   ],
-  "runtimeHTTP": {
-    "method": "GET",
-    "url": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-    "status": 200,
-    "contentType": "application/javascript; charset=utf-8",
-    "accessControlAllowOrigin": "*",
-    "version": "web-chat-latest",
-    "gitPublishedSourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
-    "expectedSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
-    "verifiedSourceCommit": null,
-    "publishedSha256": "7006c0155cde453bd9f01db084048e0d45eff0ff309230b3e787214eafa8f9ea",
-    "publishedBytes": 5554357,
-    "matchesSnapshot": false,
-    "observedAtUTC": "2026-10-13T16:48:54Z",
-    "branchAtObservation": "c5b5fc7663c8c97d368768ad27dabb3279dd9898",
-    "laterRefVerified": true,
-    "cacheControl": "public, max-age=604800, s-maxage=43200",
-    "cacheState": "stale-inconsistent",
-    "purgeStatus": "pending official workflow",
-    "bodyEvidence": "Different observed rolling responses contain different cached versions; earlier successful GET does not imply globally converged CDN state",
-    "browserExecution": "not verified",
-    "laterRefValue": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc"
-  },
+  "runtimeHTTP": null,
   "modelWorkflow": "Read one SKILL.md; produce complete HTML using the latest entry; no CLI required",
-  "browserVerification": "Not established by generation or Node validation",
-  "bundledRuntimeReady": true,
-  "developmentPublication": {
-    "repository": "Micraow/Inform-UI",
-    "ref": "refs/heads/next/openui-dsl-20261013",
-    "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
-    "codeSourceCommit": "82f80d78871269f12e9b9a430cd02ccbe4bd4541",
-    "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
-    "runtimeGitBlob": "784aed98778de8ed5f255e15970b7676d77bc2b5",
-    "verifiedAtUTC": "2026-10-14T01:24:30Z"
-  },
-  "rollingPublication": {
-    "repository": "Micraow/Inform-UI",
-    "ref": "refs/heads/web-chat-latest",
-    "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
-    "runtimeSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
-    "containsBundledRuntime": false,
-    "verifiedAtUTC": "2026-10-14T01:24:30Z"
-  }
+  "browserVerification": "Not established by generation or Node validation"
 }

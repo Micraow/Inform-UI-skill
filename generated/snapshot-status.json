@@ -1,31 +1,31 @@
 {
   "format": "inform-generated-snapshot-status/2",
   "status": "current-bundled-runtime",
-  "sourceRef": "431f3221388af1311b9506494c39ec5686338225",
-  "nodeRuntimeSha256": "7e5f239c654b67c5acf0beded43618343d3e37879393f2f770e85812bc7f3588",
-  "componentCount": 233,
-  "viewPromptCount": 195,
+  "sourceRef": "a445edbcd8a0c99ee019b8125f0594c3c0c00a76",
+  "nodeRuntimeSha256": "3c3771579bcbf7c034835ee457c13eaa3cf96ae6501787e7444b2ed25be8714c",
+  "componentCount": 234,
+  "viewPromptCount": 194,
   "generator": "scripts/sync-runtime.mjs",
   "contracts": {
     "generated/manifest.json": {
-      "bytes": 706261,
-      "sha256": "fa6c8dbb6139c0777ac427d615b8299f9bd9f4204e6e2aebb7e7f455ca839914"
+      "bytes": 708049,
+      "sha256": "7c0f26b6c53339ff7301957f8af0c86af719e8e4c196e7294912279bf0ce9fe0"
     },
     "generated/schema.json": {
-      "bytes": 11776587,
-      "sha256": "62d0e3cf5e9be0c6c81bf383e476dec97fafb6d65198f6d48246824adb3fc085"
+      "bytes": 11776084,
+      "sha256": "7d16eb58620670badcf859441815c83776355fd07bb219e6ca583df301c13e10"
     },
     "generated/full-profile.txt": {
-      "bytes": 2356632,
-      "sha256": "5cb0997dc67f9c3ef41ea0babc165da112f5ea6b2ca0456618ca2500c80cfe9c"
+      "bytes": 2356400,
+      "sha256": "1abf5fc9f43cb663a0e91335fab11c229e227dd6feadd8e433ccc958ad7ae5ec"
     },
     "generated/catalog.json": {
-      "bytes": 263730,
-      "sha256": "fb00ea4264f44908df66243a2029fb252f6898aaddb108b3b5448d735f535370"
+      "bytes": 264192,
+      "sha256": "53f8de8fcfdc323352e2c0af30632623faf082353c55f9bb5546a6af0c112aba"
     },
     "generated/signatures.json": {
-      "bytes": 43208,
-      "sha256": "11ff03ef11ae9172e32849fa36fa8dc5f4d032e5c146c8edf5f03bb01f263dbd"
+      "bytes": 43355,
+      "sha256": "e52167ca8239d562b50b87af095c3c5014d916b4f4ccbfbb9178e7f15e3f0286"
     },
     "generated/modules/base--chart-data.txt": {
       "bytes": 12771,
@@ -34,6 +34,10 @@
     "generated/modules/base--charts.txt": {
       "bytes": 31699,
       "sha256": "b27a6d9bb787eff4c1af9eab0baf12aab0242322b9a8a4d78fb593f9b548c351"
+    },
+    "generated/modules/base--code.txt": {
+      "bytes": 13975,
+      "sha256": "f9cca0aa1adcdb8758b28e8e8c14f288f2d11cb8592b633c993bbd28fd72c11e"
     },
     "generated/modules/base--text.txt": {
       "bytes": 11793,
@@ -64,8 +68,8 @@
       "sha256": "8ba418a4d73bcea0b9ae5190c19b4e629ac8569a39f42fd5e705e4ea83859375"
     },
     "generated/modules/views--content.txt": {
-      "bytes": 266103,
-      "sha256": "12df40eba0f2977ff5782c9da7532483b5b856421355a5d1535ae3855284eabc"
+      "bytes": 265877,
+      "sha256": "8ddf53d017e8bf8c76cd7a30292729a94473d74d2d7dec7fb74e51d2cbde1787"
     },
     "generated/modules/views--discovery.txt": {
       "bytes": 111594,
@@ -100,20 +104,20 @@
       "sha256": "6f01c519918aa15e640038d24f1d450e1db53dfa596eb4666700356414d72dde"
     },
     "generated/views/AnimateView.txt": {
-      "bytes": 19725,
-      "sha256": "5805a9e01c7b589ee2873431360d34dfec4f928615790ddd8ee1055bfdfa8960"
+      "bytes": 21870,
+      "sha256": "014125ed69831d22f79642dba67038dcf36f6dfd5baf2bc5d337d0fa892caaff"
     },
     "generated/views/ArtistUpcomingEventsView.txt": {
       "bytes": 21226,
       "sha256": "09ea0186ec9d68bf54a5dfa0b94d7f7b02b7adc722691b938ef9398ac707fc0c"
     },
     "generated/views/AskUserDetailsView.txt": {
-      "bytes": 23627,
-      "sha256": "b39a156e3ac90cd3bc4f8d94071ff01daa5e40997e3e6be1359e31339bad8ba4"
+      "bytes": 25772,
+      "sha256": "a17ab7e9c516759d85fd0d1befd274f77f24a6e2bf5e25d7bb3e6f46ce56a381"
     },
     "generated/views/AskUserFilesView.txt": {
-      "bytes": 22858,
-      "sha256": "eec2f31bac9f2d964128a2d6ce9dbd027f5c94f58b599ef53288d21c8a036835"
+      "bytes": 25003,
+      "sha256": "75c8bb2df42ae14ef80ef3a3507f2bb76c64d5a6be198605851a9e58f448e81d"
     },
     "generated/views/AskUserLocationView.txt": {
       "bytes": 22198,
@@ -144,12 +148,12 @@
       "sha256": "6f232fefe7274bc8eda953748ed5de101ad4686bc18cb5bded297a4f0aa0933c"
     },
     "generated/views/BentoView.txt": {
-      "bytes": 25384,
-      "sha256": "2553ae00edac64848fe67e3817623bd63825a30d405a9ad9cc13dc5667aae642"
+      "bytes": 27529,
+      "sha256": "a2d22c90c78e2d48f3d5de8f731bb2460ee2df1ed7ba892bd373d4841156b6dd"
     },
     "generated/views/BlockquoteView.txt": {
-      "bytes": 19690,
-      "sha256": "87d4b4adbce23ee96436b6e7a7d8aa7dba0facfbb53478da682167f62e7c7780"
+      "bytes": 21835,
+      "sha256": "ab52498831bf210302681352c88395a46b99d5d84b130ae5e688fae0724892d6"
     },
     "generated/views/BusinessGalleryView.txt": {
       "bytes": 20162,
@@ -180,32 +184,28 @@
       "sha256": "2b4e4ff7dd3fbbeaf1bc819dda83c794b8ceb4439545f08161604ae294a3319c"
     },
     "generated/views/CarouselView.txt": {
-      "bytes": 19630,
-      "sha256": "7522eda09135b3f7c4c9e1fafca8a564d213773c881a97cb2d572910cefb5007"
+      "bytes": 21775,
+      "sha256": "20c51fdb1f0a7fe28c687f402cd9f9513c8dd016ce74bcce543ca5ff7082e4eb"
     },
     "generated/views/CelebrationView.txt": {
-      "bytes": 19762,
-      "sha256": "6b5046be897978d3562a1e5ce420ce3ef7c94e5bf73789808523dcd897e3e676"
+      "bytes": 21907,
+      "sha256": "6ebd30f642f1a6b5bc72e834da792e0b83cfba9faa485b7cdce84943e2368ae4"
     },
     "generated/views/ChecklistView.txt": {
-      "bytes": 20330,
-      "sha256": "a588b527d52dadacd2e2989ee00bf09af4286913d9e9fd2b490e6dce98526001"
+      "bytes": 22475,
+      "sha256": "cad4c840910a4d8467578b71cf1847984a232c03ca768e8d92784a409b3ee9e8"
     },
     "generated/views/CitationView.txt": {
-      "bytes": 19797,
-      "sha256": "a62ce8c445825dfabd3184a4266cf7c542bb439b88759064a855a63bd8244b32"
+      "bytes": 21942,
+      "sha256": "8b22df725ee27935f623833d0661ee899c4bbdf7aa35ed1783e00902ee695cdb"
     },
     "generated/views/ClockView.txt": {
-      "bytes": 21268,
-      "sha256": "c861461eede6415536f05a8a055aed87dbaf8465d76390f43750424104149b1c"
+      "bytes": 23413,
+      "sha256": "d90caad095a22b5157eca191e88fadb632ab308f24b520408786a6aff0a96817"
     },
     "generated/views/CodeCiteView.txt": {
-      "bytes": 20214,
-      "sha256": "332d044c59b233c21101c1f43b222fc9ff6bde8cd0e9bbb1cf30445d3294e4fb"
-    },
-    "generated/views/CodeView.txt": {
-      "bytes": 20689,
-      "sha256": "b2dd404c367b08d123b6c2e714f18b5b48d3d05d278cf88c236c1b0f3cd9f171"
+      "bytes": 22359,
+      "sha256": "8c37ffc1d5e68161a05bffd656dc769073705a6225412233dec21fe1063efcff"
     },
     "generated/views/ConversationSuggestionsView.txt": {
       "bytes": 20537,
@@ -232,8 +232,8 @@
       "sha256": "4642b3da0e14114062800aac8b4ea0e00dec01a009e15d1d82ca6f364d08f088"
     },
     "generated/views/CreateInteractivePollView.txt": {
-      "bytes": 20222,
-      "sha256": "6f715609f798d8fdab0f615ac97be7d01a8225b2b89f743f8f2d74e527751b4b"
+      "bytes": 22367,
+      "sha256": "441f133c613d108c467ef06e5a6fa0d2637b2e174e075d069ee5c981a5fefc73"
     },
     "generated/views/CricketMatchBoxscoreView.txt": {
       "bytes": 23879,
@@ -244,8 +244,8 @@
       "sha256": "9cd59e90daf3dc5c770b3dae1bd98a74789cc95ff5dc663a3a69697471c9da49"
     },
     "generated/views/DetailsView.txt": {
-      "bytes": 19490,
-      "sha256": "3ca73f50132613b6f9b33456d50522363eab36fd74d206d5ca2a8242ecbc0b89"
+      "bytes": 21635,
+      "sha256": "520368d465c7197c527e54fbe262fff361e8224e048dce49920c9a6074e5930b"
     },
     "generated/views/DisplayAutomationView.txt": {
       "bytes": 21637,
@@ -256,32 +256,32 @@
       "sha256": "0f949170a0f8e1bd0b8de91d113f7498a81e61dcfda8d741ad591f937709b3f0"
     },
     "generated/views/EmailDraftView.txt": {
-      "bytes": 20050,
-      "sha256": "c80056d6735a2475c2f4bd50b56b253ea8a3e88ba38440f4b725e65e6fd2dfac"
+      "bytes": 22195,
+      "sha256": "0b30cd60c89312052aae185e97d6f247e3b60fe4a6a3d76e5325dba2a4e77e98"
     },
     "generated/views/EmailPreviewView.txt": {
-      "bytes": 21598,
-      "sha256": "169a74ad0cd0ed77ce17be9418b642ff301e92ea5728cb36f2fbf49f2f9cd667"
+      "bytes": 23743,
+      "sha256": "eefeb62013eef0a9b978597fcc0eb4e8fdb5f4bd9f7b973d059f4a59dbc98af8"
     },
     "generated/views/EntityCardView.txt": {
-      "bytes": 21643,
-      "sha256": "4776b810866c069574591bac812f5c878dd660e2032771248c3c4c999809b7a5"
+      "bytes": 23788,
+      "sha256": "c1b74334acd58326f243664c4ed34d6f11f62344237fe937a5e6b0740604065c"
     },
     "generated/views/EntityOverviewView.txt": {
-      "bytes": 25620,
-      "sha256": "461bda842525d1a85e028333628ea73b4920388bdc8eeae48f98210373efbba6"
+      "bytes": 27765,
+      "sha256": "b8cead076aad08388aa68658bcf011b9796d057bd19ee6e88715f090845f6d62"
     },
     "generated/views/EntityReviewsView.txt": {
-      "bytes": 20714,
-      "sha256": "bfb78c8479e650c99509b88f13bfff9f71c323b4766ed1c9ed004c9268507020"
+      "bytes": 22859,
+      "sha256": "c07c0605a754b14621fab33f3bfa3f0507b9d7e8f0eceb5284eeca8728be5606"
     },
     "generated/views/EntityThumbnailListView.txt": {
-      "bytes": 21056,
-      "sha256": "8bbfbd06f71a93513abab83bb996fc66b0f827aadf73bdfb2cbec6a7e2498a1c"
+      "bytes": 23201,
+      "sha256": "061e076de1869e8a17603b1b2d28acf717f90ef0594a85506639a94a600ba589"
     },
     "generated/views/EntityView.txt": {
-      "bytes": 28068,
-      "sha256": "045cf4a6436979378550597a78c95624c785c46ac46b44e33200db352d1085ed"
+      "bytes": 30213,
+      "sha256": "f936e42893797fb6836ff54f2fc8d625fa5daa564a27c94cb946e3cb77e820b7"
     },
     "generated/views/EventSidebarView.txt": {
       "bytes": 22322,
@@ -296,24 +296,24 @@
       "sha256": "adb5d325f14beb7bdbdfcf372dbd80858b16a48dffa5743511716723369c7661"
     },
     "generated/views/FaviconView.txt": {
-      "bytes": 19744,
-      "sha256": "b2d9ce523e9b5467d7fe863ecedb1df0d28a66c9ff2d676511ddf14caaf8d421"
+      "bytes": 21889,
+      "sha256": "eb9530e48e81d98d0e2fb10e8f945f64835890ae476abe13547234a84af2310f"
     },
     "generated/views/FieldView.txt": {
-      "bytes": 19733,
-      "sha256": "0265bb7b4271b2a47f0f184ba264a463de8ce1662760700fba45acc27941dc75"
+      "bytes": 21878,
+      "sha256": "09e8e0cd90888703caaa2bb27656129868d0d0676b8d354ea7ea82b181c6f8ff"
     },
     "generated/views/FigureView.txt": {
-      "bytes": 19453,
-      "sha256": "ac1ca4b5dfb0f30a31dd11e1472e4c18152dc35d297cb46f4010b93ab01dd34f"
+      "bytes": 21598,
+      "sha256": "9da0a798844eee810c6bfa276405f7ad2b5aee72b2579e9dba8b88bb7cca2952"
     },
     "generated/views/FileCiteView.txt": {
-      "bytes": 20528,
-      "sha256": "dfeb797598c2f2cb5890c1f238b1a4ad4e76c357ef90574be75dc12ad3fdf786"
+      "bytes": 22673,
+      "sha256": "8130e15625e18d66af0be05651173ac5b6b3d3ef7cf61e83e6459aa0246586be"
     },
     "generated/views/FileNavListView.txt": {
-      "bytes": 23262,
-      "sha256": "79772a8fd24560590d820ad26e879d5aefe47797f635d859aca2c2e4d8855265"
+      "bytes": 25407,
+      "sha256": "e05f991dcaa850ed828010eee37c9c52e8c878d505b2162ff031f2581e3cc474"
     },
     "generated/views/FillBlankView.txt": {
       "bytes": 20437,
@@ -372,24 +372,24 @@
       "sha256": "ff675b273666f3f639677266f9cb894b2efb08e3fe7c2c4cdee9f2c9b5d4b137"
     },
     "generated/views/FormView.txt": {
-      "bytes": 20044,
-      "sha256": "ebb7a580a7782c6c0ea4e7d008ac2bbd7f31db3cb85e0c51ab7d9b9c7092d904"
+      "bytes": 22189,
+      "sha256": "444d774bee3a11aaedce5163151075f292aeef232709f2069937a1cbd33f6b76"
     },
     "generated/views/GenImageView.txt": {
       "bytes": 26647,
       "sha256": "114bbe32bf1120cedeb90bc73054bfaf49ee30effc96e28c56ac91d011126141"
     },
     "generated/views/GridItemView.txt": {
-      "bytes": 19663,
-      "sha256": "7c4bd2d5aea59a38b0579adc1855933891c11f4bf46a9098e5fbd097b2624337"
+      "bytes": 21808,
+      "sha256": "7de9954e03e62a7fedf393387a7c72caf13a3fb51cf6575892f5c77e3dcc25c1"
     },
     "generated/views/HomeworkHelperV2View.txt": {
       "bytes": 22276,
       "sha256": "37a3d4fc0e77afd962b99900adc9d181b4cf86e03f20237adff5b0dac2f7dd8e"
     },
     "generated/views/HtmlViewView.txt": {
-      "bytes": 20017,
-      "sha256": "5be032baeacea16563010c12471234d803002ce5ee5f4b36c4b0f9422f5ec536"
+      "bytes": 22162,
+      "sha256": "e1243f160e6f93c5d055df603760ff747594ee5afc73743986f1e9c843bc0353"
     },
     "generated/views/ImageGenView.txt": {
       "bytes": 21539,
@@ -404,16 +404,16 @@
       "sha256": "70fa7afbebac773990ae1c3a8cf794d29c11756aac7297cec33daea1dfb5242f"
     },
     "generated/views/InternalPartnerAppView.txt": {
-      "bytes": 22237,
-      "sha256": "fe8729570b16e5b242dff10dba0e0f7e24b39538afe5760887e5579e6ce3d77a"
+      "bytes": 24382,
+      "sha256": "8fb078e846268e7b21a9f9af075264b9c972584dbf5417aae564b716bfdbb466"
     },
     "generated/views/JobsView.txt": {
-      "bytes": 21516,
-      "sha256": "1da559e8b93bdf01e8b5d02a087a61a791db7b80e58d2282a442866499d72781"
+      "bytes": 23661,
+      "sha256": "fa8cd09026ca680b23bacebce3fde2c70db008777a6875227acbb99039e261fb"
     },
     "generated/views/LabelView.txt": {
-      "bytes": 19572,
-      "sha256": "ccf2fffeb07ba433e454fa09618b71333f496542d9e106277ccbe2ed7425bddc"
+      "bytes": 21717,
+      "sha256": "c22ffc07cef3a199ecf742e2fde70fd43a8dd6a032ca6af8925f8e64a0a20d1e"
     },
     "generated/views/LearningAudioLabelCardView.txt": {
       "bytes": 20277,
@@ -520,28 +520,28 @@
       "sha256": "9a76f60af32b6776438a78d43663ac99d125152c4691b39c366bceaf89007674"
     },
     "generated/views/LinkCardView.txt": {
-      "bytes": 20492,
-      "sha256": "b6f12649951e11871e8499efd1cb6a3d267fb8de7a9cec3c7938f99c3b42d818"
+      "bytes": 22637,
+      "sha256": "4d9ca0eba7ae007689339e73957809611d0024d7c1e2672cf35a628954880ebb"
     },
     "generated/views/LinkView.txt": {
-      "bytes": 20741,
-      "sha256": "d3a127d2c0ab9cf58248f74f1d43e737f181937dcfea77b45f02e0af1c1afb9b"
+      "bytes": 22886,
+      "sha256": "df0437d7e104c03c92e2fecc4e1f1e6d4c60863d9f1684e47f62ed197b684d87"
     },
     "generated/views/ListAutomationsView.txt": {
       "bytes": 22476,
       "sha256": "fac35a03e33dd6ee657effbd9cd80b5f48328c71dfd530217027087647416515"
     },
     "generated/views/ListView.txt": {
-      "bytes": 19660,
-      "sha256": "1385dc69c18e6c722fa75747b12120f27e8c26b7fa2db4a88f290746f21cdcdf"
+      "bytes": 21805,
+      "sha256": "606f552950e69fa5fbbbd31957e756da5c25087364dd043d46240dfda8589ad3"
     },
     "generated/views/LoadingBlockView.txt": {
-      "bytes": 20603,
-      "sha256": "666a80b0dce62ff149e4509824a86243bb9e8014a47cfa4251877f0ee480e8ae"
+      "bytes": 22748,
+      "sha256": "185cba8de65af9b5a575d54a935b6ede440dfa599bcb4f0e1f46c31c5f4096e1"
     },
     "generated/views/LoadingView.txt": {
-      "bytes": 19736,
-      "sha256": "a1edf31e14b219a968af4693ef2ab4d293530057bc27bbef2694da2ce484b122"
+      "bytes": 21881,
+      "sha256": "32c46c2d88bea5691d90d29c10119b9c31838e32dda4228a90a1ae2eaef6d076"
     },
     "generated/views/LocalBusinessView.txt": {
       "bytes": 21560,
@@ -556,24 +556,24 @@
       "sha256": "ae94f2fab31e39877ae557d182d8cec9ed0d53b942c9fd1c8bfcfd247bf72b10"
     },
     "generated/views/MarkdownView.txt": {
-      "bytes": 19510,
-      "sha256": "b684db12a2eb4bab85bd570fa713f1d803a8885e6775f8a4df8c0c2e3e3af85f"
+      "bytes": 21655,
+      "sha256": "8f037188aab3fee14d02a1b5d2e53add73f2518353b7a80c408b0426ec014cb9"
     },
     "generated/views/MathView.txt": {
-      "bytes": 19424,
-      "sha256": "dfcdff91618ae4f5c0efb0c8538cd9792312bc7a7c22cddbc306fcf52fd9c61d"
+      "bytes": 21569,
+      "sha256": "d63682bda592d9bb19f09c298bdd574027eb10bb9e3f22f5941de04942f3d73c"
     },
     "generated/views/MetricGridView.txt": {
-      "bytes": 19581,
-      "sha256": "243ec34693defb5652b415249b027a0ecfe7867fcb958c090fda9d2412bded2d"
+      "bytes": 21726,
+      "sha256": "66a462bee531649ec897643c69ea744e737c45a8b0b3e8a6581281ea544d86db"
     },
     "generated/views/MetricView.txt": {
-      "bytes": 19995,
-      "sha256": "3ba78c0c19d3365a70b0ed9875091d3b49bc443d6342028165a189520fc0f50a"
+      "bytes": 22140,
+      "sha256": "7c9c5a597448bffb2e1031748ec98e28f1a49866177d670e0aa55ad59d603276"
     },
     "generated/views/MultipleChoiceBlockV2View.txt": {
-      "bytes": 23154,
-      "sha256": "cc3f2fe5d4078366af7f43ae2b58b3a839922ff1dff2e4109e4018d4364cb59a"
+      "bytes": 25299,
+      "sha256": "936bacc13a64a5b48c56b1dd2fd278a2c024d53e78daba9fee2d1046eed6a576"
     },
     "generated/views/NbaGameBoxscoreView.txt": {
       "bytes": 22821,
@@ -588,12 +588,12 @@
       "sha256": "49fa893e9227255843ab58a147301d5c715bd78b1bbb75a91f66048dcf345557"
     },
     "generated/views/NewsArticleView.txt": {
-      "bytes": 20444,
-      "sha256": "7d6757939419760bbb3c2794cd15b4f8993f1df8b65dcedd492e26e87bc43caf"
+      "bytes": 22589,
+      "sha256": "67fb69b4452547280c5b845238430bef1b9c1927f8be52344412cae0f16fbd9e"
     },
     "generated/views/OfferVoiceConversationView.txt": {
-      "bytes": 21793,
-      "sha256": "7d35bdd88837a3add050a2d10496d6e7f1b14d9e4de1a5ed8a1425ca9ad95127"
+      "bytes": 23938,
+      "sha256": "3fc735b7a1c11a84776248891c30feaaddc3a9fb617eec7e6f865e78284ac32c"
     },
     "generated/views/OnboardingFeatureCardView.txt": {
       "bytes": 24239,
@@ -612,20 +612,20 @@
       "sha256": "a5305b9a3b1547c831fd91e0077428125c6a9c123566a94efea3b3cb7b970dda"
     },
     "generated/views/OpenDetailView.txt": {
-      "bytes": 22220,
-      "sha256": "4504523b09e4d103da1c5bfd503c65791c470699910dc6bc940fc36b3a9b030d"
+      "bytes": 24365,
+      "sha256": "9ba83fd0b52a71405af13be48ae1e20cce81bdbe393d601ff16dbd2327678335"
     },
     "generated/views/OpenaiView.txt": {
-      "bytes": 22055,
-      "sha256": "f772462d1bae24301ed8479fe32a91b6012a5f8185e4c607589210e52d222635"
+      "bytes": 24200,
+      "sha256": "74efee133026f7f02cc92d5213916bb922a40c0de02fad2c71b17e4c876fdfe5"
     },
     "generated/views/PackageTrackerView.txt": {
       "bytes": 21834,
       "sha256": "21018cd51a82d95fee81cd56956aa4eb3985f9b49eac4251a9652cbece66cc9f"
     },
     "generated/views/PersonProfileView.txt": {
-      "bytes": 20908,
-      "sha256": "9646d68afcb1a9d34b930951a58c8aeb336cc350c60073359ef608280675fda9"
+      "bytes": 23053,
+      "sha256": "1d13525226d497d80590cccc04295899a33a8e1023860e94fa13daf821eaea5e"
     },
     "generated/views/PersonalityQuizView.txt": {
       "bytes": 33744,
@@ -640,32 +640,32 @@
       "sha256": "b85074404026bd39eee7b7c315fbac0da7e8fd7c449a090ccb5c78420aa94aa3"
     },
     "generated/views/PopoverView.txt": {
-      "bytes": 19719,
-      "sha256": "0d2ef8dba85fc56220d58d948787c2a7865f4aeb33de4d4be47cc87ebfe4ea4a"
+      "bytes": 21864,
+      "sha256": "64cab2fee0818c3370ca726c788f6c241073445d42d1e7e8236495ffd40aee09"
     },
     "generated/views/PressableView.txt": {
-      "bytes": 19910,
-      "sha256": "10057f196bdf8979b78a89ba0f1cf7c7b0994e464252ab0a712cf3bdce0eae40"
+      "bytes": 22055,
+      "sha256": "c4fde96aea7faac1e89cd590722d7cef0959f512ee483f9eef392aa2076a3aab"
     },
     "generated/views/ProductCardView.txt": {
-      "bytes": 21624,
-      "sha256": "4c36ef4f922675240a113c9e84d19022b54855dafe942dc9cdf44a98648bc97d"
+      "bytes": 23769,
+      "sha256": "0072e0fb587ef019a91e73e0dcbf573c7272359d66f9eb712bd9a6dfbb262835"
     },
     "generated/views/PromptChecklistView.txt": {
-      "bytes": 28436,
-      "sha256": "1a1605b2c80a0c2dce8fee86690b01d667a4ec179eb0082185205f2c1fc4c318"
+      "bytes": 30581,
+      "sha256": "a55304df86835a3129bfede5fc35a935a679857e96b573bbed0bcfb70fd29984"
     },
     "generated/views/PromptSuggestionsView.txt": {
       "bytes": 20081,
       "sha256": "b03fc3d746894bb101e1f6de75abae7c6fe64b288203e7b32fa2a0f3e8c30cb2"
     },
     "generated/views/PulseIndicatorView.txt": {
-      "bytes": 19772,
-      "sha256": "35ed4ed550990e3ac8e09516fee36018c15fa1bc94a6f0bd5f0782367fe9330b"
+      "bytes": 21917,
+      "sha256": "7469936c84d6a594dd540e7c8fef83928eeb49634ec57ff7cf1c92423d00db04"
     },
     "generated/views/PushDripSeriesIntroView.txt": {
-      "bytes": 23005,
-      "sha256": "20c2d97037ba5242b7bb06ff397cc26f09d55dfcf24150167d2d9cacb2786dfd"
+      "bytes": 25150,
+      "sha256": "b41dc142eb5e2ea50eda806119d75feff34805a272badf04ec6220ec1b9dd52e"
     },
     "generated/views/QuestionnaireView.txt": {
       "bytes": 30183,
@@ -676,28 +676,28 @@
       "sha256": "74a2ca1d71a1056f35e1b492d560bf9a758096a58c54f542b173a32ec3c4e648"
     },
     "generated/views/RatingSummaryView.txt": {
-      "bytes": 19914,
-      "sha256": "5275d3804e7fedf4c6eca3aa702af9b8e6f6f4a73b6119001da23c715ab38c71"
+      "bytes": 22059,
+      "sha256": "39b87ba766c29c9bce278c4cc92adbc5319f612c524a881af1afa3e0b6ed04bb"
     },
     "generated/views/RatingView.txt": {
-      "bytes": 19803,
-      "sha256": "8ca2136f77105c6f020f0684f4bd39db35ddb48c786f1e1236cdc36f0a4542de"
+      "bytes": 21948,
+      "sha256": "a78c4a46e900fdc5f18acaaaf002421359bae5e1079f869337f9069358621efb"
     },
     "generated/views/RecommendationCardView.txt": {
-      "bytes": 22322,
-      "sha256": "21ad823fae5e76d9af64065e97de0ba9e33336ec9a3e3093cb015229a0035215"
+      "bytes": 24467,
+      "sha256": "968421e78f5e1d0fe23216191e18315ee4fc919fa8d4c268a97206b133a00f4d"
     },
     "generated/views/RecommendationLinkCardView.txt": {
-      "bytes": 20690,
-      "sha256": "2639618e53160240451488bcce931659fce8c3c5580b380737cdca7350d1a2bd"
+      "bytes": 22835,
+      "sha256": "7fd27221ac01c62b248ba43b0fb811769cc1398bb5e8d323454a75cf3f085c27"
     },
     "generated/views/RedditThreadCardView.txt": {
-      "bytes": 23045,
-      "sha256": "8cd8b1b07d589d8aa42aba95403208651f83dbed368d9bc3600d8844cc4ad58d"
+      "bytes": 25190,
+      "sha256": "1ff2e016104bbfdb9397ba138a809a8845e0b2e6dd6cf7c306921cea506b50a5"
     },
     "generated/views/ReservationTimePillsRefCarouselView.txt": {
-      "bytes": 52088,
-      "sha256": "ecc494dcaf891a137ece4141271c39452c7493444ed386c0d15519d24c320a89"
+      "bytes": 54233,
+      "sha256": "eda9666a595dbd313482f6fa15777921fd7ee58396cf7e4816f616346d2e3d88"
     },
     "generated/views/RestaurantAvailabilityView.txt": {
       "bytes": 20850,
@@ -720,36 +720,36 @@
       "sha256": "a91de5efe1508216a3f1e27324d9770949ce6b380126da2fa82956747ae7f408"
     },
     "generated/views/SectionView.txt": {
-      "bytes": 19467,
-      "sha256": "b0db80bc2e07456667a5d5f1954f9b2a28e86c11f490644818b42822d1c0ddf5"
+      "bytes": 21612,
+      "sha256": "de042c48593af00056e203f8b0b5d4260932d87b4022e57de095a5deab842f25"
     },
     "generated/views/SegmentedView.txt": {
-      "bytes": 20242,
-      "sha256": "f66b5f26c6c8bc4035fefb28b5479cd36f127d914b0e17328c5189947ea44bc3"
+      "bytes": 22387,
+      "sha256": "900917659525b313744214da016f6009ba9e38cc1e739cca8b05702ba76325e6"
     },
     "generated/views/SentenceBuilderView.txt": {
       "bytes": 20277,
       "sha256": "4e4973f5bc7cab385bf34e5f95bd0dff5db54f45fda004928053c7722c0ad20e"
     },
     "generated/views/SharedActivityPlannerView.txt": {
-      "bytes": 21956,
-      "sha256": "66e300ba83d2553bfaf7cf509176cf7303544075b43227612c9a159a42950ad4"
+      "bytes": 24101,
+      "sha256": "8e62218ea767118da663684ee39865cf8a7511b4b1ec37ebb664b19dee32c995"
     },
     "generated/views/SidebarFactTableView.txt": {
-      "bytes": 21112,
-      "sha256": "a6b37dc73a7541f1fb197fea2b625ab6a8cf332ca8ba3de4c4f7ebdcb9cad0c5"
+      "bytes": 23257,
+      "sha256": "629cc4a6f91c88a062dd51284a3f3397092c62694a8d874b05a60332a91baa06"
     },
     "generated/views/SidebarPeopleAlsoAskView.txt": {
-      "bytes": 20630,
-      "sha256": "5c4690270c73cc83f66b8821f96b8ed0d933cedc184663c44d008accff1a336a"
+      "bytes": 22775,
+      "sha256": "0d71889ab18021973f5a6ad5be232b0913be96c483033c39f173bd38afff243b"
     },
     "generated/views/SoccerGamesView.txt": {
       "bytes": 23917,
       "sha256": "0a95a3b61297d2dd94ae8aef98b04da05d506a1e8bd551a0840ade5423b9ef83"
     },
     "generated/views/SpacerView.txt": {
-      "bytes": 19468,
-      "sha256": "dc4bf1c24d45b6693c34a2c1c031271d9d5acc842d4f63617ecc0bca1dadc57d"
+      "bytes": 21613,
+      "sha256": "c619854fd490ed03c34ee0c356d1a95c9de8d1f41761860539bf64f8d6a9b337"
     },
     "generated/views/SpeechSynthesizerView.txt": {
       "bytes": 21332,
@@ -768,36 +768,36 @@
       "sha256": "35f8ebd9382c063f78a069adf30248c2b07374d194898358203c89d5b27017c2"
     },
     "generated/views/StepsView.txt": {
-      "bytes": 19601,
-      "sha256": "c8801536e9cc9d18578102eb821aebb7632c962548fa21cf24382ea42a24cd23"
+      "bytes": 21746,
+      "sha256": "8c0e80b2da6aa2155c2d91b0df3140f75c54c4508f88885e8c3949765e52ae11"
     },
     "generated/views/StopPushDripSeriesView.txt": {
-      "bytes": 22983,
-      "sha256": "2ba20878b30126c74261ef3b428bc837de89effc5d86a1a2cfeb792a79cde6c7"
+      "bytes": 25128,
+      "sha256": "a4d052ee97f02a9d68f7ecd868e1337d5c6eb81086452a506727014991a464cf"
     },
     "generated/views/StopwatchView.txt": {
-      "bytes": 19646,
-      "sha256": "a0b278823033bb7d774090e2c4dd5794d233804896e60a7802d4a77ebf9430a4"
+      "bytes": 21791,
+      "sha256": "36b14c7af33daa2547d891f296c645ce8ea694b9eaaf9d108c4ae13beb3f0849"
     },
     "generated/views/SuperbowlRiddleView.txt": {
-      "bytes": 25222,
-      "sha256": "23e44e0a18bb2d7189262add06d485b8367e9aea51191938769004a582570fb9"
+      "bytes": 27367,
+      "sha256": "352dbedcdf796c0e0c4f2efde1ee07969003715363fc99f3c47f51a057ca232c"
     },
     "generated/views/SvgView.txt": {
-      "bytes": 20192,
-      "sha256": "f4d329a999adeab86aba03139ef1e2275a22c5e94154599088751e2adee12bb2"
+      "bytes": 22337,
+      "sha256": "0311c337b726909d117f90583255ecfa276439085ada19b2656f3d833c03eb73"
     },
     "generated/views/TabGroupView.txt": {
-      "bytes": 20964,
-      "sha256": "d52497ea668f317ea5de051285b47afbec2ae7797331f164f86c4d855815ff3a"
+      "bytes": 23109,
+      "sha256": "82e793650312505c01de1261536d5e2574f33595395e73a09906a3a638c696c0"
     },
     "generated/views/TabPanelView.txt": {
-      "bytes": 19630,
-      "sha256": "3b4fe0e6dad306283947db3a62ff31b84979609a5ce8f725b6f5cc130da2e933"
+      "bytes": 21775,
+      "sha256": "fcfd3dd0468a8cdd9e6d08e5dd971d113cc833bba7bf3cb3a9f19647484bb15f"
     },
     "generated/views/TabbedSectionView.txt": {
-      "bytes": 20472,
-      "sha256": "804cfa5786aea7e3ef32dde59dfc04665c2e77905fee32e974b81c0e22bd1134"
+      "bytes": 22617,
+      "sha256": "0602cb4940a91cda284191305912e2dc7bc649d94a79ee8affa497f33dd2d9c6"
     },
     "generated/views/TaskAutopauseCardView.txt": {
       "bytes": 22321,
@@ -812,28 +812,28 @@
       "sha256": "8474ac0f23166add8f090563c2ff9376a9d0ea23fd6fbbcf99ba1b12747e5152"
     },
     "generated/views/TimerView.txt": {
-      "bytes": 19558,
-      "sha256": "ba03bd02cd2cb8950ddcfa27fb49616cfc33a1a04fa54fe87bcd79bc58d0aabc"
+      "bytes": 21703,
+      "sha256": "539e4a27a5db63183d4c505842cdb59bd52e256693278db4ffda702a32e6860e"
     },
     "generated/views/TooltipView.txt": {
-      "bytes": 19638,
-      "sha256": "abccc033bbe94843428e6240da3960906180d3a44c40d557a01db56ad1f5feca"
+      "bytes": 21783,
+      "sha256": "24887f268e36327f2769f7318cf925496c9cb3dad2f2f05286b9ea68d683ed7a"
     },
     "generated/views/TopologyView.txt": {
-      "bytes": 20302,
-      "sha256": "d8a408d417eb33dcfadc1d639223648ac801b80f81599bcaf27a4405949a5c54"
+      "bytes": 22447,
+      "sha256": "adbe6ce311da6b0e02c030d329b2bb5efc617be863b0fbdcbeca83fd54238371"
     },
     "generated/views/TransactionListView.txt": {
       "bytes": 20816,
       "sha256": "d4faab8b607013afeaff6e85cbfd1e22c6c8bc5cf657c6fc8faa07a59842e323"
     },
     "generated/views/UnitConverterView.txt": {
-      "bytes": 21572,
-      "sha256": "770924b37f263ce2565a60f2551688a8ca665edc34018c394a2a39b972c5c442"
+      "bytes": 23717,
+      "sha256": "9aa31fc3aca0763b595ecfbf8d76843d50e3e7d3af92b6aa4e7ba671a35fdb28"
     },
     "generated/views/VisualCardCarouselView.txt": {
-      "bytes": 24260,
-      "sha256": "0b6478f87b1ca07584b48c88d636ac20ee1ae9b83d66f2146098111b925739e3"
+      "bytes": 26405,
+      "sha256": "763bcb53877d880a138278ab029aa2cb5d96534c4326981e57d79b12905b484c"
     },
     "generated/views/VocabCardView.txt": {
       "bytes": 20357,
@@ -848,8 +848,8 @@
       "sha256": "865376dcd4588a68fca261c1b3cb6b8a62378c2411eb7e4d52ea84d606cc8d2c"
     },
     "generated/views/WebLinkCardsView.txt": {
-      "bytes": 20020,
-      "sha256": "56bbc676185223dad7100255d0bd40ab844484fc90ff07c89abf322b6827c84d"
+      "bytes": 22165,
+      "sha256": "d1264d5600d03c8a5b83b5ecd326f93b4de5a98a9d08e0f26efb7740c23a485c"
     },
     "generated/views/WhatsNewCapabilitySearchView.txt": {
       "bytes": 67285,
@@ -864,14 +864,13 @@
       "sha256": "c1467603258e392e83a295d9594ecbcb4cf8bcf38958b011c39f15a9ca3a7fc9"
     },
     "generated/views/WritingBlockView.txt": {
-      "bytes": 19754,
-      "sha256": "319b8a65c7fe304f590e031ecd58212c856996b7bf4719397ab4866a9efd7cc6"
+      "bytes": 21899,
+      "sha256": "416957381c3ce917e24f57004d25434321ea3e7ddd21d5fc6bc5fb61fb4754c2"
     },
     "generated/views/YoutubeView.txt": {
       "bytes": 20244,
       "sha256": "385a686efb7fad69be30f39be02476e4ef7056591e47b014fd72b33db1684955"
     }
   },
-  "limitations": "Projection preserves schema constraints and annotated runtime rules; incomplete domain semantic descriptions are explicitly marked. Native UTF-16 string-length behavior is not equivalent to Unicode code-point counting in standard JSON Schema.",
-  "contractComparison": "Core, curated and full schema, manifest and prompt rechecked byte-identical to Skill 3cd41b8; no static contract regeneration was needed."
+  "limitations": "Projection preserves schema constraints and annotated runtime rules; incomplete domain semantic descriptions are explicitly marked. Native UTF-16 string-length behavior is not equivalent to Unicode code-point counting in standard JSON Schema."
 }

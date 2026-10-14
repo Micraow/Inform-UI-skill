@@ -21,7 +21,8 @@
 ## ✨ 特性
 
 - **完整答案**：把解释、数据、图表和控件放进同一页面。
-- **按需组合**：基础版 37 个 UI，精选版 47 个；Agent 可按模块发现与加载。
+- **按需组合**：基础版 39 个 UI 构造器，精选版 48 个；Agent 可按模块发现与加载。
+- **基础代码组件**：`Code` 默认带语言名称、highlight.js 高亮和一键复制，三项都可单独关闭。
 - **一份文件起步**：Web Chat 读取 Skill 后直接生成 HTML，无需 React 工程。
 - **供应商无关**：JavaScript 会话适配器与 TypeScript 文本流示例，自选模型服务。
 - **本地交互**：筛选、排序、选择与重置，由严格 DSL 和随包运行库处理。
@@ -34,7 +35,7 @@
 
 > 用 Inform 做一份预算比较答案。允许调整预算、排序和选择；说明推荐理由，处理没有结果的情况。使用明确标注的示例数据，输出完整 HTML。
 
-下载生成的 HTML，用允许 JavaScript 的浏览器打开。需要更多图文表达时，改用 [精选内容 Skill](profiles/curated-web-chat/SKILL.md)。每次选择一份入口即可。
+下载生成的 HTML，用允许 JavaScript 的浏览器打开。若 `generated/build.json` 的 `publicationReady` 为 `false`，请按 [运行库准备](references/delivery.md#foundation-code) 使用匹配的随包 JS；这时 latest 外链模板尚未确认支持本快照的新组件。需要更多图文表达时，改用 [精选内容 Skill](profiles/curated-web-chat/SKILL.md)。每次选择一份入口即可。
 
 ### Agent
 

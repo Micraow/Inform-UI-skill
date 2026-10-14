@@ -44,6 +44,10 @@ MiniAreaChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItem
 MiniBarChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItems=256}, options?: {size?: integer[100,320], animate?: boolean, radius?: number[0,12]}) — Compact upstream bar sparkline with signed values.
 MiniLineChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItems=256}, options?: {size?: integer[100,320], animate?: boolean, variant?: "linear" | "natural" | "step"}) — Compact upstream line sparkline with signed values.
 
+### base/code
+Code(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Literal code with bundled syntax highlighting, a visible language label and one-click copy.
+CodeView(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Compatibility alias for the foundation Code component.
+
 ### base/text
 Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
 Heading(content: string{minLength=1,maxLength=512}, level?: integer[1,6]) — Semantic heading.
@@ -180,6 +184,9 @@ Before finishing, walk your output and verify:
 - MiniAreaChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
 - MiniBarChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
 - MiniLineChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
+- base/code shared usage: Code(data) is a foundation component in base/code. value is required (at most 12000 Unicode code points). Optional language selects a bundled highlight.js grammar; missing/unknown languages stay plain text. No auto-detection or execution. Block defaults: highlight=true, copy=true, showLanguage=true. The fallback label is Plain text. Set each option false to opt out. inline=true stays text-only and rejects true for copy, highlight or showLanguage.
+- Code usage: CodeView(data) is a compatible alias.
+- CodeView usage: CodeView(data) is a compatible alias.
 - Text usage: Use for prose. Newlines remain text; markup and code are not executed.
 - Heading usage: Use headings in a meaningful outline. Level defaults to 2 in the renderer.
 - Badge usage: A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.
@@ -249,6 +256,10 @@ Before finishing, walk your output and verify:
 - MiniLineChart: Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.
 - MiniLineChart: Legend visibility is local presentation state, not a second DSL state store.
 - MiniLineChart: Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL.
+- Code: Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.
+- Code: Only bundled grammars are supported; highlighting is not syntax validation.
+- CodeView: Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.
+- CodeView: Only bundled grammars are supported; highlighting is not syntax validation.
 - Button: No host tools, navigation, account access or message sending.
 - Icon: No remote SVG or arbitrary path data.
 - Image: HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected.
@@ -270,6 +281,8 @@ These compact JSON clauses use JSON Schema semantics in addition to the signatur
 - SingleStackedBar [runtime rule slice-labels]: Slice or funnel-stage labels must be unique.
 - ScatterChart [runtime rule scatter-dataset-names]: Dataset names must be unique.
 - CalendarHeatmap [runtime rule calendar-order-and-span]: Thresholds must be strictly increasing. Explicit or data-derived date ranges must be ascending and contain at most 732 days inclusive.
+- Code [runtime rule inline-code-controls]: inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline.
+- CodeView [runtime rule inline-code-controls]: inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline.
 - Table [runtime rule table-column-membership]: Column keys must be unique. Row keys must name declared columns; rows may omit a declared column.
 - Table.rows[]: {"type":"object","propertyNames":{"type":"string"},"additionalProperties":{"anyOf":[{"type":"string","maxLength":2048},{"type":"number"},{"type":"boolean"},{"type":"null"}]}}
 - Select [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
@@ -283,3 +296,4 @@ Slice(label: string{maxLength=240}, value: number[0,1e15]): Named non-negative m
 Point(x: number[-1e15,1e15], y: number[-1e15,1e15]): A finite scatter coordinate. Negative and zero values are supported.
 ScatterSeries(name: string{maxLength=240}, points: {x: number[-1e15,1e15], y: number[-1e15,1e15]}[]{maxItems=512}): Named scatter dataset containing finite Point values.
 CalendarDay(date: string{pattern="^\\d{4}-\\d{2}-\\d{2}$"}, value: number[0,1e15]): ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar.
+CodeData(value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean): Literal source text and optional foundation code display settings.

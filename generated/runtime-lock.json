@@ -1,24 +1,24 @@
 {
   "format": "inform-runtime-lock/2",
   "version": "2.0.0-alpha.1",
-  "sourceRef": "431f3221388af1311b9506494c39ec5686338225",
-  "publication": "Bundled bytes match the development branch runtime. The rolling web-chat-latest branch still references an earlier runtime; CDN convergence and browser execution of this bundled snapshot are not established.",
+  "sourceRef": "a445edbcd8a0c99ee019b8125f0594c3c0c00a76",
+  "publication": "No public URL is implied by this local snapshot.",
   "root": "Stack",
-  "componentCount": 233,
+  "componentCount": 234,
   "dataConstructorCount": 200,
   "iconCount": 755,
   "bundles": {
     "inform-ui.global.js": {
-      "bytes": 5579057,
-      "sha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b"
+      "bytes": 5656579,
+      "sha256": "76ec243e4271e01ecfa65e7843d3580bdcc2c19cea432d704682d4b5984e74d4"
     },
     "node.mjs": {
-      "bytes": 5578925,
-      "sha256": "7e5f239c654b67c5acf0beded43618343d3e37879393f2f770e85812bc7f3588"
+      "bytes": 5656445,
+      "sha256": "3c3771579bcbf7c034835ee457c13eaa3cf96ae6501787e7444b2ed25be8714c"
     },
     "THIRD_PARTY_NOTICES.txt": {
-      "bytes": 60418,
-      "sha256": "d5227cf3a75d1cb8e0dc58a09351e289ed2ad302f8165ea3e6157c02b284d970"
+      "bytes": 62017,
+      "sha256": "83536fb188d63c53d131bb509a7bac87b94825316ffa57ffb85724f74079f674"
     }
   }
 }

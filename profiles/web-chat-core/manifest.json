@@ -1,6 +1,6 @@
 {
   "format": "inform-component-contract/2",
-  "id": "inform/v2/base/layout+base/text+base/controls+base/icon+base/media+base/charts",
+  "id": "inform/v2/base/layout+base/text+base/controls+base/icon+base/media+base/code+base/charts",
   "root": "Stack",
   "openuiRevision": "cf615ae1401d78eee1a4dcc1ef0e2e6d61f373d7",
   "requestedModules": [
@@ -9,11 +9,13 @@
     "base/controls",
     "base/icon",
     "base/media",
+    "base/code",
     "base/charts"
   ],
   "modules": [
     "base/chart-data",
     "base/charts",
+    "base/code",
     "base/text",
     "base/controls",
     "base/icon",
@@ -70,6 +72,21 @@
         "MiniLineChart"
       ],
       "dataShapes": []
+    },
+    {
+      "id": "base/code",
+      "layer": "base",
+      "dependsOn": [],
+      "runtimeRequires": [
+        "inform/foundation"
+      ],
+      "components": [
+        "Code",
+        "CodeView"
+      ],
+      "dataShapes": [
+        "CodeData"
+      ]
     },
     {
       "id": "base/text",
@@ -1156,6 +1173,102 @@
       ]
     },
     {
+      "name": "Code",
+      "moduleId": "base/code",
+      "layer": "base",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.Code"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "inline-code-controls",
+          "paths": [
+            "data.inline",
+            "data.copy",
+            "data.highlight",
+            "data.showLanguage"
+          ],
+          "rule": "inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline."
+        }
+      ],
+      "limitations": [
+        "Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.",
+        "Only bundled grammars are supported; highlighting is not syntax validation."
+      ],
+      "docs": "Code(data) is a foundation component in base/code. value is required (at most 12000 Unicode code points). Optional language selects a bundled highlight.js grammar; missing/unknown languages stay plain text. No auto-detection or execution. Block defaults: highlight=true, copy=true, showLanguage=true. The fallback label is Plain text. Set each option false to opt out. inline=true stays text-only and rejects true for copy, highlight or showLanguage. CodeView(data) is a compatible alias.",
+      "examples": [
+        {
+          "id": "code",
+          "description": "Minimal code example using supplied data.",
+          "source": "root = Stack([Code({value: \"echo hello\", language: \"bash\"})])",
+          "props": {
+            "data": {
+              "value": "echo hello",
+              "language": "bash"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "CodeView",
+      "moduleId": "base/code",
+      "layer": "base",
+      "orderedProps": [
+        "data"
+      ],
+      "slots": {},
+      "bindingProps": [],
+      "actionProps": [],
+      "renderer": {
+        "kind": "dom",
+        "key": "foundation.CodeView"
+      },
+      "capabilities": [
+        "display"
+      ],
+      "runtimeRules": [
+        {
+          "id": "inline-code-controls",
+          "paths": [
+            "data.inline",
+            "data.copy",
+            "data.highlight",
+            "data.showLanguage"
+          ],
+          "rule": "inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline."
+        }
+      ],
+      "limitations": [
+        "Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.",
+        "Only bundled grammars are supported; highlighting is not syntax validation."
+      ],
+      "docs": "Code(data) is a foundation component in base/code. value is required (at most 12000 Unicode code points). Optional language selects a bundled highlight.js grammar; missing/unknown languages stay plain text. No auto-detection or execution. Block defaults: highlight=true, copy=true, showLanguage=true. The fallback label is Plain text. Set each option false to opt out. inline=true stays text-only and rejects true for copy, highlight or showLanguage. CodeView(data) is a compatible alias.",
+      "examples": [
+        {
+          "id": "code-view",
+          "description": "Minimal code-view example using supplied data.",
+          "source": "root = Stack([CodeView({value: \"echo hello\", language: \"bash\"})])",
+          "props": {
+            "data": {
+              "value": "echo hello",
+              "language": "bash"
+            }
+          }
+        }
+      ]
+    },
+    {
       "name": "Text",
       "moduleId": "base/text",
       "layer": "base",
@@ -2075,6 +2188,19 @@
         "value"
       ],
       "description": "ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar."
+    },
+    {
+      "name": "CodeData",
+      "moduleId": "base/code",
+      "orderedProps": [
+        "value",
+        "language",
+        "inline",
+        "copy",
+        "highlight",
+        "showLanguage"
+      ],
+      "description": "Literal source text and optional foundation code display settings."
     }
   ],
   "externalServices": []

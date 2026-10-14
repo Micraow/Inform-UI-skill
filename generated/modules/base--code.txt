@@ -23,8 +23,11 @@ Generate an Inform UI 2 document using the pinned OpenUI language. This profile 
 ## Component Signatures
 
 Arguments marked with ? are optional. Sub-components can be inline or referenced; prefer references for better streaming.
-Props typed `ActionExpression` accept one @step, or Action([@steps...]) for several. See the Action section for available steps (@Set, @Reset).
 Props marked `$binding<type>` accept a `$variable` reference for two-way binding.
+
+### base/code
+Code(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Literal code with bundled syntax highlighting, a visible language label and one-click copy.
+CodeView(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Compatibility alias for the foundation Code component.
 
 ### base/text
 Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
@@ -39,26 +42,6 @@ Stack(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm"
 Row(children: Component[]{minItems=0,maxItems=128}, gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl", align?: "start" | "center" | "end" | "stretch") — Wrapping horizontal flow.
 Grid(children: Component[]{minItems=0,maxItems=128}, columns?: integer[1,6], gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl") — Responsive bounded column grid.
 Card(children: Component[]{minItems=0,maxItems=128}, title?: string{minLength=1,maxLength=512}) — Grouped surface with optional title.
-
-### base/controls
-Button(label: string{minLength=1,maxLength=512}, onPress: ActionExpression, variant?: "primary" | "secondary" | "ghost", disabled?: boolean) — Explicit local state action button.
-Input(label: string{minLength=1,maxLength=512}, value: $binding<string{maxLength=4096}>, placeholder?: string{maxLength=512}, disabled?: boolean) — Labeled single-line text input bound to local state.
-Textarea(label: string{minLength=1,maxLength=512}, value: $binding<string{maxLength=20000}>, rows?: integer[2,20], placeholder?: string{maxLength=512}, disabled?: boolean) — Labeled multiline text input.
-Select(label: string{minLength=1,maxLength=512}, value: $binding<string{minLength=1,maxLength=512}>, options: {label: string{minLength=1,maxLength=512}, value: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=128}, disabled?: boolean) — Labeled single selection from supplied options.
-RadioGroup(label: string{minLength=1,maxLength=512}, value: $binding<string{minLength=1,maxLength=512}>, options: {label: string{minLength=1,maxLength=512}, value: string{minLength=1,maxLength=512}}[]{minItems=1,maxItems=128}, disabled?: boolean) — Visible single-choice radio options.
-Checkbox(label: string{minLength=1,maxLength=512}, checked: $binding<boolean>, disabled?: boolean) — Labeled boolean checkbox.
-Switch(label: string{minLength=1,maxLength=512}, checked: $binding<boolean>, disabled?: boolean) — Labeled local on/off switch.
-Slider(label: string{minLength=1,maxLength=512}, value: $binding<number[-1e100,1e100]>, min: number[-1e100,1e100], max: number[-1e100,1e100], step?: number(0,∞), disabled?: boolean) — Bounded numeric local slider.
-
-### base/icon
-Icon(name: IconName (exact bundled catalog), label?: string{minLength=1,maxLength=512} | null, tone?: "default" | "muted" | "info" | "success" | "warning" | "error", size?: 16 | 20 | 24 | 32 | 48) — A bundled official SVG icon with semantic tone and a fixed optical size.
-
-### base/media
-Image(src: string{minLength=1,maxLength=1000000}, alt: string{maxLength=2048}, caption?: string{minLength=1,maxLength=512}) — Image subject to the host media policy.
-Video(src: string{maxLength=500000,pattern="^(?:data:video\\/(?:mp4|webm|ogg);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, title: string{minLength=1,maxLength=512}, poster?: string{maxLength=500000,pattern="^(?:data:image\\/(?:png|jpeg|gif|webp);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, captions?: {src: string{maxLength=12000,pattern="^(?:data:text\\/vtt(?:;charset=utf-8)?(?:;base64)?,[^\\r\\n]*|https:\\/\\/[^\\s]+)$"}, label: string{minLength=1,maxLength=512}, language: string{pattern="^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{2,8})*$"}}[]{maxItems=8}) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
-
-### views/content
-CodeView(data: {value: string{maxLength=12000}, language?: string{minLength=1,maxLength=200}, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean}) — Supplied code View rendered with the shared Inform foundation theme.
 
 ## Built-in Functions
 
@@ -88,19 +71,6 @@ IMPORTANT @Each rule: The loop variable (e.g. "item") is ONLY available inside t
 CORRECT: `list = @Each(rows, "t", Comp(t.name))`
 WRONG: `item = Comp(t.name)` then `list = @Each(rows, "t", item)`, because t is undefined in item.
 
-## Action — Button Behavior
-
-An action updates declared local state. Pass a listed step, or Action([...]) for a transaction of local steps. A button must have an explicit action; it never sends a message or opens a URL automatically.
-
-Available steps:
-- @Set(variable: $variable, value: any) — Set a $variable to a specific value
-- @Reset(variable: $variable) — Reset $variables to their declared defaults; pass several to reset each (e.g. @Reset($title, $priority) restores $title="" and $priority="medium")
-
-Example:
-$count = 0
-root = Stack([Button("Add one", @Set($count, $count + 1)), Button("Reset", @Reset($count))])
-A rejected step rolls back the complete transaction.
-
 ## Statement order and passive previews
 
 openui-lang supports hoisting: a reference can be used BEFORE it is defined. The parser resolves all references after the full input is parsed.
@@ -117,6 +87,10 @@ The root statement may appear anywhere in a complete document. Placing it first 
 
 ## Examples
 
+root = Stack([Stack([Code({value: "echo hello", language: "bash"})])])
+
+root = Stack([Stack([CodeView({value: "echo hello", language: "bash"})])])
+
 root = Stack([Text("Hello")])
 
 root = Stack([Heading("Overview", 2)])
@@ -124,10 +98,6 @@ root = Stack([Heading("Overview", 2)])
 root = Stack([Badge("Draft", "muted")])
 
 root = Stack([Divider()])
-
-root = Stack([Alert("Note", "Data is supplied", "muted")])
-
-root = Stack([Table([{key: "name", label: "Name"}], [{name: "Ada"}], "People")])
 
 ## Important Rules
 - Choose components that best represent the content (tables for comparisons, charts for trends, forms for input, etc.)
@@ -147,7 +117,9 @@ Before finishing, walk your output and verify:
 - Numbers are finite. Division and remainder by zero are errors. Do not depend on implicit numeric coercion or unsafe object keys.
 - Inform semantics: == and != compare scalar values strictly; logical operators require booleans. Sort uses deterministic lexicographic string order and rejects mixed number/string keys. Filter relational operators require numbers. @Each uses an inline template with a named item, no index parameter or JavaScript lambda.
 - Display supplied facts accurately. Domain modules do not fetch, verify or transact on data.
-- Icon.name must match an exact name from the bundled searchable icon catalog. Search the catalog by purpose and include only the names needed for this answer; the runtime still validates its full enum.
+- base/code shared usage: Code(data) is a foundation component in base/code. value is required (at most 12000 Unicode code points). Optional language selects a bundled highlight.js grammar; missing/unknown languages stay plain text. No auto-detection or execution. Block defaults: highlight=true, copy=true, showLanguage=true. The fallback label is Plain text. Set each option false to opt out. inline=true stays text-only and rejects true for copy, highlight or showLanguage.
+- Code usage: CodeView(data) is a compatible alias.
+- CodeView usage: CodeView(data) is a compatible alias.
 - Text usage: Use for prose. Newlines remain text; markup and code are not executed.
 - Heading usage: Use headings in a meaningful outline. Level defaults to 2 in the renderer.
 - Badge usage: A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.
@@ -158,36 +130,17 @@ Before finishing, walk your output and verify:
 - Row usage: Uses a wrapping row. Choose start, center, end or stretch alignment.
 - Grid usage: Columns is a maximum requested column count; narrow layouts may use fewer columns.
 - Card usage: Use a card for one coherent section. Card owns its child slot, not external services.
-- Button usage: onPress is a runtime-issued local action. Use @Set, @Reset or Action; literal action-like objects are forbidden.
-- Input usage: Pass a direct declared $variable to value to allow edits. Literal values render read-only. Draft text is not committed when validation fails.
-- Textarea usage: Writable through a direct declared $variable; an invalid transaction must preserve the previous committed value.
-- Select usage: Options have unique values. Current value must match one option.
-- RadioGroup usage: Uses the same single-choice state contract as Select, with native labeled radios.
-- Checkbox usage: Pass a direct declared boolean $variable to checked for local edits.
-- Switch usage: A boolean local switch. It never changes external account or app settings.
-- Slider usage: Requires finite min < max and value inside the range. Step is positive and cannot exceed the range.
-- Icon usage: Only exact bundled canonical names are accepted. Arguments: name, label, tone, size. Use null label for a decorative icon beside visible text. Use a nonempty label for an icon that conveys meaning alone. Tones: default, muted, info, success, warning, error. Sizes: 16, 20, 24, 32, 48; default 20. Tone communicates supplied meaning; it never verifies status. Public OpenAI Apps SDK UI glyphs are distinct from Inform UI role mapping.
-- Image usage: Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.
-- Video usage: Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.
-- CodeView usage: Use CodeView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
-- Button: No host tools, navigation, account access or message sending.
-- Icon: No remote SVG or arbitrary path data.
-- Image: HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected.
-- CodeView: Supplied source data is not independently fetched or verified.
-- CodeView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
-- CodeView: Base composition is a target until adapter evidence confirms extraction.
+- Code: Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.
+- Code: Only bundled grammars are supported; highlighting is not syntax validation.
+- CodeView: Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.
+- CodeView: Only bundled grammars are supported; highlighting is not syntax validation.
 - ## Schema relationship constraints
 
 These compact JSON clauses use JSON Schema semantics in addition to the signatures; sibling constraints also apply. oneOf means exactly one branch; anyOf means at least one; allOf means every branch. Optional properties may be absent, including inside conditions. default is a schema annotation; its application is determined by the runtime contract. x-inform-runtime-rules are additional checks enforced by Inform runtime, not by an ordinary JSON Schema validator.
 
+- Code [runtime rule inline-code-controls]: inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline.
+- CodeView [runtime rule inline-code-controls]: inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline.
 - Table [runtime rule table-column-membership]: Column keys must be unique. Row keys must name declared columns; rows may omit a declared column.
 - Table.rows[]: {"type":"object","propertyNames":{"type":"string"},"additionalProperties":{"anyOf":[{"type":"string","maxLength":2048},{"type":"number"},{"type":"boolean"},{"type":"null"}]}}
-- Select [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
-- RadioGroup [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
-- Slider [runtime rule slider-range]: min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1.
-- Image [runtime rule raster-image-source]: src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch.
-- CodeView [runtime rule data-schema-CodeData]: The supplied data must satisfy every bound, required field and conditional branch in CodeData.
-- CodeView [runtime rule domain-code]: Code is displayed, not executed. Inline code cannot enable copy or highlighting; the data oneOf contains the exact combinations.
-- CodeData: {"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":true}]},{"const":false}]},"copy":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":false}]},{"type":"boolean"}]},"highlight":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":false}]},{"type":"boolean"}]}},"required":["value"],"additionalProperties":false,"oneOf":[{"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"const":true},"copy":{"const":false},"highlight":{"const":false}},"required":["inline"],"additionalProperties":false},{"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"const":false},"copy":{"type":"boolean"},"highlight":{"type":"boolean"}},"required":[],"additionalProperties":false}]}
 - Data constructors (not renderers):
-CodeData(value: string{maxLength=12000}, language?: string{minLength=1,maxLength=200}, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean): Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator.
+CodeData(value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean): Literal source text and optional foundation code display settings.
