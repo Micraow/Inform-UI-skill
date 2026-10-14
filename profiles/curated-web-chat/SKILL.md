@@ -1,19 +1,23 @@
 ---
 name: inform-web-chat-views
-description: 生成完整互动 HTML 答案，在 Inform 基础与图表之外只开放十个内容视图，用于指标、图注、章节、步骤、公式、折叠说明、来源、代码、引文和核对清单。
+description: 生成完整互动 HTML 答案，在 Inform 基础组件、代码与图表之外只开放九个内容视图，用于指标、图注、章节、步骤、公式、折叠说明、来源、引文和核对清单。
 ---
 
-# 精选：十个内容视图
+# 精选：九个内容视图
 
 把本文件交给 Agent 或 Web Chat AI 即可。任务是输出一份完整 HTML 答案：直接回答问题，用图文和有意义的本地交互帮助理解。默认路线无需终端、CLI、npm、React 工程或额外的全量组件文档。
+## 当前运行库准备
+
+这份开发合同来自随包运行库，尚未确认 latest 入口字节与它一致。下方带 latest 外链的 HTML 是发布模板，不能直接视为新组件已经上线。当前先把 assets/runtime/inform-ui.global.js 和 THIRD_PARTY_NOTICES.txt 复制到答案 HTML 同一目录，把唯一的外部 script src 改为 ./inform-ui.global.js，其余配置不变；无需 npm 或 React。具备终端时，也可用随包 CLI build，保留默认本地 runtime，不传 --runtime-url。具体命令见 references/delivery.md。
+
 
 ## 写作和交付合同
 
-- 默认沿用下方可运行 HTML 壳，只替换标题、语言与配置中的 source。保持给定 select、viewNames 和 script URL；默认入口跟随 latest，不把 commit 或版本号写入 HTML。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
-- 47 个 UI 构造器、15 个数据构造器。本版只额外开放：MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、CodeView、BlockquoteView、ChecklistView。不要改成全部 views/content；其他领域 View 不在本版合同里。
+- 沿用下方 HTML 结构，按上方说明改用匹配的随包运行库；只替换标题、语言与配置中的 source，保留 select 和 viewNames。模型不要另造 DOM 框架、解释器或业务 JavaScript；交互逻辑写入 DSL。
+- 48 个 UI 构造器、15 个数据构造器。本版只额外开放：MetricView、FigureView、SectionView、StepsView、MathView、DetailsView、CitationView、BlockquoteView、ChecklistView。不要改成全部 views/content；其他领域 View 不在本版合同里。
 - 下面的范围、整数、长度、枚举、默认值和组合条件均属于校验合同；省略可选参数不等于可以传任意值。变量、计算结果和状态更新也必须满足约束，图表空间不足时调整外层布局，不把受限尺寸缩到下限以下。
-- 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部195个View。
-- CodeView 只显示字符串，不执行代码；代码块用 language、highlight:true、copy:true，inline:true 时不可同时启用高亮/复制。它保留缩进和原始换行，长行在面板内横向滚动；不把每行强行断开。复制需要浏览器安全上下文、权限与真实点击，失败应按页面提示处理。
+- 所有真实可用签名就在本文件后面的自动生成合同中。schema.json、manifest.json、profile.json、minimal.html 来自同一 profile；模型不必运行生成脚本，也不需要读取全部 View。
+- 代码使用基础模块 base/code 的 Code({value:"代码文本",language:"javascript"})；CodeView(data) 保留为同模块兼容别名，不再放入 viewNames。块模式默认显示语言名称、启用 highlight.js 高亮和一键复制，无需重复写 true；可分别用 showLanguage:false、highlight:false、copy:false 关闭。没有语言时显示 Plain text；不支持的语言安全回退为纯文本，不自动猜语言或远程加载语法。inline:true 为纯文本行内代码，不能显式启用这三项增强。代码只展示、不执行；保留缩进与换行，长行在面板内横向滚动。复制需要浏览器安全上下文、权限与真实点击，失败时按页面提示处理。
 - BlockquoteView 的文字放 children，并准确署名；原创总结要标为原创，不能冒充外部引文。ChecklistView 是视图自身的临时自检状态，不是可在其他 DSL 表达式读取的 $binding；需要联动计算时使用基础 Checkbox/Switch。
 - 通用对比用 Table/Grid/MetricView，过程用 StepsView；本版没有 ComparisonView 或 TimelineView。
 - 不声明已完成查询、订票、付款、发送或其他宿主服务。这里只处理给定数据和本地状态。Query、Mutation、@Run、@OpenUrl、@ToAssistant 与任意 JS 均不支持。
@@ -74,6 +78,10 @@ MiniAreaChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItem
 MiniBarChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItems=256}, options?: {size?: integer[100,320], animate?: boolean, radius?: number[0,12]}) — Compact upstream bar sparkline with signed values.
 MiniLineChart(title: string{maxLength=240}, values: number[-1e15,1e15][]{maxItems=256}, options?: {size?: integer[100,320], animate?: boolean, variant?: "linear" | "natural" | "step"}) — Compact upstream line sparkline with signed values.
 
+### base/code
+Code(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Literal code with bundled syntax highlighting, a visible language label and one-click copy.
+CodeView(data: {value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean}) — Compatibility alias for the foundation Code component.
+
 ### base/text
 Text(content: string{maxLength=20000}, tone?: "default" | "muted" | "info" | "success" | "warning" | "error") — Plain text with a semantic tone. HTML is displayed literally.
 Heading(content: string{minLength=1,maxLength=512}, level?: integer[1,6]) — Semantic heading.
@@ -106,7 +114,6 @@ Image(src: string{minLength=1,maxLength=1000000}, alt: string{maxLength=2048}, c
 Video(src: string{maxLength=500000,pattern="^(?:data:video\\/(?:mp4|webm|ogg);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, title: string{minLength=1,maxLength=512}, poster?: string{maxLength=500000,pattern="^(?:data:image\\/(?:png|jpeg|gif|webp);base64,[A-Za-z0-9+/=]+|https:\\/\\/[^\\s]+)$"}, captions?: {src: string{maxLength=12000,pattern="^(?:data:text\\/vtt(?:;charset=utf-8)?(?:;base64)?,[^\\r\\n]*|https:\\/\\/[^\\s]+)$"}, label: string{minLength=1,maxLength=512}, language: string{pattern="^[a-zA-Z]{2,3}(?:-[a-zA-Z0-9]{2,8})*$"}}[]{maxItems=8}) — Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy.
 
 ### views/content
-CodeView(data: {value: string{maxLength=12000}, language?: string{minLength=1,maxLength=200}, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean}) — Supplied code View rendered with the shared Inform foundation theme.
 MathView(data: {latex: string{minLength=1,maxLength=6000}, block?: boolean}) — Supplied math View rendered with the shared Inform foundation theme.
 BlockquoteView(data: {attribution?: string{maxLength=500}, cite?: string{minLength=1,maxLength=2048}}, children: Component[]{minItems=1,maxItems=30}) — Supplied blockquote View rendered with the shared Inform foundation theme.
 SectionView(data: {heading?: string{maxLength=12000}}, children: Component[]{minItems=0,maxItems=500}) — Supplied section View rendered with the shared Inform foundation theme.
@@ -222,6 +229,9 @@ Before finishing, walk your output and verify:
 - MiniAreaChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
 - MiniBarChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
 - MiniLineChart usage: Mini charts are intentionally square (100–320 px) and use the most recent values that fit, as upstream. The expandable data table always retains all original input values; no data is deleted.
+- base/code shared usage: Code(data) is a foundation component in base/code. value is required (at most 12000 Unicode code points). Optional language selects a bundled highlight.js grammar; missing/unknown languages stay plain text. No auto-detection or execution. Block defaults: highlight=true, copy=true, showLanguage=true. The fallback label is Plain text. Set each option false to opt out. inline=true stays text-only and rejects true for copy, highlight or showLanguage.
+- Code usage: CodeView(data) is a compatible alias.
+- CodeView usage: CodeView(data) is a compatible alias.
 - Text usage: Use for prose. Newlines remain text; markup and code are not executed.
 - Heading usage: Use headings in a meaningful outline. Level defaults to 2 in the renderer.
 - Badge usage: A badge displays a supplied label; tone does not independently verify status. info, success, warning, and error use theme-aware soft surfaces with readable text. Pair status color with words; never use color alone.
@@ -243,7 +253,6 @@ Before finishing, walk your output and verify:
 - Card usage: Use a card for one coherent section. Card owns its child slot, not external services.
 - Image usage: Alt text is required; empty alt is for decoration. The default renderer must not fetch a remote image without a host media allowlist.
 - Video usage: Video(src,title,poster?,captions?) uses a native video element. No autoplay, third-party iframe, tracking or service dependency. Playback codecs depend on the browser. Supply captions for speech and describe silent visual media.
-- CodeView usage: Use CodeView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
 - MathView usage: Use MathView(data). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
 - BlockquoteView usage: Use BlockquoteView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
 - SectionView usage: Use SectionView(data, children). data is a strict supplied record; child slots accept actual DSL elements. Actions are runtime-issued local handles. Host-looking identifiers in data grant no execution permission. 
@@ -301,12 +310,13 @@ Before finishing, walk your output and verify:
 - MiniLineChart: Hover tooltips are pointer-only; the data table exposes the same values to keyboard and assistive-technology users.
 - MiniLineChart: Legend visibility is local presentation state, not a second DSL state store.
 - MiniLineChart: Arbitrary colors, JavaScript callbacks, remote data, detached legend stores and export APIs are not exposed by this DSL.
+- Code: Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.
+- Code: Only bundled grammars are supported; highlighting is not syntax validation.
+- CodeView: Copy requires trusted user activation in a secure browser context; denied/unavailable Clipboard API reports a manual-copy fallback.
+- CodeView: Only bundled grammars are supported; highlighting is not syntax validation.
 - Button: No host tools, navigation, account access or message sending.
 - Icon: No remote SVG or arbitrary path data.
 - Image: HTTPS is syntactically allowed but remains blocked until the host media policy explicitly permits it. SVG data URLs are rejected.
-- CodeView: Supplied source data is not independently fetched or verified.
-- CodeView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
-- CodeView: Base composition is a target until adapter evidence confirms extraction.
 - MathView: Supplied source data is not independently fetched or verified.
 - MathView: Legacy state references, expression objects, type/id envelope and executable action strings are not accepted.
 - MathView: Base composition is a target until adapter evidence confirms extraction.
@@ -352,14 +362,14 @@ These compact JSON clauses use JSON Schema semantics in addition to the signatur
 - SingleStackedBar [runtime rule slice-labels]: Slice or funnel-stage labels must be unique.
 - ScatterChart [runtime rule scatter-dataset-names]: Dataset names must be unique.
 - CalendarHeatmap [runtime rule calendar-order-and-span]: Thresholds must be strictly increasing. Explicit or data-derived date ranges must be ascending and contain at most 732 days inclusive.
+- Code [runtime rule inline-code-controls]: inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline.
+- CodeView [runtime rule inline-code-controls]: inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline.
 - Table [runtime rule table-column-membership]: Column keys must be unique. Row keys must name declared columns; rows may omit a declared column.
 - Table.rows[]: {"type":"object","propertyNames":{"type":"string"},"additionalProperties":{"anyOf":[{"type":"string","maxLength":2048},{"type":"number"},{"type":"boolean"},{"type":"null"}]}}
 - Select [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
 - RadioGroup [runtime rule selection-membership]: Option values must be unique. The current value must equal one supplied option value.
 - Slider [runtime rule slider-range]: min < max; min <= value <= max; 0 < step <= max-min. If step is omitted the runtime uses 1.
 - Image [runtime rule raster-image-source]: src must be a bounded PNG/JPEG/WebP/GIF base64 data URL or HTTPS URL with no whitespace. SVG data URLs are rejected. HTTPS still requires host approval to fetch.
-- CodeView [runtime rule data-schema-CodeData]: The supplied data must satisfy every bound, required field and conditional branch in CodeData.
-- CodeView [runtime rule domain-code]: Code is displayed, not executed. Inline code cannot enable copy or highlighting; the data oneOf contains the exact combinations.
 - MathView [runtime rule data-schema-MathData]: The supplied data must satisfy every bound, required field and conditional branch in MathData.
 - MathView [runtime rule domain-math]: The declared data schema applies. Formula rendering is display-only and does not execute JavaScript.
 - BlockquoteView [runtime rule data-schema-BlockquoteData]: The supplied data must satisfy every bound, required field and conditional branch in BlockquoteData.
@@ -379,14 +389,13 @@ These compact JSON clauses use JSON Schema semantics in addition to the signatur
 - ChecklistView [runtime rule data-schema-ChecklistData]: The supplied data must satisfy every bound, required field and conditional branch in ChecklistData.
 - ChecklistView [runtime rule domain-checklist]: Checklist item IDs must be unique. Each checked value is boolean. Disabled, when supplied, must be an evaluated boolean. The adapter allocates distinct local bindings; they are not external DSL state.
 - CalendarDay.date [runtime rule real-calendar-day]: Use a real Gregorian calendar day YYYY-MM-DD, year 0100–9999; a matching date pattern alone is insufficient.
-- CodeData: {"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":true}]},{"const":false}]},"copy":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":false}]},{"type":"boolean"}]},"highlight":{"anyOf":[{"anyOf":[{"type":"boolean"},{"const":false}]},{"type":"boolean"}]}},"required":["value"],"additionalProperties":false,"oneOf":[{"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"const":true},"copy":{"const":false},"highlight":{"const":false}},"required":["inline"],"additionalProperties":false},{"type":"object","properties":{"value":{"type":"string","maxLength":12000},"language":{"type":"string","minLength":1,"maxLength":200},"inline":{"const":false},"copy":{"type":"boolean"},"highlight":{"type":"boolean"}},"required":[],"additionalProperties":false}]}
 - Data constructors (not renderers):
 Series(name: string{maxLength=240}, values: (number[-1e15,1e15] | null)[]{maxItems=256}): Named finite series; null is supported only by HeatmapChart as a missing cell.
 Slice(label: string{maxLength=240}, value: number[0,1e15]): Named non-negative magnitude for pie, radial, funnel or segmented charts.
 Point(x: number[-1e15,1e15], y: number[-1e15,1e15]): A finite scatter coordinate. Negative and zero values are supported.
 ScatterSeries(name: string{maxLength=240}, points: {x: number[-1e15,1e15], y: number[-1e15,1e15]}[]{maxItems=512}): Named scatter dataset containing finite Point values.
 CalendarDay(date: string{pattern="^\\d{4}-\\d{2}-\\d{2}$"}, value: number[0,1e15]): ISO calendar day and non-negative magnitude. Duplicate dates are summed by the upstream calendar.
-CodeData(value: string{maxLength=12000}, language?: string{minLength=1,maxLength=200}, inline?: boolean | true | false, copy?: boolean | false | boolean, highlight?: boolean | false | boolean): Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator.
+CodeData(value: string{pattern="^[\\s\\S]{0,12000}$"}, language?: string{pattern="^[\\s\\S]{1,200}$"}, inline?: boolean, copy?: boolean, highlight?: boolean, showLanguage?: boolean): Literal source text and optional foundation code display settings.
 MathData(latex: string{minLength=1,maxLength=6000}, block?: boolean): Strict supplied record for MathView. Conditional variants are enforced by the same bounded validator.
 BlockquoteData(attribution?: string{maxLength=500}, cite?: string{minLength=1,maxLength=2048}): Strict supplied record for BlockquoteView. Conditional variants are enforced by the same bounded validator.
 SectionData(heading?: string{maxLength=12000}): Strict supplied record for SectionView. Conditional variants are enforced by the same bounded validator.
@@ -414,7 +423,7 @@ ChecklistData(label: string{minLength=1,maxLength=200}, items: ({id: string{patt
 <main id="answer" aria-label="为什么一个大数会拉高平均数？"></main>
 <p id="status" role="status">正在载入答案…</p>
 <noscript>需要启用 JavaScript 才能显示这份互动答案。</noscript>
-<script id="inform-config" type="application/json">{"source":"$largest = 12\n$showMethod = true\nnumbers = [4,6,8,$largest]\nmean = @Avg(numbers)\nmedian = (numbers[1]+numbers[2])/2\nroot = Stack([\n Badge(\"交互式概念解释\"),\n Heading(\"为什么一个大数会拉高平均数？\",1),\n Text(\"平均数把所有值都放进总和。中位数只看排序后的中间位置。把最后一个数从 12 调高，你会看到平均数上升，而这组数据的中位数一直是 7。\",\"muted\"),\n Card([Slider(\"第四个数\",$largest,8,80,2),Switch(\"展开计算过程\",$showMethod),Button(\"恢复为 12\",@Reset($largest),\"secondary\")],\"自己试一次\"),\n Grid([MetricView({label:\"平均数\",value:@Round(mean,1)}),MetricView({label:\"中位数\",value:median}),MetricView({label:\"第四个数\",value:$largest})],3,\"lg\"),\n FigureView({caption:\"四个原创示例数字。只改变第四项，前三项始终为 4、6、8。\"},[BarChart(\"四个数的大小\",[\"第一项\",\"第二项\",\"第三项\",\"第四项\"],[Series(\"数值\",numbers)],{height:280,animate:false})]),\n $showMethod ? SectionView({heading:\"从数字到结论\"},[\n  StepsView({items:[{title:\"求和\",detail:\"4 + 6 + 8 + \"+$largest+\" = \"+@Sum(numbers)},{title:\"计算平均数\",detail:@Sum(numbers)+\" ÷ 4 = \"+mean},{title:\"找中间位置\",detail:\"已经按升序排列。中间两个数为 6 与 8，所以中位数为 (6 + 8) ÷ 2 = 7。\"}]}),\n  MathView({latex:\"\\\\bar{x}=\\\\frac{1}{n}\\\\sum_{i=1}^{n}x_i\",block:true})\n ]) : Text(\"计算过程已收起；图表与统计值仍会随滑块更新。\",\"muted\"),\n Heading(\"该用哪个指标？\",2),\n Text(\"如果问题关心总量被平均分配的结果，平均数很直接。如果想描述一组数据的中间位置，又不想让单个极端值产生很大影响，中位数往往更有帮助。先明确问题，再选择统计量。\"),\n BlockquoteView({attribution:\"本示例的原创总结\"},[Text(\"先问要描述总量的平均分配，还是数据的中间位置，再决定用平均数还是中位数。\")]),\n SectionView({heading:\"用代码复现当前数字\"},[\n  Text(\"这是可复制的 JavaScript 示例，只作代码展示，不在页面内执行。滑块改变后，第一行中的第四个数会同步更新。\"),\n  CodeView({value:\"const values = [4, 6, 8, \"+$largest+\"];\\nfunction average(values) {\\n  const total = values.reduce((sum, value) => sum + value, 0);\\n  return total / values.length;\\n}\\nconst mean = average(values);\\n// 这组数字已按升序排列，中间两项不随第四项改变。\\nconst median = (values[1] + values[2]) / 2;\\nconsole.log({ mean, median });\",language:\"javascript\",copy:true,highlight:true})\n ]),\n ChecklistView({label:\"读完后的本地核对清单\",items:[{id:\"question\",label:\"我能说明平均数和中位数各自回答什么问题\",checked:false},{id:\"extreme\",label:\"我试过把第四个数调高，比较两项指标\",checked:false},{id:\"boundary\",label:\"我知道这组数据始终有序，不能把结论无限推广\",checked:false}],filter:true,bulk:true}),\n Text(\"核对清单只记录当前页面视图中的自检，不改变上方数字，也不会发送或保存到外部服务。\",\"muted\"),\n DetailsView({summary:\"这个演示的边界\"},[Text(\"第四个数的最小值为 8，数据始终有序，中间两项不会改变。这说明的是这一组四个数的行为；别推广成任何数据变化都不会影响中位数。\")]),\n CitationView({number:1,title:\"NIST：Measures of Location\",url:\"https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm\",publisher:\"NIST/SEMATECH e-Handbook\",description:\"平均数、中位数及极端值影响的定义与解释。图表数据由本示例原创，不来自 NIST。\"})\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/charts","views/content"],"viewNames":["MetricView","FigureView","SectionView","StepsView","MathView","DetailsView","CitationView","CodeView","BlockquoteView","ChecklistView"],"theme":"light"}</script>
+<script id="inform-config" type="application/json">{"source":"$largest = 12\n$showMethod = true\nnumbers = [4,6,8,$largest]\nmean = @Avg(numbers)\nmedian = (numbers[1]+numbers[2])/2\nroot = Stack([\n Badge(\"交互式概念解释\"),\n Heading(\"为什么一个大数会拉高平均数？\",1),\n Text(\"平均数把所有值都放进总和。中位数只看排序后的中间位置。把最后一个数从 12 调高，你会看到平均数上升，而这组数据的中位数一直是 7。\",\"muted\"),\n Card([Slider(\"第四个数\",$largest,8,80,2),Switch(\"展开计算过程\",$showMethod),Button(\"恢复为 12\",@Reset($largest),\"secondary\")],\"自己试一次\"),\n Grid([MetricView({label:\"平均数\",value:@Round(mean,1)}),MetricView({label:\"中位数\",value:median}),MetricView({label:\"第四个数\",value:$largest})],3,\"lg\"),\n FigureView({caption:\"四个原创示例数字。只改变第四项，前三项始终为 4、6、8。\"},[BarChart(\"四个数的大小\",[\"第一项\",\"第二项\",\"第三项\",\"第四项\"],[Series(\"数值\",numbers)],{height:280,animate:false})]),\n $showMethod ? SectionView({heading:\"从数字到结论\"},[\n  StepsView({items:[{title:\"求和\",detail:\"4 + 6 + 8 + \"+$largest+\" = \"+@Sum(numbers)},{title:\"计算平均数\",detail:@Sum(numbers)+\" ÷ 4 = \"+mean},{title:\"找中间位置\",detail:\"已经按升序排列。中间两个数为 6 与 8，所以中位数为 (6 + 8) ÷ 2 = 7。\"}]}),\n  MathView({latex:\"\\\\bar{x}=\\\\frac{1}{n}\\\\sum_{i=1}^{n}x_i\",block:true})\n ]) : Text(\"计算过程已收起；图表与统计值仍会随滑块更新。\",\"muted\"),\n Heading(\"该用哪个指标？\",2),\n Text(\"如果问题关心总量被平均分配的结果，平均数很直接。如果想描述一组数据的中间位置，又不想让单个极端值产生很大影响，中位数往往更有帮助。先明确问题，再选择统计量。\"),\n BlockquoteView({attribution:\"本示例的原创总结\"},[Text(\"先问要描述总量的平均分配，还是数据的中间位置，再决定用平均数还是中位数。\")]),\n SectionView({heading:\"用代码复现当前数字\"},[\n  Text(\"这是可复制的 JavaScript 示例，只作代码展示，不在页面内执行。滑块改变后，第一行中的第四个数会同步更新。\"),\n  Code({value:\"const values = [4, 6, 8, \"+$largest+\"];\\nfunction average(values) {\\n  const total = values.reduce((sum, value) => sum + value, 0);\\n  return total / values.length;\\n}\\nconst mean = average(values);\\n// 这组数字已按升序排列，中间两项不随第四项改变。\\nconst median = (values[1] + values[2]) / 2;\\nconsole.log({ mean, median });\",language:\"javascript\"})\n ]),\n ChecklistView({label:\"读完后的本地核对清单\",items:[{id:\"question\",label:\"我能说明平均数和中位数各自回答什么问题\",checked:false},{id:\"extreme\",label:\"我试过把第四个数调高，比较两项指标\",checked:false},{id:\"boundary\",label:\"我知道这组数据始终有序，不能把结论无限推广\",checked:false}],filter:true,bulk:true}),\n Text(\"核对清单只记录当前页面视图中的自检，不改变上方数字，也不会发送或保存到外部服务。\",\"muted\"),\n DetailsView({summary:\"这个演示的边界\"},[Text(\"第四个数的最小值为 8，数据始终有序，中间两项不会改变。这说明的是这一组四个数的行为；别推广成任何数据变化都不会影响中位数。\")]),\n CitationView({number:1,title:\"NIST：Measures of Location\",url:\"https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm\",publisher:\"NIST/SEMATECH e-Handbook\",description:\"平均数、中位数及极端值影响的定义与解释。图表数据由本示例原创，不来自 NIST。\"})\n],\"xl\")\n","select":["base/layout","base/text","base/controls","base/icon","base/media","base/code","base/charts","views/content"],"viewNames":["MetricView","FigureView","SectionView","StepsView","MathView","DetailsView","CitationView","BlockquoteView","ChecklistView"],"theme":"light"}</script>
 <script src="https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js"></script>
 <script>
 (() => {

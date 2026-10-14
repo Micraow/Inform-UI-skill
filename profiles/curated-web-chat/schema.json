@@ -50,6 +50,12 @@
     "MiniLineChart": {
       "$ref": "#/$defs/MiniLineChart"
     },
+    "Code": {
+      "$ref": "#/$defs/Code"
+    },
+    "CodeView": {
+      "$ref": "#/$defs/CodeView"
+    },
     "Text": {
       "$ref": "#/$defs/Text"
     },
@@ -113,9 +119,6 @@
     "Video": {
       "$ref": "#/$defs/Video"
     },
-    "CodeView": {
-      "$ref": "#/$defs/CodeView"
-    },
     "MathView": {
       "$ref": "#/$defs/MathView"
     },
@@ -161,6 +164,8 @@
     "MiniAreaChart",
     "MiniBarChart",
     "MiniLineChart",
+    "Code",
+    "CodeView",
     "Text",
     "Heading",
     "Badge",
@@ -182,7 +187,6 @@
     "Card",
     "Image",
     "Video",
-    "CodeView",
     "MathView",
     "BlockquoteView",
     "SectionView",
@@ -1768,6 +1772,110 @@
       "id": "MiniLineChart",
       "description": "Compact upstream line sparkline with signed values."
     },
+    "Code": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{0,12000}$"
+            },
+            "language": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{1,200}$"
+            },
+            "inline": {
+              "type": "boolean"
+            },
+            "copy": {
+              "type": "boolean"
+            },
+            "highlight": {
+              "type": "boolean"
+            },
+            "showLanguage": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false,
+      "id": "Code",
+      "description": "Literal code with bundled syntax highlighting, a visible language label and one-click copy.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "inline-code-controls",
+          "paths": [
+            "data.inline",
+            "data.copy",
+            "data.highlight",
+            "data.showLanguage"
+          ],
+          "rule": "inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline."
+        }
+      ]
+    },
+    "CodeView": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{0,12000}$"
+            },
+            "language": {
+              "type": "string",
+              "pattern": "^[\\s\\S]{1,200}$"
+            },
+            "inline": {
+              "type": "boolean"
+            },
+            "copy": {
+              "type": "boolean"
+            },
+            "highlight": {
+              "type": "boolean"
+            },
+            "showLanguage": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "additionalProperties": false,
+      "id": "CodeView",
+      "description": "Compatibility alias for the foundation Code component.",
+      "x-inform-runtime-rules": [
+        {
+          "id": "inline-code-controls",
+          "paths": [
+            "data.inline",
+            "data.copy",
+            "data.highlight",
+            "data.showLanguage"
+          ],
+          "rule": "inline=true rejects copy=true, highlight=true or showLanguage=true; omitted options remain valid inline."
+        }
+      ]
+    },
     "Text": {
       "type": "object",
       "properties": {
@@ -3147,6 +3255,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -3208,9 +3322,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -3319,6 +3430,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -3380,9 +3497,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -3500,6 +3614,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -3561,9 +3681,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -3677,6 +3794,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -3738,9 +3861,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -3876,107 +3996,6 @@
       "id": "Video",
       "description": "Native video with real browser controls and optional captions. Embedded media works offline; remote media requires an explicit host policy."
     },
-    "CodeView": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 12000
-            },
-            "language": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 200
-            },
-            "inline": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "boolean",
-                      "const": true
-                    }
-                  ]
-                },
-                {
-                  "type": "boolean",
-                  "const": false
-                }
-              ]
-            },
-            "copy": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "boolean",
-                      "const": false
-                    }
-                  ]
-                },
-                {
-                  "type": "boolean"
-                }
-              ]
-            },
-            "highlight": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "boolean"
-                    },
-                    {
-                      "type": "boolean",
-                      "const": false
-                    }
-                  ]
-                },
-                {
-                  "type": "boolean"
-                }
-              ]
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "data"
-      ],
-      "additionalProperties": false,
-      "id": "CodeView",
-      "description": "Supplied code View rendered with the shared Inform foundation theme.",
-      "x-inform-runtime-rules": [
-        {
-          "id": "data-schema-CodeData",
-          "paths": [
-            "data"
-          ],
-          "rule": "The supplied data must satisfy every bound, required field and conditional branch in CodeData."
-        },
-        {
-          "id": "domain-code",
-          "paths": [
-            "data"
-          ],
-          "complete": true,
-          "rule": "Code is displayed, not executed. Inline code cannot enable copy or highlighting; the data oneOf contains the exact combinations."
-        }
-      ]
-    },
     "MathView": {
       "type": "object",
       "properties": {
@@ -4095,6 +4114,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -4156,9 +4181,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -4284,6 +4306,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -4345,9 +4373,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -4473,6 +4498,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -4534,9 +4565,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -4666,6 +4694,12 @@
                 "$ref": "#/$defs/MiniLineChart"
               },
               {
+                "$ref": "#/$defs/Code"
+              },
+              {
+                "$ref": "#/$defs/CodeView"
+              },
+              {
                 "$ref": "#/$defs/Text"
               },
               {
@@ -4727,9 +4761,6 @@
               },
               {
                 "$ref": "#/$defs/Video"
-              },
-              {
-                "$ref": "#/$defs/CodeView"
               },
               {
                 "$ref": "#/$defs/MathView"
@@ -5297,124 +5328,30 @@
       "properties": {
         "value": {
           "type": "string",
-          "maxLength": 12000
+          "pattern": "^[\\s\\S]{0,12000}$"
         },
         "language": {
           "type": "string",
-          "minLength": 1,
-          "maxLength": 200
+          "pattern": "^[\\s\\S]{1,200}$"
         },
         "inline": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "const": true
-                }
-              ]
-            },
-            {
-              "const": false
-            }
-          ]
+          "type": "boolean"
         },
         "copy": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "const": false
-                }
-              ]
-            },
-            {
-              "type": "boolean"
-            }
-          ]
+          "type": "boolean"
         },
         "highlight": {
-          "anyOf": [
-            {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "const": false
-                }
-              ]
-            },
-            {
-              "type": "boolean"
-            }
-          ]
+          "type": "boolean"
+        },
+        "showLanguage": {
+          "type": "boolean"
         }
       },
       "required": [
         "value"
       ],
       "additionalProperties": false,
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 12000
-            },
-            "language": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 200
-            },
-            "inline": {
-              "const": true
-            },
-            "copy": {
-              "const": false
-            },
-            "highlight": {
-              "const": false
-            }
-          },
-          "required": [
-            "inline"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "value": {
-              "type": "string",
-              "maxLength": 12000
-            },
-            "language": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 200
-            },
-            "inline": {
-              "const": false
-            },
-            "copy": {
-              "type": "boolean"
-            },
-            "highlight": {
-              "type": "boolean"
-            }
-          },
-          "required": [],
-          "additionalProperties": false
-        }
-      ],
-      "description": "Strict supplied record for CodeView. Conditional variants are enforced by the same bounded validator."
+      "description": "Literal source text and optional foundation code display settings."
     },
     "MathData": {
       "type": "object",

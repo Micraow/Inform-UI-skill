@@ -181,6 +181,24 @@
     "bindingProps": [],
     "actionProps": []
   },
+  "Code": {
+    "moduleId": "base/code",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
+  "CodeView": {
+    "moduleId": "base/code",
+    "orderedProps": [
+      "data"
+    ],
+    "slots": {},
+    "bindingProps": [],
+    "actionProps": []
+  },
   "Text": {
     "moduleId": "base/text",
     "orderedProps": [
@@ -808,15 +826,6 @@
     "actionProps": []
   },
   "EmailDraftView": {
-    "moduleId": "views/content",
-    "orderedProps": [
-      "data"
-    ],
-    "slots": {},
-    "bindingProps": [],
-    "actionProps": []
-  },
-  "CodeView": {
     "moduleId": "views/content",
     "orderedProps": [
       "data"

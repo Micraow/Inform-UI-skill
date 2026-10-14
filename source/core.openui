@@ -12,5 +12,6 @@ root = Stack([
   Table([{key:"name",label:"活动"},{key:"score",label:"反馈分"}],visible,"与图表相同的数据")
  ],"lg") : Alert("当前没有匹配结果","把最低分调到 91 或以下，或使用恢复按钮。","warning"),
  Text("反馈分不能单独决定活动是否适合你。还要核对主题、时间与费用。这里没有提供这些资料，所有活动与分数都是演示数据。"),
+ Code({value:"const passing = rows.filter(row => row.score >= minimum);\nconst ranked = passing.toSorted((a, b) => b.score - a.score);",language:"javascript"}),
  Text("来源：本例原创四行数据。筛选按 score ≥ 最低分；平均分按活动等权计算。","muted")
 ],"xl")
