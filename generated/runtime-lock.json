@@ -1,20 +1,20 @@
 {
   "format": "inform-runtime-lock/2",
   "version": "2.0.0-alpha.1",
-  "sourceRef": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
-  "publication": "Git release refs are verified and bundled bytes match this lock. The mutable CDN entry has returned stale cached bytes; current CDN convergence and external browser execution are not established.",
+  "sourceRef": "431f3221388af1311b9506494c39ec5686338225",
+  "publication": "Bundled bytes match the development branch runtime. The rolling web-chat-latest branch still references an earlier runtime; CDN convergence and browser execution of this bundled snapshot are not established.",
   "root": "Stack",
   "componentCount": 233,
   "dataConstructorCount": 200,
   "iconCount": 755,
   "bundles": {
     "inform-ui.global.js": {
-      "bytes": 5577244,
-      "sha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee"
+      "bytes": 5579057,
+      "sha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b"
     },
     "node.mjs": {
-      "bytes": 5577112,
-      "sha256": "c4b869a01e825131b1aef45e862b6758960900045ac50a589dfdecc26c9fca73"
+      "bytes": 5578925,
+      "sha256": "7e5f239c654b67c5acf0beded43618343d3e37879393f2f770e85812bc7f3588"
     },
     "THIRD_PARTY_NOTICES.txt": {
       "bytes": 60418,

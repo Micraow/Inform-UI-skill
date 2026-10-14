@@ -38,7 +38,7 @@ CLI 使用仓库自带的 Node runtime 做开发验证；随包快照可用于�
 
 保存对应 HTML 后用浏览器打开。HTML 通过可更新的 latest HTTPS 入口加载运行库，需要联网；CDN 与浏览器缓存可能延后看到更新，不保证每次打开立即取得最新字节。浏览器或聊天预览器必须允许脚本运行。若预览器禁用脚本，请下载后用普通浏览器打开。页面会明确显示加载或渲染错误。
 
-已验证的滚动入口是 https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js 。web-chat-latest 是项目维护的发布分支，不是具体版本号；不要自行改成 jsDelivr 的保留选择器 @latest。此次实测响应的 Cache-Control 为 public,max-age=604800,s-maxage=43200，即浏览器缓存可达 7 天、共享缓存可达 12 小时；这不是即时更新保证。
+默认滚动入口是 https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js 。web-chat-latest 是项目维护的发布分支，不是具体版本号；不要自行改成 jsDelivr 的保留选择器 @latest。已记录响应的 Cache-Control 为 public,max-age=604800,s-maxage=43200，即浏览器缓存可达 7 天、共享缓存可达 12 小时；这不是即时更新保证。
 
 每个 profile 目录都包含由同一配置自动生成的 prompt.txt、schema.json、manifest.json、profile.json、minimal.openui 与 minimal.html。模型只需读取对应的一份 Skill；其他文件供审阅、验证或程序化集成使用。
 
@@ -48,7 +48,7 @@ CLI 使用仓库自带的 Node runtime 做开发验证；随包快照可用于�
 
 默认 37 个 UI 与精选 47 个 UI 已覆盖现有运行时附加检查的说明。更广领域 View 中未完全展开的附加检查会明确标记，不能因此声称全库所有语义已由 JSON Schema 等价表达。原生 Zod 字符长度按 UTF-16 码元计算，与标准 JSON Schema 的 Unicode 码点计数存在差异；带 emoji 的边界输入必须再通过实际 runtime 校验。
 
-滚动 latest 仍可能被缓存。BUILD.json 锁定本次实际核验的字节；维护时必须同时更新模型合同、随包 Node/browser runtime 和 latest 发布入口，并用同一边界样例复核。
+滚动 latest 仍可能被缓存。BUILD.json 分开记录随包开发快照、开发分支、滚动发布分支和带时间戳的 CDN 观察。本次随包运行库对应开发分支 431f322；滚动分支仍为 6aa7fd4，旧 CDN 观察也未匹配该旧滚动快照。不能据本地测试或开发分支提交声称 latest 已交付新运行库。用户 HTML 继续使用 latest 默认入口。
 
 ## 边界
 
@@ -61,6 +61,10 @@ CLI 使用仓库自带的 Node runtime 做开发验证；随包快照可用于�
 ## 维护者
 
 source/profiles.json 是唯一选库配置。scripts/generate-web-chat.mjs 从对应版本的真实 runtime API 生成所有模型合同与 HTML；scripts/verify-web-chat.mjs 用同一 runtime 复核。发布新 UI 版本时应一起再生成并验证，不能仅手改 CDN URL。普通使用者与模型不需要运行这些脚本。
+
+`npm run check` 包含示例再生成、Node 集成/边界测试、完整目录合同审计和 Web Chat profile 验证，不安装运行时依赖。`npm run check:contracts` 按需编译每个 View，逐一核对 233 个 UI、195 份 View prompt、16 个模块和 200 个数据构造器，避免为了核对目录而一次展开整个全量 profile。审计还核对静态文件哈希、schema 引用闭合、参数顺序、子节点范围和 runtime 关系规则。
+
+如需比较一个尚未发布的 runtime，可运行 `node --max-old-space-size=256 --disallow-code-generation-from-strings scripts/verify-contracts.mjs --runtime-dir /path/to/verified/runtime`。报告明确区分 `contractsMatchRuntime` 与 `bundledRuntimeMatches`；合同相容不等于 bundle 字节一致、浏览器通过或 CDN 已更新。测试不能替代领域服务、真实浏览器和宿主集成验收。
 
 scripts/prompt-projection.mjs 只修正已验 runtime prompt 中两处说明文字：声明从新行开始但表达式可跨行，以及 root 不必在首行。组件签名、示例、名称和 schema 不变；原文变化时生成会停止并要求复核。
 

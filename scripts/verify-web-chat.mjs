@@ -5,6 +5,7 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {webChatPrompt,promptProseProjection} from './prompt-projection.mjs';
+import {assertPublicationEvidence} from './publication-evidence.mjs';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const arg=process.argv.indexOf('--runtime-dir');if(arg<0||!process.argv[arg+1])throw Error('Pass --runtime-dir verified-dist-directory');
 const runtimeDir=resolve(process.argv[arg+1]),api=await import(pathToFileURL(join(runtimeDir,'node.mjs')).href);
@@ -16,13 +17,7 @@ assert.equal(createHash('sha256').update(bytes).digest('hex'),build.runtimeSha25
 assert.equal(createHash('sha256').update(await readFile(join(runtimeDir,'node.mjs'))).digest('hex'),build.nodeRuntimeSha256);
 for(const [name,hash]of [['node.mjs',build.nodeRuntimeSha256],['inform-ui.global.js',build.runtimeSha256]])assert.equal(createHash('sha256').update(await readFile(join(root,'assets/runtime',name))).digest('hex'),hash,'Bundled Agent runtime must match generated profiles');
 const runtimeLock=await readJSON(join(root,'generated/runtime-lock.json'));assert.equal(runtimeLock.sourceRef,build.sourceCommit);assert.equal(runtimeLock.bundles['node.mjs'].sha256,build.nodeRuntimeSha256);
-if(build.runtimeHTTP){
- assert.equal(build.runtimeHTTP.url,build.runtimeURL);assert.equal(build.runtimeHTTP.status,200);
- if(build.validationStage==='git-published-cdn-pending'){
-  assert.equal(build.runtimeHTTP.gitPublishedSourceCommit,build.sourceCommit);assert.equal(build.runtimeHTTP.expectedSha256,build.runtimeSha256);
-  assert.equal(build.runtimeHTTP.matchesSnapshot,false);assert.equal(build.publicationReady,false);assert.equal(build.bundledRuntimeReady,true);
- }else{assert.equal(build.runtimeHTTP.verifiedSourceCommit??build.runtimeHTTP.version,build.sourceCommit);assert.equal(build.runtimeHTTP.publishedSha256,build.runtimeSha256);}
-}
+assertPublicationEvidence(build);
 assert.equal(build.verificationLockOnly,true);assert.equal(build.runtimeChannel,'latest');
 const checks=[];
 function nodes(root){const out=[];const walk=value=>{if(!value||typeof value!=='object')return;if(value.type==='element')out.push(value);for(const child of Object.values(value))Array.isArray(child)?child.forEach(walk):walk(child);};walk(root);return out;}
@@ -35,6 +30,7 @@ for(const def of definitions){
  assert.deepEqual(await readJSON(join(dir,'schema.json')),profile.schema);
  assert.equal(await readFile(join(dir,'prompt.txt'),'utf8'),webChatPrompt(profile.prompt({bindings:true,builtinFunctions:true}))+'\n');
  assert.deepEqual(config.select,def.select);assert.deepEqual(config.viewNames,def.viewNames);
+ assert.equal(config.sourceCommit,build.sourceCommit);assert.equal(config.runtimeSha256,build.runtimeSha256);assert.equal(config.runtimeURL,build.runtimeURL);
  assert.equal(config.uiComponents,Object.keys(profile.components).length);
  assert.equal(config.dataConstructors,Object.keys(profile.data).length);
  assert.deepEqual(manifest.components.filter(c=>c.moduleId.startsWith('views/')).map(c=>c.name).sort(),[...def.viewNames].sort());

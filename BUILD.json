@@ -1,13 +1,13 @@
 {
   "format": "inform-web-chat-skill/1",
-  "validationStage": "git-published-cdn-pending",
+  "validationStage": "workbranch-published-rolling-pending",
   "publicationReady": false,
-  "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+  "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
   "verificationLockOnly": true,
   "runtimeChannel": "latest",
   "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-  "runtimeSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
-  "nodeRuntimeSha256": "c4b869a01e825131b1aef45e862b6758960900045ac50a589dfdecc26c9fca73",
+  "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
+  "nodeRuntimeSha256": "7e5f239c654b67c5acf0beded43618343d3e37879393f2f770e85812bc7f3588",
   "runtimeUpdateSemantics": "The default latest URL is mutable; this commit and hash record the tested development snapshot, not a version lock in user HTML. CDN and browser caches can delay updates.",
   "promptProseProjection": "declaration-lines-and-root-position/1",
   "profiles": [
@@ -15,11 +15,11 @@
       "id": "web-chat-core",
       "outputDirectory": "profiles/web-chat-core",
       "skillPath": "SKILL.md",
-      "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+      "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
       "verificationLockOnly": true,
       "runtimeChannel": "latest",
       "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-      "runtimeSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
+      "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
       "select": [
         "base/layout",
         "base/text",
@@ -67,11 +67,11 @@
       "id": "web-chat-views",
       "outputDirectory": "profiles/curated-web-chat",
       "skillPath": "profiles/curated-web-chat/SKILL.md",
-      "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+      "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
       "verificationLockOnly": true,
       "runtimeChannel": "latest",
       "runtimeURL": "https://cdn.jsdelivr.net/gh/Micraow/Inform-UI@web-chat-latest/cdn/next/inform-ui.global.js",
-      "runtimeSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
+      "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
       "select": [
         "base/layout",
         "base/text",
@@ -156,7 +156,7 @@
   "browserVerification": "Not established by generation or Node validation",
   "bundledRuntimeReady": true,
   "contractComparison": {
-    "againstSkillCommit": "3cd41b8cd99a2a23a0a138b84a5eb7dbcda23cff",
+    "againstSkillCommit": "e4282da8d6499ba71a6a7e1f8b870d2e26ec7220",
     "coreCuratedFullSchemaManifestPromptUnchanged": true,
     "checks": [
       {
@@ -206,7 +206,24 @@
       }
     ]
   },
-  "runtimeSourceValidation": {
+  "developmentPublication": {
+    "repository": "Micraow/Inform-UI",
+    "ref": "refs/heads/next/openui-dsl-20261013",
+    "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
+    "codeSourceCommit": "82f80d78871269f12e9b9a430cd02ccbe4bd4541",
+    "runtimeSha256": "629e7ede17c700978b9b9c5f6794ea634fba4e38dbd325713b29bb9bc930948b",
+    "runtimeGitBlob": "784aed98778de8ed5f255e15970b7676d77bc2b5",
+    "verifiedAtUTC": "2026-10-14T01:24:30Z"
+  },
+  "rollingPublication": {
+    "repository": "Micraow/Inform-UI",
+    "ref": "refs/heads/web-chat-latest",
+    "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
+    "runtimeSha256": "a42e274e04f738050b25a8d9cc33973def39f6d16abb570b959490688d7dc6ee",
+    "containsBundledRuntime": false,
+    "verifiedAtUTC": "2026-10-14T01:24:30Z"
+  },
+  "priorRuntimeSourceValidation": {
     "sourceCommit": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
     "focusedNodeTestsPassed": 44,
     "sliderRegressionCasesPassed": 7,
@@ -232,5 +249,22 @@
     },
     "OSIME": "not verified",
     "CDNCacheConvergence": "not verified; purge pending"
+  },
+  "runtimeSourceValidation": {
+    "sourceCommit": "431f3221388af1311b9506494c39ec5686338225",
+    "scope": "Skill contract and integration validation only; prior browser/typecheck results belong to the separately recorded older source.",
+    "contractAudit": {
+      "componentCount": 233,
+      "viewPromptCount": 195,
+      "moduleCount": 16,
+      "dataConstructorCount": 200,
+      "coreComponents": 37,
+      "curatedComponents": 47,
+      "passed": true
+    },
+    "browser": "not rerun for this Skill sync",
+    "fullTypecheck": "not run by this repository",
+    "skillNodeTestsPassed": 45,
+    "aggregateCheck": "npm run check passed; examples, tests, full contract audit and Web Chat verification"
   }
 }

@@ -83,7 +83,7 @@ test('HTML serialization cannot terminate its data script; unsafe runtime protoc
 });
 
 test('machine-generated catalog, signatures and runtime lock describe these exact bytes',async()=>{
- const manifest=api.createProfile().manifest(),catalog=await json(join(skillRoot,'generated/catalog.json')),lock=await json(join(skillRoot,'generated/runtime-lock.json')),signatures=await json(join(skillRoot,'generated/signatures.json'));
+ const manifest=await json(join(skillRoot,'generated/manifest.json')),catalog=await json(join(skillRoot,'generated/catalog.json')),lock=await json(join(skillRoot,'generated/runtime-lock.json')),signatures=await json(join(skillRoot,'generated/signatures.json'));
  assert.equal(catalog.componentCount,manifest.components.length);assert.equal(lock.componentCount,manifest.components.length);
  assert.equal(catalog.modules.flatMap(m=>m.components).length,manifest.components.length);
  assert.deepEqual(Object.keys(signatures).sort(),manifest.components.map(c=>c.name).sort());

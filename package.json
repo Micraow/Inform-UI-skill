@@ -4,11 +4,17 @@
   "private": true,
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=22" },
-  "bin": { "inform-answer": "./scripts/inform-answer.mjs" },
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "inform-answer": "./scripts/inform-answer.mjs"
+  },
   "scripts": {
     "test": "node --disallow-code-generation-from-strings --test tests/*.test.mjs",
     "examples": "node scripts/build-examples.mjs",
-    "check": "npm run examples && npm test"
+    "check": "npm run examples && npm test && npm run check:contracts && npm run check:profiles",
+    "check:contracts": "node --max-old-space-size=256 --disallow-code-generation-from-strings scripts/verify-contracts.mjs",
+    "check:profiles": "node --disallow-code-generation-from-strings scripts/verify-web-chat.mjs --runtime-dir assets/runtime"
   }
 }

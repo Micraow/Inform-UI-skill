@@ -1,8 +1,8 @@
 {
   "format": "inform-generated-snapshot-status/2",
   "status": "current-bundled-runtime",
-  "sourceRef": "6aa7fd40512e0d75518bf5c2f8d6626512e577fc",
-  "nodeRuntimeSha256": "c4b869a01e825131b1aef45e862b6758960900045ac50a589dfdecc26c9fca73",
+  "sourceRef": "431f3221388af1311b9506494c39ec5686338225",
+  "nodeRuntimeSha256": "7e5f239c654b67c5acf0beded43618343d3e37879393f2f770e85812bc7f3588",
   "componentCount": 233,
   "viewPromptCount": 195,
   "generator": "scripts/sync-runtime.mjs",
